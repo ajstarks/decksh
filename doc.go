@@ -1,11 +1,11 @@
 /*
 decksh: a little language for deck markup
 
-```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup.
+decksh is a domain-specific language (DSL) for generating  deck markup.
 
 Running
 
-```decksh``` reads from the specified input, and writes deck markup to the specified output destination:
+decksh reads from the specified input, and writes deck markup to the specified output destination:
 
     $ decksh                   # input from stdin, output to stdout
     $ decksh -o foo.xml        # input from stdin, output to foo.xml
