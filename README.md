@@ -2,7 +2,15 @@
 
 ```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup.
 
+## Package use
+
+There is a sinple method ```Process``` that reads from an ```io.ReadCloser``` and writes deck markup to an 
+```io.WriteCloser```.
+
+
 ## Running
+
+This repository also contains ```cmd/decksh```, a client decksh command:
 
 ```decksh``` reads from the specified input, and writes deck markup to the specified output destination:
 
