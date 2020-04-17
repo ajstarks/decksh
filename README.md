@@ -4,8 +4,8 @@
 
 ## Package use
 
-There is a sinple method ```Process``` that reads from an ```io.ReadCloser``` and writes deck markup to an 
-```io.WriteCloser```.
+There is a sinple method ```Process``` that reads decksh commands from an ```io.Reader``` and writes deck markup to an 
+```io.Writer```, returning an error.
 
 
 ## Running
