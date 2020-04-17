@@ -1,0 +1,23 @@
+ctext "rect" x y 2
+ctext "rrect" x y 2
+ctext "square" x y 2
+ctext "circle" x y 2
+ctext "ellipse" x y 2
+ctext "pill" x y 2
+
+
+rect x y 10 4
+rrect x y 10 4 2
+square x y 5
+circle x y 5
+ellipse x y 10 4
+pill x y 5 3
+
+
+
+line x y x2 y2
+hline x y 10
+vline x y 10
+arc x y 10 4 0 180 0.5
+curve x y cx cy ex ey
+
