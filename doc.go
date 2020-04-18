@@ -1,5 +1,5 @@
 /*
-decksh: a little language for deck markup
+Package decksh --  a little language for deck markup
 
 decksh is a domain-specific language (DSL) for generating  deck markup.
 

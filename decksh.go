@@ -3,6 +3,7 @@ package decksh
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io"
 	"math"
@@ -13,6 +14,8 @@ import (
 	"strconv"
 	"strings"
 	"text/scanner"
+
+	"github.com/ajstarks/dchart"
 )
 
 // types of for loops
@@ -1303,7 +1306,78 @@ func carrow(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
-// chart runs the chart command
+func chartflags(s []string) dchart.Settings {
+	var chart dchart.Settings
+
+	fs := flag.NewFlagSet(s[0], flag.ContinueOnError)
+
+	// Measures
+	fs.Float64Var(&chart.Measures.TextSize, "textsize", 1.5, "text size")
+	fs.Float64Var(&chart.Left, "left", -1, "left margin")
+	fs.Float64Var(&chart.Right, "right", 90.0, "right margin")
+	fs.Float64Var(&chart.Top, "top", 80.0, "top of the plot")
+	fs.Float64Var(&chart.Bottom, "bottom", 30.0, "bottom of the plot")
+	fs.Float64Var(&chart.LineSpacing, "ls", 2.4, "ls")
+	fs.Float64Var(&chart.BarWidth, "barwidth", 0, "barwidth")
+	fs.Float64Var(&chart.UserMin, "min", -1, "minimum")
+	fs.Float64Var(&chart.UserMax, "max", -1, "maximum")
+	fs.Float64Var(&chart.PSize, "psize", 40.0, "size of the donut")
+	fs.Float64Var(&chart.PWidth, "pwidth", chart.Measures.TextSize*3, "width of the pmap/donut/radial")
+	fs.Float64Var(&chart.LineWidth, "linewidth", 0.2, "width of line for line charts")
+	fs.Float64Var(&chart.VolumeOpacity, "volop", 50, "volume opacity")
+	fs.Float64Var(&chart.XLabelRotation, "xlabrot", 0, "xlabel rotation (degrees)")
+	fs.IntVar(&chart.XLabelInterval, "xlabel", 1, "x axis label interval (show every n labels, 0 to show no labels)")
+	fs.IntVar(&chart.PMapLength, "pmlen", 20, "pmap label length")
+
+	// Flags (On/Off)
+	fs.BoolVar(&chart.ShowBar, "bar", true, "show a bar chart")
+	fs.BoolVar(&chart.ShowDot, "dot", false, "show a dot chart")
+	fs.BoolVar(&chart.ShowVolume, "vol", false, "show a volume chart")
+	fs.BoolVar(&chart.ShowDonut, "donut", false, "show a donut chart")
+	fs.BoolVar(&chart.ShowPMap, "pmap", false, "show a proportional map")
+	fs.BoolVar(&chart.ShowLine, "line", false, "show a line chart")
+	fs.BoolVar(&chart.ShowHBar, "hbar", false, "show a horizontal bar chart")
+	fs.BoolVar(&chart.ShowValues, "val", true, "show data values")
+	fs.BoolVar(&chart.ShowAxis, "yaxis", false, "show y axis")
+	fs.BoolVar(&chart.ShowSlope, "slope", false, "show a slope graph")
+	fs.BoolVar(&chart.ShowTitle, "title", true, "show title")
+	fs.BoolVar(&chart.ShowGrid, "grid", false, "show y axis grid")
+	fs.BoolVar(&chart.ShowScatter, "scatter", false, "show scatter chart")
+	fs.BoolVar(&chart.ShowRadial, "radial", false, "show a radial chart")
+	fs.BoolVar(&chart.ShowSpokes, "spokes", false, "show spokes on radial charts")
+	fs.BoolVar(&chart.ShowPGrid, "pgrid", false, "show proportional grid")
+	fs.BoolVar(&chart.ShowNote, "note", true, "show annotations")
+	fs.BoolVar(&chart.ShowFrame, "frame", false, "show frame")
+	fs.BoolVar(&chart.ShowRegressionLine, "rline", false, "show regression line")
+	fs.BoolVar(&chart.ShowXLast, "xlast", false, "show the last label")
+	fs.BoolVar(&chart.ShowXstagger, "xstagger", false, "stagger x axis labels")
+	fs.BoolVar(&chart.FullDeck, "fulldeck", false, "generate full markup")
+	fs.BoolVar(&chart.DataMinimum, "dmin", false, "zero minimum")
+	fs.BoolVar(&chart.ReadCSV, "csv", false, "read CSV data")
+	fs.BoolVar(&chart.ShowWBar, "wbar", false, "show word bar chart")
+	fs.BoolVar(&chart.ShowPercentage, "pct", false, "show computed percentages with values")
+	fs.BoolVar(&chart.SolidPMap, "solidpmap", false, "solid pmap colors")
+
+	// Attributes
+	fs.StringVar(&chart.ChartTitle, "chartitle", "", "specify the title (overiding title in the data)")
+	fs.StringVar(&chart.CSVCols, "csvcol", "", "label,value from the CSV header")
+	fs.StringVar(&chart.ValuePosition, "valpos", "t", "value position (t=top, b=bottom, m=middle)")
+	fs.StringVar(&chart.LabelColor, "lcolor", "rgb(75,75,75)", "label color")
+	fs.StringVar(&chart.DataColor, "color", "lightsteelblue", "data color")
+	fs.StringVar(&chart.ValueColor, "vcolor", "rgb(127,0,0)", "value color")
+	fs.StringVar(&chart.RegressionLineColor, "rlcolor", "rgb(127,0,0)", "regression line color")
+	fs.StringVar(&chart.FrameColor, "framecolor", "rgb(127,127,127)", "framecolor")
+	fs.StringVar(&chart.BackgroundColor, "bgcolor", "white", "background color")
+	fs.StringVar(&chart.DataFmt, "datafmt", dchart.Defaultfmt, "data format")
+	fs.StringVar(&chart.YAxisR, "yrange", "", "y-axis range (min,max,step)")
+	fs.StringVar(&chart.HLine, "hline", "", "horizontal line value,label")
+	fs.StringVar(&chart.NoteLocation, "noteloc", "c", "note location (c-center, r-right aligned, l-left aligned)")
+	fs.StringVar(&chart.DataCondition, "datacond", "", "data condition: low,high,color")
+	fs.Parse(s[1:])
+	return chart
+}
+
+// chartcmd uses the dchart API to make charts
 func chart(w io.Writer, s string, linenumber int) error {
 	// copy the command line into fields, evaluating as we go
 	args := strings.Fields(s)
@@ -1315,6 +1389,36 @@ func chart(w io.Writer, s string, linenumber int) error {
 			args[i] = args[i][1 : la-1]
 		}
 	}
+	//fmt.Fprintf(os.Stderr, "line %d - chartcmd args=%v\n", linenumber, args)
+	// glue the arguments back into a single string
+	s = args[0]
+	for i := 1; i < len(args); i++ {
+		s = s + " " + args[i]
+	}
+	// separate again
+	args = strings.Fields(s)
+	chartsettings := chartflags(args)
+	r, err := os.Open(args[len(args)-1]) // last arg is the filename
+	if err != nil {
+		return err
+	}
+	chartsettings.Write(w, r)
+	return nil
+}
+
+// chart runs the chart command
+func chartcmd(w io.Writer, s string, linenumber int) error {
+	// copy the command line into fields, evaluating as we go
+	args := strings.Fields(s)
+	for i := 1; i < len(args); i++ {
+		args[i] = eval(args[i])
+		// unquote substituted strings
+		la := len(args[i])
+		if la > 2 && args[i][0] == doublequote && args[i][la-1] == doublequote {
+			args[i] = args[i][1 : la-1]
+		}
+	}
+	//fmt.Fprintf(os.Stderr, "line %d - chartcmd args=%v\n", linenumber, args)
 	// glue the arguments back into a single string
 	s = args[0]
 	for i := 1; i < len(args); i++ {
