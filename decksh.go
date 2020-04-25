@@ -1316,7 +1316,7 @@ func chartflags(s []string) dchart.Settings {
 	fs := flag.NewFlagSet(s[0], flag.ContinueOnError)
 
 	// Measures
-	fs.Float64Var(&chart.Measures.TextSize, "textsize", 1.5, "text size")
+	fs.Float64Var(&chart.TextSize, "textsize", 1.5, "text size")
 	fs.Float64Var(&chart.Left, "left", -1, "left margin")
 	fs.Float64Var(&chart.Right, "right", 90.0, "right margin")
 	fs.Float64Var(&chart.Top, "top", 80.0, "top of the plot")
