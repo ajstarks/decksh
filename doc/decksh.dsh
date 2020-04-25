@@ -1,5 +1,6 @@
 // the decksh script that describes decksh
 deck
+	canvas 800 450
 	left=10
 	top=85
 	titlesize=5
@@ -804,16 +805,16 @@ deck
 	// Polar
 	slide
 		text "Polar Coordinates" left top titlesize "serif"
-		cx=30
-		cy=45
-		dia=60
-		theta=60
+		cx=20
+		cy=50
+		dia=40
+		theta=45
 		rad=dia/2
 		ra=rad
 		circle cx cy 1 "maroon"
-		ly=cy-2
-		ctext "cx, cy" cx 40 2 "mono"
-		arc cx cy 10 5.6 0 theta
+		ly=cy-1
+		ctext "cx, cy" cx 45 2 "mono"
+		arc cx cy 10 10 0 theta
 		px=polarx cx cy ra theta
 		py=polary cx cy ra theta
 
@@ -831,9 +832,83 @@ deck
 		hline cx cy 20
 		circle px py 1 "maroon"
 
-		ctext "px, py" px ly 2 "mono"
-		text "theta"   35 47 2 "mono"
-		etext "radius" 38 60 2 "mono"
+		thx=cx+5
+		thy=cy+2
+		ctext "px, py"  px ly 2 "mono"
+		text  "theta"   thx thy 2 "mono"
+		etext "radius"  35 60 2 "mono"
+
+		a1=0
+		a2=45
+		a3=90
+		a4=135
+		a5=180
+		a6=225
+		a7=270
+		a8=325
+
+		pcx=75
+		pcy=50
+		px=polarx pcx pcy ra a1
+		py=polary pcx pcy ra a1
+		ctext "(0°)"    px py 2
+		line pcx pcy px py 0.1
+		circle px py 1 "maroon" 70
+
+		
+		px=polarx pcx pcy ra a2
+		py=polary pcx pcy ra a2
+		ctext "(45°)"   px py 2
+		line pcx pcy px py 0.1
+		circle px py 1 "maroon" 70
+
+
+		px=polarx pcx pcy ra a3
+		py=polary pcx pcy ra a3
+		ctext "(90°)" px py 2 
+		line pcx pcy px py 0.1
+		circle px py 1 "maroon"  70
+
+
+		px=polarx pcx pcy ra a4
+		py=polary pcx pcy ra a4
+		ctext "(135°)" px py 2 
+		line pcx pcy px py 0.1
+		circle px py 1 "maroon" 70
+
+
+		px=polarx pcx pcy ra a5
+		py=polary pcx pcy ra a5
+		ctext "(180°)" px py 2
+		line pcx pcy px py 0.1
+		circle px py 1 "maroon" 70
+
+
+		px=polarx pcx pcy ra a6
+		py=polary pcx pcy ra a6
+		ctext "(225°)" px py 2
+		line pcx pcy px py 0.1
+		circle px py 1 "maroon" 70
+
+
+		px=polarx pcx pcy ra a7
+		py=polary pcx pcy ra a7
+		ctext "(270°)" px py 2
+		line pcx pcy px py 0.1
+		circle px py 1 "maroon" 70
+
+
+		px=polarx pcx pcy ra a8
+		py=polary pcx pcy ra a8
+		ctext "(325°)" px py 2
+		line pcx pcy px py 0.1
+		circle px py 1 "maroon" 70
+
+
+		circle pcx pcy dia "gray" 20
+
+
+
 	eslide
 
 	// vmap
