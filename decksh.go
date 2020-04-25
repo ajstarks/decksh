@@ -385,6 +385,9 @@ func canvas(w io.Writer, s []string, linenumber int) error {
 	if e != nil {
 		return e
 	}
+	if canvasHeight == 0 || canvasWidth == 0 {
+		canvasWidth, canvasHeight = 792.0, 612.0
+	}
 	fmt.Fprintf(w, "<canvas width=%q height=%q/>\n", s[1], s[2])
 	return nil
 }
@@ -1092,14 +1095,15 @@ func rt(x1, y1, x2, y2 float64) (float64, float64) {
 	return math.Sqrt((dx * dx) + (dy * dy)), math.Atan2(dy, dx)
 }
 
-// polar converts polar to Cartesian coordinates
+// polar converts polar to Cartesian coordinates, compensating for canvas aspect ratio
 func polar(cx, cy, r, t float64) (float64, float64) {
-	//haspect := canvasHeight/canvasWidth
-	//waspect := 1.0 //Width/canvasHeight
-	//rx := r * waspect
-	//ry := r * waspect
-	return ((r * math.Cos(t)) + (cx)), ((r * math.Sin(t)) + (cy))
+	ry := r * (canvasWidth / canvasHeight)
+	return ((r * math.Cos(t)) + (cx)), ((ry * math.Sin(t)) + (cy))
+}
 
+// wpolar converts polar to Cartesian coordinates
+func wpolar(cx, cy, r, t float64) (float64, float64) {
+	return ((r * math.Cos(t)) + (cx)), ((r * math.Sin(t)) + (cy))
 }
 
 // area computes the diameter from a given area
@@ -1117,10 +1121,10 @@ func genarrow(x1, y1, x2, y2, aw, ah float64) (float64, float64, float64, float6
 	r, t := rt(x1, y1, x2, y2)
 	n := r - (aw * 0.75)
 	nt := angle(x1, y1, x1+n, y1+(ah/2))
-	ax1, ay1 := polar(x1, y1, r, t)
-	ax2, ay2 := polar(x1, y1, r-aw, t+nt)
-	ax3, ay3 := polar(x1, y1, n, t)
-	ax4, ay4 := polar(x1, y1, r-aw, t-nt)
+	ax1, ay1 := wpolar(x1, y1, r, t)
+	ax2, ay2 := wpolar(x1, y1, r-aw, t+nt)
+	ax3, ay3 := wpolar(x1, y1, n, t)
+	ax4, ay4 := wpolar(x1, y1, r-aw, t-nt)
 
 	return ax1, ay1, ax2, ay2, ax3, ay3, ax4, ay4
 }
