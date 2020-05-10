@@ -16,10 +16,10 @@ deck
 		randmax=90
 		rx1=random randmin randmax
 		rx2=random randmin randmax
-		rx3=random randmin randmax 
+		rx3=random randmin randmax
 		ry1=random randmin randmax
 		ry2=random randmin randmax
-		ry3=random randmin randmax 
+		ry3=random randmin randmax
 
 		circle rx1 ry1 10 "red" ry1
 		circle rx2 ry2 10 "green" ry2
@@ -57,7 +57,7 @@ deck
 		py=polary 50 50 20 a1
 		ctext "0"    px py 2
 		line 50 50 px py 0.1
-		
+
 		px=polarx 50 50 20 a2
 		py=polary 50 50 20 a2
 		ctext "π/4 (45°)"   px py 2
@@ -65,12 +65,12 @@ deck
 
 		px=polarx 50 50 20 a3
 		py=polary 50 50 20 a3
-		ctext "π/2 (90°)" px py 2 
+		ctext "π/2 (90°)" px py 2
 		line 50 50 px py 0.1
 
 		px=polarx 50 50 20 a4
 		py=polary 50 50 20 a4
-		ctext "3π/4 (135°)" px py 2 
+		ctext "3π/4 (135°)" px py 2
 		line 50 50 px py 0.1
 
 		px=polarx 50 50 20 a5
@@ -131,7 +131,7 @@ deck
 	// include
 	include "insertme.dsh"
 
-	// vmap	
+	// vmap
 	slide
 		ctext "Map Ranges" 50 50 5
 		bx=10
@@ -179,7 +179,7 @@ deck
 		circle 67 30 cdd
 	eslide
 
-	// Lines	
+	// Lines
 	slide
 		ctext "Lines" 50 90 5
 		hline 50 50 20
@@ -187,22 +187,22 @@ deck
 		hline 50 60 30 1 "red"
 		hline 50 65 35 1.5 "blue"
 		hline 50 70 40 2 "green" 50
-		
+
 		vline 10 50 20
 		vline 15 50 25 0.5
 		vline 20 50 30 1 "red"
 		vline 25 50 35 1.5 "blue"
 		vline 30 50 40 2 "green" 50
-		
+
 		for v=10 40 5
 			vline v 10 30 0.1 "red"
 			hline 10 v 30 0.1 "blue"
 		efor
-		
+
 		for v=50 80 5
 			vline v 10 30 0.1 "blue"
 		efor
-		
+
 		for v=10 40 5
 			hline 50 v 30 0.1 "red"
 		efor
@@ -228,7 +228,7 @@ deck
 			rect cx 52.5 7 cr "blue" 100
 			ctext "item" cx 60 2
 		efor
-		
+
 		for cx=20 90 20
 			circle cx 50 cr "red" 100
 			square cx 52.5 4.9 "red" 100
@@ -236,50 +236,50 @@ deck
 		efor
 	eslide
 
-	// Text spacing	
+	// Text spacing
 	slide
 		titlex=10
 		titley=20
-		
+
 		subty=titley-10
 		ctext "Title" titlex titley 5
 		ctext "subtitle" titlex subty 4 "sans" "gray"
-		
+
 		titlex+=20
 		spacing=12
 		subty=titley-spacing
 		ctext "Title" titlex titley 5
 		ctext "subtitle" titlex subty 4 "sans" "gray"
-		
+
 		titlex+=20
 		subty=titley+spacing
 		ctext "Title" titlex titley 5
 		ctext "subtitle" titlex subty 4 "sans" "gray"
-		
+
 		titlex+=20
 		subty=titley*1.2
 		ctext "Title" titlex titley 5
 		ctext "subtitle" titlex subty 4 "sans" "gray"
-		
+
 		titlex+=20
 		subty=titley/1.2
 		ctext "Title" titlex titley 5
 		ctext "subtitle" titlex subty 4 "sans" "gray"
-		
+
 		titlex/=2.2
 		subty*=3
 		subty-=10
 		ctext "Title" titlex titley 5 "serif" "red"
 		ctext "subtitle" titlex subty 4 "sans" "blue"
-		
+
 	eslide
-	
+
 	tx1=5
 	tx2=35
 	tx3=65
 	ty=92
 	tb="Now is the time for all good men to come to the aid of the party & 'do it now'"
-	
+
 	// Text Functions
 	slide
 		tw=20
@@ -288,11 +288,11 @@ deck
 		textblock tb tx2 ty tw 2 "serif"
 		tw-=5
 		textblock tb tx3 ty tw 2 "mono" "red"
-		
+
 		textfile "AAPL.d" tx1 50 2
 		textfile "AAPL.d" tx2 50 2 "serif"
 		textfile "AAPL.d" tx3 50 2 "mono" "red"
-	
+
 		textcode "code/hw.go" tx1 75 20 1
 		textcode "code/hw.go" tx2 75 20 1 "red"
 	eslide
@@ -313,7 +313,7 @@ deck
 		line l2 0 l2 100 0.1
 		line l3 0 l3 100 0.1
 		line l4 0 l4 100 0.1
-		
+
 		text "one"   l1 80 ts1
 		text "two"   l1 70 ts1 "serif"
 		text "three" l1 60 ts1 "mono" "red"
@@ -324,7 +324,7 @@ deck
 		ctext "two"   l2 70 ts1 "serif"
 		ctext "three" l2 60 ts1 "mono" "red"
 		ctext "four"  l2 50 ts1 "sans" "blue" op2
-		
+
 
 		etext "one"   l3 80 ts1
 		etext "two"   l3 70 ts1 "serif"
@@ -336,7 +336,7 @@ deck
 		rtext "three (180)" l4 60 180 ts1 "mono" "red"
 		rtext "four (270)"  l4 60 270 ts1 "sans" "blue" op4
 	eslide
-	
+
 	// data file
 	slide
 		data "foo.d"
@@ -359,11 +359,11 @@ deck
 	lopts="-fulldeck=f -val=f -left 20 -right 80 -line -bar=f -scatter -max 100 -yrange 0,100,20"
 	slide
 		dchart lopts -xlabel 1  -yaxis -grid -color red     sales.d
-		dchart lopts -xlabel 0               -color green revenue.d 
+		dchart lopts -xlabel 0               -color green revenue.d
 		legend "Sales"   20 20 1.5 "sans" "green"
 		legend "Revenue" 35 20 1.5 "sans" "red"
 	eslide
-	
+
 	midx=50
 	midy=50
 	iw=640
@@ -372,101 +372,102 @@ deck
 	s2=20
 	imfile="follow.jpg"
 	imlink="https://budnitzbicycles.com"
+
 	// Images
 	slide
 		image imfile midx midy iw ih
 		image imfile midx midy iw ih s1
 		image imfile midx midy iw ih s2 imlink
 	eslide
-	
+
 	slide "black" "white"
 		cimage imfile "LARGE" midx midy iw ih
 		cimage imfile "MEDIUM" midx midy iw ih s1
 		cimage imfile "SMALL" midx midy iw ih s2 imlink
 	eslide
-	
+
 	lsize=2
 	lx1=20
 	lx2=40
 	lx3=60
-	
+
 	ly1=90
 	ly2=70
 	ly3=50
-	
+
 	ly4=30
 	ly5=10
 	// Lists
-	slide 
+	slide
 		list lx1 ly1 lsize
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		lx1+=20
 		blist lx1 ly1 lsize
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		lx1+=20
 		nlist lx1 ly1 lsize
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		lx1=20
 		list lx1 ly2 lsize "sans"
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		blist lx2 ly2 lsize "serif"
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		nlist lx3 ly2 lsize "mono"
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		list lx1 ly3 lsize "sans" "red"
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		blist lx2 ly3 lsize "serif" "green"
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		nlist lx3 ly3 lsize "mono" "blue"
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		list lx1 ly4 lsize "sans" "red" op1
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		blist lx2 ly4 lsize "serif" "green" op2
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		nlist lx3 ly4 lsize "mono" "blue" op3
 			li "one"
 			li "two"
@@ -478,13 +479,13 @@ deck
 			li "two"
 			li "three"
 		elist
-		
+
 		blist lx2 ly5 lsize "serif" "green" op2 1
 			li "one"
 			li "two"
 			li "three"
 		elist
-		
+
 		nlist lx3 ly5 lsize "mono" "blue" op3 1
 			li "one"
 			li "two"
@@ -493,7 +494,7 @@ deck
 	eslide
 
 	slide
-		vline 50 0 100 0.1 
+		vline 50 0 100 0.1
 		clist 50 90 3
 			li "one"
 			li "two"
@@ -507,64 +508,64 @@ deck
 			li "four"
 		elist
 	eslide
-	
+
 	c1="red"
 	c2="blue"
 	c3="green"
 	shapeop=30
-	
+
 	// Shapes
 	slide
 		l1=20
 		polygon	   "15 20 25" "90 95 90"
 		polygon	   "35 40 45" "90 95 90" c1
-		polygon	   "55 60 65" "90 95 90" c2 shapeop 
-		
+		polygon	   "55 60 65" "90 95 90" c2 shapeop
+
 		rect	   l1 80 10 5
 		rect	   40 80 10 5 c1
-		rect	   60 80 10 5 c2 shapeop 
-		
+		rect	   60 80 10 5 c2 shapeop
+
 		square	   l1 70 5
 		square	   40 70 5 c1
-		square	   60 70 5 c2 shapeop 
-		
+		square	   60 70 5 c2 shapeop
+
 		ellipse	   l1 60 10 5
 		ellipse	   40 60 10 5 c1
-		ellipse	   60 60 10 5 c2 shapeop 
-		
+		ellipse	   60 60 10 5 c2 shapeop
+
 		circle	   l1 50 5
 		circle	   40 50 5 c1
-		circle	   60 50 5 c2 shapeop 
-		
+		circle	   60 50 5 c2 shapeop
+
 		line	   15 35 25 40
 		line	   35 35 45 40 1 c1
 		line	   55 35 65 40 1 c2
-		line	   75 35 85 40 1 c3 shapeop 
-		
+		line	   75 35 85 40 1 c3 shapeop
+
 		arc        20 25 10 5 0 180
 		arc        40 25 10 5 0 180 1 c1
 		arc        60 25 10 5 0 180 1 c2
-		arc        80 25 10 5 0 180 1 c3 shapeop 
-		
+		arc        80 25 10 5 0 180 1 c3 shapeop
+
 		curve	   15 15 10 25 25 15
 		curve	   35 15 30 25 45 15 1
 		curve	   55 15 45 25 65 15 1 c2
-		curve	   75 15 65 25 85 15 1 c3 shapeop 
+		curve	   75 15 65 25 85 15 1 c3 shapeop
 	eslide
-	
+
 	// Arrows
 	slide
 		arrow 50 45 30 45
 		arrow 50 55 25 55 0.4
 		arrow 50 65 20 65 0.5 4
-		arrow 50 75 15 75 0.6 5 8 
+		arrow 50 75 15 75 0.6 5 8
 		arrow 50 85 10 85 0.7 6 9 "red"
 		arrow 50 95 05 95 0.8 8 10 "blue" 20
 
 		arrow 50 45 70 45
 		arrow 50 55 75 55 0.4
 		arrow 50 65 80 65 0.5 4
-		arrow 50 75 85 75 0.6 5 8 
+		arrow 50 75 85 75 0.6 5 8
 		arrow 50 85 90 85 0.7 6 9 "red"
 		arrow 50 95 95 95 0.8 8 10 "blue" 20
 
@@ -585,36 +586,36 @@ deck
 		for lcx=45 95 10
 			circle 50 lcx 1.5 "gray"
 		efor
-		
+
 		for lcx=5 55 10
 			circle lcx 5 1.5 "gray"
 		efor
-		
+
 		for lcx=45 95 10
 			circle lcx 40 1.5 "gray"
 		efor
 	eslide
-	
-	// Arrows	
+
+	// Arrows
 	slide
 		circle 50 50 2 "blue"
 		arrow 50 50 90 50	// right
 		arrow 50 50 10 50	// left
 		arrow 50 50 50 90	// up
 		arrow 50 50 50 10	// down
-		
+
 		arrow 50 50 90 90	// upper right
 		arrow 50 50 10 10	// lower left
 		arrow 50 50 10 90	// upper left
 		arrow 50 50 90 10	// lower right
 		ctext "up"			50 93 2
-		ctext "down"		50  7 2
-		etext "left"		7 49 2
-		text  "right"		93 49 2
+		ctext "down"		  50  7 2
+		etext "left"		  7 49 2
+		text  "right"		 93 49 2
 		ctext "upper left"	10 90 2
-		ctext "upper right"	90 90 2
-		ctext "lower left"	10 10 2
-		ctext "lower right"	90 10 2
+		ctext "upper right"   90 90 2
+		ctext "lower left"    10 10 2
+		ctext "lower right"   90 10 2
 	eslide
 
 	slide
@@ -627,7 +628,7 @@ deck
 		arrow 50 50 25 25 0.5
 		arrow 50 50 25 75 1 4 4
 		arrow 50 50 75 75 2 6 6 "green"
-		
+
 		circle 50 30 1.5 "red"
 		circle 50 50 1.5 "red"
 		circle 50 70 1.5 "red"
@@ -642,7 +643,7 @@ deck
 		circle 75 75 1.5 "red"
 		circle 75 95 1.5 "red"
 	eslide
-	
+
 	slide
 		lcarrow 50 70 50 95 25 95 2 6 6 "blue"
 		lcarrow 50 30 50 05 25 05 1 5 5
@@ -653,7 +654,7 @@ deck
 		dcarrow 50 50 25 50 25 25 0.5
 		ucarrow 50 50 25 50 25 75 1 4 4
 		ucarrow 50 50 75 50 75 75 2 6 6 "green"
-		
+
 		circle 50 30 1.5 "red"
 		circle 50 50 1.5 "red"
 		circle 50 70 1.5 "red"
@@ -668,7 +669,7 @@ deck
 		circle 75 75 1.5 "red"
 		circle 75 95 1.5 "red"
 	eslide
-	
+
 	// Example deck
 	imscale=58
 	dtop=87
@@ -702,10 +703,10 @@ deck
 		curve   80 gy 95 25 90 gy 0.25 c3
 
 		// Chart
-		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts AAPL.d 
+		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts AAPL.d
 	eslide
-	
-	
+
+
 	slide "white" "black"
 		ctext     "Deck elements" 50 dtop 5
 		cimage    "follow.jpg" "Dreams" 72 imy iw ih imscale imlink
@@ -747,6 +748,6 @@ deck
 		ctext "curve"	85 notey	ns nf nc
 
 		// Chart
-		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts AAPL.d 
+		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts AAPL.d
 	eslide
 edeck
