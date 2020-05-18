@@ -553,6 +553,36 @@ deck
 		curve	   75 15 65 25 85 15 1 c3 shapeop
 	eslide
 
+	// polygon eval
+	slide
+		x1=10
+		x2=15
+		x3=20
+
+		y1=50
+		y2=70
+		y3=50
+
+
+		polygon "10 15 20" "80 90 80"
+		polygon "x1 x2 x3" "y1 y2 y3"
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polygon "x1 x2 x3" "y1 y2 y3" "red"
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polygon "x1 x2 x3" "y1 y2 y3" "red" 20
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polygon "x1 75 x3" "y1 90 y3"
+	eslide
+
 	// Arrows
 	slide
 		arrow 50 45 30 45
