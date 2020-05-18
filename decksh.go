@@ -796,20 +796,55 @@ func pill(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+func unquote(s string) string {
+	la := len(s)
+	if la > 2 && s[0] == doublequote && s[la-1] == doublequote {
+		s = s[1 : la-1]
+	}
+	return s
+}
+
 // polygon generates markup for polygons
 func polygon(w io.Writer, s []string, linenumber int) error {
+
 	n := len(s)
 	e := fmt.Errorf("line %d: %s \"xcoord\" \"ycoord\" [color] [opacity]", linenumber, s[0])
 	if n < 3 {
 		return e
 	}
+
+	// get the coordinates from the quoted strings
+	xc := strings.Fields(unquote(s[1]))
+	yc := strings.Fields(unquote(s[2]))
+
+	lx := len(xc)
+	ly := len(yc)
+	if lx != ly {
+		return fmt.Errorf("line %d: %s coordinates are not the same length (x=%d, y=%d)", linenumber, s[0], lx, ly)
+	}
+
+	if lx < 3 || ly < 3 {
+		return fmt.Errorf("line %d: %s needs at least 3 coordinates", linenumber, s[0])
+	}
+
+	// generate, eval x coordinates
+	fmt.Fprintf(w, "<%s xc=\"", s[0])
+	for i := 0; i < lx-1; i++ {
+		fmt.Fprintf(w, "%s ", eval(xc[i]))
+	}
+	// generate, eval y coordinates
+	fmt.Fprintf(w, "%s\" yc=\"", eval(xc[lx-1]))
+	for i := 0; i < ly-1; i++ {
+		fmt.Fprintf(w, "%s ", eval(yc[i]))
+	}
+	fmt.Fprintf(w, "%s\"", eval(yc[ly-1]))
 	switch n {
 	case 3:
-		fmt.Fprintf(w, "<%s xc=%s yc=%s/>\n", s[0], s[1], s[2])
+		fmt.Fprintf(w, "/>\n")
 	case 4:
-		fmt.Fprintf(w, "<%s xc=%s yc=%s color=%s/>\n", s[0], s[1], s[2], s[3])
+		fmt.Fprintf(w, " color=%s/>\n", s[3])
 	case 5:
-		fmt.Fprintf(w, "<%s xc=%s yc=%s color=%s opacity=%q/>\n", s[0], s[1], s[2], s[3], s[4])
+		fmt.Fprintf(w, " color=%s opacity=%q/>\n", s[3], s[4])
 	default:
 		return e
 	}
