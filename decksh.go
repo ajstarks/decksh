@@ -1422,11 +1422,7 @@ func chart(w io.Writer, s string, linenumber int) error {
 	args := strings.Fields(s)
 	for i := 1; i < len(args); i++ {
 		args[i] = eval(args[i])
-		// unquote substituted strings
-		la := len(args[i])
-		if la > 2 && args[i][0] == doublequote && args[i][la-1] == doublequote {
-			args[i] = args[i][1 : la-1]
-		}
+		args[i] = unquote(args[i])
 	}
 	//fmt.Fprintf(os.Stderr, "line %d - chartcmd args=%v\n", linenumber, args)
 	// glue the arguments back into a single string
@@ -1451,11 +1447,7 @@ func chartcmd(w io.Writer, s string, linenumber int) error {
 	args := strings.Fields(s)
 	for i := 1; i < len(args); i++ {
 		args[i] = eval(args[i])
-		// unquote substituted strings
-		la := len(args[i])
-		if la > 2 && args[i][0] == doublequote && args[i][la-1] == doublequote {
-			args[i] = args[i][1 : la-1]
-		}
+		args[i] = unquote(args[i])
 	}
 	//fmt.Fprintf(os.Stderr, "line %d - chartcmd args=%v\n", linenumber, args)
 	// glue the arguments back into a single string
