@@ -246,6 +246,24 @@ For polygons, specify the x and y coordinates as a series of numbers, with optio
 
     polygon "xcoords" "ycoords" [color] [opacity]
 
+Note that the coordinate may be either discrete:
+
+    polygon "10 20 30" "50 60 50"
+
+or use substitution:
+
+    x1=10
+    x2=20
+    x3=30
+    y1=50
+    y2=y1+10
+    y3=y1
+    polygon "x1 x2 x3" "y1 y2 y3"
+
+A combination of discrete numbers and substitution is also allowed.
+
+    polygon "20 x2 30" "50 y2 50"
+
 For lines, specify the coordinates for the beginning and end points.
 For horizonal and vertical lines specify the initial point and the length.
 Line thickness, color and opacity are optional, with defaults
