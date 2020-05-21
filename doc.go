@@ -12,7 +12,7 @@ decksh reads from the specified input, and writes deck markup to the specified o
     $ decksh foo.sh            # input from foo.sh output to stdout
     $ decksh -o foo.xml foo.sh # input from foo.sh output to foo.xml
 
-Typically, ```decksh``` acts as the head of a rendering pipeline:
+Typically, decksh acts as the head of a rendering pipeline:
 
     $ decksh text.dsh | pdf -pagesize 1200,900
 
@@ -83,7 +83,7 @@ Canvas size and image dimensions are in pixels.
 
 Simple assignments
 
-```id=<number>``` defines a constant, which may be then subtitited. For example:
+id=<number> defines a constant, which may be then subtitited. For example:
 
     x=10
     y=20
@@ -91,25 +91,25 @@ Simple assignments
 
 Assignment operations
 
-```id+=<number>``` increment the value of ```id``` by ```<number>```
+id+=<number> increment the value of id by <number>
 
     x+=5
 
-```id-=<number>``` decrement the value of ```id``` by ```<number>```
+id-=<number> decrement the value of id by <number>
 
     x-=10
 
-```id*=<number>``` multiply the value of ```id``` by ```<number>```
+id*=<number> multiply the value of id by <number>
 
     x*=50
 
-```id*=<number>``` divide the value of ```id``` by ```<number>```
+id*=<number> divide the value of id by <number>
 
     x/=100
 
 Binary operations
 
-Addition ```id=<id> + number or <id>```
+Addition id=<id> + number or <id>
 
     tx=10
     spacing=1.2
@@ -117,15 +117,15 @@ Addition ```id=<id> + number or <id>```
     sx=tx-10
     vx=tx+spacing
 
-Subtraction ```id=<id> - number or <id>```
+Subtraction id=<id> - number or <id>
 
     a=x-10
 
-Muliplication ```id=<id> * number or <id>```
+Muliplication id=<id> * number or <id>
 
     a=x*10
 
-Division ```id=<id> / number or <id>```
+Division id=<id> / number or <id>
 
     a=x/10
 
@@ -154,35 +154,35 @@ Mapping
 
     x=vmap v vmin vmax min max
 
-For value ```v```, map the range ```vmin-vmax``` to ```min-max```.
+For value v, map the range vmin-vmax to min-max.
 
 Polar Coordinates
 
     x=polarx cx cy r theta
     y=polary cx cy r theta
 
-Return the polar coordinate given a center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
+Return the polar coordinate given a center at (cx, cy), radius r, and angle theta (in degrees)
 
 
 
 Loops
 
-Loop over ```statements```, with ```x``` starting at ```begin```, ending at ```end``` with an optional ```increment``` (if omitted the increment is 1).
-Substitution of ```x``` will occur in statements.
+Loop over statements, with x starting at begin, ending at end with an optional increment (if omitted the increment is 1).
+Substitution of x will occur in statements.
 
     for x=begin end [increment]
         statements
     efor
 
-Loop over ```statements```, with ```x``` ranging over the contents of items within ```[]```.
-Substitution of ```x``` will occur in statements.
+Loop over statements, with x ranging over the contents of items within [].
+Substitution of x will occur in statements.
 
     for x=["abc" "def" "ghi"]
         statements
     efor
 
-Loop over ```statements```, with ```x``` ranging over the contents ```"file"```.
-Substitution of ```x``` will occur in statements.
+Loop over statements, with x ranging over the contents "file".
+Substitution of x will occur in statements.
 
     for x="file"
         statements
@@ -260,7 +260,7 @@ or use substitution:
     y3=y1
     polygon "x1 x2 x3" "y1 y2 y3"
 
-A combination of discrete numbers and substitution is also allowed.
+A combination of constants and substitution is also allowed.
 
     polygon "20 x2 30" "50 y2 50"
 
@@ -308,7 +308,7 @@ Left, right, up and down-facing braces.
 
 Charts
 
-Run the [dchart](https://github.com/ajstarks/deck/blob/master/cmd/dchart/README.md) command with the specified arguments.
+Run the [dchart](https://github.com/ajstarks/dchart/blob/master/README.md) command with the specified arguments.
 
     dchart [args]
 
@@ -323,7 +323,7 @@ Include decksh markup from a file
 
     include "file"
 
-places the contents of ```"file"``` inline.
+places the contents of "file" inline.
 
 Data: Make a file
 
@@ -333,13 +333,13 @@ Data: Make a file
     tres   300
     edata
 
-makes a file named ```foo.d``` with the lines between ```data``` and ```edata```.
+makes a file named foo.d with the lines between data and edata.
 
 Grid: Place objects on a grid
 
     grid "file.dsh" x y xskip yskip limit
 
-The first file argument (```"file.dsh"``` above) specifies a file with decksh commands; each item in the file must include the arguments "x" and "y". Normal variable substitution occurs for other arguments. For example if the contents of ```file.dsh``` has six items:
+The first file argument ("file.dsh" above) specifies a file with decksh commands; each item in the file must include the arguments "x" and "y". Normal variable substitution occurs for other arguments. For example if the contents of file.dsh has six items:
 
     circle x y 5
     circle x y 10
@@ -354,8 +354,8 @@ The line:
 
 creates two rows: three circles and then three squares
 
-```x, y``` specify the beginning location of the items, ```xskip``` is the horizontal spacing between items.
-```yinternal``` is the vertical spacing between items and ```limit``` the the horizontal limit. When the ```limit``` is reached,
+x, y specify the beginning location of the items, xskip is the horizontal spacing between items.
+yinternal is the vertical spacing between items and limit the the horizontal limit. When the limit is reached,
 a new row is created.
 */
 package decksh

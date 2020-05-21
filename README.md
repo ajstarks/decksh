@@ -274,7 +274,7 @@ or use substitution:
     y3=y1
     polygon "x1 x2 x3" "y1 y2 y3"
 
-A combination of discrete numbers and substitution is also allowed.
+A combination of constants and substitution is also allowed.
 
     polygon "20 x2 30" "50 y2 50"
 
@@ -321,7 +321,7 @@ Left, right, up and down-facing braces.
 
 ## Charts
 
-Run the [dchart](https://github.com/ajstarks/deck/blob/master/cmd/dchart/README.md) command with the specified arguments.
+Run the [dchart](https://github.com/ajstarks/dchart/blob/master/README.md) command with the specified arguments.
 
     dchart [args]
 
