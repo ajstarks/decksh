@@ -1385,6 +1385,7 @@ func chartflags(s []string) dchart.Settings {
 	fs.BoolVar(&chart.ShowRadial, "radial", false, "show a radial chart")
 	fs.BoolVar(&chart.ShowSpokes, "spokes", false, "show spokes on radial charts")
 	fs.BoolVar(&chart.ShowPGrid, "pgrid", false, "show proportional grid")
+	fs.BoolVar(&chart.ShowLego, "lego", false, "show lego chart")
 	fs.BoolVar(&chart.ShowNote, "note", true, "show annotations")
 	fs.BoolVar(&chart.ShowFrame, "frame", false, "show frame")
 	fs.BoolVar(&chart.ShowRegressionLine, "rline", false, "show regression line")
