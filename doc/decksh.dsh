@@ -407,6 +407,7 @@ deck
 		lx+=8
 		list lx listtop lsize "mono" "black" 100 listspacing
 		    li "area"
+			li "format"
 		elist
 	eslide
 
@@ -939,6 +940,16 @@ deck
 		text "value=" left ly ts "mono"
 		text "vmap"   21   ly ts "mono" spotcolor
 		text "data min1 max1 min2 max2" 29 ly ts "mono" "gray"
+	eslide
+
+	// Format
+	slide
+		text "Formatted Strings" left top titlesize "serif"
+		textfile "code/format.dsh" 10 70 2 "mono"
+		include  "code/format.dsh"
+		text "value=" left ly ts "mono"
+		text "format"   21   ly ts "mono" spotcolor
+		text "fmt expression"  33 ly ts "mono" "gray"
 	eslide
 
 	// Random

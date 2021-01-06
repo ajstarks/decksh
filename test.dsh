@@ -41,6 +41,21 @@ deck
 		textfile "grid.d" gx gy 1.5 "mono"
 	eslide
 
+	// sprint
+	slide
+		ctext "Format" 50 90 5
+		sp0=10
+		sp1=20+100
+		s0=format "Widget 1: %.2f" sp0
+		s1=format "Widget 2: %.3f" sp1
+		st=format "Total Widgets: %v" sp0+sp1
+
+		ctext s0 50 60 3
+		ctext s1 50 50 3
+		ctext st 50 40 3
+		ctext ss 50 70 3
+	eslide
+
 	// Polar coordinates
 	slide
 		ctext "Polar Coordinates" 50 90 5

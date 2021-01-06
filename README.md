@@ -4,8 +4,7 @@
 
 ## Package use
 
-There is a sinple method ```Process``` that reads decksh commands from an ```io.Reader``` and writes deck markup to an 
-```io.Writer```, returning an error.
+There is a simple method ```Process``` that reads decksh commands from an ```io.Reader``` and writes deck markup to an  ```io.Writer```, returning an error.
 
 
 ## Running
@@ -175,6 +174,17 @@ Return the polar coordinate given a center at ```(cx, cy)```, radius ```r```, an
     a=area d
 
 return the circular area, ```a``` for the diameter ```d```.
+
+## Formatted Text
+
+Assign a string variable with formatted text (using package fmt floating point format strings)
+
+    w1=10
+	w2=20+100
+
+	s0=format "Widget 1: %.2f" w1
+	s1=format "Widget 2: %.3f" w2
+	st=format "Total Widgets: %v" s1+w2
 
 
 

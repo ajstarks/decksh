@@ -58,7 +58,7 @@ func ftoa(v float64) string {
 
 // assign creates an assignment by filling in the global id map
 // assignments are either simple (x=10), binary op (x=a+b), or built-ins
-// (random, polarx, polary, vmap)
+// (random, polarx, polary, vmap, sprint)
 func assign(s []string, linenumber int) error {
 	switch len(s) {
 	case 3:
@@ -66,12 +66,23 @@ func assign(s []string, linenumber int) error {
 	case 4:
 		return areafunc(s, linenumber) // v=area x
 	case 5:
-		if s[2] == "random" { // x=random min max
+		switch s[2] {
+		case "random": // x=random min max
 			return random(s, linenumber)
+		case "sprint", "format":
+			return sprint(s, linenumber) // x=sprint fmt a
+		default:
+			return binop(s, linenumber) // x=a+b
 		}
-		return binop(s, linenumber) // x=a+b
 	case 7:
-		return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
+		switch s[2] {
+		case "polarx", "polary":
+			return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
+		case "sprint", "format":
+			return sprint(s, linenumber) // sprint fmt a+b
+		default:
+			return fmt.Errorf("line %d: %v is a illegal assignment", linenumber, s)
+		}
 	case 8:
 		return vmapfunc(s, linenumber) // x=vmap d min1 max1 min2 max2
 	default:
@@ -88,6 +99,65 @@ func simpleassign(s []string, linenumber int) error {
 	return nil
 }
 
+// sprint makes a string assignment using formatted text
+func sprint(s []string, linenumber int) error {
+	var v float64
+	var err error
+	switch len(s) {
+	case 5: // x=sprint fmt a
+		v, err = strconv.ParseFloat(eval(s[4]), 64) // make evaluated number (string) to number
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+	case 7: // x=sprint fmt a+b
+		v, err = opval(s[4:7], linenumber) // note that opval does eval
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+	default:
+		return fmt.Errorf("line %d: %v cannot convert to string", linenumber, v)
+	}
+	emap[s[0]] = fmt.Sprintf(s[3], v)
+	return nil
+}
+
+// opval returns the value of a binary operation
+func opval(s []string, linenumber int) (float64, error) {
+	es := fmt.Errorf("line %d: id=id operation number or id]", linenumber)
+	if len(s) != 3 {
+		return 0, es
+	}
+	ls := s[0]
+	op := s[1]
+	rs := s[2]
+	lv, err := strconv.ParseFloat(eval(ls), 64)
+	if err != nil {
+		return 0, fmt.Errorf("line %d: %v is not a number", linenumber, ls)
+	}
+	rv, err := strconv.ParseFloat(eval(rs), 64)
+	if err != nil {
+		return 0, fmt.Errorf("line %d: %v is not a number", linenumber, rs)
+	}
+	var v float64
+	switch op {
+	case "+":
+		v = lv + rv
+	case "-":
+		v = lv - rv
+	case "*":
+		v = lv * rv
+	case "/":
+		if rv == 0 {
+			return 0, fmt.Errorf("line %d: you cannot divide by zero (%v / %v)", linenumber, lv, rv)
+		}
+		v = lv / rv
+	default:
+		return 0, fmt.Errorf("line %d: %s is not a valid operation", linenumber, op)
+	}
+	return v, nil
+
+}
+
 // binop processes a binary expression: id=id op number
 func binop(s []string, linenumber int) error {
 	es := fmt.Errorf("line %d: id=id operation number or id]", linenumber)
@@ -97,34 +167,12 @@ func binop(s []string, linenumber int) error {
 	if s[1] != "=" {
 		return es
 	}
-	target := s[0]
-	ls := s[2]
-	op := s[3]
-	rs := s[4]
 
-	lv, err := strconv.ParseFloat(eval(ls), 64)
+	v, err := opval(s[2:5], linenumber)
 	if err != nil {
-		return fmt.Errorf("line %d: %v is not a number", linenumber, ls)
-	}
-	rv, err := strconv.ParseFloat(eval(rs), 64)
-	if err != nil {
-		return fmt.Errorf("line %d: %v is not a number", linenumber, rs)
-	}
-	switch op {
-	case "+":
-		emap[target] = ftoa(lv + rv)
-	case "-":
-		emap[target] = ftoa(lv - rv)
-	case "*":
-		emap[target] = ftoa(lv * rv)
-	case "/":
-		if rv == 0 {
-			return fmt.Errorf("line %d: you cannot divide by zero (%v / %v)", linenumber, lv, rv)
-		}
-		emap[target] = ftoa(lv / rv)
-	default:
 		return es
 	}
+	emap[s[0]] = ftoa(v)
 	return nil
 }
 

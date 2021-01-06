@@ -1,0 +1,7 @@
+v1=100.3
+v2=200.234
+title=format "%.2f Million (USD)" v1
+subtitle=format "Total value: %.2f" v1+v2
+
+ctext title    80 70 4 "sans" "maroon"
+ctext subtitle 80 60 3 "sans" "gray"
