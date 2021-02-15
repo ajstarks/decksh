@@ -79,7 +79,7 @@ Produces:
 ![exampledeck](exampledeck.png)
 
 Text, font, color, caption and link arguments follow Go convetions (surrounded by double quotes).
-Colors are in rgb format ("rgb(n,n,n)"), or [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
+Colors are in rgb format ("rgb(n,n,n)"), hex ("#rrggbb"), or [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
 
 Coordinates, dimensions, scales and opacities are floating point numbers ranging from from 0-100 
 (they represent percentages on the canvas and percent opacity).  Some arguments are optional, and 
