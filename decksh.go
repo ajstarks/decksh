@@ -9,14 +9,11 @@ import (
 	"math"
 	"math/rand"
 	"os"
-	"os/exec"
-	"path/filepath"
 	"strconv"
 	"strings"
 	"text/scanner"
 
 	"github.com/ajstarks/dchart"
-	//	"github.com/ajstarks/dchart"
 )
 
 // types of for loops
@@ -1422,6 +1419,8 @@ func chartflags(s []string) dchart.Settings {
 	fs.BoolVar(&chart.ShowDot, "dot", false, "show a dot chart")
 	fs.BoolVar(&chart.ShowVolume, "vol", false, "show a volume chart")
 	fs.BoolVar(&chart.ShowDonut, "donut", false, "show a donut chart")
+	fs.BoolVar(&chart.ShowBowtie, "bowtie", false, "show a bowtie chart")
+	fs.BoolVar(&chart.ShowFan, "fan", false, "show a fan chart")
 	fs.BoolVar(&chart.ShowPMap, "pmap", false, "show a proportional map")
 	fs.BoolVar(&chart.ShowLine, "line", false, "show a line chart")
 	fs.BoolVar(&chart.ShowHBar, "hbar", false, "show a horizontal bar chart")
@@ -1489,41 +1488,6 @@ func chart(w io.Writer, s string, linenumber int) error {
 	}
 	chartsettings.Write(w, r)
 	return nil
-}
-
-// chart runs the chart command
-func chartcmd(w io.Writer, s string, linenumber int) error {
-	// copy the command line into fields, evaluating as we go
-	args := strings.Fields(s)
-	for i := 1; i < len(args); i++ {
-		args[i] = eval(args[i])
-		args[i] = unquote(args[i])
-	}
-	//fmt.Fprintf(os.Stderr, "line %d - chartcmd args=%v\n", linenumber, args)
-	// glue the arguments back into a single string
-	s = args[0]
-	for i := 1; i < len(args); i++ {
-		s = s + " " + args[i]
-	}
-	// separate again
-	args = strings.Fields(s)
-
-	// exec directly without the shell to avoid injection bugs
-	name := args[0]
-	cmd := &exec.Cmd{Path: name, Args: args}
-	if filepath.Base(name) == name {
-		lp, err := exec.LookPath(name)
-		if err != nil {
-			return fmt.Errorf("line: %d, %v - %v", linenumber, name, err)
-		}
-		cmd.Path = lp
-	}
-	out, err := cmd.Output()
-	if err != nil {
-		return fmt.Errorf("line: %d [%v] - %v", linenumber, s, err)
-	}
-	fmt.Fprintf(w, "%s\n", out)
-	return err
 }
 
 // isaop tests for assignment operators
