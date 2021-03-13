@@ -1465,7 +1465,7 @@ func chartflags(s []string) dchart.Settings {
 	return chart
 }
 
-// chartcmd uses the dchart API to make charts
+// chart uses the dchart API to make charts
 func chart(w io.Writer, s string, linenumber int) error {
 	// copy the command line into fields, evaluating as we go
 	args := strings.Fields(s)
@@ -1473,7 +1473,7 @@ func chart(w io.Writer, s string, linenumber int) error {
 		args[i] = eval(args[i])
 		args[i] = unquote(args[i])
 	}
-	//fmt.Fprintf(os.Stderr, "line %d - chartcmd args=%v\n", linenumber, args)
+	//fmt.Fprintf(os.Stderr, "line %d - chart args=%v\n", linenumber, args)
 	// glue the arguments back into a single string
 	s = args[0]
 	for i := 1; i < len(args); i++ {
