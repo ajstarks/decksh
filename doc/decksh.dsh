@@ -1096,8 +1096,18 @@ deck
 		dcimx=dcx-5
 		dcimy-=dyskip
 
-		text "Waffle" dcx dcy dcsize "sans" dcolor
+		text "Waffle/Lego" dcx dcy dcsize "sans" dcolor
 		image "images/pgrid.png" dcimx dcimy dcimw dcimh
+
+		dcx+=dxskip
+		dcimx+=dxskip
+		text "Fan"         dcx dcy dcsize "sans" dcolor
+		image "images/fan.png" dcimx dcimy dcimw dcimh
+
+		dcx+=dxskip
+		dcimx+=dxskip
+		text "Bowtie"         dcx dcy dcsize "sans" dcolor
+		image "images/bowtie.png" dcimx dcimy dcimw dcimh
 	eslide
 
 	// dchart overview
