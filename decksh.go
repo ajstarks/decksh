@@ -595,8 +595,8 @@ func rtext(w io.Writer, s []string, linenumber int) error {
 		return fmt.Errorf("line %d: %s \"text\" x y angle size [font] [color] [opacity] [link]", linenumber, s[0])
 	}
 	angle, err := strconv.ParseFloat(s[4], 64)
-	if err != nil || (angle > 360) {
-		return fmt.Errorf("line %d %s is not a valid rotation angle", linenumber, s[4])
+	if err != nil {
+		return fmt.Errorf("line %d %v is not a valid rotation angle", linenumber, angle)
 	}
 	fmt.Fprintf(w, "<text xp=%q yp=%q rotation=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], s[5], fontColorOp(s[6:]), qesc(s[1]))
 	return nil
