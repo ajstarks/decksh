@@ -330,23 +330,23 @@ deck
 
 	// arc text
 	slide
-		ctext "Text on an Arc" 50 90 5
+		ctext "Text on an Arc" 50 50 5
 		at="PEOPLE LIVING IN THE 'COUNTRY' & VILLAGES"
-		bta=220
-		eta=400
+		atcx=50
+		atcy=50
+		bta=180
+		eta=350
 		atdiv=12
 
-		atrad=20
+		atrad=25
 		ats=atrad/atdiv
-		arctext at 50 60 20 bta eta ats
+		arctext at atcx atcy atrad 179 0 ats "sans" "red"
+		arctext at atcx atcy atrad bta eta ats "sans" "red"
 
-		atrad=30
+		atrad=35
 		ats=atrad/atdiv
-		arctext at 50 60 30 bta eta ats "sans" "red"
-
-		atrad=40
-		ats=atrad/atdiv
-		arctext at 50 60 40 bta eta ats "mono" "black" 50
+		arctext at atcx atcy atrad 170 0   ats "mono" "black" 50
+		arctext at atcx atcy atrad bta eta ats "mono" "black" 50
 	eslide
 
 	// Text and Alignment

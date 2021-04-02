@@ -621,9 +621,14 @@ func arctext(w io.Writer, s []string, linenumber int) error {
 	interval := (end - begin) / float64(len(text)-1)
 
 	angle := begin
+	var textangle float64
 	for i := 0; i < len(text); i++ {
 		px, py := polar(cx, cy, radius, angle*(math.Pi/180))
-		textangle := angle + 90
+		if angle >= 180 {
+			textangle = angle + 90
+		} else {
+			textangle = angle + 270
+		}
 		fmt.Fprintf(w, "<text xp=\"%.2f\" yp=\"%.2f\" rotation=\"%.2f\" sp=%q %s>%s</text>\n", px, py, textangle, s[7], fontColorOp(s[8:]), xmlesc(text[i:i+1]))
 		angle += interval
 	}

@@ -1,2 +1,9 @@
 #!/bin/sh
-decksh decksh.dsh | pdfdeck  -author "Anthony Starks" -title "decksh overview" -pagesize 800,450 -sans GillSans -mono NotoMono-Regular -serif GillSans-Italic -stdout $*  - > decksh.pdf
+sans="GillSans"
+serif="GillSans-Italic"
+mono="NotoMono-Regular"
+
+# sans="SourceSans3-Regular"
+# serif="SourceSerif4-Regular"
+# mono="SourceCodePro-Regular"
+decksh decksh.dsh | pdfdeck  -author "Anthony Starks" -title "decksh overview" -pagesize 800,450 -sans $sans -mono $mono -serif $serif -stdout $*  - > decksh.pdf
