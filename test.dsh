@@ -328,6 +328,27 @@ deck
 		textcode "code/hw.go" tx2 75 20 1 "red"
 	eslide
 
+	// arc text
+	slide
+		ctext "Text on an Arc" 50 90 5
+		at="PEOPLE LIVING IN THE 'COUNTRY' & VILLAGES"
+		bta=220
+		eta=400
+		atdiv=12
+
+		atrad=20
+		ats=atrad/atdiv
+		arctext at 50 60 20 bta eta ats
+
+		atrad=30
+		ats=atrad/atdiv
+		arctext at 50 60 30 bta eta ats "sans" "red"
+
+		atrad=40
+		ats=atrad/atdiv
+		arctext at 50 60 40 bta eta ats "mono" "black" 50
+	eslide
+
 	// Text and Alignment
 	tlskip=25
 	l1=10

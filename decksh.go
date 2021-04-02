@@ -589,6 +589,47 @@ func text(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// arctext places text on an arc
+func arctext(w io.Writer, s []string, linenumber int) error {
+	if len(s) < 8 {
+		return fmt.Errorf("line %d: %s \"arctext\" cx cy radius begin-angle end-angle size [font] [color] [opacity] [link]", linenumber, s[0])
+	}
+	cx, err := strconv.ParseFloat(s[2], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v is not a valid beginning center x", linenumber, s[2])
+	}
+	cy, err := strconv.ParseFloat(s[3], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v is not a valid beginning center y", linenumber, s[3])
+	}
+	radius, err := strconv.ParseFloat(s[4], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v is not a valid beginning radius", linenumber, s[4])
+	}
+	begin, err := strconv.ParseFloat(s[5], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v is not a valid beginning angle", linenumber, s[5])
+	}
+	end, err := strconv.ParseFloat(s[6], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v is not a valid ending angle", linenumber, s[6])
+	}
+	if len(s[1]) < 3 {
+		return fmt.Errorf("line %d: %v is not valid text", linenumber, s[1])
+	}
+	text := s[1][1 : len(s[1])-1]
+	interval := (end - begin) / float64(len(text)-1)
+
+	angle := begin
+	for i := 0; i < len(text); i++ {
+		px, py := polar(cx, cy, radius, angle*(math.Pi/180))
+		textangle := angle + 90
+		fmt.Fprintf(w, "<text xp=\"%.2f\" yp=\"%.2f\" rotation=\"%.2f\" sp=%q %s>%s</text>\n", px, py, textangle, s[7], fontColorOp(s[8:]), xmlesc(text[i:i+1]))
+		angle += interval
+	}
+	return nil
+}
+
 // rtext generates markup for rotated text
 func rtext(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 6 {
@@ -1678,6 +1719,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 
 	case "text", "ctext", "etext", "textfile":
 		return text(w, tokens, n)
+
+	case "arctext":
+		return arctext(w, tokens, n)
 
 	case "rtext":
 		return rtext(w, tokens, n)
