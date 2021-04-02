@@ -164,6 +164,22 @@ Polar Coordinates
 Return the polar coordinate given a center at (cx, cy), radius r, and angle theta (in degrees)
 
 
+Area
+
+    a=area d
+
+return the circular area,  a for the diameter d.
+
+Formatted Text
+
+Assign a string variable with formatted text (using package fmt floating point format strings)
+
+    w1=10
+	w2=20+100
+
+	s0=format "Widget 1: %.2f" w1
+	s1=format "Widget 2: %.3f" w2
+	st=format "Total Widgets: %v" s1+w2
 
 Loops
 
@@ -191,18 +207,27 @@ Substitution of x will occur in statements.
 
 Text
 
-Left, centered, end, rotated, block-aligned text or a file's contents with
+Left, centered, end, or block-aligned text or a file's contents with
 optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
 
-Also, show blocks of code on a gray background.
-
-    text       "text"     x y       size [font] [color] [opacity] [link]
-    ctext      "text"     x y       size [font] [color] [opacity] [link]
-    etext      "text"     x y       size [font] [color] [opacity] [link]
-    rtext      "text"     x y angle size [font] [color] [opacity] [link]
+    text       "text"     x y size       [font] [color] [opacity] [link]
+    ctext      "text"     x y size       [font] [color] [opacity] [link]
+    etext      "text"     x y size       [font] [color] [opacity] [link]
     textblock  "text"     x y width size [font] [color] [opacity] [link]
+
+Text rotated along the specified angle (in degrees)
+
+    rtext      "text"     x y angle size [font] [color] [opacity] [link]
+
+Text on an arc centered at (x,y), with specified radius, between begin and ending angles (in degrees)
+
+    arctext    "text"     x y radius begin-angle end-angle size [font] [color] [opacity] [link]
+
+Place the contents of "filename" at (x,y). Place the contents of "filename" in gray box, using a monospaced font.
+
     textfile   "filename" x y       size [font] [color] [opacity] [linespacing]
     textcode   "filename" x y width size [color]
+
 
 Images
 
