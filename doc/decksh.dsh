@@ -482,7 +482,8 @@ deck
 		lx+=40
 		ctext "arctext" lx gtop ts "mono" spotcolor
 		circle lx row3 spotsize spotcolor
-		arctext "hello there world" lx row3 8 150 360 2
+		arctext "hello there world" lx row3 8 180 360 2
+		arctext "hello there world" lx row3 11 180 0 2
 		ctext "cx cy radius beg-angle end-angle size [font] [color] [op] [link]" lx apiy apisize "serif" apicolor
 	eslide
 

@@ -624,7 +624,7 @@ func arctext(w io.Writer, s []string, linenumber int) error {
 	var textangle float64
 	for i := 0; i < len(text); i++ {
 		px, py := polar(cx, cy, radius, angle*(math.Pi/180))
-		if angle >= 180 {
+		if end >= begin {
 			textangle = angle + 90
 		} else {
 			textangle = angle + 270

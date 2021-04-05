@@ -226,7 +226,9 @@ Text rotated along the specified angle (in degrees)
 
     rtext      "text"     x y angle size [font] [color] [opacity] [link]
 
-Text on an arc centered at (x,y), with specified radius, between begin and ending angles (in degrees)
+Text on an arc centered at (x,y), with specified radius, between begin and ending angles (in degrees).
+if the beginning angle is less than the ending angle the text is rendered counter-clockwise.
+if the beginning angle is greater than the ending angle, the text is rendered clockwise.
 
     arctext    "text"     x y radius begin-angle end-angle size [font] [color] [opacity] [link]
 
