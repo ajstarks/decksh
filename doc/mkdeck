@@ -1,9 +1,14 @@
 #!/bin/sh
-sans="GillSans"
-serif="GillSans-Italic"
-mono="NotoMono-Regular"
+#sans="GillSans"
+#erif="GillSans-Italic"
+#mono="NotoMono-Regular"
 
-# sans="SourceSans3-Regular"
-# serif="SourceSerif4-Regular"
-# mono="SourceCodePro-Regular"
+#sans="SourceSans3-Regular"
+#serif="SourceSerif4-Regular"
+#mono="SourceCodePro-Regular"
+
+sans="FiraSans-Regular"
+mono="FiraMono-Regular"
+serif="Charter-Regular"
+
 decksh decksh.dsh | pdfdeck  -author "Anthony Starks" -title "decksh overview" -pagesize 800,450 -sans $sans -mono $mono -serif $serif -stdout $*  - > decksh.pdf

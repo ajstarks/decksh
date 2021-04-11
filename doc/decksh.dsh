@@ -801,7 +801,7 @@ deck
 
 		lx+=40
 		ctext "cimage" lx row1 ts "mono" spotcolor
-		ctext `"filename" "caption" x y w h [scale] [link]` lx apiy apisize "serif" apicolor
+		ctext `"filename" "caption" x y w h [scale] [link] [caption-size]` lx apiy apisize "serif" apicolor
 		cimage "images/cloudy.jpg" "Up in the clouds" lx imy 640 480 40
 		circle lx imy spotsize spotcolor
 	eslide

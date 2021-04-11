@@ -239,10 +239,10 @@ Place the contents of "filename" at (x,y). Place the contents of "filename" in g
 
 ## Images
 
-Plain and captioned, with optional scales and links
+Plain and captioned, with optional scales, links and caption size
 
     image  "file"           x y width height [scale] [link]
-    cimage "file" "caption" x y width height [scale] [link]
+    cimage "file" "caption" x y width height [scale] [link] [size]
 
 ## Lists
 

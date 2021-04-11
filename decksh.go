@@ -691,7 +691,7 @@ func image(w io.Writer, s []string, linenumber int) error {
 // cimage makes a captioned image
 func cimage(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
-	e := fmt.Errorf("line %d: %s \"image-file\" \"caption\" x y w h [scale] [link]", linenumber, s[0])
+	e := fmt.Errorf("line %d: %s \"image-file\" \"caption\" x y w h [scale] [link] [caption size]", linenumber, s[0])
 	if n < 6 {
 		return e
 	}
@@ -703,6 +703,8 @@ func cimage(w io.Writer, s []string, linenumber int) error {
 		fmt.Fprintf(w, "<image name=%s caption=%s xp=%q yp=%q width=%q height=%q scale=%q/>\n", s[1], caption, s[3], s[4], s[5], s[6], s[7])
 	case 9:
 		fmt.Fprintf(w, "<image name=%s caption=%s xp=%q yp=%q width=%q height=%q scale=%q link=%s/>\n", s[1], caption, s[3], s[4], s[5], s[6], s[7], s[8])
+	case 10:
+		fmt.Fprintf(w, "<image name=%s caption=%s xp=%q yp=%q width=%q height=%q scale=%q link=%s sp=%q/>\n", s[1], caption, s[3], s[4], s[5], s[6], s[7], s[8], s[9])
 	default:
 		return e
 	}

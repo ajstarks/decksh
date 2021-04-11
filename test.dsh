@@ -435,7 +435,7 @@ deck
 	slide "black" "white"
 		cimage imfile "LARGE" midx midy iw ih
 		cimage imfile "MEDIUM" midx midy iw ih s1
-		cimage imfile "SMALL" midx midy iw ih s2 imlink
+		cimage imfile "SMALL" midx midy iw ih s2 imlink 1.5
 	eslide
 
 	lsize=2
