@@ -350,6 +350,7 @@ deck
 			li "rect"
 			li "rrect"
 			li "square"
+			li "star"
 			li "vline"
 			li "lbrace"
 		elist
@@ -682,6 +683,17 @@ deck
 		ctext "x y len [lw] [color] [op]" lx r3a apisize "serif" apicolor
 		vline 90 17 8 lw grcolor
 		circle 90 17 spotsize spotcolor spotop
+	eslide
+
+	slide
+		text "Stars" left top titlesize "serif"
+		lx=left+10
+		gtop=top-40
+		r3a=gtop-5
+		ctext "star" lx gtop ts "mono" spotcolor
+		ctext "x y nsides inner outer [color] [op]" lx r3a apisize "serif" apicolor
+		star lx 60 5 2.5 7.5 grcolor 70
+		circle lx 60 spotsize spotcolor
 	eslide
 
 	// Braces
