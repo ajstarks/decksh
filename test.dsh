@@ -10,22 +10,6 @@ deck
 		efor
 	eslide
 
-	// Colors
-	slide
-		ctext "Colors" 50 90 5
-		tcolor1="steelblue"
-		tcolor2="rgb(70,130,180)"
-		tcolor3="#4682b4"
-		circle        20 50 10 tcolor1
-		ctext tcolor1 20 60 2
-
-		circle        50 50 10 tcolor2
-		ctext tcolor2 50 60 2
-
-		circle        80 50 10 tcolor3
-		ctext tcolor3 80 60 2
-	eslide
-
 	// Random
 	slide
 		randmin=10
@@ -239,6 +223,14 @@ deck
 		efor
 	eslide
 
+	// Stars
+	slide
+		ctext "Stars" 50 90 5
+		star 20 50 5 5 15
+		star 50 50 5 5 15 "red"
+		star 80 50 5 5 15 "red" 20
+	eslide
+
 	// Rounded Rectangles
 	slide
 		ctext "Pill/Rounded Rectangles" 50 90 5
@@ -328,27 +320,6 @@ deck
 		textcode "code/hw.go" tx2 75 20 1 "red"
 	eslide
 
-	// arc text
-	slide
-		ctext "Text on an Arc" 50 50 5
-		at="PEOPLE LIVING IN THE 'COUNTRY' & VILLAGES"
-		atcx=50
-		atcy=50
-		bta=180
-		eta=350
-		atdiv=12
-
-		atrad=25
-		ats=atrad/atdiv
-		arctext at atcx atcy atrad 179 0 ats "sans" "red"
-		arctext at atcx atcy atrad bta eta ats "sans" "red"
-
-		atrad=35
-		ats=atrad/atdiv
-		arctext at atcx atcy atrad 170 0   ats "mono" "black" 50
-		arctext at atcx atcy atrad bta eta ats "mono" "black" 50
-	eslide
-
 	// Text and Alignment
 	tlskip=25
 	l1=10
@@ -435,7 +406,7 @@ deck
 	slide "black" "white"
 		cimage imfile "LARGE" midx midy iw ih
 		cimage imfile "MEDIUM" midx midy iw ih s1
-		cimage imfile "SMALL" midx midy iw ih s2 imlink 1.5
+		cimage imfile "SMALL" midx midy iw ih s2 imlink
 	eslide
 
 	lsize=2
