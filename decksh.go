@@ -890,6 +890,71 @@ func pill(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// star makes a n-sided star
+func star(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s x y nsides inner outer [color] [op]", linenumber, s[0])
+	if n < 6 {
+		return e
+	}
+	// get the parameters
+	x, err := strconv.ParseFloat(eval(s[1]), 64)
+	if err != nil {
+		return err
+	}
+	y, err := strconv.ParseFloat(eval(s[2]), 64)
+	if err != nil {
+		return err
+	}
+	nsides, err := strconv.ParseFloat(eval(s[3]), 64)
+	if err != nil {
+		return err
+	}
+	inner, err := strconv.ParseFloat(eval(s[4]), 64)
+	if err != nil {
+		return err
+	}
+	outer, err := strconv.ParseFloat(eval(s[5]), 64)
+	if err != nil {
+		return err
+	}
+	// compute the polygon coordinates
+	ns2 := int(nsides) * 2
+	xp, yp := make([]float64, ns2), make([]float64, ns2)
+	a := 90.0
+	ai := 360.0 / nsides
+	for i := 0; i < ns2; i++ {
+		if i%2 == 0 {
+			xp[i], yp[i] = polar(x, y, outer, a*(math.Pi/180))
+		} else {
+			xp[i], yp[i] = polar(x, y, inner, a*(math.Pi/180))
+		}
+		a += ai
+	}
+	fmt.Fprintf(w, "<polygon xc=\"")
+	// x coords
+	for i := 0; i < ns2-1; i++ {
+		fmt.Fprintf(w, "%.2f ", xp[i])
+	}
+	// y coords
+	fmt.Fprintf(w, "%.2f\" yc=\"", xp[ns2-1])
+	for i := 0; i < ns2-1; i++ {
+		fmt.Fprintf(w, "%.2f ", yp[i])
+	}
+	fmt.Fprintf(w, "%.2f\"", yp[ns2-1])
+	switch n {
+	case 6:
+		fmt.Fprintf(w, "/>\n")
+	case 7:
+		fmt.Fprintf(w, " color=%s/>\n", eval(s[6]))
+	case 8:
+		fmt.Fprintf(w, " color=%s opacity=%q/>\n", eval(s[6]), eval(s[7]))
+	default:
+		return e
+	}
+	return nil
+}
+
 func unquote(s string) string {
 	la := len(s)
 	if la > 2 && s[0] == doublequote && s[la-1] == doublequote {
@@ -900,7 +965,6 @@ func unquote(s string) string {
 
 // polygon generates markup for polygons
 func polygon(w io.Writer, s []string, linenumber int) error {
-
 	n := len(s)
 	e := fmt.Errorf("line %d: %s \"xcoord\" \"ycoord\" [color] [opacity]", linenumber, s[0])
 	if n < 3 {
@@ -1765,6 +1829,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 
 	case "pill":
 		return pill(w, tokens, n)
+
+	case "star":
+		return star(w, tokens, n)
 
 	case "polygon", "poly":
 		return polygon(w, tokens, n)
