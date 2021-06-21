@@ -1,0 +1,768 @@
+<deck>
+<canvas width="792" height="612"/>
+<slide>
+<text align="c" xp="50" yp="50" sp="5" >Loops</text>
+<line xp1="100" yp1="0" xp2="0" yp2="0" sp="0.1" color="blue"/>
+<line xp1="0" yp1="100" xp2="0" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="5" xp2="0" yp2="5" sp="0.1" color="blue"/>
+<line xp1="5" yp1="100" xp2="5" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="10" xp2="0" yp2="10" sp="0.1" color="blue"/>
+<line xp1="10" yp1="100" xp2="10" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="15" xp2="0" yp2="15" sp="0.1" color="blue"/>
+<line xp1="15" yp1="100" xp2="15" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="20" xp2="0" yp2="20" sp="0.1" color="blue"/>
+<line xp1="20" yp1="100" xp2="20" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="25" xp2="0" yp2="25" sp="0.1" color="blue"/>
+<line xp1="25" yp1="100" xp2="25" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="30" xp2="0" yp2="30" sp="0.1" color="blue"/>
+<line xp1="30" yp1="100" xp2="30" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="35" xp2="0" yp2="35" sp="0.1" color="blue"/>
+<line xp1="35" yp1="100" xp2="35" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="40" xp2="0" yp2="40" sp="0.1" color="blue"/>
+<line xp1="40" yp1="100" xp2="40" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="45" xp2="0" yp2="45" sp="0.1" color="blue"/>
+<line xp1="45" yp1="100" xp2="45" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="50" xp2="0" yp2="50" sp="0.1" color="blue"/>
+<line xp1="50" yp1="100" xp2="50" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="55" xp2="0" yp2="55" sp="0.1" color="blue"/>
+<line xp1="55" yp1="100" xp2="55" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="60" xp2="0" yp2="60" sp="0.1" color="blue"/>
+<line xp1="60" yp1="100" xp2="60" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="65" xp2="0" yp2="65" sp="0.1" color="blue"/>
+<line xp1="65" yp1="100" xp2="65" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="70" xp2="0" yp2="70" sp="0.1" color="blue"/>
+<line xp1="70" yp1="100" xp2="70" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="75" xp2="0" yp2="75" sp="0.1" color="blue"/>
+<line xp1="75" yp1="100" xp2="75" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="80" xp2="0" yp2="80" sp="0.1" color="blue"/>
+<line xp1="80" yp1="100" xp2="80" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="85" xp2="0" yp2="85" sp="0.1" color="blue"/>
+<line xp1="85" yp1="100" xp2="85" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="90" xp2="0" yp2="90" sp="0.1" color="blue"/>
+<line xp1="90" yp1="100" xp2="90" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="95" xp2="0" yp2="95" sp="0.1" color="blue"/>
+<line xp1="95" yp1="100" xp2="95" yp2="0" sp="0.1" color="red"/>
+<line xp1="100" yp1="100" xp2="0" yp2="100" sp="0.1" color="blue"/>
+<line xp1="100" yp1="100" xp2="100" yp2="0" sp="0.1" color="red"/>
+</slide>
+<slide>
+<ellipse xp="72.56035562543414" yp="28.571133669031823" wp="10" hr="100" color="red" opacity="28.571133669031823"/>
+<ellipse xp="42.022547587206304" yp="88.59221429218928" wp="10" hr="100" color="green" opacity="88.59221429218928"/>
+<ellipse xp="74.80701781105668" yp="27.44853222769278" wp="10" hr="100" color="blue" opacity="27.44853222769278"/>
+<text align="c" xp="50" yp="50" sp="5" >Random</text>
+</slide>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Grid</text>
+<ellipse xp="10" yp="80" wp="1" hr="100"/>
+<ellipse xp="20" yp="80" wp="2" hr="100"/>
+<ellipse xp="30" yp="80" wp="4" hr="100"/>
+<ellipse xp="10" yp="68" wp="4" hr="100"/>
+<ellipse xp="20" yp="68" wp="2" hr="100"/>
+<ellipse xp="30" yp="68" wp="1" hr="100"/>
+<arc xp="10" yp="56" wp="3" hp="3" a1="0" a2="90"/>
+<arc xp="20" yp="56" wp="3" hp="3" a1="90" a2="180"/>
+<arc xp="30" yp="56" wp="3" hp="3" a1="180" a2="270"/>
+<rect xp="10" yp="44" wp="4" hr="100" color="red"/>
+<rect xp="20" yp="44" wp="4" hr="100" color="green"/>
+<rect xp="30" yp="44" wp="4" hr="100" color="blue"/>
+<image name="follow.jpg" xp="10" yp="32" width="640" height="480" scale="10"/>
+<image name="follow.jpg" xp="20" yp="32" width="640" height="480" scale="10"/>
+<image name="follow.jpg" xp="30" yp="32" width="640" height="480" scale="10"/>
+<text file="grid.d" xp="45" yp="80" sp="1.5" font="mono"/>
+</slide>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Format</text>
+<text align="c" xp="50" yp="60" sp="3" >Widget 1: 10.00</text>
+<text align="c" xp="50" yp="50" sp="3" >Widget 2: 120.000</text>
+<text align="c" xp="50" yp="40" sp="3" >Total Widgets: 130</text>
+<text align="c" xp="50" yp="70" sp="3" ></text>
+</slide>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Polar Coordinates</text>
+<text align="c" xp="70" yp="50" sp="2" >0</text>
+<line xp1="50" yp1="50" xp2="70" yp2="50" sp="0.1"/>
+<text align="c" xp="64.14213562373095" yp="68.30158727776947" sp="2" >π/4 (45°)</text>
+<line xp1="50" yp1="50" xp2="64.14213562373095" yp2="68.30158727776947" sp="0.1"/>
+<text align="c" xp="50" yp="75.88235294117646" sp="2" >π/2 (90°)</text>
+<line xp1="50" yp1="50" xp2="50" yp2="75.88235294117646" sp="0.1"/>
+<text align="c" xp="35.85786437626905" yp="68.30158727776947" sp="2" >3π/4 (135°)</text>
+<line xp1="50" yp1="50" xp2="35.85786437626905" yp2="68.30158727776947" sp="0.1"/>
+<text align="c" xp="30" yp="50" sp="2" >π (180°)</text>
+<line xp1="50" yp1="50" xp2="30" yp2="50" sp="0.1"/>
+<text align="c" xp="35.85786437626905" yp="31.698412722230536" sp="2" >π+1/4 (225°)</text>
+<line xp1="50" yp1="50" xp2="35.85786437626905" yp2="31.698412722230536" sp="0.1"/>
+<text align="c" xp="49.99999999999999" yp="24.11764705882353" sp="2" >π+1/2 (270°)</text>
+<line xp1="50" yp1="50" xp2="49.99999999999999" yp2="24.11764705882353" sp="0.1"/>
+<text align="c" xp="66.38304088577983" yp="35.154492235619976" sp="2" >π+3/4 (325°)</text>
+<line xp1="50" yp1="50" xp2="66.38304088577983" yp2="35.154492235619976" sp="0.1"/>
+<ellipse xp="50" yp="50" wp="40" hr="100" color="gray" opacity="20"/>
+</slide>
+<slide>
+<text align="c" xp="50" yp="50" sp="5" >Braces</text>
+<curve xp1="10.00" yp1="50.00" xp2="12.50" yp2="50.00" xp3="12.50" yp3="55.00" />
+<curve xp1="10.00" yp1="50.00" xp2="12.50" yp2="50.00" xp3="12.50" yp3="45.00" />
+<curve xp1="12.50" yp1="77.50" xp2="12.50" yp2="80.00" xp3="15.00" yp3="80.00" />
+<curve xp1="12.50" yp1="22.50" xp2="12.50" yp2="20.00" xp3="15.00" yp3="20.00" />
+<line xp1="12.50" yp1="55.00" xp2="12.50" yp2="77.50" />
+<line xp1="12.50" yp1="45.00" xp2="12.50" yp2="22.50" />
+<curve xp1="15.00" yp1="50.00" xp2="17.50" yp2="50.00" xp3="17.50" yp3="55.00" sp="0.2"/>
+<curve xp1="15.00" yp1="50.00" xp2="17.50" yp2="50.00" xp3="17.50" yp3="45.00" sp="0.2"/>
+<curve xp1="17.50" yp1="72.50" xp2="17.50" yp2="75.00" xp3="20.00" yp3="75.00" sp="0.2"/>
+<curve xp1="17.50" yp1="27.50" xp2="17.50" yp2="25.00" xp3="20.00" yp3="25.00" sp="0.2"/>
+<line xp1="17.50" yp1="55.00" xp2="17.50" yp2="72.50" sp="0.2"/>
+<line xp1="17.50" yp1="45.00" xp2="17.50" yp2="27.50" sp="0.2"/>
+<curve xp1="20.00" yp1="50.00" xp2="22.50" yp2="50.00" xp3="22.50" yp3="55.00" sp="0.2" color="red"/>
+<curve xp1="20.00" yp1="50.00" xp2="22.50" yp2="50.00" xp3="22.50" yp3="45.00" sp="0.2" color="red"/>
+<curve xp1="22.50" yp1="67.50" xp2="22.50" yp2="70.00" xp3="25.00" yp3="70.00" sp="0.2" color="red"/>
+<curve xp1="22.50" yp1="32.50" xp2="22.50" yp2="30.00" xp3="25.00" yp3="30.00" sp="0.2" color="red"/>
+<line xp1="22.50" yp1="55.00" xp2="22.50" yp2="67.50" sp="0.2" color="red"/>
+<line xp1="22.50" yp1="45.00" xp2="22.50" yp2="32.50" sp="0.2" color="red"/>
+<curve xp1="25.00" yp1="50.00" xp2="27.50" yp2="50.00" xp3="27.50" yp3="55.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="25.00" yp1="50.00" xp2="27.50" yp2="50.00" xp3="27.50" yp3="45.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="27.50" yp1="62.50" xp2="27.50" yp2="65.00" xp3="30.00" yp3="65.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="27.50" yp1="37.50" xp2="27.50" yp2="35.00" xp3="30.00" yp3="35.00" sp="0.2" color="red" opacity="50"/>
+<line xp1="27.50" yp1="55.00" xp2="27.50" yp2="62.50" sp="0.2" color="red" opacity="50"/>
+<line xp1="27.50" yp1="45.00" xp2="27.50" yp2="37.50" sp="0.2" color="red" opacity="50"/>
+<curve xp1="30.00" yp1="50.00" xp2="32.50" yp2="50.00" xp3="32.50" yp3="55.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="30.00" yp1="50.00" xp2="32.50" yp2="50.00" xp3="32.50" yp3="45.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="32.50" yp1="57.50" xp2="32.50" yp2="60.00" xp3="35.00" yp3="60.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="32.50" yp1="42.50" xp2="32.50" yp2="40.00" xp3="35.00" yp3="40.00" sp="0.2" color="red" opacity="40"/>
+<line xp1="32.50" yp1="55.00" xp2="32.50" yp2="57.50" sp="0.2" color="red" opacity="40"/>
+<line xp1="32.50" yp1="45.00" xp2="32.50" yp2="42.50" sp="0.2" color="red" opacity="40"/>
+<curve xp1="35.00" yp1="50.00" xp2="36.00" yp2="50.00" xp3="36.00" yp3="52.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="35.00" yp1="50.00" xp2="36.00" yp2="50.00" xp3="36.00" yp3="48.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="36.00" yp1="54.00" xp2="36.00" yp2="55.00" xp3="37.00" yp3="55.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="36.00" yp1="46.00" xp2="36.00" yp2="45.00" xp3="37.00" yp3="45.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="36.00" yp1="52.00" xp2="36.00" yp2="54.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="36.00" yp1="48.00" xp2="36.00" yp2="46.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="90.00" yp1="50.00" xp2="87.50" yp2="50.00" xp3="87.50" yp3="55.00" />
+<curve xp1="90.00" yp1="50.00" xp2="87.50" yp2="50.00" xp3="87.50" yp3="45.00" />
+<curve xp1="87.50" yp1="77.50" xp2="87.50" yp2="80.00" xp3="85.00" yp3="80.00" />
+<curve xp1="87.50" yp1="22.50" xp2="87.50" yp2="20.00" xp3="85.00" yp3="20.00" />
+<line xp1="87.50" yp1="55.00" xp2="87.50" yp2="77.50" />
+<line xp1="87.50" yp1="45.00" xp2="87.50" yp2="22.50" />
+<curve xp1="85.00" yp1="50.00" xp2="82.50" yp2="50.00" xp3="82.50" yp3="55.00" sp="0.2"/>
+<curve xp1="85.00" yp1="50.00" xp2="82.50" yp2="50.00" xp3="82.50" yp3="45.00" sp="0.2"/>
+<curve xp1="82.50" yp1="72.50" xp2="82.50" yp2="75.00" xp3="80.00" yp3="75.00" sp="0.2"/>
+<curve xp1="82.50" yp1="27.50" xp2="82.50" yp2="25.00" xp3="80.00" yp3="25.00" sp="0.2"/>
+<line xp1="82.50" yp1="55.00" xp2="82.50" yp2="72.50" sp="0.2"/>
+<line xp1="82.50" yp1="45.00" xp2="82.50" yp2="27.50" sp="0.2"/>
+<curve xp1="80.00" yp1="50.00" xp2="77.50" yp2="50.00" xp3="77.50" yp3="55.00" sp="0.2" color="red"/>
+<curve xp1="80.00" yp1="50.00" xp2="77.50" yp2="50.00" xp3="77.50" yp3="45.00" sp="0.2" color="red"/>
+<curve xp1="77.50" yp1="67.50" xp2="77.50" yp2="70.00" xp3="75.00" yp3="70.00" sp="0.2" color="red"/>
+<curve xp1="77.50" yp1="32.50" xp2="77.50" yp2="30.00" xp3="75.00" yp3="30.00" sp="0.2" color="red"/>
+<line xp1="77.50" yp1="55.00" xp2="77.50" yp2="67.50" sp="0.2" color="red"/>
+<line xp1="77.50" yp1="45.00" xp2="77.50" yp2="32.50" sp="0.2" color="red"/>
+<curve xp1="75.00" yp1="50.00" xp2="72.50" yp2="50.00" xp3="72.50" yp3="55.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="75.00" yp1="50.00" xp2="72.50" yp2="50.00" xp3="72.50" yp3="45.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="72.50" yp1="62.50" xp2="72.50" yp2="65.00" xp3="70.00" yp3="65.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="72.50" yp1="37.50" xp2="72.50" yp2="35.00" xp3="70.00" yp3="35.00" sp="0.2" color="red" opacity="50"/>
+<line xp1="72.50" yp1="55.00" xp2="72.50" yp2="62.50" sp="0.2" color="red" opacity="50"/>
+<line xp1="72.50" yp1="45.00" xp2="72.50" yp2="37.50" sp="0.2" color="red" opacity="50"/>
+<curve xp1="70.00" yp1="50.00" xp2="67.50" yp2="50.00" xp3="67.50" yp3="55.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="70.00" yp1="50.00" xp2="67.50" yp2="50.00" xp3="67.50" yp3="45.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="67.50" yp1="57.50" xp2="67.50" yp2="60.00" xp3="65.00" yp3="60.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="67.50" yp1="42.50" xp2="67.50" yp2="40.00" xp3="65.00" yp3="40.00" sp="0.2" color="red" opacity="40"/>
+<line xp1="67.50" yp1="55.00" xp2="67.50" yp2="57.50" sp="0.2" color="red" opacity="40"/>
+<line xp1="67.50" yp1="45.00" xp2="67.50" yp2="42.50" sp="0.2" color="red" opacity="40"/>
+<curve xp1="65.00" yp1="50.00" xp2="64.00" yp2="50.00" xp3="64.00" yp3="52.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="65.00" yp1="50.00" xp2="64.00" yp2="50.00" xp3="64.00" yp3="48.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="64.00" yp1="54.00" xp2="64.00" yp2="55.00" xp3="63.00" yp3="55.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="64.00" yp1="46.00" xp2="64.00" yp2="45.00" xp3="63.00" yp3="45.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="64.00" yp1="52.00" xp2="64.00" yp2="54.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="64.00" yp1="48.00" xp2="64.00" yp2="46.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="50.00" yp1="95.00" xp2="50.00" yp2="90.00" xp3="55.00" yp3="90.00" />
+<curve xp1="50.00" yp1="95.00" xp2="50.00" yp2="90.00" xp3="45.00" yp3="90.00" />
+<line xp1="55.00" yp1="90.00" xp2="75.00" yp2="90.00" />
+<line xp1="45.00" yp1="90.00" xp2="25.00" yp2="90.00" />
+<curve xp1="75.00" yp1="90.00" xp2="80.00" yp2="90.00" xp3="80.00" yp3="85.00" />
+<curve xp1="25.00" yp1="90.00" xp2="20.00" yp2="90.00" xp3="20.00" yp3="85.00" />
+<curve xp1="50.00" yp1="90.00" xp2="50.00" yp2="85.00" xp3="55.00" yp3="85.00" sp="0.2"/>
+<curve xp1="50.00" yp1="90.00" xp2="50.00" yp2="85.00" xp3="45.00" yp3="85.00" sp="0.2"/>
+<line xp1="55.00" yp1="85.00" xp2="70.00" yp2="85.00" sp="0.2"/>
+<line xp1="45.00" yp1="85.00" xp2="30.00" yp2="85.00" sp="0.2"/>
+<curve xp1="70.00" yp1="85.00" xp2="75.00" yp2="85.00" xp3="75.00" yp3="80.00" sp="0.2"/>
+<curve xp1="30.00" yp1="85.00" xp2="25.00" yp2="85.00" xp3="25.00" yp3="80.00" sp="0.2"/>
+<curve xp1="50.00" yp1="85.00" xp2="50.00" yp2="80.00" xp3="55.00" yp3="80.00" sp="0.2" color="red"/>
+<curve xp1="50.00" yp1="85.00" xp2="50.00" yp2="80.00" xp3="45.00" yp3="80.00" sp="0.2" color="red"/>
+<line xp1="55.00" yp1="80.00" xp2="65.00" yp2="80.00" sp="0.2" color="red"/>
+<line xp1="45.00" yp1="80.00" xp2="35.00" yp2="80.00" sp="0.2" color="red"/>
+<curve xp1="65.00" yp1="80.00" xp2="70.00" yp2="80.00" xp3="70.00" yp3="75.00" sp="0.2" color="red"/>
+<curve xp1="35.00" yp1="80.00" xp2="30.00" yp2="80.00" xp3="30.00" yp3="75.00" sp="0.2" color="red"/>
+<curve xp1="50.00" yp1="80.00" xp2="50.00" yp2="75.00" xp3="55.00" yp3="75.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="50.00" yp1="80.00" xp2="50.00" yp2="75.00" xp3="45.00" yp3="75.00" sp="0.2" color="red" opacity="50"/>
+<line xp1="55.00" yp1="75.00" xp2="60.00" yp2="75.00" sp="0.2" color="red" opacity="50"/>
+<line xp1="45.00" yp1="75.00" xp2="40.00" yp2="75.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="60.00" yp1="75.00" xp2="65.00" yp2="75.00" xp3="65.00" yp3="70.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="40.00" yp1="75.00" xp2="35.00" yp2="75.00" xp3="35.00" yp3="70.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="50.00" yp1="75.00" xp2="50.00" yp2="70.00" xp3="55.00" yp3="70.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="50.00" yp1="75.00" xp2="50.00" yp2="70.00" xp3="45.00" yp3="70.00" sp="0.2" color="red" opacity="40"/>
+<line xp1="55.00" yp1="70.00" xp2="55.00" yp2="70.00" sp="0.2" color="red" opacity="40"/>
+<line xp1="45.00" yp1="70.00" xp2="45.00" yp2="70.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="55.00" yp1="70.00" xp2="60.00" yp2="70.00" xp3="60.00" yp3="65.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="45.00" yp1="70.00" xp2="40.00" yp2="70.00" xp3="40.00" yp3="65.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="50.00" yp1="70.00" xp2="50.00" yp2="68.00" xp3="52.00" yp3="68.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="50.00" yp1="70.00" xp2="50.00" yp2="68.00" xp3="48.00" yp3="68.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="52.00" yp1="68.00" xp2="53.00" yp2="68.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="48.00" yp1="68.00" xp2="47.00" yp2="68.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="53.00" yp1="68.00" xp2="55.00" yp2="68.00" xp3="55.00" yp3="66.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="47.00" yp1="68.00" xp2="45.00" yp2="68.00" xp3="45.00" yp3="66.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="50.00" yp1="5.00" xp2="50.00" yp2="10.00" xp3="55.00" yp3="10.00" />
+<curve xp1="50.00" yp1="5.00" xp2="50.00" yp2="10.00" xp3="45.00" yp3="10.00" />
+<line xp1="55.00" yp1="10.00" xp2="75.00" yp2="10.00" />
+<line xp1="45.00" yp1="10.00" xp2="25.00" yp2="10.00" />
+<curve xp1="75.00" yp1="10.00" xp2="80.00" yp2="10.00" xp3="80.00" yp3="15.00" />
+<curve xp1="25.00" yp1="10.00" xp2="20.00" yp2="10.00" xp3="20.00" yp3="15.00" />
+<curve xp1="50.00" yp1="10.00" xp2="50.00" yp2="15.00" xp3="55.00" yp3="15.00" sp="0.2"/>
+<curve xp1="50.00" yp1="10.00" xp2="50.00" yp2="15.00" xp3="45.00" yp3="15.00" sp="0.2"/>
+<line xp1="55.00" yp1="15.00" xp2="70.00" yp2="15.00" sp="0.2"/>
+<line xp1="45.00" yp1="15.00" xp2="30.00" yp2="15.00" sp="0.2"/>
+<curve xp1="70.00" yp1="15.00" xp2="75.00" yp2="15.00" xp3="75.00" yp3="20.00" sp="0.2"/>
+<curve xp1="30.00" yp1="15.00" xp2="25.00" yp2="15.00" xp3="25.00" yp3="20.00" sp="0.2"/>
+<curve xp1="50.00" yp1="15.00" xp2="50.00" yp2="20.00" xp3="55.00" yp3="20.00" sp="0.2" color="red"/>
+<curve xp1="50.00" yp1="15.00" xp2="50.00" yp2="20.00" xp3="45.00" yp3="20.00" sp="0.2" color="red"/>
+<line xp1="55.00" yp1="20.00" xp2="65.00" yp2="20.00" sp="0.2" color="red"/>
+<line xp1="45.00" yp1="20.00" xp2="35.00" yp2="20.00" sp="0.2" color="red"/>
+<curve xp1="65.00" yp1="20.00" xp2="70.00" yp2="20.00" xp3="70.00" yp3="25.00" sp="0.2" color="red"/>
+<curve xp1="35.00" yp1="20.00" xp2="30.00" yp2="20.00" xp3="30.00" yp3="25.00" sp="0.2" color="red"/>
+<curve xp1="50.00" yp1="20.00" xp2="50.00" yp2="25.00" xp3="55.00" yp3="25.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="50.00" yp1="20.00" xp2="50.00" yp2="25.00" xp3="45.00" yp3="25.00" sp="0.2" color="red" opacity="50"/>
+<line xp1="55.00" yp1="25.00" xp2="60.00" yp2="25.00" sp="0.2" color="red" opacity="50"/>
+<line xp1="45.00" yp1="25.00" xp2="40.00" yp2="25.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="60.00" yp1="25.00" xp2="65.00" yp2="25.00" xp3="65.00" yp3="30.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="40.00" yp1="25.00" xp2="35.00" yp2="25.00" xp3="35.00" yp3="30.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="50.00" yp1="25.00" xp2="50.00" yp2="30.00" xp3="55.00" yp3="30.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="50.00" yp1="25.00" xp2="50.00" yp2="30.00" xp3="45.00" yp3="30.00" sp="0.2" color="red" opacity="40"/>
+<line xp1="55.00" yp1="30.00" xp2="55.00" yp2="30.00" sp="0.2" color="red" opacity="40"/>
+<line xp1="45.00" yp1="30.00" xp2="45.00" yp2="30.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="55.00" yp1="30.00" xp2="60.00" yp2="30.00" xp3="60.00" yp3="35.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="45.00" yp1="30.00" xp2="40.00" yp2="30.00" xp3="40.00" yp3="35.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="50.00" yp1="30.00" xp2="50.00" yp2="32.00" xp3="52.00" yp3="32.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="50.00" yp1="30.00" xp2="50.00" yp2="32.00" xp3="48.00" yp3="32.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="52.00" yp1="32.00" xp2="53.00" yp2="32.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="48.00" yp1="32.00" xp2="47.00" yp2="32.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="53.00" yp1="32.00" xp2="55.00" yp2="32.00" xp3="55.00" yp3="34.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="47.00" yp1="32.00" xp2="45.00" yp2="32.00" xp3="45.00" yp3="34.00" sp="0.2" color="red" opacity="30"/>
+</slide>
+<slide>
+<text align="c" xp="50" yp="50" sp="5" >Included data from another file</text>
+</slide>
+<slide>
+<text align="c" xp="50" yp="50" sp="5" >Map Ranges</text>
+<text xp="10" yp="20" sp="2" >1958</text>
+<text xp="38.38709677419355" yp="20" sp="2" >1978</text>
+<text xp="51.29032258064516" yp="20" sp="2" >1980</text>
+<text xp="90" yp="20" sp="2" >end</text>
+<text xp="10" yp="90" sp="2" >1958</text>
+<text xp="10" yp="72.25806451612902" sp="2" >1980</text>
+<text xp="10" yp="64.19354838709677" sp="2" >1990</text>
+<text xp="10" yp="48.064516129032256" sp="2" >2020</text>
+</slide>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Areas</text>
+<ellipse xp="50" yp="50" wp="5.692615880624236" hr="100" color="gray"/>
+<ellipse xp="60" yp="50" wp="2.794495042228977" hr="100" color="orange"/>
+<ellipse xp="67" yp="50" wp="0.7057831769863198" hr="100" color="red"/>
+<ellipse xp="50" yp="30" wp="5.692615880624236" hr="100"/>
+<ellipse xp="60" yp="30" wp="2.794495042228977" hr="100"/>
+<ellipse xp="67" yp="30" wp="0.7057831769863198" hr="100"/>
+</slide>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Lines</text>
+<line xp1="50" yp1="50" xp2="70" yp2="50"/>
+<line xp1="50" yp1="55" xp2="75" yp2="55" sp="0.5"/>
+<line xp1="50" yp1="60" xp2="80" yp2="60" sp="1" color="red"/>
+<line xp1="50" yp1="65" xp2="85" yp2="65" sp="1.5" color="blue"/>
+<line xp1="50" yp1="70" xp2="90" yp2="70" sp="2" color="green" opacity="50"/>
+<line xp1="10" yp1="50" xp2="10" yp2="70"/>
+<line xp1="15" yp1="50" xp2="15" yp2="75" sp="0.5"/>
+<line xp1="20" yp1="50" xp2="20" yp2="80" sp="1" color="red"/>
+<line xp1="25" yp1="50" xp2="25" yp2="85" sp="1.5" color="blue"/>
+<line xp1="30" yp1="50" xp2="30" yp2="90" sp="2" color="green" opacity="50"/>
+<line xp1="10" yp1="10" xp2="10" yp2="40" sp="0.1" color="red"/>
+<line xp1="10" yp1="10" xp2="40" yp2="10" sp="0.1" color="blue"/>
+<line xp1="15" yp1="10" xp2="15" yp2="40" sp="0.1" color="red"/>
+<line xp1="10" yp1="15" xp2="40" yp2="15" sp="0.1" color="blue"/>
+<line xp1="20" yp1="10" xp2="20" yp2="40" sp="0.1" color="red"/>
+<line xp1="10" yp1="20" xp2="40" yp2="20" sp="0.1" color="blue"/>
+<line xp1="25" yp1="10" xp2="25" yp2="40" sp="0.1" color="red"/>
+<line xp1="10" yp1="25" xp2="40" yp2="25" sp="0.1" color="blue"/>
+<line xp1="30" yp1="10" xp2="30" yp2="40" sp="0.1" color="red"/>
+<line xp1="10" yp1="30" xp2="40" yp2="30" sp="0.1" color="blue"/>
+<line xp1="35" yp1="10" xp2="35" yp2="40" sp="0.1" color="red"/>
+<line xp1="10" yp1="35" xp2="40" yp2="35" sp="0.1" color="blue"/>
+<line xp1="40" yp1="10" xp2="40" yp2="40" sp="0.1" color="red"/>
+<line xp1="10" yp1="40" xp2="40" yp2="40" sp="0.1" color="blue"/>
+<line xp1="50" yp1="10" xp2="50" yp2="40" sp="0.1" color="blue"/>
+<line xp1="55" yp1="10" xp2="55" yp2="40" sp="0.1" color="blue"/>
+<line xp1="60" yp1="10" xp2="60" yp2="40" sp="0.1" color="blue"/>
+<line xp1="65" yp1="10" xp2="65" yp2="40" sp="0.1" color="blue"/>
+<line xp1="70" yp1="10" xp2="70" yp2="40" sp="0.1" color="blue"/>
+<line xp1="75" yp1="10" xp2="75" yp2="40" sp="0.1" color="blue"/>
+<line xp1="80" yp1="10" xp2="80" yp2="40" sp="0.1" color="blue"/>
+<line xp1="50" yp1="10" xp2="80" yp2="10" sp="0.1" color="red"/>
+<line xp1="50" yp1="15" xp2="80" yp2="15" sp="0.1" color="red"/>
+<line xp1="50" yp1="20" xp2="80" yp2="20" sp="0.1" color="red"/>
+<line xp1="50" yp1="25" xp2="80" yp2="25" sp="0.1" color="red"/>
+<line xp1="50" yp1="30" xp2="80" yp2="30" sp="0.1" color="red"/>
+<line xp1="50" yp1="35" xp2="80" yp2="35" sp="0.1" color="red"/>
+<line xp1="50" yp1="40" xp2="80" yp2="40" sp="0.1" color="red"/>
+</slide>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Stars</text>
+<polygon xc="20.00 15.24 11.18 22.94 34.27 20.00 5.73 17.06 28.82 24.76" yc="69.41 52.00 34.30 44.77 56.00 56.47 56.00 44.77 34.30 52.00"/>
+<polygon xc="50.00 45.24 41.18 52.94 64.27 50.00 35.73 47.06 58.82 54.76" yc="69.41 52.00 34.30 44.77 56.00 56.47 56.00 44.77 34.30 52.00" color="red"/>
+<polygon xc="80.00 75.24 71.18 82.94 94.27 80.00 65.73 77.06 88.82 84.76" yc="69.41 52.00 34.30 44.77 56.00 56.47 56.00 44.77 34.30 52.00" color="red" opacity="20"/>
+</slide>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Pill/Rounded Rectangles</text>
+<ellipse xp="15" yp="65" wp="10" hr="100" />
+<ellipse xp="45" yp="65" wp="10" hr="100" />
+<ellipse xp="15" yp="35" wp="10" hr="100" />
+<ellipse xp="45" yp="35" wp="10" hr="100" />
+<line xp1="15" yp1="65" xp2="45" yp2="65" sp="10" />
+<line xp1="15" yp1="35" xp2="45" yp2="35" sp="10" />
+<rect xp="30" yp="50" wp="40" hp="30" />
+<ellipse xp="60" yp="65" wp="5" hr="100" color="red"/>
+<ellipse xp="80" yp="65" wp="5" hr="100" color="red"/>
+<ellipse xp="60" yp="35" wp="5" hr="100" color="red"/>
+<ellipse xp="80" yp="35" wp="5" hr="100" color="red"/>
+<line xp1="60" yp1="65" xp2="80" yp2="65" sp="5" color="red"/>
+<line xp1="60" yp1="35" xp2="80" yp2="35" sp="5" color="red"/>
+<rect xp="70" yp="50" wp="25" hp="30" color="red"/>
+<ellipse xp="25" yp="20" wp="5" hr="100" color="blue"/>
+<ellipse xp="75" yp="20" wp="5" hr="100" color="blue"/>
+<ellipse xp="25" yp="10" wp="5" hr="100" color="blue"/>
+<ellipse xp="75" yp="10" wp="5" hr="100" color="blue"/>
+<line xp1="25" yp1="20" xp2="75" yp2="20" sp="5" color="blue"/>
+<line xp1="25" yp1="10" xp2="75" yp2="10" sp="5" color="blue"/>
+<rect xp="50" yp="15" wp="55" hp="10" color="blue"/>
+<ellipse xp="30" yp="80" wp="5" hr="100" />
+<line xp1="30" yp1="80" xp2="40" yp2="80" sp="5" hp="100" />
+<ellipse xp="40" yp="80" wp="5" hr="100" />
+<ellipse xp="70" yp="80" wp="5" hr="100" color="red"/>
+<line xp1="70" yp1="80" xp2="80" yp2="80" sp="5" hp="100" color="red"/>
+<ellipse xp="80" yp="80" wp="5" hr="100" color="red"/>
+</slide>
+<slide>
+<ellipse xp="10" yp="50" wp="7" hp="5" color="blue" opacity="100"/>
+<ellipse xp="10" yp="55" wp="7" hp="5" color="red" opacity="100"/>
+<rect xp="10" yp="52.5" wp="7" hp="5" color="blue" opacity="100"/>
+<text align="c" xp="10" yp="60" sp="2" >item</text>
+<ellipse xp="30" yp="50" wp="7" hp="5" color="blue" opacity="100"/>
+<ellipse xp="30" yp="55" wp="7" hp="5" color="red" opacity="100"/>
+<rect xp="30" yp="52.5" wp="7" hp="5" color="blue" opacity="100"/>
+<text align="c" xp="30" yp="60" sp="2" >item</text>
+<ellipse xp="50" yp="50" wp="7" hp="5" color="blue" opacity="100"/>
+<ellipse xp="50" yp="55" wp="7" hp="5" color="red" opacity="100"/>
+<rect xp="50" yp="52.5" wp="7" hp="5" color="blue" opacity="100"/>
+<text align="c" xp="50" yp="60" sp="2" >item</text>
+<ellipse xp="70" yp="50" wp="7" hp="5" color="blue" opacity="100"/>
+<ellipse xp="70" yp="55" wp="7" hp="5" color="red" opacity="100"/>
+<rect xp="70" yp="52.5" wp="7" hp="5" color="blue" opacity="100"/>
+<text align="c" xp="70" yp="60" sp="2" >item</text>
+<ellipse xp="90" yp="50" wp="7" hp="5" color="blue" opacity="100"/>
+<ellipse xp="90" yp="55" wp="7" hp="5" color="red" opacity="100"/>
+<rect xp="90" yp="52.5" wp="7" hp="5" color="blue" opacity="100"/>
+<text align="c" xp="90" yp="60" sp="2" >item</text>
+<ellipse xp="20" yp="50" wp="5" hr="100" color="red" opacity="100"/>
+<rect xp="20" yp="52.5" wp="4.9" hr="100" color="red" opacity="100"/>
+<ellipse xp="20" yp="55" wp="5" hr="100" color="blue" opacity="100"/>
+<ellipse xp="40" yp="50" wp="5" hr="100" color="red" opacity="100"/>
+<rect xp="40" yp="52.5" wp="4.9" hr="100" color="red" opacity="100"/>
+<ellipse xp="40" yp="55" wp="5" hr="100" color="blue" opacity="100"/>
+<ellipse xp="60" yp="50" wp="5" hr="100" color="red" opacity="100"/>
+<rect xp="60" yp="52.5" wp="4.9" hr="100" color="red" opacity="100"/>
+<ellipse xp="60" yp="55" wp="5" hr="100" color="blue" opacity="100"/>
+<ellipse xp="80" yp="50" wp="5" hr="100" color="red" opacity="100"/>
+<rect xp="80" yp="52.5" wp="4.9" hr="100" color="red" opacity="100"/>
+<ellipse xp="80" yp="55" wp="5" hr="100" color="blue" opacity="100"/>
+</slide>
+<slide>
+<text align="c" xp="10" yp="20" sp="5" >Title</text>
+<text align="c" xp="10" yp="10" sp="4" font="sans" color="gray">subtitle</text>
+<text align="c" xp="30" yp="20" sp="5" >Title</text>
+<text align="c" xp="30" yp="8" sp="4" font="sans" color="gray">subtitle</text>
+<text align="c" xp="50" yp="20" sp="5" >Title</text>
+<text align="c" xp="50" yp="32" sp="4" font="sans" color="gray">subtitle</text>
+<text align="c" xp="70" yp="20" sp="5" >Title</text>
+<text align="c" xp="70" yp="24" sp="4" font="sans" color="gray">subtitle</text>
+<text align="c" xp="90" yp="20" sp="5" >Title</text>
+<text align="c" xp="90" yp="16.666666666666668" sp="4" font="sans" color="gray">subtitle</text>
+<text align="c" xp="40.90909090909091" yp="20" sp="5" font="serif" color="red">Title</text>
+<text align="c" xp="40.90909090909091" yp="40" sp="4" font="sans" color="blue">subtitle</text>
+</slide>
+<slide>
+<text type="block" xp="5" yp="92" wp="20" sp="2" >Now is the time for all good men to come to the aid of the party &amp; 'do it now'</text>
+<text type="block" xp="35" yp="92" wp="15" sp="2" font="serif">Now is the time for all good men to come to the aid of the party &amp; 'do it now'</text>
+<text type="block" xp="65" yp="92" wp="10" sp="2" font="mono" color="red">Now is the time for all good men to come to the aid of the party &amp; 'do it now'</text>
+<text file="AAPL.d" xp="5" yp="50" sp="2" />
+<text file="AAPL.d" xp="35" yp="50" sp="2" font="serif"/>
+<text file="AAPL.d" xp="65" yp="50" sp="2" font="mono" color="red"/>
+<text type="code" file="code/hw.go" xp="5" yp="75" wp="20" sp="1"/>
+<text type="code" file="code/hw.go" xp="35" yp="75" wp="20" sp="1" color="red"/>
+</slide>
+<slide bg="rgb(240,240,240)">
+<line xp1="10" yp1="0" xp2="10" yp2="100" sp="0.1"/>
+<line xp1="35" yp1="0" xp2="35" yp2="100" sp="0.1"/>
+<line xp1="60" yp1="0" xp2="60" yp2="100" sp="0.1"/>
+<line xp1="85" yp1="0" xp2="85" yp2="100" sp="0.1"/>
+<text xp="10" yp="80" sp="3" >one</text>
+<text xp="10" yp="70" sp="3" font="serif">two</text>
+<text xp="10" yp="60" sp="3" font="mono" color="red">three</text>
+<text xp="10" yp="50" sp="3" font="sans" color="blue" opacity="80">four</text>
+<text align="c" xp="35" yp="80" sp="3" >one</text>
+<text align="c" xp="35" yp="70" sp="3" font="serif">two</text>
+<text align="c" xp="35" yp="60" sp="3" font="mono" color="red">three</text>
+<text align="c" xp="35" yp="50" sp="3" font="sans" color="blue" opacity="60">four</text>
+<text align="e" xp="60" yp="80" sp="3" >one</text>
+<text align="e" xp="60" yp="70" sp="3" font="serif">two</text>
+<text align="e" xp="60" yp="60" sp="3" font="mono" color="red">three</text>
+<text align="e" xp="60" yp="50" sp="3" font="sans" color="blue" opacity="40">four</text>
+<text xp="85" yp="60" rotation="0" sp="3" >one (0)</text>
+<text xp="85" yp="60" rotation="90" sp="3" font="serif">two (90)</text>
+<text xp="85" yp="60" rotation="180" sp="3" font="mono" color="red">three (180)</text>
+<text xp="85" yp="60" rotation="270" sp="3" font="sans" color="blue" opacity="20">four (270)</text>
+</slide>
+<slide>
+<text xp="50.00" yp="85.40" sp="2.25" align="center" wp="0.00" font="sans" opacity="100.00" color="black" type="">foo</text><line xp1="10.00" yp1="30.00" xp2="10.00" yp2="35.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="10.00" yp="36.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">10</text><text xp="10.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">ten</text><line xp1="18.89" yp1="30.00" xp2="18.89" yp2="40.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="18.89" yp="41.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">20</text><text xp="18.89" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">twenty</text><line xp1="27.78" yp1="30.00" xp2="27.78" yp2="45.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="27.78" yp="46.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">30</text><text xp="27.78" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">thirty</text><line xp1="36.67" yp1="30.00" xp2="36.67" yp2="50.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="36.67" yp="51.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">40</text><text xp="36.67" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">forty</text><line xp1="45.56" yp1="30.00" xp2="45.56" yp2="55.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="45.56" yp="56.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">50</text><text xp="45.56" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">fifty</text><line xp1="54.44" yp1="30.00" xp2="54.44" yp2="60.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="54.44" yp="61.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">60</text><text xp="54.44" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">sixty</text><line xp1="63.33" yp1="30.00" xp2="63.33" yp2="65.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="63.33" yp="66.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">70</text><text xp="63.33" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">seventy</text><line xp1="72.22" yp1="30.00" xp2="72.22" yp2="70.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="72.22" yp="71.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">80</text><text xp="72.22" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">eighty</text><line xp1="81.11" yp1="30.00" xp2="81.11" yp2="75.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="81.11" yp="76.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">90</text><text xp="81.11" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">ninety</text><line xp1="90.00" yp1="30.00" xp2="90.00" yp2="80.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="90.00" yp="81.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">100</text><text xp="90.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">one-hundred</text></slide>
+<slide>
+<text xp="17.75" yp="30.00" sp="1.12" align="right" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">0</text><line xp1="20.00" yp1="30.00" xp2="80.00" yp2="30.00" sp="0.10" opacity="100.00" color="lightgray"/><text xp="17.75" yp="40.00" sp="1.12" align="right" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">20</text><line xp1="20.00" yp1="40.00" xp2="80.00" yp2="40.00" sp="0.10" opacity="100.00" color="lightgray"/><text xp="17.75" yp="50.00" sp="1.12" align="right" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">40</text><line xp1="20.00" yp1="50.00" xp2="80.00" yp2="50.00" sp="0.10" opacity="100.00" color="lightgray"/><text xp="17.75" yp="60.00" sp="1.12" align="right" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">60</text><line xp1="20.00" yp1="60.00" xp2="80.00" yp2="60.00" sp="0.10" opacity="100.00" color="lightgray"/><text xp="17.75" yp="70.00" sp="1.12" align="right" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">80</text><line xp1="20.00" yp1="70.00" xp2="80.00" yp2="70.00" sp="0.10" opacity="100.00" color="lightgray"/><text xp="17.75" yp="80.00" sp="1.12" align="right" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">100</text><line xp1="20.00" yp1="80.00" xp2="80.00" yp2="80.00" sp="0.10" opacity="100.00" color="lightgray"/><ellipse xp="20.00" yp="44.00" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="20.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2010</text><line xp1="20.00" yp1="44.00" xp2="26.00" yp2="53.94" sp="0.20" opacity="100.00" color="red"/><ellipse xp="26.00" yp="53.94" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="26.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2011</text><line xp1="26.00" yp1="53.94" xp2="32.00" yp2="41.91" sp="0.20" opacity="100.00" color="red"/><ellipse xp="32.00" yp="41.91" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="32.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2012</text><line xp1="32.00" yp1="41.91" xp2="38.00" yp2="75.53" sp="0.20" opacity="100.00" color="red"/><ellipse xp="38.00" yp="75.53" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="38.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2013</text><line xp1="38.00" yp1="75.53" xp2="44.00" yp2="55.16" sp="0.20" opacity="100.00" color="red"/><ellipse xp="44.00" yp="55.16" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="44.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2014</text><line xp1="44.00" yp1="55.16" xp2="50.00" yp2="45.12" sp="0.20" opacity="100.00" color="red"/><ellipse xp="50.00" yp="45.12" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="50.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2015</text><line xp1="50.00" yp1="45.12" xp2="56.00" yp2="59.00" sp="0.20" opacity="100.00" color="red"/><ellipse xp="56.00" yp="59.00" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="56.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2016</text><line xp1="56.00" yp1="59.00" xp2="62.00" yp2="34.02" sp="0.20" opacity="100.00" color="red"/><ellipse xp="62.00" yp="34.02" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="62.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2017</text><line xp1="62.00" yp1="34.02" xp2="68.00" yp2="53.26" sp="0.20" opacity="100.00" color="red"/><ellipse xp="68.00" yp="53.26" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="68.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018</text><line xp1="68.00" yp1="53.26" xp2="74.00" yp2="77.83" sp="0.20" opacity="100.00" color="red"/><ellipse xp="74.00" yp="77.83" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="74.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2019</text><line xp1="74.00" yp1="77.83" xp2="80.00" yp2="33.56" sp="0.20" opacity="100.00" color="red"/><ellipse xp="80.00" yp="33.56" wp="0.90" hr="100.00" opacity="100.00" color="red"/><text xp="80.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2020</text><ellipse xp="20.00" yp="59.75" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="20.00" yp1="59.75" xp2="26.00" yp2="31.32" sp="0.20" opacity="100.00" color="green"/><ellipse xp="26.00" yp="31.32" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="26.00" yp1="31.32" xp2="32.00" yp2="55.61" sp="0.20" opacity="100.00" color="green"/><ellipse xp="32.00" yp="55.61" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="32.00" yp1="55.61" xp2="38.00" yp2="47.33" sp="0.20" opacity="100.00" color="green"/><ellipse xp="38.00" yp="47.33" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="38.00" yp1="47.33" xp2="44.00" yp2="47.61" sp="0.20" opacity="100.00" color="green"/><ellipse xp="44.00" yp="47.61" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="44.00" yp1="47.61" xp2="50.00" yp2="65.28" sp="0.20" opacity="100.00" color="green"/><ellipse xp="50.00" yp="65.28" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="50.00" yp1="65.28" xp2="56.00" yp2="51.58" sp="0.20" opacity="100.00" color="green"/><ellipse xp="56.00" yp="51.58" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="56.00" yp1="51.58" xp2="62.00" yp2="69.38" sp="0.20" opacity="100.00" color="green"/><ellipse xp="62.00" yp="69.38" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="62.00" yp1="69.38" xp2="68.00" yp2="61.45" sp="0.20" opacity="100.00" color="green"/><ellipse xp="68.00" yp="61.45" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="68.00" yp1="61.45" xp2="74.00" yp2="59.51" sp="0.20" opacity="100.00" color="green"/><ellipse xp="74.00" yp="59.51" wp="0.90" hr="100.00" opacity="100.00" color="green"/><line xp1="74.00" yp1="59.51" xp2="80.00" yp2="41.29" sp="0.20" opacity="100.00" color="green"/><ellipse xp="80.00" yp="41.29" wp="0.90" hr="100.00" opacity="100.00" color="green"/><text xp="22" yp="20" sp="1.5" font="sans" color="green">Sales</text>
+<ellipse xp="20" yp="20.5" wp="1.5" hr="100" color="green"/>
+<text xp="37" yp="20" sp="1.5" font="sans" color="red">Revenue</text>
+<ellipse xp="35" yp="20.5" wp="1.5" hr="100" color="red"/>
+</slide>
+<slide>
+<image name="follow.jpg" xp="50" yp="50" width="640" height="480"/>
+<image name="follow.jpg" xp="50" yp="50" width="640" height="480" scale="50"/>
+<image name="follow.jpg" xp="50" yp="50" width="640" height="480" scale="20" link="https://budnitzbicycles.com"/>
+</slide>
+<slide bg="black" fg="white">
+<image name="follow.jpg" caption="LARGE" xp="50" yp="50" width="640" height="480"/>
+<image name="follow.jpg" caption="MEDIUM" xp="50" yp="50" width="640" height="480" scale="50"/>
+<image name="follow.jpg" caption="SMALL" xp="50" yp="50" width="640" height="480" scale="20" link="https://budnitzbicycles.com"/>
+</slide>
+<slide>
+<list xp="20" yp="90" sp="2" >
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="bullet" xp="40" yp="90" sp="2" >
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="number" xp="60" yp="90" sp="2" >
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list xp="20" yp="70" sp="2" font="sans">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="bullet" xp="40" yp="70" sp="2" font="serif">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="number" xp="60" yp="70" sp="2" font="mono">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list xp="20" yp="50" sp="2" font="sans" color="red">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="bullet" xp="40" yp="50" sp="2" font="serif" color="green">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="number" xp="60" yp="50" sp="2" font="mono" color="blue">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list xp="20" yp="30" sp="2" font="sans" color="red" opacity="80">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="bullet" xp="40" yp="30" sp="2" font="serif" color="green" opacity="60">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="number" xp="60" yp="30" sp="2" font="mono" color="blue" opacity="40">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list xp="20" yp="10" sp="2" font="sans" color="red" opacity="80" lp="1">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="bullet" xp="40" yp="10" sp="2" font="serif" color="green" opacity="60" lp="1">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="number" xp="60" yp="10" sp="2" font="mono" color="blue" opacity="40" lp="1">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+</slide>
+<slide>
+<line xp1="50" yp1="0" xp2="50" yp2="100" sp="0.1"/>
+<list align="center" xp="50" yp="90" sp="3" >
+<li>one</li>
+<li>two</li>
+<li>three</li>
+<li>four</li>
+</list>
+<list align="center" xp="50" yp="40" sp="3" font="" color="" opacity="100" lp="1.2">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+<li>four</li>
+</list>
+</slide>
+<slide>
+<polygon xc="15 20 25" yc="90 95 90"/>
+<polygon xc="35 40 45" yc="90 95 90" color="red"/>
+<polygon xc="55 60 65" yc="90 95 90" color="blue" opacity="30"/>
+<rect xp="20" yp="80" wp="10" hp="5"/>
+<rect xp="40" yp="80" wp="10" hp="5" color="red"/>
+<rect xp="60" yp="80" wp="10" hp="5" color="blue" opacity="30"/>
+<rect xp="20" yp="70" wp="5" hr="100"/>
+<rect xp="40" yp="70" wp="5" hr="100" color="red"/>
+<rect xp="60" yp="70" wp="5" hr="100" color="blue" opacity="30"/>
+<ellipse xp="20" yp="60" wp="10" hp="5"/>
+<ellipse xp="40" yp="60" wp="10" hp="5" color="red"/>
+<ellipse xp="60" yp="60" wp="10" hp="5" color="blue" opacity="30"/>
+<ellipse xp="20" yp="50" wp="5" hr="100"/>
+<ellipse xp="40" yp="50" wp="5" hr="100" color="red"/>
+<ellipse xp="60" yp="50" wp="5" hr="100" color="blue" opacity="30"/>
+<line xp1="15" yp1="35" xp2="25" yp2="40"/>
+<line xp1="35" yp1="35" xp2="45" yp2="40" sp="1" color="red"/>
+<line xp1="55" yp1="35" xp2="65" yp2="40" sp="1" color="blue"/>
+<line xp1="75" yp1="35" xp2="85" yp2="40" sp="1" color="green" opacity="30"/>
+<arc xp="20" yp="25" wp="10" hp="5" a1="0" a2="180"/>
+<arc xp="40" yp="25" wp="10" hp="5" a1="0" a2="180" sp="1" color="red"/>
+<arc xp="60" yp="25" wp="10" hp="5" a1="0" a2="180" sp="1" color="blue"/>
+<arc xp="80" yp="25" wp="10" hp="5" a1="0" a2="180" sp="1" color="green" opacity="30"/>
+<curve xp1="15" yp1="15" xp2="10" yp2="25" xp3="25" yp3="15"/>
+<curve xp1="35" yp1="15" xp2="30" yp2="25" xp3="45" yp3="15" sp="1"/>
+<curve xp1="55" yp1="15" xp2="45" yp2="25" xp3="65" yp3="15" sp="1" color="blue"/>
+<curve xp1="75" yp1="15" xp2="65" yp2="25" xp3="85" yp3="15" sp="1" color="green" opacity="30"/>
+</slide>
+<slide>
+<polygon xc="10 15 20" yc="80 90 80"/>
+<polygon xc="10 15 20" yc="50 70 50"/>
+<polygon xc="30 35 40" yc="50 70 50" color="red"/>
+<polygon xc="50 55 60" yc="50 70 50" color="red" opacity="20"/>
+<polygon xc="70 75 80" yc="50 90 50"/>
+</slide>
+<slide>
+<line xp1="50" yp1="45" xp2="32.25" yp2="45" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="30 33.06037903842463 32.25 33.06037903842463" yc="45 43.568482735641524 45 46.43151726435848" color="gray" opacity="100"/>
+<line xp1="50" yp1="55" xp2="27.25" yp2="55" sp="0.4" color="gray" opacity="100"/>
+<polygon xc="25 28.047664957296657 27.25 28.04766495729666" yc="55 53.552593293887696 55 56.44740670611231" color="gray" opacity="100"/>
+<line xp1="50" yp1="65" xp2="23" yp2="65" sp="0.5" color="gray" opacity="100"/>
+<polygon xc="20 24.04003081665928 23 24.04003081665928" yc="65 63.55777948981441 65 66.4422205101856" color="gray" opacity="100"/>
+<line xp1="50" yp1="75" xp2="18.75" yp2="75" sp="0.6" color="gray" opacity="100"/>
+<polygon xc="15 20.242780750295736 18.75 20.242780750295736" yc="75 71.19107593603786 75 78.80892406396215" color="gray" opacity="100"/>
+<line xp1="50" yp1="85" xp2="14.5" yp2="85" sp="0.7" color="red" opacity="100"/>
+<polygon xc="10 16.26991165412722 14.5 16.26991165412722" yc="85 80.72435499841049 85 89.27564500158952" color="red" opacity="100"/>
+<line xp1="50" yp1="95" xp2="11" yp2="95" sp="0.8" color="blue" opacity="20"/>
+<polygon xc="5 13.30037840662353 11 13.30037840662353" yc="95 90.29492030854148 95 99.70507969145854" color="blue" opacity="20"/>
+<line xp1="50" yp1="45" xp2="67.75" yp2="45" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="70 66.93962096157537 67.75 66.93962096157537" yc="45 46.43151726435848 45 43.56848273564152" color="gray" opacity="100"/>
+<line xp1="50" yp1="55" xp2="72.75" yp2="55" sp="0.4" color="gray" opacity="100"/>
+<polygon xc="75 71.95233504270334 72.75 71.95233504270334" yc="55 56.44740670611231 55 53.55259329388769" color="gray" opacity="100"/>
+<line xp1="50" yp1="65" xp2="77" yp2="65" sp="0.5" color="gray" opacity="100"/>
+<polygon xc="80 75.95996918334072 77 75.95996918334072" yc="65 66.44222051018559 65 63.55777948981441" color="gray" opacity="100"/>
+<line xp1="50" yp1="75" xp2="81.25" yp2="75" sp="0.6" color="gray" opacity="100"/>
+<polygon xc="85 79.75721924970426 81.25 79.75721924970426" yc="75 78.80892406396215 75 71.19107593603785" color="gray" opacity="100"/>
+<line xp1="50" yp1="85" xp2="85.5" yp2="85" sp="0.7" color="red" opacity="100"/>
+<polygon xc="90 83.73008834587279 85.5 83.73008834587279" yc="85 89.27564500158951 85 80.72435499841049" color="red" opacity="100"/>
+<line xp1="50" yp1="95" xp2="89" yp2="95" sp="0.8" color="blue" opacity="20"/>
+<polygon xc="95 86.69962159337646 89 86.69962159337646" yc="95 99.70507969145852 95 90.29492030854148" color="blue" opacity="20"/>
+<line xp1="05" yp1="5" xp2="5.000000000000002" yp2="37.75" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="5.000000000000002 3.5358860348814565 5.000000000000002 6.464113965118547" yc="40 36.966488238421576 37.75 36.966488238421576" color="gray" opacity="100"/>
+<line xp1="15" yp1="5" xp2="15.000000000000002" yp2="32.75" sp="0.4" color="gray" opacity="100"/>
+<polygon xc="15.000000000000002 13.542668033594992 15.000000000000002 16.45733196640501" yc="35 31.960641378492724 32.75 31.960641378492724" color="gray" opacity="100"/>
+<line xp1="25" yp1="5" xp2="25" yp2="27" sp="0.5" color="gray" opacity="100"/>
+<polygon xc="25 23.571498349115068 25 26.428501650884936" yc="30 25.95135754631234 27 25.95135754631234" color="gray" opacity="100"/>
+<line xp1="35" yp1="5" xp2="35" yp2="21.25" sp="0.6" color="gray" opacity="100"/>
+<polygon xc="35 31.414714293163943 35 38.58528570683606" yc="25 19.56522318402149 21.25 19.565223184021487" color="gray" opacity="100"/>
+<line xp1="45" yp1="5" xp2="45" yp2="15.5" sp="0.7" color="red" opacity="100"/>
+<polygon xc="45 41.45472631278749 45 48.54527368721251" yc="20 13.272305270162521 15.5 13.272305270162521" color="red" opacity="100"/>
+<line xp1="55" yp1="5" xp2="55" yp2="9" sp="0.8" color="blue" opacity="20"/>
+<polygon xc="55 53.43826238111394 55 56.56173761888606" yc="15 6.249390095108849 9 6.249390095108849" color="blue" opacity="20"/>
+<line xp1="95" yp1="40" xp2="95" yp2="7.25" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="95 96.46411396511854 95 93.53588603488146" yc="5 8.033511761578424 7.25 8.033511761578424" color="gray" opacity="100"/>
+<line xp1="85" yp1="40" xp2="85" yp2="12.25" sp="0.4" color="gray" opacity="100"/>
+<polygon xc="85 86.45733196640501 85 83.54266803359499" yc="10 13.039358621507276 12.25 13.039358621507276" color="gray" opacity="100"/>
+<line xp1="75" yp1="40" xp2="75" yp2="18" sp="0.5" color="gray" opacity="100"/>
+<polygon xc="75 76.42850165088494 75 73.57149834911506" yc="15 19.04864245368766 18 19.04864245368766" color="gray" opacity="100"/>
+<line xp1="65" yp1="40" xp2="65" yp2="23.75" sp="0.6" color="gray" opacity="100"/>
+<polygon xc="65 68.58528570683606 65 61.41471429316394" yc="20 25.434776815978513 23.75 25.43477681597851" color="gray" opacity="100"/>
+<line xp1="55" yp1="40" xp2="55" yp2="29.5" sp="0.7" color="red" opacity="100"/>
+<polygon xc="55 58.54527368721251 55 51.45472631278749" yc="25 31.72769472983748 29.5 31.72769472983748" color="red" opacity="100"/>
+<line xp1="45" yp1="40" xp2="45" yp2="36" sp="0.8" color="blue" opacity="20"/>
+<polygon xc="45 46.56173761888606 45 43.43826238111394" yc="30 38.75060990489115 36 38.75060990489115" color="blue" opacity="20"/>
+<ellipse xp="50" yp="45" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="50" yp="55" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="50" yp="65" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="50" yp="75" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="50" yp="85" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="50" yp="95" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="5" yp="5" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="15" yp="5" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="25" yp="5" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="35" yp="5" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="45" yp="5" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="55" yp="5" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="45" yp="40" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="55" yp="40" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="65" yp="40" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="75" yp="40" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="85" yp="40" wp="1.5" hr="100" color="gray"/>
+<ellipse xp="95" yp="40" wp="1.5" hr="100" color="gray"/>
+</slide>
+<slide>
+<ellipse xp="50" yp="50" wp="2" hr="100" color="blue"/>
+<line xp1="50" yp1="50" xp2="87.75" yp2="50" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="90 86.97082529772382 87.75 86.97082529772382" yc="50 51.46903941580359 50 48.53096058419641" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="12.25" yp2="50.00000000000001" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="10 13.029174702276187 12.25 13.029174702276187" yc="50.00000000000001 48.53096058419641 50.00000000000001 51.46903941580361" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="50" yp2="87.75" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="50 48.5309605841964 50 51.4690394158036" yc="90 86.97082529772382 87.75 86.97082529772382" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="50" yp2="12.25" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="50 51.4690394158036 50 48.5309605841964" yc="10 13.029174702276187 12.25 13.029174702276187" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="88.40900974233027" yp2="88.40900974233027" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="90 86.81862855772127 88.40900974233027 88.90986168259931" yc="90 88.90986168259931 88.40900974233027 86.81862855772125" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="11.59099025766973" yp2="11.59099025766973" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="10 13.181371442278746 11.59099025766973 11.090138317400694" yc="9.999999999999993 11.09013831740068 11.59099025766973 13.181371442278731" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="11.59099025766973" yp2="88.40900974233027" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="10 11.090138317400694 11.59099025766973 13.181371442278746" yc="90 86.81862855772127 88.40900974233027 88.90986168259931" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="88.40900974233027" yp2="11.59099025766973" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="90 88.90986168259931 88.40900974233027 86.81862855772127" yc="10 13.181371442278746 11.59099025766973 11.090138317400694" color="gray" opacity="100"/>
+<text align="c" xp="50" yp="93" sp="2" >up</text>
+<text align="c" xp="50" yp="7" sp="2" >down</text>
+<text align="e" xp="7" yp="49" sp="2" >left</text>
+<text xp="93" yp="49" sp="2" >right</text>
+<text align="c" xp="10" yp="90" sp="2" >upper left</text>
+<text align="c" xp="90" yp="90" sp="2" >upper right</text>
+<text align="c" xp="10" yp="10" sp="2" >lower left</text>
+<text align="c" xp="90" yp="10" sp="2" >lower right</text>
+</slide>
+<slide>
+<line xp1="50" yp1="70" xp2="28.181980515339465" yp2="91.81801948466054" sp="2" color="blue" opacity="100"/>
+<polygon xc="25 27.331340510049213 28.181980515339465 31.348785342055184" yc="95 88.65121465794482 91.81801948466054 92.66865948995078" color="blue" opacity="100"/>
+<line xp1="50" yp1="30" xp2="27.651650429449553" yp2="7.65165042944955" sp="1" color="gray" opacity="100"/>
+<polygon xc="25 30.29493534802433 27.651650429449553 26.909806486991386" yc="4.9999999999999964 6.909806486991382 7.65165042944955 10.294935348024325" color="gray" opacity="100"/>
+<line xp1="50" yp1="30" xp2="73.40900974233027" yp2="6.590990257669734" sp="0.5" color="gray" opacity="100"/>
+<polygon xc="75 73.89079942875156 73.40900974233027 71.81966242404314" yc="5 8.180337575956866 6.590990257669734 6.109200571248444" color="gray" opacity="100"/>
+<line xp1="50" yp1="70" xp2="73.40900974233027" yp2="93.40900974233027" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="75 71.81966242404314 73.40900974233027 73.89079942875156" yc="95 93.89079942875156 93.40900974233027 91.81966242404313" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="73.40900974233027" yp2="26.590990257669734" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="75 73.89079942875156 73.40900974233027 71.81966242404314" yc="25 28.180337575956866 26.590990257669734 26.109200571248444" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="26.590990257669734" yp2="26.59099025766973" sp="0.5" color="gray" opacity="100"/>
+<polygon xc="25 28.180337575956866 26.590990257669734 26.109200571248447" yc="24.999999999999996 26.10920057124844 26.59099025766973 28.18033757595686" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="27.121320343559642" yp2="72.87867965644037" sp="1" color="gray" opacity="100"/>
+<polygon xc="25 26.50277011120102 27.121320343559642 29.23855797208892" yc="75 70.76144202791109 72.87867965644037 73.49722988879898" color="gray" opacity="100"/>
+<line xp1="50" yp1="50" xp2="71.81801948466054" yp2="71.81801948466054" sp="2" color="green" opacity="100"/>
+<polygon xc="75 68.65121465794482 71.81801948466054 72.66865948995078" yc="75 72.66865948995078 71.81801948466054 68.65121465794482" color="green" opacity="100"/>
+<ellipse xp="50" yp="30" wp="1.5" hr="100" color="red"/>
+<ellipse xp="50" yp="50" wp="1.5" hr="100" color="red"/>
+<ellipse xp="50" yp="70" wp="1.5" hr="100" color="red"/>
+<ellipse xp="25" yp="05" wp="1.5" hr="100" color="red"/>
+<ellipse xp="25" yp="25" wp="1.5" hr="100" color="red"/>
+<ellipse xp="25" yp="75" wp="1.5" hr="100" color="red"/>
+<ellipse xp="25" yp="95" wp="1.5" hr="100" color="red"/>
+<ellipse xp="75" yp="05" wp="1.5" hr="100" color="red"/>
+<ellipse xp="75" yp="25" wp="1.5" hr="100" color="red"/>
+<ellipse xp="75" yp="75" wp="1.5" hr="100" color="red"/>
+<ellipse xp="75" yp="95" wp="1.5" hr="100" color="red"/>
+</slide>
+<slide>
+<curve xp1="50" yp1="70" xp2="50" yp2="95" xp3="29.5" yp3="95" sp="2" color="blue" opacity="100"/>
+<polygon xc="25 31 29.5 31" yc="95 98 95 92" color="blue" opacity="100"/>
+<curve xp1="50" yp1="30" xp2="50" yp2="05" xp3="28.75" yp3="5" sp="1" color="gray" opacity="100"/>
+<polygon xc="25 30 28.75 30" yc="5 7.5 5 2.5" color="gray" opacity="100"/>
+<curve xp1="50" yp1="30" xp2="50" yp2="05" xp3="72.75" yp3="5" sp="0.5" color="gray" opacity="100"/>
+<polygon xc="75 72 72.75 72" yc="5 6.5 5 3.5" color="gray" opacity="100"/>
+<curve xp1="50" yp1="70" xp2="50" yp2="95" xp3="72.75" yp3="95" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="75 72 72.75 72" yc="95 96.5 95 93.5" color="gray" opacity="100"/>
+<curve xp1="50" yp1="50" xp2="75" yp2="50" xp3="75" yp3="27.25" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="75 76.5 75 73.5" yc="25 28 27.25 28" color="gray" opacity="100"/>
+<curve xp1="50" yp1="50" xp2="25" yp2="50" xp3="25" yp3="27.25" sp="0.5" color="gray" opacity="100"/>
+<polygon xc="25 26.5 25 23.5" yc="25 28 27.25 28" color="gray" opacity="100"/>
+<curve xp1="50" yp1="50" xp2="25" yp2="50" xp3="25" yp3="72" sp="1" color="gray" opacity="100"/>
+<polygon xc="25 27 25 23" yc="75 71 72 71" color="gray" opacity="100"/>
+<curve xp1="50" yp1="50" xp2="75" yp2="50" xp3="75" yp3="70.5" sp="2" color="green" opacity="100"/>
+<polygon xc="75 78 75 72" yc="75 69 70.5 69" color="green" opacity="100"/>
+<ellipse xp="50" yp="30" wp="1.5" hr="100" color="red"/>
+<ellipse xp="50" yp="50" wp="1.5" hr="100" color="red"/>
+<ellipse xp="50" yp="70" wp="1.5" hr="100" color="red"/>
+<ellipse xp="25" yp="05" wp="1.5" hr="100" color="red"/>
+<ellipse xp="25" yp="25" wp="1.5" hr="100" color="red"/>
+<ellipse xp="25" yp="75" wp="1.5" hr="100" color="red"/>
+<ellipse xp="25" yp="95" wp="1.5" hr="100" color="red"/>
+<ellipse xp="75" yp="05" wp="1.5" hr="100" color="red"/>
+<ellipse xp="75" yp="25" wp="1.5" hr="100" color="red"/>
+<ellipse xp="75" yp="75" wp="1.5" hr="100" color="red"/>
+<ellipse xp="75" yp="95" wp="1.5" hr="100" color="red"/>
+</slide>
+<slide bg="white" fg="black">
+<text align="c" xp="50" yp="87" sp="5" >Deck elements</text>
+<image name="follow.jpg" caption="Dreams" xp="72" yp="50" width="640" height="480" scale="58" link="https://budnitzbicycles.com"/>
+<text type="block" xp="55" yp="35" wp="10" sp="1" font="serif" color="white">Budnitz #1, Plainfield, NJ, May 10, 2015</text>
+<list type="bullet" xp="10" yp="75" sp="3" >
+<li>text, image, list</li>
+<li>rect, ellipse, polygon</li>
+<li>line, arc, curve</li>
+</list>
+<rect xp="15" yp="10" wp="8" hp="6" color="red"/>
+<ellipse xp="27.5" yp="10" wp="8" hp="6" color="blue"/>
+<polygon xc="37 37 45" yc="7 13 10" color="green"/>
+<line xp1="50" yp1="10" xp2="60" yp2="10" sp="0.25" color="red"/>
+<arc xp="70" yp="10" wp="10" hp="8" a1="0" a2="180" sp="0.25" color="blue"/>
+<curve xp1="80" yp1="10" xp2="95" yp2="25" xp3="90" yp3="10" sp="0.25" color="green"/>
+<text xp="26.00" yp="45.60" sp="1.50" align="center" wp="0.00" font="sans" opacity="100.00" color="black" type="">AAPL Volume (Millions)</text><line xp1="10.00" yp1="28.00" xp2="10.00" yp2="38.26" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="10.00" yp="39.26" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">679.9</text><text xp="10.00" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2017-09-01</text><line xp1="12.91" yp1="28.00" xp2="12.91" yp2="35.61" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="12.91" yp="36.61" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">504.3</text><line xp1="15.82" yp1="28.00" xp2="15.82" yp2="37.06" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="15.82" yp="38.06" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">600.7</text><text xp="15.82" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2017-11-01</text><line xp1="18.73" yp1="28.00" xp2="18.73" yp2="36.01" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="18.73" yp="37.01" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">531.2</text><line xp1="21.64" yp1="28.00" xp2="21.64" yp2="37.95" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="21.64" yp="38.95" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">659.2</text><text xp="21.64" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018-01-01</text><line xp1="24.55" yp1="28.00" xp2="24.55" yp2="42.00" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="24.55" yp="43.00" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">927.9</text><line xp1="27.45" yp1="28.00" xp2="27.45" yp2="38.77" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="27.45" yp="39.77" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">713.7</text><text xp="27.45" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018-03-01</text><line xp1="30.36" yp1="28.00" xp2="30.36" yp2="38.05" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="30.36" yp="39.05" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">666.2</text><line xp1="33.27" yp1="28.00" xp2="33.27" yp2="37.32" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="33.27" yp="38.32" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">617.4</text><text xp="33.27" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018-05-01</text><line xp1="36.18" yp1="28.00" xp2="36.18" yp2="35.96" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="36.18" yp="36.96" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">527.3</text><line xp1="39.09" yp1="28.00" xp2="39.09" yp2="33.94" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="39.09" yp="34.94" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">393.7</text><text xp="39.09" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018-07-01</text><line xp1="42.00" yp1="28.00" xp2="42.00" yp2="30.47" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="42.00" yp="31.47" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">163.8</text></slide>
+<slide bg="white" fg="black">
+<text align="c" xp="50" yp="87" sp="5" >Deck elements</text>
+<image name="follow.jpg" caption="Dreams" xp="72" yp="50" width="640" height="480" scale="58" link="https://budnitzbicycles.com"/>
+<text type="block" xp="55" yp="35" wp="10" sp="1" font="serif" color="white">Budnitz #1, Plainfield, NJ, May 10, 2015</text>
+<list type="bullet" xp="10" yp="75" sp="3" >
+<li>text, image, list</li>
+<li>rect, ellipse, polygon</li>
+<li>line, arc, curve</li>
+</list>
+<rect xp="15" yp="10" wp="8" hp="6" color="red"/>
+<ellipse xp="27.5" yp="10" wp="8" hp="6" color="blue"/>
+<polygon xc="37 37 45" yc="7 13 10" color="green"/>
+<line xp1="50" yp1="10" xp2="60" yp2="10" sp="0.25" color="red"/>
+<arc xp="70" yp="10" wp="10" hp="8" a1="0" a2="180" sp="0.25" color="blue"/>
+<curve xp1="80" yp1="10" xp2="95" yp2="25" xp3="90" yp3="10" sp="0.25" color="green"/>
+<text align="c" xp="50" yp="95" sp="5" font="serif" color="gray" opacity="30">text</text>
+<text align="c" xp="72" yp="80" sp="5" font="serif" color="gray" opacity="30">image</text>
+<text align="c" xp="25" yp="80" sp="5" font="serif" color="gray" opacity="30">list</text>
+<text align="c" xp="25" yp="50" sp="5" font="serif" color="gray" opacity="30">chart</text>
+<text align="c" xp="15" yp="17" sp="2" font="serif" color="gray">rect</text>
+<text align="c" xp="27.5" yp="17" sp="2" font="serif" color="gray">ellipse</text>
+<text align="c" xp="40" yp="17" sp="2" font="serif" color="gray">polygon</text>
+<text align="c" xp="55" yp="17" sp="2" font="serif" color="gray">line</text>
+<text align="c" xp="70" yp="17" sp="2" font="serif" color="gray">arc</text>
+<text align="c" xp="85" yp="17" sp="2" font="serif" color="gray">curve</text>
+<text xp="26.00" yp="45.60" sp="1.50" align="center" wp="0.00" font="sans" opacity="100.00" color="black" type="">AAPL Volume (Millions)</text><line xp1="10.00" yp1="28.00" xp2="10.00" yp2="38.26" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="10.00" yp="39.26" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">679.9</text><text xp="10.00" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2017-09-01</text><line xp1="12.91" yp1="28.00" xp2="12.91" yp2="35.61" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="12.91" yp="36.61" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">504.3</text><line xp1="15.82" yp1="28.00" xp2="15.82" yp2="37.06" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="15.82" yp="38.06" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">600.7</text><text xp="15.82" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2017-11-01</text><line xp1="18.73" yp1="28.00" xp2="18.73" yp2="36.01" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="18.73" yp="37.01" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">531.2</text><line xp1="21.64" yp1="28.00" xp2="21.64" yp2="37.95" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="21.64" yp="38.95" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">659.2</text><text xp="21.64" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018-01-01</text><line xp1="24.55" yp1="28.00" xp2="24.55" yp2="42.00" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="24.55" yp="43.00" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">927.9</text><line xp1="27.45" yp1="28.00" xp2="27.45" yp2="38.77" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="27.45" yp="39.77" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">713.7</text><text xp="27.45" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018-03-01</text><line xp1="30.36" yp1="28.00" xp2="30.36" yp2="38.05" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="30.36" yp="39.05" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">666.2</text><line xp1="33.27" yp1="28.00" xp2="33.27" yp2="37.32" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="33.27" yp="38.32" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">617.4</text><text xp="33.27" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018-05-01</text><line xp1="36.18" yp1="28.00" xp2="36.18" yp2="35.96" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="36.18" yp="36.96" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">527.3</text><line xp1="39.09" yp1="28.00" xp2="39.09" yp2="33.94" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="39.09" yp="34.94" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">393.7</text><text xp="39.09" yp="26.00" sp="0.80" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">2018-07-01</text><line xp1="42.00" yp1="28.00" xp2="42.00" yp2="30.47" sp="1.50" opacity="100.00" color="lightsteelblue"/><text xp="42.00" yp="31.47" sp="0.75" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">163.8</text></slide>
+</deck>

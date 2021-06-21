@@ -223,6 +223,14 @@ deck
 		efor
 	eslide
 
+	// Stars
+	slide
+		ctext "Stars" 50 90 5
+		star 20 50 5 5 15
+		star 50 50 5 5 15 "red"
+		star 80 50 5 5 15 "red" 20
+	eslide
+
 	// Rounded Rectangles
 	slide
 		ctext "Pill/Rounded Rectangles" 50 90 5
