@@ -6,7 +6,7 @@ deck
 	titlesize=5
 	ts=titlesize*0.7
 	namesize=titlesize/3
-	spotsize=0.5
+	spotsize=0.7
 	spotop=100
 	cx=50
 	sep=5
@@ -588,42 +588,42 @@ deck
 	slide
 		lx=left+sep
 		gtop=top
-		text "Graphics" left top titlesize "serif"
+		text "Graphics (shapes)" left top titlesize "serif"
 
-		row1=gtop-10
+		row1=gtop-20
 		r1a=row1-15
-		row2=gtop-40
+		row2=gtop-50
 		row3=gtop-60
 		grcolor="rgb(200,200,200)"
 		lw=0.4
+		colsize=25
 
 
-		gtop-=20
+		gtop-=30
 		r1a=gtop-sep
 		r1b=r1a-3
 		ctext "rect"	lx gtop ts "mono" spotcolor
 		ctext "x y w h [color] [op]" lx r1a apisize "serif" apicolor
 		rect lx row1 10 5 grcolor
 		circle lx row1 spotsize spotcolor spotop
-		lx+=25
+		lx+=colsize
 
 		ctext "rrect"  lx gtop ts "mono" spotcolor
 		ctext "x y w h r [color]" lx r1a apisize "serif" apicolor
 		rrect lx row1 10 5 2 grcolor
 		circle lx row1 spotsize spotcolor spotop
-		lx+=25
+		lx+=colsize
 
 		ctext "square"	lx gtop ts "mono" spotcolor
 		ctext "x y w [color] [op]" lx r1a apisize "serif" apicolor
 		square lx row1 6 grcolor
 		circle lx row1 spotsize spotcolor spotop
-		lx+=25
+		lx+=colsize
 
 		ctext "ellipse"	lx gtop ts "mono" spotcolor
 		ctext "x y w h [color] [op]" lx r1a apisize "serif" apicolor
 		ellipse lx row1 10 5 grcolor
 		circle lx row1 spotsize spotcolor spotop
-
 
 		gtop-=29
 		lx=left+sep
@@ -633,67 +633,82 @@ deck
 		ctext "x y w [color] [op]" lx r2a apisize "serif" apicolor
 		circle lx row2 4 grcolor
 		circle lx row2 spotsize spotcolor spotop
-		lx+=25
+		lx+=colsize
 
+		polyt=row2+10
 		ctext "polygon"	lx gtop ts "mono" spotcolor
 		ctext `"xc" "yc" [color] [op]` lx r2a apisize "serif" apicolor
-		polygon "35 40 45" "45 50 45" grcolor
-		circle  35 45 spotsize spotcolor spotop
-		circle  40 50 spotsize spotcolor spotop
-		circle  45 45 spotsize spotcolor spotop
-		lx+=25
-
-		ctext "arc"		lx gtop ts "mono" spotcolor
-		ctext "x y w h a1 a2 [lw] [color] [op]" lx r2a apisize "serif" apicolor
-		arc 65 row2 10 10 0 180 lw grcolor
-		circle 65 row2 spotsize spotcolor spotop
-		lx+=25
-
-		ctext "curve"	lx gtop ts "mono" spotcolor
-		ctext "bx by cx cy ex ey [lw] [color] [op]" lx r2a apisize "serif" apicolor
-		curve 85 row2  85 55  95 row2 lw grcolor
-		circle 85 row2 spotsize spotcolor spotop
-		circle 85 55   spotsize spotcolor spotop
-		circle 95 row2 spotsize spotcolor spotop
-
-		lx=left+sep
-		gtop-=27
-		r3a=gtop-sep
+		polygon "35 40 45" "row2 polyt row2" grcolor
+		circle  35 row2 spotsize spotcolor spotop
+		circle  40 polyt spotsize spotcolor spotop
+		circle  45 row2 spotsize spotcolor spotop
+		lx+=colsize
 
 		ctext "pill"   lx gtop  ts "mono" spotcolor
-		ctext "x y w h [color]" lx r3a apisize "serif" apicolor
-		pill 10 20 10 4 grcolor
-		circle 10 20 spotsize spotcolor
-		lx+=25
+		ctext "x y w h [color]" lx r2a apisize "serif" apicolor
+		pill 60 row2 10 4 grcolor
+		circle 60 row2 spotsize spotcolor
 
-		ctext "line"	lx gtop ts "mono" spotcolor
-		ctext "x1 y2 x2 y2 [lw] [color] [op]" lx r3a apisize "serif" apicolor
-		line 35 25 45 15 lw grcolor
-		circle 35 25 spotsize spotcolor
-		circle 45 15 spotsize spotcolor spotop
-		lx+=25
-
-		ctext "hline"	lx gtop ts "mono" spotcolor
-		ctext "x y len [lw] [color] [op]" lx r3a apisize "serif" apicolor
-		hline 60 20 8 lw grcolor
-		circle 60 20 spotsize spotcolor spotop
-
-		lx+=25
-		ctext "vline"			lx gtop ts "mono" spotcolor
-		ctext "x y len [lw] [color] [op]" lx r3a apisize "serif" apicolor
-		vline 90 17 8 lw grcolor
-		circle 90 17 spotsize spotcolor spotop
+		lx+=colsize
+		ctext "star"   lx gtop ls "mono" spotcolor
+		ctext "x y nsides inner outer [color] [op]" lx r2a apisize "serif" apicolor
+		star lx row2 5 1 3 "rgb(140,140,140)" 70
+		circle lx row2 spotsize spotcolor
 	eslide
 
+
 	slide
-		text "Stars" left top titlesize "serif"
-		lx=left+10
-		gtop=top-40
-		r3a=gtop-5
-		ctext "star" lx gtop ts "mono" spotcolor
-		ctext "x y nsides inner outer [color] [op]" lx r3a apisize "serif" apicolor
-		star lx 60 5 2.5 7.5 grcolor 70
-		circle lx 60 spotsize spotcolor
+		gtop=top
+		gtop-=30
+		lx=left+sep
+
+		text "Graphics (lines)" left top titlesize "serif"
+
+		ctext "arc"		lx gtop ts "mono" spotcolor
+		ctext "x y w h a1 a2 [lw] [color] [op]" lx r1a apisize "serif" apicolor
+		arc lx row1 10 10 0 180 lw grcolor
+		circle lx row1 spotsize spotcolor spotop
+		lx+=colsize
+
+		cc1x=lx-10
+		cc2x=lx+10
+		cc3x=lx+12
+		cc3y=row1+15
+		ctext "curve"	lx gtop ts "mono" spotcolor
+		ctext "bx by cx cy ex ey [lw] [color] [op]" lx r1a apisize "serif" apicolor
+		curve cc1x row1 cc3x cc3y cc2x row1 lw grcolor
+		circle cc1x row1   spotsize spotcolor spotop
+		circle cc3x cc3y   spotsize spotcolor spotop
+		circle cc2x row1 spotsize spotcolor spotop
+		lx+=colsize
+
+
+		lix1=lx-5
+		liy1=cc3y
+		lix2=lx+5
+		liy2=row1
+		ctext "line"	lx gtop ts "mono" spotcolor
+		ctext "x1 y2 x2 y2 [lw] [color] [op]" lx r1a apisize "serif" apicolor
+		line lix1 liy1 lix2 liy2 lw grcolor
+		circle lix1 liy1 spotsize spotcolor
+		circle lix2 liy2 spotsize spotcolor spotop
+		lx+=colsize
+
+		hlx=lx-5
+		ctext "hline"	lx gtop ts "mono" spotcolor
+		ctext "x y len [lw] [color] [op]" lx r1a apisize "serif" apicolor
+		hline  hlx row1 8 lw grcolor
+		circle hlx row1 spotsize spotcolor spotop
+
+		gtop-=29
+		lx=left+sep
+		r2a=gtop-sep
+
+		vly=row2
+		ctext "vline"			lx gtop ts "mono" spotcolor
+		ctext "x y len [lw] [color] [op]" lx r2a apisize "serif" apicolor
+		vline  lx vly 8 lw grcolor
+		circle lx vly spotsize spotcolor spotop
 	eslide
 
 	// Braces
