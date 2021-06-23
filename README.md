@@ -82,7 +82,7 @@ Text, font, color, caption and link arguments follow Go convetions (surrounded b
 Colors are in rgb format ("rgb(n,n,n)"), hex ("#rrggbb"), or [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
 
 Coordinates, dimensions, scales and opacities are floating point numbers ranging from from 0-100 
-(they represent percentages on the canvas and percent opacity).  Some arguments are optional, and 
+(they represent percentages on the canvas width and percent opacity).  Some arguments are optional, and 
 if omitted defaults are applied (black for text, gray for graphics, 100% opacity).
 
 Canvas size and image dimensions are in pixels.
@@ -186,8 +186,6 @@ Assign a string variable with formatted text (using package fmt floating point f
 	s1=format "Widget 2: %.3f" w2
 	st=format "Total Widgets: %v" s1+w2
 
-
-
 ## Loops
 
 Loop over ```statements```, with ```x``` starting at ```begin```, ending at ```end``` with an optional ```increment``` (if omitted the increment is 1). 
@@ -214,8 +212,7 @@ Substitution of ```x``` will occur in statements.
 
 ## Text
 
-Left, centered, end, or block-aligned text or a file's contents with 
-optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
+Left, centered, end, or block-aligned text (```x``` and ```y``` are the text's reference point), or a file's contents with  optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
 
     text       "text"     x y size       [font] [color] [opacity] [link]
     ctext      "text"     x y size       [font] [color] [opacity] [link]
@@ -226,7 +223,7 @@ Text rotated along the specified angle (in degrees)
 
     rtext      "text"     x y angle size [font] [color] [opacity] [link]
 
-Text on an arc centered at (x,y), with specified radius, between begin and ending angles (in degrees).
+Text on an arc centered at ```(x,y)```, with specified radius, between begin and ending angles (in degrees).
 if the beginning angle is less than the ending angle the text is rendered counter-clockwise.
 if the beginning angle is greater than the ending angle, the text is rendered clockwise.
 
@@ -239,7 +236,8 @@ Place the contents of "filename" at (x,y). Place the contents of "filename" in g
 
 ## Images
 
-Plain and captioned, with optional scales, links and caption size
+Plain and captioned, with optional scales, links and caption size. ```(x, y)``` is the center of the image,
+and ```width``` and ```height``` are the image dimensions in pixels.
 
     image  "file"           x y width height [scale] [link]
     cimage "file" "caption" x y width height [scale] [link] [size]
@@ -260,13 +258,13 @@ Plain and captioned, with optional scales, links and caption size
 
 ## Graphics
 
-Rectangles, ellipses, squares, circles: specify the location and dimensions with optional color and opacity.
+Rectangles, ellipses, squares, circles: specify the center location ```(x, y)``` and 
+dimensions ```(w,h)``` with optional color and opacity.
 The default color and opacity is gray, 100%.  In the case of the ```acircle``` keyword, the ```a``` argument
 is the area, not the diameter.
 
     rect    x y w h [color] [opacity]
     ellipse x y w h [color] [opacity]
-
 
     square  x y w   [color] [opacity]
     circle  x y w   [color] [opacity]
@@ -280,7 +278,7 @@ For polygons, specify the x and y coordinates as a series of numbers, with optio
 
     polygon "xcoords" "ycoords" [color] [opacity]
 
-Note that the coordinate may be either discrete:
+Note that the coordinates may be either discrete:
 
     polygon "10 20 30" "50 60 50"
 
@@ -298,23 +296,30 @@ A combination of constants and substitution is also allowed.
 
     polygon "20 x2 30" "50 y2 50"
 
-For lines, specify the coordinates for the beginning and end points. 
-For horizonal and vertical lines specify the initial point and the length.
-Line thickness, color and opacity are optional, with defaults.
+For lines, specify the coordinates for the beginning ```(x1,y1)``` and end points ```(x2, y2)```. 
+For horizontal and vertical lines specify the initial point and the length.
+Line thickness, color and opacity are optional, with defaults (0.2, gray, 100%).
 
-A "pill" shape has is a line with rounded ends.
+A "pill" shape has is a horizontal line with rounded ends.
 
     line    x1 y1 x2 y2 [size] [color] [opacity]
     hline   x y length  [size] [color] [opacity]
     vline   x y length  [size] [color] [opacity]
     pill    x w length  size   [color]
 
-Curve is a quadratic bezier: specify the beginning location, the control point, and ending location.
-For arcs, specify the location of the center point, the width and height, and the beginning and ending angles.
-Line thickness, color and opacity are optional, with defaults (0.2, gray, 100%).
+Curve is a quadratic Bezier curve: specify the beginning location ```(bx, by)```, 
+the control point ```(cx, cy)```, and ending location ```(ex, ey)```.
 
-    curve   x1 y1 x2 y2 x3 y3 [size] [color] [opacity]
+For arcs, specify the location of the center point ```(x,y)```, the width and height, and the beginning and ending angles (in degrees). Line thickness, color and opacity are optional, with defaults (0.2, gray, 100%).
+
+    curve   bx by cx cy ex ey [size] [color] [opacity]
     arc     x y w h a1 a2     [size] [color] [opacity]
+
+To make n-sided stars, use the "star" keyword: ```(x,y)``` is the center of the star, 
+```np``` is the number of points, and ```inner``` and ```outer``` are the sizes of
+the inner and outer points, respectively.
+
+    star    x y np inner outer [color] [opacity]
 
 ## Arrows
 
@@ -323,10 +328,10 @@ Default linewidth is 0.2, default arrow width and height is 3, default color and
 The curve variants use the same syntax for specifying curves.
 
     arrow   x1 y1 x2 y2       [linewidth] [arrowidth] [arrowheight] [color] [opacity]
-    lcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
-    rcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
-    ucarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
-    dcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+    lcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+    rcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+    ucarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+    dcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 
 ## Braces
 
