@@ -584,7 +584,7 @@ deck
 		elist
 	eslide
 
-	// Graphics
+	// Graphics (shapes)
 	slide
 		lx=left+sep
 		gtop=top
@@ -656,7 +656,7 @@ deck
 		circle lx row2 spotsize spotcolor
 	eslide
 
-
+	// Graphics (lines)
 	slide
 		gtop=top
 		gtop-=30
@@ -682,32 +682,33 @@ deck
 		circle cc2x row1 spotsize spotcolor spotop
 		lx+=colsize
 
+		gtop-=29
+		lx=left+sep
+		r2a=gtop-sep
 
 		lix1=lx-5
-		liy1=cc3y
+		liy1=row2+10
 		lix2=lx+5
-		liy2=row1
+		liy2=row2
 		ctext "line"	lx gtop ts "mono" spotcolor
-		ctext "x1 y2 x2 y2 [lw] [color] [op]" lx r1a apisize "serif" apicolor
+		ctext "x1 y2 x2 y2 [lw] [color] [op]" lx r2a apisize "serif" apicolor
 		line lix1 liy1 lix2 liy2 lw grcolor
 		circle lix1 liy1 spotsize spotcolor
 		circle lix2 liy2 spotsize spotcolor spotop
 		lx+=colsize
 
 		hlx=lx-5
+		ll=10
 		ctext "hline"	lx gtop ts "mono" spotcolor
-		ctext "x y len [lw] [color] [op]" lx r1a apisize "serif" apicolor
-		hline  hlx row1 8 lw grcolor
-		circle hlx row1 spotsize spotcolor spotop
-
-		gtop-=29
-		lx=left+sep
-		r2a=gtop-sep
+		ctext "x y len [lw] [color] [op]" lx r2a apisize "serif" apicolor
+		hline  hlx row2 ll lw grcolor
+		circle hlx row2 spotsize spotcolor spotop
+		lx+=colsize
 
 		vly=row2
-		ctext "vline"			lx gtop ts "mono" spotcolor
+		ctext "vline"	lx gtop ts "mono" spotcolor
 		ctext "x y len [lw] [color] [op]" lx r2a apisize "serif" apicolor
-		vline  lx vly 8 lw grcolor
+		vline  lx vly ll lw grcolor
 		circle lx vly spotsize spotcolor spotop
 	eslide
 
