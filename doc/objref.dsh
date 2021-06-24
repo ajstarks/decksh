@@ -1,0 +1,431 @@
+deck
+	ts=3.5
+	ls=ts*0.55
+	cx=50
+	ey=20
+	ely=ey-10
+
+	pgx=50
+	pgy=5
+	pgfmt="[%0.f]"
+	pgs=1.2
+	pagecolor="gray"
+	accentcolor="red"
+
+	slide
+		ctext "decksh reference" 50 80 7
+		list 15 70 ls
+			li "Line"
+			li "Horizontal line"
+			li "Vertical line"
+			li "Circle"
+			li "Square"
+			li "Rectangle"
+			li "Rounded rectangle"
+			li "Pill shape"
+			li "Ellipse"
+			li "Quadratic Bezier curve"
+			li "Elliptical arc"
+			li "Polygon"
+			li "N-sided star"
+		elist
+		list 40 70 ls "mono" "maroon"
+			li "line"
+			li "hline"
+			li "vline"
+			li "circle"
+			li "square"
+			li "rect"
+			li "rrect"
+			li "pill"
+			li "ellipse"
+			li "curve"
+			li "arc"
+			li "polygon"
+			li "star"
+		elist
+
+		list 50 70 ls "mono"
+			li "x1 y1 x2 y2 lw [color] [opacity]"
+			li "x y length [lw] [color] [opacity]"
+			li "x y length [lw] [color] [opacity]"
+			li "x y w [color] [opacity]"
+			li "x y w [color] [opacity]"
+			li "x y w h [color] [opacity]"
+			li "x y w h [color]"
+			li "x y w h [color]"
+			li "x y w h [color] [opacity]"
+			li "bx by cx cy ex ey [lw] [color] [opacity]"
+			li "x y w h a1 a2 [lw] [color] [opacity]"
+			li ` "x1 x2...xn" "y1 y2...yn" [lw] [color] [opacity]`
+			li "x y nsides inner outer [color] [opacity]"
+		elist
+
+	eslide
+
+	page=1
+	slide
+		y=70
+		cy=y-10
+		ly=cy-15
+		lw=3
+		line 20 y 80 y lw "black" 30
+		circle 20 y lw accentcolor
+		circle 80 y lw accentcolor
+		ctext "(x1,y1)" 20 cy ts "mono"
+		ctext "(x2,y2)" 80 cy ts "mono"
+		ctext "line x1 y1 x2 y2 lw [color] [opacity]" 50 ly ts "mono"
+		ctext "lw" 85 69 ts "mono"
+
+		line 10 20 30 20
+		ctext "line 10 20 30 20" 20 10 ls "mono"
+
+		line 40 20 60 30 0.5
+		ctext "line 40 20 60 30 0.5" 50 10 ls "mono"
+
+		line 70 20 95 30 1.5 accentcolor
+		ctext `line 70 20 95 30 1.5 "red"` 82 10 ls "mono"
+		pg=format pgfmt  page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		w=30
+		hline 35 y w lw "black" 30
+		circle 35 y lw accentcolor
+		ctext "(x,y)" 35 65 ts "mono"
+		ctext "hline x y w [lw] [color] [opacity]" cx ly ts "mono"
+		hline 35 75 w
+		ctext "w" 50 77 ts "mono"
+		ctext "lw" 68 69 ts "mono"
+
+		hline 15 ey 10
+		ctext "hline 15 20 10" 20 ely ls "mono"
+
+		hline 40 ey 20 1
+		ctext "hline 40 20 20 1" 50 ely ls "mono"
+
+		hline 70 ey 20 5 accentcolor 20
+		ctext `hline 70 20 20 5 "red" 20` 80 ely ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		vline 50 y 20 lw "black" 30
+		circle 50 y 3 accentcolor
+		ctext "vline x y h [lw] [color] [opacity]" cx ly ts "mono"
+		ctext "(x,y)" 50 65 ts "mono"
+		ctext "lw" 50 92 ts "mono"
+		vline 45 y 20
+		ctext "h" 42 80 ts "mono"
+
+		vline 20 ey 15
+		ctext `vline 20 20 15` 20 ely ls "mono"
+
+		vline 50 ey 15 2
+		ctext "vline 50 20 15 2" 50 ely ls "mono"
+
+		vline 80 ey 15 10 accentcolor 20
+		ctext `vline 80 20 15 10 "red" 20` 80 ely ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		y=70
+		cy=y-5
+		dy=y+5
+		ly=cy-20
+		d=20
+		r=d/2
+		dx=cx-r
+		circle cx y d "black" 30
+		circle cx y 2 accentcolor
+		ctext "(x,y)" 50 cy ts "mono"
+		hline 40 85 d
+		ctext "w" cx 87 ts "mono"
+		ctext "circle x y w [color] [opacity]" cx ly ts "mono"
+
+		circle 20 20 10
+		ctext "circle 20 20 10" 20 10 ls "mono"
+
+		circle cx 20 10 accentcolor
+		ctext `circle 50 20 10 "red"` 50 10 ls "mono"
+
+		circle 80 20 5 accentcolor 20
+		ctext `circle 80 20 5 "red" 20` 80 10 ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		cx=50
+		y=70
+		cy=y-5
+		dy=y+5
+		ly=cy-20
+		d=20
+		r=d/2
+		dx=cx-r
+		square cx y d "black" 30
+		circle cx y 2 accentcolor
+		ctext "(x,y)" 50 cy ts "mono"
+		hline 40 85 d
+		ctext "w" cx 87 3 "mono"
+		ctext "square x y w [color] [opacity]" cx ly ts "mono"
+
+		square 20 20 10
+		ctext "square 20 20 10" 20 10 ls "mono"
+
+		square cx 20 10 accentcolor
+		ctext `square 50 20 10 "red"` 50 10 ls "mono"
+
+		square 80 20 5 accentcolor 20
+		ctext `square 80 20 5 "red" 20` 80 10 ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		cx=50
+		y=70
+		cy=y-5
+		dy=y+5
+		ly=cy-20
+		d=30
+		r=d/2
+		dx=cx-r
+		w=d*2
+		rect cx y w d "black" 30
+		circle cx y 2 accentcolor
+		ctext "(x,y)" 50 cy ts "mono"
+		hline 20 90 w
+		ctext "w" 50 92 3 "mono"
+		vline 15 55 d
+		ctext "h" 12 y ts "mono"
+		ctext "rect x y w h [color] [opacity]" cx ly ts "mono"
+
+		rect 20 20 10 5
+		ctext "rect 20 20 10 5" 20 10 ls "mono"
+
+		rect cx 20 10  5 accentcolor
+		ctext `rect 50 20 10 5 "red"` 50 10 ls "mono"
+
+		rect 80 20 5 10 accentcolor 20
+		ctext `rect 80 20 5 10 "red" 20` 80 10 ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	
+	slide
+		cx=50
+		y=70
+		cy=y-5
+		dy=y+5
+		ly=cy-20
+		d=30
+		r=d/2
+		dx=cx-r
+		w=d*2
+		rr=3
+		rrect cx y w d rr "rgb(150,150,150)"
+		circle cx y 2 accentcolor
+		ctext "(x,y)" 50 cy ts "mono"
+		ctext "r" 20 83 ts "mono"
+		hline 20 90 w
+		ctext "w" 50 92 3 "mono"
+		vline 15 55 d
+		ctext "h" 12 y ts "mono"
+		ctext "rrect x y w h r [color] [opacity]" cx ly ts "mono"
+
+		rrect 20 20 10 5 1
+		ctext "rrect 20 20 10 5 1" 20 10 ls "mono"
+
+
+		rrect 80 20 5 10 1 accentcolor 
+		ctext `rrect 80 20 5 10 1 "red"` 80 10 ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		px=40
+		ph=10
+		y=70
+		cy=y-5
+		dy=y+5
+		ly=cy-20
+		d=30
+		r=d/2
+		dx=cx-r
+		pw=d*0.75
+		pill px y pw ph "rgb(150,150,150)"
+		circle px y 2 accentcolor
+		ctext "(x,y)" px cy ts "mono"
+		hline px 80 pw
+		ctext "w" 50 82 3 "mono"
+		vline 30 65 ph
+		ctext "h" 27 y ts "mono"
+		ctext "pill x y w h [color]" cx ly ts "mono"
+
+		pill 20 20 10 5
+		text "pill 20 20 10 5" 20 10 ls "mono"
+
+
+		pill 80 20 5 10 accentcolor
+		text `pill 80 20 5 10 "red"` 72 10 ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+
+	slide
+		cx=50
+		y=70
+		cy=y-5
+		dy=y+5
+		ly=cy-20
+		d=30
+		r=d/2
+		dx=cx-r
+		w=d*2
+		ellipse cx y w d "black" 30
+		circle cx y 2 accentcolor
+		ctext "(x,y)" 50 cy ts "mono"
+		hline 20 90 w
+		ctext "w" 50 92 3 "mono"
+		vline 15 55 d
+		ctext "h" 12 y ts "mono"
+		ctext "ellipse x y w h [color] [opacity]" cx ly ts "mono"
+
+		ellipse 20 20 10 5
+		ctext "ellipse 20 20 10 5" 20 10 ls "mono"
+
+		ellipse cx 20 10  5 accentcolor
+		ctext `ellipse 50 20 10 5 "red"` 50 10 ls "mono"
+
+		ellipse 80 20 5 10 accentcolor 20
+		ctext `ellipse 80 20 5 10 "red" 20` 80 10 ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+
+	slide
+		aw=30
+		ah=25
+		arc cx y aw ah  0 180 0.5
+		circle cx y 2 accentcolor
+		ctext "arc x y w h a1 a2 [lw] [color] [opacity]" cx ly ts "mono"
+		ctext "(x,y)" 50 cy ts "mono"
+		hline 35 90 aw
+		ctext "w" 50 92 ts "mono"
+		vline 30 y 15
+		ctext "h" 27 77 ts "mono"
+		text "a1" 65 cy ts "mono"
+		etext "a2"  35 cy ts "mono"
+
+		arc 20 ey 15 15 0 180
+		ctext "arc 20 20 15 15 0 180" 20 ely ls "mono"
+
+		arc 50 20 15 15 0 90 1	
+		ctext "arc 50 20 15 15 0 90 1" 50 ely ls "mono"
+
+		arc 80 20 5 5 0 180 5 accentcolor
+		ctext `arc 80 20 5 5 0 180 5 "red"` 80 ely ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		curve 30 y 75 95 65 y 0.5
+		circle 30 y 2 accentcolor
+		circle 65 y 2 accentcolor
+		circle 75 95 2 accentcolor
+		ctext "(bx,by)" 30 65 ts "mono"
+		ctext "(cx,cy)" 65 65 ts "mono"
+		ctext "(ex,ey)" 75 90 ts "mono"
+		ctext "curve bx by cx cy ex ey [lw] [color] [opacity]" cx ly ts "mono"
+
+		curve 15 ey 25 30 25 ey
+		ctext "curve 15 20 25 30 30 25" 20 ely ls "mono"
+
+		curve 45 ey 55 30 55 ey 1
+		ctext "curve 15 20 25 30 30 25" 50 ely ls "mono"
+
+		curve 70 ey 70 30 90 ey 0.5 accentcolor
+		ctext `curve 70 20 70 30 90 25 0.5 "red"` 80 ely ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		polygon "30 75 65" "y 95 y"
+		ctext "(x1,y1)" 30 65 ts "mono"
+		ctext "(x2,y2)" 65 65 ts "mono"
+		ctext "(x3,y3)" 75 95 ts "mono"
+		circle 30 y 2 accentcolor
+		circle 65 y 2 accentcolor
+		circle 75 95 2 accentcolor
+		ctext `polygon "x1 x2...xn" "y1 y2...yn" [color] [opacity]` cx ly ts "mono"
+
+		polygon "10 25 20" "ey 30 ey"
+		text `polygon "10 25 20" "20 30 20"` 5 ely ls "mono"
+
+		polygon "40 55 60" "ey 30 ey" accentcolor
+		ctext `polygon "40 55 60" "20 30 20" "red"` 55 ely ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+	slide
+		inner=5
+		outer=inner*3
+		iangle=90
+		oangle=162
+		star cx y 5 5 15 "black" 25
+		circle cx y 2 accentcolor
+		ctext "(x,y)" cx cy ts "mono"
+
+		ix=polarx cx y inner iangle
+		iy=polary cx y inner iangle
+
+		ox=polarx cx y outer oangle
+		oy=polary cx y outer oangle
+
+		circle ix iy 1 accentcolor
+		circle ox oy 1 accentcolor
+
+		line cx y ix iy 
+		line cx y ox oy
+		ctext "outer" 40 70 2
+		ctext "inner" 53 72 2
+		ctext "star x y nsides inner outer [color] [opacity]" cx ly ts "mono"
+
+
+		star 20 ey 5 2 6
+		ctext "star 20 20 5 2 6" 20 ely ls "mono"
+		star 50 ey 12 2 6 accentcolor
+		ctext `star 50 20 12 2 5 "red"` 50 ely ls "mono"
+		star 80 ey 24 2 8 accentcolor 20
+		ctext `star 80 ey 24 2 8 "red" 20` 80 ely ls "mono"
+		pg=format pgfmt page
+		ctext pg pgx pgy pgs "sans" pagecolor
+		page+=1
+	eslide
+
+edeck
