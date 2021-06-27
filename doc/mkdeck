@@ -11,4 +11,5 @@ mono="NotoMono-Regular"
 #mono="FiraMono-Regular"
 #serif="Charter-Regular"
 
-decksh decksh.dsh | pdfdeck  -author "Anthony Starks" -title "decksh overview" -pagesize 800,450 -sans $sans -mono $mono -serif $serif -stdout $*  - > decksh.pdf
+decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview" -pagesize 800,450 -sans $sans -mono $mono -serif $serif -stdout $*  - > decksh.pdf
+decksh objref.dsh | pdfdeck -author "Anthony Starks" -title "decksh object reference" -sans $sans -mono $mono -stdout $*  - > objref.pdf

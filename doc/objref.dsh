@@ -10,11 +10,13 @@ deck
 	pgfmt="[%0.f]"
 	pgs=1.2
 	pagecolor="gray"
-	accentcolor="red"
+	accentcolor="maroon"
+	rc=7
 
+	// Reference Page
 	slide
 		ctext "decksh reference" 50 80 7
-		list 15 70 ls
+		list rc 70 ls
 			li "Line"
 			li "Horizontal line"
 			li "Vertical line"
@@ -29,7 +31,8 @@ deck
 			li "Polygon"
 			li "N-sided star"
 		elist
-		list 40 70 ls "mono" "maroon"
+		rc+=24
+		list rc 70 ls "mono" "maroon"
 			li "line"
 			li "hline"
 			li "vline"
@@ -44,8 +47,8 @@ deck
 			li "polygon"
 			li "star"
 		elist
-
-		list 50 70 ls "mono"
+		rc+=12
+		list rc 70 ls "mono"
 			li "x1 y1 x2 y2 lw [color] [opacity]"
 			li "x y length [lw] [color] [opacity]"
 			li "x y length [lw] [color] [opacity]"
@@ -60,10 +63,11 @@ deck
 			li ` "x1 x2...xn" "y1 y2...yn" [lw] [color] [opacity]`
 			li "x y nsides inner outer [color] [opacity]"
 		elist
-
 	eslide
 
 	page=1
+
+	// Line
 	slide
 		y=70
 		cy=y-10
@@ -90,14 +94,15 @@ deck
 		page+=1
 	eslide
 
+	// hline
 	slide
 		w=30
 		hline 35 y w lw "black" 30
 		circle 35 y lw accentcolor
 		ctext "(x,y)" 35 65 ts "mono"
 		ctext "hline x y w [lw] [color] [opacity]" cx ly ts "mono"
-		hline 35 75 w
-		ctext "w" 50 77 ts "mono"
+		ubrace 50 77 w 2 2
+		ctext "w" 50 78 ts "mono"
 		ctext "lw" 68 69 ts "mono"
 
 		hline 15 ey 10
@@ -113,13 +118,14 @@ deck
 		page+=1
 	eslide
 
+	// vline
 	slide
 		vline 50 y 20 lw "black" 30
 		circle 50 y 3 accentcolor
 		ctext "vline x y h [lw] [color] [opacity]" cx ly ts "mono"
 		ctext "(x,y)" 50 65 ts "mono"
 		ctext "lw" 50 92 ts "mono"
-		vline 45 y 20
+		lbrace 45 80 20 2 2
 		ctext "h" 42 80 ts "mono"
 
 		vline 20 ey 15
@@ -135,6 +141,7 @@ deck
 		page+=1
 	eslide
 
+	// Circle
 	slide
 		y=70
 		cy=y-5
@@ -146,8 +153,8 @@ deck
 		circle cx y d "black" 30
 		circle cx y 2 accentcolor
 		ctext "(x,y)" 50 cy ts "mono"
-		hline 40 85 d
-		ctext "w" cx 87 ts "mono"
+		ubrace cx 87 d 2 2
+		ctext "w" cx 88 ts "mono"
 		ctext "circle x y w [color] [opacity]" cx ly ts "mono"
 
 		circle 20 20 10
@@ -163,6 +170,7 @@ deck
 		page+=1
 	eslide
 
+	// Square
 	slide
 		cx=50
 		y=70
@@ -175,8 +183,8 @@ deck
 		square cx y d "black" 30
 		circle cx y 2 accentcolor
 		ctext "(x,y)" 50 cy ts "mono"
-		hline 40 85 d
-		ctext "w" cx 87 3 "mono"
+		ubrace cx 87 d 2 2
+		ctext "w" cx 88 3 "mono"
 		ctext "square x y w [color] [opacity]" cx ly ts "mono"
 
 		square 20 20 10
@@ -192,6 +200,7 @@ deck
 		page+=1
 	eslide
 
+	// rect
 	slide
 		cx=50
 		y=70
@@ -205,9 +214,9 @@ deck
 		rect cx y w d "black" 30
 		circle cx y 2 accentcolor
 		ctext "(x,y)" 50 cy ts "mono"
-		hline 20 90 w
-		ctext "w" 50 92 3 "mono"
-		vline 15 55 d
+		ubrace 50 92 w 2 2
+		ctext "w" 50 93 3 "mono"
+		lbrace 15 y d 2 2
 		ctext "h" 12 y ts "mono"
 		ctext "rect x y w h [color] [opacity]" cx ly ts "mono"
 
@@ -224,7 +233,7 @@ deck
 		page+=1
 	eslide
 
-	
+	// rrect	
 	slide
 		cx=50
 		y=70
@@ -240,15 +249,14 @@ deck
 		circle cx y 2 accentcolor
 		ctext "(x,y)" 50 cy ts "mono"
 		ctext "r" 20 83 ts "mono"
-		hline 20 90 w
-		ctext "w" 50 92 3 "mono"
-		vline 15 55 d
+		ubrace 50 92 w 2 2
+		ctext "w" 50 93 3 "mono"
+		lbrace 15 y d 2 2
 		ctext "h" 12 y ts "mono"
 		ctext "rrect x y w h r [color] [opacity]" cx ly ts "mono"
 
 		rrect 20 20 10 5 1
 		ctext "rrect 20 20 10 5 1" 20 10 ls "mono"
-
 
 		rrect 80 20 5 10 1 accentcolor 
 		ctext `rrect 80 20 5 10 1 "red"` 80 10 ls "mono"
@@ -257,6 +265,7 @@ deck
 		page+=1
 	eslide
 
+	// pill
 	slide
 		px=40
 		ph=10
@@ -271,15 +280,14 @@ deck
 		pill px y pw ph "rgb(150,150,150)"
 		circle px y 2 accentcolor
 		ctext "(x,y)" px cy ts "mono"
-		hline px 80 pw
-		ctext "w" 50 82 3 "mono"
-		vline 30 65 ph
+		ubrace 50 82 pw 2 2
+		ctext "w" 50 83 3 "mono"
+		lbrace 29 y ph 2 2 
 		ctext "h" 27 y ts "mono"
 		ctext "pill x y w h [color]" cx ly ts "mono"
 
 		pill 20 20 10 5
 		text "pill 20 20 10 5" 20 10 ls "mono"
-
 
 		pill 80 20 5 10 accentcolor
 		text `pill 80 20 5 10 "red"` 72 10 ls "mono"
@@ -288,7 +296,7 @@ deck
 		page+=1
 	eslide
 
-
+	// ellipse
 	slide
 		cx=50
 		y=70
@@ -302,9 +310,9 @@ deck
 		ellipse cx y w d "black" 30
 		circle cx y 2 accentcolor
 		ctext "(x,y)" 50 cy ts "mono"
-		hline 20 90 w
-		ctext "w" 50 92 3 "mono"
-		vline 15 55 d
+		ubrace 50 92 w 2 2
+		ctext "w" 50 93 3 "mono"
+		lbrace 15 y d 2 2
 		ctext "h" 12 y ts "mono"
 		ctext "ellipse x y w h [color] [opacity]" cx ly ts "mono"
 
@@ -321,7 +329,7 @@ deck
 		page+=1
 	eslide
 
-
+	// arc
 	slide
 		aw=30
 		ah=25
@@ -329,9 +337,10 @@ deck
 		circle cx y 2 accentcolor
 		ctext "arc x y w h a1 a2 [lw] [color] [opacity]" cx ly ts "mono"
 		ctext "(x,y)" 50 cy ts "mono"
-		hline 35 90 aw
-		ctext "w" 50 92 ts "mono"
+		ubrace 50 92 aw 2 2
+		ctext "w" 50 93 ts "mono"
 		vline 30 y 15
+		lbrace 29 77 15 2 2
 		ctext "h" 27 77 ts "mono"
 		text "a1" 65 cy ts "mono"
 		etext "a2"  35 cy ts "mono"
@@ -349,14 +358,15 @@ deck
 		page+=1
 	eslide
 
+	// curve
 	slide
 		curve 30 y 75 95 65 y 0.5
 		circle 30 y 2 accentcolor
 		circle 65 y 2 accentcolor
-		circle 75 95 2 accentcolor
+		circle 70 90 2 accentcolor
 		ctext "(bx,by)" 30 65 ts "mono"
 		ctext "(cx,cy)" 65 65 ts "mono"
-		ctext "(ex,ey)" 75 90 ts "mono"
+		ctext "(ex,ey)" 70 92 ts "mono"
 		ctext "curve bx by cx cy ex ey [lw] [color] [opacity]" cx ly ts "mono"
 
 		curve 15 ey 25 30 25 ey
@@ -372,14 +382,15 @@ deck
 		page+=1
 	eslide
 
+	// polygon
 	slide
-		polygon "30 75 65" "y 95 y"
+		polygon "30 70 60" "y 90 y"
 		ctext "(x1,y1)" 30 65 ts "mono"
 		ctext "(x2,y2)" 65 65 ts "mono"
-		ctext "(x3,y3)" 75 95 ts "mono"
+		ctext "(x3,y3)" 70 92 ts "mono"
 		circle 30 y 2 accentcolor
-		circle 65 y 2 accentcolor
-		circle 75 95 2 accentcolor
+		circle 60 y 2 accentcolor
+		circle 70 90 2 accentcolor
 		ctext `polygon "x1 x2...xn" "y1 y2...yn" [color] [opacity]` cx ly ts "mono"
 
 		polygon "10 25 20" "ey 30 ey"
@@ -392,6 +403,7 @@ deck
 		page+=1
 	eslide
 
+	// star
 	slide
 		inner=5
 		outer=inner*3
@@ -415,7 +427,6 @@ deck
 		ctext "outer" 40 70 2
 		ctext "inner" 53 72 2
 		ctext "star x y nsides inner outer [color] [opacity]" cx ly ts "mono"
-
 
 		star 20 ey 5 2 6
 		ctext "star 20 20 5 2 6" 20 ely ls "mono"
