@@ -2,6 +2,7 @@
 sans="GillSans"
 serif="GillSans-Italic"
 mono="NotoMono-Regular"
+mono2="Inconsolata-Medium"
 
 #sans="SourceSans3-Regular"
 #serif="SourceSerif4-Regular"
@@ -11,5 +12,5 @@ mono="NotoMono-Regular"
 #mono="FiraMono-Regular"
 #serif="Charter-Regular"
 
-decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview" -pagesize 800,450 -sans $sans -mono $mono -serif $serif -stdout $*  - > decksh.pdf
-decksh objref.dsh | pdfdeck -author "Anthony Starks" -title "decksh object reference" -sans $sans -mono $mono -stdout $*  - > objref.pdf
+decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview" -pagesize 900,600 -sans $sans -mono $mono -serif $serif -stdout $*  - > decksh.pdf
+decksh objref.dsh|pdfdeck -grid 0 -pagesize 900,600  -sans $sans -mono $mono2 -serif $serif -stdout - > objref.pdf
