@@ -382,11 +382,11 @@ deck
 		rc=initlcol
 		text "Arrows" rc 90 5 "serif"
 		list rc lsty lfs
-			li "Arrow"
-			li "Left curved arrow"
-			li "Right curved arrow"
-			li "Up curved arrow"
-			li "Down curved arrow"
+			li "Straight"
+			li "Left curved"
+			li "Right curved"
+			li "Up curved"
+			li "Down curved"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor
