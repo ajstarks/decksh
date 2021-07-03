@@ -1,0 +1,18 @@
+// decksh logo
+		square	75 50 40     "rgb(220,220,220)"
+		rect	70 55 20 20  "rgb(127,0,0)"
+		rect	80 50 20 20  "white"
+		rect	75 45 20 20  "rgb(127,127,127)"
+		hline   65 52 20 0.4 "white"
+
+		hline   68 50  3 0.2 "white"
+		hline   70 48  5 0.2 "white"
+		hline   70 46  7 0.2 "white"
+		hline   70 44 10 0.2 "white"
+		hline   70 42  6 0.2 "white"
+		hline   70 40  4 0.2 "white"
+		hline   68 38  3 0.2 "white"
+
+		circle  66 53.5 0.5 "white"
+		circle  67 53.5 0.5 "white"
+		circle  68 53.5 0.5 "white"

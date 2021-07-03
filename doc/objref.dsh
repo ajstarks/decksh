@@ -22,7 +22,9 @@ deck
 	page=1
 
 	slide bgcolor fgcolor
-		ctext "decksh reference" 50 50 10
+		text "decksh"    10 60 10 "sans" accentcolor
+		text "reference" 10 45 10 "sans" "rgb(127,127,127)"
+		include "decksh-logo.dsh"
 	eslide
 
 	// Text index

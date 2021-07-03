@@ -21,23 +21,7 @@ deck
 		text "a little language for decks"	5 40 4
 		etext "Anthony Starks"				95 10 1.8 "sans" "rgb(127,127,127)"
 		etext "@ajstarks"					95 6  1.8 "sans" "rgb(127,127,127)" 100 "https://twitter.com/ajstarks"
-		square	75 50 40     "rgb(220,220,220)"
-		rect	70 55 20 20  "rgb(127,0,0)"
-		rect	80 50 20 20  "white"
-		rect	75 45 20 20  "rgb(127,127,127)"
-		hline   65 52 20 0.4 "white"
-
-		hline   68 50  3 0.2 "white"
-		hline   70 48  5 0.2 "white"
-		hline   70 46  7 0.2 "white"
-		hline   70 44 10 0.2 "white"
-		hline   70 42  6 0.2 "white"
-		hline   70 40  4 0.2 "white"
-		hline   68 38  3 0.2 "white"
-
-		circle  66 53.5 0.5 "white"
-		circle  67 53.5 0.5 "white"
-		circle  68 53.5 0.5 "white"
+		include "decksh-logo.dsh"
 	eslide
 
 	// Little Language defintion
@@ -65,8 +49,8 @@ deck
 		kty=ky-1.5
 		kcolsp=30
 		krowsp=20
-		kimw=60
-		kimh=60
+		kimw=90
+		kimh=90
 		kts=titlesize*0.75
 		kcolor="maroon"
 
@@ -240,11 +224,11 @@ deck
 
 	// Set up
 	slide "black" "white"
-		image "images/code01.png" 50 50 1920 1080 42
+		image "images/code01.png" 50 50 1920 1080 45
 	eslide
 
 	slide "black" "white"
-		image "images/code02.png" 50 50 1920 1080 42
+		image "images/code02.png" 50 50 1920 1080 45
 	eslide
 
 	// Keywords
@@ -419,14 +403,14 @@ deck
 	slide
 		text "Structure" left top titlesize "serif"
 		textfile "code/structure.dsh"	20 70 3 "mono" "maroon"
-		textcode "code/hw0.dsh"			72 41 25 1.3
-		lbrace 10 45 58 2 2 0.2	// deck
-		lbrace 22 57 20 2 2 0.2 // slide 1
-		lbrace 22 35 20 2 2 0.2 // slide 2
-		lbrace 67 35 17 2 2 0.2 // include
-		etext "deck"		 9 44 2
-		etext "slide 1"		21 56 2
-		etext "slide 2"		21 34 2
+		textcode "code/hw0.dsh"			72 45 25 1.3
+		lbrace 10 49 47 2 2 0.2	// deck
+		lbrace 22 58 17 2 2 0.2 // slide 1
+		lbrace 22 39 17 2 2 0.2 // slide 2
+		lbrace 67 40 17 2 2 0.2 // include
+		etext "deck"		 9 49 2
+		etext "slide 1"		21 58 2
+		etext "slide 2"		21 39 2
 	eslide
 
 	// Text
@@ -483,8 +467,8 @@ deck
 		lx+=40
 		ctext "arctext" lx gtop ts "mono" spotcolor
 		circle lx row3 spotsize spotcolor
-		arctext "hello there world" lx row3 8 180 360 2
-		arctext "hello there world" lx row3 11 180 0 2
+		arctext "hello there world" lx row3 7 180 360 2 "mono"
+		arctext "hello there world" lx row3 10 180 0 3 "mono"
 		ctext "cx cy radius beg-angle end-angle size [font] [color] [op] [link]" lx apiy apisize "serif" apicolor
 	eslide
 
@@ -1080,8 +1064,8 @@ deck
 		dcsize=titlesize*0.75
 		dcimx=dcx-5
 		dcimy=dcy+2
-		dcimw=60
-		dcimh=60
+		dcimw=90
+		dcimh=90
 		dcolor="maroon"
 
 		text "dchart types" left top titlesize "serif"
