@@ -11,7 +11,7 @@ deck
 	lfs=2.3
 	cx=50
 	ey=20
-	ely=ey-15
+	ely=ey-10
 	initlcol=5
 	coordsize=2
 	coordop=70
@@ -60,10 +60,10 @@ deck
 			li `"..." x y fontsize [font] [color] [op] [link]`
 			li `"..." x y fontsize [font] [color] [op] [link]`
 			li `"..." x y angle fontsize [font] [color] [op] [link]`
-			li `"..." cx cy rad a1 a2 fontsize [font] [color] [op] [link]`
-			li `"..." x y width fontsize [font] [color] [op] [link]`
+			li `"..." x y rad a1 a2 fontsize [font] [color] [op] [link]`
+			li `"..." x y w fontsize [font] [color] [op] [link]`
 			li `"file" x y fontsize [font] [color] [op] [spacing]`
-			li `"file" x y width fontsize [color]`
+			li `"file" x y w fontsize [color]`
 		elist
 	eslide
 
@@ -77,6 +77,12 @@ deck
 		circle 50 y coordsize accentcolor
 		ctext `text "..." x y fontsize [font] [color] [op] [link]` 50 ly lw "mono"
 		ctext "(x,y)" 50 65 lw "mono"
+
+		text "abc" 20 20 4
+		text "abc" 75 20 7 "mono" "red"
+
+		ctext `text "abc" 20 20 4` 22 ely 2 "mono"
+		ctext `text "abc" 75 20 7 "mono" "red"` 82 ely 2 "mono"
 	eslide
 
 	// ctext
@@ -89,6 +95,12 @@ deck
 		circle 50 y coordsize accentcolor
 		ctext `ctext "..." x y fontsize [font] [color] [op] [link]` 50 ly lw "mono"
 		ctext "(x,y)" 50 65 lw "mono"
+
+		ctext "abc" 20 20 4
+		ctext "abc" 80 20 7 "mono" "red"
+
+		ctext `ctext "abc" 20 20 4` 20 ely 2 "mono"
+		ctext `ctext "abc" 80 20 7 "mono" "red"` 80 ely 2 "mono"
 	eslide
 
 	// etext
@@ -101,6 +113,12 @@ deck
 		circle 50 y coordsize accentcolor
 		ctext `etext "..." x y fontsize [font] [color] [op] [link]` 50 ly lw "mono"
 		ctext "(x,y)" 50 65 lw "mono"
+
+		etext "abc" 20 20 4
+		etext "abc" 80 20 7 "mono" "red"
+
+		ctext `etext "abc" 20 20 4` 20 ely 2 "mono"
+		ctext `etext "abc" 80 20 7 "mono" "red"` 80 ely 2 "mono"
 	eslide
 
 	// rtext
@@ -113,9 +131,16 @@ deck
 
 	// arctext
 	slide bgcolor fgcolor
+		a1x=polarx 50 y 22 170
+		a1y=polary 50 y 22 170
+		a2x=polarx 50 y 22 10
+		a2y=polary 50 y 22 10
+		
 		arctext "hello there world" 50 y 15 170 10 5 "mono" objcolor
 		circle 50 y coordsize accentcolor
 		ctext "(x,y)" 50 65 lw "mono"
+		ctext "a1" a1x a1y lw "mono"
+		ctext "a2" a2x a2y lw "mono"
 		ctext `arctext "..." x y radius a1 a2 fontsize [font] [color] [op]` 50 ly lw "mono"
 	eslide
 
@@ -170,10 +195,10 @@ deck
 
 		rc+=lcolsize2
 		list rc lsty lfs "mono"
-			li "x y size [font] [color] [op] [spacing]"
-			li "x y size [font] [color] [op] [spacing]"
-			li "x y size [font] [color] [op] [spacing]"
-			li "x y size [font] [color] [op] [spacing]"			
+			li "x y fontsize [font] [color] [op] [spacing]"
+			li "x y fontsize [font] [color] [op] [spacing]"
+			li "x y fontsize [font] [color] [op] [spacing]"
+			li "x y fontsize [font] [color] [op] [spacing]"			
 		elist
 	eslide
 	
@@ -189,7 +214,7 @@ deck
 		text `   li "second"` ix 71 4 "mono" objcolor
 		text `   li "third"`  ix 64 4 "mono" objcolor
 		text "elist"          ix 57 4 "mono" objcolor
-		ctext "list x y size [font] [color] [op] [spacing]" 50 ly lw "mono"
+		ctext "list x y fontsize [font] [color] [op] [spacing]" 50 ly lw "mono"
 
 		circle ix 85 coordsize accentcolor 50
 		ctext "(x,y)" ix 80 lw "mono"
@@ -221,7 +246,7 @@ deck
 		text `   li "second"` ix 71 4 "mono" objcolor
 		text `   li "third"`  ix 64 4 "mono" objcolor
 		text "elist"          ix 57 4 "mono" objcolor
-		ctext "blist x y size [font] [color] [op] [spacing]" 50 ly lw "mono"
+		ctext "blist x y fontsize [font] [color] [op] [spacing]" 50 ly lw "mono"
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
@@ -253,7 +278,7 @@ deck
 		text `   li "second"` ix 71 4 "mono" objcolor
 		text `   li "third"`  ix 64 4 "mono" objcolor
 		text "elist"          ix 57 4 "mono" objcolor
-		ctext "nlist x y size [font] [color] [op] [spacing]" 50 ly lw "mono"
+		ctext "nlist x y fontsize [font] [color] [op] [spacing]" 50 ly lw "mono"
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
@@ -285,7 +310,7 @@ deck
 		text `   li "second"` ix 71 4 "mono" objcolor
 		text `   li "third"`  ix 64 4 "mono" objcolor
 		text "elist"          ix 57 4 "mono" objcolor
-		ctext "clist x y size [font] [color] [op] [spacing]" 50 ly lw "mono"
+		ctext "clist x y fontsize [font] [color] [op] [spacing]" 50 ly lw "mono"
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
@@ -324,10 +349,10 @@ deck
 		elist
 		rc+=12
 		list rc lsty lfs "mono"
-			li "x y size w h [lw] [color] [op]"
-			li "x y size w h [lw] [color] [op]"
-			li "x y size w h [lw] [color] [op]"
-			li "x y size w h [lw] [color] [op]"			
+			li "x y fontsize bw bh [lw] [color] [op]"
+			li "x y fontsize bw bh [lw] [color] [op]"
+			li "x y fontsize bw bh [lw] [color] [op]"
+			li "x y fontsize bw bh [lw] [color] [op]"			
 		elist
 	eslide
 
@@ -400,11 +425,11 @@ deck
 		elist
 		rc+=12
 		list rc lsty lfs "mono"
-			li "x1 y1 x2 y2 [lw] [width] [height] [color] [op]"
-			li "bx by cx cy ex ey [lw] [width] [height] [color] [op]"
-			li "bx by cx cy ex ey [lw] [width] [height] [color] [op]"
-			li "bx by cx cy ex ey [lw] [width] [height] [color] [op]"
-			li "bx by cx cy ex ey [lw] [width] [height] [color] [op]"
+			li "x1 y1 x2 y2 [lw] [aw] [ah] [color] [op]"
+			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
+			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
+			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
+			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
 		elist
 	eslide
 
@@ -490,8 +515,8 @@ deck
 		elist
 		rc+=12
 		list rc lsty lfs "mono"
-			li `"file" x y width height [scale] [link]`
-			li `"file" "caption" x y width height [scale] [link]`
+			li `"file" x y w h [scale] [link]`
+			li `"file" "caption" x y w h [scale] [link]`
 		elist
 	eslide
 
@@ -546,6 +571,7 @@ deck
 	// Graphics index
 	slide bgcolor fgcolor
 		rc=initlcol
+		lcolsize*=1.5
 		listspacing=1.6
 		text "Graphics" rc 90 5 "serif"
 		list rc lsty lfs "sans" "" 100 listspacing
@@ -584,8 +610,8 @@ deck
 		rc+=12
 		list rc lsty lfs "mono" "" 100 listspacing
 			li "x1 y1 x2 y2 lw [color] [op]"
-			li "x y length [lw] [color] [op]"
-			li "x y length [lw] [color] [op]"
+			li "x y w [lw] [color] [op]"
+			li "x y h [lw] [color] [op]"
 			li "x y w [color] [op]"
 			li "x y area [color] [op]"
 			li "x y w [color] [op]"
@@ -616,14 +642,13 @@ deck
 		lbrace 16 70 lw 1 1
 
 		line 10 20 30 20
-		ctext "line 10 20 30 20" 20 exy ls "mono"
+		ctext "line 10 20 30 20" 20 ely ls "mono"
 
 		line 40 20 60 30 0.5
 		ctext "line 40 20 60 30 0.5" 50 ely ls "mono"
 
 		line 70 20 95 30 1.5 accentcolor
 		ctext `line 70 20 95 30 1.5 "red"` 82 ely ls "mono"
-
 	eslide
 
 	// hline
@@ -645,7 +670,6 @@ deck
 
 		hline 70 ey 20 5 accentcolor 20
 		ctext `hline 70 20 20 5 "red" 20` 80 ely ls "mono"
-
 	eslide
 
 	// vline
@@ -685,7 +709,7 @@ deck
 		ctext "circle x y w [color] [op]" cx ly ts "mono"
 
 		circle 20 20 10
-		ctext "circle 20 20 10" 20 5 ls "mono"
+		ctext "circle 20 20 10" 20 ely ls "mono"
 
 		circle cx 20 10 accentcolor
 		ctext `circle 50 20 10 "red"` 50 ely ls "mono"
@@ -693,8 +717,6 @@ deck
 		circle 80 20 5 accentcolor 20
 		ctext `circle 80 20 5 "red" 20` 80 ely ls "mono"
 	eslide
-
-
 
 	// acircle
 	slide bgcolor fgcolor
@@ -713,7 +735,7 @@ deck
 		ctext "acircle x y area [color] [op]" cx ly ts "mono"
 
 		acircle 20 20 10
-		ctext "acircle 20 20 10" 20 5 ls "mono"
+		ctext "acircle 20 20 10" 20 ely ls "mono"
 
 		acircle cx 20 10 accentcolor
 		ctext `acircle 50 20 10 "red"` 50 ely ls "mono"
@@ -777,7 +799,6 @@ deck
 
 		rect 80 20 5 10 accentcolor 20
 		ctext `rect 80 20 5 10 "red" 20` 80 ely ls "mono"
-
 	eslide
 
 	// rrect	
@@ -807,7 +828,6 @@ deck
 
 		rrect 80 20 5 10 1 accentcolor 
 		ctext `rrect 80 20 5 10 1 "red"` 80 ely ls "mono"
-
 	eslide
 
 	// pill
@@ -836,7 +856,6 @@ deck
 
 		pill 80 20 5 10 accentcolor
 		text `pill 80 20 5 10 "red"` 72 ely ls "mono"
-
 	eslide
 
 	// ellipse
@@ -867,7 +886,6 @@ deck
 
 		ellipse 80 20 5 10 accentcolor 20
 		ctext `ellipse 80 20 5 10 "red" 20` 80 ely ls "mono"
-
 	eslide
 
 	// arc
@@ -894,7 +912,6 @@ deck
 
 		arc 80 20 5 5 0 180 5 accentcolor
 		ctext `arc 80 20 5 5 0 180 5 "red"` 80 ely ls "mono"
-
 	eslide
 
 	// curve
@@ -904,8 +921,8 @@ deck
 		circle 65 y coordsize accentcolor
 		circle 70 90 coordsize accentcolor
 		ctext "(bx,by)" 30 65 ts "mono"
-		ctext "(cx,cy)" 65 65 ts "mono"
-		ctext "(ex,ey)" 70 92 ts "mono"
+		ctext "(cx,cy)" 70 92 ts "mono"
+		ctext "(ex,ey)" 65 65 ts "mono"
 		ctext "curve bx by cx cy ex ey [lw] [color] [op]" cx ly ts "mono"
 
 		curve 15 ey 25 30 25 ey
@@ -916,7 +933,6 @@ deck
 
 		curve 70 ey 70 30 90 ey 0.5 accentcolor
 		ctext `curve 70 20 70 30 90 25 0.5 "red"` 80 ely ls "mono"
-
 	eslide
 
 	// polygon
@@ -933,9 +949,8 @@ deck
 		polygon "10 25 20" "ey 30 ey"
 		text `polygon "10 25 20" "20 30 20"` 5 ely ls "mono"
 
-		polygon "40 55 60" "ey 30 ey" accentcolor
-		ctext `polygon "40 55 60" "20 30 20" "red"` 55 ely ls "mono"
-
+		polygon "70 85 90" "ey 30 ey" accentcolor
+		ctext `polygon "70 85 90" "20 30 20" "red"` 80 ely ls "mono"
 	eslide
 
 	// star
@@ -969,6 +984,5 @@ deck
 		ctext `star 50 20 12 2 5 "red"` 50 ely ls "mono"
 		star 80 ey 24 2 8 accentcolor 20
 		ctext `star 80 ey 24 2 8 "red" 20` 80 ely ls "mono"
-
 	eslide
 edeck
