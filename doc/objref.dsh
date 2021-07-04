@@ -5,6 +5,7 @@ deck
 	kwcolor=accentcolor
 	objcolor="#7f7f7f"
 
+	ty=90
 	ts=3.2
 	ets=2
 	ls=ts*0.55
@@ -20,7 +21,7 @@ deck
 
 	lcolsize=18
 	lcolsize2=lcolsize*0.6
-	page=1
+	rc=initlcol
 
 	slide bgcolor fgcolor
 		text "decksh"    10 60 10 "sans" accentcolor
@@ -28,10 +29,42 @@ deck
 		include "decksh-logo.dsh"
 	eslide
 
+	slide bgcolor fgcolor
+		text "decksh elements" 10 ty 6 "serif"
+		list 10 75 4
+			li "Text"
+			li "Lists"
+			li "Braces"
+			li "Arrows"
+			li "Images"
+			li "Graphics"
+		elist
+
+		ctext "hello, world" 45 75 3 "sans" objcolor
+
+		blist 40 67 2 "sans" objcolor 100 1.0
+			li "First"
+			li "Second"
+			li "Third"
+		elist
+
+		lbrace 40 52 7 1 1
+		rbrace 45 52 7 1 1
+		ubrace 50 56 7 1 1
+		dbrace 50 48 7 1 1
+
+		arrow 40 40 50 40 0.5
+
+		image "images/follow.jpg" 45 29 640 480 12
+
+		circle 45 15 5 "blue" 30
+		square 42 17 5 "red"  30
+	eslide
+
 	// Text index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Text" rc 90 5 "serif"
+		text "Text" rc ty 5 "serif"
 		list rc lsty lfs
 			li "Left-aligned text"
 			li "Centered text"
@@ -220,7 +253,7 @@ deck
 	// List index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Lists" rc 90 5 "serif"
+		text "Lists" rc ty 5 "serif"
 		list rc lsty lfs
 			li "Plain list"
 			li "Bullet list"
@@ -372,7 +405,7 @@ deck
 	// Brace index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Braces" rc 90 5 "serif"
+		text "Braces" rc ty 5 "serif"
 		list rc lsty lfs
 			li "Left brace"
 			li "Right brace"
@@ -487,7 +520,7 @@ deck
 	// Arrow index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Arrows" rc 90 5 "serif"
+		text "Arrows" rc ty 5 "serif"
 		list rc lsty lfs
 			li "Straight"
 			li "Left curved"
@@ -621,7 +654,7 @@ deck
 	// Image index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Images" rc 90 5 "serif"
+		text "Images" rc ty 5 "serif"
 		list rc lsty lfs
 			li "Image"
 			li "Captioned image"
@@ -691,7 +724,7 @@ deck
 		rc=initlcol
 		lcolsize*=1.5
 		listspacing=1.6
-		text "Graphics" rc 90 5 "serif"
+		text "Graphics" rc ty 5 "serif"
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "Line"
 			li "Horizontal line"
