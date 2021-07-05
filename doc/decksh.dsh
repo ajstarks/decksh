@@ -883,13 +883,11 @@ deck
 		line pcx pcy px py 0.1
 		circle px py 1 "maroon" 70
 
-
 		px=polarx pcx pcy ra a2
 		py=polary pcx pcy ra a2
 		ctext "(45°)"   px py 2
 		line pcx pcy px py 0.1
 		circle px py 1 "maroon" 70
-
 
 		px=polarx pcx pcy ra a3
 		py=polary pcx pcy ra a3
@@ -897,13 +895,11 @@ deck
 		line pcx pcy px py 0.1
 		circle px py 1 "maroon"  70
 
-
 		px=polarx pcx pcy ra a4
 		py=polary pcx pcy ra a4
 		ctext "(135°)" px py 2
 		line pcx pcy px py 0.1
 		circle px py 1 "maroon" 70
-
 
 		px=polarx pcx pcy ra a5
 		py=polary pcx pcy ra a5
@@ -911,13 +907,11 @@ deck
 		line pcx pcy px py 0.1
 		circle px py 1 "maroon" 70
 
-
 		px=polarx pcx pcy ra a6
 		py=polary pcx pcy ra a6
 		ctext "(225°)" px py 2
 		line pcx pcy px py 0.1
 		circle px py 1 "maroon" 70
-
 
 		px=polarx pcx pcy ra a7
 		py=polary pcx pcy ra a7
@@ -925,18 +919,13 @@ deck
 		line pcx pcy px py 0.1
 		circle px py 1 "maroon" 70
 
-
 		px=polarx pcx pcy ra a8
 		py=polary pcx pcy ra a8
 		ctext "(325°)" px py 2
 		line pcx pcy px py 0.1
 		circle px py 1 "maroon" 70
 
-
 		circle pcx pcy dia "gray" 20
-
-
-
 	eslide
 
 	// vmap
@@ -1872,14 +1861,17 @@ deck
 	eslide
 
 	// Aid
+
+	dbs=45
 	slide
-		image "images/aid.png" 50 50 1920 1080 42
+		image "images/aid.png" 50 50 1920 1080 45
 	eslide
 
 	// DuBois Recreation examples
-	dbscale=21
+	
+	dbscale=dbs*0.6
 	slide
-		image "images/slave-free.jpg"      		25 47 821 1043 35
+		image "images/slave-free.jpg"      		25 47 821 1043 dbs
 		image "images/plate51.png"  		    75 45 1584 2016 dbscale
 	eslide
 
@@ -1903,7 +1895,7 @@ deck
 
 	// Layout example
 	slide "rgb(230,230,230)"
-		image "images/plate31.png" 50 50 2016 1584 27
+		image "images/plate31.png" 50 50 2016 1584 35
 	eslide
 
 	// DuBois layout process
