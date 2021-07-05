@@ -32,7 +32,7 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
-		text "decksh elements" 10 ty 6 "serif"
+		text "Elements" 10 ty 6 "serif"
 		list 10 75 4
 			li "Text"
 			li "Lists"
@@ -439,6 +439,8 @@ deck
 		lbrace cx 75 brh 6 6 0.75
 		circle cx 75 coordsize accentcolor
 		ctext "(x,y)" 45 75 lw "mono"
+		ctext "bw" 55 94 lw "mono"
+		ctext "bh" cx 90 lw "mono"
 		rbrace 65 75 brh 2 2
 		ctext "h" 67 74 lw "mono"
 
@@ -461,6 +463,8 @@ deck
 		rbrace cx 75 brh 6 6 0.75
 		circle cx 75 coordsize accentcolor
 		ctext "(x,y)" 55 75 lw "mono"
+		ctext "bw" 45 94 lw "mono"
+		ctext "bh" cx 90 lw "mono"
 		rbrace 65 75 brh 2 2
 		ctext "h" 67 74 lw "mono"
 
@@ -484,6 +488,8 @@ deck
 		circle cx 75 coordsize accentcolor
 		ubrace cx 85 brw 1 2
 		ctext "(x,y)" cx 77 lw "mono"
+		ctext "bw" 35 70 lw "mono"
+		ctext "bh" 30 65 lw "mono"
 		ctext "w" cx 86 lw "mono"
 
 		ubrace 20 25 20 2 2
@@ -507,6 +513,8 @@ deck
 		circle cx 60 coordsize accentcolor
 		ubrace cx 85 brw 1 2
 		ctext "(x,y)" cx 55 lw "mono"
+		ctext "bw" 35 63 lw "mono"
+		ctext "bh" 30 67 lw "mono"
 		ctext "w" cx 86 lw "mono"
 
 		dbrace 20 25 20 2 2
@@ -690,11 +698,11 @@ deck
 		hline 0 47 100 7 hlcolor hlop
 		ctext "image x y w h [scale] [link]" 50 ly ts "mono" accentcolor
 		
-		image "images/follow.jpg" 22 25 640 480 10
-		ctext `image "follow.jpg" 22 25 640 480 10` 25 ely ls "mono"
+		image "images/follow.jpg" 20 25 640 480 10
+		ctext `image "follow.jpg" 20 25 640 480 10` 20 ely ls "mono"
 
-		image "images/follow.jpg" 72 25 640 480 30
-		ctext `image "follow.jpg" 72 25 640 480 30` 75 ely ls "mono"
+		image "images/follow.jpg" 75 25 640 480 30
+		ctext `image "follow.jpg" 75 25 640 480 30` 75 ely ls "mono"
 	eslide
 
 	// cimage
@@ -703,7 +711,7 @@ deck
 		cy=y-10
 		ly=cy-15
 		lw=3
-		cimage "images/cloudy.jpg" "cloudy" 50 y 640 480 40 "" 1.5
+		cimage "images/cloudy.jpg" "sky" 50 y 640 480 40 "" 1.5
 		ctext "(x,y)" 80 68 ts "mono"
 		circle 50 y coordsize accentcolor
 		hline  50 y 24 0.1 accentcolor
@@ -714,11 +722,11 @@ deck
 		hline 0 47 100 7 hlcolor hlop
 		ctext `cimage "caption" x y w h [scale] [link] [capsize]` 50 ly ts "mono" accentcolor
 		
-		cimage "images/cloudy.jpg" "sky" 22 25 640 480 10
-		ctext `cimage "cloudy.jpg" "sky" 22 25 640 480 10` 22 exy ls "mono"
+		cimage "images/cloudy.jpg" "sky" 20 25 640 480 10
+		ctext `cimage "cloudy.jpg" "sky" 20 25 640 480 10` 20 exy ls "mono"
 
-		cimage "images/cloudy.jpg" "sky" 72 25 640 480 30 "" 1.5
-		ctext `cimage "cloudy.jpg" "sky" 72 25 640 480 30 "" 1.5` 72 exy ls "mono"
+		cimage "images/cloudy.jpg" "sky" 75 25 640 480 30 "" 1.5
+		ctext `cimage "cloudy.jpg" "sky" 75 25 640 480 30 "" 1.5` 75 exy ls "mono"
 	eslide
 
 	// Graphics index
@@ -731,15 +739,15 @@ deck
 			li "Line"
 			li "Horizontal line"
 			li "Vertical line"
+			li "Elliptical arc"
+			li "Quadratic Bezier"
 			li "Circle"
 			li "Area circle"
+			li "Ellipse"
 			li "Square"
 			li "Rectangle"
 			li "Rounded rectangle"
 			li "Pill shape"
-			li "Ellipse"
-			li "Quadratic Bezier"
-			li "Elliptical arc"
 			li "Polygon"
 			li "N-sided star"
 		elist
@@ -748,15 +756,15 @@ deck
 			li "line"
 			li "hline"
 			li "vline"
+			li "arc"
+			li "curve"
 			li "circle"
 			li "acircle"
+			li "ellipse"
 			li "square"
 			li "rect"
 			li "rrect"
 			li "pill"
-			li "ellipse"
-			li "curve"
-			li "arc"
 			li "polygon"
 			li "star"
 		elist
@@ -765,17 +773,17 @@ deck
 			li "x1 y1 x2 y2 lw [color] [op]"
 			li "x y w [lw] [color] [op]"
 			li "x y h [lw] [color] [op]"
+			li "x y w h a1 a2 [lw] [color] [op]"
+			li "bx by cx cy ex ey [lw] [color] [op]"
 			li "x y w [color] [op]"
 			li "x y area [color] [op]"
+			li "x y w h [color] [op]"
 			li "x y w [color] [op]"
 			li "x y w h [color] [op]"
+			li "x y w h r [color]"
 			li "x y w h [color]"
-			li "x y w h [color]"
-			li "x y w h [color] [op]"
-			li "bx by cx cy ex ey [lw] [color] [op]"
-			li "x y w h a1 a2 [lw] [color] [op]"
 			li ` "x1 x2...xn" "y1 y2...yn" [lw] [color] [op]`
-			li "x y nsides inner outer [color] [op]"
+			li "x y sides inner outer [color] [op]"
 		elist
 	eslide
 
@@ -848,6 +856,55 @@ deck
 		ctext `vline 80 20 15 10 "maroon" 20` 80 ely ls "mono"
 	eslide
 
+	// arc
+	slide bgcolor fgcolor
+		aw=30
+		ah=20
+		arc cx y aw ah  0 180 0.5
+		circle cx y coordsize accentcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "arc x y w h a1 a2 [lw] [color] [op]" cx ly ts "mono" accentcolor
+		ctext "(x,y)" 50 cy ts "mono"
+		ubrace 50 92 aw 2 2
+		ctext "w" 50 93 ts "mono"
+		//vline 30 y 15
+		lbrace 29 77 15 2 2
+		ctext "h" 27 77 ts "mono"
+		text "a1" 65 cy ts "mono"
+		etext "a2"  35 cy ts "mono"
+
+		arc 20 ey 15 15 0 180
+		ctext "arc 20 20 15 15 0 180" 20 ely ls "mono"
+
+		arc 50 20 15 15 0 90 1	
+		ctext "arc 50 20 15 15 0 90 1" 50 ely ls "mono"
+
+		arc 80 20 5 5 0 180 5 accentcolor
+		ctext `arc 80 20 5 5 0 180 5 "maroon"` 80 ely ls "mono"
+	eslide
+
+	// curve
+	slide bgcolor fgcolor
+		curve 30 y 75 95 65 y 0.5
+		circle 30 y coordsize accentcolor
+		circle 65 y coordsize accentcolor
+		circle 70 90 coordsize accentcolor
+		ctext "(bx,by)" 30 65 ts "mono"
+		ctext "(cx,cy)" 70 92 ts "mono"
+		ctext "(ex,ey)" 65 65 ts "mono"
+		hline 0 47 100 7 hlcolor hlop
+		ctext "curve bx by cx cy ex ey [lw] [color] [op]" cx ly ts "mono" accentcolor
+
+		curve 15 ey 25 30 25 ey
+		ctext "curve 15 20 25 30 30 25" 20 ely ls "mono"
+
+		curve 45 ey 55 30 55 ey 1
+		ctext "curve 15 20 25 30 30 25" 50 ely ls "mono"
+
+		curve 70 ey 70 30 90 ey 0.5 accentcolor
+		ctext `curve 70 20 70 30 90 25 0.5 "maroon"` 80 ely ls "mono"
+	eslide
+
 	// Circle
 	slide bgcolor fgcolor
 		y=70
@@ -902,7 +959,38 @@ deck
 		ctext `acircle 80 20 5 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// Square
+	// ellipse
+	slide bgcolor fgcolor
+		cx=50
+		y=70
+		cy=y-5
+		dy=y+5
+		ly=cy-20
+		d=30
+		r=d/2
+		dx=cx-r
+		w=d*2
+		ellipse cx y w d "black" 30
+		circle cx y coordsize accentcolor
+		ctext "(x,y)" 50 cy ts "mono"
+		ubrace 50 92 w 2 2
+		ctext "w" 50 93 3 "mono"
+		lbrace 15 y d 2 2
+		ctext "h" 12 y ts "mono"
+		hline 0 47 100 7 hlcolor hlop
+		ctext "ellipse x y w h [color] [op]" cx ly ts "mono" accentcolor
+
+		ellipse 20 20 10 5
+		ctext "ellipse 20 20 10 5" 20 ely ls "mono"
+
+		ellipse cx 20 10  5 accentcolor
+		ctext `ellipse 50 20 10 5 "maroon"` 50 ely ls "mono"
+
+		ellipse 80 20 5 10 accentcolor 20
+		ctext `ellipse 80 20 5 10 "maroon" 20` 80 ely ls "mono"
+	eslide
+
+	// square
 	slide bgcolor fgcolor
 		cx=50
 		y=70
@@ -1021,86 +1109,6 @@ deck
 		text `pill 80 20 5 10 "maroon"` 72 ely ls "mono"
 	eslide
 
-	// ellipse
-	slide bgcolor fgcolor
-		cx=50
-		y=70
-		cy=y-5
-		dy=y+5
-		ly=cy-20
-		d=30
-		r=d/2
-		dx=cx-r
-		w=d*2
-		ellipse cx y w d "black" 30
-		circle cx y coordsize accentcolor
-		ctext "(x,y)" 50 cy ts "mono"
-		ubrace 50 92 w 2 2
-		ctext "w" 50 93 3 "mono"
-		lbrace 15 y d 2 2
-		ctext "h" 12 y ts "mono"
-		hline 0 47 100 7 hlcolor hlop
-		ctext "ellipse x y w h [color] [op]" cx ly ts "mono" accentcolor
-
-		ellipse 20 20 10 5
-		ctext "ellipse 20 20 10 5" 20 ely ls "mono"
-
-		ellipse cx 20 10  5 accentcolor
-		ctext `ellipse 50 20 10 5 "maroon"` 50 ely ls "mono"
-
-		ellipse 80 20 5 10 accentcolor 20
-		ctext `ellipse 80 20 5 10 "maroon" 20` 80 ely ls "mono"
-	eslide
-
-	// arc
-	slide bgcolor fgcolor
-		aw=30
-		ah=20
-		arc cx y aw ah  0 180 0.5
-		circle cx y coordsize accentcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "arc x y w h a1 a2 [lw] [color] [op]" cx ly ts "mono" accentcolor
-		ctext "(x,y)" 50 cy ts "mono"
-		ubrace 50 92 aw 2 2
-		ctext "w" 50 93 ts "mono"
-		//vline 30 y 15
-		lbrace 29 77 15 2 2
-		ctext "h" 27 77 ts "mono"
-		text "a1" 65 cy ts "mono"
-		etext "a2"  35 cy ts "mono"
-
-		arc 20 ey 15 15 0 180
-		ctext "arc 20 20 15 15 0 180" 20 ely ls "mono"
-
-		arc 50 20 15 15 0 90 1	
-		ctext "arc 50 20 15 15 0 90 1" 50 ely ls "mono"
-
-		arc 80 20 5 5 0 180 5 accentcolor
-		ctext `arc 80 20 5 5 0 180 5 "maroon"` 80 ely ls "mono"
-	eslide
-
-	// curve
-	slide bgcolor fgcolor
-		curve 30 y 75 95 65 y 0.5
-		circle 30 y coordsize accentcolor
-		circle 65 y coordsize accentcolor
-		circle 70 90 coordsize accentcolor
-		ctext "(bx,by)" 30 65 ts "mono"
-		ctext "(cx,cy)" 70 92 ts "mono"
-		ctext "(ex,ey)" 65 65 ts "mono"
-		hline 0 47 100 7 hlcolor hlop
-		ctext "curve bx by cx cy ex ey [lw] [color] [op]" cx ly ts "mono" accentcolor
-
-		curve 15 ey 25 30 25 ey
-		ctext "curve 15 20 25 30 30 25" 20 ely ls "mono"
-
-		curve 45 ey 55 30 55 ey 1
-		ctext "curve 15 20 25 30 30 25" 50 ely ls "mono"
-
-		curve 70 ey 70 30 90 ey 0.5 accentcolor
-		ctext `curve 70 20 70 30 90 25 0.5 "maroon"` 80 ely ls "mono"
-	eslide
-
 	// polygon
 	slide bgcolor fgcolor
 		polygon "30 70 60" "y 90 y"
@@ -1144,7 +1152,7 @@ deck
 		ctext "outer" 40 70 2
 		ctext "inner" 53 72 2
 		hline 0 47 100 7 hlcolor hlop
-		ctext "star x y nsides inner outer [color] [op]" cx ly ts "mono" accentcolor
+		ctext "star x y sides inner outer [color] [op]" cx ly ts "mono" accentcolor
 
 		star 20 ey 5 2 6
 		ctext "star 20 20 5 2 6" 20 ely ls "mono"
