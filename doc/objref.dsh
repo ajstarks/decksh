@@ -32,35 +32,69 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
-		text "Elements" 10 ty 6 "serif"
-		list 10 75 4
+		iy=78
+		text "Elements" 10 ty 5 "serif"
+		list 10 iy 4 "sans" "" 100 2.3
 			li "Text"
-			li "Lists"
-			li "Braces"
-			li "Arrows"
-			li "Images"
 			li "Graphics"
+			li "Images"
+			li "Lists"
+			li "Arrows"
+			li "Braces"
 		elist
 
-		ctext "hello, world" 45 75 3 "sans" objcolor
+		
+		tiy=iy+10
+		ctext "hello, world" 45 iy 3 "sans" objcolor
+		textblock "Now is the time for all good men to come to the aid of the party" 55 tiy 10 1.5
+		rtext  "what's up, Doc?" 70 iy 45 2.5 "serif" objcolor
 
-		blist 40 67 2 "sans" objcolor 100 1.2
+		iy-=10
+		piy=iy+5
+		circle 45 iy 5 "blue"
+		square 55 iy 5 "red"
+		line   60 iy 65 iy 0.3 "blue"
+		arc    70 iy  5 5 0 180 0.3
+		polygon "75 80 85" "iy piy iy"
+
+		iy-=16
+		image "images/follow.jpg"        45 iy 640 480 12
+		cimage "images/cloudy.jpg""sky"  60 iy 640 480 12 "" 1.0
+
+		iy-=12
+		blist 40 iy 2 "sans" objcolor 100 1.2
 			li "First"
 			li "Second"
 			li "Third"
 		elist
 
-		lbrace 40 52 7 1 1
-		rbrace 45 52 7 1 1
-		ubrace 50 56 7 1 1
-		dbrace 50 48 7 1 1
+		nlist 55 iy 2 "sans" objcolor 100 1.2
+			li "First"
+			li "Second"
+			li "Third"
+		elist
 
-		arrow 40 40 50 40 0.5 2 4
+		clist 70 iy 2 "sans" objcolor 100 1.2
+			li "First"
+			li "Second"
+			li "Third"
+		elist
 
-		image "images/follow.jpg" 45 29 640 480 12
+		iy-=17
+		y2iy=iy+5
+		arrow 40 iy 50 iy 0.5 2 4
+		arrow 55 iy 65 y2iy 0.2 2 2
+		y2iy+=5
+		ucarrow 70 iy 75 iy 75 y2iy 0.5 2 4
 
-		circle 45 15 5 "blue" 30
-		square 42 17 5 "red"  30
+		iy-=12
+		buiy=iy+6
+		bdiy2=buiy-11
+		brsize=10
+		lbrace 40 iy brsize 2 1
+		rbrace 48 iy brsize 2 1
+		ubrace 55 buiy brsize 1 2
+		dbrace 55 bdiy2 brsize 1 2
 	eslide
 
 	// Text index
@@ -251,485 +285,7 @@ deck
 		text `textcode "hw.go" 55 35 40 1.6 "maroon"` 55 ely ets "mono"
 	eslide
 
-
-	// List index
-	slide bgcolor fgcolor
-		rc=initlcol
-		text "Lists" rc ty 5 "serif"
-		list rc lsty lfs
-			li "Plain list"
-			li "Bullet list"
-			li "Numbered list"
-			li "Centered list"
-		elist
-
-		rc+=lcolsize
-		list rc lsty lfs "mono" kwcolor
-			li "list"
-			li "blist"
-			li "nlist"
-			li "clist"
-		elist
-
-		rc+=lcolsize2
-		list rc lsty lfs "mono"
-			li "x y fontsize [font] [color] [op] [spacing]"
-			li "x y fontsize [font] [color] [op] [spacing]"
-			li "x y fontsize [font] [color] [op] [spacing]"
-			li "x y fontsize [font] [color] [op] [spacing]"			
-		elist
-	eslide
-	
-	// list
-	slide bgcolor fgcolor
-		y=70
-		cy=y-10
-		ly=cy-15
-		lw=3
-		ix=40
-		text "list" ix 85 4 "mono" objcolor
-		text `   li "first"`  ix 78 4 "mono" objcolor
-		text `   li "second"` ix 71 4 "mono" objcolor
-		text `   li "third"`  ix 64 4 "mono" objcolor
-		text "elist"          ix 57 4 "mono" objcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "list x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
-
-		circle ix 85 coordsize accentcolor 50
-		ctext "(x,y)" ix 80 lw "mono"
-		list 20 30 2.5
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext "list 20 30 2.5" 22 ely ets "mono"
-		list 60 30 4 "serif" kwcolor 100 1.0
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext `list 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
-	eslide
-
-	// blist
-	slide bgcolor fgcolor
-		y=70
-		cy=y-10
-		ly=cy-15
-		lw=3
-		ix=40
-		text "blist" ix 85 4 "mono" objcolor
-		text `   li "first"`  ix 78 4 "mono" objcolor
-		text `   li "second"` ix 71 4 "mono" objcolor
-		text `   li "third"`  ix 64 4 "mono" objcolor
-		text "elist"          ix 57 4 "mono" objcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "blist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
-
-		circle ix 85 coordsize accentcolor coordop
-		ctext "(x,y)" ix 80 lw "mono"
-		blist 20 30 2.5
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext "blist 20 30 2.5" 22 ely ets "mono"
-		blist 60 30 4 "serif" kwcolor 100 1.0
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext `blist 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
-	eslide
-
-	// nlist
-	slide bgcolor fgcolor
-		y=70
-		cy=y-10
-		ly=cy-15
-		lw=3
-		ix=40
-		text "nlist" ix 85 4 "mono" objcolor
-		text `   li "first"`  ix 78 4 "mono" objcolor
-		text `   li "second"` ix 71 4 "mono" objcolor
-		text `   li "third"`  ix 64 4 "mono" objcolor
-		text "elist"          ix 57 4 "mono" objcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "nlist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
-
-		circle ix 85 coordsize accentcolor coordop
-		ctext "(x,y)" ix 80 lw "mono"
-		nlist 20 30 2.5
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext "nlist 20 30 2.5" 22 ely ets "mono"
-		nlist 60 30 4 "serif" kwcolor 100 1.0
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext `nlist 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
-	eslide
-
-	// clist
-	slide bgcolor fgcolor
-		y=70
-		cy=y-10
-		ly=cy-15
-		lw=3
-		ix=40
-		text "clist" ix 85 4 "mono" objcolor
-		text `   li "first"`  ix 78 4 "mono" objcolor
-		text `   li "second"` ix 71 4 "mono" objcolor
-		text `   li "third"`  ix 64 4 "mono" objcolor
-		text "elist"          ix 57 4 "mono" objcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "clist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
-
-		circle ix 85 coordsize accentcolor coordop
-		ctext "(x,y)" ix 80 lw "mono"
-		clist 20 30 2.5
-			li "first one"
-			li "second"
-			li "third and last"
-		elist
-		ctext "clist 20 35 2.5" 20 ely ets "mono"
-		clist 60 30 4 "serif" kwcolor 100 1.0
-			li "first one"
-			li "second"
-			li "third and last"
-		elist
-		ctext `clist 60 30 4 "serif" "maroon" 100 1.0` 60 ely ets "mono"
-	eslide
-
-	// Brace index
-	slide bgcolor fgcolor
-		rc=initlcol
-		text "Braces" rc ty 5 "serif"
-		list rc lsty lfs
-			li "Left brace"
-			li "Right brace"
-			li "Up brace"
-			li "Down brace"
-		elist
-		rc+=lcolsize
-		list rc lsty lfs "mono" kwcolor
-			li "lbrace"
-			li "rbrace"
-			li "ubrace"
-			li "dbrace"
-		elist
-		rc+=12
-		list rc lsty lfs "mono"
-			li "x y fontsize bw bh [lw] [color] [op]"
-			li "x y fontsize bw bh [lw] [color] [op]"
-			li "x y fontsize bw bh [lw] [color] [op]"
-			li "x y fontsize bw bh [lw] [color] [op]"			
-		elist
-	eslide
-
-	// lbrace
-	slide bgcolor fgcolor
-		brh=35
-		cx=50
-		hline 0 47 100 7 hlcolor hlop
-		ctext "lbrace x y h bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
-		lbrace cx 75 brh 6 6 0.75
-		circle cx 75 coordsize accentcolor
-		ctext "(x,y)" 45 75 lw "mono"
-		ctext "bw" 55 94 lw "mono"
-		ctext "bh" cx 90 lw "mono"
-		rbrace 65 75 brh 2 2
-		ctext "h" 67 74 lw "mono"
-
-		lbrace 20 25 20 2 2
-		ctext "lbrace 20 25 20 2 2" 20 ely ets "mono"
-
-		lbrace 50 25 20 4 4 1
-		ctext "lbrace 50 25 20 4 4 1" 50 ely ets "mono"
-
-		lbrace 80 25 20 6 3 1 "maroon"
-		ctext `lbrace 80 25 20 6 3 1 "maroon"` 80 ely ets "mono"
-	eslide
-
-	// rbrace
-	slide bgcolor fgcolor
-		brh=35
-		cx=50
-		hline 0 47 100 7 hlcolor hlop
-		ctext "rbrace x y h bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
-		rbrace cx 75 brh 6 6 0.75
-		circle cx 75 coordsize accentcolor
-		ctext "(x,y)" 55 75 lw "mono"
-		ctext "bw" 45 94 lw "mono"
-		ctext "bh" cx 90 lw "mono"
-		rbrace 65 75 brh 2 2
-		ctext "h" 67 74 lw "mono"
-
-		rbrace 20 25 20 2 2
-		ctext "rbrace 20 25 20 2 2" 20 ely ets "mono"
-
-		rbrace 50 25 20 4 4 1
-		ctext "rbrace 50 25 20 4 4 1" 50 ely ets "mono"
-
-		rbrace 80 25 20 6 3 1 "maroon"
-		ctext `rbrace 80 25 20 6 3 1 "maroon"` 80 ely ets "mono"
-	eslide
-
-	// ubrace
-	slide bgcolor fgcolor
-		brw=35
-		cx=50
-		hline 0 47 100 7 hlcolor hlop
-		ctext "ubrace x y w bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
-		ubrace cx 75 brw 6 6 0.75
-		circle cx 75 coordsize accentcolor
-		ubrace cx 85 brw 1 2
-		ctext "(x,y)" cx 77 lw "mono"
-		ctext "bw" 35 70 lw "mono"
-		ctext "bh" 30 65 lw "mono"
-		ctext "w" cx 86 lw "mono"
-
-		ubrace 20 25 20 2 2
-		ctext "ubrace 20 25 20 2 2" 20 ely ets "mono"
-
-		ubrace 50 25 20 4 4 1
-		ctext "ubrace 50 25 20 4 4 1" 50 ely ets "mono"
-
-		ubrace 80 25 20 4 4 1 "maroon"
-		ctext `ubrace 80 25 20 4 4 1 "maroon"` 80 ely ets "mono"
-
-	eslide
-
-	// dbrace
-	slide bgcolor fgcolor
-		brw=35
-		cx=50
-		hline 0 47 100 7 hlcolor hlop
-		ctext "dbrace x y w bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
-		dbrace cx 60 brw 6 6 0.75
-		circle cx 60 coordsize accentcolor
-		ubrace cx 85 brw 1 2
-		ctext "(x,y)" cx 55 lw "mono"
-		ctext "bw" 35 63 lw "mono"
-		ctext "bh" 30 67 lw "mono"
-		ctext "w" cx 86 lw "mono"
-
-		dbrace 20 25 20 2 2
-		ctext "dbrace 20 25 20 2 2" 20 ely ets "mono"
-
-		dbrace 50 25 20 4 4 1
-		ctext "dbrace 50 25 20 4 4 1" 50 ely ets "mono"
-
-		dbrace 80 25 20 4 4 1 "maroon"
-		ctext `dbrace 80 25 20 4 4 1 "maroon"` 80 ely ets "mono"
-	eslide
-
-	// Arrow index
-	slide bgcolor fgcolor
-		rc=initlcol
-		text "Arrows" rc ty 5 "serif"
-		list rc lsty lfs
-			li "Straight"
-			li "Left curved"
-			li "Right curved"
-			li "Up curved"
-			li "Down curved"
-		elist
-		rc+=lcolsize
-		list rc lsty lfs "mono" kwcolor
-			li "arrow"
-			li "lcarrow"
-			li "rcarrow"
-			li "ucarrow"
-			li "dcarrow"
-		elist
-		rc+=12
-		list rc lsty lfs "mono"
-			li "x1 y1 x2 y2 [lw] [aw] [ah] [color] [op]"
-			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
-			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
-			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
-			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
-		elist
-	eslide
-
-	// arrow
-	slide bgcolor fgcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "arrow x1 y1 x2 y2 [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
-		arrow  20 y 80 y lw 10 20  objcolor
-		circle 20 y lw accentcolor
-		circle 80 y lw accentcolor
-		ctext "(x1,y1)" 20 cy ts "mono"
-		ctext "(x2,y2)" 80 cy ts "mono"
-		ctext "lw" 13 69 ts "mono"
-		lbrace 16 70 lw 1 1
-		rbrace 90 70 20 2 2
-		ctext "ah" 92 70 lw "mono"
-		ubrace 75 85 10 2 2
-		ctext "aw" 75 87 lw "mono"
-
-		arrow 10 20 30 20
-		ctext "arrow 10 20 30 20" 20 ely ls "mono"
-
-		arrow 40 20 60 30 0.5
-		ctext "arrow 40 20 60 30 0.5" 50 ely ls "mono"
-
-		arrow 70 20 95 30 1.5 6 6 accentcolor
-		ctext `arrow 70 20 95 30 1.5 6 6 "maroon"` 82 ely ls "mono"
-	eslide
-
-	// lcarrow
-	slide bgcolor fgcolor
-		lw2=lw/2
-		aw=lw*2
-		ah=lw*2
-		hline 0 47 100 7 hlcolor hlop
-		ctext "lcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
-		lcarrow 50 60 50 90 15 90 lw2 aw ah
-		circle 50 60 coordsize accentcolor
-		circle 50 90 coordsize accentcolor
-		circle 15 90 coordsize accentcolor
-		ctext "(bx,by)" 50 55 lw "mono"
-		ctext "(cx,cy)" 50 85 lw "mono"
-		ctext "(ex,ey)" 15 85 lw "mono"
-
-		lcarrow 30 20 30 35 15 35
-		text "lcarrow 30 20 30 35 15 35" 10 ely ets "mono"
-
-		lcarrow 70 20 70 35 55 35 1 5 5 "maroon"
-		text `lcarrow 70 20 70 35 55 35 1 5 5 "maroon"` 50 ely ets "mono"
-	eslide
-
-	// rcarrow
-	slide bgcolor fgcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "rcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
-		rcarrow 50 60 50 90 85 90 lw2 aw ah
-		circle 50 60 coordsize accentcolor
-		circle 50 90 coordsize accentcolor
-		circle 85 90 coordsize accentcolor
-		ctext "(bx,by)" 50 55 lw "mono"
-		ctext "(cx,cy)" 50 85 lw "mono"
-		ctext "(ex,ey)" 85 85 lw "mono"
-
-		rcarrow 15 20 15 35 30 35
-		text "rcarrow 15 20 15 35 30 35" 10 ely ets "mono"
-
-		rcarrow 50 20 50 35 70 35 1 5 5 "maroon"
-		text `rcarrow 50 20 50 35 70 35 1 5 5 "maroon"` 50 ely ets "mono"
-	eslide
-
-	// ucarrow
-	slide bgcolor fgcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "ucarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
-		ucarrow 50 60 80 60 80 90 lw2 aw ah
-		circle 50 60 coordsize accentcolor
-		circle 80 60 coordsize accentcolor
-		circle 80 90 coordsize accentcolor
-		ctext "(bx,by)" 50 55 lw "mono"
-		ctext "(cx,cy)" 80 55 lw "mono"
-		ctext "(ex,ey)" 80 92 lw "mono"
-
-		ucarrow 15 20 30 20 30 35
-		text "ucarrow 15 20 30 20 30 35" 10 ely ets "mono"
-
-		ucarrow 50 20 70 20 70 35 1 5 5 "maroon"
-		text `rcarrow 50 20 70 20 70 35 1 5 5 "maroon"` 50 ely ets "mono"
-	eslide
-
-	// dcarrow
-	slide bgcolor fgcolor
-		hline 0 47 100 7 hlcolor hlop
-		ctext "dcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
-		dcarrow 50 90 80 90 80 60 lw2 aw ah
-		circle  50 90 coordsize accentcolor
-		circle  80 90 coordsize accentcolor
-		circle  80 60 coordsize accentcolor
-		ctext "(bx,by)" 50 92 lw "mono"
-		ctext "(cx,cy)" 80 92 lw "mono"
-		ctext "(ex,ey)" 80 55 lw "mono"
-
-		dcarrow 15 35 30 35 30 20
-		text "dcarrow 15 35 30 30 20" 10 ely ets "mono"
-
-		dcarrow 50 35 70 35 70 20 1 5 5 "maroon"
-		text `dcarrow 50 35 70 35 70 20 1 5 5 "maroon"` 50 ely ets "mono"
-	eslide
-
-	// Image index
-	slide bgcolor fgcolor
-		rc=initlcol
-		text "Images" rc ty 5 "serif"
-		list rc lsty lfs
-			li "Image"
-			li "Captioned image"
-		elist
-		rc+=lcolsize
-		list rc lsty lfs "mono" kwcolor
-			li "image"
-			li "cimage"
-		elist
-		rc+=12
-		list rc lsty lfs "mono"
-			li `"file" x y w h [scale] [link]`
-			li `"file" "caption" x y w h [scale] [link]`
-		elist
-	eslide
-
-	// image
-	slide bgcolor fgcolor
-		y=70
-		cy=y-10
-		ly=cy-15
-		lw=3
-		image "images/follow.jpg" cx y 640 480 40
-		ctext "(x,y)" 80 68 ts "mono"
-		circle cx y coordsize accentcolor
-		hline  cx y 24 0.1 accentcolor
-		ubrace cx 92 28 2 2
-		ctext "w" cx 94 ts "mono"
-		lbrace 30 70 30 2 2
-		ctext "h" 28 68 ts "mono"
-		hline 0 47 100 7 hlcolor hlop
-		ctext "image x y w h [scale] [link]" cx ly ts "mono" accentcolor
-		
-		image "images/follow.jpg" 20 25 640 480 10
-		ctext `image "follow.jpg" 20 25 640 480 10` 20 ely ls "mono"
-
-		image "images/follow.jpg" 75 25 640 480 30
-		ctext `image "follow.jpg" 75 25 640 480 30` 75 ely ls "mono"
-	eslide
-
-	// cimage
-	slide bgcolor fgcolor
-		y=70
-		cy=y-10
-		ly=cy-15
-		lw=3
-		cimage "images/cloudy.jpg" "sky" cx y 640 480 40 "" 1.5
-		ctext "(x,y)" 80 68 ts "mono"
-		circle cx y coordsize accentcolor
-		hline  cx y 24 0.1 accentcolor
-		ubrace cx 92 28 2 2
-		ctext "w" cx 94 ts "mono"
-		lbrace 30 70 30 2 2
-		ctext "h" 28 68 ts "mono"
-		hline 0 47 100 7 hlcolor hlop
-		ctext `cimage "caption" x y w h [scale] [link] [capsize]` cx ly ts "mono" accentcolor
-		
-		cimage "images/cloudy.jpg" "sky" 20 25 640 480 10
-		ctext `cimage "cloudy.jpg" "sky" 20 25 640 480 10` 20 exy ls "mono"
-
-		cimage "images/cloudy.jpg" "sky" 75 25 640 480 30 "" 1.5
-		ctext `cimage "cloudy.jpg" "sky" 75 25 640 480 30 "" 1.5` 75 exy ls "mono"
-	eslide
-
-	// Graphics index
+		// Graphics index
 	slide bgcolor fgcolor
 		rc=initlcol
 		lcolsize*=1.5
@@ -1160,5 +716,484 @@ deck
 		ctext `star 50 20 12 2 5 "maroon"` 50 ely ls "mono"
 		star 80 ey 24 2 8 accentcolor 20
 		ctext `star 80 ey 24 2 8 "maroon" 20` 80 ely ls "mono"
+	eslide
+
+	// Image index
+	slide bgcolor fgcolor
+		rc=initlcol
+		text "Images" rc ty 5 "serif"
+		list rc lsty lfs
+			li "Image"
+			li "Captioned image"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor
+			li "image"
+			li "cimage"
+		elist
+		rc+=12
+		list rc lsty lfs "mono"
+			li `"file" x y w h [scale] [link]`
+			li `"file" "caption" x y w h [scale] [link]`
+		elist
+	eslide
+
+	// image
+	slide bgcolor fgcolor
+		y=70
+		cy=y-10
+		ly=cy-15
+		lw=3
+		image "images/follow.jpg" cx y 640 480 40
+		ctext "(x,y)" 80 68 ts "mono"
+		circle cx y coordsize accentcolor
+		hline  cx y 24 0.1 accentcolor
+		ubrace cx 92 28 2 2
+		ctext "w" cx 94 ts "mono"
+		lbrace 30 70 30 2 2
+		ctext "h" 28 68 ts "mono"
+		hline 0 47 100 7 hlcolor hlop
+		ctext `image "file" x y w h [scale] [link]` cx ly ts "mono" accentcolor
+		
+		image "images/follow.jpg" 20 25 640 480 10
+		ctext `image "follow.jpg" 20 25 640 480 10` 20 ely ls "mono"
+
+		image "images/follow.jpg" 75 25 640 480 30
+		ctext `image "follow.jpg" 75 25 640 480 30` 75 ely ls "mono"
+	eslide
+
+	// cimage
+	slide bgcolor fgcolor
+		y=70
+		cy=y-10
+		ly=cy-15
+		lw=3
+		cimage "images/cloudy.jpg" "sky" cx y 640 480 40 "" 1.5
+		ctext "(x,y)" 80 68 ts "mono"
+		circle cx y coordsize accentcolor
+		hline  cx y 24 0.1 accentcolor
+		ubrace cx 92 28 2 2
+		ctext "w" cx 94 ts "mono"
+		lbrace 30 70 30 2 2
+		ctext "h" 28 68 ts "mono"
+		hline 0 47 100 7 hlcolor hlop
+		ctext `cimage "file" "caption" x y w h [scale] [link] [capsize]` cx ly ts "mono" accentcolor
+		
+		cimage "images/cloudy.jpg" "sky" 20 25 640 480 10
+		ctext `cimage "cloudy.jpg" "sky" 20 25 640 480 10` 20 exy ls "mono"
+
+		cimage "images/cloudy.jpg" "sky" 75 25 640 480 30 "" 1.5
+		ctext `cimage "cloudy.jpg" "sky" 75 25 640 480 30 "" 1.5` 75 exy ls "mono"
+	eslide
+
+	// List index
+	slide bgcolor fgcolor
+		rc=initlcol
+		text "Lists" rc ty 5 "serif"
+		list rc lsty lfs
+			li "Plain list"
+			li "Bullet list"
+			li "Numbered list"
+			li "Centered list"
+		elist
+
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor
+			li "list"
+			li "blist"
+			li "nlist"
+			li "clist"
+		elist
+
+		rc+=lcolsize2
+		list rc lsty lfs "mono"
+			li "x y fontsize [font] [color] [op] [spacing]"
+			li "x y fontsize [font] [color] [op] [spacing]"
+			li "x y fontsize [font] [color] [op] [spacing]"
+			li "x y fontsize [font] [color] [op] [spacing]"			
+		elist
+	eslide
+	
+	// list
+	slide bgcolor fgcolor
+		y=70
+		cy=y-10
+		ly=cy-15
+		lw=3
+		ix=40
+		text "list" ix 85 4 "mono" objcolor
+		text `   li "first"`  ix 78 4 "mono" objcolor
+		text `   li "second"` ix 71 4 "mono" objcolor
+		text `   li "third"`  ix 64 4 "mono" objcolor
+		text "elist"          ix 57 4 "mono" objcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "list x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
+
+		circle ix 85 coordsize accentcolor 50
+		ctext "(x,y)" ix 80 lw "mono"
+		list 20 30 2.5
+			li "one"
+			li "two"
+			li "three"
+		elist
+		ctext "list 20 30 2.5" 22 ely ets "mono"
+		list 60 30 4 "serif" kwcolor 100 1.0
+			li "one"
+			li "two"
+			li "three"
+		elist
+		ctext `list 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
+	eslide
+
+	// blist
+	slide bgcolor fgcolor
+		y=70
+		cy=y-10
+		ly=cy-15
+		lw=3
+		ix=40
+		text "blist" ix 85 4 "mono" objcolor
+		text `   li "first"`  ix 78 4 "mono" objcolor
+		text `   li "second"` ix 71 4 "mono" objcolor
+		text `   li "third"`  ix 64 4 "mono" objcolor
+		text "elist"          ix 57 4 "mono" objcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "blist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
+
+		circle ix 85 coordsize accentcolor coordop
+		ctext "(x,y)" ix 80 lw "mono"
+		blist 20 30 2.5
+			li "one"
+			li "two"
+			li "three"
+		elist
+		ctext "blist 20 30 2.5" 22 ely ets "mono"
+		blist 60 30 4 "serif" kwcolor 100 1.0
+			li "one"
+			li "two"
+			li "three"
+		elist
+		ctext `blist 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
+	eslide
+
+	// nlist
+	slide bgcolor fgcolor
+		y=70
+		cy=y-10
+		ly=cy-15
+		lw=3
+		ix=40
+		text "nlist" ix 85 4 "mono" objcolor
+		text `   li "first"`  ix 78 4 "mono" objcolor
+		text `   li "second"` ix 71 4 "mono" objcolor
+		text `   li "third"`  ix 64 4 "mono" objcolor
+		text "elist"          ix 57 4 "mono" objcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "nlist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
+
+		circle ix 85 coordsize accentcolor coordop
+		ctext "(x,y)" ix 80 lw "mono"
+		nlist 20 30 2.5
+			li "one"
+			li "two"
+			li "three"
+		elist
+		ctext "nlist 20 30 2.5" 22 ely ets "mono"
+		nlist 60 30 4 "serif" kwcolor 100 1.0
+			li "one"
+			li "two"
+			li "three"
+		elist
+		ctext `nlist 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
+	eslide
+
+	// clist
+	slide bgcolor fgcolor
+		y=70
+		cy=y-10
+		ly=cy-15
+		lw=3
+		ix=40
+		text "clist" ix 85 4 "mono" objcolor
+		text `   li "first"`  ix 78 4 "mono" objcolor
+		text `   li "second"` ix 71 4 "mono" objcolor
+		text `   li "third"`  ix 64 4 "mono" objcolor
+		text "elist"          ix 57 4 "mono" objcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "clist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
+
+		circle ix 85 coordsize accentcolor coordop
+		ctext "(x,y)" ix 80 lw "mono"
+		clist 20 30 2.5
+			li "first one"
+			li "second"
+			li "third and last"
+		elist
+		ctext "clist 20 35 2.5" 20 ely ets "mono"
+		clist 60 30 4 "serif" kwcolor 100 1.0
+			li "first one"
+			li "second"
+			li "third and last"
+		elist
+		ctext `clist 60 30 4 "serif" "maroon" 100 1.0` 60 ely ets "mono"
+	eslide
+
+
+
+	// Arrow index
+	slide bgcolor fgcolor
+		rc=initlcol
+		text "Arrows" rc ty 5 "serif"
+		list rc lsty lfs
+			li "Straight"
+			li "Left curved"
+			li "Right curved"
+			li "Up curved"
+			li "Down curved"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor
+			li "arrow"
+			li "lcarrow"
+			li "rcarrow"
+			li "ucarrow"
+			li "dcarrow"
+		elist
+		rc+=12
+		list rc lsty lfs "mono"
+			li "x1 y1 x2 y2 [lw] [aw] [ah] [color] [op]"
+			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
+			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
+			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
+			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
+		elist
+	eslide
+
+	// arrow
+	slide bgcolor fgcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "arrow x1 y1 x2 y2 [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		arrow  20 y 80 y lw 10 20  objcolor
+		circle 20 y lw accentcolor
+		circle 80 y lw accentcolor
+		ctext "(x1,y1)" 20 cy ts "mono"
+		ctext "(x2,y2)" 80 cy ts "mono"
+		ctext "lw" 13 69 ts "mono"
+		lbrace 16 70 lw 1 1
+		rbrace 90 70 20 2 2
+		ctext "ah" 92 70 lw "mono"
+		ubrace 75 85 10 2 2
+		ctext "aw" 75 87 lw "mono"
+
+		arrow 10 20 30 20
+		ctext "arrow 10 20 30 20" 20 ely ls "mono"
+
+		arrow 40 20 60 30 0.5
+		ctext "arrow 40 20 60 30 0.5" 50 ely ls "mono"
+
+		arrow 70 20 95 30 1.5 6 6 accentcolor
+		ctext `arrow 70 20 95 30 1.5 6 6 "maroon"` 82 ely ls "mono"
+	eslide
+
+	// lcarrow
+	slide bgcolor fgcolor
+		lw2=lw/2
+		aw=lw*2
+		ah=lw*2
+		hline 0 47 100 7 hlcolor hlop
+		ctext "lcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		lcarrow 50 60 50 90 15 90 lw2 aw ah
+		circle 50 60 coordsize accentcolor
+		circle 50 90 coordsize accentcolor
+		circle 15 90 coordsize accentcolor
+		ctext "(bx,by)" 50 55 lw "mono"
+		ctext "(cx,cy)" 50 85 lw "mono"
+		ctext "(ex,ey)" 15 85 lw "mono"
+
+		lcarrow 30 20 30 35 15 35
+		text "lcarrow 30 20 30 35 15 35" 10 ely ets "mono"
+
+		lcarrow 70 20 70 35 55 35 1 5 5 "maroon"
+		text `lcarrow 70 20 70 35 55 35 1 5 5 "maroon"` 50 ely ets "mono"
+	eslide
+
+	// rcarrow
+	slide bgcolor fgcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "rcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		rcarrow 50 60 50 90 85 90 lw2 aw ah
+		circle 50 60 coordsize accentcolor
+		circle 50 90 coordsize accentcolor
+		circle 85 90 coordsize accentcolor
+		ctext "(bx,by)" 50 55 lw "mono"
+		ctext "(cx,cy)" 50 85 lw "mono"
+		ctext "(ex,ey)" 85 85 lw "mono"
+
+		rcarrow 15 20 15 35 30 35
+		text "rcarrow 15 20 15 35 30 35" 10 ely ets "mono"
+
+		rcarrow 50 20 50 35 70 35 1 5 5 "maroon"
+		text `rcarrow 50 20 50 35 70 35 1 5 5 "maroon"` 50 ely ets "mono"
+	eslide
+
+	// ucarrow
+	slide bgcolor fgcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "ucarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		ucarrow 50 60 80 60 80 90 lw2 aw ah
+		circle 50 60 coordsize accentcolor
+		circle 80 60 coordsize accentcolor
+		circle 80 90 coordsize accentcolor
+		ctext "(bx,by)" 50 55 lw "mono"
+		ctext "(cx,cy)" 80 55 lw "mono"
+		ctext "(ex,ey)" 80 92 lw "mono"
+
+		ucarrow 15 20 30 20 30 35
+		text "ucarrow 15 20 30 20 30 35" 10 ely ets "mono"
+
+		ucarrow 50 20 70 20 70 35 1 5 5 "maroon"
+		text `rcarrow 50 20 70 20 70 35 1 5 5 "maroon"` 50 ely ets "mono"
+	eslide
+
+	// dcarrow
+	slide bgcolor fgcolor
+		hline 0 47 100 7 hlcolor hlop
+		ctext "dcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		dcarrow 50 90 80 90 80 60 lw2 aw ah
+		circle  50 90 coordsize accentcolor
+		circle  80 90 coordsize accentcolor
+		circle  80 60 coordsize accentcolor
+		ctext "(bx,by)" 50 92 lw "mono"
+		ctext "(cx,cy)" 80 92 lw "mono"
+		ctext "(ex,ey)" 80 55 lw "mono"
+
+		dcarrow 15 35 30 35 30 20
+		text "dcarrow 15 35 30 30 20" 10 ely ets "mono"
+
+		dcarrow 50 35 70 35 70 20 1 5 5 "maroon"
+		text `dcarrow 50 35 70 35 70 20 1 5 5 "maroon"` 50 ely ets "mono"
+	eslide
+
+	// Brace index
+	slide bgcolor fgcolor
+		rc=initlcol
+		text "Braces" rc ty 5 "serif"
+		list rc lsty lfs
+			li "Left brace"
+			li "Right brace"
+			li "Up brace"
+			li "Down brace"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor
+			li "lbrace"
+			li "rbrace"
+			li "ubrace"
+			li "dbrace"
+		elist
+		rc+=12
+		list rc lsty lfs "mono"
+			li "x y fontsize bw bh [lw] [color] [op]"
+			li "x y fontsize bw bh [lw] [color] [op]"
+			li "x y fontsize bw bh [lw] [color] [op]"
+			li "x y fontsize bw bh [lw] [color] [op]"			
+		elist
+	eslide
+
+	// lbrace
+	slide bgcolor fgcolor
+		brh=35
+		cx=50
+		hline 0 47 100 7 hlcolor hlop
+		ctext "lbrace x y h bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
+		lbrace cx 75 brh 6 6 0.75
+		circle cx 75 coordsize accentcolor
+		ctext "(x,y)" 45 75 lw "mono"
+		ctext "bw" 55 94 lw "mono"
+		ctext "bh" cx 90 lw "mono"
+		rbrace 65 75 brh 2 2
+		ctext "h" 67 74 lw "mono"
+
+		lbrace 20 25 20 2 2
+		ctext "lbrace 20 25 20 2 2" 20 ely ets "mono"
+
+		lbrace 50 25 20 4 4 1
+		ctext "lbrace 50 25 20 4 4 1" 50 ely ets "mono"
+
+		lbrace 80 25 20 6 3 1 "maroon"
+		ctext `lbrace 80 25 20 6 3 1 "maroon"` 80 ely ets "mono"
+	eslide
+
+	// rbrace
+	slide bgcolor fgcolor
+		brh=35
+		cx=50
+		hline 0 47 100 7 hlcolor hlop
+		ctext "rbrace x y h bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
+		rbrace cx 75 brh 6 6 0.75
+		circle cx 75 coordsize accentcolor
+		ctext "(x,y)" 55 75 lw "mono"
+		ctext "bw" 45 94 lw "mono"
+		ctext "bh" cx 90 lw "mono"
+		rbrace 65 75 brh 2 2
+		ctext "h" 67 74 lw "mono"
+
+		rbrace 20 25 20 2 2
+		ctext "rbrace 20 25 20 2 2" 20 ely ets "mono"
+
+		rbrace 50 25 20 4 4 1
+		ctext "rbrace 50 25 20 4 4 1" 50 ely ets "mono"
+
+		rbrace 80 25 20 6 3 1 "maroon"
+		ctext `rbrace 80 25 20 6 3 1 "maroon"` 80 ely ets "mono"
+	eslide
+
+	// ubrace
+	slide bgcolor fgcolor
+		brw=35
+		cx=50
+		hline 0 47 100 7 hlcolor hlop
+		ctext "ubrace x y w bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
+		ubrace cx 75 brw 6 6 0.75
+		circle cx 75 coordsize accentcolor
+		ubrace cx 85 brw 1 2
+		ctext "(x,y)" cx 77 lw "mono"
+		ctext "bw" 35 70 lw "mono"
+		ctext "bh" 30 65 lw "mono"
+		ctext "w" cx 86 lw "mono"
+
+		ubrace 20 25 20 2 2
+		ctext "ubrace 20 25 20 2 2" 20 ely ets "mono"
+
+		ubrace 50 25 20 4 4 1
+		ctext "ubrace 50 25 20 4 4 1" 50 ely ets "mono"
+
+		ubrace 80 25 20 4 4 1 "maroon"
+		ctext `ubrace 80 25 20 4 4 1 "maroon"` 80 ely ets "mono"
+
+	eslide
+
+	// dbrace
+	slide bgcolor fgcolor
+		brw=35
+		cx=50
+		hline 0 47 100 7 hlcolor hlop
+		ctext "dbrace x y w bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
+		dbrace cx 60 brw 6 6 0.75
+		circle cx 60 coordsize accentcolor
+		ubrace cx 85 brw 1 2
+		ctext "(x,y)" cx 55 lw "mono"
+		ctext "bw" 35 63 lw "mono"
+		ctext "bh" 30 67 lw "mono"
+		ctext "w" cx 86 lw "mono"
+
+		dbrace 20 25 20 2 2
+		ctext "dbrace 20 25 20 2 2" 20 ely ets "mono"
+
+		dbrace 50 25 20 4 4 1
+		ctext "dbrace 50 25 20 4 4 1" 50 ely ets "mono"
+
+		dbrace 80 25 20 4 4 1 "maroon"
+		ctext `dbrace 80 25 20 4 4 1 "maroon"` 80 ely ets "mono"
 	eslide
 edeck
