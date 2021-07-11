@@ -358,6 +358,11 @@ deck
 		rtext "two (90)"	l4 60 90  ts1 "serif"
 		rtext "three (180)" l4 60 180 ts1 "mono" "red"
 		rtext "four (270)"  l4 60 270 ts1 "sans" "blue" op4
+
+		arctext "moving on up"         l1 20 7  180  90 2 "mono"
+		arctext "hello there world"    l2 20 10 180   0 2 "mono" "red"
+		arctext "this is only a test"  l3 20 10 180 360 2 "mono" "blue"
+		arctext "coming down"          l4 20 10  90   0 2 "mono" "blue" op3
 	eslide
 
 	// data file

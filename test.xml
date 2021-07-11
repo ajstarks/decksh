@@ -46,9 +46,9 @@
 <line xp1="100" yp1="100" xp2="100" yp2="0" sp="0.1" color="red"/>
 </slide>
 <slide>
-<ellipse xp="27.54374831450351" yp="31.230461712118473" wp="10" hr="100" color="red" opacity="31.230461712118473"/>
-<ellipse xp="18.330290230354727" yp="25.034235874755066" wp="10" hr="100" color="green" opacity="25.034235874755066"/>
-<ellipse xp="87.90849521980705" yp="85.89075863116213" wp="10" hr="100" color="blue" opacity="85.89075863116213"/>
+<ellipse xp="57.19397157187061" yp="60.17814902766471" wp="10" hr="100" color="red" opacity="60.17814902766471"/>
+<ellipse xp="17.78863756970739" yp="14.214688417259698" wp="10" hr="100" color="green" opacity="14.214688417259698"/>
+<ellipse xp="89.72304796012341" yp="55.51087826312121" wp="10" hr="100" color="blue" opacity="55.51087826312121"/>
 <text align="c" xp="50" yp="50" sp="5" >Random</text>
 </slide>
 <slide>
@@ -423,6 +423,65 @@
 <text xp="85" yp="60" rotation="90" sp="3" font="serif">two (90)</text>
 <text xp="85" yp="60" rotation="180" sp="3" font="mono" color="red">three (180)</text>
 <text xp="85" yp="60" rotation="270" sp="3" font="sans" color="blue" opacity="20">four (270)</text>
+<text xp="3.00" yp="20.00" rotation="450.00" sp="2" font="mono">m</text>
+<text xp="3.07" yp="21.29" rotation="441.82" sp="2" font="mono">o</text>
+<text xp="3.28" yp="22.55" rotation="433.64" sp="2" font="mono">v</text>
+<text xp="3.63" yp="23.76" rotation="425.45" sp="2" font="mono">i</text>
+<text xp="4.11" yp="24.90" rotation="417.27" sp="2" font="mono">n</text>
+<text xp="4.71" yp="25.93" rotation="409.09" sp="2" font="mono">g</text>
+<text xp="5.42" yp="26.85" rotation="400.91" sp="2" font="mono"> </text>
+<text xp="6.22" yp="27.62" rotation="392.73" sp="2" font="mono">o</text>
+<text xp="7.09" yp="28.24" rotation="384.55" sp="2" font="mono">n</text>
+<text xp="8.03" yp="28.69" rotation="376.36" sp="2" font="mono"> </text>
+<text xp="9.00" yp="28.97" rotation="368.18" sp="2" font="mono">u</text>
+<text xp="10.00" yp="29.06" rotation="360.00" sp="2" font="mono">p</text>
+<text xp="25.00" yp="20.00" rotation="450.00" sp="2" font="mono" color="red">h</text>
+<text xp="25.19" yp="22.52" rotation="438.75" sp="2" font="mono" color="red">e</text>
+<text xp="25.76" yp="24.95" rotation="427.50" sp="2" font="mono" color="red">l</text>
+<text xp="26.69" yp="27.19" rotation="416.25" sp="2" font="mono" color="red">l</text>
+<text xp="27.93" yp="29.15" rotation="405.00" sp="2" font="mono" color="red">o</text>
+<text xp="29.44" yp="30.76" rotation="393.75" sp="2" font="mono" color="red"> </text>
+<text xp="31.17" yp="31.96" rotation="382.50" sp="2" font="mono" color="red">t</text>
+<text xp="33.05" yp="32.69" rotation="371.25" sp="2" font="mono" color="red">h</text>
+<text xp="35.00" yp="32.94" rotation="360.00" sp="2" font="mono" color="red">e</text>
+<text xp="36.95" yp="32.69" rotation="348.75" sp="2" font="mono" color="red">r</text>
+<text xp="38.83" yp="31.96" rotation="337.50" sp="2" font="mono" color="red">e</text>
+<text xp="40.56" yp="30.76" rotation="326.25" sp="2" font="mono" color="red"> </text>
+<text xp="42.07" yp="29.15" rotation="315.00" sp="2" font="mono" color="red">w</text>
+<text xp="43.31" yp="27.19" rotation="303.75" sp="2" font="mono" color="red">o</text>
+<text xp="44.24" yp="24.95" rotation="292.50" sp="2" font="mono" color="red">r</text>
+<text xp="44.81" yp="22.52" rotation="281.25" sp="2" font="mono" color="red">l</text>
+<text xp="45.00" yp="20.00" rotation="270.00" sp="2" font="mono" color="red">d</text>
+<text xp="50.00" yp="20.00" rotation="270.00" sp="2" font="mono" color="blue">t</text>
+<text xp="50.15" yp="17.75" rotation="280.00" sp="2" font="mono" color="blue">h</text>
+<text xp="50.60" yp="15.57" rotation="290.00" sp="2" font="mono" color="blue">i</text>
+<text xp="51.34" yp="13.53" rotation="300.00" sp="2" font="mono" color="blue">s</text>
+<text xp="52.34" yp="11.68" rotation="310.00" sp="2" font="mono" color="blue"> </text>
+<text xp="53.57" yp="10.09" rotation="320.00" sp="2" font="mono" color="blue">i</text>
+<text xp="55.00" yp="8.79" rotation="330.00" sp="2" font="mono" color="blue">s</text>
+<text xp="56.58" yp="7.84" rotation="340.00" sp="2" font="mono" color="blue"> </text>
+<text xp="58.26" yp="7.26" rotation="350.00" sp="2" font="mono" color="blue">o</text>
+<text xp="60.00" yp="7.06" rotation="360.00" sp="2" font="mono" color="blue">n</text>
+<text xp="61.74" yp="7.26" rotation="370.00" sp="2" font="mono" color="blue">l</text>
+<text xp="63.42" yp="7.84" rotation="380.00" sp="2" font="mono" color="blue">y</text>
+<text xp="65.00" yp="8.79" rotation="390.00" sp="2" font="mono" color="blue"> </text>
+<text xp="66.43" yp="10.09" rotation="400.00" sp="2" font="mono" color="blue">a</text>
+<text xp="67.66" yp="11.68" rotation="410.00" sp="2" font="mono" color="blue"> </text>
+<text xp="68.66" yp="13.53" rotation="420.00" sp="2" font="mono" color="blue">t</text>
+<text xp="69.40" yp="15.57" rotation="430.00" sp="2" font="mono" color="blue">e</text>
+<text xp="69.85" yp="17.75" rotation="440.00" sp="2" font="mono" color="blue">s</text>
+<text xp="70.00" yp="20.00" rotation="450.00" sp="2" font="mono" color="blue">t</text>
+<text xp="85.00" yp="32.94" rotation="360.00" sp="2" font="mono" color="blue" opacity="40">c</text>
+<text xp="86.56" yp="32.78" rotation="351.00" sp="2" font="mono" color="blue" opacity="40">o</text>
+<text xp="88.09" yp="32.31" rotation="342.00" sp="2" font="mono" color="blue" opacity="40">m</text>
+<text xp="89.54" yp="31.53" rotation="333.00" sp="2" font="mono" color="blue" opacity="40">i</text>
+<text xp="90.88" yp="30.47" rotation="324.00" sp="2" font="mono" color="blue" opacity="40">n</text>
+<text xp="92.07" yp="29.15" rotation="315.00" sp="2" font="mono" color="blue" opacity="40">g</text>
+<text xp="93.09" yp="27.61" rotation="306.00" sp="2" font="mono" color="blue" opacity="40"> </text>
+<text xp="93.91" yp="25.88" rotation="297.00" sp="2" font="mono" color="blue" opacity="40">d</text>
+<text xp="94.51" yp="24.00" rotation="288.00" sp="2" font="mono" color="blue" opacity="40">o</text>
+<text xp="94.88" yp="22.02" rotation="279.00" sp="2" font="mono" color="blue" opacity="40">w</text>
+<text xp="95.00" yp="20.00" rotation="270.00" sp="2" font="mono" color="blue" opacity="40">n</text>
 </slide>
 <slide>
 <text xp="50.00" yp="85.40" sp="2.25" align="center" wp="0.00" font="sans" opacity="100.00" color="black" type="">foo</text><line xp1="10.00" yp1="30.00" xp2="10.00" yp2="35.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="10.00" yp="36.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">10</text><text xp="10.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">ten</text><line xp1="18.89" yp1="30.00" xp2="18.89" yp2="40.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="18.89" yp="41.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">20</text><text xp="18.89" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">twenty</text><line xp1="27.78" yp1="30.00" xp2="27.78" yp2="45.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="27.78" yp="46.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">30</text><text xp="27.78" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">thirty</text><line xp1="36.67" yp1="30.00" xp2="36.67" yp2="50.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="36.67" yp="51.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">40</text><text xp="36.67" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">forty</text><line xp1="45.56" yp1="30.00" xp2="45.56" yp2="55.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="45.56" yp="56.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">50</text><text xp="45.56" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">fifty</text><line xp1="54.44" yp1="30.00" xp2="54.44" yp2="60.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="54.44" yp="61.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">60</text><text xp="54.44" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">sixty</text><line xp1="63.33" yp1="30.00" xp2="63.33" yp2="65.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="63.33" yp="66.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">70</text><text xp="63.33" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">seventy</text><line xp1="72.22" yp1="30.00" xp2="72.22" yp2="70.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="72.22" yp="71.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">80</text><text xp="72.22" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">eighty</text><line xp1="81.11" yp1="30.00" xp2="81.11" yp2="75.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="81.11" yp="76.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">90</text><text xp="81.11" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">ninety</text><line xp1="90.00" yp1="30.00" xp2="90.00" yp2="80.00" sp="7.89" opacity="100.00" color="lightsteelblue"/><text xp="90.00" yp="81.50" sp="1.12" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(127,0,0)" type="">100</text><text xp="90.00" yp="27.00" sp="1.20" align="center" wp="0.00" font="sans" opacity="100.00" color="rgb(75,75,75)" type="">one-hundred</text></slide>
