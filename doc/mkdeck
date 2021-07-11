@@ -12,5 +12,23 @@ mono2="Inconsolata-Medium"
 #mono="FiraMono-Regular"
 #serif="Charter-Regular"
 
-decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview" -pagesize 900,600 -sans $sans -mono $mono -serif $serif -stdout $*  - > decksh.pdf
-decksh objref.dsh|pdfdeck -grid 0 -pagesize 900,600  -sans $sans -mono $mono2 -serif $serif -stdout - > objref.pdf
+case "$1" in 
+
+	ref)
+		shift
+		decksh objref.dsh | pdfdeck -author "Anthony Starks" -title "decksh object reference" -pagesize 900,600 -sans $sans -mono $mono2 -serif $serif -stdout $* - > objref.pdf
+		;;
+	over)
+		shift
+		decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview"         -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout $* - > decksh.pdf
+		;;
+	*)
+		if test $# -ge 1
+		then
+			shift
+		fi
+		decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview"         -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout $* - > decksh.pdf
+		decksh objref.dsh | pdfdeck -author "Anthony Starks" -title "decksh object reference" -pagesize 900,600 -sans $sans -mono $mono2 -serif $serif -stdout $* - > objref.pdf
+		;;
+esac
+
