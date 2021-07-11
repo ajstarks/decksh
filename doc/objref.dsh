@@ -33,7 +33,7 @@ deck
 
 	slide bgcolor fgcolor
 		iy=78
-		text "Elements" 10 ty 5 "serif"
+		//text "Elements" 10 ty 5 "serif"
 		list 10 iy 4 "sans" "" 100 2.3
 			li "Text"
 			li "Graphics"
@@ -51,9 +51,9 @@ deck
 
 		iy-=10
 		piy=iy+5
-		circle 45 iy 5 "blue"
-		square 55 iy 5 "red"
-		line   60 iy 65 iy 0.3 "blue"
+		circle 45 iy 5 
+		square 55 iy 5 
+		line   60 iy 65 iy 0.3
 		arc    70 iy  5 5 0 180 0.3
 		polygon "75 80 85" "iy piy iy"
 
