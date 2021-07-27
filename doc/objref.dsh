@@ -1376,21 +1376,21 @@ deck
 
 	// data
 	slide bgcolor fgcolor
-		list 30 90 4 "mono" objcolor 100 1.3
+		list 25 90 4 "mono" objcolor 100 1.3
 			li `data "file.d"`
-			li "10 20"
-			li "20 100"
-			li "30 200"
+			li "first 20"
+			li "second 100"
+			li "third 200"
 			li "edata"
 		elist
-		line 61 91 57 91 0.2 // accentcolor
-		circle 57 91 1 // accentcolor
+		line 61 91 52 91 0.2 // accentcolor
+		circle 52 91 1 // accentcolor
 		text "data file"   62 90 lw "mono"
-		text "data values" 47 75 lw "mono"
-		rbrace 45 75 22 2 2
+		text "data values" 50 75 lw "mono"
+		rbrace 48 75 22 2 2
 		hline 0 47 100 hlsize hlcolor hlop
 		ctext `data "filename" ... edata` cx ly ts "mono" accentcolor
-		textfile  "code/data-example.dsh" 5 35 2 "mono"
-		include "code/data-example.dsh"
+		textfile  "code/data-example.dsh" 25 35 2 "mono"
+		include   "code/data-example.dsh"
 	eslide
 edeck
