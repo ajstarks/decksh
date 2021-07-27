@@ -1,0 +1,4 @@
+for v=10 35 5
+	hline 50 v 30 0.1 "blue"
+	circle 65 v 2 "red" 20
+efor

@@ -1,0 +1,9 @@
+yrmin=1776
+yrmax=2021
+smin=60
+smax=90
+vp=vmap 1945 yrmin yrmax smin smax
+line   smin 20 smax 20 0.5 "gray" 20
+circle smin 20 1
+circle smax 20 1
+circle vp 20 2 "maroon"

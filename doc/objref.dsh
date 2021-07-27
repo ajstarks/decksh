@@ -2,6 +2,7 @@ deck
 	bgcolor="white"
 	fgcolor="black"
 	accentcolor="#800000"
+	spotcolor=accentcolor
 	kwcolor=accentcolor
 	objcolor="#7f7f7f"
 	hlcolor="#0000aa"
@@ -287,7 +288,7 @@ deck
 		text `textcode "hw.go" 55 35 40 1.6 "maroon"` 55 ely ets "mono"
 	eslide
 
-		// Graphics index
+	// Graphics index
 	slide bgcolor fgcolor
 		rc=initlcol
 		lcolsize*=1.5
@@ -1197,5 +1198,169 @@ deck
 
 		dbrace 80 25 20 4 4 1 "maroon"
 		ctext `dbrace 80 25 20 4 4 1 "maroon"` 80 ely ets "mono"
+	eslide
+
+	// misc index
+	slide bgcolor fgcolor
+		rc=initlcol
+		listspacing=1.6
+		text "Miscellaneous" rc ty 5 "serif"
+		list rc lsty lfs "sans" "" 100 listspacing
+			li "Loop"
+			li "Polar coordinate (x)"
+			li "Polar coordinate (y)"
+			li "Value mapping"
+			li "Random number"
+			li "Formatted text"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li "for v="
+			li "x=polarx"
+			li "y=polary"
+			li "value=vmap"
+			li "value=random"
+			li "value=format"
+		elist
+		rc+=20
+		list rc lsty lfs "mono" "" 100 listspacing
+			li "begin end [increment]...efor"
+			li "x y radius angle"
+			li "x y radius angle"
+			li "data min1 max1 min2 max2"
+			li "min max"
+			li `"..." expression`
+		elist
+	eslide
+
+	// for loop
+	slide bgcolor fgcolor
+		list 25 85 4 "mono" objcolor 100 1.3
+			li "for v=begin end [increment]"
+			li "...items to repeat using v" "mono" 
+			li "efor"
+		elist
+		
+		hline 0 47 100 7 hlcolor hlop
+		ctext "for v=begin end [increment]...efor" cx ly ts "mono" accentcolor
+		textfile "code/objloop.dsh" 10 30 ets "mono"
+		include "code/objloop.dsh"
+	eslide
+
+	// polarx, polary
+	slide bgcolor fgcolor
+		ly1=ly+2.5
+		ly2=ly-2.5
+		pcx=40
+		pcy=65
+		rad=25
+		theta=45
+		circle pcx pcy coordsize accentcolor
+		ctext "(x,y)" 40 60 lw "mono"
+		hline 0 47 100 8 hlcolor hlop
+		px=polarx pcx pcy rad theta
+		py=polary pcx pcy rad theta
+		lpx=px+2
+		text "(px,py)" lpx py lw "mono"
+		text "theta" 47 67 lw "mono"
+		etext "radius" 45 75 lw "mono"
+		line pcx pcy px py 0.5
+		line pcx pcy 60 pcy 0.5
+		arc pcx pcy 10 8 0 45 
+		circle px py coordsize accentcolor
+		ctext "px=polarx x y radius theta" cx ly1 ts "mono" accentcolor
+		ctext "py=polary x y radius theta" cx ly2 ts "mono" accentcolor
+
+		include "code/p1.dsh"
+		textfile "code/p1.dsh" 10 37 2 "mono"
+	eslide
+
+	// vmap
+	slide bgcolor fgcolor
+		vmy1=90
+		vmy2=vmy1-20
+		vmly1=vmy1-6
+		vmly2=vmy2-6
+
+		polygon "35 10 90 65" "vmy1 vmy2 vmy2 vmy1" objcolor 15
+		circle 35 vmy1 2 spotcolor
+		hline  35 vmy1 30 2 spotcolor 20
+		circle 65 vmy1 2 spotcolor
+		circle 50 vmy1 2
+		ctext "min1" 35 vmly1 lw "mono" spotcolor
+		ctext "max1" 65 vmly1 lw "mono" spotcolor
+		ctext "data" 50 vmly1 lw "mono"
+
+		circle 10 vmy2 2 "blue"
+		hline  10 vmy2 80 2 "blue" 20
+		circle 90 vmy2 2 "blue"
+		circle 50 vmy2 2
+		ctext "min2"  10 vmly2 lw "mono" "blue"
+		ctext "max2"  90 vmly2 lw "mono" "blue"
+		ctext "value" 50 vmly2 lw "mono"
+		hline 0 47 100 7 hlcolor hlop
+		ctext "value=vmap data min1 max1 min2 max2" cx ly ts "mono" accentcolor
+
+		include "code/vmap-example.dsh"
+		textfile "code/vmap-example.dsh" 10 37 2 "mono"
+	eslide
+
+	// random
+	slide bgcolor fgcolor
+		hline 0 47 100 7 hlcolor hlop
+		rmin=10
+		rmax=90
+		rlen=rmax-rmin
+		ryy=80
+		rly=ryy-5
+		rvly=ryy+5
+		exx=random rmin rmax
+		circle rmin ryy 2 "black"
+		hline  rmin ryy rlen 2 objcolor 30
+		circle rmax ryy 2 accentcolor
+		circle exx ryy 2
+		ctext "min"  10 rly lw "mono"
+		ctext "max"  90 rly lw "mono"
+		ctext "value" exx rvly lw "mono"
+		ctext "value=random min max" cx ly ts "mono" accentcolor
+
+		rx1=random 5 30
+		ry1=random 25 35
+		circle rx1 ry1 3 accentcolor
+		list 5 15 2 "mono" "" 100 1.3
+			li "rx1=random 5 30"
+			li "ry1=random 15 35"
+			li `circle rx1 ry1 3 "maroon"`
+		elist
+
+		rx2=random 40 60
+		ry2=random 25 35
+		circle rx2 ry2 3 "green"
+		list 40 15 2 "mono" "" 100 1.3
+			li "rx2=random 40 60"
+			li "ry2=random 15 35"
+			li `circle rx2 ry2 3 "green"`
+		elist
+
+		rx3=random 75 95
+		ry3=random 25 35
+		circle rx3 ry3 3 "blue"
+		list 75 15 2 "mono" "" 100 1.3
+			li "rx1=random 75 95"
+			li "ry1=random 15 35"
+			li `circle rx3 ry3 3 "blue"`
+		elist
+	eslide
+
+	slide bgcolor fgcolor
+		list 25 85 4 "mono" objcolor 100 1.3
+			li "x=123.457"
+			li `title=format "Value=%.2f" x`
+			li `text title 10 20 2`
+		elist
+		hline 0 47 100 7 hlcolor hlop
+		ctext `value=format "..." expression` cx ly ts "mono" accentcolor
+		textfile "code/fmt.dsh" 10 35 2 "mono"
+		include  "code/fmt.dsh"
 	eslide
 edeck
