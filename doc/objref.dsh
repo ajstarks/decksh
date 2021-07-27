@@ -1355,11 +1355,12 @@ deck
 		elist
 	eslide
 
+	// format
 	slide bgcolor fgcolor
 		list 25 90 4 "mono" objcolor 100 1.3
-			li "x=100.23"
-			li "y=123.457"
-			li `title=format "Value=%.2f"   x+y`
+			li "x=3.14159"
+			li "y=2.0"
+			li `title=format "Value=%.2f"   x*y`
 		elist
 		hline 0 47 100 hlsize hlcolor hlop
 		ctext `value=format fmt expression` cx ly ts "mono" accentcolor
@@ -1367,12 +1368,13 @@ deck
 		dbrace 62.5 70 22 1 1
 		ctext "expression" 85 65 lw "mono"
 		dbrace 80 70 8 1 1
-		ctext "value" 30 65 lw "mono"
+		ctext "Value=6.28" 30 65 lw "mono"
 		dbrace 30 70 9 1 1
 		textfile "code/fmt.dsh" 10 35 2 "mono"
 		include  "code/fmt.dsh"
 	eslide
 
+	// data
 	slide bgcolor fgcolor
 		list 30 90 4 "mono" objcolor 100 1.3
 			li `data "file.d"`
