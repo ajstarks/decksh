@@ -5,4 +5,4 @@ data "test.d"
 	four  400
 	five  500
 edata
-dchart -bar -left 40 -bottom 15 -right 60 -top 35 "test.d" 
+dchart -bar -left 50 -bottom 15 -right 70 -top 35 "test.d" 
