@@ -1,9 +1,7 @@
 cpx=60
-cpy=10
+cpy=20
 px1=polarx cpx cpy 10 30
 py1=polary cpx cpy 10 30
-px2=polarx cpx cpy 10 60
-py2=polary cpx cpy 10 60
+line cpx cpy px1 py1
 circle cpx cpy 1  "gray"
 circle px1 py1 2 "maroon"
-circle px2 py2 2 "maroon"

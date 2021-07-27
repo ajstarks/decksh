@@ -1,0 +1,8 @@
+data "test.d"
+	one   100
+	two   200
+	three 300
+	four  400
+	five  500
+edata
+dchart -bar -left 40 -bottom 15 -right 60 -top 35 "test.d" 
