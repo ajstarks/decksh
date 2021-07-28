@@ -1,0 +1,134 @@
+
+	// Keyword list
+	slide
+		text "Keywords" left top titlesize "serif"
+		hsize=titlesize*0.75
+		lsize=hsize*0.5
+		csep=18
+		csep2=csep*0.70
+		csep3=csep*0.85
+		rsep=52
+		lsep=6
+		headtop=top-12
+		listtop=headtop-lsep
+		listspacing=lsize*0.8
+		headcolor=spotcolor
+
+		lx=left-5
+		text "Structure" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "deck"
+			li "edeck"
+			li "slide"
+			li "eslide"
+			li "canvas"
+			li "include"
+			li "grid"
+		elist
+
+		lx+=csep
+		text "Text" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "text"
+			li "ctext"
+			li "etext"
+			li "rtext"
+			li "arctext"
+			li "textblock"
+			li "textfile"
+			li "textcode"
+		elist
+
+		lx+=csep
+		text "Lists" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "list"
+			li "blist"
+			li "nlist"
+			li "clist"
+			li "li"
+			li "elist"
+		elist
+
+		lx+=csep
+		text "Graphics and Arrows" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "acircle"
+			li "arc"
+			li "circle"
+			li "curve"
+			li "ellipse"
+			li "hline"
+			li "line"
+		elist
+		lx+=csep2
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "pill"
+			li "polygon"
+			li "rect"
+			li "rrect"
+			li "square"
+			li "star"
+			li "vline"
+			li "lbrace"
+		elist
+		lx+=csep2
+		list lx listtop lsize "mono" "black" 100 listspacing
+		    li "rbrace"
+			li "ubrace"
+			li "dbrace"
+			li "arrow"
+			li "crarrow"
+			li "clarrow"
+			li "cuarrow"
+			li "cdarrow"
+		elist
+
+		headtop-=rsep
+		listtop-=rsep
+
+		lx=left-5
+		text "Images" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "image"
+			li "cimage"
+		elist
+
+		lx+=csep
+		text "Charts" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "dchart"
+			li "legend"
+		elist
+
+		lx+=csep
+		text "Loop" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "for"
+			li "efor"
+		elist
+
+		lx+=csep
+		text "Data" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "data"
+			li "edata"
+		elist
+
+		lx+=csep3
+		text "Utility" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "vmap"
+			li "random"
+		elist
+		lx+=8
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "polarx"
+			li "polary"
+		elist
+		lx+=8
+		list lx listtop lsize "mono" "black" 100 listspacing
+		    li "area"
+			li "format"
+		elist
+	eslide

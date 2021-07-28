@@ -2,7 +2,7 @@ deck
 	bgcolor="white"
 	fgcolor="black"
 	accentcolor="#800000"
-	accentcolor=accentcolor
+	spotcolor=accentcolor
 	kwcolor=accentcolor
 	objcolor="#7f7f7f"
 	hlcolor="#0000aa"
@@ -22,6 +22,9 @@ deck
 	coordsize=2
 	coordop=70
 	exy=5
+	left=10
+	top=85
+	titlesize=5
 
 	lcolsize=18
 	lcolsize2=lcolsize*0.6
@@ -34,6 +37,11 @@ deck
 		elist
 		include "decksh-logo.dsh"
 	eslide
+
+	include "kw-ex.dsh"
+	include "keywords.dsh"
+	include "struct.dsh"
+	include "grid.dsh"
 
 	slide bgcolor fgcolor
 		iy=78
