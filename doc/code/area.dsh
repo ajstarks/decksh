@@ -1,0 +1,6 @@
+m1=100
+m2=200
+a1=area m1
+a2=area m2
+circle 60 20 a1 "maroon"
+circle 80 20 a2

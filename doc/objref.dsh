@@ -1208,17 +1208,18 @@ deck
 		ctext `dbrace 80 25 20 4 4 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// misc index
+	// assignments and data index
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.6
-		text "Miscellaneous" rc ty 5 "serif"
+		text "Assignments and Data" rc ty 5 "serif"
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "Loop"
 			li "Polar coordinate (x)"
 			li "Polar coordinate (y)"
 			li "Value mapping"
 			li "Random number"
+			li "Area"
 			li "Formatted text"
 			li "In-line data"
 		elist
@@ -1229,6 +1230,7 @@ deck
 			li "y=polary"
 			li "value=vmap"
 			li "value=random"
+			li "value=area"
 			li "value=format"
 			li "data" 
 		elist
@@ -1239,6 +1241,7 @@ deck
 			li "x y radius angle"
 			li "data min1 max1 min2 max2"
 			li "min max"
+			li "expression"
 			li `fmt expression`
 			li `"file" ... edata`
 		elist
@@ -1282,7 +1285,7 @@ deck
 		ctext "px=polarx x y radius theta" cx ly1 ts "mono" accentcolor
 		ctext "py=polary x y radius theta" cx ly2 ts "mono" accentcolor
 
-		include "code/p1.dsh"
+		include  "code/p1.dsh"
 		textfile "code/p1.dsh" 10 35 2 "mono"
 	eslide
 
@@ -1363,6 +1366,23 @@ deck
 		elist
 	eslide
 
+	// area
+	slide bgcolor fgcolor
+		list 35 80 4 "mono"  objcolor 100 1.3
+			li "v=123.45"
+			li "a=area v"
+		elist
+		arrow 35 65 35 70 0.3 2 2
+		ctext "area" 35 60 lw "mono"
+
+		arrow 50 65 50 70 0.3 2 2
+		text "original value" 50 60 lw "mono"
+		hline 0 47 100 hlsize hlcolor hlop
+		ctext `value=area expression` cx ly ts "mono" accentcolor
+		textfile "code/area.dsh" 20 30 2 "mono"
+		include  "code/area.dsh"
+	eslide
+
 	// format
 	slide bgcolor fgcolor
 		list 25 90 4 "mono" objcolor 100 1.3
@@ -1391,8 +1411,7 @@ deck
 			li "third 200"
 			li "edata"
 		elist
-		line 61 91 52 91 0.2 // accentcolor
-		circle 52 91 1 // accentcolor
+		arrow 61 91 52 91 0.3 2 3// accentcolor
 		text "data file"   62 90 lw "mono"
 		text "data values" 50 75 lw "mono"
 		rbrace 48 75 22 2 2
@@ -1401,4 +1420,6 @@ deck
 		textfile  "code/data-example.dsh" 25 35 2 "mono"
 		include   "code/data-example.dsh"
 	eslide
+
+
 edeck
