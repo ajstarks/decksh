@@ -38,14 +38,29 @@ deck
 		include "decksh-logo.dsh"
 	eslide
 
-	include "kw-ex.dsh"
+	// slide bgcolor fgcolor
+	// 	text "Index" rc ty 5 "serif"
+	// 	blist 20 80 3
+	// 		 li "Keywords"
+	// 		 li "Structure and Elements"
+	// 		 li "Text"
+	// 		 li "Graphics"
+	// 		 li "Images"
+	// 		 li "Lists"
+	// 		 li "Arrows"
+	// 		 li "Braces"
+	// 		 li "Assignments and Data"
+	// 	elist
+	// eslide
+
 	include "keywords.dsh"
+	include "kw-ex.dsh"
 	include "struct.dsh"
 	include "grid.dsh"
 
 	slide bgcolor fgcolor
 		iy=78
-		//text "Elements" 10 ty 5 "serif"
+		text "Object Index" 10 ty 5 "serif"
 		list 10 iy 4 "sans" "" 100 2.3
 			li "Text"
 			li "Graphics"
