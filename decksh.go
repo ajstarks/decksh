@@ -1312,7 +1312,7 @@ func area(v float64) float64 {
 // genarrow returns the components of an arrow
 func genarrow(x1, y1, x2, y2, aw, ah float64) (float64, float64, float64, float64, float64, float64, float64, float64) {
 	r, t := rt(x1, y1, x2, y2)
-	n := r - (aw * 0.75)
+	n := r - (aw * stdnotch)
 	nt := angle(x1, y1, x1+n, y1+(ah/2))
 	ax1, ay1 := wpolar(x1, y1, r, t)
 	ax2, ay2 := wpolar(x1, y1, r-aw, t+nt)
