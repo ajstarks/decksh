@@ -1227,15 +1227,15 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.6
-		text "Assignments and Data" rc ty 5 "serif"
+		text "Loop, Assignments and Data" rc ty 5 "serif"
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "Loop"
 			li "Polar coordinate (x)"
 			li "Polar coordinate (y)"
-			li "Value mapping"
-			li "Random number"
 			li "Area"
 			li "Formatted text"
+			li "Random number"
+			li "Value mapping"
 			li "In-line data"
 		elist
 		rc+=lcolsize
@@ -1243,10 +1243,10 @@ deck
 			li "for v="
 			li "x=polarx"
 			li "y=polary"
-			li "value=vmap"
-			li "value=random"
 			li "value=area"
 			li "value=format"
+			li "value=random"
+			li "value=vmap"
 			li "data" 
 		elist
 		rc+=20
@@ -1254,10 +1254,10 @@ deck
 			li "begin end [increment] ... efor"
 			li "x y radius angle"
 			li "x y radius angle"
-			li "data min1 max1 min2 max2"
-			li "min max"
 			li "expression"
-			li `fmt expression`
+			li "fmt expression"
+			li "min max"
+			li "data min1 max1 min2 max2"
 			li `"file" ... edata`
 		elist
 	eslide
@@ -1304,34 +1304,40 @@ deck
 		textfile "code/p1.dsh" 10 35 2 "mono"
 	eslide
 
-	// vmap
+	// area
 	slide bgcolor fgcolor
-		vmy1=90
-		vmy2=vmy1-20
-		vmly1=vmy1-6
-		vmly2=vmy2-6
+		list 35 80 4 "mono"  objcolor 100 1.3
+			li "v=123.45"
+			li "a=area v"
+		elist
+		arrow 35 65 35 70 0.3 2 2
+		ctext "area" 35 60 lw "mono"
 
-		polygon "35 10 90 65" "vmy1 vmy2 vmy2 vmy1" objcolor 15
-		circle 35 vmy1 2 accentcolor
-		hline  35 vmy1 30 2 accentcolor 20
-		circle 65 vmy1 2 accentcolor
-		circle 50 vmy1 2
-		ctext "min1" 35 vmly1 lw "mono" accentcolor
-		ctext "max1" 65 vmly1 lw "mono" accentcolor
-		ctext "data" 50 vmly1 lw "mono"
-
-		circle 10 vmy2 2 "blue"
-		hline  10 vmy2 80 2 "blue" 20
-		circle 90 vmy2 2 "blue"
-		circle 50 vmy2 2
-		ctext "min2"  10 vmly2 lw "mono" "blue"
-		ctext "max2"  90 vmly2 lw "mono" "blue"
-		ctext "value" 50 vmly2 lw "mono"
+		arrow 50 65 50 70 0.3 2 2
+		text "original value" 50 60 lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "value=vmap data min1 max1 min2 max2" cx ly ts "mono" accentcolor
+		ctext `value=area expression` cx ly ts "mono" accentcolor
+		textfile "code/area.dsh" 20 30 2 "mono"
+		include  "code/area.dsh"
+	eslide
 
-		include "code/vmap-example.dsh"
-		textfile "code/vmap-example.dsh" 10 37 2 "mono"
+	// format
+	slide bgcolor fgcolor
+		list 25 90 4 "mono" objcolor 100 1.3
+			li "x=3.14159"
+			li "y=2.0"
+			li `title=format "Value=%.2f"   x*y`
+		elist
+		hline 0 47 100 hlsize hlcolor hlop
+		ctext `value=format fmt expression` cx ly ts "mono" accentcolor
+		ctext "format string" 62.5 65 lw "mono"
+		dbrace 62.5 70 22 1 1
+		ctext "expression" 85 65 lw "mono"
+		dbrace 80 70 8 1 1
+		ctext "Value=6.28" 30 65 lw "mono"
+		dbrace 30 70 9 1 1
+		textfile "code/fmt.dsh" 10 35 2 "mono"
+		include  "code/fmt.dsh"
 	eslide
 
 	// random
@@ -1381,41 +1387,36 @@ deck
 		elist
 	eslide
 
-	// area
+	// vmap
 	slide bgcolor fgcolor
-		list 35 80 4 "mono"  objcolor 100 1.3
-			li "v=123.45"
-			li "a=area v"
-		elist
-		arrow 35 65 35 70 0.3 2 2
-		ctext "area" 35 60 lw "mono"
+		vmy1=90
+		vmy2=vmy1-20
+		vmly1=vmy1-6
+		vmly2=vmy2-6
 
-		arrow 50 65 50 70 0.3 2 2
-		text "original value" 50 60 lw "mono"
+		polygon "35 10 90 65" "vmy1 vmy2 vmy2 vmy1" objcolor 15
+		circle 35 vmy1 2 accentcolor
+		hline  35 vmy1 30 2 accentcolor 20
+		circle 65 vmy1 2 accentcolor
+		circle 50 vmy1 2
+		ctext "min1" 35 vmly1 lw "mono" accentcolor
+		ctext "max1" 65 vmly1 lw "mono" accentcolor
+		ctext "data" 50 vmly1 lw "mono"
+
+		circle 10 vmy2 2 "blue"
+		hline  10 vmy2 80 2 "blue" 20
+		circle 90 vmy2 2 "blue"
+		circle 50 vmy2 2
+		ctext "min2"  10 vmly2 lw "mono" "blue"
+		ctext "max2"  90 vmly2 lw "mono" "blue"
+		ctext "value" 50 vmly2 lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `value=area expression` cx ly ts "mono" accentcolor
-		textfile "code/area.dsh" 20 30 2 "mono"
-		include  "code/area.dsh"
+		ctext "value=vmap data min1 max1 min2 max2" cx ly ts "mono" accentcolor
+
+		include "code/vmap-example.dsh"
+		textfile "code/vmap-example.dsh" 10 37 2 "mono"
 	eslide
 
-	// format
-	slide bgcolor fgcolor
-		list 25 90 4 "mono" objcolor 100 1.3
-			li "x=3.14159"
-			li "y=2.0"
-			li `title=format "Value=%.2f"   x*y`
-		elist
-		hline 0 47 100 hlsize hlcolor hlop
-		ctext `value=format fmt expression` cx ly ts "mono" accentcolor
-		ctext "format string" 62.5 65 lw "mono"
-		dbrace 62.5 70 22 1 1
-		ctext "expression" 85 65 lw "mono"
-		dbrace 80 70 8 1 1
-		ctext "Value=6.28" 30 65 lw "mono"
-		dbrace 30 70 9 1 1
-		textfile "code/fmt.dsh" 10 35 2 "mono"
-		include  "code/fmt.dsh"
-	eslide
 
 	// data
 	slide bgcolor fgcolor

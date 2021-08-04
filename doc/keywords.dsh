@@ -2,16 +2,16 @@
 	// Keyword list
 	slide
 		text "Keywords" left top titlesize "serif"
-		hsize=titlesize*0.75
-		lsize=hsize*0.5
-		csep=18
-		csep2=csep*0.70
-		csep3=csep*0.85
-		rsep=52
+		hsize=titlesize*0.70
+		lsize=hsize*0.6
+		csep=15
+		csep2=csep*0.75
+		csep3=csep*0.75
+		rsep=45
 		lsep=6
 		headtop=top-12
 		listtop=headtop-lsep
-		listspacing=lsize*0.8
+		listspacing=lsize*0.6
 		headcolor=spotcolor
 
 		lx=left-5
@@ -49,9 +49,8 @@
 			li "li"
 			li "elist"
 		elist
-
 		lx+=csep
-		text "Graphics and Arrows" lx headtop hsize "sans" headcolor
+		text "Graphics" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "acircle"
 			li "arc"
@@ -70,13 +69,18 @@
 			li "square"
 			li "star"
 			li "vline"
-			li "lbrace"
 		elist
 		lx+=csep2
+		text "Braces" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
+			li "lbrace"
 		    li "rbrace"
 			li "ubrace"
 			li "dbrace"
+		elist
+		lx+=csep2
+		text "Arrows" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
 			li "arrow"
 			li "crarrow"
 			li "clarrow"
@@ -107,28 +111,23 @@
 			li "for"
 			li "efor"
 		elist
-
 		lx+=csep
+		text "Assignments" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "polarx"
+			li "polary"
+			li "area"
+		elist
+		lx+=csep2
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "format"
+		    li "random"
+			li "vmap"
+		elist
+		lx+=csep2
 		text "Data" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "data"
 			li "edata"
-		elist
-
-		lx+=csep3
-		text "Utility" lx headtop hsize "sans" headcolor
-		list lx listtop lsize "mono" "black" 100 listspacing
-			li "vmap"
-			li "random"
-		elist
-		lx+=8
-		list lx listtop lsize "mono" "black" 100 listspacing
-			li "polarx"
-			li "polary"
-		elist
-		lx+=8
-		list lx listtop lsize "mono" "black" 100 listspacing
-		    li "area"
-			li "format"
 		elist
 	eslide

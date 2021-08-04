@@ -65,11 +65,11 @@ This deck script:
 
 
             // Chart
-            chartleft=10
-            chartright=45
-            charttop=42
-            chartbottom=28
-            dchart -left chartleft -right chartright -top charttop -bottom chartbottom opts AAPL.d 
+            chleft=10
+            chright=45
+            chtop=42
+            chtbottom=28
+            dchart -left chleft -right chright -top chtop -bottom chbottom opts AAPL.d 
         eslide
     edeck
 
