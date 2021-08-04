@@ -1,11 +1,11 @@
 	slide
-		optx=60
+		optx=50
 		argcolor="rgb(0,0,127)"
 		optcolor="rgb(127,127,127)"
 
 		ky=top-20
-		sl=left
-		exsize=3.3
+		sl=left-5
+		exsize=3.0
 		text "Keywords and arguments"	left top titlesize	"serif"
 		text "text"              		sl ky exsize		"mono" "maroon"
 		text `"string...."    x y n`    17 ky exsize		"mono" argcolor
