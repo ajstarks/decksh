@@ -13,7 +13,7 @@ do
 		else
 			exe="${goos}-${goarch}-${b}"
 		fi
-		GOOS=$goos GOARCH=$goarch go build -o $exe $base/$b
+		GOOS=$goos GOARCH=$goarch go build -o binaries/$exe $base/$b
 	done
 	echo
 done
