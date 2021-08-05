@@ -1,7 +1,7 @@
 
 	// Keyword list
 	slide
-		text "Keywords" left top titlesize "serif"
+		ctext "Keywords" 50 top titlesize "serif"
 		hsize=titlesize*0.70
 		lsize=hsize*0.6
 		csep=15

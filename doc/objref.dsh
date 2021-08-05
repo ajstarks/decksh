@@ -18,7 +18,7 @@ deck
 	cx=50
 	ey=20
 	ely=ey-10
-	initlcol=5
+	initlcol=7
 	coordsize=2
 	coordop=70
 	exy=5
@@ -38,21 +38,6 @@ deck
 		include "decksh-logo.dsh"
 	eslide
 
-	// slide bgcolor fgcolor
-	// 	text "Index" rc ty 5 "serif"
-	// 	blist 20 80 3
-	// 		 li "Keywords"
-	// 		 li "Structure and Elements"
-	// 		 li "Text"
-	// 		 li "Graphics"
-	// 		 li "Images"
-	// 		 li "Lists"
-	// 		 li "Arrows"
-	// 		 li "Braces"
-	// 		 li "Assignments and Data"
-	// 	elist
-	// eslide
-
 	include "keywords.dsh"
 	include "kw-ex.dsh"
 	include "struct.dsh"
@@ -60,8 +45,8 @@ deck
 
 	slide bgcolor fgcolor
 		iy=78
-		text "Object Index" 10 ty 5 "serif"
-		list 10 iy 4 "sans" "" 100 2.3
+		ctext "Object Index" 50 ty 5 "serif"
+		list 10 iy 3.5 "sans" "" 100 2.6
 			li "Text"
 			li "Graphics"
 			li "Images"
@@ -70,10 +55,9 @@ deck
 			li "Braces"
 		elist
 
-		
-		tiy=iy+10
+		tiy=iy+5
 		ctext "hello, world" 45 iy 3 "sans" objcolor
-		textblock "Now is the time for all good men to come to the aid of the party" 55 tiy 10 1.5
+		textblock "The quick brown fox jumped over the lazy dog" 55 tiy 10 1.5
 		rtext  "what's up, Doc?" 70 iy 45 2.5 "serif" accentcolor
 
 		iy-=10
@@ -127,7 +111,7 @@ deck
 	// Text index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Text" rc ty 5 "serif"
+		ctext "Textual Elements" 50 ty 5 "serif"
 		list rc lsty lfs
 			li "Left-aligned"
 			li "Centered"
@@ -317,7 +301,7 @@ deck
 		rc=initlcol
 		lcolsize*=1.5
 		listspacing=1.6
-		text "Graphics" rc ty 5 "serif"
+		ctext "Graphical Elements" 50 ty 5 "serif"
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "Line"
 			li "Horizontal line"
@@ -748,7 +732,7 @@ deck
 	// Image index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Images" rc ty 5 "serif"
+		ctext "Images" 50 ty 5 "serif"
 		list rc lsty lfs
 			li "Image"
 			li "Captioned image"
@@ -816,7 +800,7 @@ deck
 	// List index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Lists" rc ty 5 "serif"
+		ctext "Lists" 50 ty 5 "serif"
 		list rc lsty lfs
 			li "Plain list"
 			li "Bullet list"
@@ -970,7 +954,7 @@ deck
 	// Arrow index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Arrows" rc ty 5 "serif"
+		ctext "Arrows" 50 ty 5 "serif"
 		list rc lsty lfs
 			li "Straight"
 			li "Left curved"
@@ -1104,7 +1088,7 @@ deck
 	// Brace index
 	slide bgcolor fgcolor
 		rc=initlcol
-		text "Braces" rc ty 5 "serif"
+		ctext "Braces" 50 ty 5 "serif"
 		list rc lsty lfs
 			li "Left brace"
 			li "Right brace"
@@ -1227,7 +1211,7 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.6
-		text "Loop, Assignments and Data" rc ty 5 "serif"
+		ctext "Loop, Assignments and Data" 50 ty 5 "serif"
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "Loop"
 			li "Polar coordinate (x)"
