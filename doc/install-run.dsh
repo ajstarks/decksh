@@ -4,18 +4,26 @@ deck
 	objcolor="#777777"
 	bgcolor="#ffffff"
 	fgcolor="#000000"
+	hlcolor="maroon"
 	capsize=3.0
 	capfont="serif"
 	top=90
 	stop=top-5.6
-	ts=5
+	ts=4.5
+	bs=ts*1.5
 	ss=ts/2
 	mid=50
 	left=10
 
+	inscaption="Install the latest versions of decksh and pdfdeck, download the deckfonts in $HOME/deckfonts. Test."
+	bdcaption="Pick your type, download, rename to 'decksh', place where your apps live."
+	bpcaption="Pick your type, download, rename to 'pdfdeck', place where your apps live."
+	fontcaption="Download, unzip to your home directory."
+
 	slide bgcolor fgcolor
-		clist 30 60 6 "sans" objcolor 100 1.2
-			li "Installing and"
+		clist 25 65 5 "sans" objcolor 100 1.2
+			li "Installing"
+			li "and"
 			li "Running"
 			li "decksh/pdfdeck" "sans" "#aa0000"
 		elist
@@ -23,14 +31,26 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
+		ctext "Installing" 50 50 bs
+	eslide
+	
+
+	slide bgcolor fgcolor
 		cimage "images/make0.png" "making this guide" 50 50 1920 1080 45
 	eslide
 
 	slide bgcolor fgcolor
-		ctext "Installing decksh/pdfdeck using go" mid top ts
-		list 5 70 3.0 "mono" cmdcolor 100 1.6
+		ctext "Installing using go and git" mid top ts
+		textblock inscaption 10 80 60 3 capfont capcolor
+		list 10 60 3.0 "mono" cmdcolor 100 1.2
 			li "$ go install github.com/ajstarks/decksh/cmd/decksh@latest"
+			li "..."
 			li "$ go install github.com/ajstarks/deck/cmd/pdfdeck@latest"
+			li "..."
+			li "$ cd $HOME"
+			li "$ git clone https://github.com/ajstarks/deckfonts"
+			li "..."
+			li "$ decksh -? ; pdfdeck -?"
 		elist
 	eslide
 
@@ -39,15 +59,28 @@ deck
 		plink="https://github.com/ajstarks/deck/tree/master/cmd/pdfdeck/binaries"
 		ctext "Installing decksh and pdfdeck binaries" mid top ts
 		ctext "Mac (M1, Intel), Linux (Intel), Windows (32, 64-bit)" mid stop ss "sans" "gray"
-		image "images/decksh-bin.png"  50 65 1754 565 30
-		image "images/pdfdeck-bin.png" 50 25 1755 568 30
-		ctext dlink 50 45 2 "mono" "" 100 dlink
-		ctext plink 50  5 2 "mono" "" 100 plink
+		image "images/decksh-bin.png"  60 65 1754 565 30
+		image "images/pdfdeck-bin.png" 60 25 1755 568 30
+		ctext dlink 60 45 2 "mono" "" 100 dlink
+		ctext plink 60  5 2 "mono" "" 100 plink
 
-		etext "decksh"  18 65 capsize capfont
-		etext "pdfdeck" 18 25 capsize capfont
-		vline 20 50 30 0.1 capcolor
-		vline 20 10 30 0.1 objcolor
+		textblock bdcaption 5 62 15 1.5
+		hline  35 60 18 3 hlcolor 30
+		arrow  25 60 32 60 0.2 2 2 hlcolor
+
+
+		textblock bpcaption 5 22 15 1.5
+		hline  35 20 18 3 hlcolor 30
+		arrow  25 20 32 20 0.2 2 2 hlcolor
+		
+	eslide
+
+	slide bgcolor fgcolor
+		ctext "Downloading the fonts" mid top ts
+		image "images/github-deckfonts.png" 50 45 1369 1047 40
+		textblock fontcaption 3 35 10 2
+		arrow 17 33 39 33 0.2 2 2 hlcolor
+		hline 39 33 10 3 hlcolor 15
 	eslide
 
 	fx=10
@@ -152,18 +185,9 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
-		ctext "Installing the fonts using git" mid top ts
-		textfile "code/deckfonts.txt" 5 70 2.7 "mono" cmdcolor
+		ctext "Running" 50 50 bs
 	eslide
-
-	slide bgcolor fgcolor
-		ctext "Downloading the fonts" mid top ts
-		image "images/github-deckfonts.png" 50 45 1369 1047 40
-		hline 39 33 10 3 "maroon" 15
-		text "Download, unzip to your home directory" 40 3 2
-		vline 45 6 25 0.2 "maroon" 50
-	eslide
-
+	
 	slide
 		ctext "workflow" mid top ts
 		pcx=50
@@ -182,71 +206,52 @@ deck
 		rx=polarx pcx pcy rad 0
 		ry=polary pcx pcy rad 0
 
-		stroke=1.5
 		rad+=10
-		rad2=rad-stroke
-		circle pcx pcy rad  "gray"
-		circle pcx pcy rad2 "white"
-
-		//arc pcx pcy rad rad 0 90 0.5
-		//arc pcx pcy rad rad 90 170
-		//arc pcx pcy rad rad 180 270
-		//arc pcx pcy rad rad 270 360
+		arc pcx pcy rad rad  15  80  1.0 "gray"  50 
+		arc pcx pcy rad rad 100 165  1.0 "blue"  50
+		arc pcx pcy rad rad 185 260  1.0 "red"   50
+		arc pcx pcy rad rad 280 355  1.0 "green" 50
 
 		ax1=tx+2
 		ay1=cy+4
-
 		ax2=ax1-4
 		ay2=ay1-3
-
 		ax3=ax2
 		ay3=ay1+3
-
 		polygon "ax1 ax2 ax3" "ay1 ay2 ay3"
 
 		ax1=rx-5.5
-		ay1=ry
-
+		ay1=ry+4
 		ax2=ax1-2
 		ay2=ay1-5
-
 		ax3=ax1+2
 		ay3=ay2
 		polygon "ax1 ax2 ax3" "ay1 ay2 ay3"
-
 
 		ax1=ex+5.5
 		ay1=ey
-
 		ax2=ax1-2
 		ay2=ay1+5
-
 		ax3=ax1+2
 		ay3=ay2
 		polygon "ax1 ax2 ax3" "ay1 ay2 ay3"
 
-
 		ax1=tx-2
 		ay1=ty-4
-
 		ax2=ax1+4
 		ay2=ay1-3
-
 		ax3=ax2
 		ay3=ay1+3
-
 		polygon "ax1 ax2 ax3" "ay1 ay2 ay3"
 
-
 		cy-=2
-		rx+=1
+		rx+=3
 		ctext "think"   tx ty 2
 		text "save"     ex ey 2
 		ctext "command" cx cy 2
 		etext "render"  rx ry 2
 
-
-		rad-=3
+		rad-=2
 		itx=polarx pcx pcy rad 90
 		ity=polary pcx pcy rad 90
 
@@ -272,30 +277,28 @@ deck
 		rect 74 44 49 53 "green"  30
 
 		image "images/save.png"     30 62 1200 1200 5
-		image "images/picture.png"  85 22 1200 1200 5
+		image "images/picture.png"  75 22 1200 1200 5
 		image "images/exec.png"     30 22 1200 1200 5
 
-		text "decksh code"  5 60 4
-		text "commands"     5 20 4
-		ctext "output"      75 60 4
+		text "decksh code"   5 60 3.5
+		text "commands"      5 20 3.5
+		ctext "output"      75 60 3.5
 
-		ctext "edit/save" 38 60 2.5
-		ctext "execute"   38 20 2.5
-		ctext "render"    75 20 2.5
+		text "edit/save"    35 60 2
+		text "execute"      35 20 2
+		text "render"       80 20 2
 
-		lcarrow 75 23 75 60 43 61 0.2 2 2 capcolor
-		arrow   38 58 38 23 0.2 2 2       capcolor
-		arrow   43 21 70 21 0.2 2 2       capcolor
+		lcarrow 75 23 75 60 45 61 0.2 2 2 fgcolor
+		arrow   30 58 30 25 0.2 2 2       fgcolor
+		arrow   43 21 70 21 0.2 2 2       fgcolor
 
 		text "editor"        5 75 capsize capfont
 		text "terminal"      5 10 capsize capfont
 		text "viewer"       55 75 capsize capfont
 	eslide
 
-
-
 	slide bgcolor fgcolor
-		ctext "Running decksh: Mac OS" mid top ts
+		ctext "Mac OS" mid top ts
 		image "images/mac-decksh03.png" 50 45 2909 1102 30
 		text "editor: VSCode"    5 75 capsize capfont
 		text "terminal: VSCode"  5 10 capsize capfont
@@ -303,7 +306,7 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
-		ctext "Running decksh: Linux" mid top ts
+		ctext "Linux" mid top ts
 		image "images/linux-decksh03.png" 50 45 2209 852 37
 		text "editor: VSCode"    5 75 capsize capfont
 		text "terminal: VSCode"  5 10 capsize capfont
@@ -311,7 +314,7 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
-		ctext "Running decksh: Windows" mid top ts
+		ctext "Windows" mid top ts
 		image "images/win-decksh00.png" 50 45 1356 616 55
 		text "editor: VSCode"            5 75 capsize capfont
 		text "terminal: VSCode"          5 10 capsize capfont
@@ -328,12 +331,21 @@ deck
 		image "images/win-decksh01.png" 50 45 1362 620 65
 	eslide
 
-	// Running
-	slide
+	slide bgcolor fgcolor
+		ctext "Using a grid" mid top ts
+		image "images/grid-use.png" 50 45 1920 1080 45
+	eslide
+
+
+	slide bgcolor fgcolor
+		ctext "The command line" 50 50 bs
+	eslide
+	
+	slide bgcolor fgcolor
 		lx=left
 		ly=top-20
 		ts2=ts*0.7
-		ctext "Running decksh" mid top ts
+		ctext "decksh command usage" mid top ts
 		lls=1.4
 		list lx ly ts2 "mono" "black" 100 lls
 			li "decksh"
@@ -349,7 +361,6 @@ deck
  			li "read from file, write to stdout"
  			li "read from stdin, write to file"
  			li "read from file, write to file"
- 			//li "executable deck with #!/path/to/decksh"
  		elist
 		text "decksh example.dsh | pdfdeck ..."  left 20 ts "mono" "maroon"
 	eslide
@@ -373,7 +384,7 @@ deck
 			li "-author"
 			li "-title"
 		elist
-		lx+=15
+		lx+=12
 		list lx ly 2
 			li "Default" "serif"
 			li "helvetica"
@@ -389,7 +400,7 @@ deck
 			li `""`
 			li `""`
 		elist
-		lx+=25
+		lx+=20
 		list lx ly 2
 			li "Description" "serif"
 			li "Sans Serif font"
@@ -408,19 +419,19 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
-		ctext "pdfdeck examples" mid top ts
-		list 5 80 2.2 "mono" cmdcolor 100 1.5
-			li "pdfdeck file.xml"
-			li "make file.pdf from file.xml" "serif" capcolor
+		ctext "command examples" mid top ts
+		list 5 80 2.2 "mono" cmdcolor 100 1.4
+			li "decksh -o file.xml file.dsh; pdfdeck file.xml"
+			li "process file.dsh to file.xml to file.pdf" "serif" capcolor
 			li
 			li "decksh file.dsh | pdfdeck -stdout - > output.pdf"
 			li "Pipe the output from decksh, making output.pdf" "serif" capcolor
 			li
+			li "pdfdeck -pagesize 1920,1080 -pages 10-20 -grid 5 file.xml"
+			li "render pages 10-20 to file.pdf, page size of 1920 (width) x 1080 (height) pixels, on a 5% grid" "serif" capcolor
+			li
 			li "pdfdeck -sans FiraSans-Regular -serif Charter-Regular -mono Inconsolata-Bold file.xml"
 			li "use FiraSans-Regular.ttf, Charter-Regular.ttf, and Inconsolata-Bold.ttf from the deckfonts directory" "serif" capcolor
-			li
-			li "pdfdeck -pagesize 1920,1080 -pages 10-20 file.xml"
-			li "render pages 10-20 into file.pdf, using a canvas size of 1920 (width) x 1080 (height) pixels" "serif" capcolor
 			li
 			li "echo file.dsh|entr -s 'decksh file.dsh|pdfdeck -stdout - > f.pdf; pkill -HUP mupdf'"
 			li "When file.dsh changes, make f.pdf, and refresh the viewer" "serif" capcolor
