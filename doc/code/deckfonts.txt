@@ -1,0 +1,7 @@
+$ cd $HOME
+$ git clone https://github.com/ajstarks/deckfonts
+Cloning into 'deckfonts'...
+remote: Enumerating objects: 1063, done.
+remote: Total 1063 (delta 0), reused 0 (delta 0), pack-reused 1063
+Receiving objects: 100% (1063/1063), 69.22 MiB | 1.10 MiB/s, done.
+Resolving deltas: 100% (183/183), done.
