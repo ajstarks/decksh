@@ -41,8 +41,8 @@ deck
 
 	slide bgcolor fgcolor
 		ctext "Installing using go and git" mid top ts
-		textblock inscaption 10 80 60 3 capfont capcolor
-		list 10 60 3.0 "mono" cmdcolor 100 1.2
+		textblock inscaption 20 75 60 3 capfont capcolor
+		list 10 55 3.0 "mono" cmdcolor 100 1.2
 			li "$ go install github.com/ajstarks/decksh/cmd/decksh@latest"
 			li "..."
 			li "$ go install github.com/ajstarks/deck/cmd/pdfdeck@latest"
@@ -332,10 +332,10 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
-		ctext "Using a grid" mid top ts
-		image "images/grid-use.png" 50 45 1920 1080 45
+		ctext "Using the -grid option" mid top ts
+		cimage "images/nogrid.png"   "no grid" 30 55 1237 859 40
+		cimage "images/showgrid.png" "-grid 5" 70 35 1237 859 40
 	eslide
-
 
 	slide bgcolor fgcolor
 		ctext "The command line" 50 50 bs
