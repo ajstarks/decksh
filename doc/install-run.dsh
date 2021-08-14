@@ -10,7 +10,7 @@ deck
 	top=90
 	stop=top-5.6
 	ts=4.5
-	bs=ts*1.5
+	bs=ts*2.0
 	ss=ts/2
 	mid=50
 	left=10
@@ -21,7 +21,7 @@ deck
 	fontcaption="Download, unzip to your home directory."
 
 	slide bgcolor fgcolor
-		ctext "installing and running decksh/pdfdeck" 50 90 4
+		ctext "Installing and Running decksh/pdfdeck" 50 90 ts
 		image "images/title.png" 50 45 1920 1080 45
 	eslide
 

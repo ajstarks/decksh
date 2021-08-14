@@ -3,7 +3,7 @@ sans="GillSans"
 serif="GillSans-Italic"
 mono="NotoMono-Regular"
 mono2="Inconsolata-Medium"
-serif2="Charter-Regular"
+serif2="Charter-Italic"
 
 case "$1" in 
 
