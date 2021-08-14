@@ -15,42 +15,35 @@ deck
 	mid=50
 	left=10
 
-	inscaption="Install the latest versions of decksh and pdfdeck, download the deckfonts in $HOME/deckfonts. Test."
+	inscaption="Install the latest versions of decksh and pdfdeck, download the deckfonts in $HOME/deckfonts. Do a test run."
 	bdcaption="Pick your type, download, rename to 'decksh', place where your apps live."
 	bpcaption="Pick your type, download, rename to 'pdfdeck', place where your apps live."
 	fontcaption="Download, unzip to your home directory."
 
 	slide bgcolor fgcolor
-		clist 25 65 5 "sans" objcolor 100 1.2
-			li "Installing"
-			li "and"
-			li "Running"
-			li "decksh/pdfdeck" "sans" "#aa0000"
-		elist
-		include "decksh-logo.dsh"
+		ctext "installing and running decksh/pdfdeck" 50 90 4
+		image "images/title.png" 50 45 1920 1080 45
 	eslide
 
 	slide bgcolor fgcolor
 		ctext "Installing" 50 50 bs
 	eslide
-	
-
-	slide bgcolor fgcolor
-		cimage "images/make0.png" "making this guide" 50 50 1920 1080 45
-	eslide
 
 	slide bgcolor fgcolor
 		ctext "Installing using go and git" mid top ts
-		textblock inscaption 20 75 60 3 capfont capcolor
-		list 10 55 3.0 "mono" cmdcolor 100 1.2
+		list 10 75 3.0 "mono" cmdcolor 100 1.2
 			li "$ go install github.com/ajstarks/decksh/cmd/decksh@latest"
-			li "..."
+			li "Install the latest version of decksh" capfont capcolor
+			li
 			li "$ go install github.com/ajstarks/deck/cmd/pdfdeck@latest"
-			li "..."
+			li "Install the latest version of pdfdeck" capfont capcolor
+			li
 			li "$ cd $HOME"
 			li "$ git clone https://github.com/ajstarks/deckfonts"
-			li "..."
+			li "Install fonts into $HOME/deckfonts" capfont capcolor
+			li
 			li "$ decksh -? ; pdfdeck -?"
+			li "Do a test run of decksh and pdfdeck" capfont capcolor
 		elist
 	eslide
 
