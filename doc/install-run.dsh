@@ -20,7 +20,7 @@ deck
 	bpcaption="Pick your type, download, rename to 'pdfdeck', place where your apps live."
 	fontcaption="Download, unzip to your home directory."
 
-	slide bgcolor fgcolor
+	slide bgcolor fgcolor // "#4682b4" "white" 
 		ctext "Installing and Running decksh/pdfdeck" 50 90 ts
 		image "images/title.png" 50 45 1920 1080 45
 	eslide
