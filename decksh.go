@@ -1797,7 +1797,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "rtext":
 		return rtext(w, tokens, n)
 
-	case "textblock":
+	case "textblock", "textbox":
 		return textblock(w, tokens, n)
 
 	case "textcode":
