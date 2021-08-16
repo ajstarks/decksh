@@ -1,0 +1,10 @@
+"editor.tokenColorCustomizations": {
+    "textMateRules": [
+     {
+       "scope": "keyword.other.command.decksh",
+       "settings": {
+           "foreground": "#AA0000"
+       }
+    },
+	...
+}

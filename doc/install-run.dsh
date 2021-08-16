@@ -331,6 +331,30 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
+		vslink="https://github.com/ajstarks/decksh/tree/master/vscode"
+		ctext     "VSCode setup" mid top ts
+
+		ctext     "copy this to your settings" 20 80 2 "serif"
+		textfile  "code/vscode-setup.txt"        3 75 1.4 "mono"
+
+		ctext     "copy to .vscode/extensions/ajstarks.decksh-1.0.0" 72 80 2 "serif"
+		ctext      vslink 72 77 1 "mono" 
+		image     "images/vscode-git.png"  72 65 1902 482 25 vslink
+
+		image     "images/vscode.png"      50 25 1256 806 35
+	eslide
+
+	slide bgcolor fgcolor
+		vimlink="https://github.com/ajstarks/decksh/tree/master/vim"
+		ctext "vim setup" mid top ts
+		ctext "copy this to your settings" 50 80 2 "serif"
+		ctext  vimlink 50 77 1 "mono" 
+		image "images/vim-github.png" 50 60 1877 295 30
+		image "images/vim.png" 50 25 1248 595 35
+	eslide
+
+	slide bgcolor fgcolor
+
 		ctext "The command line" 50 50 bs
 	eslide
 	
