@@ -51,20 +51,18 @@ deck
 		dlink="https://github.com/ajstarks/decksh/tree/master/cmd/decksh/binaries"
 		plink="https://github.com/ajstarks/deck/tree/master/cmd/pdfdeck/binaries"
 		ctext "Installing decksh and pdfdeck binaries" mid top ts
-		ctext "Mac (M1, Intel), Linux (Intel), Windows (32, 64-bit)" mid stop ss "sans" "gray"
-		image "images/decksh-bin.png"  60 65 1754 565 30
-		image "images/pdfdeck-bin.png" 60 25 1755 568 30
-		ctext dlink 60 45 2 "mono" "" 100 dlink
-		ctext plink 60  5 2 "mono" "" 100 plink
+		image "images/decksh-bin.png"  55 65 1754 565 30
+		image "images/pdfdeck-bin.png" 55 25 1755 568 30
+		ctext dlink 55 82 2 "mono" "" 100 dlink
+		ctext plink 55 42 2 "mono" "" 100 plink
 
-		textblock bdcaption 5 62 15 1.5
-		hline  35 60 18 3 hlcolor 30
-		arrow  25 60 32 60 0.2 2 2 hlcolor
+		textblock bdcaption 3 62 15 1.5
+		hline  26 60 23 3 hlcolor 30
+		arrow  20 60 25 60 0.2 2 2 hlcolor
 
-
-		textblock bpcaption 5 22 15 1.5
-		hline  35 20 18 3 hlcolor 30
-		arrow  25 20 32 20 0.2 2 2 hlcolor
+		textblock bpcaption 3 22 15 1.5
+		hline  26 20 23 3 hlcolor 30
+		arrow  20 20 25 20 0.2 2 2 hlcolor
 		
 	eslide
 
@@ -76,13 +74,18 @@ deck
 		hline 39 33 10 3 hlcolor 15
 	eslide
 
-	fx=10
+	fx=15
 	fix=fx+50
+	brx=fx-3
+	trx=brx-7
 	slide bgcolor fgcolor
 		ctext "Default Fonts" mid top ts
 		text "Times Roman" fx 72 3 "mono"
 		text "Helvetica"   fx 50 3 "mono"
 		text "Courier"     fx 28 3 "mono"
+
+		textblock "use on the command line" trx 65 5 1.5 "serif"
+		lbrace brx 63 13 2 2
 
 		list fx 68 2 "mono" cmdcolor 100 1.2
 			li "times"
@@ -281,7 +284,7 @@ deck
 		text "execute"      35 20 2
 		text "render"       80 20 2
 
-		lcarrow 75 23 75 60 45 61 0.2 2 2 fgcolor
+		lcarrow 75 24 75 60 45 61 0.2 2 2 fgcolor
 		arrow   30 58 30 25 0.2 2 2       fgcolor
 		arrow   43 21 70 21 0.2 2 2       fgcolor
 
@@ -295,22 +298,23 @@ deck
 		image "images/editors.png" 65 45 1021 777 60
 		textblock "decksh code with syntax highlighting" 2 60 15 2 "serif"
 		text      "Integrated terminal"                  2 20 2 "serif"
-		text      "Status showing decksh mode"           2 10 2 "serif"
-		arrow   25 60 34 60  0.2 2 2 "maroon"
-		arrow   25 21 34 21  0.2 2 2 "maroon"
+		text      "Status showing decksh mode"           2  9 2 "serif"
+		arrow   25 60 32 60  0.2 2 2 "maroon"
+		arrow   25 21 32 21  0.2 2 2 "maroon"
+		arrow   27 10 32 10  0.2 2 2 "maroon"
 	eslide
 
 	slide bgcolor fgcolor
 		ctext "PDF Readers" mid top ts
 		icy=40
 		cimage "images/preview.png" "Mac: Preview"          20 icy 1373 1101 19
-		cimage "images/summ.png"    "Windows: Sumatra PDF"  50 icy  702  602 35
-		cimage "images/mupdf.png"   "Linux: mupdf"          80 icy 1066  851 25
+		cimage "images/summ.png"    "Windows: Sumatra PDF"  50 icy 702 602  35
+		cimage "images/mupdf.png"   "Linux: mupdf"          80 icy 1066 851 25
 
 		icy=70
-		image  "images/Preview_icon.png"                    20 icy 316 316 25
-		image  "images/sum-logo.png"                        50 icy 241  45 90
-		image  "images/MuPDFgreek_logo.png"                 80 icy  90 119 80
+		image  "images/Preview_icon.png"                   20 icy 316 316 30
+		image  "images/sumatra-logo.png"                   50 icy 1200 876 10
+		image  "images/mupdf-logo.png"                     80 icy 340 340 40
 	eslide
 
 	slide bgcolor fgcolor
@@ -320,7 +324,6 @@ deck
 		text "terminal: VSCode"  5 10 capsize capfont
 		text "viewer: Preview"   55 75 capsize capfont
 	eslide
-
 
 	slide bgcolor fgcolor
 		ctext "Windows" mid top ts
@@ -363,7 +366,7 @@ deck
 		textfile  "code/vscode-setup.txt"        3 75 1.4 "mono"
 
 		ctext     "copy to .vscode/extensions/ajstarks.decksh-1.0.0" 72 80 2 "serif"
-		ctext      vslink 72 77 1 "mono" 
+		ctext      vslink 72 75 1.5 "mono" 
 		image     "images/vscode-git.png"  72 65 1902 482 25 vslink
 
 		image     "images/vscode.png"      50 25 1256 806 35
@@ -372,14 +375,13 @@ deck
 	slide bgcolor fgcolor
 		vimlink="https://github.com/ajstarks/decksh/tree/master/vim"
 		ctext "vim setup" mid top ts
-		ctext "copy to .vim" mid 80 2 "serif"
-		ctext  vimlink 50 77 1 "mono" 
+		ctext "copy to .vim" mid 75 2 "serif"
+		ctext  vimlink 50 70 2 "mono" 
 		image "images/vim-github.png" 50 60 1877 295 30
 		image "images/vim.png" 50 25 1248 595 35
 	eslide
 
 	slide bgcolor fgcolor
-
 		ctext "The command line" 50 50 bs
 	eslide
 	
