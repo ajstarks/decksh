@@ -1,4 +1,5 @@
 deck
+	canvas 900 600
 	capcolor="#777777"
 	cmdcolor="#222222"
 	objcolor="#777777"
@@ -183,87 +184,82 @@ deck
 	slide bgcolor fgcolor
 		ctext "Running" 50 50 bs
 	eslide
-	
-	slide
-		ctext "workflow" mid top ts
+
+	slide bgcolor fgcolor
 		pcx=50
-		pcy=45
+		pcy=50
 		rad=20
+
+		ctext "Workflow" pcx pcy ts
+
+		arad=rad*2.7
+		asize=4
+		arc pcx pcy arad arad   5  90 asize "red" 20
+		arc pcx pcy arad arad  90 180 asize "blue" 20
+		arc pcx pcy arad arad 180 270 asize "green" 20
+		arc pcx pcy arad arad 270 365 asize "gray" 20
 
 		tx=polarx pcx pcy rad 90
 		ty=polary pcx pcy rad 90
 
-		ex=polarx pcx pcy rad 180
-		ey=polary pcx pcy rad 180
+		ex=polarx pcx pcy rad 0
+		ey=polary pcy pcy rad 0
 
 		cx=polarx pcx pcy rad 270
 		cy=polary pcx pcy rad 270
+		
+		rx=polarx pcx pcy rad 180
+		ry=polary pcx pcy rad 180
 
-		rx=polarx pcx pcy rad 0
-		ry=polary pcx pcy rad 0
+		image "images/think.png"     tx ty 1200 1200 7
+		image "images/save.png"      ex ey 1200 1200 7
+		image "images/picture.png"   rx ry 1200 1200 7
+		image "images/exec.png"      cx cy 1200 1200 7
 
-		rad+=10
-		arc pcx pcy rad rad  15  80  1.0 "gray"  50 
-		arc pcx pcy rad rad 100 165  1.0 "blue"  50
-		arc pcx pcy rad rad 185 260  1.0 "red"   50
-		arc pcx pcy rad rad 280 355  1.0 "green" 50
-
+		// 12 o'clock
 		ax1=tx+2
-		ay1=cy+4
+		ay1=ty+10.5
 		ax2=ax1-4
 		ay2=ay1-3
 		ax3=ax2
 		ay3=ay1+3
-		polygon "ax1 ax2 ax3" "ay1 ay2 ay3"
+		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "red"
 
-		ax1=rx-5.5
+		// 9 o'clock
+		ax1=rx-7
 		ay1=ry+4
 		ax2=ax1-2
 		ay2=ay1-5
 		ax3=ax1+2
 		ay3=ay2
-		polygon "ax1 ax2 ax3" "ay1 ay2 ay3"
+		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "blue"
 
-		ax1=ex+5.5
+		// 3 o'clock
+		ax1=ex+7
 		ay1=ey
 		ax2=ax1-2
 		ay2=ay1+5
 		ax3=ax1+2
 		ay3=ay2
-		polygon "ax1 ax2 ax3" "ay1 ay2 ay3"
+		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "black"
 
-		ax1=tx-2
-		ay1=ty-4
+		// 6 o'clock
+		ax1=cx-2
+		ay1=cy-10
 		ax2=ax1+4
 		ay2=ay1-3
 		ax3=ax2
 		ay3=ay1+3
-		polygon "ax1 ax2 ax3" "ay1 ay2 ay3"
+		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "green"
 
-		cy-=2
-		rx+=3
-		ctext "think"   tx ty 2
-		text "save"     ex ey 2
-		ctext "command" cx cy 2
-		etext "render"  rx ry 2
-
-		rad-=2
-		itx=polarx pcx pcy rad 90
-		ity=polary pcx pcy rad 90
-
-		iex=polarx pcx pcy rad 180
-		iey=polary pcx pcy rad 180
-
-		icx=polarx pcx pcy rad 270
-		icy=polary pcx pcy rad 270
-
-		irx=polarx pcx pcy rad 0
-		iry=polary pcx pcy rad 0
-
-		image "images/think.png"   itx ity 1200 1200 7
-		image "images/save.png"    iex iey 1200 1200 7
-		image "images/picture.png" irx iry 1200 1200 7
-		image "images/exec.png"    icx icy 1200 1200 7
+		ty-=7
+		ctext "think"      tx ty 2
+		cy-=7
+		ctext "command"    cx cy 2
+		ry-=7
+		ctext "render"     rx ry 2
+		ey-=7
+		ctext "edit/save"  ex ey 2
 	eslide
 
 	slide bgcolor fgcolor
