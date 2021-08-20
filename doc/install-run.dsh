@@ -74,111 +74,57 @@ deck
 		arrow 17 33 39 33 0.2 2 2 hlcolor
 		hline 39 33 10 3 hlcolor 15
 	eslide
+	
+	slide bgcolor fgcolor
+		ctext "Fonts Catalog" 50 50 bs
+	eslide
 
-	fx=15
-	fix=fx+50
-	brx=fx-3
-	trx=brx-7
+	fx=5
+	fox=fx+10
+	fy=78
 	slide bgcolor fgcolor
 		ctext "Default Fonts" mid top ts
-		text "Times Roman" fx 72 3 "mono"
-		text "Helvetica"   fx 50 3 "mono"
-		text "Courier"     fx 28 3 "mono"
-
-		textblock "use on the command line" trx 65 5 1.5 "serif"
-		lbrace brx 63 13 2 2
-
-		list fx 68 2 "mono" cmdcolor 100 1.2
-			li "times"
-			li "timesi"
-			li "timesb"
-			li "timesbi"
-		elist
-
-		list fx 46 2 "mono" cmdcolor 100 1.2
-			li "helvetica"
-			li "helveticai"
-			li "helveticab"
-			li "helveticabi"
-		elist
-
-		list fx 24 2 "mono" cmdcolor 100 1.2
-			li "courier"
-			li "courieri"
-			li "courierb"
-			li "courierbi"
-		elist
-
-		image "images/set0.png" fix 50 518 364
+		text "Times" fx fy 2
+		text "times timesi timesi timesb timesbi" fox fy 2 "sans" "gray"
+		fy-=20
+		text "Helvetica"   fx fy 2
+		text "helvetica helveticai helveticab helveticabi" fox fy 2 "sans" "gray"
+		fy-=20
+		text "Courier"     fx fy 2
+		text "courier courieri courierb courierbi" fox fy  2 "sans" "gray"
+		image "images/set0.png" 49 50 3233 1187 25
 	eslide
 
-	slide bgcolor fgcolor
+	slide
 		ctext "Alternative serif, sans, mono" mid top ts
-		text "Charter"         fx 72 3 "mono"
-		text "Fira Sans"       fx 50 3 "mono"
-		text "Inconsolata"     fx 28 3 "mono"
-
-		list fx 68 2 "mono" cmdcolor 100 1.2
-			li "Charter-Regular"
-			li "Charter-Italic"
-		elist
-
-		list fx 46 2 "mono" cmdcolor 100 1.2
-			li "FiraSans-Book"
-			li "FiraSans-Medium"
-			li "FiraSans-Regular"
-		elist
-
-		list fx 24 2 "mono" cmdcolor 100 1.2
-			li "Inconsolata-Regular"
-			li "Inconsolata-Bold"
-			li "Inconsolata-Medium"
-			li "Inconsolata-Condensed"
-			li "Inconsolata-Black"
-		elist
-		image "images/set1.png" fix 50 530 361
+		fy=78
+		text "Charter"     fx fy 2
+		text "Charter-Regular Charter-Italic" fox fy 2 "sans" "gray"
+		fy-=20
+		text "Fira Sans"   fx fy 2
+		text "FiraSans-Book FiraSans-Medium FiraSans-Regular" fox fy 2 "sans" "gray"
+		fy-=20
+		text "Inconsolata" fx fy 2
+		text "Inconsolata-Regular Inconsolata-Bold Inconsolata-Medium Inconsolata-Condensed" fox fy  2 "sans" "gray"
+		image "images/set1.png" 45 50 2924 1165 25
 	eslide
 
-	slide bgcolor fgcolor
-		ctext "Sans fonts" mid top ts
-		text "IBM Plex"        fx 72 3 "mono"
-		text "Noto Sans"       fx 50 3 "mono"
-		text "Public Sans"     fx 28 3 "mono"
-
-		list fx 68 2 "mono" cmdcolor 100 1.2
-			li "IBMPlexSans-Regular"
-			li "IBMPlexMono-Regular"
-		elist
-
-		list fx 46 2 "mono" cmdcolor 100 1.2
-			li "NotoSans-Regular"
-			li "NotoMono-Regular"
-		elist
-
-		list fx 24 2 "mono" cmdcolor 100 1.2
-			li "PublicSans-Italic"
-			li "PublicSans-Light"
-			li "PublicSans-Medium"
-			li "PublicSans-Regular"
-			li "PublicSans-SemiBold"
-			li "PublicSans-BoldItalic"
-			li "PublicSans-Bold"
-		elist
-
-		image "images/set2.png" fix 50 530 361
-	eslide
-
-	slide bgcolor fgcolor
+	slide
 		ctext "Symbol fonts" mid top ts
-		text "Zapf Dingbats"  fx 75 3 "mono"
-		text "zapfdingbats"   fx 69 2 "mono" cmdcolor
-		text "Gophers"        fx 57 3 "mono"
-		text "Gophers"        fx 51 2 "mono" cmdcolor
-		text "State Face"     fx 40 3 "mono"
-		text "stateface"      fx 35 2 "mono" cmdcolor
-		text "Wee People"     fx 22 3 "mono"
-		text "weepeople"      fx 17 2 "mono" cmdcolor
-		image "images/set3.png" fix 50 525 437
+		fy=78
+		fox+=5
+		image "images/set3.png" 40 40 1600 1359 30
+		text "Zapf Dingbats" fx fy 2
+		text "zapfdingbats"  fox fy 2 "sans" "gray"
+		fy-=20
+		text "Gophers" fx fy 2
+		text "gophers"      fox fy 2 "sans" "gray"
+		fy-=20
+		text "State Face" fx fy 2
+		text "stateface"     fox fy 2 "sans" "gray"
+		fy-=20
+		text "Wee People" fx fy 2
+		text "weepeople"      fox fy 2 "sans" "gray"
 	eslide
 
 	slide bgcolor fgcolor
@@ -336,7 +282,6 @@ deck
 		text "terminal: VSCode"  5 10 capsize capfont
 		text "viewer: mupdf"     55 75 capsize capfont
 	eslide
-
 
 	slide bgcolor fgcolor
 		ctext "Render" mid top ts
