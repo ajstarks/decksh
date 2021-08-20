@@ -194,10 +194,10 @@ deck
 
 		arad=rad*2.7
 		asize=4
-		arc pcx pcy arad arad   5  90 asize "red" 20
-		arc pcx pcy arad arad  90 180 asize "blue" 20
-		arc pcx pcy arad arad 180 270 asize "green" 20
-		arc pcx pcy arad arad 270 365 asize "gray" 20
+		arc pcx pcy arad arad   5  90 asize "gray" 20
+		arc pcx pcy arad arad  90 180 asize "green" 20
+		arc pcx pcy arad arad 180 270 asize "red" 20
+		arc pcx pcy arad arad 270 365 asize "blue" 20
 
 		tx=polarx pcx pcy rad 90
 		ty=polary pcx pcy rad 90
@@ -223,7 +223,7 @@ deck
 		ay2=ay1-3
 		ax3=ax2
 		ay3=ay1+3
-		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "red"
+		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "green"
 
 		// 9 o'clock
 		ax1=rx-7
@@ -232,7 +232,7 @@ deck
 		ay2=ay1-5
 		ax3=ax1+2
 		ay3=ay2
-		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "blue"
+		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "red"
 
 		// 3 o'clock
 		ax1=ex+7
@@ -250,7 +250,7 @@ deck
 		ay2=ay1-3
 		ax3=ax2
 		ay3=ay1+3
-		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "green"
+		polygon "ax1 ax2 ax3" "ay1 ay2 ay3" "blue"
 
 		ty-=7
 		ctext "think"      tx ty 2
