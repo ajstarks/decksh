@@ -151,9 +151,9 @@ deck
 		text "decksh API" left top titlesize "serif"
 		ctext "decksh code" 70 70 3 "sans" dscolor
 		arrow 70 70 70 55 0.4 3 2 dscolor
-		hline 59 52 25 3 dscolor 15
+		hline 58 52 20 3 dscolor 15
 		arrow 40 50 40 35 0.4 3 2 outcolor
-		hline 30 52 25 3 outcolor 15
+		hline 34 52 21 3 outcolor 15
 		ctext "deck markup" 40 30 3 "sans" outcolor
 		ctext "Process(w io.Writer, r io.Reader)" 50 50 3.5 "mono"
 	eslide

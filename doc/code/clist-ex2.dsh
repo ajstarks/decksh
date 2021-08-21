@@ -1,0 +1,5 @@
+clist 90 30 4 "serif" "maroon" 100 1.0
+	li "first"
+	li "next"
+	li "and last"
+elist

@@ -347,7 +347,7 @@ deck
 			li "x y w h [color] [op]"
 			li "x y w [color] [op]"
 			li "x y w h [color] [op]"
-			li "x y w h r [color]"
+			li "x y w h radius [color]"
 			li "x y w h [color]"
 			li ` "x1 x2...xn" "y1 y2...yn" [lw] [color] [op]`
 			li "x y sides inner outer [color] [op]"
@@ -632,13 +632,13 @@ deck
 		rrect cx y w rrh rr "rgb(150,150,150)"
 		circle cx y coordsize accentcolor
 		ctext "(x,y)" cx cy ts "mono"
-		ctext "r" 20 81 ts "mono"
+		text "radius" 20 81 ts "mono"
 		ubrace 50 92 w 2 2
 		ctext "w" 50 93 3 "mono"
 		lbrace 15 y rrh 2 2
 		ctext "h" 12 y ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "rrect x y w h r [color] [op]" cx ly ts "mono" accentcolor
+		ctext "rrect x y w h radius [color] [op]" cx ly ts "mono" accentcolor
 
 		rrect 20 20 10 5 1
 		ctext "rrect 20 20 10 5 1" 20 ely ls "mono"
@@ -842,18 +842,10 @@ deck
 
 		circle ix 85 coordsize accentcolor 50
 		ctext "(x,y)" ix 80 lw "mono"
-		list 20 30 2.5
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext "list 20 30 2.5" 22 ely ets "mono"
-		list 60 30 4 "serif" kwcolor 100 1.0
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext `list 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
+		textfile "code/plist-ex1.dsh" 3 30 ets "mono"
+		include  "code/plist-ex1.dsh"
+		textfile "code/plist-ex2.dsh" 40 30 ets "mono"
+		include  "code/plist-ex2.dsh"
 	eslide
 
 	// blist
@@ -873,18 +865,10 @@ deck
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
-		blist 20 30 2.5
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext "blist 20 30 2.5" 22 ely ets "mono"
-		blist 60 30 4 "serif" kwcolor 100 1.0
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext `blist 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
+		textfile "code/blist-ex1.dsh" 3 30 ets "mono"
+		include  "code/blist-ex1.dsh"
+		textfile "code/blist-ex2.dsh" 40 30 ets "mono"
+		include  "code/blist-ex2.dsh"
 	eslide
 
 	// nlist
@@ -904,18 +888,12 @@ deck
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
-		nlist 20 30 2.5
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext "nlist 20 30 2.5" 22 ely ets "mono"
-		nlist 60 30 4 "serif" kwcolor 100 1.0
-			li "one"
-			li "two"
-			li "three"
-		elist
-		ctext `nlist 60 30 4 "serif" "maroon" 100 1.0` 65 ely ets "mono"
+
+		textfile "code/nlist-ex1.dsh" 3 30 ets "mono"
+		include  "code/nlist-ex1.dsh"
+		textfile "code/nlist-ex2.dsh" 40 30 ets "mono"
+		include  "code/nlist-ex2.dsh"
+
 	eslide
 
 	// clist
@@ -935,18 +913,10 @@ deck
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
-		clist 20 30 2.5
-			li "first one"
-			li "second"
-			li "third and last"
-		elist
-		ctext "clist 20 35 2.5" 20 ely ets "mono"
-		clist 60 30 4 "serif" kwcolor 100 1.0
-			li "first one"
-			li "second"
-			li "third and last"
-		elist
-		ctext `clist 60 30 4 "serif" "maroon" 100 1.0` 60 ely ets "mono"
+		textfile "code/clist-ex1.dsh" 3 30 ets "mono"
+		include  "code/clist-ex1.dsh"
+		textfile "code/clist-ex2.dsh" 45 30 ets "mono"
+		include  "code/clist-ex2.dsh"
 	eslide
 
 
