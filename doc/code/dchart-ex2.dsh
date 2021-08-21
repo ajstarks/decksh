@@ -1,0 +1,1 @@
+dchart -left=55 -right=85 -top=35 -bottom=20 -bar=f -line "test.d"

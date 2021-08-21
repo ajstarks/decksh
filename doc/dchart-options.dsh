@@ -1,0 +1,243 @@
+	slide
+		datacolor="maroon"
+		cmdcolor="rgb(75,75,75)"
+		ts=2.5
+		tsp=1.3 // for Letter, 1.45, Widescreen 1.1
+		tts=1.25
+
+		col1=5
+		col2=col1+10
+		col3=col2+40
+		col4=col3+10
+
+		defcol1=col2+16
+		defcol2=col4+16
+		vskip=3				// space between headers and data
+
+		row1=95				// top: headers
+		row1a=row1-vskip	// data
+
+		row2=row1-42		// second row
+		row2a=row2-vskip	// data
+
+		//rect 25 80 50 40 chartcolor 10
+		//rect 25 30 50 60 chartcolor 10
+		//rect 75 80 50 40 "orange" 10
+		//rect 75 30 50 60 "orange" 10
+
+		vline 50 0 100 0.1		// chart types
+		text "Chart Types" col1 row1 ts
+		list col1 row1a tts "mono" datacolor 100 tsp
+			li "-bar"
+			li "-wbar"
+			li "-hbar"
+			li "-donut"
+			li "-dot"
+			li "-lego"
+			li "-line"
+			li "-pgrid"
+			li "-pmap"
+			li "-bowtie"
+			li "-fan"
+			li "-radial"
+			li "-scatter"
+			li "-slope"
+			li "-vol"
+		elist
+			list col2 row1a tts "sans" cmdcolor 100 tsp
+			li "true"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+		elist
+		list defcol1 row1a tts "sans" "black" 100 tsp
+			li "bar chart"
+			li "word bar chart"
+			li "horizontal bar chart"
+			li "donut chart"
+			li "dot chart"
+			li "lego chart"
+			li "line chart"
+			li "proportional grid"
+			li "proportional map"
+			li "bowtie chart"
+			li "fan chart"
+			li "radial chart"
+			li "scatter chart"
+			li "slope chart"
+			li "volume (area) chart"
+		elist
+	
+		// chart elements
+		text "Chart Elements" col1 row2 ts
+		list col1 row2a tts "mono" datacolor 100 tsp
+			li "-csv"
+			li "-frame"
+			li "-fulldeck"
+			li "-grid"
+			li "-note"
+			li "-pct"
+			li "-rline"
+			li "-solidpmap"
+			li "-spokes"
+			li "-title"
+			li "-val"
+			li "-xlast"
+			li "-xstagger"
+			li "-yaxis"
+			li "-chartitle"
+			li "-datacond"
+			li "-hline"
+			li "-valpos"
+			li "-xlabel"
+			li "-yrange"
+		elist
+		list col2 row2a tts "sans" cmdcolor 100 tsp
+			li "false"
+			li "false"
+			li "true"
+			li "false"
+			li "true"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "true"
+			li "true"
+			li "false"
+			li "false"
+			li "false"
+			li "override title in data"
+			li "low,high,color"
+			li "value,label"
+			li "t=top, b=bottom, m=middle"
+			li "default=1, 0 to suppress"
+			li "min,max.step"
+ 		elist
+		list defcol1 row2a tts "sans" "black" 100 tsp
+			li "read CSV files"
+			li "show a colored frame"
+			li "generate full deck markup"
+			li "show gridlines on the y axis"
+			li "show annotations"
+			li "show computed percentage"
+			li "show a regression line"
+			li "show solid pmap colors"
+			li "show spokes in radial chart"
+			li "show the title"
+			li "show values"
+			li "show the last x label"
+			li "stagger x axis labels"
+			li "show a y axis"
+			li "specify the title"
+			li "conditional data colors"
+			li "label horizontal line at value"
+			li "value position"
+			li "x axis label interval"
+			li "specify the y axis label range"
+		elist
+
+		// position and scaling
+		text "Position and Scaling" col3 row1 ts
+		list col3 row1a tts "mono" datacolor 100 tsp
+			li "-top"
+			li "-bottom"
+			li "-left"
+			li "-right"
+			li "-min"
+			li "-max"
+		elist
+			list col4 row1a tts "sans" cmdcolor 100 tsp
+			li "80"
+			li "30"
+			li "20"
+			li "80"
+			li "data min"
+			li "data max"
+ 		elist 
+		list defcol2 row1a tts "sans" "black" 100 tsp
+			li "top of the chart"
+			li "bottom of the chart"
+			li "left margin"
+			li "right margin"
+			li "set the minimum data value"
+			li "set the maximum data value"
+		elist
+
+		// measures and attributes
+		text "Measures and Attributes" col3 row2 ts
+		list col3 row2a tts "mono" datacolor 100 tsp
+			li "-bgcolor"
+			li "-barwidth"
+			li "-color"
+			li "-csvcol"
+			li "-datafmt"
+			li "-dmin"
+			li "-framecolor"
+			li "-lcolor"
+			li "-linewidth"
+			li "-ls"
+			li "-noteloc"
+			li "-pmlen"
+			li "-psize"
+			li "-pwidth"
+			li "-rlcolor"
+			li "-textsize"
+			li "-xlabrot"
+			li "-vcolor"
+			li "-volop"
+		elist
+			list col4 row2a tts "sans" cmdcolor 100 tsp
+			li "white"
+			li "computed from data size"
+			li "lightsteelblue"
+			li "labe1,label2"
+			li "%.1f"
+			li "false"
+			li "rgb(127,127,127)"
+			li "rgb(75,75,75)"
+			li "0.2"
+			li "2.4"
+			li "c=center, r=right, l=left"
+			li "20"
+			li "30"
+			li "3"
+			li "rgb(127,0,0)"
+			li "1.5"
+			li "0"
+			li "rgb(127,0,0)"
+			li "50"
+		elist
+		list defcol2 row2a tts "sans" "black" 100 tsp
+			li "background color"
+			li "barwidth"
+			li "data color"
+			li "specify csv columns"
+			li "data format for values"
+			li "use data minimum, not zero"
+			li "frame color"
+			li "label color"
+			li "linewidth"
+			li "linespacing"
+			li "annotation location"
+			li "pmap label length"
+			li "diameter of the donut"
+			li "width of the donut or pmap"
+			li "regression line color"
+			li "text size"
+			li "xlabel rotation (deg.)"
+			li "value color"
+			li "volume opacity %"
+		elist
+	eslide

@@ -747,6 +747,7 @@ deck
 			li `"file" x y w h [scale] [link]`
 			li `"file" "caption" x y w h [scale] [link]`
 		elist
+		text "Note: the scale value is a percentage from 1-100" rc 60 2
 	eslide
 
 	// image
@@ -967,13 +968,13 @@ deck
 		ctext "aw" 75 87 lw "mono"
 
 		arrow 10 20 30 20
-		ctext "arrow 10 20 30 20" 20 ely ls "mono"
+		ctext "arrow 10 20 30 20" 20 ely ets "mono"
 
 		arrow 40 20 60 30 0.5
-		ctext "arrow 40 20 60 30 0.5" 50 ely ls "mono"
+		ctext "arrow 40 20 60 30 0.5" 50 ely ets "mono"
 
 		arrow 70 20 95 30 1.5 6 6 accentcolor
-		ctext `arrow 70 20 95 30 1.5 6 6 "maroon"` 82 ely ls "mono"
+		ctext `arrow 70 20 95 30 1.5 6 6 "maroon"` 82 ely ets "mono"
 	eslide
 
 	// lcarrow
@@ -1391,5 +1392,53 @@ deck
 		include   "code/data-example.dsh"
 	eslide
 
+	slide bgcolor fgcolor
+		ctext "Charts" 50 ty 5 "serif"
+		rc=initlcol
+		listspacing=1.6
+		list rc lsty lfs "sans" "" 100 listspacing
+			li "Charts"
+			li "Chart Legends"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li "dchart"
+			li "legend"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" "" 100 listspacing
+			li `options "file" (see next page)`
+			li `"text" x y size [font] [color]`
+		elist
+	eslide
+
+	include "dchart-options.dsh"
+
+	slide bgcolor fgcolor
+		dchart -bar  -yaxis -left 35 -bottom 65 -top 90 -right 65 "test.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		ctext `dchart options "file"` cx ly ts "mono" accentcolor
+
+		ctext "-bar"        50 70 lw "mono"
+		ctext "-yaxis"      32 55 lw "mono"
+		etext "-left=35"    25 80 lw "mono"
+		ctext "-top=90"     50 95 lw "mono"
+		ctext "-bottom=65"  50 55 lw "mono"
+		text  "-right=65"   75 80 lw "mono"
+
+		arrow 32 58 32 65 0.3 2 2 objcolor // yaxis
+		arrow 50 94 50 90 0.3 2 2 objcolor // top
+		arrow 75 82 65 82 0.3 2 2 objcolor // right 
+		arrow 25 82 35 82 0.3 2 2 objcolor // left
+		arrow 50 58 50 65 0.3 2 2 objcolor // bottom
+
+		etss=ets*0.75
+		include "code/dchart-ex1.dsh"
+		textfile "code/dchart-ex1.dsh" 3 10 etss "mono"
+
+		include "code/dchart-ex2.dsh"
+		textfile "code/dchart-ex2.dsh" 50 10 etss "mono"
+
+	eslide
 
 edeck
