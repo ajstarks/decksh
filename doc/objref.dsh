@@ -1415,7 +1415,6 @@ deck
 		ctext     `grid "code/grid-ex.dsh" 35 33 10 10 65` 50 10 ets  "mono"
 	eslide
 
-	
 	// charts
 	slide bgcolor fgcolor
 		ctext "Charts" 50 ty 5 "serif"
@@ -1456,6 +1455,10 @@ deck
 		arrow 75 82 65 82 0.3 2 2 objcolor // right 
 		arrow 25 82 35 82 0.3 2 2 objcolor // left
 		arrow 50 58 50 65 0.3 2 2 objcolor // bottom
+		vline 35 65 25 0.1 objcolor 50
+		vline 65 65 25 0.1 objcolor 50
+		hline 35 90 30 0.1 objcolor 50
+		hline 35 65 30 0.1 objcolor 50
 
 		etss=ets*0.75
 		include "code/dchart-ex1.dsh"
