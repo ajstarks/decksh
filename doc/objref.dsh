@@ -1471,13 +1471,15 @@ deck
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		ctext `legend "text" x y size font color` cx ly ts "mono" accentcolor
-		legend "text" 40 70 2.5 "sans" objcolor
+		legend "My text" 40 70 10 "sans" objcolor
+		circle 40 70 3 accentcolor
 		ctext "(x,y)" 40 65 lw "mono"
-		legend "Item on the chart" 20 30 2 "sans" "red"
 		
-		text `legend "Item on the chart" 20 30 2 "sans" "red"` 3 10 ets "mono"
-		legend "Thing" 70 30 1.5 "serif" "blue"
-		text `legend "Thing" 70 30 1.5 "serif" "blue"`  60 10 ets "mono"
+		legend "Item on the chart" 20 30 3 "sans" "red"
+		text `legend "Item on the chart" 20 30 3 "sans" "red"` 3 10 ets "mono"
+
+		legend "Thing" 70 30 2 "serif" "blue"
+		text `legend "Thing" 70 30 2 "serif" "blue"`  60 10 ets "mono"
 	eslide
 
 edeck
