@@ -1158,8 +1158,14 @@ func legend(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	fmt.Fprintf(w, "<text xp=%q yp=%q sp=%q %s>%s</text>\n", ftoa(tx+2), s[3], s[4], fontColorOp(s[5:]), qesc(s[1]))
-	fmt.Fprintf(w, "<ellipse xp=%q yp=%q wp=%q hr=\"100\" color=%s/>\n", s[2], ftoa(cy+.5), s[4], s[6])
+	ts, err := strconv.ParseFloat(s[4], 64)
+	if err != nil {
+		return err
+	}
+	tshalf := ts / 2
+	fmt.Fprintf(w, "<text xp=%q yp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], fontColorOp(s[5:]), qesc(s[1]))
+	fmt.Fprintf(w, "<line xp1=%q yp1=%q xp2=%q yp2=%q sp=%q color=%s/>\n", ftoa(tx-tshalf), s[3], ftoa(tx-tshalf), ftoa(cy+ts), ftoa(tshalf), s[6])
+
 	return nil
 }
 
