@@ -42,6 +42,7 @@ deck
 	include "keywords.dsh"
 	include "kw-ex.dsh"
 	include "struct.dsh"
+	include "grid.dsh"
 
 	slide bgcolor fgcolor
 		iy=78
