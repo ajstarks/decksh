@@ -25,12 +25,14 @@
 		ctext "90" 5 90 3 "mono"
 		ctext "Percent Grid" 50 90 8
 
-		circle 30 20 2
-		circle 90 80 2
-		circle 50 50 2
-		circle 20 70 2
-		circle 50 90 2
-		circle 60 70 2
+		circle 30 20 2 "maroon"
+		circle 90 80 2 "maroon"
+		circle 50 50 2 "maroon"
+		circle 20 70 2 "maroon"
+		circle 50 90 2 "maroon"
+		circle 60 70 2 "maroon"
+		circle 70 30 2 "maroon"
+		circle 90 30 2 "maroon"
 		circle 60 70 10 "black" 20
 		
 		ctext "(30,20)" 30 13 3
@@ -38,7 +40,7 @@
 		ctext "(50,50)" 50 43 3
 		ctext "(20,70)" 20 63 3
 		ctext "(60,70)" 60 65 3
-		hline  70 30 20 1
+		hline  70 30 20 1 "black" 20
 		ctext "len=20" 80 40 3
 		ubrace 80 37 20 2 2
 		ctext "w=10" 60 82 3
