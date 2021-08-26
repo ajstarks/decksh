@@ -2,6 +2,7 @@ deck
 	bgcolor="white"
 	fgcolor="black"
 	accentcolor="#800000"
+	argcolor="#0000aa"
 	spotcolor=accentcolor
 	kwcolor=accentcolor
 	objcolor="#7f7f7f"
@@ -136,16 +137,28 @@ deck
 			li "textcode"
 		elist
 
-		rc+=lcolsize2
-		list rc lsty lfs "mono"
-			li `"..." x y fontsize [font] [color] [op] [link]`
-			li `"..." x y fontsize [font] [color] [op] [link]`
-			li `"..." x y fontsize [font] [color] [op] [link]`
-			li `"..." x y angle fontsize [font] [color] [op] [link]`
-			li `"..." x y rad a1 a2 fontsize [font] [color] [op] [link]`
-			li `"..." x y w fontsize [font] [color] [op] [link]`
-			li `"file" x y fontsize [font] [color] [op] [spacing]`
-			li `"file" x y w fontsize [color]`
+		rc+=15
+		list rc lsty lfs "mono" argcolor
+			li `"..." x y fontsize`
+			li `"..." x y fontsize`
+			li `"..." x y fontsize`
+			li `"..." x y angle fontsize`
+			li `"..." x y rad a1 a2 fontsize`
+			li `"..." x y w fontsize`
+			li `"file" x y fontsize`
+			li `"file" x y w fontsize`
+		elist
+
+		rc+=34
+		list rc lsty lfs "mono" optcolor
+			li "font color op link"
+			li "font color op link"
+			li "font color op link"
+			li "font color op link"
+			li "font color op link"
+			li "font color op link"
+			li "font color op spacing"
+			li "font color"
 		elist
 	eslide
 
@@ -300,7 +313,7 @@ deck
 	// Graphics index
 	slide bgcolor fgcolor
 		rc=initlcol
-		lcolsize*=1.5
+		lcolsize*=1.2
 		listspacing=1.6
 		ctext "Graphical Elements" 50 ty 5 "serif"
 		list rc lsty lfs "sans" "" 100 listspacing
@@ -337,21 +350,38 @@ deck
 			li "star"
 		elist
 		rc+=12
-		list rc lsty lfs "mono" "" 100 listspacing
-			li "x1 y1 x2 y2 lw [color] [op]"
-			li "x y w [lw] [color] [op]"
-			li "x y h [lw] [color] [op]"
-			li "x y w h a1 a2 [lw] [color] [op]"
-			li "bx by cx cy ex ey [lw] [color] [op]"
-			li "x y w [color] [op]"
-			li "x y area [color] [op]"
-			li "x y w h [color] [op]"
-			li "x y w [color] [op]"
-			li "x y w h [color] [op]"
+		list rc lsty lfs "mono" argcolor 100 listspacing
+			li "x1 y1 x2 y2 lw"
+			li "x y w"
+			li "x y h"
+			li "x y w h a1 a2"
+			li "bx by cx cy ex ey"
+			li "x y w"
+			li "x y area"
+			li "x y w h"
+			li "x y w"
+			li "x y w h"
 			li "x y w h radius [color]"
 			li "x y w h [color]"
-			li ` "x1 x2...xn" "y1 y2...yn" [lw] [color] [op]`
-			li "x y sides inner outer [color] [op]"
+			li ` "x1 x2...xn" "y1 y2...yn"`
+			li "x y sides inner outer"
+		elist
+		rc+=32
+		list rc lsty lfs "mono" optcolor 100 listspacing
+			li "color op"
+			li "lw color op"
+			li "lw color op"
+			li "lw color op"
+			li "lw color op"
+			li "color op"
+			li "color op"
+			li "color op"
+			li "color op"
+			li "color op"
+			li "color"
+			li "color"
+			li "color op"
+			li "color op"
 		elist
 	eslide
 
@@ -744,11 +774,16 @@ deck
 			li "cimage"
 		elist
 		rc+=12
-		list rc lsty lfs "mono"
-			li `"file" x y w h [scale] [link]`
-			li `"file" "caption" x y w h [scale] [link]`
+		list rc lsty lfs "mono" argcolor
+			li `"file" x y w h`
+			li `"file" "caption" x y w h`
 		elist
-		text "Note: the scale value is a percentage from 1-100" rc 60 2
+		rc+=30
+		list rc lsty lfs "mono" optcolor
+			li `scale "link"`
+			li `scale "link"`
+		elist
+		textblock "Note: the scale value is a percentage from 1-100" rc 60 10 2
 	eslide
 
 	// image
@@ -819,11 +854,18 @@ deck
 		elist
 
 		rc+=lcolsize2
-		list rc lsty lfs "mono"
-			li "x y fontsize [font] [color] [op] [spacing]"
-			li "x y fontsize [font] [color] [op] [spacing]"
-			li "x y fontsize [font] [color] [op] [spacing]"
-			li "x y fontsize [font] [color] [op] [spacing]"			
+		list rc lsty lfs "mono" argcolor
+			li "x y fontsize"
+			li "x y fontsize"
+			li "x y fontsize"
+			li "x y fontsize"			
+		elist
+		rc+=18
+		list rc lsty lfs "mono" optcolor
+			li "font color op spacing"
+			li "font color op spacing"
+			li "font color op spacing"
+			li "font color op spacing"
 		elist
 	eslide
 	
@@ -834,7 +876,7 @@ deck
 		ly=cy-15
 		lw=3
 		ix=40
-		text "list" ix 85 4 "mono" objcolor
+		text "list x y fs" ix 85 4 "mono" objcolor
 		text `   li "first"`  ix 78 4 "mono" objcolor
 		text `   li "second"` ix 71 4 "mono" objcolor
 		text `   li "third"`  ix 64 4 "mono" objcolor
@@ -857,7 +899,7 @@ deck
 		ly=cy-15
 		lw=3
 		ix=40
-		text "blist" ix 85 4 "mono" objcolor
+		text "blist x y fs" ix 85 4 "mono" objcolor
 		text `   li "first"`  ix 78 4 "mono" objcolor
 		text `   li "second"` ix 71 4 "mono" objcolor
 		text `   li "third"`  ix 64 4 "mono" objcolor
@@ -880,7 +922,7 @@ deck
 		ly=cy-15
 		lw=3
 		ix=40
-		text "nlist" ix 85 4 "mono" objcolor
+		text "nlist x y fs" ix 85 4 "mono" objcolor
 		text `   li "first"`  ix 78 4 "mono" objcolor
 		text `   li "second"` ix 71 4 "mono" objcolor
 		text `   li "third"`  ix 64 4 "mono" objcolor
@@ -905,7 +947,7 @@ deck
 		ly=cy-15
 		lw=3
 		ix=40
-		text "clist" ix 85 4 "mono" objcolor
+		text "clist x y fs" ix 85 4 "mono" objcolor
 		text `   li "first"`  ix 78 4 "mono" objcolor
 		text `   li "second"` ix 71 4 "mono" objcolor
 		text `   li "third"`  ix 64 4 "mono" objcolor
@@ -920,8 +962,6 @@ deck
 		textfile "code/clist-ex2.dsh" 45 30 ets "mono"
 		include  "code/clist-ex2.dsh"
 	eslide
-
-
 
 	// Arrow index
 	slide bgcolor fgcolor
@@ -943,12 +983,20 @@ deck
 			li "dcarrow"
 		elist
 		rc+=12
-		list rc lsty lfs "mono"
-			li "x1 y1 x2 y2 [lw] [aw] [ah] [color] [op]"
-			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
-			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
-			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
-			li "bx by cx cy ex ey [lw] [aw] [ah] [color] [op]"
+		list rc lsty lfs "mono" argcolor
+			li "x1 y1 x2 y2"
+			li "bx by cx cy ex ey"
+			li "bx by cx cy ex ey"
+			li "bx by cx cy ex ey"
+			li "bx by cx cy ex ey"
+		elist
+		rc+=22
+		list rc lsty lfs "mono" optcolor
+			li "lw aw ah color op"
+			li "lw aw ah color op"
+			li "lw aw ah color op"
+			li "lw aw ah color op"
+			li "lw aw ah color op"
 		elist
 	eslide
 
@@ -1075,11 +1123,18 @@ deck
 			li "dbrace"
 		elist
 		rc+=12
-		list rc lsty lfs "mono"
-			li "x y fontsize bw bh [lw] [color] [op]"
-			li "x y fontsize bw bh [lw] [color] [op]"
-			li "x y fontsize bw bh [lw] [color] [op]"
-			li "x y fontsize bw bh [lw] [color] [op]"			
+		list rc lsty lfs "mono" argcolor
+			li "x y fontsize bw bh"
+			li "x y fontsize bw bh"
+			li "x y fontsize bw bh"
+			li "x y fontsize bw bh"			
+		elist
+		rc+=25
+		list rc lsty lfs "mono" objcolor
+			li "lw color op"
+			li "lw color op"
+			li "lw color op"
+			li "lw color op"
 		elist
 	eslide
 

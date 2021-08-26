@@ -1,36 +1,39 @@
 	slide
-		optx=52
 		argcolor="rgb(0,0,127)"
 		optcolor="rgb(127,127,127)"
 
 		ky=top-20
 		sl=left-5
 		exsize=3.0
+		argx=13
+		optx=argx+35
 		ctext "Keywords and arguments"	50 top titlesize	"serif"
-		text "text"              		sl   ky exsize	"mono" "maroon"
-		text `"string...."    x y n`    17   ky exsize	"mono" argcolor
-		text "[font] [color] [op]"		optx ky exsize	"mono" optcolor
+		text "text"              		sl     ky exsize	"mono" "maroon"
+		text `"..string...." x  y  n`   argx   ky exsize	"mono" argcolor
+		text `"font" "color" op`		optx   ky exsize	"mono" optcolor
 
 
 		lky=ky+5
-		text "keyword"  sl lky 1.5
-		ctext "arguments" 50 77 1.5
-		ctext "mandatory" 33 53 1.5
-		ctext "optional" 66  53 1.5
+		ctext "keyword"    8 80 2
+		ctext "arguments" 44 80 2
+		ctext "mandatory" 28 71 2
+		ctext "optional"  58 71 2
 
-		ubrace 50 75 65 2 2
-		dbrace 33 57 30 2 2
-		dbrace 66 57 30 2 2
+		ubrace 44 78 62 2 2 // args
 
-		list sl 40 exsize "mono"
+		vline  8    20 50  8 "maroon" 10
+		vline 29.75 20 50 34 argcolor 10
+		vline 61    20 50 27 optcolor 10
+
+		list sl 50 exsize "mono"
 			li `text "hello, world"  80 50 2`
 			li `text "hello, world"  80 40 2 "serif"`	
 			li `text "hello, world"  80 30 2 "serif" "red"`
 			li `text "hello, world"  80 20 2 "serif" "red" 50`
 		elist
 
-		sl+=70
-		list sl 40 exsize
+		sl+=72
+		list sl 50 exsize
 			li "hello, world" 
 			li "hello, world" "serif"
 			li "hello, world" "serif" "red"

@@ -1,4 +1,4 @@
-clist 35 30 2.5
+clist 30 30 2.5
 	li "first one"
 	li "next"
 	li "and last"
