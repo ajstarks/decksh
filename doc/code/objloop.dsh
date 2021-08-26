@@ -1,4 +1,6 @@
 for v=10 35 5
-	hline 50 v 30 0.1 "blue"
-	circle 65 v 2 "red" 20
+	hline  50 v 30 0.1  "blue"
+	star   60 v 5 1 0.4 "red"
+	circle 65 v 2 "green"
+	square 70 v 2 "blue"
 efor

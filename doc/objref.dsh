@@ -16,6 +16,7 @@ deck
 	ls=ts*0.55
 	lsty=80
 	lfs=2.3
+	tbheadsize=4
 	cx=50
 	ey=20
 	ely=ey-10
@@ -30,6 +31,11 @@ deck
 	lcolsize=18
 	lcolsize2=lcolsize*0.6
 	rc=initlcol
+
+	tbl1="description"
+	tbl2="keyword"
+	tbl3="mandatory"
+	tbl4="optional"
 
 
 	slide bgcolor fgcolor
@@ -113,8 +119,12 @@ deck
 	// Text index
 	slide bgcolor fgcolor
 		rc=initlcol
+		hlfs=lfs/2
+		llsty=lsty+hlfs
 		ctext "Textual Elements" 50 ty 5 "serif"
+		hline rc llsty 90 tbheadsize "gray" 20
 		list rc lsty lfs
+			li tbl1  "sans" objcolor
 			li "Left-aligned"
 			li "Centered"
 			li "End-aligned"
@@ -127,6 +137,7 @@ deck
 
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor
+			li tbl2 "sans" objcolor
 			li "text"
 			li "ctext"
 			li "etext"
@@ -139,6 +150,7 @@ deck
 
 		rc+=15
 		list rc lsty lfs "mono" argcolor
+			li tbl3 "sans" objcolor
 			li `"..." x y fontsize`
 			li `"..." x y fontsize`
 			li `"..." x y fontsize`
@@ -151,6 +163,7 @@ deck
 
 		rc+=34
 		list rc lsty lfs "mono" optcolor
+			li tbl4 "sans" objcolor
 			li "font color op link"
 			li "font color op link"
 			li "font color op link"
@@ -314,9 +327,11 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		lcolsize*=1.2
-		listspacing=1.6
+		listspacing=1.5
 		ctext "Graphical Elements" 50 ty 5 "serif"
+		hline rc llsty 90 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
+			li tbl1 "sans" objcolor
 			li "Line"
 			li "Horizontal line"
 			li "Vertical line"
@@ -334,6 +349,7 @@ deck
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li tbl2 "sans" objcolor
 			li "line"
 			li "hline"
 			li "vline"
@@ -351,6 +367,7 @@ deck
 		elist
 		rc+=12
 		list rc lsty lfs "mono" argcolor 100 listspacing
+			li tbl3 "sans" objcolor
 			li "x1 y1 x2 y2 lw"
 			li "x y w"
 			li "x y h"
@@ -368,6 +385,7 @@ deck
 		elist
 		rc+=32
 		list rc lsty lfs "mono" optcolor 100 listspacing
+			li tbl4 "sans" objcolor
 			li "color op"
 			li "lw color op"
 			li "lw color op"
@@ -764,26 +782,31 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		ctext "Images" 50 ty 5 "serif"
+		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
+			li tbl1 "sans" objcolor
 			li "Image"
 			li "Captioned image"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor
+			li tbl2"sans" objcolor
 			li "image"
 			li "cimage"
 		elist
 		rc+=12
 		list rc lsty lfs "mono" argcolor
+			li tbl3 "sans" objcolor
 			li `"file" x y w h`
 			li `"file" "caption" x y w h`
 		elist
 		rc+=30
 		list rc lsty lfs "mono" optcolor
+			li tbl4 "sans" objcolor
 			li `scale "link"`
 			li `scale "link"`
 		elist
-		textblock "Note: the scale value is a percentage from 1-100" rc 60 10 2
+		textblock "Note: the scale value is a percentage from 1-100, and link is a URL" rc 60 15 2
 	eslide
 
 	// image
@@ -838,7 +861,9 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		ctext "Lists" 50 ty 5 "serif"
+		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
+			li tbl1 "sans" objcolor
 			li "Plain list"
 			li "Bullet list"
 			li "Numbered list"
@@ -847,6 +872,7 @@ deck
 
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor
+			li tbl2  "sans" objcolor
 			li "list"
 			li "blist"
 			li "nlist"
@@ -855,6 +881,7 @@ deck
 
 		rc+=lcolsize2
 		list rc lsty lfs "mono" argcolor
+			li tbl3 "sans" objcolor
 			li "x y fontsize"
 			li "x y fontsize"
 			li "x y fontsize"
@@ -862,6 +889,7 @@ deck
 		elist
 		rc+=18
 		list rc lsty lfs "mono" optcolor
+			li tbl4 "sans" objcolor
 			li "font color op spacing"
 			li "font color op spacing"
 			li "font color op spacing"
@@ -967,7 +995,9 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		ctext "Arrows" 50 ty 5 "serif"
+		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
+			li tbl1 "sans" objcolor
 			li "Straight"
 			li "Left curved"
 			li "Right curved"
@@ -976,6 +1006,7 @@ deck
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor
+			li tbl2 "sans" objcolor
 			li "arrow"
 			li "lcarrow"
 			li "rcarrow"
@@ -984,6 +1015,7 @@ deck
 		elist
 		rc+=12
 		list rc lsty lfs "mono" argcolor
+			li tbl3 "sans" objcolor
 			li "x1 y1 x2 y2"
 			li "bx by cx cy ex ey"
 			li "bx by cx cy ex ey"
@@ -992,6 +1024,7 @@ deck
 		elist
 		rc+=22
 		list rc lsty lfs "mono" optcolor
+			li tbl4 "sans" objcolor
 			li "lw aw ah color op"
 			li "lw aw ah color op"
 			li "lw aw ah color op"
@@ -1109,7 +1142,9 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		ctext "Braces" 50 ty 5 "serif"
+		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
+			li tbl1 "sans" objcolor
 			li "Left brace"
 			li "Right brace"
 			li "Up brace"
@@ -1117,6 +1152,7 @@ deck
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor
+			li tbl2 "sans" objcolor
 			li "lbrace"
 			li "rbrace"
 			li "ubrace"
@@ -1124,6 +1160,7 @@ deck
 		elist
 		rc+=12
 		list rc lsty lfs "mono" argcolor
+			li tbl3 "sans" objcolor
 			li "x y fontsize bw bh"
 			li "x y fontsize bw bh"
 			li "x y fontsize bw bh"
@@ -1131,6 +1168,7 @@ deck
 		elist
 		rc+=25
 		list rc lsty lfs "mono" objcolor
+			li tbl4 "sans" objcolor
 			li "lw color op"
 			li "lw color op"
 			li "lw color op"
@@ -1239,7 +1277,9 @@ deck
 		rc=initlcol
 		listspacing=1.6
 		ctext "Loop, Assignments, Data and Grid" 50 ty 5 "serif"
+		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
+			li tbl1 "sans" objcolor
 			li "Loop"
 			li "Polar coordinate (x)"
 			li "Polar coordinate (y)"
@@ -1252,6 +1292,7 @@ deck
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li tbl2 "sans" objcolor
 			li "for v="
 			li "x=polarx"
 			li "y=polary"
@@ -1264,6 +1305,7 @@ deck
 		elist
 		rc+=20
 		list rc lsty lfs "mono" "" 100 listspacing
+			li tbl3 "sans" objcolor
 			li "begin end [increment] ... efor"
 			li "x y radius angle"
 			li "x y radius angle"
