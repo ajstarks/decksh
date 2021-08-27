@@ -184,7 +184,9 @@ deck
 		text "hello, world" cx ky 7 "sans" objcolor
 		circle cx ky coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `text "..." x y fontsize [font] [color] [op] [link]` cx ly ts "mono" accentcolor
+		etext "text"               29 ly ts "mono" kwcolor
+		ctext "x y fontsize"       40 ly ts "mono" argcolor
+		ctext "font color op link" 65 ly ts "mono" optcolor
 		ctext "(x,y)" cx 65 lw "mono"
 
 		text "abc" 20 20 4
@@ -201,9 +203,11 @@ deck
 		ly=cy-15
 		lw=3
 		ctext "hello, world" cx ky 7 "sans" objcolor
+		etext "ctext"               29 ly ts "mono" kwcolor
+		ctext "x y fontsize"        40 ly ts "mono" argcolor
+		ctext "font color op link"  65 ly ts "mono" optcolor
 		circle cx ky coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `ctext "..." x y fontsize [font] [color] [op] [link]` cx ly ts "mono" accentcolor
 		ctext "(x,y)" cx 65 lw "mono"
 
 		ctext "abc" 20 20 4
@@ -222,7 +226,9 @@ deck
 		etext "hello, world" cx ky 7 "sans" objcolor
 		circle cx ky coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `etext "..." x y fontsize [font] [color] [op] [link]` cx ly ts "mono" accentcolor
+		etext "etext"               29 ly ts "mono" kwcolor
+		ctext "x y fontsize"        40 ly ts "mono" argcolor
+		ctext "font color op link"  65 ly ts "mono" optcolor
 		ctext "(x,y)" cx 65 lw "mono"
 
 		etext "abc" 20 20 4
@@ -236,7 +242,9 @@ deck
 	slide bgcolor fgcolor
 		rtext "hello, world" cx ky 25 7 "sans" objcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `rtext "..." x y angle fontsize [font] [color] [op] [link]` cx ly ts "mono" accentcolor
+		etext "rtext"                      24 ly ts "mono" kwcolor
+		ctext "x y angle fontsize"         40 ly ts "mono" argcolor
+		ctext "font color op link"         70 ly ts "mono" optcolor
 		circle cx ky coordsize accentcolor
 		ctext "(x,y)" cx 65 lw "mono"
 
@@ -262,7 +270,9 @@ deck
 		ctext "a1" a1x a1y lw "mono"
 		ctext "a2" a2x a2y lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `arctext "..." x y radius a1 a2 fontsize [font] [color] [op]` cx ly ts "mono" accentcolor
+		etext "arctext"                         25 ly ts "mono" kwcolor
+		ctext "x y radius a1 a2 fontsize"       47 ly ts "mono" argcolor
+		ctext "font color op link"              83 ly ts "mono" optcolor
 
 		arctext "What is up" 25 20 10 180 90 3 "mono"
 		arctext "This is curvy" 75 30 10 180 360 3 "mono"
@@ -282,7 +292,9 @@ deck
 		ctext "w" cx 94 lw "mono"
 		ubrace cx 93 tbw 2 2
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `textblock "..." x y w fontsize [font] [color] [op]` cx ly ts "mono" accentcolor
+		etext "textblock"               28 ly ts "mono" kwcolor
+		ctext "x y w fontsize"          40 ly ts "mono" argcolor
+		ctext "font color op link"      67 ly ts "mono" optcolor
 
 		textblock tb 10 35 30 1.5
 		textblock tb 50 35 10 1 "sans" "maroon"
@@ -297,7 +309,9 @@ deck
 		circle 20 80 coordsize accentcolor 50
 		etext "(x,y)" 19 80  lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `textfile "filename" x y fontsize [font] [color] [op]` cx ly ts "mono" accentcolor
+		etext "textfile"               29 ly ts "mono" kwcolor
+		ctext "x y fontsize"           40 ly ts "mono" argcolor
+		ctext "font color op link"     65 ly ts "mono" optcolor
 
 		textfile  "code/example.txt" 10 35 2
 		text `textfile "example.txt" 10 35 2` 10 ely ets "mono"
@@ -312,7 +326,9 @@ deck
 		ctext "(x,y)" 20 95  lw "mono"
 		arrow 20 95 20 88 0.1 1 1
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `textcode "filename" x y w fontsize [color]` cx ly ts "mono" accentcolor
+		etext "textcode"               32 ly ts "mono" kwcolor
+		ctext "x y w fontsize"         44 ly ts "mono" argcolor
+		ctext "font color"             64 ly ts "mono" optcolor
 		ubrace 42.5 92 50 2 2
 		ctext "w" 42.5 93 lw "mono"
 
@@ -415,7 +431,9 @@ deck
 		ctext "(x1,y1)" 20 cy ts "mono"
 		ctext "(x2,y2)" 80 cy ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "line x1 y1 x2 y2 lw [color] [op]" cx ly ts "mono" accentcolor
+		etext "line"                  32 ly ts "mono" kwcolor
+		ctext "x1 y1 x2 y2 lw"        45 ly ts "mono" argcolor
+		ctext "color op"              65 ly ts "mono" optcolor
 		ctext "lw" 13 69 ts "mono"
 		lbrace 16 70 lw 1 1
 
@@ -436,7 +454,9 @@ deck
 		circle 35 ky lw accentcolor
 		ctext "(x,y)" 35 65 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "hline x y w [lw] [color] [op]" cx ly ts "mono" accentcolor
+		etext "hline"                  40 ly ts "mono" kwcolor
+		ctext "x y w"                  46 ly ts "mono" argcolor
+		ctext "lw color op"            60 ly ts "mono" optcolor
 		ubrace 50 77 w 2 2
 		ctext "w" 50 78 ts "mono"
 		ctext "lw" 68 69 ts "mono"
@@ -456,7 +476,9 @@ deck
 		vline cx ky 20 lw "black" 30
 		circle cx ky 3 accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "vline x y h [lw] [color] [op]" cx ly ts "mono" accentcolor
+		etext "vline"                  40 ly ts "mono" kwcolor
+		ctext "x y w"                  46 ly ts "mono" argcolor
+		ctext "lw color op"            60 ly ts "mono" optcolor
 		ctext "(x,y)" 50 65 ts "mono"
 		ctext "lw" 50 92 ts "mono"
 		lbrace 45 80 20 2 2
@@ -479,7 +501,9 @@ deck
 		arc cx ky aw ah  0 180 0.5
 		circle cx ky coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "arc x y w h a1 a2 [lw] [color] [op]" cx ly ts "mono" accentcolor
+		etext "arc"                  34 ly ts "mono" kwcolor
+		ctext "x y w h a1 a2"        46 ly ts "mono" argcolor
+		ctext "lw color op"          67 ly ts "mono" optcolor
 		ctext "(x,y)" cx cy ts "mono"
 		ubrace 50 92 aw 2 2
 		ctext "w" cx 93 ts "mono"
@@ -509,7 +533,9 @@ deck
 		ctext "(cx,cy)" 70 92 ts "mono"
 		ctext "(ex,ey)" 65 65 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "curve bx by cx cy ex ey [lw] [color] [op]" cx ly ts "mono" accentcolor
+		etext "curve"                  31 ly ts "mono" kwcolor
+		ctext "bx by cx cy ex ey"      46 ly ts "mono" argcolor
+		ctext "lw color op"            70 ly ts "mono" optcolor
 
 		curve 15 ey 25 30 25 ey
 		ctext "curve 15 20 25 30 30 25" 20 ely ls "mono"
@@ -536,7 +562,9 @@ deck
 		ubrace cx 92 d 2 2
 		ctext "w" cx 94 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "circle x y w [color] [op]" cx ly ts "mono" accentcolor
+		etext "circle"                  44 ly ts "mono" kwcolor
+		ctext "x y w"                   50 ly ts "mono" argcolor
+		ctext "color op"                63 ly ts "mono" optcolor
 
 		circle 20 20 10
 		ctext "circle 20 20 10" 20 ely ls "mono"
@@ -563,7 +591,9 @@ deck
 		ubrace cx 92 d 2 2
 		ctext "area" cx 94 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "acircle x y area [color] [op]" cx ly ts "mono" accentcolor
+		etext "circle"                     42 ly ts "mono" kwcolor
+		ctext "x y area"                   50 ly ts "mono" argcolor
+		ctext "color op"                   64 ly ts "mono" optcolor
 
 		acircle 20 20 10
 		ctext "acircle 20 20 10" 20 ely ls "mono"
@@ -594,7 +624,9 @@ deck
 		lbrace 15 ky d 2 2
 		ctext "h" 12 ky ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "ellipse x y w h [color] [op]" cx ly ts "mono" accentcolor
+		etext "ellipse"                     43 ly ts "mono" kwcolor
+		ctext "x y w h"                     50 ly ts "mono" argcolor
+		ctext "color op"                    64 ly ts "mono" optcolor
 
 		ellipse 20 20 10 5
 		ctext "ellipse 20 20 10 5" 20 ely ls "mono"
@@ -622,7 +654,9 @@ deck
 		ubrace cx 92 d 2 2
 		ctext "w" cx 94 3 "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "square x y w [color] [op]" cx ly ts "mono" accentcolor
+		etext "square"                    44 ly ts "mono" kwcolor
+		ctext "x y w"                     50 ly ts "mono" argcolor
+		ctext "color op"                  62 ly ts "mono" optcolor
 
 		square 20 20 10
 		ctext "square 20 20 10" 20 ely ls "mono"
@@ -653,7 +687,9 @@ deck
 		lbrace 15 ky d 2 2
 		ctext "h" 12 ky ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "rect x y w h [color] [op]" cx ly ts "mono" accentcolor
+		etext "rect"                        43 ly ts "mono" kwcolor
+		ctext "x y w h"                     50 ly ts "mono" argcolor
+		ctext "color op"                    64 ly ts "mono" optcolor
 
 		rect 20 20 10 5
 		ctext "rect 20 20 10 5" 20 ely ls "mono"
@@ -687,7 +723,9 @@ deck
 		lbrace 15 ky rrh 2 2
 		ctext "h" 12 ky ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "rrect x y w h radius [color] [op]" cx ly ts "mono" accentcolor
+		etext "rrect"                       37 ly ts "mono" kwcolor
+		ctext "x y w h radius"              50 ly ts "mono" argcolor
+		ctext "color op"                    69 ly ts "mono" optcolor
 
 		rrect 20 20 10 5 1
 		ctext "rrect 20 20 10 5 1" 20 ely ls "mono"
@@ -716,7 +754,10 @@ deck
 		lbrace 29 ky ph 2 2 
 		ctext "h" 27 ky ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "pill x y w h [color]" cx ly ts "mono" accentcolor
+		etext "pill"                 43 ly ts "mono" kwcolor
+		ctext "x y w h"              50 ly ts "mono" argcolor
+		ctext "color"                61 ly ts "mono" optcolor
+		//ctext "pill x y w h [color]" cx ly ts "mono" accentcolor
 
 		pill 20 20 10 5
 		text "pill 20 20 10 5" 20 ely ls "mono"
@@ -735,7 +776,9 @@ deck
 		circle 60 ky coordsize accentcolor
 		circle 70 90 coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `polygon "x1 x2...xn" "y1 y2...yn" [color] [op]` cx ly ts "mono" accentcolor
+		etext "polygon"                    30 ly ts "mono" kwcolor
+		ctext `x1 x2...xn" "y1 y2...yn`    50 ly ts "mono" argcolor
+		ctext "color op"                   76 ly ts "mono" optcolor
 
 		polygon "10 25 20" "ey 30 ey"
 		text `polygon "10 25 20" "20 30 20"` 5 ely ls "mono"
@@ -768,7 +811,9 @@ deck
 		ctext "outer" 40 70 2
 		ctext "inner" 53 72 2
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "star x y sides inner outer [color] [op]" cx ly ts "mono" accentcolor
+		etext "star"                    32 ly ts "mono" kwcolor
+		ctext "x y sides inner outer"   50 ly ts "mono" argcolor
+		ctext "color op"                74 ly ts "mono" optcolor
 
 		star 20 ey 5 2 6
 		ctext "star 20 20 5 2 6" 20 ely ls "mono"
@@ -824,7 +869,11 @@ deck
 		lbrace 30 70 30 2 2
 		ctext "h" 28 68 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `image "file" x y w h [scale] [link]` cx ly ts "mono" accentcolor
+		etext "image"                    43 ly ts "mono" kwcolor
+		ctext "x y w h"                  50 ly ts "mono" argcolor
+		ctext "scale link"               65 ly ts "mono" optcolor
+
+		//ctext `image "file" x y w h [scale] [link]` cx ly ts "mono" accentcolor
 		
 		image "images/follow.jpg" 20 25 640 480 10
 		ctext `image "follow.jpg" 20 25 640 480 10` 20 ely ls "mono"
@@ -848,7 +897,9 @@ deck
 		lbrace 30 70 30 2 2
 		ctext "h" 28 68 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `cimage "file" "caption" x y w h [scale] [link] [capsize]` cx ly ts "mono" accentcolor
+		etext "cimage"                    43 ly ts "mono" kwcolor
+		ctext "x y w h"                  50 ly ts "mono" argcolor
+		ctext "scale link"               65 ly ts "mono" optcolor
 		
 		cimage "images/cloudy.jpg" "sky" 20 25 640 480 10
 		ctext `cimage "cloudy.jpg" "sky" 20 25 640 480 10` 20 exy ls "mono"
@@ -910,7 +961,10 @@ deck
 		text `   li "third"`  ix 64 4 "mono" objcolor
 		text "elist"          ix 57 4 "mono" objcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "list x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
+		etext "list"                    29 ly ts "mono" kwcolor
+		ctext "x y fontsize"            41 ly ts "mono" argcolor
+		ctext "font color op spacing"   69 ly ts "mono" optcolor
+		//ctext "list x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
 
 		circle ix 85 coordsize accentcolor 50
 		ctext "(x,y)" ix 80 lw "mono"
@@ -933,7 +987,9 @@ deck
 		text `   li "third"`  ix 64 4 "mono" objcolor
 		text "elist"          ix 57 4 "mono" objcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "blist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
+		etext "blist"                    29 ly ts "mono" kwcolor
+		ctext "x y fontsize"            41 ly ts "mono" argcolor
+		ctext "font color op spacing"   69 ly ts "mono" optcolor
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
@@ -956,7 +1012,9 @@ deck
 		text `   li "third"`  ix 64 4 "mono" objcolor
 		text "elist"          ix 57 4 "mono" objcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "nlist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
+		etext "nlist"                    29 ly ts "mono" kwcolor
+		ctext "x y fontsize"            41 ly ts "mono" argcolor
+		ctext "font color op spacing"   69 ly ts "mono" optcolor
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
@@ -981,7 +1039,9 @@ deck
 		text `   li "third"`  ix 64 4 "mono" objcolor
 		text "elist"          ix 57 4 "mono" objcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "clist x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
+		etext "clist"                    29 ly ts "mono" kwcolor
+		ctext "x y fontsize"            41 ly ts "mono" argcolor
+		ctext "font color op spacing"   69 ly ts "mono" optcolor
 
 		circle ix 85 coordsize accentcolor coordop
 		ctext "(x,y)" ix 80 lw "mono"
@@ -1036,7 +1096,10 @@ deck
 	// arrow
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "arrow x1 y1 x2 y2 [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		etext "arrow"                  32 ly ts "mono" kwcolor
+		ctext "x1 y1 x2 y2"            44 ly ts "mono" argcolor
+		ctext "lw aw ah color op"      69 ly ts "mono" optcolor
+
 		arrow  20 ky 80 ky lw 10 20  objcolor
 		circle 20 ky lw accentcolor
 		circle 80 ky lw accentcolor
@@ -1065,7 +1128,9 @@ deck
 		aw=lw*2
 		ah=lw*2
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "lcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		etext "lcarrow"                  28 ly ts "mono" kwcolor
+		ctext "bx by cx cy ex ey"        44 ly ts "mono" argcolor
+		ctext "lw aw ah color op"        73 ly ts "mono" optcolor
 		lcarrow 50 60 50 90 15 90 lw2 aw ah
 		circle 50 60 coordsize accentcolor
 		circle 50 90 coordsize accentcolor
@@ -1084,7 +1149,9 @@ deck
 	// rcarrow
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "rcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		etext "rcarrow"                  28 ly ts "mono" kwcolor
+		ctext "bx by cx cy ex ey"        44 ly ts "mono" argcolor
+		ctext "lw aw ah color op"        73 ly ts "mono" optcolor
 		rcarrow 50 60 50 90 85 90 lw2 aw ah
 		circle 50 60 coordsize accentcolor
 		circle 50 90 coordsize accentcolor
@@ -1103,7 +1170,9 @@ deck
 	// ucarrow
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "ucarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		etext "ucarrow"                  28 ly ts "mono" kwcolor
+		ctext "bx by cx cy ex ey"        44 ly ts "mono" argcolor
+		ctext "lw aw ah color op"        73 ly ts "mono" optcolor
 		ucarrow 50 60 80 60 80 90 lw2 aw ah
 		circle 50 60 coordsize accentcolor
 		circle 80 60 coordsize accentcolor
@@ -1122,7 +1191,9 @@ deck
 	// dcarrow
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "dcarrow bx by cx cy ex ey [lw] [aw] [ah] [color] [op]" cx ly ts "mono" accentcolor
+		etext "dcarrow"                  28 ly ts "mono" kwcolor
+		ctext "bx by cx cy ex ey"        44 ly ts "mono" argcolor
+		ctext "lw aw ah color op"        73 ly ts "mono" optcolor
 		dcarrow 50 90 80 90 80 60 lw2 aw ah
 		circle  50 90 coordsize accentcolor
 		circle  80 90 coordsize accentcolor
@@ -1181,7 +1252,9 @@ deck
 		brh=35
 		cx=50
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "lbrace x y h bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
+		etext "lbrace"             28 ly ts "mono" kwcolor
+		ctext "x y fontsize bw bh" 44 ly ts "mono" argcolor
+		ctext "lw color op"        70 ly ts "mono" optcolor
 		lbrace cx 75 brh 6 6 0.75
 		circle cx 75 coordsize accentcolor
 		ctext "(x,y)" 45 75 lw "mono"
@@ -1205,7 +1278,9 @@ deck
 		brh=35
 		cx=50
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "rbrace x y h bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
+		etext "rbrace"             28 ly ts "mono" kwcolor
+		ctext "x y fontsize bw bh" 44 ly ts "mono" argcolor
+		ctext "lw color op"        70 ly ts "mono" optcolor
 		rbrace cx 75 brh 6 6 0.75
 		circle cx 75 coordsize accentcolor
 		ctext "(x,y)" 55 75 lw "mono"
@@ -1229,7 +1304,9 @@ deck
 		brw=35
 		cx=50
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "ubrace x y w bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
+		etext "ubrace"             28 ly ts "mono" kwcolor
+		ctext "x y fontsize bw bh" 44 ly ts "mono" argcolor
+		ctext "lw color op"        70 ly ts "mono" optcolor
 		ubrace cx 75 brw 6 6 0.75
 		circle cx 75 coordsize accentcolor
 		ubrace cx 85 brw 1 2
@@ -1253,7 +1330,9 @@ deck
 		brw=35
 		cx=50
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "dbrace x y w bw bh [lw] [color] [op]" cx ly ts "mono" accentcolor
+		etext "dbrace"             28 ly ts "mono" kwcolor
+		ctext "x y fontsize bw bh" 44 ly ts "mono" argcolor
+		ctext "lw color op"        70 ly ts "mono" optcolor
 		dbrace cx 60 brw 6 6 0.75
 		circle cx 60 coordsize accentcolor
 		ubrace cx 85 brw 1 2
@@ -1304,7 +1383,7 @@ deck
 			li "grid"
 		elist
 		rc+=20
-		list rc lsty lfs "mono" "" 100 listspacing
+		list rc lsty lfs "mono" argcolor 100 listspacing
 			li tbl3 "sans" objcolor
 			li "begin end [increment] ... efor"
 			li "x y radius angle"
@@ -1327,7 +1406,11 @@ deck
 		elist
 		
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "for v=begin end [increment]...efor" cx ly ts "mono" accentcolor
+		ctext "for"  25 ly ts "mono" kwcolor
+		etext  "v="  32 ly ts "mono"
+		text   "begin end" 32 ly ts "mono" argcolor
+		text   "increment" 48 ly ts "mono" optcolor
+		text   "...efor"   64 ly ts "mono" argcolor
 		textfile "code/objloop.dsh" 10 30 ets "mono"
 		include "code/objloop.dsh"
 	eslide
@@ -1343,6 +1426,13 @@ deck
 		circle pcx pcy coordsize accentcolor
 		ctext "(x,y)" 40 60 lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
+		etext "px=" 35 ly1 ts "mono"
+		etext "py=" 35 ly2 ts "mono"
+		text  "polarx" 35 ly1 ts "mono" kwcolor
+		text  "polary" 35 ly2 ts "mono" kwcolor 
+		text  "x y radius theta" 46 ly1 ts "mono" argcolor
+		text  "x y radius theta" 46 ly2 ts "mono" argcolor
+
 		px=polarx pcx pcy rad theta
 		py=polary pcx pcy rad theta
 		lpx=px+2
@@ -1353,8 +1443,6 @@ deck
 		line pcx pcy 60 pcy 0.5
 		arc pcx pcy 10 8 0 45 
 		circle px py coordsize accentcolor
-		ctext "px=polarx x y radius theta" cx ly1 ts "mono" accentcolor
-		ctext "py=polary x y radius theta" cx ly2 ts "mono" accentcolor
 
 		include  "code/p1.dsh"
 		textfile "code/p1.dsh" 10 35 2 "mono"
@@ -1372,7 +1460,10 @@ deck
 		arrow 50 65 50 70 0.3 2 2
 		text "original value" 50 60 lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `value=area expression` cx ly ts "mono" accentcolor
+		etext "value=" 40 ly ts "mono"
+		text  "area" 40 ly ts "mono" kwcolor
+		text  "expression" 48 ly ts "mono" argcolor
+		//ctext `value=area expression` cx ly ts "mono" accentcolor
 		textfile "code/area.dsh" 20 30 2 "mono"
 		include  "code/area.dsh"
 	eslide
@@ -1385,7 +1476,9 @@ deck
 			li `title=format "Value=%.2f"   x*y`
 		elist
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `value=format fmt expression` cx ly ts "mono" accentcolor
+		etext "value=" 40 ly ts "mono"
+		text  "format" 40 ly ts "mono" kwcolor
+		text  "fmt expression" 51 ly ts "mono" argcolor
 		ctext "format string" 62.5 65 lw "mono"
 		dbrace 62.5 70 22 1 1
 		ctext "expression" 85 65 lw "mono"
@@ -1408,12 +1501,14 @@ deck
 		exx=random rmin rmax
 		circle rmin ryy 2 objcolor
 		hline  rmin ryy rlen 2 objcolor 30
+		etext "value=" 45 ly ts "mono"
+		text "random"  45 ly ts "mono" kwcolor
+		text "min max" 56 ly ts "mono" argcolor
 		circle rmax ryy 2 objcolor
 		circle exx ryy 3 accentcolor
 		ctext "min"  10 rly lw "mono"
 		ctext "max"  90 rly lw "mono"
 		ctext "value" exx rvly lw "mono"
-		ctext "value=random min max" cx ly ts "mono" accentcolor
 
 		rx1=random 5 30
 		ry1=random 25 35
@@ -1467,7 +1562,9 @@ deck
 		ctext "max2"  90 vmly2 lw "mono" "blue"
 		ctext "value" 50 vmly2 lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext "value=vmap data min1 max1 min2 max2" cx ly ts "mono" accentcolor
+		etext "value=" 30 ly ts "mono"
+		text "vmap"    30 ly ts "mono" kwcolor
+		text "data min1 max1 min2 max2" 38 ly ts "mono" argcolor
 
 		include "code/vmap-example.dsh"
 		textfile "code/vmap-example.dsh" 10 37 2 "mono"
@@ -1487,7 +1584,9 @@ deck
 		text "data values" 50 75 lw "mono"
 		rbrace 48 75 22 2 2
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `data "filename" ... edata` cx ly ts "mono" accentcolor
+		etext "data" 35 ly ts "mono" kwcolor
+		ctext `"file" ...` 45 ly ts "mono" argcolor
+		text "edata" 55 ly ts "mono" kwcolor
 		textfile  "code/data-example.dsh" 25 35 2 "mono"
 		include   "code/data-example.dsh"
 	eslide
@@ -1497,7 +1596,8 @@ deck
 		textcode "code/grid-ex0.dsh" 10 80 16 2 objcolor
 		grid "code/grid-ex0.dsh"     35 80 15 15 70
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `grid "file" x y hspace vspace limit` cx ly ts "mono" accentcolor
+		etext "grid" 30 ly ts "mono" kwcolor
+		ctext `"file" x y hspace vspace limit` 55 ly ts "mono" argcolor
 		ctext "(x,y)" 35 83 lw "mono"
 		rbrace 75 72 15 2 2
 		text "vspace" 76 72 lw "mono"
@@ -1513,22 +1613,26 @@ deck
 		ctext     `grid "code/grid-ex.dsh" 35 33 10 10 65` 50 10 ets  "mono"
 	eslide
 
-	// charts
+	// charts index
 	slide bgcolor fgcolor
 		ctext "Charts" 50 ty 5 "serif"
 		rc=initlcol
 		listspacing=1.6
+		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
+			li tbl1 "sans" objcolor
 			li "Charts"
 			li "Chart Legends"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li tbl2 "sans" objcolor
 			li "dchart"
 			li "legend"
 		elist
 		rc+=lcolsize
-		list rc lsty lfs "mono" "" 100 listspacing
+		list rc lsty lfs "mono" argcolor 100 listspacing
+			li "arguments" "sans" objcolor
 			li `options "file" (see next page)`
 			li `"text" x y size font color`
 		elist
@@ -1536,10 +1640,12 @@ deck
 
 	include "dchart-options.dsh"
 
+	ts=3.2
 	slide bgcolor fgcolor
 		dchart -bar  -yaxis -left 35 -bottom 65 -top 90 -right 65 "test.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `dchart options "file"` cx ly ts "mono" accentcolor
+		text "dchart" 32 ly ts "mono" kwcolor
+		text `options "file"` 43 ly ts "mono" argcolor
 
 		ctext "-bar"        50 70 lw "mono"
 		ctext "-yaxis"      32 55 lw "mono"
@@ -1568,7 +1674,8 @@ deck
 
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		ctext `legend "text" x y size font color` cx ly ts "mono" accentcolor
+		text "legend" 25 ly ts "mono" kwcolor
+		text "x y fontsize font color" 37 ly ts "mono" argcolor
 		legend "My text" 40 70 10 "sans" objcolor
 		circle 40 70 3 accentcolor
 		ctext "(x,y)" 40 65 lw "mono"
