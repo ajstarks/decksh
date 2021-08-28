@@ -52,15 +52,16 @@ deck
 	include "grid.dsh"
 
 	slide bgcolor fgcolor
+hline 5 72 85 4 hlcolor hlop
 		ctext "Colors, fonts, opacity" 50 ty 5 "serif"
-		text "Colors" 5 70 3 "sans" objcolor
+		text "Colors" 6 70 3 "sans" objcolor
 		text "Fonts"  35 70 3  "sans" objcolor
-		text "Opacity (0-100)" 70 70 3  "sans" objcolor
+		text "Opacity (0-100)" 68 70 3  "sans" objcolor
 
-		list 5 60 3 "mono" "dodgerblue"
-			li `"dodgerblue"`
-			li `"#1e90ff"`
-			li `"rgb(30,144,255)"`
+		list 6 60 3 "mono" "steelblue"
+			li `"steelblue"`
+			li `"#4682b4"`
+			li `"rgb(70,130,180)"`
 		elist
 
 		list 35 60 3 "mono"
@@ -77,12 +78,19 @@ deck
 			li "abcde" "symbol"
 		elist
 
-		text "100" 70 60 3
-		text "50"  70 50 3
-		text "10"  70 40 3
+		text "100" 68 60 3
+		text "50"  68 50 3
+		text "10"  68 40 3
 		circle 85 62 3 accentcolor
 		circle 85 52 3 accentcolor 50
 		circle 85 42 3 accentcolor 10
+
+		vline 33 25 50 0.1
+		vline 66 25 50 0.1
+		vline  5 25 50 0.1
+		vline 90 25 50 0.1
+		hline 5 25 85  0.1
+		
 
 	eslide
 
