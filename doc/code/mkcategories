@@ -1,0 +1,64 @@
+#!/bin/sh
+# make lists for color indicies
+grep :R colors > reds
+grep :G colors > greens
+grep :B colors > blues
+grep :V colors > violets
+grep :N colors > neutrals
+grep :Y colors > yellows
+for i in reds greens blues violets neutrals yellows
+do
+	dest=$(echo $i | sed -s 's/s$//')
+	./mkname  $i > $dest-names
+	./mkrgb   $i > $dest-rgb
+	./mkhex   $i > $dest-hex
+done
+
+sed -n 1,20p    neutral-names > neu-name-20-01
+sed -n 21,40p   neutral-names > neu-name-20-02
+sed -n '41,$p'  neutral-names > neu-name-20-03
+
+sed -n 1,20p    neutral-hex > neu-hex-20-01
+sed -n 21,40p   neutral-hex > neu-hex-20-02
+sed -n '41,$p'  neutral-hex > neu-hex-20-03
+
+sed -n 1,20p    neutral-rgb > neu-rgb-20-01
+sed -n 21,40p   neutral-rgb > neu-rgb-20-02
+sed -n '41,$p'  neutral-rgb > neu-rgb-20-03
+
+sed -n '1,20p'   blue-names > blue-name-20-01
+sed -n '21,$p'   blue-names > blue-name-20-02
+
+sed -n '1,20p'   blue-hex > blue-hex-20-01
+sed -n '21,$p'   blue-hex > blue-hex-20-02
+
+sed -n '1,20p'   blue-rgb > blue-rgb-20-01
+sed -n '21,$p'   blue-rgb > blue-rgb-20-02
+
+sed -n '1,20p'   green-names > green-name-20-01
+sed -n '21,$p'   green-names > green-name-20-02
+
+sed -n '1,20p'   green-hex > green-hex-20-01
+sed -n '21,$p'   green-hex > green-hex-20-02
+
+sed -n '1,20p'   green-rgb > green-rgb-20-01
+sed -n '21,$p'   green-rgb > green-rgb-20-02
+
+sed -n '1,20p'   red-names > red-name-20-01
+sed -n '21,$p'   red-names > red-name-20-02
+
+sed -n '1,20p'   red-hex > red-hex-20-01
+sed -n '21,$p'   red-hex > red-hex-20-02
+
+sed -n '1,20p'   red-rgb > red-rgb-20-01
+sed -n '21,$p'   red-rgb > red-rgb-20-02
+
+sed -n '1,$p'    violet-names > violet-name-20-01
+sed -n '1,$p'    violet-hex   > violet-hex-20-01
+sed -n '1,$p'    violet-rgb   > violet-rgb-20-01
+
+sed -n '1,$p'    yellow-names > yellow-name-20-01
+sed -n '1,$p'    yellow-hex   > yellow-hex-20-01
+sed -n '1,$p'    yellow-rgb   > yellow-rgb-20-01
+
+

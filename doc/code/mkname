@@ -1,0 +1,2 @@
+#!/bin/sh
+awk -F: '{printf "li %s \"mono\" %s\n", $1, $1}' $*

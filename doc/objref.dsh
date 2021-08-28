@@ -103,87 +103,6 @@ deck
 	colorspacing=1.5
 	vll=colory+5
 
-	// // color index 3 column
-	// slide "black" "white"
-
-	// 	ctext "Color Index" 50 97 2 "serif"
-
-	// 	hline 0 colorbary 100 2 "gray"
-	// 	// set 1
-	// 	text "Name" colorx headcolory colorfsize
-	// 	list colorx colory colorfsize "mono" "" 100 colorspacing
-	// 		include "code/nc01"
-	// 	elist
-	// 	colorx+=8
-	// 	text "Hex" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "gray" 100 colorspacing
-	// 		include "code/hcl01"
-	// 	elist
-	// 	colorx+=5
-	// 	text "RGB" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "gray" 100 colorspacing
-	// 		include "code/rcl01"
- 	// 	elist
-		
-	// 	// set 2
-	// 	colorx+=11
-	// 	vx=colorx-1
-	// 	vline vx 0 vll 0.1
-	// 	text "Name" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "" 100 colorspacing
-	// 		include "code/nc02"
-	// 	elist
-	// 	colorx+=11
-	// 	text "Hex" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "gray" 100 colorspacing
-	// 		include "code/hcl02"
-	// 	elist
-	// 	colorx+=5
-	// 	text "RGB" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "gray" 100 colorspacing
-	// 		include "code/rcl02"
- 	// 	elist
-
-	// 	// set 3
-	// 	colorx+=11
-	// 	vx=colorx-1
-	// 	vline vx 0 vll 0.1
-	// 	text "Name" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "" 100 colorspacing
-	// 		include "code/nc03"
-	// 	elist
-	// 	colorx+=9
-	// 	text "Hex" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "gray" 100 colorspacing
-	// 		include "code/hcl03"
-	// 	elist
-	// 	colorx+=5
-	// 	text "RGB" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "gray" 100 colorspacing
-	// 		include "code/rcl03"
- 	// 	elist
-
-	// 	// set 4
-	// 	colorx+=11
-	// 	vx=colorx-1
-	// 	vline vx 0 vll 0.1
-	// 	text "Name" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "" 100 colorspacing
-	// 		include "code/nc04"
-	// 	elist
-	// 	colorx+=8
-	// 	text "Hex" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "gray" 100 colorspacing
-	// 		include "code/hcl04"
-	// 	elist
-	// 	colorx+=5
-	// 	text "RGB" colorx headcolory 1
-	// 	list colorx colory colorfsize "mono" "gray" 100 colorspacing
-	// 		include "code/rcl04"
- 	// 	elist
-
-	// eslide
-
 	// color index: 2 columns, Page 1
 	slide "black" "white"
 		ctext "Color Index (1)" 50 97 1.5 "serif"
@@ -346,6 +265,236 @@ deck
  		elist
 	eslide
 
+	// neutral index: 2 columns, Page 1
+	slide "black" "white"
+		ctext "Neutral Index (1)" 50 97 1.5 "serif"
+		colorfsize=2
+		colorx=2
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/neu-name-20-01"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/neu-hex-20-01"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/neu-rgb-20-01"
+ 		elist
+		
+		// set 2
+		colorx+=19
+		vx=colorx-1.5
+		vline vx 0 vll 0.1
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/neu-name-20-02"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/neu-hex-20-02"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/neu-rgb-20-02"
+ 		elist
+	eslide
+
+
+	// neutral index: 2 columns, Page 2
+	slide "black" "white"
+		ctext "Neutral Index (2)" 50 97 1.5 "serif"
+		colorfsize=2
+		colorx=2
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/neu-name-20-03"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/neu-hex-20-03"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/neu-rgb-20-03"
+ 		elist
+		
+	eslide
+
+
+	// blue index: 2 columns, Page 1
+	slide "black" "white"
+		ctext "Blue Index (1)" 50 97 1.5 "serif"
+		colorfsize=2
+		colorx=2
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/blue-name-20-01"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/blue-hex-20-01"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/blue-rgb-20-01"
+ 		elist
+		
+		// set 2
+		colorx+=19
+		vx=colorx-1.5
+		vline vx 0 vll 0.1
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/blue-name-20-02"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/blue-hex-20-02"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/blue-rgb-20-02"
+ 		elist
+	eslide
+
+	// violet index: 2 columns, Page 1
+	slide "black" "white"
+		ctext "Violet Index (1)" 50 97 1.5 "serif"
+		colorfsize=2
+		colorx=2
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/violet-name-20-01"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/violet-hex-20-01"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/violet-rgb-20-01"
+ 		elist
+	eslide
+
+
+	// red index: 2 columns, Page 1
+	slide "black" "white"
+		ctext "Red Index (1)" 50 97 1.5 "serif"
+		colorfsize=2
+		colorx=2
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/red-name-20-01"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/red-hex-20-01"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/red-rgb-20-01"
+ 		elist
+		
+		// set 2
+		colorx+=19
+		vx=colorx-1.5
+		vline vx 0 vll 0.1
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/red-name-20-02"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/red-hex-20-02"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/red-rgb-20-02"
+ 		elist
+	eslide
+
+
+	// green index: 2 columns, Page 1
+	slide "black" "white"
+		ctext "Green Index (1)" 50 97 1.5 "serif"
+		colorfsize=2
+		colorx=2
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/green-name-20-01"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/green-hex-20-01"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/green-rgb-20-01"
+ 		elist
+		
+		// set 2
+		colorx+=19
+		vx=colorx-1.5
+		vline vx 0 vll 0.1
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/green-name-20-02"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/green-hex-20-02"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/green-rgb-20-02"
+ 		elist
+	eslide
+
+
+	// yellow index: 2 columns, Page 1
+	slide "black" "white"
+		ctext "Yellow Index (1)" 50 97 1.5 "serif"
+		colorfsize=2
+		colorx=2
+		text "Name" colorx headcolory 1
+		list colorx colory colorfsize "mono" "" 100 colorspacing
+			include "code/yellow-name-20-01"
+		elist
+		colorx+=21
+		text "Hex" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/yellow-hex-20-01"
+		elist
+		colorx+=10
+		text "RGB" colorx headcolory 1
+		list colorx colory colorfsize "mono" "gray" 100 colorspacing
+			include "code/yellow-rgb-20-01"
+ 		elist
+	eslide
+
+	// Object index
 	slide bgcolor fgcolor
 		iy=78
 		ctext "Object Index" 50 ty 5 "serif"

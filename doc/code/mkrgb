@@ -1,0 +1,2 @@
+#!/bin/sh
+awk -F: '{printf "li \"rgb%s\"\n", $2}' $*
