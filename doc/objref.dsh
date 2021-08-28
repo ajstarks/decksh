@@ -52,6 +52,127 @@ deck
 	include "grid.dsh"
 
 	slide bgcolor fgcolor
+		ctext "Colors, fonts, opacity" 50 ty 5 "serif"
+		text "Colors" 5 70 3 "sans" objcolor
+		text "Fonts"  35 70 3  "sans" objcolor
+		text "Opacity (0-100)" 70 70 3  "sans" objcolor
+
+		list 5 60 3 "mono" "dodgerblue"
+			li `"dodgerblue"`
+			li `"#1e90ff"`
+			li `"rgb(30,144,255)"`
+		elist
+
+		list 35 60 3 "mono"
+			li `"sans"`
+			li `"serif"`
+			li `"mono"`
+			li `"symbol"`
+		elist
+
+		list 50 60 3
+			li "Sans Serif"
+			li "Serif" "serif"
+			li "Monospace"  "mono"
+			li "abcde" "symbol"
+		elist
+
+		text "100" 70 60 3
+		text "50"  70 50 3
+		text "10"  70 40 3
+		circle 85 62 3 accentcolor
+		circle 85 52 3 accentcolor 50
+		circle 85 42 3 accentcolor 10
+
+	eslide
+
+	slide "#222222" "#eeeeee"
+		colorx=1
+		colory=90
+		headcolory=colory+2.8
+		colorbary=colory+3.5
+		colorspacing=1.5
+		vll=colory+5
+
+		ctext "Color Index" 50 97 2 "serif"
+
+		hline 0 colorbary 100 2 "gray"
+		// set 1
+		text "Name" colorx headcolory 1
+		list colorx colory 1 "mono" "" 100 colorspacing
+			include "code/nc01"
+		elist
+		colorx+=8
+		text "Hex" colorx headcolory 1
+		list colorx colory 1 "mono" "gray" 100 colorspacing
+			include "code/hcl01"
+		elist
+		colorx+=5
+		text "RGB" colorx headcolory 1
+		list colorx colory 1 "mono" "gray" 100 colorspacing
+			include "code/rcl01"
+ 		elist
+		
+		// set 2
+		colorx+=11
+		vx=colorx-1
+		vline vx 0 vll 0.1
+		text "Name" colorx headcolory 1
+		list colorx colory 1 "mono" "" 100 colorspacing
+			include "code/nc02"
+		elist
+		colorx+=11
+		text "Hex" colorx headcolory 1
+		list colorx colory 1 "mono" "gray" 100 colorspacing
+			include "code/hcl02"
+		elist
+		colorx+=5
+		text "RGB" colorx headcolory 1
+		list colorx colory 1 "mono" "gray" 100 colorspacing
+			include "code/rcl02"
+ 		elist
+
+		// set 3
+		colorx+=11
+		vx=colorx-1
+		vline vx 0 vll 0.1
+		text "Name" colorx headcolory 1
+		list colorx colory 1 "mono" "" 100 colorspacing
+			include "code/nc03"
+		elist
+		colorx+=9
+		text "Hex" colorx headcolory 1
+		list colorx colory 1 "mono" "gray" 100 colorspacing
+			include "code/hcl03"
+		elist
+		colorx+=5
+		text "RGB" colorx headcolory 1
+		list colorx colory 1 "mono" "gray" 100 colorspacing
+			include "code/rcl03"
+ 		elist
+
+		// set 4
+		colorx+=11
+		vx=colorx-1
+		vline vx 0 vll 0.1
+		text "Name" colorx headcolory 1
+		list colorx colory 1 "mono" "" 100 colorspacing
+			include "code/nc04"
+		elist
+		colorx+=8
+		text "Hex" colorx headcolory 1
+		list colorx colory 1 "mono" "gray" 100 colorspacing
+			include "code/hcl04"
+		elist
+		colorx+=5
+		text "RGB" colorx headcolory 1
+		list colorx colory 1 "mono" "gray" 100 colorspacing
+			include "code/rcl04"
+ 		elist
+
+	eslide
+
+	slide bgcolor fgcolor
 		iy=78
 		ctext "Object Index" 50 ty 5 "serif"
 		list 10 iy 3.5 "sans" "" 100 2.6
@@ -184,9 +305,9 @@ deck
 		text "hello, world" cx ky 7 "sans" objcolor
 		circle cx ky coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "text"               29 ly ts "mono" kwcolor
-		ctext "x y fontsize"       40 ly ts "mono" argcolor
-		ctext "font color op link" 65 ly ts "mono" optcolor
+		ctext "text"                     20 ly ts "mono" kwcolor
+		ctext `"..." x y fontsize`       40 ly ts "mono" argcolor
+		ctext "font color op link"       71 ly ts "mono" optcolor
 		ctext "(x,y)" cx 65 lw "mono"
 
 		text "abc" 20 20 4
@@ -203,9 +324,9 @@ deck
 		ly=cy-15
 		lw=3
 		ctext "hello, world" cx ky 7 "sans" objcolor
-		etext "ctext"               29 ly ts "mono" kwcolor
-		ctext "x y fontsize"        40 ly ts "mono" argcolor
-		ctext "font color op link"  65 ly ts "mono" optcolor
+		ctext "ctext"                     20 ly ts "mono" kwcolor
+		ctext `"..." x y fontsize`        40 ly ts "mono" argcolor
+		ctext "font color op link"        71 ly ts "mono" optcolor
 		circle cx ky coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		ctext "(x,y)" cx 65 lw "mono"
@@ -226,9 +347,9 @@ deck
 		etext "hello, world" cx ky 7 "sans" objcolor
 		circle cx ky coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "etext"               29 ly ts "mono" kwcolor
-		ctext "x y fontsize"        40 ly ts "mono" argcolor
-		ctext "font color op link"  65 ly ts "mono" optcolor
+		ctext "etext"                     20 ly ts "mono" kwcolor
+		ctext `"..." x y fontsize`        40 ly ts "mono" argcolor
+		ctext "font color op link"        71 ly ts "mono" optcolor
 		ctext "(x,y)" cx 65 lw "mono"
 
 		etext "abc" 20 20 4
@@ -242,9 +363,9 @@ deck
 	slide bgcolor fgcolor
 		rtext "hello, world" cx ky 25 7 "sans" objcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "rtext"                      24 ly ts "mono" kwcolor
-		ctext "x y angle fontsize"         40 ly ts "mono" argcolor
-		ctext "font color op link"         70 ly ts "mono" optcolor
+		ctext "rtext"                      15 ly ts "mono" kwcolor
+		ctext `"..." x y angle fontsize`   40 ly ts "mono" argcolor
+		ctext "font color op link"         76 ly ts "mono" optcolor
 		circle cx ky coordsize accentcolor
 		ctext "(x,y)" cx 65 lw "mono"
 
@@ -270,8 +391,8 @@ deck
 		ctext "a1" a1x a1y lw "mono"
 		ctext "a2" a2x a2y lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "arctext"                         25 ly ts "mono" kwcolor
-		ctext "x y radius a1 a2 fontsize"       47 ly ts "mono" argcolor
+		etext "arctext"                         15 ly ts "mono" kwcolor
+		ctext `"..." x y radius a1 a2 fontsize` 42 ly ts "mono" argcolor
 		ctext "font color op link"              83 ly ts "mono" optcolor
 
 		arctext "What is up" 25 20 10 180 90 3 "mono"
@@ -292,9 +413,9 @@ deck
 		ctext "w" cx 94 lw "mono"
 		ubrace cx 93 tbw 2 2
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "textblock"               28 ly ts "mono" kwcolor
-		ctext "x y w fontsize"          40 ly ts "mono" argcolor
-		ctext "font color op link"      67 ly ts "mono" optcolor
+		ctext "textblock"                     15 ly ts "mono" kwcolor
+		ctext `"..." x y w fontsize`          40 ly ts "mono" argcolor
+		ctext "font color op link"            72 ly ts "mono" optcolor
 
 		textblock tb 10 35 30 1.5
 		textblock tb 50 35 10 1 "sans" "maroon"
@@ -309,9 +430,9 @@ deck
 		circle 20 80 coordsize accentcolor 50
 		etext "(x,y)" 19 80  lw "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "textfile"               29 ly ts "mono" kwcolor
-		ctext "x y fontsize"           40 ly ts "mono" argcolor
-		ctext "font color op link"     65 ly ts "mono" optcolor
+		ctext "textfile"               17 ly ts "mono" kwcolor
+		ctext `"..." x y fontsize`     40 ly ts "mono" argcolor
+		ctext "font color op link"     71 ly ts "mono" optcolor
 
 		textfile  "code/example.txt" 10 35 2
 		text `textfile "example.txt" 10 35 2` 10 ely ets "mono"
@@ -326,9 +447,9 @@ deck
 		ctext "(x,y)" 20 95  lw "mono"
 		arrow 20 95 20 88 0.1 1 1
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "textcode"               32 ly ts "mono" kwcolor
-		ctext "x y w fontsize"         44 ly ts "mono" argcolor
-		ctext "font color"             64 ly ts "mono" optcolor
+		ctext "textcode"               20 ly ts "mono" kwcolor
+		ctext `"..." x y w fontsize`   44 ly ts "mono" argcolor
+		ctext "font color"             70 ly ts "mono" optcolor
 		ubrace 42.5 92 50 2 2
 		ctext "w" 42.5 93 lw "mono"
 
