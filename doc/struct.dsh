@@ -1,20 +1,21 @@
 	// Structure
 	slide
-		dey=47
-		sl1y=55
+		dey=43
+		sl1y=47
 		sl2y=sl1y-22
 		incy=sl2y
-		incodey=sl2y+7
+		incodey=sl2y+6
 		ctext "Structure" 50 top titlesize "serif"
 		textfile "code/structure.dsh"	20 75 3.5 "mono" "maroon"
 		textcode "code/hw0.dsh"			72 incodey 25 1.6
-		arrow 71 70 60 70 0.2 2 2   // canvas
-		lbrace 10 dey  65 2 2 0.2	// deck
+		arrow 71 62 60 62 0.2 2 2   // canvas
+		text "canvas size hint (width height)" 72 61.5 2
+
+		lbrace 10 dey  70 2 2 0.2	// deck
 		lbrace 22 sl1y 18 2 2 0.2   // slide 1
 		lbrace 22 sl2y 18 2 2 0.2   // slide 2
 		lbrace 67 incy 18 2 2 0.2   // include
 		etext "deck"		 9 dey  2.5
 		etext "slide 1"		21 sl1y 2.5
 		etext "slide 2"		21 sl2y 2.5
-		text "canvas size hint (width height)" 72 69.5 2
 	eslide
