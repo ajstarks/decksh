@@ -1,2 +1,2 @@
 #!/bin/sh
-cat $* | sed -e 's/)//' | sed -e 's/(//' | awk -F: '{print $2}' | awk -F, '{printf "li \"#%02x%02x%02x\"\n",$1, $2, $3}'
+awk -F: '{split($2,c,","); printf "li \"#%02x%02x%02x\"\n",c[1], c[2], c[3]}' $*

@@ -13,7 +13,7 @@ do
 	./mkrgb   $i > $dest-rgb
 	./mkhex   $i > $dest-hex
 done
-
+# split the data into 20-element chunks, one for each column (name, hex, rgb)
 sed -n 1,20p    neutral-names > neu-name-20-01
 sed -n 21,40p   neutral-names > neu-name-20-02
 sed -n '41,$p'  neutral-names > neu-name-20-03
