@@ -53,52 +53,72 @@ deck
 	include "grid.dsh"
 
 	slide bgcolor fgcolor
-		ctext "Assignments" mid ty 5 "serif"
-		text "(name = thing)" 20 80 3 "serif"
+		ctext "Defining and using variables" mid ty 5 "serif"
+		
 		ax=20
 		ay=70
-		list ax ay 4 "mono" "" 100 
+
+		ctext "name"  ax 80 2
+		ctext "is"    25 80 2
+		text "thing"  29 80 2
+		list ax ay 4 "mono" "" 100 1.5
 			li "x = 3.14159265"
-			li `x = "hello"`
-			li "x = y"
+			li `s = "hello"`
+			li "y = x"
 			li "x = a + b"
 			li "x *= 10"
+			li
+			li "text s x y 2"
 		elist
 		ax+=35
-		list ax ay 4 "sans" "gray" 100 
+		list ax ay 4 "sans" "gray" 100 1.5
 			li "number"
 			li "string"
 			li "another variable"
 			li "binary operation"
 			li "assignment operator"
+			li
+			li "variable use"
 		elist
 	eslide
 
 	slide bgcolor fgcolor
-		ctext "Binary and assignment operators" mid ty 5 "serif" 
-		ax=15
-		list ax ay 4 "mono" "" 100
+		ctext "Binary  operators" mid ty 5 "serif" 
+		ax=20
+		list ax ay 4 "mono" "" 100 1.5
 			li "x = a + b"
 			li `x = a - b`
 			li "x = a * b"
 			li "x = a / b"
 		elist
-		ax+=30
-		list ax ay 4 "mono" "" 100
-			li "x += y"
-			li `x -= y`
-			li "x *= y"
-			li "x /= y"
-		elist
-		ax+=25
-		list ax ay 4 "sans" "gray" 100 
+		ax+=35
+		list ax ay 4 "sans" "gray" 100 1.5
 			li "addition"
 			li "subtraction"
 			li "multiplication"
 			li "division"
 		elist
-
 	eslide
+
+	slide bgcolor fgcolor
+		ctext "Assignment operators" mid ty 5 "serif" 
+		ax=20
+		list ax ay 4 "mono" "" 100 1.5
+			li "x += 10"
+			li `x -= 10`
+			li "x *= 10"
+			li "x /= 10"
+		elist
+		ax+=35
+		list ax ay 4 "sans" "gray" 100 1.5
+			li "increase x by 10"
+			li "decrease x by 10"
+			li "multiply x by 10"
+			li "divide x by 10"
+		elist
+	eslide
+
+
 	slide bgcolor fgcolor
 		ctext "Variables and Assignments" mid ty 5 "serif"
 		etext "Using variables"       20 80 2
@@ -119,14 +139,14 @@ deck
 			li "x+=10"
 			li "x-=10"
 			li "x*=10"
-			li "x/=10"
+			li "x/=y"
 		elist
 
 		list 47 80 2.7 "mono" "gray" 100 1.3
 			li "// assign 10 to x"
 			li "// assign 80.45 to  y"
 			li "// x divided by 5 to size"
-			li "// s has the string value 'hello'"
+			li "// s has the string value 'Hello'"
 			li "// Use the variables"
 			li
 			li "// addition"
@@ -137,7 +157,7 @@ deck
 			li "// increase  x by 10"
 			li "// decrease  x by 10"
 			li "// multiply  x by 10"
-			li "// divide  x  by 10"
+			li "// divide  x  by value of y"
 		elist
 	eslide
 
@@ -2166,7 +2186,8 @@ deck
 	eslide
 
 	include "dchart-options.dsh"
-
+	include "dchart-types.dsh"
+	
 	ts=3.2
 	slide bgcolor fgcolor
 		dchart -bar  -yaxis -left 35 -bottom 65 -top 90 -right 65 "test.d"
@@ -2198,6 +2219,8 @@ deck
 		include "code/dchart-ex2.dsh"
 		textfile "code/dchart-ex2.dsh" 50 10 etss "mono"
 	eslide
+
+	
 
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop

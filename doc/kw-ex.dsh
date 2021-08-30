@@ -7,7 +7,7 @@
 		exsize=3.0
 		argx=13
 		optx=argx+35
-		ctext "Keywords and arguments"	50 top titlesize	"serif"
+		ctext "Keywords and arguments"	50 90 titlesize	"serif"
 		text "text"              		sl     ky exsize	"mono" "maroon"
 		text `"..string...." x  y  n`   argx   ky exsize	"mono" argcolor
 		text `"font" "color" op`		optx   ky exsize	"mono" optcolor

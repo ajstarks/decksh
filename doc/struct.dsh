@@ -34,6 +34,10 @@
 		lbrace 22 sl1y  16 2 2 0.2   // slide 1
 		lbrace 22 sl2y  16 2 2 0.2   // slide 2
 		lbrace annx2 incy  16 2 2 0.2   // include
+
+		//dcarrow 35 57 52 60  52 45 0.2 2 2
+		//dcarrow 35 62 55 65  55 45 0.2 2 2
+
 		etext "deck"		 9 dey  2.5
 		etext "variables"   21 assny 2.5
 		etext "slide 1"		21 sl1y 2.5

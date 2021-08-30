@@ -1,7 +1,7 @@
 // This is a comment
 deck
 	canvas 1920 1080
-	x=20 // define x,y
+	x=20      // define x
 	y=80
 	slide
 		text "first" x y 2 
