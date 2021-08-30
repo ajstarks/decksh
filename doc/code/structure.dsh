@@ -1,8 +1,10 @@
 // This is a comment
 deck
 	canvas 1920 1080
+	x=20 // define x,y
+	y=80
 	slide
-		text "first slide" 50 50 2 // comment
+		text "first" x y 2 
 	eslide
 	slide "black" "white"
 		include "file.dsh"

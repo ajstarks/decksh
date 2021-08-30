@@ -18,6 +18,7 @@ deck
 	lfs=2.3
 	tbheadsize=4
 	cx=50
+	mid=50
 	ey=20
 	ely=ey-10
 	initlcol=7
@@ -52,7 +53,54 @@ deck
 	include "grid.dsh"
 
 	slide bgcolor fgcolor
-		ctext "Variables and Assignments" 50 ty 5 "serif"
+		ctext "Assignments" mid ty 5 "serif"
+		text "(name = thing)" 20 80 3 "serif"
+		ax=20
+		ay=70
+		list ax ay 4 "mono" "" 100 
+			li "x = 3.14159265"
+			li `x = "hello"`
+			li "x = y"
+			li "x = a + b"
+			li "x *= 10"
+		elist
+		ax+=35
+		list ax ay 4 "sans" "gray" 100 
+			li "number"
+			li "string"
+			li "another variable"
+			li "binary operation"
+			li "assignment operator"
+		elist
+	eslide
+
+	slide bgcolor fgcolor
+		ctext "Binary and assignment operators" mid ty 5 "serif" 
+		ax=15
+		list ax ay 4 "mono" "" 100
+			li "x = a + b"
+			li `x = a - b`
+			li "x = a * b"
+			li "x = a / b"
+		elist
+		ax+=30
+		list ax ay 4 "mono" "" 100
+			li "x += y"
+			li `x -= y`
+			li "x *= y"
+			li "x /= y"
+		elist
+		ax+=25
+		list ax ay 4 "sans" "gray" 100 
+			li "addition"
+			li "subtraction"
+			li "multiplication"
+			li "division"
+		elist
+
+	eslide
+	slide bgcolor fgcolor
+		ctext "Variables and Assignments" mid ty 5 "serif"
 		etext "Using variables"       20 80 2
 		etext "Binary operations"     20 50 2
 		etext "Assignment operations" 20 23 2
@@ -95,7 +143,7 @@ deck
 
 	slide bgcolor fgcolor
 		hline 5 72 85 4 hlcolor hlop
-		ctext "Colors, fonts, opacity" 50 ty 5 "serif"
+		ctext "Colors, fonts, opacity" mid ty 5 "serif"
 		text "Colors" 6 70 3 "sans" objcolor
 		text "Fonts"  35 70 3  "sans" objcolor
 		text "Opacity (0-100)" 68 70 3  "sans" objcolor
@@ -534,7 +582,7 @@ deck
 	// Object index
 	slide bgcolor fgcolor
 		iy=78
-		ctext "Object Index" 50 ty 5 "serif"
+		ctext "Object Index" mid ty 5 "serif"
 		list 10 iy 3.5 "sans" "" 100 2.6
 			li "Text"
 			li "Graphics"
@@ -602,7 +650,7 @@ deck
 		rc=initlcol
 		hlfs=lfs/2
 		llsty=lsty+hlfs
-		ctext "Textual Elements" 50 ty 5 "serif"
+		ctext "Textual Elements" mid ty 5 "serif"
 		hline rc llsty 90 tbheadsize "gray" 20
 		list rc lsty lfs
 			li tbl1  "sans" objcolor
@@ -825,7 +873,7 @@ deck
 		rc=initlcol
 		lcolsize*=1.2
 		listspacing=1.5
-		ctext "Graphical Elements" 50 ty 5 "serif"
+		ctext "Graphical Elements" mid ty 5 "serif"
 		hline rc llsty 90 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
@@ -1307,7 +1355,7 @@ deck
 	// Image index
 	slide bgcolor fgcolor
 		rc=initlcol
-		ctext "Images" 50 ty 5 "serif"
+		ctext "Images" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
 			li tbl1 "sans" objcolor
@@ -1390,7 +1438,7 @@ deck
 	// List index
 	slide bgcolor fgcolor
 		rc=initlcol
-		ctext "Lists" 50 ty 5 "serif"
+		ctext "Lists" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
 			li tbl1 "sans" objcolor
@@ -1533,7 +1581,7 @@ deck
 	// Arrow index
 	slide bgcolor fgcolor
 		rc=initlcol
-		ctext "Arrows" 50 ty 5 "serif"
+		ctext "Arrows" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
 			li tbl1 "sans" objcolor
@@ -1691,7 +1739,7 @@ deck
 	// Brace index
 	slide bgcolor fgcolor
 		rc=initlcol
-		ctext "Braces" 50 ty 5 "serif"
+		ctext "Braces" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
 			li tbl1 "sans" objcolor
@@ -1834,7 +1882,7 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.6
-		ctext "Loop, Assignments, Data and Grid" 50 ty 5 "serif"
+		ctext "Loop, Assignments, Data and Grid" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
@@ -2094,7 +2142,7 @@ deck
 
 	// charts index
 	slide bgcolor fgcolor
-		ctext "Charts" 50 ty 5 "serif"
+		ctext "Charts" mid ty 5 "serif"
 		rc=initlcol
 		listspacing=1.6
 		hline rc llsty 85 tbheadsize "gray" 20

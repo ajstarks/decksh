@@ -1,21 +1,41 @@
 	// Structure
 	slide
-		dey=43
-		sl1y=47
-		sl2y=sl1y-22
+		structy=80
+		dey=structy-36
+		assny=structy-21
+		sl1y=assny-15
+		sl2y=sl1y-19
 		incy=sl2y
 		incodey=sl2y+6
-		ctext "Structure" 50 top titlesize "serif"
-		textfile "code/structure.dsh"	20 75 3.5 "mono" "maroon"
-		textcode "code/hw0.dsh"			72 incodey 25 1.6
-		arrow 71 62 60 62 0.2 2 2   // canvas
-		text "canvas size hint (width height)" 72 61.5 2
+		ctext "Structure" 50 ty titlesize "serif"
+		textfile "code/structure.dsh"	20 structy 3 "mono" "maroon"
+		textcode "code/hw0.dsh"			64 incodey 25 1.5
 
-		lbrace 10 dey  70 2 2 0.2	// deck
-		lbrace 22 sl1y 18 2 2 0.2   // slide 1
-		lbrace 22 sl2y 18 2 2 0.2   // slide 2
-		lbrace 67 incy 18 2 2 0.2   // include
+		annx1=65
+		annx2=annx1-5
+		annlx=annx1+1
+		annotey=structy+2
+		arrow annx1 annotey annx2 annotey 0.2 2 2   // comment
+		annotey-=1
+		text "comment"                         annlx annotey 2
+
+		annotey-=12.5
+		arrow annx1 annotey annx2 annotey 0.2 2 2   // canvas
+		annotey-=1
+		text "canvas size hint (width height)" annlx annotey 2
+
+		annotey-=5
+		arrow annx1 annotey annx2 annotey 0.2 2 2
+		annotey-=1
+		text "inline comment"                  annlx annotey 2
+
+		lbrace 10 dey   68 2 2 0.2	// deck
+		lbrace 22 assny 10 2 2 0.2   // assignments
+		lbrace 22 sl1y  16 2 2 0.2   // slide 1
+		lbrace 22 sl2y  16 2 2 0.2   // slide 2
+		lbrace annx2 incy  16 2 2 0.2   // include
 		etext "deck"		 9 dey  2.5
+		etext "variables"   21 assny 2.5
 		etext "slide 1"		21 sl1y 2.5
 		etext "slide 2"		21 sl2y 2.5
 	eslide
