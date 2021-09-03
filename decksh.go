@@ -58,11 +58,19 @@ func ftoa(v float64) string {
 // assignments are either simple (x=10), binary op (x=a+b), or built-ins
 // (random, polarx, polary, vmap, sprint)
 func assign(s []string, linenumber int) error {
+	e := fmt.Errorf("line %d:, %v is an illegal assignment", linenumber, s)
 	switch len(s) {
 	case 3:
 		return simpleassign(s, linenumber) // x=10
 	case 4:
-		return areafunc(s, linenumber) // v=area x
+		switch s[2] {
+		case "area":
+			return areafunc(s, linenumber) // v=area x
+		case "sqrt":
+			return sqrtfunc(s, linenumber) // y=sqrt x
+		default:
+			return e
+		}
 	case 5:
 		switch s[2] {
 		case "random": // x=random min max
@@ -72,19 +80,21 @@ func assign(s []string, linenumber int) error {
 		default:
 			return binop(s, linenumber) // x=a+b
 		}
+	case 6:
+		return sqrtfunc(s, linenumber) // y=sqrt a op b
 	case 7:
 		switch s[2] {
 		case "polarx", "polary":
 			return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
 		case "sprint", "format":
-			return sprint(s, linenumber) // sprint fmt a+b
+			return sprint(s, linenumber) // x=sprint fmt a+b
 		default:
-			return fmt.Errorf("line %d: %v is a illegal assignment", linenumber, s)
+			return e
 		}
 	case 8:
 		return vmapfunc(s, linenumber) // x=vmap d min1 max1 min2 max2
 	default:
-		return fmt.Errorf("line %d: %v is a illegal assignment", linenumber, s)
+		return e
 	}
 }
 
@@ -264,6 +274,35 @@ func areafunc(s []string, linenumber int) error {
 		return err
 	}
 	emap[s[0]] = ftoa(area(v))
+	return nil
+}
+
+// sqrtfunc returns the square root of a number or binary operation
+func sqrtfunc(s []string, linenumber int) error {
+	e := fmt.Errorf("line %d use: x = sqrt v or x = sqrt expression", linenumber)
+	if s[1] != "=" || s[2] != "sqrt" {
+		return e
+	}
+	var v float64
+	var err error
+	switch len(s) {
+	case 4: // y = sqrt x
+		v, err = strconv.ParseFloat(eval(s[3]), 64)
+		if err != nil {
+			return err
+		}
+	case 6: // y = sqrt a op b
+		v, err = opval(s[3:6], linenumber)
+		if err != nil {
+			return err
+		}
+	default:
+		return e
+	}
+	if v < 0 {
+		return fmt.Errorf("line %d: cannot take the square root of %g", linenumber, v)
+	}
+	emap[s[0]] = ftoa(math.Sqrt(v))
 	return nil
 }
 

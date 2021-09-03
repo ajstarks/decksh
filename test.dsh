@@ -27,6 +27,33 @@ deck
 		ctext "Random" 50 50 5
 	eslide
 
+	// Square Root
+
+	slide
+		ss0 = 8
+		ss2 = 6
+		sqr0 = sqrt ss0
+		sqr1 = sqrt ss0 + ss2
+		sqr2 = sqrt ss0 - ss2
+		sqr3 = sqrt ss0 * ss2
+		sqr4 = sqrt ss0 / ss2
+
+		neg = sqrt ss2 - ss0
+
+		sm0 = format "sqrt 8 = %g" sqr0
+		sm1 = format "sqrt 8 + 6 = %g" sqr1
+		sm2 = format "sqrt 8 - 6 = %g" sqr2
+		sm3 = format "sqrt 8 * 6 = %g" sqr3
+		sm4 = format "sqrt 8 / 6 = %g" sqr4
+		ctext sm0 50 80 3
+		ctext sm1 50 70 3
+		ctext sm2 50 60 3
+		ctext sm3 50 50 3
+		ctext sm4 50 40 3
+
+		ctext "Square Root" 50 90 5
+	eslide
+
 	// Grid
 	slide
 		gx=10

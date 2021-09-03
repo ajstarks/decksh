@@ -156,6 +156,16 @@ Division ```id=<id> / number or <id>```
 
 assign a random number in the specified range
 
+## Square Root
+
+return the square root of the number of expression (```id``` or binary operation)
+
+    a=4
+    b=10
+    x=sqrt 4
+    x=sqrt a+b
+    x=sqrt b
+
 ## Mapping
 
     x=vmap v vmin vmax min max

@@ -210,7 +210,7 @@ deck
 	colorbary=colory+3.5
 	colorspacing=1.5
 	vll=colory+5
-	cbg="#4a525a"
+	cbg="black"
 	cfg="#bbbbbb"
 
 	// color index: 2 columns, Page 1
@@ -1902,7 +1902,7 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.6
-		ctext "Loop, Assignments, Data and Grid" mid ty 5 "serif"
+		ctext "Loop, Built-ins, Data and Grid" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
@@ -1912,6 +1912,7 @@ deck
 			li "Area"
 			li "Formatted text"
 			li "Random number"
+			li "Square Root"
 			li "Value mapping"
 			li "In-line data"
 			li "Objects on a grid"
@@ -1925,6 +1926,7 @@ deck
 			li "value=area"
 			li "value=format"
 			li "value=random"
+			li "value=sqrt"
 			li "value=vmap"
 			li "data" 
 			li "grid"
@@ -1938,6 +1940,7 @@ deck
 			li "expression"
 			li "fmt expression"
 			li "min max"
+			li "expression"
 			li "data min1 max1 min2 max2"
 			li `"file" ... edata`
 			li `"file" x y hspace vspace edge`
@@ -2010,7 +2013,6 @@ deck
 		etext "value=" 40 ly ts "mono"
 		text  "area" 40 ly ts "mono" kwcolor
 		text  "expression" 48 ly ts "mono" argcolor
-		//ctext `value=area expression` cx ly ts "mono" accentcolor
 		textfile "code/area.dsh" 20 30 2 "mono"
 		include  "code/area.dsh"
 	eslide
@@ -2083,6 +2085,28 @@ deck
 			li "ry1=random 15 35"
 			li `circle rx3 ry3 3 "blue"`
 		elist
+	eslide
+
+	// Square root
+	slide bgcolor fgcolor
+		list 35 90 4 "mono" objcolor 100 1.3
+			li "a=10"
+			li "b=71"
+			li "x=sqrt 4"
+			li "y=sqrt a"
+			li "n=sqrt a+b"
+		elist
+
+		text "x = 2"          72 75 lw "mono"
+		text "y = 3.1622776"  72 67 lw "mono"
+		text "n = 9"          72 59 lw "mono"
+		arrow 70 76 60 76
+		arrow 70 68 60 68
+		arrow 70 60 60 60
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "value=" 35 ly ts "mono"
+		text "sqrt"    35 ly ts "mono" kwcolor
+		text "number or expression" 43 ly ts "mono" argcolor
 	eslide
 
 	// vmap
