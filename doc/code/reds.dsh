@@ -1,0 +1,119 @@
+slide "black" "silver"
+ctext "Reds" 50 90 3 "serif"
+text "name" 5 84 1.2
+text "hex" 25 84 1.2
+text "RGB" 33 84 1.2
+
+square               3 80.5 1.8 "coral"
+text                "coral" 5 80 1.8 "mono" "coral"
+text "#ff7f50" 25 80 1.8 "mono"
+text "rgb(255,127,80)"       33 80 1.8 "mono"
+
+square               3 76 1.8 "crimson"
+text                "crimson" 5 75.5 1.8 "mono" "crimson"
+text "#dc143c" 25 75.5 1.8 "mono"
+text "rgb(220,20,60)"       33 75.5 1.8 "mono"
+
+square               3 71.5 1.8 "darkmagenta"
+text                "darkmagenta" 5 71 1.8 "mono" "darkmagenta"
+text "#8b008b" 25 71 1.8 "mono"
+text "rgb(139,0,139)"       33 71 1.8 "mono"
+
+square               3 67 1.8 "darkred"
+text                "darkred" 5 66.5 1.8 "mono" "darkred"
+text "#8b0000" 25 66.5 1.8 "mono"
+text "rgb(139,0,0)"       33 66.5 1.8 "mono"
+
+square               3 62.5 1.8 "deeppink"
+text                "deeppink" 5 62 1.8 "mono" "deeppink"
+text "#ff1493" 25 62 1.8 "mono"
+text "rgb(255,20,147)"       33 62 1.8 "mono"
+
+square               3 58 1.8 "firebrick"
+text                "firebrick" 5 57.5 1.8 "mono" "firebrick"
+text "#b22222" 25 57.5 1.8 "mono"
+text "rgb(178,34,34)"       33 57.5 1.8 "mono"
+
+square               3 53.5 1.8 "fuchsia"
+text                "fuchsia" 5 53 1.8 "mono" "fuchsia"
+text "#ff00ff" 25 53 1.8 "mono"
+text "rgb(255,0,255)"       33 53 1.8 "mono"
+
+square               3 49 1.8 "hotpink"
+text                "hotpink" 5 48.5 1.8 "mono" "hotpink"
+text "#ff69b4" 25 48.5 1.8 "mono"
+text "rgb(255,105,180)"       33 48.5 1.8 "mono"
+
+square               3 44.5 1.8 "indianred"
+text                "indianred" 5 44 1.8 "mono" "indianred"
+text "#cd5c5c" 25 44 1.8 "mono"
+text "rgb(205,92,92)"       33 44 1.8 "mono"
+
+square               3 40 1.8 "lightcoral"
+text                "lightcoral" 5 39.5 1.8 "mono" "lightcoral"
+text "#f08080" 25 39.5 1.8 "mono"
+text "rgb(240,128,128)"       33 39.5 1.8 "mono"
+
+square               3 35.5 1.8 "lightpink"
+text                "lightpink" 5 35 1.8 "mono" "lightpink"
+text "#ffb6c1" 25 35 1.8 "mono"
+text "rgb(255,182,193)"       33 35 1.8 "mono"
+
+square               3 31 1.8 "lightsalmon"
+text                "lightsalmon" 5 30.5 1.8 "mono" "lightsalmon"
+text "#ffa07a" 25 30.5 1.8 "mono"
+text "rgb(255,160,122)"       33 30.5 1.8 "mono"
+
+square               3 26.5 1.8 "magenta"
+text                "magenta" 5 26 1.8 "mono" "magenta"
+text "#ff00ff" 25 26 1.8 "mono"
+text "rgb(255,0,255)"       33 26 1.8 "mono"
+
+square               3 22 1.8 "maroon"
+text                "maroon" 5 21.5 1.8 "mono" "maroon"
+text "#800000" 25 21.5 1.8 "mono"
+text "rgb(128,0,0)"       33 21.5 1.8 "mono"
+
+square               3 17.5 1.8 "orangered"
+text                "orangered" 5 17 1.8 "mono" "orangered"
+text "#ff4500" 25 17 1.8 "mono"
+text "rgb(255,69,0)"       33 17 1.8 "mono"
+
+square               3 13 1.8 "orchid"
+text                "orchid" 5 12.5 1.8 "mono" "orchid"
+text "#da70d6" 25 12.5 1.8 "mono"
+text "rgb(218,112,214)"       33 12.5 1.8 "mono"
+text "name" 55 84 1.2
+text "hex" 75 84 1.2
+text "RGB" 83 84 1.2
+
+square               53 80.5 1.8 "palevioletred"
+text                "palevioletred" 55 80 1.8 "mono" "palevioletred"
+text "#db7093" 75 80 1.8 "mono"
+text "rgb(219,112,147)"       83 80 1.8 "mono"
+
+square               53 76 1.8 "pink"
+text                "pink" 55 75.5 1.8 "mono" "pink"
+text "#ffc0cb" 75 75.5 1.8 "mono"
+text "rgb(255,192,203)"       83 75.5 1.8 "mono"
+
+square               53 71.5 1.8 "plum"
+text                "plum" 55 71 1.8 "mono" "plum"
+text "#dda0dd" 75 71 1.8 "mono"
+text "rgb(221,160,221)"       83 71 1.8 "mono"
+
+square               53 67 1.8 "red"
+text                "red" 55 66.5 1.8 "mono" "red"
+text "#ff0000" 75 66.5 1.8 "mono"
+text "rgb(255,0,0)"       83 66.5 1.8 "mono"
+
+square               53 62.5 1.8 "thistle"
+text                "thistle" 55 62 1.8 "mono" "thistle"
+text "#d8bfd8" 75 62 1.8 "mono"
+text "rgb(216,191,216)"       83 62 1.8 "mono"
+
+square               53 58 1.8 "tomato"
+text                "tomato" 55 57.5 1.8 "mono" "tomato"
+text "#ff6347" 75 57.5 1.8 "mono"
+text "rgb(255,99,71)"       83 57.5 1.8 "mono"
+eslide

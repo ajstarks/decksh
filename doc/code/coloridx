@@ -1,0 +1,78 @@
+#!/bin/sh
+title="$1"
+shift
+awk -F: -v title="$title" '
+BEGIN {
+	
+	top=80
+	heady=top+4
+	bot=top-70
+	right=80
+	newcolincr=50
+	tty=top+10
+	page=1
+	titlesize=3
+	headsize=1.2
+
+	col1=3
+	col2=5
+	col3=25
+	col4=33
+
+	size=1.8
+	incr=2.5
+
+	cx=col1
+	tx=col2
+	hx=col3
+	rx=col4
+
+	cr=size
+	ts=size
+	rs=size
+	hs=size
+
+	cy=top+0.5
+	ty=top
+	ry=top
+	hy=top
+	print "slide \"black\" \"silver\""
+	printf "ctext \"%s\" 50 %g %g \"serif\"\n", title, tty, titlesize
+	printf "text \"name\" %g %g %g\n", col2, heady, headsize
+	printf "text \"hex\" %g %g %g\n",  col3, heady, headsize
+	printf "text \"RGB\" %g %g %g\n",  col4, heady, headsize
+}
+{
+	split($2,hex,",")
+	printf "\nsquare               %g %g %g %s\n", cx, cy, cr, $1
+	printf "text                %s %g %g %g \"mono\" %s\n", $1, tx, ty, ts, $1
+	printf "text \"#%02x%02x%02x\" %g %g %g \"mono\"\n", hex[1], hex[2], hex[3], hx, hy, hs
+	printf "text \"rgb(%d,%d,%d)\"       %g %g %g \"mono\"\n", hex[1], hex[2], hex[3], rx, ry, rs
+
+	cy-=cr*incr
+	ty-=ts*incr
+	ry-=rs*incr
+	hy-=hs*incr
+
+	if (cy <= bot) {
+		cy=top+0.5; ty=top; ry=top; hy=top; 
+		cx+=newcolincr; tx+=newcolincr; rx+=newcolincr; hx+=newcolincr
+		printf "text \"name\" %g %g %g\n", tx, heady, headsize
+		printf "text \"hex\" %g %g %g\n",  hx, heady, headsize
+		printf "text \"RGB\" %g %g %g\n",  rx, heady, headsize
+	}
+	if (tx >= right) {
+		page++
+		print "eslide\nslide \"black\" \"silver\""
+		printf "ctext \"%s (%d)\" 50 %g %g \"serif\"\n", title, page, tty, titlesize
+		cy=top+0.5; ty=top; ry=top; cx=col1; tx=col2; hx=col3; rx=col4
+		printf "text \"name\" %g %g %g\n", tx, heady, headsize
+		printf "text \"hex\" %g %g %g\n",  hx, heady, headsize
+		printf "text \"RGB\" %g %g %g\n",  rx, heady, headsize
+	}
+}
+END {
+	print "eslide"
+}
+
+' $*

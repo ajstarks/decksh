@@ -1,0 +1,291 @@
+slide "black" "silver"
+ctext "Neutrals" 50 90 3 "serif"
+text "name" 5 84 1.2
+text "hex" 25 84 1.2
+text "RGB" 33 84 1.2
+
+square               3 80.5 1.8 "aliceblue"
+text                "aliceblue" 5 80 1.8 "mono" "aliceblue"
+text "#f0f8ff" 25 80 1.8 "mono"
+text "rgb(240,248,255)"       33 80 1.8 "mono"
+
+square               3 76 1.8 "antiquewhite"
+text                "antiquewhite" 5 75.5 1.8 "mono" "antiquewhite"
+text "#faebd7" 25 75.5 1.8 "mono"
+text "rgb(250,235,215)"       33 75.5 1.8 "mono"
+
+square               3 71.5 1.8 "azure"
+text                "azure" 5 71 1.8 "mono" "azure"
+text "#f0ffff" 25 71 1.8 "mono"
+text "rgb(240,255,255)"       33 71 1.8 "mono"
+
+square               3 67 1.8 "beige"
+text                "beige" 5 66.5 1.8 "mono" "beige"
+text "#f5f5dc" 25 66.5 1.8 "mono"
+text "rgb(245,245,220)"       33 66.5 1.8 "mono"
+
+square               3 62.5 1.8 "bisque"
+text                "bisque" 5 62 1.8 "mono" "bisque"
+text "#ffe4c4" 25 62 1.8 "mono"
+text "rgb(255,228,196)"       33 62 1.8 "mono"
+
+square               3 58 1.8 "black"
+text                "black" 5 57.5 1.8 "mono" "black"
+text "#000000" 25 57.5 1.8 "mono"
+text "rgb(0,0,0)"       33 57.5 1.8 "mono"
+
+square               3 53.5 1.8 "blanchedalmond"
+text                "blanchedalmond" 5 53 1.8 "mono" "blanchedalmond"
+text "#ffebcd" 25 53 1.8 "mono"
+text "rgb(255,235,205)"       33 53 1.8 "mono"
+
+square               3 49 1.8 "brown"
+text                "brown" 5 48.5 1.8 "mono" "brown"
+text "#a52a2a" 25 48.5 1.8 "mono"
+text "rgb(165,42,42)"       33 48.5 1.8 "mono"
+
+square               3 44.5 1.8 "burlywood"
+text                "burlywood" 5 44 1.8 "mono" "burlywood"
+text "#deb887" 25 44 1.8 "mono"
+text "rgb(222,184,135)"       33 44 1.8 "mono"
+
+square               3 40 1.8 "chocolate"
+text                "chocolate" 5 39.5 1.8 "mono" "chocolate"
+text "#d2691e" 25 39.5 1.8 "mono"
+text "rgb(210,105,30)"       33 39.5 1.8 "mono"
+
+square               3 35.5 1.8 "cornsilk"
+text                "cornsilk" 5 35 1.8 "mono" "cornsilk"
+text "#fff8dc" 25 35 1.8 "mono"
+text "rgb(255,248,220)"       33 35 1.8 "mono"
+
+square               3 31 1.8 "darkgray"
+text                "darkgray" 5 30.5 1.8 "mono" "darkgray"
+text "#a9a9a9" 25 30.5 1.8 "mono"
+text "rgb(169,169,169)"       33 30.5 1.8 "mono"
+
+square               3 26.5 1.8 "darkgrey"
+text                "darkgrey" 5 26 1.8 "mono" "darkgrey"
+text "#a9a9a9" 25 26 1.8 "mono"
+text "rgb(169,169,169)"       33 26 1.8 "mono"
+
+square               3 22 1.8 "darksalmon"
+text                "darksalmon" 5 21.5 1.8 "mono" "darksalmon"
+text "#e9967a" 25 21.5 1.8 "mono"
+text "rgb(233,150,122)"       33 21.5 1.8 "mono"
+
+square               3 17.5 1.8 "darkslategray"
+text                "darkslategray" 5 17 1.8 "mono" "darkslategray"
+text "#2f4f4f" 25 17 1.8 "mono"
+text "rgb(47,79,79)"       33 17 1.8 "mono"
+
+square               3 13 1.8 "darkslategrey"
+text                "darkslategrey" 5 12.5 1.8 "mono" "darkslategrey"
+text "#2f4f4f" 25 12.5 1.8 "mono"
+text "rgb(47,79,79)"       33 12.5 1.8 "mono"
+text "name" 55 84 1.2
+text "hex" 75 84 1.2
+text "RGB" 83 84 1.2
+
+square               53 80.5 1.8 "dimgray"
+text                "dimgray" 55 80 1.8 "mono" "dimgray"
+text "#696969" 75 80 1.8 "mono"
+text "rgb(105,105,105)"       83 80 1.8 "mono"
+
+square               53 76 1.8 "dimgrey"
+text                "dimgrey" 55 75.5 1.8 "mono" "dimgrey"
+text "#696969" 75 75.5 1.8 "mono"
+text "rgb(105,105,105)"       83 75.5 1.8 "mono"
+
+square               53 71.5 1.8 "floralwhite"
+text                "floralwhite" 55 71 1.8 "mono" "floralwhite"
+text "#fffaf0" 75 71 1.8 "mono"
+text "rgb(255,250,240)"       83 71 1.8 "mono"
+
+square               53 67 1.8 "gainsboro"
+text                "gainsboro" 55 66.5 1.8 "mono" "gainsboro"
+text "#dcdcdc" 75 66.5 1.8 "mono"
+text "rgb(220,220,220)"       83 66.5 1.8 "mono"
+
+square               53 62.5 1.8 "ghostwhite"
+text                "ghostwhite" 55 62 1.8 "mono" "ghostwhite"
+text "#f8f8ff" 75 62 1.8 "mono"
+text "rgb(248,248,255)"       83 62 1.8 "mono"
+
+square               53 58 1.8 "gray"
+text                "gray" 55 57.5 1.8 "mono" "gray"
+text "#808080" 75 57.5 1.8 "mono"
+text "rgb(128,128,128)"       83 57.5 1.8 "mono"
+
+square               53 53.5 1.8 "grey"
+text                "grey" 55 53 1.8 "mono" "grey"
+text "#808080" 75 53 1.8 "mono"
+text "rgb(128,128,128)"       83 53 1.8 "mono"
+
+square               53 49 1.8 "honeydew"
+text                "honeydew" 55 48.5 1.8 "mono" "honeydew"
+text "#f0fff0" 75 48.5 1.8 "mono"
+text "rgb(240,255,240)"       83 48.5 1.8 "mono"
+
+square               53 44.5 1.8 "ivory"
+text                "ivory" 55 44 1.8 "mono" "ivory"
+text "#fffff0" 75 44 1.8 "mono"
+text "rgb(255,255,240)"       83 44 1.8 "mono"
+
+square               53 40 1.8 "lavender"
+text                "lavender" 55 39.5 1.8 "mono" "lavender"
+text "#e6e6fa" 75 39.5 1.8 "mono"
+text "rgb(230,230,250)"       83 39.5 1.8 "mono"
+
+square               53 35.5 1.8 "lavenderblush"
+text                "lavenderblush" 55 35 1.8 "mono" "lavenderblush"
+text "#fff0f5" 75 35 1.8 "mono"
+text "rgb(255,240,245)"       83 35 1.8 "mono"
+
+square               53 31 1.8 "lightgray"
+text                "lightgray" 55 30.5 1.8 "mono" "lightgray"
+text "#d3d3d3" 75 30.5 1.8 "mono"
+text "rgb(211,211,211)"       83 30.5 1.8 "mono"
+
+square               53 26.5 1.8 "lightgrey"
+text                "lightgrey" 55 26 1.8 "mono" "lightgrey"
+text "#d3d3d3" 75 26 1.8 "mono"
+text "rgb(211,211,211)"       83 26 1.8 "mono"
+
+square               53 22 1.8 "lightslategray"
+text                "lightslategray" 55 21.5 1.8 "mono" "lightslategray"
+text "#778899" 75 21.5 1.8 "mono"
+text "rgb(119,136,153)"       83 21.5 1.8 "mono"
+
+square               53 17.5 1.8 "lightslategrey"
+text                "lightslategrey" 55 17 1.8 "mono" "lightslategrey"
+text "#778899" 75 17 1.8 "mono"
+text "rgb(119,136,153)"       83 17 1.8 "mono"
+
+square               53 13 1.8 "linen"
+text                "linen" 55 12.5 1.8 "mono" "linen"
+text "#faf0e6" 75 12.5 1.8 "mono"
+text "rgb(250,240,230)"       83 12.5 1.8 "mono"
+text "name" 105 84 1.2
+text "hex" 125 84 1.2
+text "RGB" 133 84 1.2
+eslide
+slide "black" "silver"
+ctext "Neutrals (2)" 50 90 3 "serif"
+text "name" 5 84 1.2
+text "hex" 25 84 1.2
+text "RGB" 33 84 1.2
+
+square               3 80.5 1.8 "mintcream"
+text                "mintcream" 5 80 1.8 "mono" "mintcream"
+text "#f5fffa" 25 80 1.8 "mono"
+text "rgb(245,255,250)"       33 80 1.8 "mono"
+
+square               3 76 1.8 "mistyrose"
+text                "mistyrose" 5 75.5 1.8 "mono" "mistyrose"
+text "#ffe4e1" 25 75.5 1.8 "mono"
+text "rgb(255,228,225)"       33 75.5 1.8 "mono"
+
+square               3 71.5 1.8 "moccasin"
+text                "moccasin" 5 71 1.8 "mono" "moccasin"
+text "#ffe4b5" 25 71 1.8 "mono"
+text "rgb(255,228,181)"       33 71 1.8 "mono"
+
+square               3 67 1.8 "navajowhite"
+text                "navajowhite" 5 66.5 1.8 "mono" "navajowhite"
+text "#ffdead" 25 66.5 1.8 "mono"
+text "rgb(255,222,173)"       33 66.5 1.8 "mono"
+
+square               3 62.5 1.8 "oldlace"
+text                "oldlace" 5 62 1.8 "mono" "oldlace"
+text "#fdf5e6" 25 62 1.8 "mono"
+text "rgb(253,245,230)"       33 62 1.8 "mono"
+
+square               3 58 1.8 "papayawhip"
+text                "papayawhip" 5 57.5 1.8 "mono" "papayawhip"
+text "#ffefd5" 25 57.5 1.8 "mono"
+text "rgb(255,239,213)"       33 57.5 1.8 "mono"
+
+square               3 53.5 1.8 "peachpuff"
+text                "peachpuff" 5 53 1.8 "mono" "peachpuff"
+text "#ffdab9" 25 53 1.8 "mono"
+text "rgb(255,218,185)"       33 53 1.8 "mono"
+
+square               3 49 1.8 "peru"
+text                "peru" 5 48.5 1.8 "mono" "peru"
+text "#cd853f" 25 48.5 1.8 "mono"
+text "rgb(205,133,63)"       33 48.5 1.8 "mono"
+
+square               3 44.5 1.8 "rosybrown"
+text                "rosybrown" 5 44 1.8 "mono" "rosybrown"
+text "#bc8f8f" 25 44 1.8 "mono"
+text "rgb(188,143,143)"       33 44 1.8 "mono"
+
+square               3 40 1.8 "saddlebrown"
+text                "saddlebrown" 5 39.5 1.8 "mono" "saddlebrown"
+text "#8b4513" 25 39.5 1.8 "mono"
+text "rgb(139,69,19)"       33 39.5 1.8 "mono"
+
+square               3 35.5 1.8 "salmon"
+text                "salmon" 5 35 1.8 "mono" "salmon"
+text "#fa8072" 25 35 1.8 "mono"
+text "rgb(250,128,114)"       33 35 1.8 "mono"
+
+square               3 31 1.8 "sandybrown"
+text                "sandybrown" 5 30.5 1.8 "mono" "sandybrown"
+text "#f4a460" 25 30.5 1.8 "mono"
+text "rgb(244,164,96)"       33 30.5 1.8 "mono"
+
+square               3 26.5 1.8 "seashell"
+text                "seashell" 5 26 1.8 "mono" "seashell"
+text "#fff5ee" 25 26 1.8 "mono"
+text "rgb(255,245,238)"       33 26 1.8 "mono"
+
+square               3 22 1.8 "sienna"
+text                "sienna" 5 21.5 1.8 "mono" "sienna"
+text "#a0522d" 25 21.5 1.8 "mono"
+text "rgb(160,82,45)"       33 21.5 1.8 "mono"
+
+square               3 17.5 1.8 "silver"
+text                "silver" 5 17 1.8 "mono" "silver"
+text "#c0c0c0" 25 17 1.8 "mono"
+text "rgb(192,192,192)"       33 17 1.8 "mono"
+
+square               3 13 1.8 "slategray"
+text                "slategray" 5 12.5 1.8 "mono" "slategray"
+text "#708090" 25 12.5 1.8 "mono"
+text "rgb(112,128,144)"       33 12.5 1.8 "mono"
+text "name" 55 84 1.2
+text "hex" 75 84 1.2
+text "RGB" 83 84 1.2
+
+square               53 80.5 1.8 "slategrey"
+text                "slategrey" 55 80 1.8 "mono" "slategrey"
+text "#708090" 75 80 1.8 "mono"
+text "rgb(112,128,144)"       83 80 1.8 "mono"
+
+square               53 76 1.8 "snow"
+text                "snow" 55 75.5 1.8 "mono" "snow"
+text "#fffafa" 75 75.5 1.8 "mono"
+text "rgb(255,250,250)"       83 75.5 1.8 "mono"
+
+square               53 71.5 1.8 "tan"
+text                "tan" 55 71 1.8 "mono" "tan"
+text "#d2b48c" 75 71 1.8 "mono"
+text "rgb(210,180,140)"       83 71 1.8 "mono"
+
+square               53 67 1.8 "wheat"
+text                "wheat" 55 66.5 1.8 "mono" "wheat"
+text "#f5deb3" 75 66.5 1.8 "mono"
+text "rgb(245,222,179)"       83 66.5 1.8 "mono"
+
+square               53 62.5 1.8 "white"
+text                "white" 55 62 1.8 "mono" "white"
+text "#ffffff" 75 62 1.8 "mono"
+text "rgb(255,255,255)"       83 62 1.8 "mono"
+
+square               53 58 1.8 "whitesmoke"
+text                "whitesmoke" 55 57.5 1.8 "mono" "whitesmoke"
+text "#f5f5f5" 75 57.5 1.8 "mono"
+text "rgb(245,245,245)"       83 57.5 1.8 "mono"
+eslide

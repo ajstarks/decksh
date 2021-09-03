@@ -122,6 +122,7 @@
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "format"
 		    li "random"
+			li "sqrt"
 			li "vmap"
 		elist
 		lx+=csep2

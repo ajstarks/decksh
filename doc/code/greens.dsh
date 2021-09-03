@@ -1,0 +1,124 @@
+slide "black" "silver"
+ctext "Greens" 50 90 3 "serif"
+text "name" 5 84 1.2
+text "hex" 25 84 1.2
+text "RGB" 33 84 1.2
+
+square               3 80.5 1.8 "aquamarine"
+text                "aquamarine" 5 80 1.8 "mono" "aquamarine"
+text "#7fffd4" 25 80 1.8 "mono"
+text "rgb(127,255,212)"       33 80 1.8 "mono"
+
+square               3 76 1.8 "chartreuse"
+text                "chartreuse" 5 75.5 1.8 "mono" "chartreuse"
+text "#7fff00" 25 75.5 1.8 "mono"
+text "rgb(127,255,0)"       33 75.5 1.8 "mono"
+
+square               3 71.5 1.8 "darkgreen"
+text                "darkgreen" 5 71 1.8 "mono" "darkgreen"
+text "#006400" 25 71 1.8 "mono"
+text "rgb(0,100,0)"       33 71 1.8 "mono"
+
+square               3 67 1.8 "darkkhaki"
+text                "darkkhaki" 5 66.5 1.8 "mono" "darkkhaki"
+text "#bdb76b" 25 66.5 1.8 "mono"
+text "rgb(189,183,107)"       33 66.5 1.8 "mono"
+
+square               3 62.5 1.8 "darkolivegreen"
+text                "darkolivegreen" 5 62 1.8 "mono" "darkolivegreen"
+text "#556b2f" 25 62 1.8 "mono"
+text "rgb(85,107,47)"       33 62 1.8 "mono"
+
+square               3 58 1.8 "darkseagreen"
+text                "darkseagreen" 5 57.5 1.8 "mono" "darkseagreen"
+text "#8fbc8f" 25 57.5 1.8 "mono"
+text "rgb(143,188,143)"       33 57.5 1.8 "mono"
+
+square               3 53.5 1.8 "forestgreen"
+text                "forestgreen" 5 53 1.8 "mono" "forestgreen"
+text "#228b22" 25 53 1.8 "mono"
+text "rgb(34,139,34)"       33 53 1.8 "mono"
+
+square               3 49 1.8 "green"
+text                "green" 5 48.5 1.8 "mono" "green"
+text "#008000" 25 48.5 1.8 "mono"
+text "rgb(0,128,0)"       33 48.5 1.8 "mono"
+
+square               3 44.5 1.8 "greenyellow"
+text                "greenyellow" 5 44 1.8 "mono" "greenyellow"
+text "#adff2f" 25 44 1.8 "mono"
+text "rgb(173,255,47)"       33 44 1.8 "mono"
+
+square               3 40 1.8 "lawngreen"
+text                "lawngreen" 5 39.5 1.8 "mono" "lawngreen"
+text "#7cfc00" 25 39.5 1.8 "mono"
+text "rgb(124,252,0)"       33 39.5 1.8 "mono"
+
+square               3 35.5 1.8 "lightgreen"
+text                "lightgreen" 5 35 1.8 "mono" "lightgreen"
+text "#90ee90" 25 35 1.8 "mono"
+text "rgb(144,238,144)"       33 35 1.8 "mono"
+
+square               3 31 1.8 "lightseagreen"
+text                "lightseagreen" 5 30.5 1.8 "mono" "lightseagreen"
+text "#20b2aa" 25 30.5 1.8 "mono"
+text "rgb(32,178,170)"       33 30.5 1.8 "mono"
+
+square               3 26.5 1.8 "lime"
+text                "lime" 5 26 1.8 "mono" "lime"
+text "#00ff00" 25 26 1.8 "mono"
+text "rgb(0,255,0)"       33 26 1.8 "mono"
+
+square               3 22 1.8 "limegreen"
+text                "limegreen" 5 21.5 1.8 "mono" "limegreen"
+text "#32cd32" 25 21.5 1.8 "mono"
+text "rgb(50,205,50)"       33 21.5 1.8 "mono"
+
+square               3 17.5 1.8 "mediumseagreen"
+text                "mediumseagreen" 5 17 1.8 "mono" "mediumseagreen"
+text "#3cb371" 25 17 1.8 "mono"
+text "rgb(60,179,113)"       33 17 1.8 "mono"
+
+square               3 13 1.8 "mediumspringgreen"
+text                "mediumspringgreen" 5 12.5 1.8 "mono" "mediumspringgreen"
+text "#00fa9a" 25 12.5 1.8 "mono"
+text "rgb(0,250,154)"       33 12.5 1.8 "mono"
+text "name" 55 84 1.2
+text "hex" 75 84 1.2
+text "RGB" 83 84 1.2
+
+square               53 80.5 1.8 "olive"
+text                "olive" 55 80 1.8 "mono" "olive"
+text "#808000" 75 80 1.8 "mono"
+text "rgb(128,128,0)"       83 80 1.8 "mono"
+
+square               53 76 1.8 "olivedrab"
+text                "olivedrab" 55 75.5 1.8 "mono" "olivedrab"
+text "#6b8e23" 75 75.5 1.8 "mono"
+text "rgb(107,142,35)"       83 75.5 1.8 "mono"
+
+square               53 71.5 1.8 "palegreen"
+text                "palegreen" 55 71 1.8 "mono" "palegreen"
+text "#98fb98" 75 71 1.8 "mono"
+text "rgb(152,251,152)"       83 71 1.8 "mono"
+
+square               53 67 1.8 "seagreen"
+text                "seagreen" 55 66.5 1.8 "mono" "seagreen"
+text "#2e8b57" 75 66.5 1.8 "mono"
+text "rgb(46,139,87)"       83 66.5 1.8 "mono"
+
+square               53 62.5 1.8 "springgreen"
+text                "springgreen" 55 62 1.8 "mono" "springgreen"
+text "#00ff7f" 75 62 1.8 "mono"
+text "rgb(0,255,127)"       83 62 1.8 "mono"
+
+square               53 58 1.8 "teal"
+text                "teal" 55 57.5 1.8 "mono" "teal"
+text "#008080" 75 57.5 1.8 "mono"
+text "rgb(0,128,128)"       83 57.5 1.8 "mono"
+
+square               53 53.5 1.8 "yellowgreen"
+text                "yellowgreen" 55 53 1.8 "mono" "yellowgreen"
+text "#9acd32" 75 53 1.8 "mono"
+text "rgb(154,205,50)"       83 53 1.8 "mono"
+eslide
