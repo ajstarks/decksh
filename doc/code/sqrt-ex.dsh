@@ -1,0 +1,12 @@
+x=60
+y=15
+a=10
+b=20
+a_squared=a*a
+b_squared=b*b
+c=sqrt a_squared+b_squared
+yb=y+b
+xa=x+a
+polygon "x xa x" "y y yb"
+clabel=format "c = %.1f" c
+text clabel 66 25 2

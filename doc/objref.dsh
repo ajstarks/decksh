@@ -38,7 +38,7 @@ deck
 	tbl3="mandatory"
 	tbl4="optional"
 
-
+	// title page
 	slide bgcolor fgcolor
 		clist 30 60 10 "sans" objcolor 100 1.0
 			li "decksh"
@@ -52,6 +52,7 @@ deck
 	include "struct.dsh"
 	include "grid.dsh"
 
+	// defining vars
 	slide bgcolor fgcolor
 		ctext "Defining and using variables" mid ty 5 "serif"
 		
@@ -82,6 +83,7 @@ deck
 		elist
 	eslide
 
+	// binop
 	slide bgcolor fgcolor
 		ctext "Binary  operators" mid ty 5 "serif" 
 		ax=20
@@ -100,6 +102,7 @@ deck
 		elist
 	eslide
 
+	// assignment operators
 	slide bgcolor fgcolor
 		ctext "Assignment operators" mid ty 5 "serif" 
 		ax=20
@@ -118,7 +121,7 @@ deck
 		elist
 	eslide
 
-
+	// variables and assignments, examples
 	slide bgcolor fgcolor
 		ctext "Variables and Assignments" mid ty 5 "serif"
 		etext "Using variables"       20 80 2
@@ -161,6 +164,7 @@ deck
 		elist
 	eslide
 
+	// colors, fonts, opacity
 	slide bgcolor fgcolor
 		hline 5 72 85 4 hlcolor hlop
 		ctext "Colors, fonts, opacity" mid ty 5 "serif"
@@ -555,8 +559,8 @@ deck
 			li "x y w h"
 			li "x y w"
 			li "x y w h"
-			li "x y w h radius [color]"
-			li "x y w h [color]"
+			li "x y w h radius"
+			li "x y w h"
 			li ` "x1 x2...xn" "y1 y2...yn"`
 			li "x y sides inner outer"
 		elist
@@ -918,7 +922,6 @@ deck
 		etext "pill"                 43 ly ts "mono" kwcolor
 		ctext "x y w h"              50 ly ts "mono" argcolor
 		ctext "color"                61 ly ts "mono" optcolor
-		//ctext "pill x y w h [color]" cx ly ts "mono" accentcolor
 
 		pill 20 20 10 5
 		text "pill 20 20 10 5" 20 ely ls "mono"
@@ -1123,8 +1126,6 @@ deck
 		etext "list"                    29 ly ts "mono" kwcolor
 		ctext "x y fontsize"            41 ly ts "mono" argcolor
 		ctext "font color op spacing"   69 ly ts "mono" optcolor
-		//ctext "list x y fontsize [font] [color] [op] [spacing]" cx ly ts "mono" accentcolor
-
 		circle ix 85 coordsize accentcolor 50
 		ctext "(x,y)" ix 80 lw "mono"
 		textfile "code/plist-ex1.dsh" 3 30 ets "mono"
@@ -1719,6 +1720,9 @@ deck
 		etext "value=" 35 ly ts "mono"
 		text "sqrt"    35 ly ts "mono" kwcolor
 		text "number or expression" 43 ly ts "mono" argcolor
+
+		textfile "code/sqrt-ex.dsh" 35 38 1.5 "mono"
+		include  "code/sqrt-ex.dsh"
 	eslide
 
 	// vmap
