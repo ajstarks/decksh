@@ -1,7 +1,22 @@
 #!/bin/sh
+# make a auto-layout paginated list of color info using decksh markup.
+#
+# the input is a colon-separated list of name:rgb:category
+# the output columns are: color swatch, name, hex, rgb
+#
+# run as:
+# $ coloridx "title" file
+#
 title="$1"
 shift
 awk -F: -v title="$title" '
+
+function tablehead(x1, x2, x3, y, textsize) {
+	printf "text \"name\" %g %g %g\n", x1, y, textsize
+	printf "text \"hex\" %g %g %g\n",  x2, y, textsize
+	printf "text \"RGB\" %g %g %g\n",  x3, y, textsize
+}
+
 BEGIN {
 	
 	top=80
@@ -36,39 +51,66 @@ BEGIN {
 	ty=top
 	ry=top
 	hy=top
-	print "slide \"black\" \"silver\""
+
+	bgcolor="\"black\""
+	fgcolor="\"white\""
+
+	# initial title and heading
+	printf "slide %s %s\n", bgcolor, fgcolor
 	printf "ctext \"%s\" 50 %g %g \"serif\"\n", title, tty, titlesize
-	printf "text \"name\" %g %g %g\n", col2, heady, headsize
-	printf "text \"hex\" %g %g %g\n",  col3, heady, headsize
-	printf "text \"RGB\" %g %g %g\n",  col4, heady, headsize
+	tablehead(col2, col3, col4, heady, headsize)
 }
 {
-	split($2,hex,",")
-	printf "\nsquare               %g %g %g %s\n", cx, cy, cr, $1
-	printf "text                %s %g %g %g \"mono\" %s\n", $1, tx, ty, ts, $1
-	printf "text \"#%02x%02x%02x\" %g %g %g \"mono\"\n", hex[1], hex[2], hex[3], hx, hy, hs
-	printf "text \"rgb(%d,%d,%d)\"       %g %g %g \"mono\"\n", hex[1], hex[2], hex[3], rx, ry, rs
 
+	# make a row: color swatch, name, hex, rgb
+	split($2,rgb,",")
+	if ($1 == bgcolor) {
+		printf "square %g %g %g %s\n", cx, cy, cr+0.2, fgcolor
+		printf "square %g %g %g %s\n", cx, cy, cr, $1
+		printf "hline  %g %g %g %g %s\n", cx+cr, cy, size*4, size, gcolor
+
+	} else {
+		printf "square %g %g %g %s\n", cx, cy, cr, $1
+		printf "text %s %g %g %g \"mono\" %s\n", $1, tx, ty, ts, $1
+	}
+	printf "text %s %g %g %g \"mono\" %s\n", $1, tx, ty, ts, $1
+	printf "text \"#%02x%02x%02x\" %g %g %g \"mono\"\n", rgb[1], rgb[2], rgb[3], hx, hy, hs
+	printf "text \"rgb(%d,%d,%d)\" %g %g %g \"mono\"\n", rgb[1], rgb[2], rgb[3], rx, ry, rs
+
+	# next row
 	cy-=cr*incr
 	ty-=ts*incr
 	ry-=rs*incr
 	hy-=hs*incr
 
+	# if you reach the bottom, make a new set of columns
 	if (cy <= bot) {
-		cy=top+0.5; ty=top; ry=top; hy=top; 
-		cx+=newcolincr; tx+=newcolincr; rx+=newcolincr; hx+=newcolincr
-		printf "text \"name\" %g %g %g\n", tx, heady, headsize
-		printf "text \"hex\" %g %g %g\n",  hx, heady, headsize
-		printf "text \"RGB\" %g %g %g\n",  rx, heady, headsize
+		cy=top+0.5
+		ty=top
+		ry=top
+		hy=top
+		cx+=newcolincr
+		tx+=newcolincr
+		rx+=newcolincr
+		hx+=newcolincr
+		tablehead(tx, hx, rx, heady, headsize)
 	}
+
+	# if you roll off the right, make a new page
 	if (tx >= right) {
 		page++
-		print "eslide\nslide \"black\" \"silver\""
+		print "eslide"
+		printf "slide %s %s\n", bgcolor, fgcolor
 		printf "ctext \"%s (%d)\" 50 %g %g \"serif\"\n", title, page, tty, titlesize
-		cy=top+0.5; ty=top; ry=top; cx=col1; tx=col2; hx=col3; rx=col4
-		printf "text \"name\" %g %g %g\n", tx, heady, headsize
-		printf "text \"hex\" %g %g %g\n",  hx, heady, headsize
-		printf "text \"RGB\" %g %g %g\n",  rx, heady, headsize
+		cy=top+0.5
+		ty=top
+		ry=top
+		hy=top
+		cx=col1
+		tx=col2
+		hx=col3
+		rx=col4
+		tablehead(tx, hx, rx, heady, headsize)
 	}
 }
 END {
