@@ -1,12 +1,8 @@
-x=60
-y=15
-a=10
-b=20
-a_squared=a*a
-b_squared=b*b
-c=sqrt a_squared+b_squared
-yb=y+b
-xa=x+a
-polygon "x xa x" "y y yb"
+a_squared=10*10
+b_squared=20*20
+c=sqrt a_squared + b_squared
+w=70+10
+h=15+20
+polygon "70 w 70" "15 15 h"
 clabel=format "c = %.1f" c
-text clabel 66 25 2
+text clabel 76 25 2

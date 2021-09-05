@@ -1713,15 +1713,15 @@ deck
 		text "x = 2"          72 75 lw "mono"
 		text "y = 3.1622776"  72 67 lw "mono"
 		text "n = 9"          72 59 lw "mono"
-		arrow 70 76 60 76
-		arrow 70 68 60 68
-		arrow 70 60 60 60
+		arrow 70 76 60 76 0.2 2 3
+		arrow 70 68 60 68 0.2 2 3
+		arrow 70 60 60 60 0.2 2 3
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "value=" 35 ly ts "mono"
 		text "sqrt"    35 ly ts "mono" kwcolor
 		text "number or expression" 43 ly ts "mono" argcolor
 
-		textfile "code/sqrt-ex.dsh" 35 38 1.5 "mono"
+		textfile "code/sqrt-ex.dsh" 35 35 2 "mono"
 		include  "code/sqrt-ex.dsh"
 	eslide
 
@@ -1766,7 +1766,7 @@ deck
 			li "third 200"
 			li "edata"
 		elist
-		arrow 61 91 52 91 0.3 2 3// accentcolor
+		arrow 61 91 52 91 0.2 2 3
 		text "data file"   62 90 lw "mono"
 		text "data values" 50 75 lw "mono"
 		rbrace 48 75 22 2 2
@@ -1825,6 +1825,7 @@ deck
 		elist
 	eslide
 
+	// dchart
 	include "dchart-options.dsh"
 	include "dchart-types.dsh"
 	
@@ -1860,8 +1861,7 @@ deck
 		textfile "code/dchart-ex2.dsh" 50 10 etss "mono"
 	eslide
 
-	
-
+	// legend
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		text "legend" 25 ly ts "mono" kwcolor

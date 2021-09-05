@@ -15,17 +15,17 @@
 		annx2=annx1-5
 		annlx=annx1+1
 		annotey=structy+2
-		arrow annx1 annotey annx2 annotey 0.2 2 2   // comment
+		arrow annx1 annotey annx2 annotey 0.2 2 3   // comment
 		annotey-=1
 		text "comment"                         annlx annotey 2
 
 		annotey-=12.5
-		arrow annx1 annotey annx2 annotey 0.2 2 2   // canvas
+		arrow annx1 annotey annx2 annotey 0.2 2 3   // canvas
 		annotey-=1
 		text "canvas size hint (width height)" annlx annotey 2
 
 		annotey-=5
-		arrow annx1 annotey annx2 annotey 0.2 2 2
+		arrow annx1 annotey annx2 annotey 0.2 2 3
 		annotey-=1
 		text "inline comment"                  annlx annotey 2
 
@@ -34,9 +34,6 @@
 		lbrace 22 sl1y  16 2 2 0.2   // slide 1
 		lbrace 22 sl2y  16 2 2 0.2   // slide 2
 		lbrace annx2 incy  16 2 2 0.2   // include
-
-		//dcarrow 35 57 52 60  52 45 0.2 2 2
-		//dcarrow 35 62 55 65  55 45 0.2 2 2
 
 		etext "deck"		 9 dey  2.5
 		etext "variables"   21 assny 2.5
