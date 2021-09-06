@@ -65,14 +65,10 @@ BEGIN {
 	# make a row: color swatch, name, hex, rgb
 	split($2,rgb,",")
 	if ($1 == bgcolor) {
-		printf "square %g %g %g %s\n", cx, cy, cr+0.2, fgcolor
-		printf "square %g %g %g %s\n", cx, cy, cr, $1
-		printf "hline  %g %g %g %g %s\n", cx+cr, cy, size*4, size, gcolor
-
-	} else {
-		printf "square %g %g %g %s\n", cx, cy, cr, $1
-		printf "text %s %g %g %g \"mono\" %s\n", $1, tx, ty, ts, $1
-	}
+		printf "square %g %g %g %s\n", cx, cy, cr+0.3, fgcolor
+		printf "hline %g %g %g %g %s\n", tx, ty+(ts/3), 5, ts+0.2, fgcolor
+	}	
+	printf "square %g %g %g %s\n", cx, cy, cr, $1
 	printf "text %s %g %g %g \"mono\" %s\n", $1, tx, ty, ts, $1
 	printf "text \"#%02x%02x%02x\" %g %g %g \"mono\"\n", rgb[1], rgb[2], rgb[3], hx, hy, hs
 	printf "text \"rgb(%d,%d,%d)\" %g %g %g \"mono\"\n", rgb[1], rgb[2], rgb[3], rx, ry, rs
