@@ -56,7 +56,7 @@ func ftoa(v float64) string {
 
 // assign creates an assignment by filling in the global id map
 // assignments are either simple (x=10), binary op (x=a+b), or built-ins
-// (random, polarx, polary, vmap, sprint)
+// (random, polarx, polary, vmap, sprint, sqrt)
 func assign(s []string, linenumber int) error {
 	e := fmt.Errorf("line %d:, %v is an illegal assignment", linenumber, s)
 	switch len(s) {
@@ -81,7 +81,12 @@ func assign(s []string, linenumber int) error {
 			return binop(s, linenumber) // x=a+b
 		}
 	case 6:
-		return sqrtfunc(s, linenumber) // y=sqrt a op b
+		switch s[2] {
+		case "sqrt":
+			return sqrtfunc(s, linenumber) // y=sqrt a op b
+		default:
+			return e
+		}
 	case 7:
 		switch s[2] {
 		case "polarx", "polary":
