@@ -56,7 +56,7 @@ func ftoa(v float64) string {
 
 // assign creates an assignment by filling in the global id map
 // assignments are either simple (x=10), binary op (x=a+b), or built-ins
-// (random, polarx, polary, vmap, sprint, sqrt)
+// (random, polarx, polary, vmap, sprint, format, sqrt)
 func assign(s []string, linenumber int) error {
 	e := fmt.Errorf("line %d:, %v is an illegal assignment", linenumber, s)
 	switch len(s) {
