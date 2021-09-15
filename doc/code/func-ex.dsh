@@ -1,0 +1,5 @@
+fx=_0
+fy=_1
+fs=_2
+ft=_3
+ctext ft fx fy fs "serif" "purple"

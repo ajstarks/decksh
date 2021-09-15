@@ -1515,7 +1515,7 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.6
-		ctext "Loop, Built-ins, Data and Grid" mid ty 5 "serif"
+		ctext "Loop, Built-ins, Data, Function and Grid" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
@@ -1527,6 +1527,7 @@ deck
 			li "Random number"
 			li "Square Root"
 			li "Value mapping"
+			li "Functions"
 			li "In-line data"
 			li "Objects on a grid"
 		elist
@@ -1541,6 +1542,7 @@ deck
 			li "value=random"
 			li "value=sqrt"
 			li "value=vmap"
+			li "func"
 			li "data" 
 			li "grid"
 		elist
@@ -1555,6 +1557,7 @@ deck
 			li "min max"
 			li "expression"
 			li "data min1 max1 min2 max2"
+			li `"file" arg1 ... argn`
 			li `"file" ... edata`
 			li `"file" x y hspace vspace edge`
 		elist
@@ -1755,6 +1758,31 @@ deck
 
 		include "code/vmap-example.dsh"
 		textfile "code/vmap-example.dsh" 10 37 2 "mono"
+	eslide
+
+	// func
+	slide bgcolor fgcolor
+		filew=37
+		lfilex=10
+		fileary=72
+		rfilex=lfilex+50
+		lfileax=lfilex+36
+		rfileax=lfileax+11
+		ctext `func "doit.dsh" 50 20 2.5 "hello"` 50 92 4 "mono" objcolor
+		textcode "code/func-ex.dsh"   lfilex 80 filew 2 argcolor
+		textcode "code/func-ex1.dsh"  rfilex 80 filew 2 accentcolor
+		text "doit.dsh"      lfilex 85 2 "mono"
+		text "result"        rfilex 85 2 "mono"
+		arrow lfileax fileary rfileax fileary 0.5 2 3
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "func" 35 ly ts "mono" kwcolor
+		ctext `"file" arg1 ... argn` 53 ly ts "mono" argcolor
+		func "code/func-ex.dsh" 50 30 5 "calling the function"
+		func "code/func-ex.dsh" 50 20 4 "call again"
+		list 30 10 2 "mono" "" 100 1.2
+			li `func "foo.dsh" 50 30 5 "calling the function"`
+			li `func "foo.dsh" 50 20 4 "call again"`
+		elist
 	eslide
 
 	// data

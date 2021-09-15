@@ -1,0 +1,5 @@
+fx=50
+fy=20
+fs=2.5
+ft="hello"
+ctext ft fx fy fs "serif" "purple"
