@@ -1,5 +1,3 @@
-<deck>
-<canvas width="792" height="612"/>
 <slide>
 <text align="c" xp="50" yp="50" sp="5" >Loops</text>
 <line xp1="100" yp1="0" xp2="0" yp2="0" sp="0.1" color="blue"/>
@@ -46,9 +44,14 @@
 <line xp1="100" yp1="100" xp2="100" yp2="0" sp="0.1" color="red"/>
 </slide>
 <slide>
-<ellipse xp="79.59186210242113" yp="13.38551587896925" wp="10" hr="100" color="red" opacity="13.38551587896925"/>
-<ellipse xp="60.89606738453647" yp="52.05177458174134" wp="10" hr="100" color="green" opacity="52.05177458174134"/>
-<ellipse xp="59.7149679545706" yp="82.45362591498024" wp="10" hr="100" color="blue" opacity="82.45362591498024"/>
+<text align="c" xp="50" yp="50" sp="5" >Functions</text>
+<text align="c" xp="50" yp="30" sp="2.5" >hello</text>
+<text align="c" xp="50" yp="10" sp="3.5" >bye</text>
+</slide>
+<slide>
+<ellipse xp="64.54377974903534" yp="71.84236705521077" wp="10" hr="100" color="red" opacity="71.84236705521077"/>
+<ellipse xp="22.143640761449213" yp="74.09230388044018" wp="10" hr="100" color="green" opacity="74.09230388044018"/>
+<ellipse xp="54.94618158167819" yp="38.20982801031184" wp="10" hr="100" color="blue" opacity="38.20982801031184"/>
 <text align="c" xp="50" yp="50" sp="5" >Random</text>
 </slide>
 <slide>

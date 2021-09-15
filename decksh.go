@@ -459,6 +459,7 @@ func deck(w io.Writer, s []string, linenumber int) error {
 }
 
 // canvas produces the "canvas" element
+// canvas width height
 func canvas(w io.Writer, s []string, linenumber int) error {
 	e := fmt.Errorf("line %d: %s width height", linenumber, s[0])
 	if len(s) != 3 {
@@ -483,6 +484,7 @@ func canvas(w io.Writer, s []string, linenumber int) error {
 }
 
 // slide produces the "slide" element
+// slide [bg] [fg]
 func slide(w io.Writer, s []string, linenumber int) error {
 	switch len(s) {
 	case 1:
@@ -498,6 +500,7 @@ func slide(w io.Writer, s []string, linenumber int) error {
 }
 
 // include inserts the contents of a file
+// include "file"
 func include(w io.Writer, s []string, linenumber int) error {
 	if len(s) != 2 {
 		return fmt.Errorf("line %d: include \"file\"", linenumber)
@@ -516,6 +519,7 @@ func include(w io.Writer, s []string, linenumber int) error {
 }
 
 // loadata creates a file using the  data keyword
+// data "file"...edata
 func loadata(s []string, linenumber int, scanner *bufio.Scanner) error {
 	if len(s) != 2 {
 		return fmt.Errorf("line %d: data \"file\"...edata", linenumber)
@@ -544,6 +548,7 @@ func loadata(s []string, linenumber int, scanner *bufio.Scanner) error {
 }
 
 // grid places objects read from a file in a grid
+// grid "file" x y xint yint xlimit
 func grid(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 7 {
 		return fmt.Errorf("line %d: %s \"file\" x y xint yint xlimit", linenumber, s[0])
@@ -596,6 +601,33 @@ func grid(w io.Writer, s []string, linenumber int) error {
 	return scanner.Err()
 }
 
+// subfunc handles argument substitution in a function
+// func "file" arg1 [arg2] [argn]
+func subfunc(w io.Writer, s []string, linenumber int) error {
+	if len(s) < 3 {
+		return fmt.Errorf("line %d: %s \"file\" arg1 arg2...argn", linenumber, s[0])
+	}
+	filearg, err := filequote(s[1], linenumber)
+	if err != nil {
+		return err
+	}
+	r, err := os.Open(filearg)
+	if err != nil {
+		return err
+	}
+	defer r.Close()
+
+	scanner := bufio.NewScanner(r)
+	for scanner.Scan() {
+		t := scanner.Text()
+		if len(t) == 0 {
+			continue
+		}
+		keyparse(w, subargs(t, s[2:]), t, linenumber)
+	}
+	return scanner.Err()
+}
+
 // subxy replaces the "x" and "y" arguments with the named values
 func subxy(s string, x, y float64) []string {
 	args := parse(s)
@@ -603,17 +635,34 @@ func subxy(s string, x, y float64) []string {
 		return nil
 	}
 	for i := 0; i < len(args); i++ {
-		if args[i] == "x" {
+		if args[i] == "x" || args[i] == "X" {
 			args[i] = fmt.Sprintf("%g", x)
 		}
-		if args[i] == "y" {
+		if args[i] == "y" || args[i] == "Y" {
 			args[i] = fmt.Sprintf("%g", y)
 		}
 	}
 	return args
 }
 
+// subargs replaces $1...$n with corresponding arglist
+func subargs(s string, arglist []string) []string {
+	args := parse(s)
+	if len(args) < 1 {
+		return nil
+	}
+	for i := 0; i < len(args); i++ {
+		for j := 0; j < len(arglist); j++ {
+			if args[i] == fmt.Sprintf("_%d", j) {
+				args[i] = arglist[j]
+			}
+		}
+	}
+	return args
+}
+
 // text generates markup for text
+// text x y size [font] [color] [opacity] [link]
 func text(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 5 {
@@ -634,6 +683,7 @@ func text(w io.Writer, s []string, linenumber int) error {
 }
 
 // arctext places text on an arc
+// arctext cx cy radius begin-angle end-angle size [font] [color] [opacity] [link]
 func arctext(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 8 {
 		return fmt.Errorf("line %d: %s \"arctext\" cx cy radius begin-angle end-angle size [font] [color] [opacity] [link]", linenumber, s[0])
@@ -680,6 +730,7 @@ func arctext(w io.Writer, s []string, linenumber int) error {
 }
 
 // rtext generates markup for rotated text
+// rtext x y angle size [font] [color] [opacity] [link]
 func rtext(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 6 {
 		return fmt.Errorf("line %d: %s \"text\" x y angle size [font] [color] [opacity] [link]", linenumber, s[0])
@@ -692,16 +743,18 @@ func rtext(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
-// text generates markup for a block of text
+// textblock generates markup for a block of text
+// textblock x y width size [font] [color] [opacity] [link]
 func textblock(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 6 {
-		return fmt.Errorf("line %d: %s \"text\" x y width size [font] [color] [opacity] [link]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s \"textblock\" x y width size [font] [color] [opacity] [link]", linenumber, s[0])
 	}
 	fmt.Fprintf(w, "<text type=\"block\" xp=%q yp=%q wp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], s[5], fontColorOp(s[6:]), qesc(s[1]))
 	return nil
 }
 
 // textcode generates markup for a block of code
+// textcode x y width size [color]
 func textcode(w io.Writer, s []string, linenumber int) error {
 	switch len(s) {
 	case 6:
@@ -715,6 +768,7 @@ func textcode(w io.Writer, s []string, linenumber int) error {
 }
 
 // image generates markup for images (plain and captioned)
+// image "file" x y w h [scale] [link]
 func image(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s \"image-file\" x y w h [scale] [link]", linenumber, s[0])
@@ -733,6 +787,7 @@ func image(w io.Writer, s []string, linenumber int) error {
 }
 
 // cimage makes a captioned image
+// cimage "file" "caption" x y w h [scale] [link]
 func cimage(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s \"image-file\" \"caption\" x y w h [scale] [link] [caption size]", linenumber, s[0])
@@ -756,6 +811,7 @@ func cimage(w io.Writer, s []string, linenumber int) error {
 }
 
 // list generates markup for lists
+// list x y size [font] [color] [opacity] [lp] [link]
 func list(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 4 {
@@ -849,6 +905,7 @@ func regshapes(w io.Writer, s []string, linenumber int) error {
 }
 
 // roundrect makes a rounded rectangle centered at (x,y) with dimensions (w, h), r is the corner radius
+// rrect x y w h r [color]
 func roundrect(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 6 {
@@ -899,6 +956,7 @@ func roundrect(w io.Writer, s []string, linenumber int) error {
 }
 
 // pill makes a horizontal  pill shape
+// pill x y w h [color]
 func pill(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 5 {
@@ -935,6 +993,7 @@ func pill(w io.Writer, s []string, linenumber int) error {
 }
 
 // star makes a n-sided star
+// star x y nsides inner outer [color] [op]
 func star(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s x y nsides inner outer [color] [op]", linenumber, s[0])
@@ -1008,6 +1067,7 @@ func unquote(s string) string {
 }
 
 // polygon generates markup for polygons
+// polygon "xcoord" "ycoord" [color] [opacity]
 func polygon(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s \"xcoord\" \"ycoord\" [color] [opacity]", linenumber, s[0])
@@ -1054,6 +1114,7 @@ func polygon(w io.Writer, s []string, linenumber int) error {
 }
 
 // line generates markup for lines
+// line x1 y1 x2 y2 [size] [color] [opacity]
 func line(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s x1 y1 x2 y2 [size] [color] [opacity]", linenumber, s[0])
@@ -1077,6 +1138,7 @@ func line(w io.Writer, s []string, linenumber int) error {
 }
 
 // hline makes a horizontal line
+// hline x y length [size] [color] [opacity]
 func hline(w io.Writer, s []string, linenumber int) error {
 	e := fmt.Errorf("line %d: %s x y length [size] [color] [opacity]", linenumber, s[0])
 	n := len(s)
@@ -1110,6 +1172,7 @@ func hline(w io.Writer, s []string, linenumber int) error {
 }
 
 // vline makes a vertical line
+// vline x y length [size] [color] [opacity]
 func vline(w io.Writer, s []string, linenumber int) error {
 	e := fmt.Errorf("line %d: %s x y length [size] [color] [opacity]", linenumber, s[0])
 	n := len(s)
@@ -1142,6 +1205,7 @@ func vline(w io.Writer, s []string, linenumber int) error {
 }
 
 // arc makes the markup for arc
+// arc cx cy w h a1 a2 [size] [color] [opacity]
 func arc(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s cx cy w h a1 a2 [size] [color] [opacity]", linenumber, s[0])
@@ -1165,6 +1229,7 @@ func arc(w io.Writer, s []string, linenumber int) error {
 }
 
 // curve make quadratic Bezier curve
+// curve x1 y1 x2 y2 x3 y3 [size] [color] [opacity]
 func curve(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s x1 y1 x2 y2 x3 y3 [size] [color] [opacity]", linenumber, s[0])
@@ -1188,6 +1253,7 @@ func curve(w io.Writer, s []string, linenumber int) error {
 }
 
 // legend makes the markup for the legend keyword
+// legend "text" x y size font color
 func legend(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 7 {
@@ -1214,6 +1280,10 @@ func legend(w io.Writer, s []string, linenumber int) error {
 }
 
 // brace makes various kinds of braces: (left, right, up, down)
+// lbrace x y size aw ah [linewidth] [color] [opacity]
+// rbrace x y size aw ah [linewidth] [color] [opacity]
+// ubrace x y size aw ah [linewidth] [color] [opacity]
+// dbrace x y size aw ah [linewidth] [color] [opacity]
 func brace(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 6 {
 		return fmt.Errorf("line %d: [l,r,u,d]brace x y size aw ah [linewidth] [color] [opacity]", linenumber)
@@ -1374,6 +1444,7 @@ func genarrow(x1, y1, x2, y2, aw, ah float64) (float64, float64, float64, float6
 
 // arrow draws a general arrow given two points.
 // The rotation of the arrowhead is computed.
+// arrow x1 y1 x2 y2 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 func arrow(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
 	e := fmt.Errorf("line: %d arrow x1 y1 x2 y2 [linewidth] [arrowidth] [arrowheight] [color] [opacity]", linenumber)
@@ -1480,6 +1551,10 @@ func arrowhead(x, y, ah, aw, notch float64, arrowtype byte) (float64, float64, f
 }
 
 // carrow makes a arrow with a curved line
+// lcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+// rcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+// ucarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+// dcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 func carrow(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
 	e := fmt.Errorf("line: %d [l|r|u|d]carrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]", linenumber)
@@ -1553,6 +1628,7 @@ func carrow(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// chartflags sets the flag for the dchart keyword
 func chartflags(s []string) dchart.Settings {
 	var chart dchart.Settings
 
@@ -1630,6 +1706,7 @@ func chartflags(s []string) dchart.Settings {
 }
 
 // chart uses the dchart API to make charts
+// dchart [args]
 func chart(w io.Writer, s string, linenumber int) error {
 	// copy the command line into fields, evaluating as we go
 	args := strings.Fields(s)
@@ -1831,6 +1908,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 
 	case "include":
 		return include(w, tokens, n)
+
+	case "func", "function":
+		return subfunc(w, tokens, n)
 
 	case "slide":
 		return slide(w, tokens, n)

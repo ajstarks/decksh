@@ -373,6 +373,34 @@ Show a colored legend
 
 places the contents of ```"file"``` inline.
 
+## Functions
+
+    func "file" arg1 ... argn
+
+include the contents of the file, substituting arguments with _1...._n
+
+For example, given a file "function.dsh"
+
+    funx=_0
+    funy=_1
+    funs=_2
+    funt=_3
+    ctext funt funx funy funs
+
+
+calling the function:
+
+    func "ftest.dsh" 50 30 2.5 "hello"
+
+
+produces:
+
+    funx=50
+    funy=30
+    funs=2.5
+    funt="hello"
+    ctext "hello" 50 30 2.5
+
 ## Data: Make a file
 
     data "foo.d"

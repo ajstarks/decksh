@@ -1,6 +1,4 @@
-// comprehensive tests
-deck
-	canvas 792 612
+nvas 792 612
 	// Grid
 	slide
 		ctext "Loops" 50 50 5
@@ -8,6 +6,14 @@ deck
 			line 100 v 0 v 0.1 "blue"
 			line v 100 v 0 0.1 "red"
 		efor
+	eslide
+
+	// function
+	slide
+		ctext "Functions" 50 50 5
+		Y=10
+		func "ftest.dsh" 50 30 2.5 "hello"
+		func "ftest.dsh" 50 Y  3.5 "bye"
 	eslide
 
 	// Random
@@ -38,7 +44,7 @@ deck
 		sqr3 = sqrt ss0 * ss2
 		sqr4 = sqrt ss0 / ss2
 
-		neg = sqrt ss2 - ss0
+		//neg = sqrt ss2 - ss0
 
 		sm0 = format "sqrt 8 = %g" sqr0
 		sm1 = format "sqrt 8 + 6 = %g" sqr1

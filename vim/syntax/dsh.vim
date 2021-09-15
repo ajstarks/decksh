@@ -1,7 +1,7 @@
 hi Comment ctermfg=darkgray
 hi Statement ctermfg=darkred
 hi String ctermfg=darkblue
-syn keyword    Statement    deck edeck canvas include grid vmap area slide eslide text ctext etext rtext random textfile textblock textbox  textcode lbrace rbrace ubrace dbrace blist list nlist clist li elist data edata dchart for efor legend image cimage polygon rect roundrect rrect square ellipse acircle circle line curve arc arrow lcarrow dcarrow rcarrow ucarrow hline vline polarx polary sprint format star pill arctext sqrt
+syn keyword    Statement    deck edeck canvas include grid func vmap area slide eslide text ctext etext rtext random textfile textblock textbox  textcode lbrace rbrace ubrace dbrace blist list nlist clist li elist data edata dchart for efor legend image cimage polygon rect roundrect rrect square ellipse acircle circle line curve arc arrow lcarrow dcarrow rcarrow ucarrow hline vline polarx polary sprint format star pill arctext sqrt
 syn region    Comment    start="//" end="$"
 
 " Go escapes
