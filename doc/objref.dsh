@@ -1769,7 +1769,7 @@ deck
 		lfileax=lfilex+36
 		rfileax=lfileax+11
 		ctext `func "doit.dsh" 50 20 2.5 "hello"` 50 92 4 "mono" objcolor
-		textcode "code/func-ex.dsh"   lfilex 80 filew 2 argcolor
+		textcode "code/func-ex.dsh"   lfilex 73 filew 2 argcolor
 		textcode "code/func-ex1.dsh"  rfilex 80 filew 2 accentcolor
 		text "doit.dsh"      lfilex 85 2 "mono"
 		text "result"        rfilex 85 2 "mono"

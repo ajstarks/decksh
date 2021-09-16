@@ -1,5 +1,2 @@
-fx=_0
-fy=_1
-fs=_2
-ft=_3
+fx fy fs ft
 ctext ft fx fy fs "serif" "purple"
