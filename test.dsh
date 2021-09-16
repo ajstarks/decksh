@@ -1,4 +1,5 @@
-nvas 792 612
+deck
+	canvas 792 612
 	// Grid
 	slide
 		ctext "Loops" 50 50 5
