@@ -601,6 +601,23 @@ func grid(w io.Writer, s []string, linenumber int) error {
 	return scanner.Err()
 }
 
+// subxy replaces the "x" and "y" arguments with the named values
+func subxy(s string, x, y float64) []string {
+	args := parse(s)
+	if len(args) < 3 {
+		return nil
+	}
+	for i := 0; i < len(args); i++ {
+		if args[i] == "x" || args[i] == "X" {
+			args[i] = fmt.Sprintf("%g", x)
+		}
+		if args[i] == "y" || args[i] == "Y" {
+			args[i] = fmt.Sprintf("%g", y)
+		}
+	}
+	return args
+}
+
 // subfunc handles argument substitution in a function
 // func "file" arg1 [arg2] [argn]
 func subfunc(w io.Writer, s []string, linenumber int) error {
@@ -618,31 +635,23 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 	defer r.Close()
 
 	scanner := bufio.NewScanner(r)
+	n := 0
 	for scanner.Scan() {
 		t := scanner.Text()
 		if len(t) == 0 {
 			continue
 		}
-		keyparse(w, subargs(t, s[2:]), t, linenumber)
+		if n == 0 { // fist line defines the arguments
+			fargs := strings.Fields(t) // just a simple list
+			for i := 0; i < len(fargs); i++ {
+				emap[fargs[i]] = eval(s[i+2])
+			}
+			keyparse(w, fargs, t, linenumber)
+		}
+		keyparse(w, parse(t), t, linenumber)
+		n++
 	}
 	return scanner.Err()
-}
-
-// subxy replaces the "x" and "y" arguments with the named values
-func subxy(s string, x, y float64) []string {
-	args := parse(s)
-	if len(args) < 3 {
-		return nil
-	}
-	for i := 0; i < len(args); i++ {
-		if args[i] == "x" || args[i] == "X" {
-			args[i] = fmt.Sprintf("%g", x)
-		}
-		if args[i] == "y" || args[i] == "Y" {
-			args[i] = fmt.Sprintf("%g", y)
-		}
-	}
-	return args
 }
 
 // subargs replaces $1...$n with corresponding arglist

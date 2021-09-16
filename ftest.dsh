@@ -1,5 +1,5 @@
-funx=_0
-funy=_1
-funs=_2
-funt=_3
+funx funy funs funt
+funx+=5
+funy-=5
 ctext funt funx funy funs
+ctext funt funy funx funs

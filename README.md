@@ -381,25 +381,21 @@ include the contents of the file, substituting arguments with _1...._n
 
 For example, given a file "function.dsh"
 
-    funx=_0
-    funy=_1
-    funs=_2
-    funt=_3
+    funx funy funs funt
+    funs*=2
     ctext funt funx funy funs
-
 
 calling the function:
 
     func "ftest.dsh" 50 30 2.5 "hello"
 
-
 produces:
 
     funx=50
     funy=30
-    funs=2.5
+    funs=5.0
     funt="hello"
-    ctext "hello" 50 30 2.5
+    ctext "hello" 50 30 5.0
 
 ## Data: Make a file
 
