@@ -641,8 +641,10 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 		if len(t) == 0 {
 			continue
 		}
-		if n == 0 { // fist line defines the arguments
-			fargs := strings.Fields(t) // just a simple list
+		// the first line defines the arguments
+		// copy the callers arguments
+		if n == 0 {
+			fargs := strings.Fields(t)
 			for i := 0; i < len(fargs); i++ {
 				emap[fargs[i]] = eval(s[i+2])
 			}
@@ -652,22 +654,6 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 		n++
 	}
 	return scanner.Err()
-}
-
-// subargs replaces $1...$n with corresponding arglist
-func subargs(s string, arglist []string) []string {
-	args := parse(s)
-	if len(args) < 1 {
-		return nil
-	}
-	for i := 0; i < len(args); i++ {
-		for j := 0; j < len(arglist); j++ {
-			if args[i] == fmt.Sprintf("_%d", j) {
-				args[i] = arglist[j]
-			}
-		}
-	}
-	return args
 }
 
 // text generates markup for text
@@ -1918,7 +1904,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "include":
 		return include(w, tokens, n)
 
-	case "func", "function":
+	case "call", "func", "callfunc":
 		return subfunc(w, tokens, n)
 
 	case "slide":
