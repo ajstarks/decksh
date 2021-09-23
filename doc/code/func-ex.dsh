@@ -1,2 +1,3 @@
-fx fy fs ft
-ctext ft fx fy fs "serif" "purple"
+def doit fx fy fs ft
+	ctext ft fx fy fs "serif" "purple"
+edef

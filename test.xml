@@ -53,9 +53,9 @@
 <text align="c" xp="5" yp="55" sp="3.5" >bye</text>
 </slide>
 <slide>
-<ellipse xp="37.11662426958604" yp="29.897247260164313" wp="10" hr="100" color="red" opacity="29.897247260164313"/>
-<ellipse xp="12.742006069606681" yp="43.21365131607132" wp="10" hr="100" color="green" opacity="43.21365131607132"/>
-<ellipse xp="71.07020729014276" yp="53.022862150023144" wp="10" hr="100" color="blue" opacity="53.022862150023144"/>
+<ellipse xp="24.025647812191906" yp="21.43200227155155" wp="10" hr="100" color="red" opacity="21.43200227155155"/>
+<ellipse xp="23.24247918173613" yp="32.459859572419774" wp="10" hr="100" color="green" opacity="32.459859572419774"/>
+<ellipse xp="52.09546716298732" yp="31.08437284515165" wp="10" hr="100" color="blue" opacity="31.08437284515165"/>
 <text align="c" xp="50" yp="50" sp="5" >Random</text>
 </slide>
 <slide>

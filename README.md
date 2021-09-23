@@ -377,13 +377,14 @@ places the contents of ```"file"``` inline.
 
     func "file" arg1 ... argn
 
-include the contents of the file, substituting arguments with _1...._n
+include the contents of the file, substituting arguments
 
-For example, given a file "function.dsh"
+For example, given a file "ftest.dsh"
 
-    funx funy funs funt
-    funs*=2
-    ctext funt funx funy funs
+    def ftest funx funy funs funt
+        funs*=2
+        ctext funt funx funy funs
+    edef
 
 calling the function:
 

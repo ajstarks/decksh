@@ -609,10 +609,10 @@ func subxy(s string, x, y float64) []string {
 	}
 	for i := 0; i < len(args); i++ {
 		if args[i] == "x" || args[i] == "X" {
-			args[i] = fmt.Sprintf("%g", x)
+			args[i] = ftoa(x)
 		}
 		if args[i] == "y" || args[i] == "Y" {
-			args[i] = fmt.Sprintf("%g", y)
+			args[i] = ftoa(y)
 		}
 	}
 	return args
@@ -636,21 +636,34 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 
 	scanner := bufio.NewScanner(r)
 	n := 0
+	const argoffset = 2
 	for scanner.Scan() {
 		t := scanner.Text()
 		if len(t) == 0 {
 			continue
 		}
+		if t == "edef" {
+			break
+		}
 		// the first line defines the arguments
-		// copy the callers arguments
+		// def name arg1 arg2 ... argn
 		if n == 0 {
 			fargs := strings.Fields(t)
+			if fargs[0] != "def" || len(fargs) < 3 {
+				return fmt.Errorf("line %d: %q, begin function definition with 'def name args...'", linenumber, filearg)
+			}
+			fargs = fargs[argoffset:]
+			if len(fargs) != len(s)-argoffset {
+				return fmt.Errorf("line %d: the number of arguments do not match: (%v=%d and %v=%d)", linenumber, fargs, len(fargs), s[argoffset:], len(s)-argoffset)
+			}
+			// copy the callers arguments
 			for i := 0; i < len(fargs); i++ {
-				emap[fargs[i]] = eval(s[i+2])
+				emap[fargs[i]] = eval(s[i+argoffset])
 			}
 			keyparse(w, fargs, t, linenumber)
+		} else {
+			keyparse(w, parse(t), t, linenumber)
 		}
-		keyparse(w, parse(t), t, linenumber)
 		n++
 	}
 	return scanner.Err()
