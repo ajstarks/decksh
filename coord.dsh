@@ -1,0 +1,9 @@
+def coord Xc Yc Radius TextSize DotColor TextColor
+	circle Xc Yc Radius DotColor
+	s1=format "(%g," Xc
+	s2=format "%g)"  Yc
+
+	ty=Yc+Radius
+	text  s2  Xc ty TextSize "mono" TextColor
+	etext s1  Xc ty TextSize "mono" TextColor
+edef

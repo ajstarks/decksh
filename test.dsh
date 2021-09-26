@@ -11,10 +11,14 @@ deck
 
 	// function
 	slide
-		ctext "Functions" 50 50 5
-		Y=10
-		func "ftest.dsh" 50 30 2.5 "hello"
-		func "ftest.dsh" 50 Y  3.5 "bye"
+		ctext "Functions" 50 90 5
+		for y=20 80 20
+			func "coord.dsh" 20 y 2 3 "gray" "red"
+			func "coord.dsh" 40 y 2 3 "gray" "green"
+			func "coord.dsh" 60 y 2 3 "gray" "blue"
+			func "coord.dsh" 80 y 2 3 "gray" "gray"
+		efor
+
 	eslide
 
 	// Random

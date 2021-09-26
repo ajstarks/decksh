@@ -46,16 +46,60 @@
 <line xp1="100" yp1="100" xp2="100" yp2="0" sp="0.1" color="red"/>
 </slide>
 <slide>
-<text align="c" xp="50" yp="50" sp="5" >Functions</text>
-<text align="c" xp="55" yp="25" sp="2.5" >hello</text>
-<text align="c" xp="25" yp="55" sp="2.5" >hello</text>
-<text align="c" xp="55" yp="5" sp="3.5" >bye</text>
-<text align="c" xp="5" yp="55" sp="3.5" >bye</text>
+<text align="c" xp="50" yp="90" sp="5" >Functions</text>
+<ellipse xp="20" yp="20" wp="2" hr="100" color="gray"/>
+<text xp="20" yp="22" sp="3" font="mono" color="red">20)</text>
+<text align="e" xp="20" yp="22" sp="3" font="mono" color="red">(20,</text>
+<ellipse xp="40" yp="20" wp="2" hr="100" color="gray"/>
+<text xp="40" yp="22" sp="3" font="mono" color="green">20)</text>
+<text align="e" xp="40" yp="22" sp="3" font="mono" color="green">(40,</text>
+<ellipse xp="60" yp="20" wp="2" hr="100" color="gray"/>
+<text xp="60" yp="22" sp="3" font="mono" color="blue">20)</text>
+<text align="e" xp="60" yp="22" sp="3" font="mono" color="blue">(60,</text>
+<ellipse xp="80" yp="20" wp="2" hr="100" color="gray"/>
+<text xp="80" yp="22" sp="3" font="mono" color="gray">20)</text>
+<text align="e" xp="80" yp="22" sp="3" font="mono" color="gray">(80,</text>
+<ellipse xp="20" yp="40" wp="2" hr="100" color="gray"/>
+<text xp="20" yp="42" sp="3" font="mono" color="red">40)</text>
+<text align="e" xp="20" yp="42" sp="3" font="mono" color="red">(20,</text>
+<ellipse xp="40" yp="40" wp="2" hr="100" color="gray"/>
+<text xp="40" yp="42" sp="3" font="mono" color="green">40)</text>
+<text align="e" xp="40" yp="42" sp="3" font="mono" color="green">(40,</text>
+<ellipse xp="60" yp="40" wp="2" hr="100" color="gray"/>
+<text xp="60" yp="42" sp="3" font="mono" color="blue">40)</text>
+<text align="e" xp="60" yp="42" sp="3" font="mono" color="blue">(60,</text>
+<ellipse xp="80" yp="40" wp="2" hr="100" color="gray"/>
+<text xp="80" yp="42" sp="3" font="mono" color="gray">40)</text>
+<text align="e" xp="80" yp="42" sp="3" font="mono" color="gray">(80,</text>
+<ellipse xp="20" yp="60" wp="2" hr="100" color="gray"/>
+<text xp="20" yp="62" sp="3" font="mono" color="red">60)</text>
+<text align="e" xp="20" yp="62" sp="3" font="mono" color="red">(20,</text>
+<ellipse xp="40" yp="60" wp="2" hr="100" color="gray"/>
+<text xp="40" yp="62" sp="3" font="mono" color="green">60)</text>
+<text align="e" xp="40" yp="62" sp="3" font="mono" color="green">(40,</text>
+<ellipse xp="60" yp="60" wp="2" hr="100" color="gray"/>
+<text xp="60" yp="62" sp="3" font="mono" color="blue">60)</text>
+<text align="e" xp="60" yp="62" sp="3" font="mono" color="blue">(60,</text>
+<ellipse xp="80" yp="60" wp="2" hr="100" color="gray"/>
+<text xp="80" yp="62" sp="3" font="mono" color="gray">60)</text>
+<text align="e" xp="80" yp="62" sp="3" font="mono" color="gray">(80,</text>
+<ellipse xp="20" yp="80" wp="2" hr="100" color="gray"/>
+<text xp="20" yp="82" sp="3" font="mono" color="red">80)</text>
+<text align="e" xp="20" yp="82" sp="3" font="mono" color="red">(20,</text>
+<ellipse xp="40" yp="80" wp="2" hr="100" color="gray"/>
+<text xp="40" yp="82" sp="3" font="mono" color="green">80)</text>
+<text align="e" xp="40" yp="82" sp="3" font="mono" color="green">(40,</text>
+<ellipse xp="60" yp="80" wp="2" hr="100" color="gray"/>
+<text xp="60" yp="82" sp="3" font="mono" color="blue">80)</text>
+<text align="e" xp="60" yp="82" sp="3" font="mono" color="blue">(60,</text>
+<ellipse xp="80" yp="80" wp="2" hr="100" color="gray"/>
+<text xp="80" yp="82" sp="3" font="mono" color="gray">80)</text>
+<text align="e" xp="80" yp="82" sp="3" font="mono" color="gray">(80,</text>
 </slide>
 <slide>
-<ellipse xp="24.025647812191906" yp="21.43200227155155" wp="10" hr="100" color="red" opacity="21.43200227155155"/>
-<ellipse xp="23.24247918173613" yp="32.459859572419774" wp="10" hr="100" color="green" opacity="32.459859572419774"/>
-<ellipse xp="52.09546716298732" yp="31.08437284515165" wp="10" hr="100" color="blue" opacity="31.08437284515165"/>
+<ellipse xp="46.00053959894828" yp="70.429834289612" wp="10" hr="100" color="red" opacity="70.429834289612"/>
+<ellipse xp="29.325442897737716" yp="15.234348175033245" wp="10" hr="100" color="green" opacity="15.234348175033245"/>
+<ellipse xp="43.471883243941015" yp="39.33246503248023" wp="10" hr="100" color="blue" opacity="39.33246503248023"/>
 <text align="c" xp="50" yp="50" sp="5" >Random</text>
 </slide>
 <slide>
