@@ -1718,6 +1718,9 @@ func chartflags(s []string) dchart.Settings {
 func chart(w io.Writer, s string, linenumber int) error {
 	// copy the command line into fields, evaluating as we go
 	args := strings.Fields(s)
+	if len(args) < 2 {
+		return fmt.Errorf("line %d: length of args = %d", linenumber, len(args))
+	}
 	for i := 1; i < len(args); i++ {
 		args[i] = eval(args[i])
 		args[i] = unquote(args[i])
