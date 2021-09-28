@@ -1392,10 +1392,10 @@ deck
 		rc+=12
 		list rc lsty lfs "mono" argcolor
 			li tbl3 "sans" objcolor
-			li "x y fontsize bw bh"
-			li "x y fontsize bw bh"
-			li "x y fontsize bw bh"
-			li "x y fontsize bw bh"			
+			li "x y height bw bh"
+			li "x y height bw bh"
+			li "x y width bw bh"
+			li "x y width bw bh"			
 		elist
 		rc+=25
 		list rc lsty lfs "mono" objcolor
@@ -1413,7 +1413,7 @@ deck
 		cx=50
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "lbrace"             28 ly ts "mono" kwcolor
-		ctext "x y fontsize bw bh" 44 ly ts "mono" argcolor
+		ctext "x y height bw bh" 44 ly ts "mono" argcolor
 		ctext "lw color op"        70 ly ts "mono" optcolor
 		lbrace cx 75 brh 6 6 0.75
 		circle cx 75 coordsize accentcolor
@@ -1421,7 +1421,7 @@ deck
 		ctext "bw" 55 94 lw "mono"
 		ctext "bh" cx 90 lw "mono"
 		rbrace 65 75 brh 2 2
-		ctext "h" 67 74 lw "mono"
+		ctext "height" 70 74 lw "mono"
 
 		lbrace 20 25 20 2 2
 		ctext "lbrace 20 25 20 2 2" 20 ely ets "mono"
@@ -1439,7 +1439,7 @@ deck
 		cx=50
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "rbrace"             28 ly ts "mono" kwcolor
-		ctext "x y fontsize bw bh" 44 ly ts "mono" argcolor
+		ctext "x y height bw bh" 44 ly ts "mono" argcolor
 		ctext "lw color op"        70 ly ts "mono" optcolor
 		rbrace cx 75 brh 6 6 0.75
 		circle cx 75 coordsize accentcolor
@@ -1447,7 +1447,7 @@ deck
 		ctext "bw" 45 94 lw "mono"
 		ctext "bh" cx 90 lw "mono"
 		rbrace 65 75 brh 2 2
-		ctext "h" 67 74 lw "mono"
+		ctext "height" 70 74 lw "mono"
 
 		rbrace 20 25 20 2 2
 		ctext "rbrace 20 25 20 2 2" 20 ely ets "mono"
@@ -1465,7 +1465,7 @@ deck
 		cx=50
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "ubrace"             28 ly ts "mono" kwcolor
-		ctext "x y fontsize bw bh" 44 ly ts "mono" argcolor
+		ctext "x y width bw bh" 44 ly ts "mono" argcolor
 		ctext "lw color op"        70 ly ts "mono" optcolor
 		ubrace cx 75 brw 6 6 0.75
 		circle cx 75 coordsize accentcolor
@@ -1473,7 +1473,7 @@ deck
 		ctext "(x,y)" cx 77 lw "mono"
 		ctext "bw" 35 70 lw "mono"
 		ctext "bh" 30 65 lw "mono"
-		ctext "w" cx 86 lw "mono"
+		ctext "width" cx 86 lw "mono"
 
 		ubrace 20 25 20 2 2
 		ctext "ubrace 20 25 20 2 2" 20 ely ets "mono"
@@ -1491,7 +1491,7 @@ deck
 		cx=50
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "dbrace"             28 ly ts "mono" kwcolor
-		ctext "x y fontsize bw bh" 44 ly ts "mono" argcolor
+		ctext "x y width bw bh" 44 ly ts "mono" argcolor
 		ctext "lw color op"        70 ly ts "mono" optcolor
 		dbrace cx 60 brw 6 6 0.75
 		circle cx 60 coordsize accentcolor
@@ -1499,7 +1499,7 @@ deck
 		ctext "(x,y)" cx 55 lw "mono"
 		ctext "bw" 35 63 lw "mono"
 		ctext "bh" 30 67 lw "mono"
-		ctext "w" cx 86 lw "mono"
+		ctext "width" cx 86 lw "mono"
 
 		dbrace 20 25 20 2 2
 		ctext "dbrace 20 25 20 2 2" 20 ely ets "mono"
