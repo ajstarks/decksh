@@ -7,16 +7,16 @@ deck
 		efor
 		hskip=10
 		vskip=20
-		grid "objlabels.dsh" 10 90 hskip vskip 80
-		grid "placemat.dsh"  10 80 hskip vskip 80
+		grid "objlabels.dsh" 10 94 hskip vskip 80
+		grid "placemat.dsh"  10 85 hskip vskip 80
 		
 		vs2=vskip/4
 		hs2=hskip/2
 
 		x=80
-		y=40
-		x2=x+hskip
-		arrow x y x2 y
+		y=45
+		x2=x+hs2
+		arrow x y x2 y 0.2 2 2
 
 		x=10
 		y-=vskip
@@ -78,12 +78,8 @@ deck
 		curve bx by cx cy ex ey
 
 		x+=hskip
-		image "images/follow.jpg" x y 640 480 7
+		image "images/follow.jpg" x y 640 480 8
 		x+=hskip
-		cimage "images/follow.jpg" "caption"  x y 640 480 7
-
-
-
-
+		cimage "images/follow.jpg" "caption"  x y 640 480 8 ""  1.5
 	eslide
 edeck
