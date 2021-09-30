@@ -1,4 +1,6 @@
 deck
+	labelcolor="#aa0000"
+	labelfont="mono"
 	slide
 		//ctext "decksh elements" 50 5 3
 		for v=5 95 5
@@ -28,7 +30,7 @@ deck
 		cy=y+hs2
 		ex=x-hs2
 		ey=y+hs2
-		lcarrow bx by cx cy ex ey 0.2 2 2
+		lcarrow bx by cx cy ex ey 0.2 1 1
 
 		x+=hskip
 
@@ -38,7 +40,7 @@ deck
 		cy=y+hs2
 		ex=x+hs2
 		ey=y+hs2
-		rcarrow bx by cx cy ex ey 0.2 2 2
+		rcarrow bx by cx cy ex ey 0.2 1 1
 
 		x+=hskip
 
@@ -48,7 +50,7 @@ deck
 		cy=y+hs2
 		ex=x+hs2
 		ey=y
-		dcarrow bx by cx cy ex ey 0.2 2 2
+		dcarrow bx by cx cy ex ey 0.2 1 1
 
 		x+=hskip
 
@@ -58,7 +60,7 @@ deck
 		cy=y
 		ex=x+hs2
 		ey=y+hs2
-		ucarrow bx by cx cy ex ey 0.2 2 2
+		ucarrow bx by cx cy ex ey 0.2 1 1
 
 		x+=hskip
 		x2=x 
@@ -70,7 +72,7 @@ deck
 		x+=hskip
 
 		vsh=vskip/3
-		bx=x
+		bx=x-2
 		by=y
 		cx=x
 		cy=y+vsh
@@ -87,32 +89,36 @@ deck
 		y-=15
 		ly=y+5
 		x=left
+		lx=left-1.5
 
-		ctext "list" x ly 1.5 "serif"
-		list x y 1.5 "sans" "" 100 1.2
+		ctext "list" x ly 1.5 labelfont labelcolor
+		list lx y 1.5 "sans" "" 100 1.2
 			li "one"
 			li "two"
 			li "three"
 		elist
 
 		x+=hskip
-		ctext "blist" x ly 1.5 "serif"
-		blist x y 1.5 "sans" "" 100 1.2
+		lx+=hskip
+		ctext "blist" x ly 1.5 labelfont labelcolor
+		blist lx y 1.5 "sans" "" 100 1.2
 			li "one"
 			li "two"
 			li "three"
 		elist
 
 		x+=hskip
-		ctext "nlist" x ly 1.5 "serif"
-		nlist x y 1.5 "sans" "" 100 1.2
+		lx+=hskip
+		ctext "nlist" x ly 1.5 labelfont labelcolor
+		nlist lx y 1.5 "sans" "" 100 1.2
 			li "one"
 			li "two"
 			li "three"
 		elist
 
 		x+=hskip
-		ctext "clist" x ly 1.5 "serif"
+		lx+=hskip
+		ctext "clist" x ly 1.5 labelfont labelcolor
 		clist x y 1.5 "sans" "" 100 1.2
 			li "one"
 			li "two"
