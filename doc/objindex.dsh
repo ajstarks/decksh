@@ -1,29 +1,112 @@
 deck
 	labelcolor="#aa0000"
-	labelfont="mono"
+	ltop=95
+	top=ltop-10
+	bottom=5
+	left=10
+	right=85
+	hskip=10
+	vskip=20
 	slide
-		//ctext "decksh elements" 50 5 3
+
+		etext "decksh object index" right bottom 3
 		for v=5 95 5
 			vline v 0 100 0.05 "blue" 40
 			hline 0 v 100 0.05 "red"  40
 		efor
-		left=10
-		hskip=10
-		vskip=20
-		grid "objlabels.dsh" 10 95 hskip vskip 80
-		grid "placemat.dsh"  10 85 hskip vskip 80
-		
-		vs2=vskip/3
-		hs2=hskip/2
 
-		x=80
-		y=45
-		x2=x+hs2
-		arrow x y x2 y 0.2 2 2
+		grid "objlabels.dsh" left ltop hskip vskip right
 
 		x=left
-		y-=vskip
+		y=top
 
+		// row 1
+		text "left" x y 2
+		x+=hskip
+		ctext "center" x y 2
+		x+=hskip
+		etext "right" x y 2
+		x+=hskip
+		rtext "rotate" x y 45 2
+		x+=hskip
+		arctext "hello, world" x y 5 90 0 1 "mono"
+		x+=hskip
+		ty=y+5
+		textblock "Now is the time for all good men to come" x ty 5 1
+		x+=hskip
+		textfile "code/example.txt" x ty 0.7
+		x+=hskip
+		textcode "code/hw.go" x ty 15 0.75
+
+		// row 2
+		x=left
+		y-=vskip
+		x2=x+5
+		y2=y+3
+		line x y x2 y2
+		x+=hskip
+		hline x y 5
+		x+=hskip
+		vline x y 5
+		x+=hskip
+		arc x y 5 5 0 180
+		x+=hskip
+		bx=x-2 
+		by=y
+		cx=bx
+		cy=y+10
+		ex=x+5
+		ey=y 
+		curve bx by cx cy ex ey
+		x+=hskip
+		circle x y 4
+		x+=hskip
+		acircle x y 4
+		x+=hskip
+		ellipse x y 7 5
+
+		// row 3
+		x=left
+		y-=vskip
+		square x y 5
+		x+=hskip
+		rect x y 7 4
+		x+=hskip
+		rrect x y 6 3 2
+		x+=hskip
+		pill x y 3 2
+		x+=hskip
+
+		x1=x-2
+		x2=x+2
+		x3=x
+		y1=y-2 
+		y2=y-2 
+		y3=y+5
+		polygon "x1 x2 x3" "y1 y2 y3"
+		x+=hskip
+		star x y 5 1 3
+		x+=hskip
+		image "images/cloudy.jpg" x y 640 480 10
+		x+=hskip
+		cimage "images/cloudy.jpg" "sky" x y 640 480 10 "" 1.2
+
+		// row 4
+		x=left
+		y-=vskip
+		lbrace x y 7 1 1
+		x+=hskip
+		rbrace x y 7 1 1
+		x+=hskip
+		ubrace x y 7 1 1
+		x+=hskip
+		dbrace x y 7 1 1
+		x+=hskip
+		y2=y+5
+		arrow x y x y2 0.2 1 1
+		x+=hskip
+
+		hs2=hskip/2
 		bx=x
 		by=y 
 		cx=x
@@ -52,7 +135,9 @@ deck
 		ey=y
 		dcarrow bx by cx cy ex ey 0.2 1 1
 
-		x+=hskip
+		// row 5
+		x=left
+		y-=vskip
 
 		bx=x 
 		by=y
@@ -63,36 +148,11 @@ deck
 		ucarrow bx by cx cy ex ey 0.2 1 1
 
 		x+=hskip
-		x2=x 
-		x3=x+hs2
-		y2=y+hs2
-		y3=y 
-		polygon "x x2 x3" "y y2 y3"
 
-		x+=hskip
-
-		vsh=vskip/3
-		bx=x-2
-		by=y
-		cx=x
-		cy=y+vsh
-		ex=x+hs2
-		ey=y
-		curve bx by cx cy ex ey
-
-		x+=hskip
-		image "images/follow.jpg" x y 640 480 8
-		x+=hskip
-		cimage "images/follow.jpg" "caption"  x y 640 480 8 ""  1.5
-
-
-		y-=15
 		ly=y+5
-		x=left
-		lx=left-1.5
+		lx=x-1.5
 
-		ctext "list" x ly 1.5 labelfont labelcolor
-		list lx y 1.5 "sans" "" 100 1.2
+		list lx ly 1.5 "sans" "" 100 1.2
 			li "one"
 			li "two"
 			li "three"
@@ -100,8 +160,7 @@ deck
 
 		x+=hskip
 		lx+=hskip
-		ctext "blist" x ly 1.5 labelfont labelcolor
-		blist lx y 1.5 "sans" "" 100 1.2
+		blist lx ly 1.5 "sans" "" 100 1.2
 			li "one"
 			li "two"
 			li "three"
@@ -109,8 +168,7 @@ deck
 
 		x+=hskip
 		lx+=hskip
-		ctext "nlist" x ly 1.5 labelfont labelcolor
-		nlist lx y 1.5 "sans" "" 100 1.2
+		nlist lx ly 1.5 "sans" "" 100 1.2
 			li "one"
 			li "two"
 			li "three"
@@ -118,11 +176,10 @@ deck
 
 		x+=hskip
 		lx+=hskip
-		ctext "clist" x ly 1.5 labelfont labelcolor
-		clist x y 1.5 "sans" "" 100 1.2
-			li "one"
-			li "two"
-			li "three"
+		clist x ly 1.5 "sans" "" 100 1.2
+			li "first"
+			li "second item"
+			li "thrid"
 		elist
 	eslide
 edeck
