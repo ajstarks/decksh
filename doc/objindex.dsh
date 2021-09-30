@@ -1,16 +1,17 @@
 deck
 	slide
-		ctext "decksh elements" 50 5 3
+		//ctext "decksh elements" 50 5 3
 		for v=5 95 5
 			vline v 0 100 0.05 "blue" 40
 			hline 0 v 100 0.05 "red"  40
 		efor
+		left=10
 		hskip=10
 		vskip=20
-		grid "objlabels.dsh" 10 94 hskip vskip 80
+		grid "objlabels.dsh" 10 95 hskip vskip 80
 		grid "placemat.dsh"  10 85 hskip vskip 80
 		
-		vs2=vskip/4
+		vs2=vskip/3
 		hs2=hskip/2
 
 		x=80
@@ -18,7 +19,7 @@ deck
 		x2=x+hs2
 		arrow x y x2 y 0.2 2 2
 
-		x=10
+		x=left
 		y-=vskip
 
 		bx=x
@@ -34,17 +35,17 @@ deck
 		bx=x
 		by=y 
 		cx=x
-		cy=y+vs2
+		cy=y+hs2
 		ex=x+hs2
-		ey=y+vs2
+		ey=y+hs2
 		rcarrow bx by cx cy ex ey 0.2 2 2
 
 		x+=hskip
 
 		bx=x 
-		by=y+vs2
+		by=y+hs2
 		cx=x+hs2
-		cy=y+vs2
+		cy=y+hs2
 		ex=x+hs2
 		ey=y
 		dcarrow bx by cx cy ex ey 0.2 2 2
@@ -56,13 +57,13 @@ deck
 		cx=x+hs2
 		cy=y
 		ex=x+hs2
-		ey=y+vs2
+		ey=y+hs2
 		ucarrow bx by cx cy ex ey 0.2 2 2
 
 		x+=hskip
 		x2=x 
 		x3=x+hs2
-		y2=y+vs2
+		y2=y+hs2
 		y3=y 
 		polygon "x x2 x3" "y y2 y3"
 
@@ -81,5 +82,41 @@ deck
 		image "images/follow.jpg" x y 640 480 8
 		x+=hskip
 		cimage "images/follow.jpg" "caption"  x y 640 480 8 ""  1.5
+
+
+		y-=15
+		ly=y+5
+		x=left
+
+		ctext "list" x ly 1.5 "serif"
+		list x y 1.5 "sans" "" 100 1.2
+			li "one"
+			li "two"
+			li "three"
+		elist
+
+		x+=hskip
+		ctext "blist" x ly 1.5 "serif"
+		blist x y 1.5 "sans" "" 100 1.2
+			li "one"
+			li "two"
+			li "three"
+		elist
+
+		x+=hskip
+		ctext "nlist" x ly 1.5 "serif"
+		nlist x y 1.5 "sans" "" 100 1.2
+			li "one"
+			li "two"
+			li "three"
+		elist
+
+		x+=hskip
+		ctext "clist" x ly 1.5 "serif"
+		clist x y 1.5 "sans" "" 100 1.2
+			li "one"
+			li "two"
+			li "three"
+		elist
 	eslide
 edeck
