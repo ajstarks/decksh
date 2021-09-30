@@ -1,0 +1,183 @@
+	labelcolor="#aa0000"
+	ltop=95
+	top=ltop-10
+	bottom=5
+	left=10
+	right=85
+	hskip=10
+	vskip=20
+	slide
+
+		etext "decksh object index" right bottom 3 "serif"
+		for v=5 95 5
+			vline v 0 100 0.05 "blue" 20
+			hline 0 v 100 0.05 "red"  20
+		efor
+
+		grid "objlabels.dsh" left ltop hskip vskip right
+
+		xidx=left
+		yidx=top
+
+		// row 1
+		text "left" xidx yidx 2
+		xidx+=hskip
+		ctext "center" xidx yidx 2
+		xidx+=hskip
+		etext "right" xidx yidx 2
+		xidx+=hskip
+		rtext "rotate" xidx yidx 45 2
+		xidx+=hskip
+		arctext "hello, world" xidx yidx 5 90 0 1 "mono"
+		xidx+=hskip
+		tyidx=yidx+5
+		textblock "Now is the time for all good men to come" xidx tyidx 5 1
+		xidx+=hskip
+		textfile "code/example.txt" xidx tyidx 0.7
+		xidx+=hskip
+		textcode "code/hw.go" xidx tyidx 15 0.75
+
+		// row 2
+		xidx=left
+		yidx-=vskip
+		x2=xidx+5
+		y2=yidx+3
+		line xidx yidx x2 y2
+		xidx+=hskip
+		hline xidx yidx 5
+		xidx+=hskip
+		vline xidx yidx 5
+		xidx+=hskip
+		arc xidx yidx 5 5 0 180
+		xidx+=hskip
+		bxidx=xidx-2 
+		byidx=yidx
+		cxidx=bxidx
+		cyidx=yidx+10
+		exidx=xidx+5
+		eyidx=yidx 
+		curve bxidx byidx cxidx cyidx exidx eyidx
+		xidx+=hskip
+		circle xidx yidx 4
+		xidx+=hskip
+		acircle xidx yidx 4
+		xidx+=hskip
+		ellipse xidx yidx 7 5
+
+		// row 3
+		xidx=left
+		yidx-=vskip
+		square xidx yidx 5
+		xidx+=hskip
+		rect xidx yidx 7 4
+		xidx+=hskip
+		rrect xidx yidx 6 3 2
+		xidx+=hskip
+		pill xidx yidx 3 2
+		xidx+=hskip
+
+		x1=xidx-2
+		x2=xidx+2
+		x3=xidx
+		y1=yidx-2 
+		y2=yidx-2 
+		y3=yidx+5
+		polygon "x1 x2 x3" "y1 y2 y3"
+		xidx+=hskip
+		star xidx yidx 5 1 3
+		xidx+=hskip
+		image "images/cloudy.jpg" xidx yidx 640 480 10
+		xidx+=hskip
+		cimage "images/cloudy.jpg" "sky" xidx yidx 640 480 10 "" 1.2
+
+		// row 4
+		xidx=left
+		yidx-=vskip
+		lbrace xidx yidx 7 1 1
+		xidx+=hskip
+		rbrace xidx yidx 7 1 1
+		xidx+=hskip
+		ubrace xidx yidx 7 1 1
+		xidx+=hskip
+		dbrace xidx yidx 7 1 1
+		xidx+=hskip
+		y2=yidx+5
+		arrow xidx yidx xidx y2 0.2 1 1
+		xidx+=hskip
+
+		hs2=hskip/2
+		bxidx=xidx
+		byidx=yidx
+		cxidx=xidx
+		cyidx=yidx+hs2
+		exidx=xidx-hs2
+		eyidx=yidx+hs2
+		lcarrow bxidx byidx cxidx cyidx exidx eyidx 0.2 1 1
+
+		xidx+=hskip
+
+		bxidx=xidx
+		byidx=yidx 
+		cxidx=xidx
+		cyidx=yidx+hs2
+		exidx=xidx+hs2
+		eyidx=yidx+hs2
+		rcarrow bxidx byidx cxidx cyidx exidx eyidx 0.2 1 1
+
+		xidx+=hskip
+
+		bxidx=xidx
+		byidx=yidx+hs2 
+		cxidx=xidx+hs2 
+		cyidx=yidx+hs2 
+		exidx=xidx+hs2 
+		eyidx=yidx
+		dcarrow bxidx byidx cxidx cyidx exidx eyidx 0.2 1 1
+
+		// row 5
+		xidx=left
+		yidx-=vskip
+
+		bxidx=xidx
+		byidx=yidx
+		cxidx=xidx+hs2 
+		cyidx=yidx
+		exidx=xidx+hs2 
+		eyidx=yidx+hs2 
+		ucarrow bxidx byidx cxidx cyidx exidx eyidx 0.2 1 1
+
+		xidx+=hskip
+
+		lyidx=yidx+5
+		lxidx=xidx-1.5
+
+		list lxidx lyidx 1.5 "sans" "" 100 1.2
+			li "one"
+			li "two"
+			li "three"
+		elist
+
+		xidx+=hskip
+		lxidx+=hskip
+		blist lxidx lyidx 1.5 "sans" "" 100 1.2
+			li "one"
+			li "two"
+			li "three"
+		elist
+
+		xidx+=hskip
+		lxidx+=hskip
+		nlist lxidx lyidx 1.5 "sans" "" 100 1.2
+			li "one"
+			li "two"
+			li "three"
+		elist
+
+		xidx+=hskip
+		lxidx+=hskip
+		clist xidx lyidx 1.5 "sans" "" 100 1.2
+			li "first"
+			li "second item"
+			li "thrid"
+		elist
+	eslide

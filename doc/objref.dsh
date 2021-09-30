@@ -216,71 +216,8 @@ deck
 	include "code/yellows.dsh"
 
 	// Object index
-	slide bgcolor fgcolor
-		iy=78
-		ctext "Object Index" mid ty 5 "serif"
-		list 10 iy 3.5 "sans" "" 100 2.6
-			li "Text"
-			li "Graphics"
-			li "Images"
-			li "Lists"
-			li "Arrows"
-			li "Braces"
-		elist
-
-		tiy=iy+5
-		ctext "hello, world" 45 iy 3 "sans" objcolor
-		textblock "The quick brown fox jumped over the lazy dog" 55 tiy 10 1.5
-		rtext  "what's up, Doc?" 70 iy 45 2.5 "serif" accentcolor
-
-		iy-=10
-		piy=iy+5
-		circle 45 iy 5 
-		square 55 iy 5 accentcolor
-		line   60 iy 65 iy 0.3
-		arc    70 iy  5 5 0 180 0.3
-		polygon "75 80 85" "iy piy iy" accentcolor
-
-		iy-=16
-		image "images/follow.jpg"        45 iy 640 480 12
-		cimage "images/cloudy.jpg""sky"  60 iy 640 480 12 "" 1.0
-
-		iy-=12
-		blist 40 iy 2 "sans" objcolor 100 1.2
-			li "First"
-			li "Second"
-			li "Third"
-		elist
-
-		nlist 55 iy 2 "sans" accentcolor 100 1.2
-			li "First"
-			li "Second"
-			li "Third"
-		elist
-
-		clist 70 iy 2 "sans" objcolor 100 1.2
-			li "First"
-			li "Second"
-			li "Third"
-		elist
-
-		iy-=17
-		y2iy=iy+5
-		arrow 40 iy 50 iy 0.5 2 4 accentcolor
-		arrow 55 iy 65 y2iy 0.2 2 2
-		y2iy+=5
-		ucarrow 70 iy 75 iy 75 y2iy 0.5 2 4
-
-		iy-=12
-		buiy=iy+6
-		bdiy2=buiy-11
-		brsize=10
-		lbrace 40 iy brsize 2 1 0.1 accentcolor
-		rbrace 48 iy brsize 2 1
-		ubrace 55 buiy brsize 1 2 0.3 accentcolor
-		dbrace 55 bdiy2 brsize 1 2 0.3
-	eslide
-
+	include "oi.dsh"
+	
 	// Text index
 	slide bgcolor fgcolor
 		rc=initlcol
