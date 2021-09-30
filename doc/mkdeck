@@ -16,6 +16,11 @@ case "$1" in
 		decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview"         -pagesize 900,600 -sans $sans -mono $mono2  -serif $serif2 -stdout $* - > decksh.pdf
 		;;
 
+	index)
+		shift
+		decksh objindex.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview"         -pagesize 900,600 -sans $sans -mono $mono2  -serif $serif2 -stdout $* - > objindex.pdf
+		;;
+
 	ins*)
 		shift
 		decksh install-run.dsh | pdfdeck -author "Anthony Starks" -title "decksh/pdfdeck install guide" -pagesize 900,600 -sans $sans -mono $mono2 -serif $serif2 -stdout $* - > install-run.pdf
@@ -28,6 +33,7 @@ case "$1" in
 		decksh decksh.dsh      | pdfdeck -author "Anthony Starks" -title "decksh overview"              -pagesize 900,600 -sans $sans -mono $mono2  -serif $serif2 -stdout $* - > decksh.pdf
 		decksh objref.dsh      | pdfdeck -author "Anthony Starks" -title "decksh object reference"      -pagesize 900,600 -sans $sans -mono $mono2  -serif $serif2 -stdout $* - > objref.pdf
 		decksh install-run.dsh | pdfdeck -author "Anthony Starks" -title "decksh/pdfdeck install guide" -pagesize 900,600 -sans $sans -mono $mono2  -serif $serif2 -stdout $* - > install-run.pdf
+		decksh objindex.dsh    | pdfdeck -author "Anthony Starks" -title "decksh overview"              -pagesize 900,600 -sans $sans -mono $mono2  -serif $serif2 -stdout $* - > objindex.pdf
 		;;
 esac
 

@@ -1,0 +1,89 @@
+deck
+	slide
+		ctext "decksh elements" 50 5 3
+		for v=5 95 5
+			vline v 0 100 0.05 "blue" 40
+			hline 0 v 100 0.05 "red"  40
+		efor
+		hskip=10
+		vskip=20
+		grid "objlabels.dsh" 10 90 hskip vskip 80
+		grid "placemat.dsh"  10 80 hskip vskip 80
+		
+		vs2=vskip/4
+		hs2=hskip/2
+
+		x=80
+		y=40
+		x2=x+hskip
+		arrow x y x2 y
+
+		x=10
+		y-=vskip
+
+		bx=x
+		by=y 
+		cx=x
+		cy=y+hs2
+		ex=x-hs2
+		ey=y+hs2
+		lcarrow bx by cx cy ex ey 0.2 2 2
+
+		x+=hskip
+
+		bx=x
+		by=y 
+		cx=x
+		cy=y+vs2
+		ex=x+hs2
+		ey=y+vs2
+		rcarrow bx by cx cy ex ey 0.2 2 2
+
+		x+=hskip
+
+		bx=x 
+		by=y+vs2
+		cx=x+hs2
+		cy=y+vs2
+		ex=x+hs2
+		ey=y
+		dcarrow bx by cx cy ex ey 0.2 2 2
+
+		x+=hskip
+
+		bx=x 
+		by=y
+		cx=x+hs2
+		cy=y
+		ex=x+hs2
+		ey=y+vs2
+		ucarrow bx by cx cy ex ey 0.2 2 2
+
+		x+=hskip
+		x2=x 
+		x3=x+hs2
+		y2=y+vs2
+		y3=y 
+		polygon "x x2 x3" "y y2 y3"
+
+		x+=hskip
+
+		vsh=vskip/3
+		bx=x
+		by=y
+		cx=x
+		cy=y+vsh
+		ex=x+hs2
+		ey=y
+		curve bx by cx cy ex ey
+
+		x+=hskip
+		image "images/follow.jpg" x y 640 480 7
+		x+=hskip
+		cimage "images/follow.jpg" "caption"  x y 640 480 7
+
+
+
+
+	eslide
+edeck
