@@ -81,7 +81,7 @@
 		x3=xind
 		y1=yind-2 
 		y2=yind-2 
-		y3=yind+5
+		y3=yind+3
 		polygon "x1 x2 x3" "y1 y2 y3"
 		xind+=hskip
 		star xind yind 5 1 3
