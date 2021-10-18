@@ -206,6 +206,7 @@ deck
 		hline 5 25 85  0.1
 
 		text `"red/blue/90"` 6 15 3 "mono" "steelblue"
+		text "(applies to rect and square only)"  6 10 1.5 "serif"
 		rect 30 16 6 4 "red/blue/90" 
 	eslide
 
