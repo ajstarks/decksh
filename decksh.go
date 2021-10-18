@@ -398,8 +398,8 @@ func endtag(w io.Writer, s []string, linenumber int) error {
 
 // colorstring returns the markup for a color.
 // either a single color or two colors and a percentage used for gradients
-func colorstring(s string) string {
-	dc := `color=` + s
+func colorstring(prefix, s string) string {
+	dc := prefix + s
 	if strings.Index(s, "/") == -1 {
 		return dc
 	}
@@ -503,9 +503,9 @@ func slide(w io.Writer, s []string, linenumber int) error {
 	case 1:
 		fmt.Fprintln(w, "<slide>")
 	case 2:
-		fmt.Fprintf(w, "<slide bg=%s>\n", s[1])
+		fmt.Fprintf(w, "<slide %s>\n", colorstring("bg=", s[1]))
 	case 3:
-		fmt.Fprintf(w, "<slide bg=%s fg=%s>\n", s[1], s[2])
+		fmt.Fprintf(w, "<slide %s fg=%s>\n", colorstring("bg=", s[1]), s[2])
 	default:
 		return fmt.Errorf("line %d: slide [bgcolor] [fgcolor]", linenumber)
 	}
@@ -882,7 +882,7 @@ func shapes(w io.Writer, s []string, linenumber int) error {
 	case 5:
 		fmt.Fprintf(w, "<%s %s/>\n", s[0], dim)
 	case 6:
-		fmt.Fprintf(w, "<%s %s %s/>\n", s[0], dim, colorstring(s[5]))
+		fmt.Fprintf(w, "<%s %s %s/>\n", s[0], dim, colorstring("color=", s[5]))
 	case 7:
 		fmt.Fprintf(w, "<%s %s color=%s opacity=%q/>\n", s[0], dim, s[5], s[6])
 	default:
@@ -916,7 +916,7 @@ func regshapes(w io.Writer, s []string, linenumber int) error {
 	case 4:
 		fmt.Fprintf(w, "<%s %s/>\n", s[0], dim)
 	case 5:
-		fmt.Fprintf(w, "<%s %s %s/>\n", s[0], dim, colorstring(s[4]))
+		fmt.Fprintf(w, "<%s %s %s/>\n", s[0], dim, colorstring("color=", s[4]))
 	case 6:
 		fmt.Fprintf(w, "<%s %s color=%s opacity=%q/>\n", s[0], dim, s[4], s[5])
 	default:

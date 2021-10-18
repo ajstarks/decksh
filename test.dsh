@@ -8,12 +8,30 @@ deck
 		ctext "decksh tests" 50 50 10
 	eslide
 
-	slide "black" "white"
-		ctext "background: black, textcolor: white" 50 50 5
+	slide
+		ctext "Empty" 50 90 5
 	eslide
 
-	slide "red"
-		ctext "background: red" 50 50 5
+	slide "orange"
+		ctext "Background color only" 50 90 5
+	eslide
+
+	slide "blue" "white"
+		ctext "Background and Foreground" 50 90 5
+	eslide
+
+	slide "blue/white/10"
+		ctext "Gradiant only" 50 90 5
+	eslide
+
+	slide "purple/orange/10" "white"
+		ctext "Gradient and Foreground" 50 90 5
+		rect 50 60 50 15 "black/white/60"
+		rect 50 40 50 15 "red"
+
+		ctext "60" 50 60 3
+		ctext "40" 50 40 3
+		
 	eslide
 
 	accentcolor="#800000"

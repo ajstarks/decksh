@@ -3,11 +3,24 @@
 <slide>
 <text align="c" xp="50" yp="50" sp="10" >decksh tests</text>
 </slide>
-<slide bg="black" fg="white">
-<text align="c" xp="50" yp="50" sp="5" >background: black, textcolor: white</text>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Empty</text>
 </slide>
-<slide bg="red">
-<text align="c" xp="50" yp="50" sp="5" >background: red</text>
+<slide bg="orange">
+<text align="c" xp="50" yp="90" sp="5" >Background color only</text>
+</slide>
+<slide bg="blue" fg="white">
+<text align="c" xp="50" yp="90" sp="5" >Background and Foreground</text>
+</slide>
+<slide gradcolor1="blue" gradcolor2="white" gp="10">
+<text align="c" xp="50" yp="90" sp="5" >Gradiant only</text>
+</slide>
+<slide gradcolor1="purple" gradcolor2="orange" gp="10" fg="white">
+<text align="c" xp="50" yp="90" sp="5" >Gradient and Foreground</text>
+<rect xp="50" yp="60" wp="50" hp="15" gradcolor1="black" gradcolor2="white" gp="60"/>
+<rect xp="50" yp="40" wp="50" hp="15" color="red"/>
+<text align="c" xp="50" yp="60" sp="3" >60</text>
+<text align="c" xp="50" yp="40" sp="3" >40</text>
 </slide>
 <slide>
 <line xp1="5" yp1="72" xp2="90" yp2="72" sp="4" color="#0000aa" opacity="10"/>
@@ -368,9 +381,9 @@
 <line xp1="100" yp1="100" xp2="100" yp2="0" sp="0.1" color="red"/>
 </slide>
 <slide>
-<ellipse xp="11.766599347107677" yp="18.86306178845804" wp="10" hr="100" color="red" opacity="18.86306178845804"/>
-<ellipse xp="15.155298529999738" yp="79.6451076281444" wp="10" hr="100" color="green" opacity="79.6451076281444"/>
-<ellipse xp="81.43248792399304" yp="20.41388874613583" wp="10" hr="100" color="blue" opacity="20.41388874613583"/>
+<ellipse xp="25.580516532505122" yp="55.439551572040145" wp="10" hr="100" color="red" opacity="55.439551572040145"/>
+<ellipse xp="46.98150501213971" yp="75.46508742627964" wp="10" hr="100" color="green" opacity="75.46508742627964"/>
+<ellipse xp="77.89821475971661" yp="60.37406006324702" wp="10" hr="100" color="blue" opacity="60.37406006324702"/>
 <text align="c" xp="50" yp="50" sp="5" >Random</text>
 </slide>
 <slide>
