@@ -396,6 +396,19 @@ func endtag(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// colorstring returns the markup for a color.
+// either a single color or two colors and a percentage used for gradients
+func colorstring(s string) string {
+	dc := `color=` + s
+	if strings.Index(s, "/") == -1 {
+		return dc
+	}
+	if gc := strings.Split(s, "/"); len(gc) == 3 {
+		return `gradcolor1=` + gc[0] + `" gradcolor2="` + gc[1] + `" gp="` + gc[2]
+	}
+	return dc
+}
+
 // fontColorOp generates markup for font, color, and opacity
 func fontColorOp(s []string) string {
 	switch len(s) {
@@ -869,7 +882,7 @@ func shapes(w io.Writer, s []string, linenumber int) error {
 	case 5:
 		fmt.Fprintf(w, "<%s %s/>\n", s[0], dim)
 	case 6:
-		fmt.Fprintf(w, "<%s %s color=%s/>\n", s[0], dim, s[5])
+		fmt.Fprintf(w, "<%s %s %s/>\n", s[0], dim, colorstring(s[5]))
 	case 7:
 		fmt.Fprintf(w, "<%s %s color=%s opacity=%q/>\n", s[0], dim, s[5], s[6])
 	default:
@@ -903,7 +916,7 @@ func regshapes(w io.Writer, s []string, linenumber int) error {
 	case 4:
 		fmt.Fprintf(w, "<%s %s/>\n", s[0], dim)
 	case 5:
-		fmt.Fprintf(w, "<%s %s color=%s/>\n", s[0], dim, s[4])
+		fmt.Fprintf(w, "<%s %s %s/>\n", s[0], dim, colorstring(s[4]))
 	case 6:
 		fmt.Fprintf(w, "<%s %s color=%s opacity=%q/>\n", s[0], dim, s[4], s[5])
 	default:
