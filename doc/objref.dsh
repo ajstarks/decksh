@@ -164,10 +164,10 @@ deck
 		elist
 	eslide
 
-	// colors, fonts, opacity
+	// colors, fonts, opacity, gradient
 	slide bgcolor fgcolor
 		hline 5 72 85 4 hlcolor hlop
-		ctext "Colors, fonts, opacity" mid ty 5 "serif"
+		ctext "Colors, fonts, opacity, gradient" mid ty 5 "serif"
 		text "Colors" 6 70 3 "sans" objcolor
 		text "Fonts"  35 70 3  "sans" objcolor
 		text "Opacity (0-100)" 68 70 3  "sans" objcolor
@@ -204,6 +204,9 @@ deck
 		vline  5 25 50 0.1
 		vline 90 25 50 0.1
 		hline 5 25 85  0.1
+
+		text `"red/blue/90"` 6 15 3 "mono" "steelblue"
+		rect 30 16 6 4 "red/blue/90" 
 	eslide
 
 	// color indices: produce in the code directory: $ ./mkcats.sh
