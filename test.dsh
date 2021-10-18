@@ -29,32 +29,38 @@ deck
 		text "Fonts"  35 70 3  "sans" objcolor
 		text "Opacity (0-100)" 68 70 3  "sans" objcolor
 
-		list 6 60 2.5 "mono" "steelblue"
+		list 6 60 2.5 "mono" "steelblue" 100 1.5
 			li `"steelblue"`
 			li `"#4682b4"`
 			li `"rgb(70,130,180)"`
+			li "maroon/blue/90"
 		elist
 
-		list 35 60 2.5 "mono"
+		list 35 60 2.5 "mono" "" 100 1.5
 			li `"sans"`
 			li `"serif"`
 			li `"mono"`
 			li `"symbol"`
 		elist
 
-		list 50 60 2.5
+		list 50 60 2.5 "mono" "" 100 1.5
 			li "Sans Serif"
 			li "Serif" "serif"
 			li "Monospace"  "mono"
 			li "abcde" "symbol"
 		elist
 
-		text "100" 68 60 2.5
-		text "50"  68 50 2.5
-		text "10"  68 40 2.5
-		circle 85 62 3 accentcolor
-		circle 85 52 3 accentcolor 50
-		circle 85 42 3 accentcolor 10
+		list 68 60 2.5 "mono" "" 100 1.5
+			li "100"
+			li "50"
+			li "10"
+		elist
+
+		hline 80 61 6  2 "maroon"
+		hline 80 56 6  2 "maroon" 50
+		hline 80 51 6  2 "maroon" 10
+
+		rect 30 47 4 3 "maroon/blue/90"
 
 		vline 33 25 50 0.1
 		vline 66 25 50 0.1

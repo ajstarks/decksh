@@ -15,29 +15,33 @@
 <text xp="6" yp="70" sp="3" font="sans" color="#7f7f7f">Colors</text>
 <text xp="35" yp="70" sp="3" font="sans" color="#7f7f7f">Fonts</text>
 <text xp="68" yp="70" sp="3" font="sans" color="#7f7f7f">Opacity (0-100)</text>
-<list xp="6" yp="60" sp="2.5" font="mono" color="steelblue">
+<list xp="6" yp="60" sp="2.5" font="mono" color="steelblue" opacity="100" lp="1.5">
 <li>"steelblue"</li>
 <li>"#4682b4"</li>
 <li>"rgb(70,130,180)"</li>
+<li>maroon/blue/90</li>
 </list>
-<list xp="35" yp="60" sp="2.5" font="mono">
+<list xp="35" yp="60" sp="2.5" font="mono" color="" opacity="100" lp="1.5">
 <li>"sans"</li>
 <li>"serif"</li>
 <li>"mono"</li>
 <li>"symbol"</li>
 </list>
-<list xp="50" yp="60" sp="2.5" >
+<list xp="50" yp="60" sp="2.5" font="mono" color="" opacity="100" lp="1.5">
 <li>Sans Serif</li>
 <li font="serif">Serif</li>
 <li font="mono">Monospace</li>
 <li font="symbol">abcde</li>
 </list>
-<text xp="68" yp="60" sp="2.5" >100</text>
-<text xp="68" yp="50" sp="2.5" >50</text>
-<text xp="68" yp="40" sp="2.5" >10</text>
-<ellipse xp="85" yp="62" wp="3" hr="100" color="#800000"/>
-<ellipse xp="85" yp="52" wp="3" hr="100" color="#800000" opacity="50"/>
-<ellipse xp="85" yp="42" wp="3" hr="100" color="#800000" opacity="10"/>
+<list xp="68" yp="60" sp="2.5" font="mono" color="" opacity="100" lp="1.5">
+<li>100</li>
+<li>50</li>
+<li>10</li>
+</list>
+<line xp1="80" yp1="61" xp2="86" yp2="61" sp="2" color="maroon"/>
+<line xp1="80" yp1="56" xp2="86" yp2="56" sp="2" color="maroon" opacity="50"/>
+<line xp1="80" yp1="51" xp2="86" yp2="51" sp="2" color="maroon" opacity="10"/>
+<rect xp="30" yp="47" wp="4" hp="3" gradcolor1="maroon" gradcolor2="blue" gp="90"/>
 <line xp1="33" yp1="25" xp2="33" yp2="75" sp="0.1"/>
 <line xp1="66" yp1="25" xp2="66" yp2="75" sp="0.1"/>
 <line xp1="5" yp1="25" xp2="5" yp2="75" sp="0.1"/>
@@ -364,9 +368,9 @@
 <line xp1="100" yp1="100" xp2="100" yp2="0" sp="0.1" color="red"/>
 </slide>
 <slide>
-<ellipse xp="42.5141297745109" yp="76.31273122228872" wp="10" hr="100" color="red" opacity="76.31273122228872"/>
-<ellipse xp="46.982687133185536" yp="19.245068353180756" wp="10" hr="100" color="green" opacity="19.245068353180756"/>
-<ellipse xp="53.51842836088555" yp="19.770147334172407" wp="10" hr="100" color="blue" opacity="19.770147334172407"/>
+<ellipse xp="11.766599347107677" yp="18.86306178845804" wp="10" hr="100" color="red" opacity="18.86306178845804"/>
+<ellipse xp="15.155298529999738" yp="79.6451076281444" wp="10" hr="100" color="green" opacity="79.6451076281444"/>
+<ellipse xp="81.43248792399304" yp="20.41388874613583" wp="10" hr="100" color="blue" opacity="20.41388874613583"/>
 <text align="c" xp="50" yp="50" sp="5" >Random</text>
 </slide>
 <slide>
