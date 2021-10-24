@@ -85,10 +85,10 @@
 		text "Arrows" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "arrow"
-			li "crarrow"
-			li "clarrow"
-			li "cuarrow"
-			li "cdarrow"
+			li "rcarrow"
+			li "lcarrow"
+			li "ucarrow"
+			li "dcarrow"
 		elist
 
 		headtop-=rsep
