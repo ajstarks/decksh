@@ -1,4 +1,4 @@
-nlist 85 30 4 "serif" "maroon" 100 1.0
+nlist 85 30 2.5 "serif" "maroon" 100 1.0
 	li "one"
 	li "two"
 	li "three"
