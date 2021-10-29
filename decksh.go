@@ -1922,7 +1922,10 @@ func evaloop(w io.Writer, forvar string, format string, v string, s []string, sc
 
 // keyparse parses keywords and executes
 func keyparse(w io.Writer, tokens []string, t string, n int) error {
-	//fmt.Fprintf(os.Stderr, "%v\n", emap)
+	//fmt.Fprintf(os.Stderr, "%v\n", len(tokens))
+	if len(tokens) < 1 {
+		return nil
+	}
 	switch tokens[0] {
 	case "deck":
 		return deck(w, tokens, n)
