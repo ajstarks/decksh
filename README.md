@@ -20,7 +20,7 @@ This repository also contains ```cmd/decksh```, a client decksh command:
 
 Typically, ```decksh``` acts as the head of a rendering pipeline:
 
-    $ decksh text.dsh | pdf -pagesize 1200,900 
+    $ decksh text.dsh | pdfdeck -stdout -pagesize 1200,900 - > text.pdf 
 
 ## Example input
 
@@ -79,10 +79,17 @@ Produces:
 ![exampledeck](exampledeck.png)
 
 Text, font, color, caption and link arguments follow Go convetions (surrounded by double quotes).
-Colors are in rgb format ("rgb(n,n,n)"), hex ("#rrggbb"), or [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
 
-Coordinates, dimensions, scales and opacities are floating point numbers ranging from from 0-100 
-(they represent percentages on the canvas width and percent opacity).  Some arguments are optional, and 
+Colors formats are:
+
+* rgb format "rgb(n,n,n)", for example "```"rgb(128,0,128)"```
+* hex "#rrggbb", for example ```"#aa00aa"```, or 
+* [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
+
+Color gradients (used for slide backgrounds and rectangle and square fills) are specified as color1/color2/percent, for example, ```"blue/white/90"```
+
+Coordinates, dimensions, scales and opacities are floating point numbers ranging from from 0-100
+(representing percentages of the canvas width and percent opacity).  Some arguments are optional, and
 if omitted defaults are applied (black for text, gray for graphics, 100% opacity).
 
 Canvas size and image dimensions are in pixels.
@@ -190,11 +197,11 @@ return the circular area, ```a``` for the diameter ```d```.
 Assign a string variable with formatted text (using package fmt floating point format strings)
 
     w1=10
-	w2=20+100
+    w2=20+100
 
-	s0=format "Widget 1: %.2f" w1
-	s1=format "Widget 2: %.3f" w2
-	st=format "Total Widgets: %v" s1+w2
+    s0=format "Widget 1: %.2f" w1
+    s1=format "Widget 2: %.3f" w2
+    st=format "Total Widgets: %v" s1+w2
 
 ## Loops
 
@@ -375,9 +382,16 @@ places the contents of ```"file"``` inline.
 
 ## Functions
 
-    func "file" arg1 ... argn
+Functions are defined with statements between the  ```def``` and ```edef``` keywords.
 
-include the contents of the file, substituting arguments
+    def "name" arg1 arg2 ... argn
+        statements
+    edef
+
+Functions are called with the ```func``` keyword:
+
+
+    func "file" arg1 ... argn
 
 For example, given a file "ftest.dsh"
 
