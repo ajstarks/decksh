@@ -1,0 +1,38 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+file_extensions:
+  - dsh
+scope: source.decksh
+contexts:
+  main:
+    # Strings begin and end with quotes, and use backslashes as an escape character
+    - match: '"'
+      scope: punctuation.definition.string.begin.decksh
+      push: double_quoted_string
+
+    # Comments begin with a '//' and finish at the end of the line
+    - match: '//'
+      scope: punctuation.definition.comment.decksh
+      push: line_comment
+
+    # Keywords
+    - match: '\b(deck|edeck|canvas|def|edef|format|include|grid|func|vmap|slide|eslide|textbox|textblock|textfile|textcode|arctext|text|ctext|etext|rtext|random|lbrace|rbrace|ubrace|dbrace|line|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polygon|pill|rect|roundrect|rrect|square|ellipse|star|circle|acircle|curve|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|area|polarx|polary|sqrt)\b'
+      scope: keyword.control.decksh
+
+    # Numbers
+    - match: '\b(-)?[0-9.]+\b'
+      scope: constant.numeric.decksh
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.decksh
+    - match: '\\.'
+      scope: constant.character.escape.decksh
+    - match: '"'
+      scope: punctuation.definition.string.end.decksh
+      pop: true
+
+  line_comment:
+    - meta_scope: comment.line.decksh
+    - match: $
+      pop: true
