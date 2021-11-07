@@ -1313,7 +1313,7 @@ deck
 	// Brace index
 	slide bgcolor fgcolor
 		rc=initlcol
-		ctext "Braces" mid ty 5 "serif"
+		ctext "Braces and Brackets" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs
 			li tbl1 "sans" objcolor
@@ -1321,6 +1321,10 @@ deck
 			li "Right brace"
 			li "Up brace"
 			li "Down brace"
+			li "Left bracket"
+			li "Right bracket"
+			li "Up bracket"
+			li "Down bracket"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor
@@ -1329,6 +1333,10 @@ deck
 			li "rbrace"
 			li "ubrace"
 			li "dbrace"
+			li "lbracket"
+			li "rbracket"
+			li "ubracket"
+			li "dbracket"
 		elist
 		rc+=12
 		list rc lsty lfs "mono" argcolor
@@ -1336,11 +1344,19 @@ deck
 			li "x y height bw bh"
 			li "x y height bw bh"
 			li "x y width bw bh"
-			li "x y width bw bh"			
+			li "x y width bw bh"
+			li "x y width height"		
+			li "x y width height"		
+			li "x y width height"		
+			li "x y width height"		
 		elist
 		rc+=25
 		list rc lsty lfs "mono" objcolor
 			li tbl4 "sans" objcolor
+			li "lw color op"
+			li "lw color op"
+			li "lw color op"
+			li "lw color op"
 			li "lw color op"
 			li "lw color op"
 			li "lw color op"
@@ -1450,6 +1466,106 @@ deck
 
 		dbrace 80 25 20 4 4 1 "maroon"
 		ctext `dbrace 80 25 20 4 4 1 "maroon"` 80 ely ets "mono"
+	eslide
+
+	// lbracket
+	slide bgcolor fgcolor
+		brh=35
+		cx=50
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "lbracket"             28 ly ts "mono" kwcolor
+		ctext "x y width height"     44 ly ts "mono" argcolor
+		ctext "lw color op"          70 ly ts "mono" optcolor
+		lbracket cx 75 6 brh 0.2
+		circle cx 75 coordsize accentcolor
+		ctext "(x,y)" 45 75 lw "mono"
+		ctext "width" 55 94 lw "mono"
+		rbrace 65 75 brh 2 2
+		ctext "height" 70 74 lw "mono"
+
+		lbracket 20 25 2 20 
+		ctext "lbrace 20 25 2 20" 20 ely ets "mono"
+
+		lbracket 50 25 4 20 0.2
+		ctext "lbracket 50 25 4 20 0.2" 50 ely ets "mono"
+
+		lbracket 80 25 6 20 0.2 "maroon"
+		ctext `lbracket 80 25 6 20 0.2 "maroon"` 80 ely ets "mono"
+	eslide
+
+	// rbracket
+	slide bgcolor fgcolor
+		brh=35
+		cx=50
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "rbracket"             28 ly ts "mono" kwcolor
+		ctext "x y width height"     44 ly ts "mono" argcolor
+		ctext "lw color op"          70 ly ts "mono" optcolor
+		rbracket cx 75 6 brh 0.2
+		circle cx 75 coordsize accentcolor
+		text "(x,y)" 52 75 lw "mono"
+		ctext "width" 45 94 lw "mono"
+		rbrace 65 75 brh 2 2
+		ctext "height" 70 74 lw "mono"
+
+		rbracket 20 25 2 20 
+		ctext "lbrace 20 25 2 20" 20 ely ets "mono"
+
+		rbracket 50 25 4 20 0.2
+		ctext "rbracket 50 25 4 20 0.2" 50 ely ets "mono"
+
+		rbracket 80 25 6 20 0.2 "maroon"
+		ctext `rbracket 80 25 6 20 0.2 "maroon"` 80 ely ets "mono"
+	eslide
+
+	// ubracket
+	slide bgcolor fgcolor
+		brw=35
+		cx=50
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "ubracket"             28 ly ts "mono" kwcolor
+		ctext "x y width height" 44 ly ts "mono" argcolor
+		ctext "lw color op"        70 ly ts "mono" optcolor
+		ubracket cx 75 brw 6 0.2
+		circle cx 75 coordsize accentcolor
+		ubrace cx 85 brw 1 2
+		ctext "(x,y)" cx 77 lw "mono"
+		etext "height" 30 65 lw "mono"
+		ctext "width" cx 86 lw "mono"
+
+		ubracket 20 25 20 2
+		ctext "ubracket 20 25 20 2" 20 ely ets "mono"
+
+		ubracket 50 25 20 4 0.2
+		ctext "ubracket 50 25 20 4 0.2" 50 ely ets "mono"
+
+		ubracket 80 25 20 4 0.2 "maroon"
+		ctext `ubracket 80 25 20 4 0.2 "maroon"` 80 ely ets "mono"
+	eslide
+
+	// dbracket
+	slide bgcolor fgcolor
+		brw=35
+		cx=50
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "dbracket"             28 ly ts "mono" kwcolor
+		ctext "x y width height" 44 ly ts "mono" argcolor
+		ctext "lw color op"        70 ly ts "mono" optcolor
+		dbracket cx 75 brw 6 0.2
+		circle cx 75 coordsize accentcolor
+		ubrace cx 95 brw 1 2
+		ctext "(x,y)" cx 70 lw "mono"
+		etext "height" 30 83 lw "mono"
+		ctext "width" cx 96 lw "mono"
+
+		dbracket 20 25 20 2
+		ctext "dbracket 20 25 20 2" 20 ely ets "mono"
+
+		dbracket 50 25 20 4 0.2
+		ctext "dbracket 50 25 20 4 0.2" 50 ely ets "mono"
+
+		dbracket 80 25 20 4 0.2 "maroon"
+		ctext `dbracket 80 25 20 4 0.2 "maroon"` 80 ely ets "mono"
 	eslide
 
 	// assignments and data index
