@@ -80,6 +80,10 @@
 		    li "rbrace"
 			li "ubrace"
 			li "dbrace"
+			li "lbracket"
+			li "rbracket"
+			li "dbracket"
+			li "ubracket"
 		elist
 		lx+=csep2
 		text "Arrows" lx headtop hsize "sans" headcolor
