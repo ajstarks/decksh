@@ -1,20 +1,22 @@
+	// objdect index "placemat"
 	labelcolor="#aa0000"
 	ltop=95
 	top=ltop-10
 	bottom=5
 	left=10
-	right=85
+	right=80
 	hskip=10
 	vskip=20
 	slide
 
-		etext "decksh object index" right bottom 3 "serif"
 		for v=5 95 5
 			vline v 0 100 0.05 "blue" 20
 			hline 0 v 100 0.05 "red"  20
 		efor
 
+		// 8 x 5 grid
 		grid "objlabels.dsh" left ltop hskip vskip right
+		ctext "clist" 90 15 1.5 "mono" labelcolor // overflow
 
 		xind=left
 		yind=top
@@ -101,10 +103,21 @@
 		xind+=hskip
 		dbrace xind yind 7 1 1
 		xind+=hskip
+		lbracket xind yind 1 7
+		xind+=hskip
+		rbracket xind yind 1 7
+		xind+=hskip
+		ubracket xind yind 7 1
+		xind+=hskip
+		dbracket xind yind 7 1
+		xind+=hskip
+
+		// row 5
+		xind=left
+		yind-=vskip
 		y2=yind+5
 		arrow xind yind xind y2 0.2 1 1
 		xind+=hskip
-
 		hs2=hskip/2
 		bxind=xind
 		byind=yind
@@ -134,9 +147,7 @@
 		eyind=yind
 		dcarrow bxind byind cxind cyind exind eyind 0.2 1 1
 
-		// row 5
-		xind=left
-		yind-=vskip
+		xind+=hskip
 
 		bxind=xind
 		byind=yind

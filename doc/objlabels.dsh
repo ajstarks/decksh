@@ -26,6 +26,10 @@ ctext "lbrace" X Y 1.5 "mono" labelcolor
 ctext "rbrace" X Y 1.5 "mono" labelcolor
 ctext "ubrace" X Y 1.5 "mono" labelcolor
 ctext "dbrace" X Y 1.5 "mono" labelcolor
+ctext "lbracket" X Y 1.5 "mono" labelcolor
+ctext "rbracket" X Y 1.5 "mono" labelcolor
+ctext "ubracket" X Y 1.5 "mono" labelcolor
+ctext "dbracket" X Y 1.5 "mono" labelcolor
 ctext "arrow" X Y 1.5 "mono" labelcolor
 ctext "lcarrow" X Y 1.5 "mono" labelcolor
 ctext "rcarrow" X Y 1.5 "mono" labelcolor
