@@ -353,13 +353,30 @@ The curve variants use the same syntax for specifying curves.
 ## Braces
 
 Left, right, up and down-facing braces.
-(x, y) is the location of the point of the brace, and linewidth, color and opacity are optional
-(defaults are gray, 100%)
+(x, y) is the location of the point of the brace, (aw, ah) are width and height of the bracket's
+end curves; linewidth, color and opacity are optional (defaults are gray, 100%)
 
     lbrace x y height aw ah [linewidth] [color] [opacity]
     rbrace x y height aw ah [linewidth] [color] [opacity]
     ubrace x y width  aw ah [linewidth] [color] [opacity]
     dbrace x y width  aw ah [linewidth] [color] [opacity]
+
+You can make square brackets by using the keyword described below, or alternaively, use 0 for ah
+for left and right braces, or 0 for aw for up and down braces
+
+## Brackets
+
+Left, right, up and down-facing brackets.
+(x, y) is the location of the center of the bracket.
+For l and r brackets, width the size of top and bottom portions, and height is the span of the bracket.
+For u and b brackets, width is the span of of bracket, and height is the size of the left and right portions.
+linewidth, color and opacity are optional (defaults are gray, 100%)
+
+    lbracket x y width height [linewidth] [color] [opacity]
+    rbracket x y width height [linewidth] [color] [opacity]
+    ubracket x y width height [linewidth] [color] [opacity]
+    dbracket x y width height [linewidth] [color] [opacity]
+
 
 ## Charts
 

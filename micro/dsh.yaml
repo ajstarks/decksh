@@ -1,0 +1,48 @@
+filetype: dsh
+
+detect:
+    filename: "\\.dsh$"
+
+rules:
+    # keywords
+    - statement: "\\b(deck|edeck|canvas|def|edef|format|include|grid|vmap|area|slide|eslide|text|ctext|etext|rtext|random|textfile|textblock|textcode|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polygon|rect|roundrect|rrect|square|ellipse|acircle|circle|line|pill|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|polarx|polary|sqrt)\\b"
+    - symbol.operator: "[-+/*=<>!~%&|^]|:="
+
+      # Numbers and strings
+    - constant.number: "\\b([0-9]+|0x[0-9a-fA-F]*)\\b|'.'"
+
+    - constant.string:
+        start: "\""
+        end: "\""
+        skip: "\\\\."
+        rules:
+            - constant.specialChar: "%."
+            - constant.specialChar: "\\\\[abfnrtv'\\\"\\\\]"
+            - constant.specialChar: "\\\\([0-7]{3}|x[A-Fa-f0-9]{2}|u[A-Fa-f0-9]{4}|U[A-Fa-f0-9]{8})"
+
+    - constant.string:
+        start: "'"
+        end: "'"
+        skip: "\\\\."
+        rules:
+            - error: "..+"
+            - constant.specialChar: "%."
+            - constant.specialChar: "\\\\[abfnrtv'\\\"\\\\]"
+            - constant.specialChar: "\\\\([0-7]{3}|x[A-Fa-f0-9]{2}|u[A-Fa-f0-9]{4}|U[A-Fa-f0-9]{8})"
+
+    - constant.string:
+        start: "`"
+        end: "`"
+        rules: []
+
+    - comment:
+        start: "//"
+        end: "$"
+        rules:
+            - todo: "(TODO|XXX|FIXME):?"
+
+    - comment:
+        start: "/\\*"
+        end: "\\*/"
+        rules:
+            - todo: "(TODO|XXX|FIXME):?"

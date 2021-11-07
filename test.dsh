@@ -793,6 +793,18 @@ deck
 		dbrace 50 30 10 2 2 0.2 "red" 30
 	eslide
 
+	slide
+		ctext "Brackets" 50 50 5
+		rbracket 70 50 5 30  0.2 "red"
+		lbracket 30 50 5 30  0.2 "red"
+		ubracket 50 80 30 5  0.2 "red"
+		dbracket 50 20 30 5  0.2 "red"
+		ctext "down" 50 17 3
+		ctext "up"   50 81 3
+		text  "right" 70 50 3
+		etext "left" 30 50 3
+	eslide
+
 	// data file
 	slide
 		data "foo.d"

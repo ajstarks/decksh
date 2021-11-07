@@ -1300,6 +1300,111 @@ func legend(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// bracket makes various kinds of braces: (left, right, up, down)
+// lbracket x y width height [linewidth] [color] [opacity]
+// rbracket x y width height [linewidth] [color] [opacity]
+// ubracket x y width height [linewidth] [color] [opacity]
+// dbracket x y width height [linewidth] [color] [opacity]
+func bracket(w io.Writer, s []string, linenumber int) error {
+	if len(s) < 5 {
+		return fmt.Errorf("line %d: [l,r,u,d]bracket x y w h [linewidth] [color] [opacity]", linenumber)
+	}
+	var x, y, width, height float64
+	var err error
+
+	x, err = strconv.ParseFloat(s[1], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %s is not a number", linenumber, s[1])
+	}
+	y, err = strconv.ParseFloat(s[2], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %s is not a number", linenumber, s[2])
+	}
+	width, err = strconv.ParseFloat(s[3], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %s is not a number", linenumber, s[3])
+	}
+	height, err = strconv.ParseFloat(s[4], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %s is not a number", linenumber, s[5])
+	}
+
+	// replace optional args, checking for validity
+	attr := ""
+	if len(s) >= 6 {
+		if _, nerr := strconv.ParseFloat(s[5], 64); nerr != nil {
+			return fmt.Errorf("line %d: %s is not a number", linenumber, s[5])
+		}
+		attr += "sp=\"" + s[5] + "\""
+	}
+	if len(s) >= 7 {
+		attr += " color=" + s[6]
+	}
+	if len(s) >= 8 {
+		if _, nerr := strconv.ParseFloat(s[7], 64); nerr != nil {
+			return fmt.Errorf("line %d: %s is not a number", linenumber, s[7])
+		}
+		attr += " opacity=\"" + s[7] + "\""
+	}
+	switch s[0] {
+	case "lbracket":
+		lbrace(w, x, y, height, width, 0, attr)
+	case "rbracket":
+		rbrace(w, x, y, height, width, 0, attr)
+	case "ubracket":
+		ubrace(w, x, y, width, 0, height, attr)
+	case "dbracket":
+		dbrace(w, x, y, width, 0, height, attr)
+	default:
+		return fmt.Errorf("line %d: use lbracket (left), rbracket (right), ubracket (up), dbracket (down)", linenumber)
+	}
+	return nil
+}
+
+// lbracket makes a left-facing bracket
+// func lbracket(w io.Writer, x, y, width, height float64, attr string) {
+// 	h2 := height/2
+// 	l := x-width
+// 	t := y + h2
+// 	b := y - h2
+// 	fmt.Fprintf(w, linefmt, x, t, l, t, attr)
+// 	fmt.Fprintf(w, linefmt, x, b, l, b, attr)
+// 	fmt.Fprintf(w, linefmt, x, b, x, t, attr)
+// }
+
+// // rbracket makes a right-facing bracket
+// func rbracket(w io.Writer, x, y, width, height float64, attr string) {
+// 	h2 := height/2
+// 	r := x+width
+// 	t := y + h2
+// 	b := y - h2
+// 	fmt.Fprintf(w, linefmt, x, t, r, t, attr)
+// 	fmt.Fprintf(w, linefmt, x, b, r, b, attr)
+// 	fmt.Fprintf(w, linefmt, x, b, x, t, attr)
+// }
+
+// // ubracket makes a up-facing bracket
+// func ubracket(w io.Writer, x, y, width, height float64, attr string) {
+// 	w2 := width/2
+// 	l := x-w2
+// 	r := x+w2
+// 	t := y + height
+// 	fmt.Fprintf(w, linefmt, l, y, r, y, attr)
+// 	fmt.Fprintf(w, linefmt, l, y, l, t, attr)
+// 	fmt.Fprintf(w, linefmt, r, y, l, t, attr)
+// }
+
+// // dbracket makes a down-facing bracket
+// func dbracket(w io.Writer, x, y, width, height float64, attr string) {
+// 	w2 := width/2
+// 	l := x-w2
+// 	r := x+w2
+// 	b := y - height
+// 	fmt.Fprintf(w, linefmt, l, y, r, y, attr)
+// 	fmt.Fprintf(w, linefmt, l, y, l, b, attr)
+// 	fmt.Fprintf(w, linefmt, r, y, l, b, attr)
+// }
+
 // brace makes various kinds of braces: (left, right, up, down)
 // lbrace x y size aw ah [linewidth] [color] [opacity]
 // rbrace x y size aw ah [linewidth] [color] [opacity]
@@ -2010,6 +2115,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 
 	case "lbrace", "rbrace", "ubrace", "dbrace":
 		return brace(w, tokens, n)
+
+	case "lbracket", "rbracket", "ubracket", "dbracket":
+		return bracket(w, tokens, n)
 
 	case "lcarrow", "rcarrow", "ucarrow", "dcarrow":
 		return carrow(w, tokens, n)
