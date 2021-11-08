@@ -162,6 +162,8 @@ Division ```id=<id> / number or <id>```
 
 	x=random min max
 
+![random](random.png)
+
 assign a random number in the specified range
 
 ## Square Root
@@ -177,6 +179,8 @@ return the square root of the number of expression (```id``` or binary operation
 ## Mapping
 
     x=vmap v vmin vmax min max
+
+![vmap](vmap.png)
 
 For value ```v```, map the range ```vmin-vmax``` to ```min-max```.
 
