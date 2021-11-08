@@ -486,7 +486,7 @@ left and right portions. ```linewidth```, ```color``` and ```opacity``` are opti
 
     ubracket x y width height [linewidth] [color] [opacity]
     
-![dbracket](bracket.png)
+![dbracket](dbracket.png)
 
     dbracket x y width height [linewidth] [color] [opacity]
     
