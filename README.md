@@ -1,11 +1,12 @@
 # decksh: a little language for deck markup
 
+![object reference](placemat.png)
+
 ```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup.
 
 ## Package use
 
 There is a simple method ```Process``` that reads decksh commands from an ```io.Reader``` and writes deck markup to an  ```io.Writer```, returning an error.
-
 
 ## Running
 
@@ -236,9 +237,15 @@ Left, centered, end, or block-aligned text (```x``` and ```y``` are the text's r
     etext      "text"     x y size       [font] [color] [opacity] [link]
     textblock  "text"     x y width size [font] [color] [opacity] [link]
 
+![text](text.png)
+![ctext](ctext.png)
+![etext](etext.png)
+
 Text rotated along the specified angle (in degrees)
 
     rtext      "text"     x y angle size [font] [color] [opacity] [link]
+
+![rtext](rtext.png)
 
 Text on an arc centered at ```(x,y)```, with specified radius, between begin and ending angles (in degrees).
 if the beginning angle is less than the ending angle the text is rendered counter-clockwise.
@@ -246,10 +253,14 @@ if the beginning angle is greater than the ending angle, the text is rendered cl
 
     arctext    "text"     x y radius begin-angle end-angle size [font] [color] [opacity] [link]
 
+![arctext](arctext.png)
+
 Place the contents of "filename" at (x,y). Place the contents of "filename" in gray box, using a monospaced font.
    
     textfile   "filename" x y       size [font] [color] [opacity] [linespacing]
     textcode   "filename" x y width size [color]
+
+![textfile](textfile.png)
 
 ## Images
 
@@ -258,6 +269,8 @@ and ```width``` and ```height``` are the image dimensions in pixels.
 
     image  "file"           x y width height [scale] [link]
     cimage "file" "caption" x y width height [scale] [link] [size]
+
+![image](image.png)
 
 ## Lists
 
@@ -353,8 +366,8 @@ The curve variants use the same syntax for specifying curves.
 ## Braces
 
 Left, right, up and down-facing braces.
-(x, y) is the location of the point of the brace, (aw, ah) are width and height of the bracket's
-end curves; linewidth, color and opacity are optional (defaults are gray, 100%)
+(x, y) is the location of the point of the brace, (aw, ah) are width and height of the braces's
+end curves; ```linewidth```, ```color``` and ```opacity``` are optional (defaults are 0.2, gray, 100%)
 
     lbrace x y height aw ah [linewidth] [color] [opacity]
     rbrace x y height aw ah [linewidth] [color] [opacity]
@@ -368,15 +381,14 @@ for left and right braces, or 0 for aw for up and down braces
 
 Left, right, up and down-facing brackets.
 (x, y) is the location of the center of the bracket.
-For l and r brackets, width the size of top and bottom portions, and height is the span of the bracket.
-For u and b brackets, width is the span of of bracket, and height is the size of the left and right portions.
-linewidth, color and opacity are optional (defaults are gray, 100%)
+For left and right-facing brackets, ```width``` is the size of the top and bottom portions, and ```height``` is the span of the bracket.
+For upward and downward-facing brackets, ```width``` is the span of of bracket, and ```height``` is the size of the 
+left and right portions. ```linewidth```, ```color``` and ```opacity``` are optional (defaults are 0.2, gray, 100%)
 
     lbracket x y width height [linewidth] [color] [opacity]
     rbracket x y width height [linewidth] [color] [opacity]
     ubracket x y width height [linewidth] [color] [opacity]
     dbracket x y width height [linewidth] [color] [opacity]
-
 
 ## Charts
 
