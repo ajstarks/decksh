@@ -478,19 +478,19 @@ left and right portions. ```linewidth```, ```color``` and ```opacity``` are opti
 
     lbracket x y width height [linewidth] [color] [opacity]
 
-!(lbracket)[lbracket.png]
+![lbracket](lbracket.png)
 
     rbracket x y width height [linewidth] [color] [opacity]
     
-!(rbracket)[rbracket.png]
+![rbracket](rbracket.png)
 
     ubracket x y width height [linewidth] [color] [opacity]
     
-!(dbracket)[dbracket.png]
+![dbracket](bracket.png)
 
     dbracket x y width height [linewidth] [color] [opacity]
     
-!(ubracket)[ubracket.png]
+![ubracket](ubracket.png)
 
 
 ## Charts
