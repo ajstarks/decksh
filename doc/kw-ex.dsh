@@ -19,7 +19,7 @@
 		ctext "mandatory" 28 71 2
 		ctext "optional"  58 71 2
 
-		ubrace 44 78 62 2 2 // args
+		ubrace 44 78 62 2 4 // args
 
 		vline  8    20 50  8 "maroon" 10
 		vline 29.75 20 50 34 argcolor 10

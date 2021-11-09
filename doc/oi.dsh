@@ -9,6 +9,7 @@
 	vskip=20
 	slide
 
+		// grid lines
 		for v=5 95 5
 			vline v 0 100 0.05 "blue" 20
 			hline 0 v 100 0.05 "red"  20
@@ -95,21 +96,21 @@
 		// row 4
 		xind=left
 		yind-=vskip
-		lbrace xind yind 7 1 1
+		lbrace xind yind 7 1 2
 		xind+=hskip
-		rbrace xind yind 7 1 1
+		rbrace xind yind 7 1 2
 		xind+=hskip
-		ubrace xind yind 7 1 1
+		ubrace xind yind 7 1 2
 		xind+=hskip
-		dbrace xind yind 7 1 1
+		dbrace xind yind 7 1 2
 		xind+=hskip
-		lbracket xind yind 1 7
+		lbracket xind yind 2 7
 		xind+=hskip
-		rbracket xind yind 1 7
+		rbracket xind yind 2 7
 		xind+=hskip
-		ubracket xind yind 7 1
+		ubracket xind yind 7 2
 		xind+=hskip
-		dbracket xind yind 7 1
+		dbracket xind yind 7 2
 		xind+=hskip
 
 		// row 5
