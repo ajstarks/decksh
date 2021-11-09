@@ -1486,11 +1486,11 @@ deck
 		lbracket 20 25 2 20 
 		ctext "lbrace 20 25 2 20" 20 ely ets "mono"
 
-		lbracket 50 25 4 20 0.2
-		ctext "lbracket 50 25 4 20 0.2" 50 ely ets "mono"
+		lbracket 50 25 4 20 1
+		ctext "lbracket 50 25 4 20 1" 50 ely ets "mono"
 
-		lbracket 80 25 6 20 0.2 "maroon"
-		ctext `lbracket 80 25 6 20 0.2 "maroon"` 80 ely ets "mono"
+		lbracket 80 25 6 20 1 "maroon"
+		ctext `lbracket 80 25 6 20 1 "maroon"` 80 ely ets "mono"
 	eslide
 
 	// rbracket
@@ -1511,11 +1511,11 @@ deck
 		rbracket 20 25 2 20 
 		ctext "lbrace 20 25 2 20" 20 ely ets "mono"
 
-		rbracket 50 25 4 20 0.2
-		ctext "rbracket 50 25 4 20 0.2" 50 ely ets "mono"
+		rbracket 50 25 4 20 1
+		ctext "rbracket 50 25 4 20 1" 50 ely ets "mono"
 
-		rbracket 80 25 6 20 0.2 "maroon"
-		ctext `rbracket 80 25 6 20 0.2 "maroon"` 80 ely ets "mono"
+		rbracket 80 25 6 20 1 "maroon"
+		ctext `rbracket 80 25 6 20 1 "maroon"` 80 ely ets "mono"
 	eslide
 
 	// ubracket
@@ -1539,8 +1539,8 @@ deck
 		ubracket 50 25 20 4 0.3
 		ctext "ubracket 50 25 20 4 0.3" 50 ely ets "mono"
 
-		ubracket 80 25 20 4 0.3 "maroon"
-		ctext `ubracket 80 25 20 4 0.3 "maroon"` 80 ely ets "mono"
+		ubracket 80 25 20 4 1 "maroon"
+		ctext `ubracket 80 25 20 4 1 "maroon"` 80 ely ets "mono"
 	eslide
 
 	// dbracket
@@ -1564,8 +1564,8 @@ deck
 		dbracket 50 25 20 4 0.3
 		ctext "dbracket 50 25 20 4 0.3" 50 ely ets "mono"
 
-		dbracket 80 25 20 4 0.3 "maroon"
-		ctext `dbracket 80 25 20 4 0.3 "maroon"` 80 ely ets "mono"
+		dbracket 80 25 20 4 1 "maroon"
+		ctext `dbracket 80 25 20 4 1 "maroon"` 80 ely ets "mono"
 	eslide
 
 	// assignments and data index
