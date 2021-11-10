@@ -464,20 +464,16 @@ end curves; ```linewidth```, ```color``` and ```opacity``` are optional (default
 
 ![ubrace](ubrace.png)
 
-
     dbrace x y width  aw ah [linewidth] [color] [opacity]
 
 ![dbrace](dbrace.png)
-
-You can make square brackets by using the keyword described below, or alternaively, use 0 for ah
-for left and right braces, or 0 for aw for up and down braces
 
 ## Brackets
 
 Left, right, up and down-facing brackets.
 (x, y) is the location of the center of the bracket.
 For left and right-facing brackets, ```width``` is the size of the top and bottom portions, and ```height``` is the span of the bracket.
-For upward and downward-facing brackets, ```width``` is the span of of bracket, and ```height``` is the size of the 
+For upward and downward-facing brackets, ```width``` is the span of of bracket, and ```height``` is the size of the
 left and right portions. ```linewidth```, ```color``` and ```opacity``` are optional (defaults are 0.2, gray, 100%)
 
     lbracket x y width height [linewidth] [color] [opacity]
@@ -485,17 +481,16 @@ left and right portions. ```linewidth```, ```color``` and ```opacity``` are opti
 ![lbracket](lbracket.png)
 
     rbracket x y width height [linewidth] [color] [opacity]
-    
+
 ![rbracket](rbracket.png)
 
     ubracket x y width height [linewidth] [color] [opacity]
-    
+
 ![dbracket](dbracket.png)
 
     dbracket x y width height [linewidth] [color] [opacity]
-    
-![ubracket](ubracket.png)
 
+![ubracket](ubracket.png)
 
 ## Charts
 

@@ -381,9 +381,9 @@
 <line xp1="100" yp1="100" xp2="100" yp2="0" sp="0.1" color="red"/>
 </slide>
 <slide>
-<ellipse xp="50.059189635076216" yp="67.69656847010455" wp="10" hr="100" color="red" opacity="67.69656847010455"/>
-<ellipse xp="86.8946186662688" yp="30.64431295707408" wp="10" hr="100" color="green" opacity="30.64431295707408"/>
-<ellipse xp="33.544962326046495" yp="46.82948283449044" wp="10" hr="100" color="blue" opacity="46.82948283449044"/>
+<ellipse xp="41.79646402065964" yp="51.477815559589565" wp="10" hr="100" color="red" opacity="51.477815559589565"/>
+<ellipse xp="74.78149104384369" yp="55.63782431565512" wp="10" hr="100" color="green" opacity="55.63782431565512"/>
+<ellipse xp="11.287217773868537" yp="89.38621083897486" wp="10" hr="100" color="blue" opacity="89.38621083897486"/>
 <text align="c" xp="50" yp="50" sp="5" >Random</text>
 </slide>
 <slide>
@@ -783,105 +783,101 @@
 <curve xp1="64.00" yp1="46.00" xp2="64.00" yp2="45.00" xp3="63.00" yp3="45.00" sp="0.2" color="red" opacity="30"/>
 <line xp1="64.00" yp1="52.00" xp2="64.00" yp2="54.00" sp="0.2" color="red" opacity="30"/>
 <line xp1="64.00" yp1="48.00" xp2="64.00" yp2="46.00" sp="0.2" color="red" opacity="30"/>
-<curve xp1="50.00" yp1="95.00" xp2="50.00" yp2="90.00" xp3="55.00" yp3="90.00" />
-<curve xp1="50.00" yp1="95.00" xp2="50.00" yp2="90.00" xp3="45.00" yp3="90.00" />
-<line xp1="55.00" yp1="90.00" xp2="75.00" yp2="90.00" />
-<line xp1="45.00" yp1="90.00" xp2="25.00" yp2="90.00" />
-<curve xp1="75.00" yp1="90.00" xp2="80.00" yp2="90.00" xp3="80.00" yp3="85.00" />
-<curve xp1="25.00" yp1="90.00" xp2="20.00" yp2="90.00" xp3="20.00" yp3="85.00" />
-<curve xp1="50.00" yp1="90.00" xp2="50.00" yp2="85.00" xp3="55.00" yp3="85.00" sp="0.2"/>
-<curve xp1="50.00" yp1="90.00" xp2="50.00" yp2="85.00" xp3="45.00" yp3="85.00" sp="0.2"/>
-<line xp1="55.00" yp1="85.00" xp2="70.00" yp2="85.00" sp="0.2"/>
-<line xp1="45.00" yp1="85.00" xp2="30.00" yp2="85.00" sp="0.2"/>
-<curve xp1="70.00" yp1="85.00" xp2="75.00" yp2="85.00" xp3="75.00" yp3="80.00" sp="0.2"/>
-<curve xp1="30.00" yp1="85.00" xp2="25.00" yp2="85.00" xp3="25.00" yp3="80.00" sp="0.2"/>
-<curve xp1="50.00" yp1="85.00" xp2="50.00" yp2="80.00" xp3="55.00" yp3="80.00" sp="0.2" color="red"/>
-<curve xp1="50.00" yp1="85.00" xp2="50.00" yp2="80.00" xp3="45.00" yp3="80.00" sp="0.2" color="red"/>
-<line xp1="55.00" yp1="80.00" xp2="65.00" yp2="80.00" sp="0.2" color="red"/>
-<line xp1="45.00" yp1="80.00" xp2="35.00" yp2="80.00" sp="0.2" color="red"/>
-<curve xp1="65.00" yp1="80.00" xp2="70.00" yp2="80.00" xp3="70.00" yp3="75.00" sp="0.2" color="red"/>
-<curve xp1="35.00" yp1="80.00" xp2="30.00" yp2="80.00" xp3="30.00" yp3="75.00" sp="0.2" color="red"/>
-<curve xp1="50.00" yp1="80.00" xp2="50.00" yp2="75.00" xp3="55.00" yp3="75.00" sp="0.2" color="red" opacity="50"/>
-<curve xp1="50.00" yp1="80.00" xp2="50.00" yp2="75.00" xp3="45.00" yp3="75.00" sp="0.2" color="red" opacity="50"/>
-<line xp1="55.00" yp1="75.00" xp2="60.00" yp2="75.00" sp="0.2" color="red" opacity="50"/>
-<line xp1="45.00" yp1="75.00" xp2="40.00" yp2="75.00" sp="0.2" color="red" opacity="50"/>
-<curve xp1="60.00" yp1="75.00" xp2="65.00" yp2="75.00" xp3="65.00" yp3="70.00" sp="0.2" color="red" opacity="50"/>
-<curve xp1="40.00" yp1="75.00" xp2="35.00" yp2="75.00" xp3="35.00" yp3="70.00" sp="0.2" color="red" opacity="50"/>
-<curve xp1="50.00" yp1="75.00" xp2="50.00" yp2="70.00" xp3="55.00" yp3="70.00" sp="0.2" color="red" opacity="40"/>
-<curve xp1="50.00" yp1="75.00" xp2="50.00" yp2="70.00" xp3="45.00" yp3="70.00" sp="0.2" color="red" opacity="40"/>
-<line xp1="55.00" yp1="70.00" xp2="55.00" yp2="70.00" sp="0.2" color="red" opacity="40"/>
-<line xp1="45.00" yp1="70.00" xp2="45.00" yp2="70.00" sp="0.2" color="red" opacity="40"/>
-<curve xp1="55.00" yp1="70.00" xp2="60.00" yp2="70.00" xp3="60.00" yp3="65.00" sp="0.2" color="red" opacity="40"/>
-<curve xp1="45.00" yp1="70.00" xp2="40.00" yp2="70.00" xp3="40.00" yp3="65.00" sp="0.2" color="red" opacity="40"/>
-<curve xp1="50.00" yp1="70.00" xp2="50.00" yp2="68.00" xp3="52.00" yp3="68.00" sp="0.2" color="red" opacity="30"/>
-<curve xp1="50.00" yp1="70.00" xp2="50.00" yp2="68.00" xp3="48.00" yp3="68.00" sp="0.2" color="red" opacity="30"/>
-<line xp1="52.00" yp1="68.00" xp2="53.00" yp2="68.00" sp="0.2" color="red" opacity="30"/>
-<line xp1="48.00" yp1="68.00" xp2="47.00" yp2="68.00" sp="0.2" color="red" opacity="30"/>
-<curve xp1="53.00" yp1="68.00" xp2="55.00" yp2="68.00" xp3="55.00" yp3="66.00" sp="0.2" color="red" opacity="30"/>
-<curve xp1="47.00" yp1="68.00" xp2="45.00" yp2="68.00" xp3="45.00" yp3="66.00" sp="0.2" color="red" opacity="30"/>
-<curve xp1="50.00" yp1="5.00" xp2="50.00" yp2="10.00" xp3="55.00" yp3="10.00" />
-<curve xp1="50.00" yp1="5.00" xp2="50.00" yp2="10.00" xp3="45.00" yp3="10.00" />
-<line xp1="55.00" yp1="10.00" xp2="75.00" yp2="10.00" />
-<line xp1="45.00" yp1="10.00" xp2="25.00" yp2="10.00" />
-<curve xp1="75.00" yp1="10.00" xp2="80.00" yp2="10.00" xp3="80.00" yp3="15.00" />
-<curve xp1="25.00" yp1="10.00" xp2="20.00" yp2="10.00" xp3="20.00" yp3="15.00" />
-<curve xp1="50.00" yp1="10.00" xp2="50.00" yp2="15.00" xp3="55.00" yp3="15.00" sp="0.2"/>
-<curve xp1="50.00" yp1="10.00" xp2="50.00" yp2="15.00" xp3="45.00" yp3="15.00" sp="0.2"/>
-<line xp1="55.00" yp1="15.00" xp2="70.00" yp2="15.00" sp="0.2"/>
-<line xp1="45.00" yp1="15.00" xp2="30.00" yp2="15.00" sp="0.2"/>
-<curve xp1="70.00" yp1="15.00" xp2="75.00" yp2="15.00" xp3="75.00" yp3="20.00" sp="0.2"/>
-<curve xp1="30.00" yp1="15.00" xp2="25.00" yp2="15.00" xp3="25.00" yp3="20.00" sp="0.2"/>
-<curve xp1="50.00" yp1="15.00" xp2="50.00" yp2="20.00" xp3="55.00" yp3="20.00" sp="0.2" color="red"/>
-<curve xp1="50.00" yp1="15.00" xp2="50.00" yp2="20.00" xp3="45.00" yp3="20.00" sp="0.2" color="red"/>
-<line xp1="55.00" yp1="20.00" xp2="65.00" yp2="20.00" sp="0.2" color="red"/>
-<line xp1="45.00" yp1="20.00" xp2="35.00" yp2="20.00" sp="0.2" color="red"/>
-<curve xp1="65.00" yp1="20.00" xp2="70.00" yp2="20.00" xp3="70.00" yp3="25.00" sp="0.2" color="red"/>
-<curve xp1="35.00" yp1="20.00" xp2="30.00" yp2="20.00" xp3="30.00" yp3="25.00" sp="0.2" color="red"/>
-<curve xp1="50.00" yp1="20.00" xp2="50.00" yp2="25.00" xp3="55.00" yp3="25.00" sp="0.2" color="red" opacity="50"/>
-<curve xp1="50.00" yp1="20.00" xp2="50.00" yp2="25.00" xp3="45.00" yp3="25.00" sp="0.2" color="red" opacity="50"/>
-<line xp1="55.00" yp1="25.00" xp2="60.00" yp2="25.00" sp="0.2" color="red" opacity="50"/>
-<line xp1="45.00" yp1="25.00" xp2="40.00" yp2="25.00" sp="0.2" color="red" opacity="50"/>
-<curve xp1="60.00" yp1="25.00" xp2="65.00" yp2="25.00" xp3="65.00" yp3="30.00" sp="0.2" color="red" opacity="50"/>
-<curve xp1="40.00" yp1="25.00" xp2="35.00" yp2="25.00" xp3="35.00" yp3="30.00" sp="0.2" color="red" opacity="50"/>
-<curve xp1="50.00" yp1="25.00" xp2="50.00" yp2="30.00" xp3="55.00" yp3="30.00" sp="0.2" color="red" opacity="40"/>
-<curve xp1="50.00" yp1="25.00" xp2="50.00" yp2="30.00" xp3="45.00" yp3="30.00" sp="0.2" color="red" opacity="40"/>
-<line xp1="55.00" yp1="30.00" xp2="55.00" yp2="30.00" sp="0.2" color="red" opacity="40"/>
-<line xp1="45.00" yp1="30.00" xp2="45.00" yp2="30.00" sp="0.2" color="red" opacity="40"/>
-<curve xp1="55.00" yp1="30.00" xp2="60.00" yp2="30.00" xp3="60.00" yp3="35.00" sp="0.2" color="red" opacity="40"/>
-<curve xp1="45.00" yp1="30.00" xp2="40.00" yp2="30.00" xp3="40.00" yp3="35.00" sp="0.2" color="red" opacity="40"/>
-<curve xp1="50.00" yp1="30.00" xp2="50.00" yp2="32.00" xp3="52.00" yp3="32.00" sp="0.2" color="red" opacity="30"/>
-<curve xp1="50.00" yp1="30.00" xp2="50.00" yp2="32.00" xp3="48.00" yp3="32.00" sp="0.2" color="red" opacity="30"/>
-<line xp1="52.00" yp1="32.00" xp2="53.00" yp2="32.00" sp="0.2" color="red" opacity="30"/>
-<line xp1="48.00" yp1="32.00" xp2="47.00" yp2="32.00" sp="0.2" color="red" opacity="30"/>
-<curve xp1="53.00" yp1="32.00" xp2="55.00" yp2="32.00" xp3="55.00" yp3="34.00" sp="0.2" color="red" opacity="30"/>
-<curve xp1="47.00" yp1="32.00" xp2="45.00" yp2="32.00" xp3="45.00" yp3="34.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="50.00" yp1="95.00" xp2="50.00" yp2="92.50" xp3="55.00" yp3="92.50" />
+<curve xp1="50.00" yp1="95.00" xp2="50.00" yp2="92.50" xp3="45.00" yp3="92.50" />
+<line xp1="55.00" yp1="92.50" xp2="75.00" yp2="92.50" />
+<line xp1="45.00" yp1="92.50" xp2="25.00" yp2="92.50" />
+<curve xp1="75.00" yp1="92.50" xp2="80.00" yp2="92.50" xp3="80.00" yp3="90.00" />
+<curve xp1="25.00" yp1="92.50" xp2="20.00" yp2="92.50" xp3="20.00" yp3="90.00" />
+<curve xp1="50.00" yp1="90.00" xp2="50.00" yp2="87.50" xp3="55.00" yp3="87.50" sp="0.2"/>
+<curve xp1="50.00" yp1="90.00" xp2="50.00" yp2="87.50" xp3="45.00" yp3="87.50" sp="0.2"/>
+<line xp1="55.00" yp1="87.50" xp2="70.00" yp2="87.50" sp="0.2"/>
+<line xp1="45.00" yp1="87.50" xp2="30.00" yp2="87.50" sp="0.2"/>
+<curve xp1="70.00" yp1="87.50" xp2="75.00" yp2="87.50" xp3="75.00" yp3="85.00" sp="0.2"/>
+<curve xp1="30.00" yp1="87.50" xp2="25.00" yp2="87.50" xp3="25.00" yp3="85.00" sp="0.2"/>
+<curve xp1="50.00" yp1="85.00" xp2="50.00" yp2="82.50" xp3="55.00" yp3="82.50" sp="0.2" color="red"/>
+<curve xp1="50.00" yp1="85.00" xp2="50.00" yp2="82.50" xp3="45.00" yp3="82.50" sp="0.2" color="red"/>
+<line xp1="55.00" yp1="82.50" xp2="65.00" yp2="82.50" sp="0.2" color="red"/>
+<line xp1="45.00" yp1="82.50" xp2="35.00" yp2="82.50" sp="0.2" color="red"/>
+<curve xp1="65.00" yp1="82.50" xp2="70.00" yp2="82.50" xp3="70.00" yp3="80.00" sp="0.2" color="red"/>
+<curve xp1="35.00" yp1="82.50" xp2="30.00" yp2="82.50" xp3="30.00" yp3="80.00" sp="0.2" color="red"/>
+<curve xp1="50.00" yp1="80.00" xp2="50.00" yp2="77.50" xp3="55.00" yp3="77.50" sp="0.2" color="red" opacity="50"/>
+<curve xp1="50.00" yp1="80.00" xp2="50.00" yp2="77.50" xp3="45.00" yp3="77.50" sp="0.2" color="red" opacity="50"/>
+<line xp1="55.00" yp1="77.50" xp2="60.00" yp2="77.50" sp="0.2" color="red" opacity="50"/>
+<line xp1="45.00" yp1="77.50" xp2="40.00" yp2="77.50" sp="0.2" color="red" opacity="50"/>
+<curve xp1="60.00" yp1="77.50" xp2="65.00" yp2="77.50" xp3="65.00" yp3="75.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="40.00" yp1="77.50" xp2="35.00" yp2="77.50" xp3="35.00" yp3="75.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="50.00" yp1="75.00" xp2="50.00" yp2="72.50" xp3="55.00" yp3="72.50" sp="0.2" color="red" opacity="40"/>
+<curve xp1="50.00" yp1="75.00" xp2="50.00" yp2="72.50" xp3="45.00" yp3="72.50" sp="0.2" color="red" opacity="40"/>
+<line xp1="55.00" yp1="72.50" xp2="55.00" yp2="72.50" sp="0.2" color="red" opacity="40"/>
+<line xp1="45.00" yp1="72.50" xp2="45.00" yp2="72.50" sp="0.2" color="red" opacity="40"/>
+<curve xp1="55.00" yp1="72.50" xp2="60.00" yp2="72.50" xp3="60.00" yp3="70.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="45.00" yp1="72.50" xp2="40.00" yp2="72.50" xp3="40.00" yp3="70.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="50.00" yp1="70.00" xp2="50.00" yp2="69.00" xp3="52.00" yp3="69.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="50.00" yp1="70.00" xp2="50.00" yp2="69.00" xp3="48.00" yp3="69.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="52.00" yp1="69.00" xp2="53.00" yp2="69.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="48.00" yp1="69.00" xp2="47.00" yp2="69.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="53.00" yp1="69.00" xp2="55.00" yp2="69.00" xp3="55.00" yp3="68.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="47.00" yp1="69.00" xp2="45.00" yp2="69.00" xp3="45.00" yp3="68.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="50.00" yp1="5.00" xp2="50.00" yp2="7.50" xp3="55.00" yp3="7.50" />
+<curve xp1="50.00" yp1="5.00" xp2="50.00" yp2="7.50" xp3="45.00" yp3="7.50" />
+<line xp1="55.00" yp1="7.50" xp2="75.00" yp2="7.50" />
+<line xp1="45.00" yp1="7.50" xp2="25.00" yp2="7.50" />
+<curve xp1="75.00" yp1="7.50" xp2="80.00" yp2="7.50" xp3="80.00" yp3="10.00" />
+<curve xp1="25.00" yp1="7.50" xp2="20.00" yp2="7.50" xp3="20.00" yp3="10.00" />
+<curve xp1="50.00" yp1="10.00" xp2="50.00" yp2="12.50" xp3="55.00" yp3="12.50" sp="0.2"/>
+<curve xp1="50.00" yp1="10.00" xp2="50.00" yp2="12.50" xp3="45.00" yp3="12.50" sp="0.2"/>
+<line xp1="55.00" yp1="12.50" xp2="70.00" yp2="12.50" sp="0.2"/>
+<line xp1="45.00" yp1="12.50" xp2="30.00" yp2="12.50" sp="0.2"/>
+<curve xp1="70.00" yp1="12.50" xp2="75.00" yp2="12.50" xp3="75.00" yp3="15.00" sp="0.2"/>
+<curve xp1="30.00" yp1="12.50" xp2="25.00" yp2="12.50" xp3="25.00" yp3="15.00" sp="0.2"/>
+<curve xp1="50.00" yp1="15.00" xp2="50.00" yp2="17.50" xp3="55.00" yp3="17.50" sp="0.2" color="red"/>
+<curve xp1="50.00" yp1="15.00" xp2="50.00" yp2="17.50" xp3="45.00" yp3="17.50" sp="0.2" color="red"/>
+<line xp1="55.00" yp1="17.50" xp2="65.00" yp2="17.50" sp="0.2" color="red"/>
+<line xp1="45.00" yp1="17.50" xp2="35.00" yp2="17.50" sp="0.2" color="red"/>
+<curve xp1="65.00" yp1="17.50" xp2="70.00" yp2="17.50" xp3="70.00" yp3="20.00" sp="0.2" color="red"/>
+<curve xp1="35.00" yp1="17.50" xp2="30.00" yp2="17.50" xp3="30.00" yp3="20.00" sp="0.2" color="red"/>
+<curve xp1="50.00" yp1="20.00" xp2="50.00" yp2="22.50" xp3="55.00" yp3="22.50" sp="0.2" color="red" opacity="50"/>
+<curve xp1="50.00" yp1="20.00" xp2="50.00" yp2="22.50" xp3="45.00" yp3="22.50" sp="0.2" color="red" opacity="50"/>
+<line xp1="55.00" yp1="22.50" xp2="60.00" yp2="22.50" sp="0.2" color="red" opacity="50"/>
+<line xp1="45.00" yp1="22.50" xp2="40.00" yp2="22.50" sp="0.2" color="red" opacity="50"/>
+<curve xp1="60.00" yp1="22.50" xp2="65.00" yp2="22.50" xp3="65.00" yp3="25.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="40.00" yp1="22.50" xp2="35.00" yp2="22.50" xp3="35.00" yp3="25.00" sp="0.2" color="red" opacity="50"/>
+<curve xp1="50.00" yp1="25.00" xp2="50.00" yp2="27.50" xp3="55.00" yp3="27.50" sp="0.2" color="red" opacity="40"/>
+<curve xp1="50.00" yp1="25.00" xp2="50.00" yp2="27.50" xp3="45.00" yp3="27.50" sp="0.2" color="red" opacity="40"/>
+<line xp1="55.00" yp1="27.50" xp2="55.00" yp2="27.50" sp="0.2" color="red" opacity="40"/>
+<line xp1="45.00" yp1="27.50" xp2="45.00" yp2="27.50" sp="0.2" color="red" opacity="40"/>
+<curve xp1="55.00" yp1="27.50" xp2="60.00" yp2="27.50" xp3="60.00" yp3="30.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="45.00" yp1="27.50" xp2="40.00" yp2="27.50" xp3="40.00" yp3="30.00" sp="0.2" color="red" opacity="40"/>
+<curve xp1="50.00" yp1="30.00" xp2="50.00" yp2="31.00" xp3="52.00" yp3="31.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="50.00" yp1="30.00" xp2="50.00" yp2="31.00" xp3="48.00" yp3="31.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="52.00" yp1="31.00" xp2="53.00" yp2="31.00" sp="0.2" color="red" opacity="30"/>
+<line xp1="48.00" yp1="31.00" xp2="47.00" yp2="31.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="53.00" yp1="31.00" xp2="55.00" yp2="31.00" xp3="55.00" yp3="32.00" sp="0.2" color="red" opacity="30"/>
+<curve xp1="47.00" yp1="31.00" xp2="45.00" yp2="31.00" xp3="45.00" yp3="32.00" sp="0.2" color="red" opacity="30"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="50" sp="5" >Brackets</text>
-<curve xp1="70.00" yp1="50.00" xp2="67.50" yp2="50.00" xp3="67.50" yp3="50.00" sp="0.2" color="red"/>
-<curve xp1="70.00" yp1="50.00" xp2="67.50" yp2="50.00" xp3="67.50" yp3="50.00" sp="0.2" color="red"/>
-<curve xp1="67.50" yp1="65.00" xp2="67.50" yp2="65.00" xp3="65.00" yp3="65.00" sp="0.2" color="red"/>
-<curve xp1="67.50" yp1="35.00" xp2="67.50" yp2="35.00" xp3="65.00" yp3="35.00" sp="0.2" color="red"/>
-<line xp1="67.50" yp1="50.00" xp2="67.50" yp2="65.00" sp="0.2" color="red"/>
-<line xp1="67.50" yp1="50.00" xp2="67.50" yp2="35.00" sp="0.2" color="red"/>
-<curve xp1="30.00" yp1="50.00" xp2="32.50" yp2="50.00" xp3="32.50" yp3="50.00" sp="0.2" color="red"/>
-<curve xp1="30.00" yp1="50.00" xp2="32.50" yp2="50.00" xp3="32.50" yp3="50.00" sp="0.2" color="red"/>
-<curve xp1="32.50" yp1="65.00" xp2="32.50" yp2="65.00" xp3="35.00" yp3="65.00" sp="0.2" color="red"/>
-<curve xp1="32.50" yp1="35.00" xp2="32.50" yp2="35.00" xp3="35.00" yp3="35.00" sp="0.2" color="red"/>
-<line xp1="32.50" yp1="50.00" xp2="32.50" yp2="65.00" sp="0.2" color="red"/>
-<line xp1="32.50" yp1="50.00" xp2="32.50" yp2="35.00" sp="0.2" color="red"/>
-<curve xp1="50.00" yp1="80.00" xp2="50.00" yp2="75.00" xp3="50.00" yp3="75.00" sp="0.2" color="red"/>
-<curve xp1="50.00" yp1="80.00" xp2="50.00" yp2="75.00" xp3="50.00" yp3="75.00" sp="0.2" color="red"/>
-<line xp1="50.00" yp1="75.00" xp2="65.00" yp2="75.00" sp="0.2" color="red"/>
-<line xp1="50.00" yp1="75.00" xp2="35.00" yp2="75.00" sp="0.2" color="red"/>
-<curve xp1="65.00" yp1="75.00" xp2="65.00" yp2="75.00" xp3="65.00" yp3="70.00" sp="0.2" color="red"/>
-<curve xp1="35.00" yp1="75.00" xp2="35.00" yp2="75.00" xp3="35.00" yp3="70.00" sp="0.2" color="red"/>
-<curve xp1="50.00" yp1="20.00" xp2="50.00" yp2="25.00" xp3="50.00" yp3="25.00" sp="0.2" color="red"/>
-<curve xp1="50.00" yp1="20.00" xp2="50.00" yp2="25.00" xp3="50.00" yp3="25.00" sp="0.2" color="red"/>
-<line xp1="50.00" yp1="25.00" xp2="65.00" yp2="25.00" sp="0.2" color="red"/>
-<line xp1="50.00" yp1="25.00" xp2="35.00" yp2="25.00" sp="0.2" color="red"/>
-<curve xp1="65.00" yp1="25.00" xp2="65.00" yp2="25.00" xp3="65.00" yp3="30.00" sp="0.2" color="red"/>
-<curve xp1="35.00" yp1="25.00" xp2="35.00" yp2="25.00" xp3="35.00" yp3="30.00" sp="0.2" color="red"/>
+<line xp1="70.00" yp1="50.00" xp2="67.50" yp2="50.00" sp="0.2" color="red"/>
+<line xp1="67.50" yp1="65.00" xp2="67.50" yp2="35.00" sp="0.2" color="red"/>
+<rect xp="67.50" yp="65.00" wp="0.20" hp="0.20" hr="100" sp="0.2" color="red"/>
+<rect xp="67.50" yp="35.00" wp="0.20" hp="0.20" hr="100" sp="0.2" color="red"/>
+<line xp1="67.50" yp1="65.00" xp2="65.00" yp2="65.00" sp="0.2" color="red"/>
+<line xp1="67.50" yp1="35.00" xp2="65.00" yp2="35.00" sp="0.2" color="red"/>
+<line xp1="30.00" yp1="50.00" xp2="32.50" yp2="50.00" sp="0.2" color="red"/>
+<line xp1="32.50" yp1="65.00" xp2="32.50" yp2="35.00" sp="0.2" color="red"/>
+<rect xp="32.50" yp="65.00" wp="0.20" hp="0.20" hr="100" sp="0.2" color="red"/>
+<rect xp="32.50" yp="35.00" wp="0.20" hp="0.20" hr="100" sp="0.2" color="red"/>
+<line xp1="32.50" yp1="65.00" xp2="35.00" yp2="65.00" sp="0.2" color="red"/>
+<line xp1="32.50" yp1="35.00" xp2="35.00" yp2="35.00" sp="0.2" color="red"/>
+<line xp1="50.00" yp1="80.00" xp2="50.00" yp2="77.50" sp="0.2" color="red"/>
+<line xp1="34.90" yp1="77.50" xp2="65.10" yp2="77.50" sp="0.2" color="red"/>
+<line xp1="35.00" yp1="77.50" xp2="35.00" yp2="75.00" sp="0.2" color="red"/>
+<line xp1="65.00" yp1="77.50" xp2="65.00" yp2="75.00" sp="0.2" color="red"/>
+<line xp1="50.00" yp1="20.00" xp2="50.00" yp2="22.50" sp="0.2" color="red"/>
+<line xp1="34.90" yp1="22.50" xp2="65.10" yp2="22.50" sp="0.2" color="red"/>
+<line xp1="35.00" yp1="22.50" xp2="35.00" yp2="25.00" sp="0.2" color="red"/>
+<line xp1="65.00" yp1="22.50" xp2="65.00" yp2="25.00" sp="0.2" color="red"/>
 <text align="c" xp="50" yp="17" sp="3" >down</text>
 <text align="c" xp="50" yp="81" sp="3" >up</text>
 <text xp="70" yp="50" sp="3" >right</text>

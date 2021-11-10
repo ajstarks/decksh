@@ -29,6 +29,7 @@ const (
 	stdnotch    = 0.75
 	curvefmt    = "<curve xp1=\"%.2f\" yp1=\"%.2f\" xp2=\"%.2f\" yp2=\"%.2f\" xp3=\"%.2f\" yp3=\"%.2f\" %s/>\n"
 	linefmt     = "<line xp1=\"%.2f\" yp1=\"%.2f\" xp2=\"%.2f\" yp2=\"%.2f\" %s/>\n"
+	sqfmt     = "<rect xp=\"%.2f\" yp=\"%.2f\" wp=\"%.2f\" hp=\"%.2f\" hr=\"100\" %s/>\n"
 )
 
 // emap is the id=expression map
@@ -1309,7 +1310,7 @@ func bracket(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 5 {
 		return fmt.Errorf("line %d: [l,r,u,d]bracket x y w h [linewidth] [color] [opacity]", linenumber)
 	}
-	var x, y, width, height float64
+	var x, y, width, height, linewidth float64
 	var err error
 
 	x, err = strconv.ParseFloat(s[1], 64)
@@ -1329,12 +1330,15 @@ func bracket(w io.Writer, s []string, linenumber int) error {
 		return fmt.Errorf("line %d: %s is not a number", linenumber, s[4])
 	}
 
+	linewidth = 0.2 // default
 	// replace optional args, checking for validity
 	attr := ""
 	if len(s) >= 6 {
-		if _, nerr := strconv.ParseFloat(s[5], 64); nerr != nil {
+		lw, nerr := strconv.ParseFloat(s[5], 64)
+		if nerr != nil {
 			return fmt.Errorf("line %d: %s is not a number", linenumber, s[5])
 		}
+		linewidth = lw
 		attr += "sp=\"" + s[5] + "\""
 	}
 	if len(s) >= 7 {
@@ -1348,17 +1352,13 @@ func bracket(w io.Writer, s []string, linenumber int) error {
 	}
 	switch s[0] {
 	case "lbracket":
-		lbracket(w, x, y, width, height, attr)
-		//lbrace(w, x, y, height, attr, width, 0, attr)
+		lbracket(w, x, y, width, height, linewidth, attr)
 	case "rbracket":
-		rbracket(w, x, y, width, height, attr)
-		//rbrace(w, x, y, height, attr, width, 0, attr)
+		rbracket(w, x, y, width, height, linewidth, attr)
 	case "ubracket":
-		ubracket(w, x, y, width, height, attr)
-		//ubrace(w, x, y, width, 0, height, attr, attr)
+		ubracket(w, x, y, width, height, linewidth, attr)
 	case "dbracket":
-		dbracket(w, x, y, width, height, attr)
-		//dbrace(w, x, y, width, 0, height, attr)
+		dbracket(w, x, y, width, height, linewidth, attr)
 	default:
 		return fmt.Errorf("line %d: use lbracket (left), rbracket (right), ubracket (up), dbracket (down)", linenumber)
 	}
@@ -1366,45 +1366,51 @@ func bracket(w io.Writer, s []string, linenumber int) error {
 }
 
 // lbracket makes a left-facing bracket
-func lbracket(w io.Writer, x, y, width, height float64, attr string) {
-	hh := height / 2
+func lbracket(w io.Writer, x, y, width, height, lw float64, attr string) {
+	hh := (height / 2)
 	x2 := x + (width / 2)
 	xw := x + width
 	fmt.Fprintf(w, linefmt, x, y, x2, y, attr)
 	fmt.Fprintf(w, linefmt, x2, y+hh, x2, y-hh, attr)
+	fmt.Fprintf(w, sqfmt, x2, y+hh, lw, lw, attr) // join segment (top)
+	fmt.Fprintf(w, sqfmt, x2, y-hh, lw, lw, attr) // join segment (bottom)
 	fmt.Fprintf(w, linefmt, x2, y+hh, xw, y+hh, attr)
 	fmt.Fprintf(w, linefmt, x2, y-hh, xw, y-hh, attr)
 }
 
 // rbracket makes a right-facing bracket
-func rbracket(w io.Writer, x, y, width, height float64, attr string) {
+func rbracket(w io.Writer, x, y, width, height, lw float64, attr string) {
 	hh := height / 2
 	x2 := x - (width / 2)
 	xw := x - width
 	fmt.Fprintf(w, linefmt, x, y, x2, y, attr)
 	fmt.Fprintf(w, linefmt, x2, y+hh, x2, y-hh, attr)
+	fmt.Fprintf(w, sqfmt, x2, y+hh, lw, lw, attr) // join segment (top)
+	fmt.Fprintf(w, sqfmt, x2, y-hh, lw, lw, attr) // join segment (bottom)
 	fmt.Fprintf(w, linefmt, x2, y+hh, xw, y+hh, attr)
 	fmt.Fprintf(w, linefmt, x2, y-hh, xw, y-hh, attr)
 }
 
 // ubracket makes a up-facing bracket
-func ubracket(w io.Writer, x, y, width, height float64, attr string) {
+func ubracket(w io.Writer, x, y, width, height, lw float64, attr string) {
+	miter := lw / 2 // join the segments
 	hh := height / 2
 	wh := width / 2
 	yh := y - hh
 	fmt.Fprintf(w, linefmt, x, y, x, yh, attr)
-	fmt.Fprintf(w, linefmt, x-wh, yh, x+wh, yh, attr)
+	fmt.Fprintf(w, linefmt, x-wh-miter, yh, x+wh+miter, yh, attr) // join
 	fmt.Fprintf(w, linefmt, x-wh, yh, x-wh, y-height, attr)
 	fmt.Fprintf(w, linefmt, x+wh, yh, x+wh, y-height, attr)
 }
 
 // dbracket makes a down-facing bracket
-func dbracket(w io.Writer, x, y, width, height float64, attr string) {
+func dbracket(w io.Writer, x, y, width, height, lw float64, attr string) {
+	miter := lw / 2 // join the segments
 	hh := height / 2
 	wh := width / 2
 	yh := y + hh
 	fmt.Fprintf(w, linefmt, x, y, x, yh, attr)
-	fmt.Fprintf(w, linefmt, x-wh, yh, x+wh, yh, attr)
+	fmt.Fprintf(w, linefmt, x-wh-miter, yh, x+wh+miter, yh, attr) // join
 	fmt.Fprintf(w, linefmt, x-wh, yh, x-wh, y+height, attr)
 	fmt.Fprintf(w, linefmt, x+wh, yh, x+wh, y+height, attr)
 }
@@ -1505,7 +1511,7 @@ func rbrace(w io.Writer, x, y, size, aw, ah float64, attr string) {
 // ubrace makes a upwards-facing brace
 func ubrace(w io.Writer, x, y, size, aw, ah float64, attr string) {
 	linelen := (size / 2) - aw
-	yshift := y - (ah/2)
+	yshift := y - (ah / 2)
 	fmt.Fprintf(w, curvefmt, x, y, x, yshift, x+aw, yshift, attr)
 	fmt.Fprintf(w, curvefmt, x, y, x, yshift, x-aw, yshift, attr)
 	fmt.Fprintf(w, linefmt, x+aw, yshift, x+linelen, yshift, attr)
@@ -1517,7 +1523,7 @@ func ubrace(w io.Writer, x, y, size, aw, ah float64, attr string) {
 // lbrace makes a downward-facing brace
 func dbrace(w io.Writer, x, y, size, aw, ah float64, attr string) {
 	linelen := (size / 2) - aw
-	yshift := y + (ah/2)
+	yshift := y + (ah / 2)
 	fmt.Fprintf(w, curvefmt, x, y, x, yshift, x+aw, yshift, attr)
 	fmt.Fprintf(w, curvefmt, x, y, x, yshift, x-aw, yshift, attr)
 	fmt.Fprintf(w, linefmt, x+aw, yshift, x+linelen, yshift, attr)
