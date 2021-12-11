@@ -43,7 +43,7 @@ deck
 			li "$ git clone https://github.com/ajstarks/deckfonts"
 			li "Install fonts into $HOME/deckfonts" capfont capcolor
 			li
-			li "$ decksh -? ; pdfdeck -?"
+			li "$ decksh -help ; pdfdeck -help"
 			li "Do a test run of decksh and pdfdeck" capfont capcolor
 		elist
 	eslide
