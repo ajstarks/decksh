@@ -39,11 +39,11 @@ deck
 			li "$ go install github.com/ajstarks/deck/cmd/pdfdeck@latest"
 			li "Install the latest version of pdfdeck" capfont capcolor
 			li
-			li "$ cd $HOME"
-			li "$ git clone https://github.com/ajstarks/deckfonts"
+			li "$ git clone https://github.com/ajstarks/deckfonts $HOME"
 			li "Install fonts into $HOME/deckfonts" capfont capcolor
 			li
-			li "$ decksh -help ; pdfdeck -help"
+			li "$ decksh -help"
+			li "$ pdfdeck -help"
 			li "Do a test run of decksh and pdfdeck" capfont capcolor
 		elist
 	eslide
@@ -378,7 +378,7 @@ deck
 			li "zapfdingbats"
 			li "1-1000000"
 			li "Letter"
-			li "false"
+			li "0"
 			li "$HOME/deckfonts"
 			li "Current directory"
 			li "false"
@@ -394,7 +394,7 @@ deck
 			li "Symbol font"
 			li "Pages to output (first-last)"
 			li "Page size (w,h or Legal, Tabloid, A[3-5], ArchA, 4R, Index)"
-			li "Draw a percent grid"
+			li "Draw a grid at specified % (0 for no grid)"
 			li "Font directory"
 			li "Output directory"
 			li "Output to standard output"
@@ -405,7 +405,7 @@ deck
 
 	slide bgcolor fgcolor
 		ctext "command examples" mid top ts
-		list 5 80 2.2 "mono" cmdcolor 100 1.4
+		list 3 80 2.2 "mono" cmdcolor 100 1.4
 			li "decksh -o file.xml file.dsh; pdfdeck file.xml"
 			li "process file.dsh to file.xml to file.pdf" "serif" capcolor
 			li
