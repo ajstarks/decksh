@@ -8,7 +8,7 @@
 		},
 		{
 			"name": "keyword.other.command.decksh",
-			"match": "(?:deck|edeck|canvas|def|edef|format|include|grid|func|call|callfunc|vmap|slide|eslide|textbox|textblock|textfile|textcode|arctext|text|ctext|etext|rtext|random|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|line|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polygon|pill|rect|roundrect|rrect|square|ellipse|star|circle|acircle|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|area|polarx|polary|sqrt)"
+			"match": "(?:deck|edeck|canvas|def|edef|format|include|grid|func|call|callfunc|vmap|slide|eslide|textbox|textblock|textfile|textcode|arctext|text|ctext|etext|rtext|random|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|line|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polygon|pill|rect|roundrect|rrect|square|ellipse|star|circle|acircle|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|area|polar|polarx|polary|sqrt)"
 		},
 		
 		{
