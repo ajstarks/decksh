@@ -1693,7 +1693,7 @@ deck
 
 		p=polar pcx pcy rad theta
 		lpx=p_x+2
-		text "(px,py)" lpx p_y lw "mono"
+		text "(p_x,p_y)" lpx p_y lw "mono"
 		text "theta" 47 67 lw "mono"
 		etext "radius" 45 75 lw "mono"
 		line pcx pcy p_x p_y 0.5

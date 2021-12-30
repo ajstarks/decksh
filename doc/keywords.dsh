@@ -121,6 +121,7 @@
 		lx+=csep
 		text "Assignments" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
+			li "polar"
 			li "polarx"
 			li "polary"
 			li "area"
