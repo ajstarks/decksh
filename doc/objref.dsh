@@ -1580,6 +1580,7 @@ deck
 			li "Loop"
 			li "Polar coordinate (x)"
 			li "Polar coordinate (y)"
+			li "Polar coordinates"
 			li "Area"
 			li "Formatted text"
 			li "Random number"
@@ -1596,6 +1597,7 @@ deck
 			li "for v="
 			li "x=polarx"
 			li "y=polary"
+			li "value=polar"
 			li "value=area"
 			li "value=format"
 			li "value=random"
@@ -1610,6 +1612,7 @@ deck
 		list rc lsty lfs "mono" argcolor 100 listspacing
 			li tbl3 "sans" objcolor
 			li "begin end [increment] ... efor"
+			li "x y radius angle"
 			li "x y radius angle"
 			li "x y radius angle"
 			li "expression"
@@ -1673,6 +1676,33 @@ deck
 
 		include  "code/p1.dsh"
 		textfile "code/p1.dsh" 10 35 2 "mono"
+	eslide
+
+	// polar
+	slide bgcolor fgcolor
+		pcx=40
+		pcy=65
+		rad=25
+		theta=45
+		circle pcx pcy coordsize accentcolor
+		ctext "(x,y)" 40 60 lw "mono"
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "p=" 35 ly ts "mono"
+		text  "polar" 35 ly ts "mono" kwcolor
+		text  "x y radius theta" 44 ly ts "mono" argcolor
+
+		p=polar pcx pcy rad theta
+		lpx=p_x+2
+		text "(px,py)" lpx p_y lw "mono"
+		text "theta" 47 67 lw "mono"
+		etext "radius" 45 75 lw "mono"
+		line pcx pcy p_x p_y 0.5
+		line pcx pcy 60 pcy 0.5
+		arc pcx pcy 10 8 0 45 
+		circle p_x p_y coordsize accentcolor
+
+		include  "code/p0.dsh"
+		textfile "code/p0.dsh" 10 35 2 "mono"
 	eslide
 
 	// area

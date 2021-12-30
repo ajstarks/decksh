@@ -29,7 +29,7 @@ const (
 	stdnotch    = 0.75
 	curvefmt    = "<curve xp1=\"%.2f\" yp1=\"%.2f\" xp2=\"%.2f\" yp2=\"%.2f\" xp3=\"%.2f\" yp3=\"%.2f\" %s/>\n"
 	linefmt     = "<line xp1=\"%.2f\" yp1=\"%.2f\" xp2=\"%.2f\" yp2=\"%.2f\" %s/>\n"
-	sqfmt     = "<rect xp=\"%.2f\" yp=\"%.2f\" wp=\"%.2f\" hp=\"%.2f\" hr=\"100\" %s/>\n"
+	sqfmt       = "<rect xp=\"%.2f\" yp=\"%.2f\" wp=\"%.2f\" hp=\"%.2f\" hr=\"100\" %s/>\n"
 )
 
 // emap is the id=expression map
@@ -90,7 +90,7 @@ func assign(s []string, linenumber int) error {
 		}
 	case 7:
 		switch s[2] {
-		case "polarx", "polary":
+		case "polarx", "polary", "polar":
 			return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
 		case "sprint", "format":
 			return sprint(s, linenumber) // x=sprint fmt a+b
@@ -230,7 +230,7 @@ func polarfunc(s []string, linenumber int) error {
 	if s[1] != "=" || len(s) != 7 {
 		return e
 	}
-	goodkey := s[2] == "polarx" || s[2] == "polary"
+	goodkey := s[2] == "polarx" || s[2] == "polary" || s[2] == "polar"
 	if !goodkey {
 		return e
 	}
@@ -259,6 +259,9 @@ func polarfunc(s []string, linenumber int) error {
 		emap[s[0]] = ftoa(x)
 	case "polary":
 		emap[s[0]] = ftoa(y)
+	case "polar":
+		emap[s[0]+"_x"] = ftoa(x)
+		emap[s[0]+"_y"] = ftoa(y)
 	default:
 		return e
 	}

@@ -1,0 +1,6 @@
+cpx=60
+cpy=20
+point=polar cpx cpy 10 30
+line cpx cpy point_x point_y
+circle cpx cpy 1  "gray"
+circle point_x point_y 2 "maroon"

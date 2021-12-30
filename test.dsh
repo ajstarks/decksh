@@ -468,6 +468,10 @@ deck
 		ctext "π+3/4 (325°)" px py 2
 		line 50 50 px py 0.1
 
+		point=polar 50 50 10 a2
+		line 50 50 point_x point_y 0.5 "red" 30
+		circle point_x point_y 2 "red"
+
 		circle 50 50 40 "gray" 20
 	eslide
 

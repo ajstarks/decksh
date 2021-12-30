@@ -189,9 +189,16 @@ For value ```v```, map the range ```vmin-vmax``` to ```min-max```.
     x=polarx cx cy r theta
     y=polary cx cy r theta
 
-Return the polar coordinate given a center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
+Return the polar coordinate given the center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
 
 ![polar](polar.png)
+
+## Polar Coordinates (composite)
+
+    p=polar cx cy r theta
+
+Return the polar coordinates ```(p_x)``` and ```(p_y)``` given the  center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
+
 
 ## Area
 
