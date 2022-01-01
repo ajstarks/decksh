@@ -98,6 +98,36 @@ deck
 		efor
 	eslide
 
+	// coordinate assignments
+	slide
+	ctext "Coordinates" 50 90 5
+		a=50
+		b=a+25
+		p1=(25,75)
+		p2=(50,50)
+		p3=(75,75)
+		p4=(a,b)
+
+		line p1_x p1_y p2_x p2_y 0.2 "blue"
+		line p2_x p2_x p3_x p3_y 0.2 "red"
+		line p1_x p1_y p3_x p3_y 0.2 "green"
+
+		polygon "p1_x p2_x p3_x" "p1_y p2_y p3_y" "purple" 40
+
+		circle p4_x p4_y 5 "red" 30
+
+		rx=random p1_x p2_x
+		ry=random p1_y p2_y
+
+		rp=(rx,ry)
+
+		circle rp_x rp_y 10 "green" 20
+		circle rp_x rp_y 1
+		ctext "p1" p1_x p1_y 2
+		ctext "p2" p2_x p2_y 2
+		ctext "p3" p3_x p3_y 2
+	eslide
+
 	// include
 	include "insertme.dsh"
 

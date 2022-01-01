@@ -121,6 +121,9 @@ Canvas size and image dimensions are in pixels.
 
     x/=100
 
+
+
+
 ## Binary operations
 
 Addition ```id=<id> + number or <id>```
@@ -183,6 +186,20 @@ return the square root of the number of expression (```id``` or binary operation
 ![vmap](vmap.png)
 
 For value ```v```, map the range ```vmin-vmax``` to ```min-max```.
+
+## Coordinate assignments
+
+Assign (x,y) coordinates to the specified identifier. The x coordinate is ```id_x``` and the y coordinate is ```id_y```.
+
+    p=(10,50)
+    circle p_x p_y 2
+    a=20
+    b=50
+    p2=(a,b)
+    line p_x p_y p2_x p2_y
+
+
+
 
 ## Polar Coordinates
 

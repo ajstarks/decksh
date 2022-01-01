@@ -85,6 +85,7 @@ func assign(s []string, linenumber int) error {
 		switch s[2] {
 		case "sqrt":
 			return sqrtfunc(s, linenumber) // y=sqrt a op b
+
 		default:
 			return e
 		}
@@ -94,6 +95,8 @@ func assign(s []string, linenumber int) error {
 			return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
 		case "sprint", "format":
 			return sprint(s, linenumber) // x=sprint fmt a+b
+		case "(":
+			return coordfunc(s, linenumber) // p=(100,100)
 		default:
 			return e
 		}
@@ -224,7 +227,7 @@ func assignop(s []string, linenumber int) error {
 	return nil
 }
 
-// polarfunc returns polar coordinates
+// polarfunc assigns polar coordinates
 func polarfunc(s []string, linenumber int) error {
 	e := fmt.Errorf("line %d use: x = polar[x|y] cx cy r theta", linenumber)
 	if s[1] != "=" || len(s) != 7 {
@@ -265,6 +268,16 @@ func polarfunc(s []string, linenumber int) error {
 	default:
 		return e
 	}
+	return nil
+}
+
+// coordfunc assigns a coordinate pair
+func coordfunc(s []string, linenumber int) error {
+	if s[len(s)-1] != ")" && s[4] != "," {
+		return fmt.Errorf("line %d use: p = (x,y)", linenumber)
+	}
+	emap[s[0]+"_x"] = s[3]
+	emap[s[0]+"_y"] = s[5]
 	return nil
 }
 

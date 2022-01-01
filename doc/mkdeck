@@ -1,7 +1,8 @@
 #!/bin/sh
 sans="GillSans"
 mono="Inconsolata-Medium"
-serif="Charter-Italic"
+serif="Charter-Regular"
+
 
 case "$1" in 
 

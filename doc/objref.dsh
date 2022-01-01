@@ -122,6 +122,35 @@ deck
 		elist
 	eslide
 
+	// special assignments
+	slide bgcolor fgcolor
+		ctext "Special Assignments" mid ty 5 "serif" 
+		ax=5
+		list ax ay 4 "mono" "" 100 1.5
+			li "p=(100,100)"
+			li "p=polar cx cy r theta"
+			li "x=polarx cx cy r theta"
+			li "y=polary cx cy r theta"
+			li "v=random v1 v2"
+			li "v=vmap data v1 v2 v3 v4"
+			li "v=area <expression>"
+			li "v=sqrt <expression>"
+
+		elist
+		ax+=50
+		list ax ay 4 "sans" "gray" 100 1.5
+			li "coordinates (p_x, p_y)"
+			li "polar coordinate (p_x, p_y)"
+			li "polar coordinate (x)"
+			li "polar coordinate (y)"
+			li "random number"
+			li "range map"
+			li "area"
+			li "square root"
+
+		elist
+	eslide
+
 	// variables and assignments, examples
 	slide bgcolor fgcolor
 		ctext "Variables and Assignments" mid ty 5 "serif"
@@ -1572,12 +1601,13 @@ deck
 	// assignments and data index
 	slide bgcolor fgcolor
 		rc=initlcol
-		listspacing=1.6
+		listspacing=1.5
 		ctext "Loop, Built-ins, Data, Function and Grid" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
 			li "Loop"
+			li "Coordinate"
 			li "Polar coordinate (x)"
 			li "Polar coordinate (y)"
 			li "Polar coordinates"
@@ -1595,6 +1625,7 @@ deck
 		list rc lsty lfs "mono" kwcolor 100 listspacing
 			li tbl2 "sans" objcolor
 			li "for v="
+			li "p="
 			li "x=polarx"
 			li "y=polary"
 			li "value=polar"
@@ -1612,6 +1643,7 @@ deck
 		list rc lsty lfs "mono" argcolor 100 listspacing
 			li tbl3 "sans" objcolor
 			li "begin end [increment] ... efor"
+			li "(x,y)"
 			li "x y radius angle"
 			li "x y radius angle"
 			li "x y radius angle"
