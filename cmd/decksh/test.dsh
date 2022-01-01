@@ -98,6 +98,38 @@ deck
 		efor
 	eslide
 
+	// coordinate assignments
+	slide
+		ctext "Coordinates" 50 90 5
+		a=40
+		b=40
+		c=20
+
+		p1=(a,b)
+		p2=(a+c,b)
+		p3=(a+c,b+c)
+		p4=(a,b+c)
+
+		line p1_x p1_y p2_x p2_y 0.2 "blue"
+		line p2_x p2_y p3_x p3_y 0.2 "red"
+		line p3_x p3_y p4_x p4_y 0.2 "green"
+		line p4_x p4_y p1_x p1_y 0.2 "orange"
+
+		polygon "p1_x p2_x p3_x p4_x" "p1_y p2_y p3_y p4_y" "black" 10
+
+		rx=random p1_x p2_x
+		ry=random p1_y p4_y
+
+		rp=(rx,ry)
+
+		circle rp_x rp_y 5 "red" 50
+		circle rp_x rp_y 1
+		ctext "p1 (a,b)" p1_x p1_y 2
+		ctext "p2 (a+c,b)" p2_x p2_y 2
+		ctext "p3 (a,b+c)" p3_x p3_y 2
+		ctext "p4(a+c,b+c)" p4_x p4_y 2
+	eslide
+
 	// include
 	include "insertme.dsh"
 
@@ -467,6 +499,10 @@ deck
 		py=polary 50 50 20 a8
 		ctext "π+3/4 (325°)" px py 2
 		line 50 50 px py 0.1
+
+		point=polar 50 50 10 a2
+		line 50 50 point_x point_y 0.5 "red" 30
+		circle point_x point_y 2 "red"
 
 		circle 50 50 40 "gray" 20
 	eslide

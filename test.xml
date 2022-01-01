@@ -114,16 +114,17 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="90" sp="5" >Coordinates</text>
-<line xp1="25" yp1="75" xp2="50" yp2="50" sp="0.2" color="blue"/>
-<line xp1="50" yp1="50" xp2="75" yp2="75" sp="0.2" color="red"/>
-<line xp1="25" yp1="75" xp2="75" yp2="75" sp="0.2" color="green"/>
-<polygon xc="25 50 75" yc="75 50 75" color="purple" opacity="40"/>
-<ellipse xp="50" yp="75" wp="5" hr="100" color="red" opacity="30"/>
-<ellipse xp="35.59764406832809" yp="56.0360858729576" wp="10" hr="100" color="green" opacity="20"/>
-<ellipse xp="35.59764406832809" yp="56.0360858729576" wp="1" hr="100"/>
-<text align="c" xp="25" yp="75" sp="2" >p1</text>
-<text align="c" xp="50" yp="50" sp="2" >p2</text>
-<text align="c" xp="75" yp="75" sp="2" >p3</text>
+<line xp1="40" yp1="40" xp2="60" yp2="40" sp="0.2" color="blue"/>
+<line xp1="60" yp1="40" xp2="60" yp2="60" sp="0.2" color="red"/>
+<line xp1="60" yp1="60" xp2="40" yp2="60" sp="0.2" color="green"/>
+<line xp1="40" yp1="60" xp2="40" yp2="40" sp="0.2" color="orange"/>
+<polygon xc="40 60 60 40" yc="40 40 60 60" color="black" opacity="10"/>
+<ellipse xp="48.2086671834767" yp="52.57766945628223" wp="5" hr="100" color="red" opacity="50"/>
+<ellipse xp="48.2086671834767" yp="52.57766945628223" wp="1" hr="100"/>
+<text align="c" xp="40" yp="40" sp="2" >p1 (a,b)</text>
+<text align="c" xp="60" yp="40" sp="2" >p2 (a+c,b)</text>
+<text align="c" xp="60" yp="60" sp="2" >p3 (a+c,b+c)</text>
+<text align="c" xp="40" yp="60" sp="2" >p4 (a,b+c)</text>
 </slide>
 <slide>
 <text align="c" xp="50" yp="50" sp="5" >Included data from another file</text>
@@ -394,9 +395,9 @@
 <line xp1="100" yp1="100" xp2="100" yp2="0" sp="0.1" color="red"/>
 </slide>
 <slide>
-<ellipse xp="23.44731862324157" yp="71.869382085799" wp="10" hr="100" color="red" opacity="71.869382085799"/>
-<ellipse xp="36.58311158794355" yp="12.970408207291598" wp="10" hr="100" color="green" opacity="12.970408207291598"/>
-<ellipse xp="87.03855478201214" yp="61.28518031870322" wp="10" hr="100" color="blue" opacity="61.28518031870322"/>
+<ellipse xp="57.17078781351303" yp="52.729688697440594" wp="10" hr="100" color="red" opacity="52.729688697440594"/>
+<ellipse xp="59.65754366248138" yp="85.80898549285283" wp="10" hr="100" color="green" opacity="85.80898549285283"/>
+<ellipse xp="84.53457693362964" yp="22.96705898683215" wp="10" hr="100" color="blue" opacity="22.96705898683215"/>
 <text align="c" xp="50" yp="50" sp="5" >Random</text>
 </slide>
 <slide>

@@ -100,32 +100,34 @@ deck
 
 	// coordinate assignments
 	slide
-	ctext "Coordinates" 50 90 5
-		a=50
-		b=a+25
-		p1=(25,75)
-		p2=(50,50)
-		p3=(75,75)
-		p4=(a,b)
+		ctext "Coordinates" 50 90 5
+		a=40
+		b=40
+		c=20
+
+		p1=(a,b)
+		p2=(a+c,b)
+		p3=(a+c,b+c)
+		p4=(a,b+c)
 
 		line p1_x p1_y p2_x p2_y 0.2 "blue"
-		line p2_x p2_x p3_x p3_y 0.2 "red"
-		line p1_x p1_y p3_x p3_y 0.2 "green"
+		line p2_x p2_y p3_x p3_y 0.2 "red"
+		line p3_x p3_y p4_x p4_y 0.2 "green"
+		line p4_x p4_y p1_x p1_y 0.2 "orange"
 
-		polygon "p1_x p2_x p3_x" "p1_y p2_y p3_y" "purple" 40
-
-		circle p4_x p4_y 5 "red" 30
+		polygon "p1_x p2_x p3_x p4_x" "p1_y p2_y p3_y p4_y" "black" 10
 
 		rx=random p1_x p2_x
-		ry=random p1_y p2_y
+		ry=random p1_y p4_y
 
 		rp=(rx,ry)
 
-		circle rp_x rp_y 10 "green" 20
+		circle rp_x rp_y 5 "red" 50
 		circle rp_x rp_y 1
-		ctext "p1" p1_x p1_y 2
-		ctext "p2" p2_x p2_y 2
-		ctext "p3" p3_x p3_y 2
+		ctext "p1 (a,b)" p1_x p1_y 2
+		ctext "p2 (a+c,b)" p2_x p2_y 2
+		ctext "p3 (a+c,b+c)" p3_x p3_y 2
+		ctext "p4 (a,b+c)" p4_x p4_y 2
 	eslide
 
 	// include

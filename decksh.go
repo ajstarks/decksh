@@ -51,13 +51,17 @@ func xmlesc(s string) string {
 	return xmlmap.Replace(s)
 }
 
+// ftoa returns the string value of a floating point value
 func ftoa(v float64) string {
 	return strconv.FormatFloat(v, 'g', -1, 64)
 }
 
 // assign creates an assignment by filling in the global id map
-// assignments are either simple (x=10), binary op (x=a+b), or built-ins
-// (random, polarx, polary, vmap, sprint, format, sqrt)
+// assignments are either
+// simple (x=10),
+// binary op (x=a+b),
+// coordinate (p=(100,50))
+// or built-ins (random, polar, polarx, polary, vmap, sprint, format, sqrt)
 func assign(s []string, linenumber int) error {
 	e := fmt.Errorf("line %d:, %v is an illegal assignment", linenumber, s)
 	switch len(s) {
@@ -85,7 +89,6 @@ func assign(s []string, linenumber int) error {
 		switch s[2] {
 		case "sqrt":
 			return sqrtfunc(s, linenumber) // y=sqrt a op b
-
 		default:
 			return e
 		}
@@ -102,6 +105,14 @@ func assign(s []string, linenumber int) error {
 		}
 	case 8:
 		return vmapfunc(s, linenumber) // x=vmap d min1 max1 min2 max2
+	case 9, 11:
+		switch s[2] {
+		case "(":
+			return coordfunc(s, linenumber) //  p=(a,a+b), p=(a+b,b), p=(a+b,a+c)
+		default:
+			return e
+		}
+
 	default:
 		return e
 	}
@@ -124,12 +135,12 @@ func sprint(s []string, linenumber int) error {
 	case 5: // x=sprint fmt a
 		v, err = strconv.ParseFloat(eval(s[4]), 64) // make evaluated number (string) to number
 		if err != nil {
-			return fmt.Errorf("line %d: %v", linenumber, err)
+			return err
 		}
 	case 7: // x=sprint fmt a+b
 		v, err = opval(s[4:7], linenumber) // note that opval does eval
 		if err != nil {
-			return fmt.Errorf("line %d: %v", linenumber, err)
+			return err
 		}
 	default:
 		return fmt.Errorf("line %d: %v cannot convert to string", linenumber, v)
@@ -271,14 +282,67 @@ func polarfunc(s []string, linenumber int) error {
 	return nil
 }
 
+// delim returns the index of sep in slice s.
+// if not found return -1
+func delim(s []string, sep string) int {
+	for i, t := range s {
+		if t == sep {
+			return i
+		}
+	}
+	return -1
+}
+
 // coordfunc assigns a coordinate pair
 func coordfunc(s []string, linenumber int) error {
-	if s[len(s)-1] != ")" && s[4] != "," {
-		return fmt.Errorf("line %d use: p = (x,y)", linenumber)
+	e := fmt.Errorf("line %d use: p=(x,y), p=(x,a op b), p=(a op b, y), p=(a op b, c op d)", linenumber)
+	xcoord := s[0] + "_x"
+	ycoord := s[0] + "_y"
+	l := len(s) - 1
+	ci := delim(s, ",")
+	if s[l] == ")" && ci != -1 && l > ci {
+		left := s[3:ci]
+		right := s[ci+1 : l]
+		ll := len(left)
+		lr := len(right)
+		switch {
+		case ll == 1 && lr == 1: // p=(a,b)
+			emap[xcoord] = left[0]
+			emap[ycoord] = right[0]
+			return nil
+		case ll == 1 && lr == 3: // p=(a,a+b)
+			v, err := opval(right, linenumber)
+			if err != nil {
+				return err
+			}
+			emap[xcoord] = left[0]
+			emap[ycoord] = ftoa(v)
+			return nil
+		case ll == 3 && lr == 1: // p=(a+b,b)
+			v, err := opval(left, linenumber)
+			if err != nil {
+				return err
+			}
+			emap[xcoord] = ftoa(v)
+			emap[ycoord] = right[0]
+			return nil
+		case ll == 3 && lr == 3: // p=(a+b,b+c)
+			vl, lerr := opval(left, linenumber)
+			if lerr != nil {
+				return lerr
+			}
+			vr, rerr := opval(right, linenumber)
+			if rerr != nil {
+				return rerr
+			}
+			emap[xcoord] = ftoa(vl)
+			emap[ycoord] = ftoa(vr)
+			return nil
+		default:
+			return e
+		}
 	}
-	emap[s[0]+"_x"] = s[3]
-	emap[s[0]+"_y"] = s[5]
-	return nil
+	return e
 }
 
 // vmap maps one interval to another

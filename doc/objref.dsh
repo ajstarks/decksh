@@ -127,14 +127,14 @@ deck
 		ctext "Special Assignments" mid ty 5 "serif" 
 		ax=5
 		list ax ay 4 "mono" "" 100 1.5
-			li "p=(100,100)"
+			li "p=(expr, expr)"
 			li "p=polar cx cy r theta"
 			li "x=polarx cx cy r theta"
 			li "y=polary cx cy r theta"
 			li "v=random v1 v2"
 			li "v=vmap data v1 v2 v3 v4"
-			li "v=area <expression>"
-			li "v=sqrt <expression>"
+			li "v=area expr"
+			li "v=sqrt expr"
 
 		elist
 		ax+=50
