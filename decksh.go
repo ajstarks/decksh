@@ -295,7 +295,7 @@ func delim(s []string, sep string) int {
 
 // coordfunc assigns a coordinate pair
 func coordfunc(s []string, linenumber int) error {
-	e := fmt.Errorf("line %d use: p=(x,y), p=(x,a op b), p=(a op b, y), p=(a op b, c op d)", linenumber)
+	e := fmt.Errorf("line %d use: p=(xexpr, yexpr)", linenumber)
 	xcoord := s[0] + "_x"
 	ycoord := s[0] + "_y"
 	l := len(s) - 1
@@ -712,6 +712,22 @@ func subxy(s string, x, y float64) []string {
 	return args
 }
 
+var funcmap = map[string]string{}
+
+// funcbody caches the body of function defintions
+// avoiding reapeted open/read/close
+func funcbody(s string) error {
+	_, ok := funcmap[s]
+	if !ok {
+		data, err := os.ReadFile(s)
+		if err != nil {
+			return err
+		}
+		funcmap[s] = string(data)
+	}
+	return nil
+}
+
 // subfunc handles argument substitution in a function
 // func "file" arg1 [arg2] [argn]
 func subfunc(w io.Writer, s []string, linenumber int) error {
@@ -722,13 +738,21 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	r, err := os.Open(filearg)
+	/*
+		r, err := os.Open(filearg)
+		if err != nil {
+			return err
+		}
+		defer r.Close()
+		scanner := bufio.NewScanner(r)
+	*/
+	//
+	err = funcbody(filearg)
 	if err != nil {
 		return err
 	}
-	defer r.Close()
-
-	scanner := bufio.NewScanner(r)
+	scanner := bufio.NewScanner(strings.NewReader(funcmap[filearg]))
+	//
 	n := 0
 	const argoffset = 2
 	for scanner.Scan() {
