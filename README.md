@@ -227,6 +227,7 @@ Return the polar coordinates ```(p_x)``` and ```(p_y)``` given the  center at ``
 ## Area
 
     a=area d
+    c=area a+b
 
 return the circular area, ```a``` for the diameter ```d```.
 

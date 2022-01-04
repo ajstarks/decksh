@@ -538,9 +538,9 @@ deck
 	// area
 	slide
 		ctext "Areas" 50 90 5
-		nya=vmap 8.399 0 330 0 1000
-		cca=vmap 2.024 0 330 0 1000
-		cda=vmap  0.129106 0 330 0 1000
+		nya=vmap 8.399      0 100 0 1000
+		cca=vmap 2.024      0 100 0 1000
+		cda=vmap 0.129106   0 100 0 1000
 
 		acircle 50 50 nya "gray"
 		acircle 60 50 cca  "orange"
@@ -549,10 +549,12 @@ deck
 		nyd=area nya
 		ccd=area cca
 		cdd=area cda
+		cplus=area nya+cca
 
 		circle 50 30 nyd
 		circle 60 30 ccd
 		circle 67 30 cdd
+		circle 80 30 cplus
 	eslide
 
 	// Lines

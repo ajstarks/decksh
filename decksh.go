@@ -63,95 +63,42 @@ func ftoa(v float64) string {
 // coordinate (p=(100,50))
 // or built-ins (random, polar, polarx, polary, vmap, sprint, format, sqrt)
 func assign(s []string, linenumber int) error {
-	e := fmt.Errorf("line %d:, %v is an illegal assignment", linenumber, s)
-	switch len(s) {
-	case 3:
-		return simpleassign(s, linenumber) // x=10
-	case 4:
-		switch s[2] {
-		case "area":
-			return areafunc(s, linenumber) // v=area x
-		case "sqrt":
-			return sqrtfunc(s, linenumber) // y=sqrt x
-		default:
-			return e
-		}
-	case 5:
-		switch s[2] {
-		case "random": // x=random min max
-			return random(s, linenumber)
-		case "sprint", "format":
-			return sprint(s, linenumber) // x=sprint fmt a
-		default:
-			return binop(s, linenumber) // x=a+b
-		}
-	case 6:
-		switch s[2] {
-		case "sqrt":
-			return sqrtfunc(s, linenumber) // y=sqrt a op b
-		default:
-			return e
-		}
-	case 7:
-		switch s[2] {
-		case "polarx", "polary", "polar":
-			return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
-		case "sprint", "format":
-			return sprint(s, linenumber) // x=sprint fmt a+b
-		case "(":
-			return coordfunc(s, linenumber) // p=(100,100)
-		default:
-			return e
-		}
-	case 8:
-		return vmapfunc(s, linenumber) // x=vmap d min1 max1 min2 max2
-	case 9, 11:
-		switch s[2] {
-		case "(":
-			return coordfunc(s, linenumber) //  p=(a,a+b), p=(a+b,b), p=(a+b,a+c)
-		default:
-			return e
-		}
-
-	default:
-		return e
+	if len(s) == 3 {
+		return simpleassign(s, linenumber) // v=10
 	}
+	switch s[2] {
+	case "area":
+		return areafunc(s, linenumber) // v=area x, v=area a+b
+	case "sqrt":
+		return sqrtfunc(s, linenumber) // v=sqrt x, v=sqrt a+b
+	case "random":
+		return random(s, linenumber) // x=random min max
+	case "sprint", "format":
+		return sprint(s, linenumber) // v=format fmt x, v=format fmt a+b
+	case "polar", "polarx", "polary":
+		return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
+	case "vmap":
+		return vmapfunc(s, linenumber) // x=vmap d min1 max1 min2 max2
+	case "(":
+		return coordfunc(s, linenumber) // p=(100,100), p=(a,a+b), p=(a+b,b), p=(a+b,a+c)
+	default:
+		return binop(s, linenumber) // v=a+b
+	}
+	return fmt.Errorf("line %d: %v is an incorrect assignment", linenumber, s)
 }
 
-// assign creates an simple assignment id=number
+// simpleassign creates an simple assignment id=number
 func simpleassign(s []string, linenumber int) error {
-	if len(s) < 3 {
-		return fmt.Errorf("line %d: assignment needs id=<expression>", linenumber)
+	if len(s) != 3 {
+		return fmt.Errorf("line %d: use: id=number or other id", linenumber)
 	}
 	emap[s[0]] = s[2]
 	return nil
 }
 
-// sprint makes a string assignment using formatted text
-func sprint(s []string, linenumber int) error {
-	var v float64
-	var err error
-	switch len(s) {
-	case 5: // x=sprint fmt a
-		v, err = strconv.ParseFloat(eval(s[4]), 64) // make evaluated number (string) to number
-		if err != nil {
-			return err
-		}
-	case 7: // x=sprint fmt a+b
-		v, err = opval(s[4:7], linenumber) // note that opval does eval
-		if err != nil {
-			return err
-		}
-	default:
-		return fmt.Errorf("line %d: %v cannot convert to string", linenumber, v)
-	}
-	emap[s[0]] = fmt.Sprintf(s[3], v)
-	return nil
-}
-
 // opval returns the value of a binary operation
 func opval(s []string, linenumber int) (float64, error) {
-	es := fmt.Errorf("line %d: id=id operation number or id]", linenumber)
+	es := fmt.Errorf("line %d: id=a [+, -, *, /] b", linenumber)
 	if len(s) != 3 {
 		return 0, es
 	}
@@ -188,7 +135,7 @@ func opval(s []string, linenumber int) (float64, error) {
 
 // binop processes a binary expression: id=id op number
 func binop(s []string, linenumber int) error {
-	es := fmt.Errorf("line %d: id=id operation number or id]", linenumber)
+	es := fmt.Errorf("line %d: id=a [+, -, *, /] b", linenumber)
 	if len(s) < 5 {
 		return es
 	}
@@ -240,8 +187,8 @@ func assignop(s []string, linenumber int) error {
 
 // polarfunc assigns polar coordinates
 func polarfunc(s []string, linenumber int) error {
-	e := fmt.Errorf("line %d use: x = polar[x|y] cx cy r theta", linenumber)
-	if s[1] != "=" || len(s) != 7 {
+	e := fmt.Errorf("line %d use: v = [polar|polarx|polary] cx cy r theta", linenumber)
+	if len(s) != 7 {
 		return e
 	}
 	goodkey := s[2] == "polarx" || s[2] == "polary" || s[2] == "polar"
@@ -296,9 +243,14 @@ func delim(s []string, sep string) int {
 // coordfunc assigns a coordinate pair
 func coordfunc(s []string, linenumber int) error {
 	e := fmt.Errorf("line %d use: p=(xexpr, yexpr)", linenumber)
+	ls := len(s)
+	goodarg := ls == 7 || ls == 9 || ls == 11
+	if !goodarg {
+		return e
+	}
 	xcoord := s[0] + "_x"
 	ycoord := s[0] + "_y"
-	l := len(s) - 1
+	l := ls - 1
 	ci := delim(s, ",")
 	if s[l] == ")" && ci != -1 && l > ci {
 		left := s[3:ci]
@@ -350,14 +302,45 @@ func vmap(value float64, low1 float64, high1 float64, low2 float64, high2 float6
 	return low2 + (high2-low2)*(value-low1)/(high1-low1)
 }
 
-// area returns the diameter, given the area measure
-func areafunc(s []string, linenumber int) error {
-	if s[1] != "=" || s[2] != "area" {
-		return fmt.Errorf("line %d use: x = area v", linenumber)
+// sprint makes a string assignment using formatted text
+func sprint(s []string, linenumber int) error {
+	var v float64
+	var err error
+	switch len(s) {
+	case 5: // x=sprint fmt a
+		v, err = strconv.ParseFloat(eval(s[4]), 64) // make evaluated number (string) to number
+		if err != nil {
+			return err
+		}
+	case 7: // x=sprint fmt a op b
+		v, err = opval(s[4:7], linenumber) // note that opval does eval
+		if err != nil {
+			return err
+		}
+	default:
+		return fmt.Errorf("line %d: %v cannot convert to string", linenumber, v)
 	}
-	v, err := strconv.ParseFloat(eval(s[3]), 64)
-	if err != nil {
-		return err
+	emap[s[0]] = fmt.Sprintf(s[3], v)
+	return nil
+}
+
+// areafunc returns the diameter, given the area measure
+func areafunc(s []string, linenumber int) error {
+	var v float64
+	var err error
+	switch len(s) {
+	case 4: // v = area x
+		v, err = strconv.ParseFloat(eval(s[3]), 64)
+		if err != nil {
+			return err
+		}
+	case 6: // v = area a op b
+		v, err = opval(s[3:6], linenumber)
+		if err != nil {
+			return err
+		}
+	default:
+		return fmt.Errorf("line %d use: v = area x or v = area expression", linenumber)
 	}
 	emap[s[0]] = ftoa(area(v))
 	return nil
@@ -365,10 +348,6 @@ func areafunc(s []string, linenumber int) error {
 
 // sqrtfunc returns the square root of a number or binary operation
 func sqrtfunc(s []string, linenumber int) error {
-	e := fmt.Errorf("line %d use: x = sqrt v or x = sqrt expression", linenumber)
-	if s[1] != "=" || s[2] != "sqrt" {
-		return e
-	}
 	var v float64
 	var err error
 	switch len(s) {
@@ -383,7 +362,7 @@ func sqrtfunc(s []string, linenumber int) error {
 			return err
 		}
 	default:
-		return e
+		return fmt.Errorf("line %d use: v = sqrt x or v = sqrt expression", linenumber)
 	}
 	if v < 0 {
 		return fmt.Errorf("line %d: cannot take the square root of %g", linenumber, v)
@@ -394,8 +373,8 @@ func sqrtfunc(s []string, linenumber int) error {
 
 // random returns a bounded random number
 func random(s []string, linenumber int) error {
-	if s[1] != "=" || s[2] != "random" {
-		return fmt.Errorf("line %d use: x = random min max", linenumber)
+	if len(s) != 5 {
+		return fmt.Errorf("line %d use: v = random min max", linenumber)
 	}
 	var min, max float64
 	var err error
@@ -414,7 +393,7 @@ func random(s []string, linenumber int) error {
 // vmapfunc translates a value given two ranges
 func vmapfunc(s []string, linenumber int) error {
 	n := len(s)
-	if n < 8 || s[2] != "vmap" {
+	if n < 8 {
 		return fmt.Errorf("line %d: use: v = vmap data min1 max1 min2 max2", linenumber)
 	}
 	var data, min1, max1, min2, max2 float64
@@ -536,11 +515,8 @@ func qesc(s string) string {
 
 // filequote gets a name from a quoted string
 func filequote(s string, linenumber int) (string, error) {
-	if len(s) < 3 {
-		return "", fmt.Errorf("line %d: %v is not a valid filename", linenumber, s)
-	}
 	end := len(s) - 1
-	if s[0] != '"' && s[end] != '"' {
+	if len(s) < 3 || s[0] != doublequote && s[end] != doublequote {
 		return "", fmt.Errorf("line %d: %v is not a valid filename", linenumber, s)
 	}
 	return s[1:end], nil
@@ -1184,6 +1160,7 @@ func star(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// unquote removes quotes from a string
 func unquote(s string) string {
 	la := len(s)
 	if la > 2 && s[0] == doublequote && s[la-1] == doublequote {
