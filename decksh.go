@@ -63,7 +63,11 @@ func ftoa(v float64) string {
 // coordinate (p=(100,50))
 // or built-ins (random, polar, polarx, polary, vmap, sprint, format, sqrt)
 func assign(s []string, linenumber int) error {
-	if len(s) == 3 {
+	ls := len(s)
+	if ls < 3 {
+		return fmt.Errorf("line %d: %v is an incorrect assignment", linenumber, s)
+	}
+	if ls == 3 {
 		return simpleassign(s, linenumber) // v=10
 	}
 	switch s[2] {
@@ -84,7 +88,6 @@ func assign(s []string, linenumber int) error {
 	default:
 		return binop(s, linenumber) // v=a+b
 	}
-	return fmt.Errorf("line %d: %v is an incorrect assignment", linenumber, s)
 }
 
 // simpleassign creates an simple assignment id=number
@@ -250,11 +253,11 @@ func coordfunc(s []string, linenumber int) error {
 	}
 	xcoord := s[0] + "_x"
 	ycoord := s[0] + "_y"
-	l := ls - 1
+	end := ls - 1
 	ci := delim(s, ",")
-	if s[l] == ")" && ci != -1 && l > ci {
+	if s[end] == ")" && ci != -1 && end > ci {
 		left := s[3:ci]
-		right := s[ci+1 : l]
+		right := s[ci+1 : end]
 		ll := len(left)
 		lr := len(right)
 		switch {
@@ -704,6 +707,18 @@ func funcbody(s string) error {
 	return nil
 }
 
+/*
+func storedfunc(w io.Writer, s []string, linenumber int) error {
+	f := []string{}
+	f[0] = "func"
+	for _, w := range s {
+		f = append(f, w)
+	}
+
+	return fmt.Errorf("line %d: f=%v, s=%v", linenumber, f, s)
+}
+*/
+
 // subfunc handles argument substitution in a function
 // func "file" arg1 [arg2] [argn]
 func subfunc(w io.Writer, s []string, linenumber int) error {
@@ -722,7 +737,6 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 		defer r.Close()
 		scanner := bufio.NewScanner(r)
 	*/
-	//
 	err = funcbody(filearg)
 	if err != nil {
 		return err

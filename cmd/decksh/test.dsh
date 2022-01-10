@@ -3,29 +3,32 @@ deck
 
 	mid=50
 	ty=90
+	titleX=50
+	titleY=92
+	titleSize=4
 	// title, fonts
 	slide
 		ctext "decksh tests" 50 50 10
 	eslide
 
 	slide
-		ctext "Empty" 50 90 5
+		ctext "Empty" titleX titleY titleSize
 	eslide
 
 	slide "orange"
-		ctext "Background color only" 50 90 5
+		ctext "Background color only" titleX titleY titleSize
 	eslide
 
 	slide "blue" "white"
-		ctext "Background and Foreground" 50 90 5
+		ctext "Background and Foreground" titleX titleY titleSize
 	eslide
 
 	slide "blue/white/10"
-		ctext "Gradiant only" 50 90 5
+		ctext "Gradiant only" titleX titleY titleSize
 	eslide
 
 	slide "purple/orange/10" "white"
-		ctext "Gradient and Foreground" 50 90 5
+		ctext "Gradient and Foreground" titleX titleY titleSize
 		rect 50 60 50 15 "black/white/60"
 		rect 50 40 50 15 "red"
 
@@ -42,7 +45,7 @@ deck
 	// colors, fonts, opacity
 	slide
 		hline 5 72 85 4 hlcolor hlop
-		ctext "Colors, fonts, opacity" 50 90 5
+		ctext "Colors, fonts, opacity" titleX titleY titleSize
 		text "Colors" 6 70 3 "sans" objcolor
 		text "Fonts"  35 70 3  "sans" objcolor
 		text "Opacity (0-100)" 68 70 3  "sans" objcolor
@@ -89,7 +92,7 @@ deck
 
 	// function
 	slide
-		ctext "Functions" 50 90 5
+		ctext "Functions" titleX titleY titleSize
 		for y=20 80 20
 			func "coord.dsh" 20 y 2 3 "gray" "red"
 			func "coord.dsh" 40 y 2 3 "gray" "green"
@@ -100,7 +103,7 @@ deck
 
 	// coordinate assignments
 	slide
-		ctext "Coordinates" 50 90 5
+		ctext "Coordinates" titleX titleY titleSize
 		a=40
 		b=40
 		c=20
@@ -141,7 +144,7 @@ deck
 		yint=12
 		limit=35
 
-		ctext "Grid" 50 90 5
+		ctext "Grid" titleX titleY titleSize
 		grid     "grid.d" gx gy xint yint limit
 		gx+=limit
 		textfile "grid.d" gx gy 1.5 "mono"
@@ -182,7 +185,7 @@ deck
 	op4=20
 	ts1=3
 	slide  
-		ctext "Text and Alignment" 50 90 5
+		ctext "Text and Alignment" titleX titleY titleSize
 
 		line l1 0 l1 100 0.1
 		line l2 0 l2 100 0.1
@@ -219,7 +222,7 @@ deck
 
 	// Text spacing
 	slide
-		ctext "Text Spacing" 50 90 5
+		ctext "Text Spacing" titleX titleY titleSize
 
 		titlex=10
 		titley=20
@@ -270,7 +273,7 @@ deck
 	ly5=10
 	
 	slide
-		ctext "Lists" 50 95 5
+		ctext "Lists" titleX titleY titleSize
 
 		list lx1 ly1 lsize
 			li "one"
@@ -368,7 +371,7 @@ deck
 
 	// centered list
 	slide
-		ctext "Centered List" 50 90 5
+		ctext "Centered List" titleX titleY titleSize
 		vline 50 0 100 0.1
 		clist 50 80 3
 			li "one"
@@ -386,7 +389,7 @@ deck
 
 	// Loops for grid
 	slide
-		ctext "Loops" 50 50 5
+		ctext "Loops" titleX titleY titleSize
 		for v=0 100 5
 			line 100 v 0 v 0.1 "blue"
 			line v 100 v 0 0.1 "red"
@@ -395,6 +398,7 @@ deck
 
 	// Random
 	slide
+		ctext "Random" titleX titleY titleSize
 		randmin=10
 		randmax=90
 		rx1=random randmin randmax
@@ -407,7 +411,6 @@ deck
 		circle rx1 ry1 10 "red" ry1
 		circle rx2 ry2 10 "green" ry2
 		circle rx3 ry3 10 "blue" ry3
-		ctext "Random" 50 50 5
 	eslide
 
 	// Square Root
@@ -430,12 +433,12 @@ deck
 		ctext sm2 50 60 3
 		ctext sm3 50 50 3
 		ctext sm4 50 40 3
-		ctext "Square Root" 50 90 5
+		ctext "Square Root" titleX titleY titleSize
 	eslide
 
 	// format
 	slide
-		ctext "Format" 50 90 5
+		ctext "Format" titleX titleY titleSize
 		sp0=10
 		sp1=20+100
 		s0=format "Widget 1: %.2f" sp0
@@ -450,7 +453,7 @@ deck
 
 	// Polar coordinates
 	slide
-		ctext "Polar Coordinates" 50 90 5
+		ctext "Polar Coordinates" titleX titleY titleSize
 		a1=0
 		a2=45
 		a3=90
@@ -509,7 +512,7 @@ deck
 
 	// vmap
 	slide
-		ctext "Map Ranges" 50 50 5
+		ctext "Map Ranges" titleX titleY titleSize
 		bx=10
 		ex=90
 		begyr=1958
@@ -537,7 +540,7 @@ deck
 
 	// area
 	slide
-		ctext "Areas" 50 90 5
+		ctext "Areas" titleX titleY titleSize
 		nya=vmap 8.399      0 100 0 1000
 		cca=vmap 2.024      0 100 0 1000
 		cda=vmap 0.129106   0 100 0 1000
@@ -559,7 +562,7 @@ deck
 
 	// Lines
 	slide
-		ctext "Lines" 50 90 5
+		ctext "Lines" titleX titleY titleSize
 		hline 50 50 20
 		hline 50 55 25 0.5
 		hline 50 60 30 1 "red"
@@ -588,7 +591,7 @@ deck
 
 	// Stars
 	slide
-		ctext "Stars" 50 90 5
+		ctext "Stars" titleX titleY titleSize
 		star 20 50 5 5 15
 		star 50 50 5 5 15 "red"
 		star 80 50 5 5 15 "red" 20
@@ -596,7 +599,7 @@ deck
 
 	// Rounded Rectangles
 	slide
-		ctext "Pill/Rounded Rectangles" 50 90 5
+		ctext "Pill/Rounded Rectangles" titleX titleY titleSize
 		rrect 30 50 30 30 10
 		rrect 70 50 20 30 5 "red"
 		rrect 50 15 50 10 5 "blue"
