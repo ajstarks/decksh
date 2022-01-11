@@ -5,7 +5,7 @@ detect:
 
 rules:
     # keywords
-    - statement: "\\b(deck|edeck|canvas|def|edef|func|call|callfunc|format|include|grid|vmap|area|slide|eslide|text|ctext|etext|rtext|random|textfile|textblock|textcode|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polygon|rect|roundrect|rrect|square|ellipse|acircle|circle|line|pill|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|polar|polarx|polary|sqrt)\\b"
+    - statement: "\\b(deck|edeck|canvas|def|edef|func|call|callfunc|format|include|import|grid|vmap|area|slide|eslide|text|ctext|etext|rtext|random|textfile|textblock|textcode|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polygon|rect|roundrect|rrect|square|ellipse|acircle|circle|line|pill|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|polar|polarx|polary|sqrt)\\b"
     - symbol.operator: "[-+/*=<>!~%&|^]|:="
 
       # Numbers and strings

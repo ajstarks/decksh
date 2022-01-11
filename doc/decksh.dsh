@@ -307,7 +307,7 @@ deck
 		row2+=5
 		text "textcode"	lx gtop ts "mono" spotcolor
 		ctext `"filename" x y width size [color]` apix apiy apisize "serif" apicolor
-		textcode "code/hw.go" lx row2 25 codesize
+		textcode "code/hw-go" lx row2 25 codesize
 	eslide
 
 	// Lists

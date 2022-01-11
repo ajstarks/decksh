@@ -38,7 +38,7 @@
 		xind+=hskip
 		textfile "code/example.txt" xind tyind 0.7
 		xind+=hskip
-		textcode "code/hw.go" xind tyind 15 0.75
+		textcode "code/hw-go" xind tyind 15 0.75
 
 		// row 2
 		xind=left

@@ -5,7 +5,7 @@ rtext		"rotate"			X Y 45 2
 arctext		"hello there world" X Y 5 90 0 1 "mono"
 textblock	"Now is the time for all good men to come" X Y 5 1
 textfile	"code/example.txt"	X Y 0.7
-textcode	"code/hw.go"		X Y 13 0.75
+textcode	"code/hw-go"		X Y 13 0.75
 hline 		X Y 5
 vline 		X Y 5
 arc 		X Y 5 5 0 180

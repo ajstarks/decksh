@@ -7,9 +7,9 @@
 		csep=15
 		csep2=csep*0.75
 		csep3=csep*0.75
-		rsep=50
+		rsep=55
 		lsep=6
-		headtop=top-12
+		headtop=top-7
 		listtop=headtop-lsep
 		listspacing=lsize*0.6
 		headcolor=spotcolor
@@ -26,6 +26,7 @@
 			li "edef"
 			li "func"
 			li "grid"
+			li "import"
 			li "include"
 		elist
 

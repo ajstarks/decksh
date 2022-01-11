@@ -452,13 +452,13 @@ deck
 		textfile  "code/example.txt" 10 35 2
 		text `textfile "example.txt" 10 35 2` 10 ely ets "mono"
 
-		textfile  "code/hw.go" 55 35 1.6 "mono" "maroon"
-		text `textfile "hw.go" 55 35 1.6 "mono" "maroon"` 55 ely ets "mono"
+		textfile  "code/hw-go" 55 35 1.6 "mono" "maroon"
+		text `textfile "hw-go" 55 35 1.6 "mono" "maroon"` 55 ely ets "mono"
 	eslide
 
 	// textcode
 	slide bgcolor fgcolor
-		textcode "code/hw.go" 20 85 50 2
+		textcode "code/hw-go" 20 85 50 2
 		ctext "(x,y)" 20 95  lw "mono"
 		arrow 20 95 20 88 0.1 1 1
 		hline 0 47 100 hlsize hlcolor hlop
@@ -468,11 +468,11 @@ deck
 		ubrace 42.5 92 50 2 4
 		ctext "w" 42.5 93 lw "mono"
 
-		textcode  "code/hw.go" 10 35 25 1.0
-		text `textcode "hw.go" 10 35 25 1.0` 10 ely ets "mono"
+		textcode  "code/hw-go" 10 35 25 1.0
+		text `textcode "hw-go" 10 35 25 1.0` 10 ely ets "mono"
 
-		textcode  "code/hw.go" 55 35 40 1.6 "maroon"
-		text `textcode "hw.go" 55 35 40 1.6 "maroon"` 55 ely ets "mono"
+		textcode  "code/hw-go" 55 35 40 1.6 "maroon"
+		text `textcode "hw-go" 55 35 40 1.6 "maroon"` 55 ely ets "mono"
 	eslide
 
 	// Graphics index

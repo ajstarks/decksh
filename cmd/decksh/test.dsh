@@ -92,6 +92,7 @@ deck
 
 	// function
 	slide
+		import "redcircle.dsh"
 		ctext "Functions" titleX titleY titleSize
 		for y=20 80 20
 			func "coord.dsh" 20 y 2 3 "gray" "red"
@@ -99,6 +100,8 @@ deck
 			func "coord.dsh" 60 y 2 3 "gray" "blue"
 			func "coord.dsh" 80 y 2 3 "gray" "gray"
 		efor
+		redcircle 50 10
+
 	eslide
 
 	// coordinate assignments

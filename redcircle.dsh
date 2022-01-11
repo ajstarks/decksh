@@ -1,0 +1,3 @@
+def redcircle X Y
+	circle X Y 10 "red"
+edef

@@ -555,7 +555,18 @@ Functions are defined with statements between the  ```def``` and ```edef``` keyw
         statements
     edef
 
-Functions are called with the ```func``` keyword:
+## Importing function defintions
+
+Functions may be imported once, and then called directly by name:
+
+    import "redcircle.dsh" 
+    x=10
+    y=20
+    x2=30
+    redcircle x y
+    redcircle x2 y2
+
+or functions are called with the ```func``` keyword:
 
 
     func "file" arg1 ... argn

@@ -693,6 +693,23 @@ func subxy(s string, x, y float64) []string {
 
 var funcmap = map[string]string{}
 
+// import loads the definition of a function from a file
+// import "file"
+func importfunc(w io.Writer, s []string, linenumber int) error {
+	if len(s) < 2 {
+		return fmt.Errorf("line %d: import \"file\"", linenumber)
+	}
+	filearg, err := filequote(s[1], linenumber)
+	if err != nil {
+		return err
+	}
+	err = funcbody(filearg)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 // funcbody caches the body of function defintions
 // avoiding reapeted open/read/close
 func funcbody(s string) error {
@@ -707,44 +724,12 @@ func funcbody(s string) error {
 	return nil
 }
 
-/*
-func storedfunc(w io.Writer, s []string, linenumber int) error {
-	f := []string{}
-	f[0] = "func"
-	for _, w := range s {
-		f = append(f, w)
-	}
-
-	return fmt.Errorf("line %d: f=%v, s=%v", linenumber, f, s)
-}
-*/
-
-// subfunc handles argument substitution in a function
-// func "file" arg1 [arg2] [argn]
-func subfunc(w io.Writer, s []string, linenumber int) error {
-	if len(s) < 3 {
-		return fmt.Errorf("line %d: %s \"file\" arg1 arg2...argn", linenumber, s[0])
-	}
-	filearg, err := filequote(s[1], linenumber)
-	if err != nil {
-		return err
-	}
-	/*
-		r, err := os.Open(filearg)
-		if err != nil {
-			return err
-		}
-		defer r.Close()
-		scanner := bufio.NewScanner(r)
-	*/
-	err = funcbody(filearg)
-	if err != nil {
-		return err
-	}
-	scanner := bufio.NewScanner(strings.NewReader(funcmap[filearg]))
-	//
+// def reads and processes the function defintion
+// def name arg1 arg2 ... argn
+// ...
+// edef
+func def(scanner *bufio.Scanner, w io.Writer, s []string, filearg string, argoffset int, linenumber int) error {
 	n := 0
-	const argoffset = 2
 	for scanner.Scan() {
 		t := scanner.Text()
 		if len(t) == 0 {
@@ -760,7 +745,7 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 			if fargs[0] != "def" || len(fargs) < 3 {
 				return fmt.Errorf("line %d: %q, begin function definition with 'def name args...'", linenumber, filearg)
 			}
-			fargs = fargs[argoffset:]
+			fargs = fargs[2:]
 			if len(fargs) != len(s)-argoffset {
 				return fmt.Errorf("line %d: the number of arguments do not match: (%v=%d and %v=%d)", linenumber, fargs, len(fargs), s[argoffset:], len(s)-argoffset)
 			}
@@ -775,6 +760,35 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 		n++
 	}
 	return scanner.Err()
+}
+
+// subfunc handles argument substitution in a function
+// func "file" arg1 [arg2] [argn]
+func subfunc(w io.Writer, s []string, linenumber int) error {
+	if len(s) < 3 {
+		return fmt.Errorf("line %d: %s \"file\" arg1 arg2...argn", linenumber, s[0])
+	}
+	filearg, err := filequote(s[1], linenumber)
+	if err != nil {
+		return err
+	}
+	err = funcbody(filearg)
+	if err != nil {
+		return err
+	}
+	scanner := bufio.NewScanner(strings.NewReader(funcmap[filearg]))
+	return def(scanner, w, s, filearg, 2, linenumber)
+}
+
+// directfunc calls a previously imported function
+// function args...
+func directfunc(w io.Writer, s []string, linenumber int) error {
+	if len(s) < 2 {
+		return fmt.Errorf("line %d: need at least one argument for a function", linenumber)
+	}
+	//fmt.Fprintf(os.Stderr, "directfunc: s[0]=%v funcmap=%v\n", s[0], funcmap)
+	scanner := bufio.NewScanner(strings.NewReader(funcmap[s[0]+".dsh"]))
+	return def(scanner, w, s, s[0], 1, linenumber)
 }
 
 // text generates markup for text
@@ -2146,6 +2160,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "include":
 		return include(w, tokens, n)
 
+	case "import":
+		return importfunc(w, tokens, n)
+
 	case "call", "func", "callfunc":
 		return subfunc(w, tokens, n)
 
@@ -2236,15 +2253,15 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "dchart":
 		return chart(w, t, n)
 
-	default: // not a keyword, process assignments
+	default: // not a keyword, process assignments or direct function calls
 		if len(tokens) > 1 && tokens[1] == "=" {
 			return assign(tokens, n)
 		}
 		if isaop(tokens) {
 			return assignop(tokens, n)
 		}
+		return directfunc(w, tokens, n)
 	}
-	return nil
 }
 
 // Process reads input, parses, dispatches functions for code generation
