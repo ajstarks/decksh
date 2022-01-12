@@ -1,6 +1,6 @@
 # decksh: a little language for deck markup
 
-![object reference](placemat.png)
+![object reference](images/placemat.png)
 
 ```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup.
 
@@ -77,7 +77,7 @@ This deck script:
 
 Produces:
 
-![exampledeck](exampledeck.png)
+![exampledeck](images/exampledeck.png)
 
 Text, font, color, caption and link arguments follow Go convetions (surrounded by double quotes).
 
@@ -163,7 +163,7 @@ Division ```id=<id> / number or <id>```
 
 	x=random min max
 
-![random](random.png)
+![random](images/random.png)
 
 assign a random number in the specified range
 
@@ -181,7 +181,7 @@ return the square root of the number of expression (```id``` or binary operation
 
     x=vmap v vmin vmax min max
 
-![vmap](vmap.png)
+![vmap](images/vmap.png)
 
 For value ```v```, map the range ```vmin-vmax``` to ```min-max```.
 
@@ -215,7 +215,7 @@ The expression with the parentheses may be a constant, variable or binary expres
 
 Return the polar coordinate given the center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
 
-![polar](polar.png)
+![polar](images/polar.png)
 
 ## Polar Coordinates (composite)
 
@@ -272,26 +272,26 @@ Left, centered, end, or block-aligned text (```x``` and ```y``` are the text's r
 
     text       "text"     x y size       [font] [color] [opacity] [link]
 
-![text](text.png)
+![text](images/text.png)
 
 
     ctext      "text"     x y size       [font] [color] [opacity] [link]
 
-![ctext](ctext.png)
+![ctext](images/ctext.png)
 
     etext      "text"     x y size       [font] [color] [opacity] [link]
 
-![etext](etext.png)
+![etext](images/etext.png)
 
     textblock  "text"     x y width size [font] [color] [opacity] [link]
 
-![textblock](textblock.png)
+![textblock](images/textblock.png)
 
 Text rotated along the specified angle (in degrees)
 
     rtext      "text"     x y angle size [font] [color] [opacity] [link]
 
-![rtext](rtext.png)
+![rtext](images/rtext.png)
 
 Text on an arc centered at ```(x,y)```, with specified radius, between begin and ending angles (in degrees).
 if the beginning angle is less than the ending angle the text is rendered counter-clockwise.
@@ -299,18 +299,18 @@ if the beginning angle is greater than the ending angle, the text is rendered cl
 
     arctext    "text"     x y radius begin-angle end-angle size [font] [color] [opacity] [link]
 
-![arctext](arctext.png)
+![arctext](images/arctext.png)
 
 Place the contents of "filename" at (x,y). Place the contents of "filename" in gray box, using a monospaced font.
    
     textfile   "filename" x y       size [font] [color] [opacity] [linespacing]
 
-![textfile](textfile.png)
+![textfile](images/textfile.png)
 
 
     textcode   "filename" x y width size [color]
 
-![textcocde](textcode.png)
+![textcocde](images/textcode.png)
 
 ## Images
 
@@ -320,7 +320,7 @@ and ```width``` and ```height``` are the image dimensions in pixels.
     image  "file"           x y width height [scale] [link]
     cimage "file" "caption" x y width height [scale] [link] [size]
 
-![image](image.png)
+![image](images/image.png)
 
 ## Lists
 
@@ -328,21 +328,21 @@ and ```width``` and ```height``` are the image dimensions in pixels.
 
     list   x y size [font] [color] [opacity] [linespacing] [link] [rotation]
 
-![list](list.png)
+![list](images/list.png)
 
     blist  x y size [font] [color] [opacity] [linespacing] [link] [rotation]
 
-![blist](blist.png)
+![blist](images/blist.png)
 
 
     nlist  x y size [font] [color] [opacity] [linespacing] [link] [rotation]
 
-![nlist](nlist.png)
+![nlist](images/nlist.png)
 
     clist  x y size [font] [color] [opacity] [linespacing] [link] [rotation]
 
 
-![clist](clist.png)
+![clist](images/clist.png)
 
 
 ### list items, and ending the list
@@ -361,34 +361,34 @@ is the area, not the diameter.
     ellipse x y w h [color] [opacity]
 
 
-![rect](rect.png)
-![ellipse](ellipse.png)
+![rect](images/rect.png)
+![ellipse](images/ellipse.png)
 
 
     square  x y w   [color] [opacity]
     circle  x y w   [color] [opacity]
 
-![square](square.png)
-![circle](circle.png)
+![square](images/square.png)
+![circle](images/circle.png)
 
 
     acircle x y a   [color] [opacity]
 
 
-![acircle](area.png)
+![acircle](images/area.png)
 
 Rounded rectangles are similar, with the added radius for the corners: (solid colors only)
 
     rrect   x y w h r [color]
 
-![rrect](rrect.png)
+![rrect](images/rrect.png)
 
 
 For polygons, specify the x and y coordinates as a series of numbers, with optional color and opacity.
 
     polygon "xcoords" "ycoords" [color] [opacity]
 
-![polygon](polygon.png)
+![polygon](images/polygon.png)
 
 Note that the coordinates may be either discrete:
 
@@ -416,19 +416,19 @@ A "pill" shape has is a horizontal line with rounded ends.
 
     line    x1 y1 x2 y2 [size] [color] [opacity]
 
-![line](line.png)
+![line](images/line.png)
 
     hline   x y length  [size] [color] [opacity]
 
-![hline](hline.png)
+![hline](images/hline.png)
 
     vline   x y length  [size] [color] [opacity]
 
-![vline](vline.png)
+![vline](images/vline.png)
 
     pill    x w length  size   [color]
 
-![pill](pill.png)
+![pill](images/pill.png)
 
 Curve is a quadratic Bezier curve: specify the beginning location ```(bx, by)```, 
 the control point ```(cx, cy)```, and ending location ```(ex, ey)```.
@@ -437,11 +437,11 @@ For arcs, specify the location of the center point ```(x,y)```, the width and he
 
     curve   bx by cx cy ex ey [size] [color] [opacity]
 
-![curve](curve.png)
+![curve](images/curve.png)
 
     arc     x y w h a1 a2     [size] [color] [opacity]
 
-![arc](arc.png)
+![arc](images/arc.png)
 
 To make n-sided stars, use the "star" keyword: ```(x,y)``` is the center of the star, 
 ```np``` is the number of points, and ```inner``` and ```outer``` are the sizes of
@@ -449,7 +449,7 @@ the inner and outer points, respectively.
 
     star    x y np inner outer [color] [opacity]
 
-![star](star.png)
+![star](images/star.png)
 
 ## Arrows
 
@@ -459,24 +459,24 @@ The curve variants use the same syntax for specifying curves.
 
     arrow   x1 y1 x2 y2       [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 
-![arrow](arrow.png)
+![arrow](images/arrow.png)
 
     lcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 
-![lcarrow](lcarrow.png)
+![lcarrow](images/lcarrow.png)
 
     rcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 
-![rcarrow](rcarrow.png)
+![rcarrow](images/rcarrow.png)
 
     ucarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 
-![ucarrow](ucarrow.png)
+![ucarrow](images/ucarrow.png)
 
 
     dcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 
-![dcarrow](dcarrow.png)
+![dcarrow](images/dcarrow.png)
 
 ## Braces
 
@@ -486,19 +486,19 @@ end curves; ```linewidth```, ```color``` and ```opacity``` are optional (default
 
     lbrace x y height aw ah [linewidth] [color] [opacity]
 
-![rbrace](rbrace.png)
+![rbrace](images/rbrace.png)
 
     rbrace x y height aw ah [linewidth] [color] [opacity]
 
-![lbrace](rbrace.png)
+![lbrace](images/rbrace.png)
 
     ubrace x y width  aw ah [linewidth] [color] [opacity]
 
-![ubrace](ubrace.png)
+![ubrace](images/ubrace.png)
 
     dbrace x y width  aw ah [linewidth] [color] [opacity]
 
-![dbrace](dbrace.png)
+![dbrace](images/dbrace.png)
 
 ## Brackets
 
@@ -510,19 +510,19 @@ left and right portions. ```linewidth```, ```color``` and ```opacity``` are opti
 
     lbracket x y width height [linewidth] [color] [opacity]
 
-![lbracket](lbracket.png)
+![lbracket](images/lbracket.png)
 
     rbracket x y width height [linewidth] [color] [opacity]
 
-![rbracket](rbracket.png)
+![rbracket](images/rbracket.png)
 
     ubracket x y width height [linewidth] [color] [opacity]
 
-![dbracket](dbracket.png)
+![dbracket](images/dbracket.png)
 
     dbracket x y width height [linewidth] [color] [opacity]
 
-![ubracket](ubracket.png)
+![ubracket](images/ubracket.png)
 
 ## Charts
 
@@ -530,7 +530,7 @@ Run the [dchart](https://github.com/ajstarks/dchart/blob/master/README.md) comma
 
     dchart [args]
 
-![dchart](dchart.png)
+![dchart](images/dchart.png)
 
 ## Legend
 
@@ -538,7 +538,7 @@ Show a colored legend
 
     legend "text" x y size [font] [color]
 
-![legend](legend.png)
+![legend](images/legend.png)
 
 
 ## Include decksh markup from a file
@@ -604,7 +604,7 @@ makes a file named ```foo.d``` with the lines between ```data``` and ```edata```
 
     grid "file.dsh" x y xskip yskip limit
 
-![grid](grid.png)
+![grid](images/grid.png)
 
 The first file argument (```"file.dsh"``` above) specifies a file with decksh commands; each item in the file must include the arguments "x" and "y". Normal variable substitution occurs for other arguments. For example if the contents of ```file.dsh``` has six items:
 
