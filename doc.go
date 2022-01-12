@@ -1,22 +1,32 @@
 /*
 Package decksh --  a little language for deck markup
 
-decksh is a domain-specific language (DSL) for generating  deck markup.
+# decksh: a little language for deck markup
 
-Running
+![object reference](placemat.png)
 
-decksh reads from the specified input, and writes deck markup to the specified output destination:
+```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup.
+
+## Package use
+
+There is a simple method ```Process``` that reads decksh commands from an ```io.Reader``` and writes deck markup to an  ```io.Writer```, returning an error.
+
+## Running
+
+This repository also contains ```cmd/decksh```, a client decksh command:
+
+```decksh``` reads from the specified input, and writes deck markup to the specified output destination:
 
     $ decksh                   # input from stdin, output to stdout
     $ decksh -o foo.xml        # input from stdin, output to foo.xml
     $ decksh foo.sh            # input from foo.sh output to stdout
     $ decksh -o foo.xml foo.sh # input from foo.sh output to foo.xml
 
-Typically, decksh acts as the head of a rendering pipeline:
+Typically, ```decksh``` acts as the head of a rendering pipeline:
 
-    $ decksh text.dsh | pdf -pagesize 1200,900
+    $ decksh text.dsh | pdfdeck -stdout -pagesize 1200,900 - > text.pdf
 
-Example input
+## Example input
 
 This deck script:
 
@@ -59,11 +69,11 @@ This deck script:
 
 
             // Chart
-            chartleft=10
-            chartright=45
-            charttop=42
-            chartbottom=28
-            dchart -left chartleft -right chartright -top charttop -bottom chartbottom opts AAPL.d
+            chleft=10
+            chright=45
+            chtop=42
+            chtbottom=28
+            dchart -left chleft -right chright -top chtop -bottom chbottom opts AAPL.d
         eslide
     edeck
 
@@ -73,43 +83,51 @@ Produces:
 ![exampledeck](exampledeck.png)
 
 Text, font, color, caption and link arguments follow Go convetions (surrounded by double quotes).
-Colors are in rgb format ("rgb(n,n,n)"), or [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
+
+Colors formats are:
+
+* rgb format "rgb(n,n,n)", for example "```"rgb(128,0,128)"```
+* hex "#rrggbb", for example ```"#aa00aa"```, or
+* [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
+
+Color gradients (used for slide backgrounds and rectangle and square fills) are specified as color1/color2/percent, for example, ```"blue/white/90"```
 
 Coordinates, dimensions, scales and opacities are floating point numbers ranging from from 0-100
-(they represent percentages on the canvas and percent opacity).  Some arguments are optional, and
+(representing percentages of the canvas width and percent opacity).  Some arguments are optional, and
 if omitted defaults are applied (black for text, gray for graphics, 100% opacity).
 
 Canvas size and image dimensions are in pixels.
 
-Simple assignments
+## Simple assignments
 
-id=<number> defines a constant, which may be then subtitited. For example:
+```id=<number>``` defines a constant, which may be then subtitited. For example:
 
     x=10
     y=20
     text "hello, world" x y 5
 
-Assignment operations
+## Assignment operations
 
-id+=<number> increment the value of id by <number>
+```id+=<number>``` increment the value of ```id``` by ```<number>```
 
     x+=5
 
-id-=<number> decrement the value of id by <number>
+```id-=<number>``` decrement the value of ```id``` by ```<number>```
 
     x-=10
 
-id*=<number> multiply the value of id by <number>
+```id*=<number>``` multiply the value of ```id``` by ```<number>```
 
     x*=50
 
-id*=<number> divide the value of id by <number>
+```id*=<number>``` divide the value of ```id``` by ```<number>```
 
     x/=100
 
-Binary operations
 
-Addition id=<id> + number or <id>
+## Binary operations
+
+Addition ```id=<id> + number or <id>```
 
     tx=10
     spacing=1.2
@@ -117,161 +135,265 @@ Addition id=<id> + number or <id>
     sx=tx-10
     vx=tx+spacing
 
-Subtraction id=<id> - number or <id>
+Subtraction ```id=<id> - number or <id>```
 
     a=x-10
 
-Muliplication id=<id> * number or <id>
+Muliplication ```id=<id> * number or <id>```
 
     a=x*10
 
-Division id=<id> / number or <id>
+Division ```id=<id> / number or <id>```
 
     a=x/10
 
-Begin or end a deck.
+## Begin or end a deck.
 
     deck
     edeck
 
-Begin, end a slide with optional background and text colors.
+## Begin, end a slide with optional background and text colors.
 
     slide [bgcolor] [fgcolor]
     eslide
 
-Specify the size of the canvas.
+## Specify the size of the canvas.
 
     canvas w h
 
 
-Random Number
+## Random Number
 
-	x=random min max
+    x=random min max
+
+![random](random.png)
 
 assign a random number in the specified range
 
-Mapping
+## Square Root
+
+return the square root of the number of expression (```id``` or binary operation)
+
+    a=4
+    b=10
+    x=sqrt 4
+    x=sqrt a+b
+    x=sqrt b
+
+## Mapping
 
     x=vmap v vmin vmax min max
 
-For value v, map the range vmin-vmax to min-max.
+![vmap](vmap.png)
 
-Polar Coordinates
+For value ```v```, map the range ```vmin-vmax``` to ```min-max```.
+
+## Coordinate assignments
+
+Assign (x,y) coordinates to the specified identifier.
+The x coordinate is ```id_x``` and the y coordinate is ```id_y```.
+The expression with the parentheses may be a constant, variable or binary expression.
+
+        a=40
+        b=40
+        c=20
+
+        p0=(10,10)
+        p1=(a,b)
+        p2=(a+c,b)
+        p3=(a+c,b+c)
+        p4=(a,b+c)
+
+        circle p0_x p1_x 2
+        line p1_x p1_y p2_x p2_y 0.2 "blue"
+        line p2_x p2_y p3_x p3_y 0.2 "red"
+        line p3_x p3_y p4_x p4_y 0.2 "green"
+        line p4_x p4_y p1_x p1_y 0.2 "orange"
+
+
+## Polar Coordinates
 
     x=polarx cx cy r theta
     y=polary cx cy r theta
 
-Return the polar coordinate given a center at (cx, cy), radius r, and angle theta (in degrees)
+Return the polar coordinate given the center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
+
+![polar](polar.png)
+
+## Polar Coordinates (composite)
+
+    p=polar cx cy r theta
+
+Return the polar coordinates ```(p_x)``` and ```(p_y)``` given the  center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
 
 
-Area
+## Area
 
     a=area d
+    c=area a+b
 
-return the circular area,  a for the diameter d.
+return the circular area, ```a``` for the diameter ```d```.
 
-Formatted Text
+## Formatted Text
 
 Assign a string variable with formatted text (using package fmt floating point format strings)
 
     w1=10
-	w2=20+100
+    w2=20+100
 
-	s0=format "Widget 1: %.2f" w1
-	s1=format "Widget 2: %.3f" w2
-	st=format "Total Widgets: %v" s1+w2
+    s0=format "Widget 1: %.2f" w1
+    s1=format "Widget 2: %.3f" w2
+    st=format "Total Widgets: %v" s1+w2
 
-Loops
+## Loops
 
-Loop over statements, with x starting at begin, ending at end with an optional increment (if omitted the increment is 1).
-Substitution of x will occur in statements.
+Loop over ```statements```, with ```x``` starting at ```begin```, ending at ```end``` with an optional ```increment``` (if omitted the increment is 1).
+Substitution of ```x``` will occur in statements.
 
     for x=begin end [increment]
         statements
     efor
 
-Loop over statements, with x ranging over the contents of items within [].
-Substitution of x will occur in statements.
+Loop over ```statements```, with ```x``` ranging over the contents of items within ```[]```.
+Substitution of ```x``` will occur in statements.
 
     for x=["abc" "def" "ghi"]
         statements
     efor
 
-Loop over statements, with x ranging over the contents "file".
-Substitution of x will occur in statements.
+Loop over ```statements```, with ```x``` ranging over the contents ```"file"```.
+Substitution of ```x``` will occur in statements.
 
     for x="file"
         statements
     efor
 
 
-Text
+## Text
 
-Left, centered, end, or block-aligned text or a file's contents with
-optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
+Left, centered, end, or block-aligned text (```x``` and ```y``` are the text's reference point), or a file's contents with  optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
 
     text       "text"     x y size       [font] [color] [opacity] [link]
+
+![text](text.png)
+
+
     ctext      "text"     x y size       [font] [color] [opacity] [link]
+
+![ctext](ctext.png)
+
     etext      "text"     x y size       [font] [color] [opacity] [link]
+
+![etext](etext.png)
+
     textblock  "text"     x y width size [font] [color] [opacity] [link]
+
+![textblock](textblock.png)
 
 Text rotated along the specified angle (in degrees)
 
     rtext      "text"     x y angle size [font] [color] [opacity] [link]
 
-Text on an arc centered at (x,y), with specified radius, between begin and ending angles (in degrees)
+![rtext](rtext.png)
+
+Text on an arc centered at ```(x,y)```, with specified radius, between begin and ending angles (in degrees).
+if the beginning angle is less than the ending angle the text is rendered counter-clockwise.
+if the beginning angle is greater than the ending angle, the text is rendered clockwise.
 
     arctext    "text"     x y radius begin-angle end-angle size [font] [color] [opacity] [link]
+
+![arctext](arctext.png)
 
 Place the contents of "filename" at (x,y). Place the contents of "filename" in gray box, using a monospaced font.
 
     textfile   "filename" x y       size [font] [color] [opacity] [linespacing]
+
+![textfile](textfile.png)
+
+
     textcode   "filename" x y width size [color]
 
+![textcocde](textcode.png)
 
-Images
+## Images
 
-Plain and captioned, with optional scales and links
+Plain and captioned, with optional scales, links and caption size. ```(x, y)``` is the center of the image,
+and ```width``` and ```height``` are the image dimensions in pixels.
 
     image  "file"           x y width height [scale] [link]
-    cimage "file" "caption" x y width height [scale] [link]
+    cimage "file" "caption" x y width height [scale] [link] [size]
 
-Lists
+![image](image.png)
+
+## Lists
 
 (plain, bulleted, numbered, centered). Optional arguments specify the color, opacity, line spacing, link and rotation (degrees)
 
     list   x y size [font] [color] [opacity] [linespacing] [link] [rotation]
+
+![list](list.png)
+
     blist  x y size [font] [color] [opacity] [linespacing] [link] [rotation]
+
+![blist](blist.png)
+
+
     nlist  x y size [font] [color] [opacity] [linespacing] [link] [rotation]
+
+![nlist](nlist.png)
+
     clist  x y size [font] [color] [opacity] [linespacing] [link] [rotation]
+
+
+![clist](clist.png)
+
 
 ### list items, and ending the list
 
     li "text"
     elist
 
-Graphics
+## Graphics
 
-Rectangles, ellipses, squares and circles: specify the location and dimensions with optional color and opacity.
-The default color and opacity is gray, 100%
+Rectangles, ellipses, squares, circles: specify the center location ```(x, y)``` and
+dimensions ```(w,h)``` with optional color and opacity.
+The default color and opacity is gray, 100%.  In the case of the ```acircle``` keyword, the ```a``` argument
+is the area, not the diameter.
 
     rect    x y w h [color] [opacity]
     ellipse x y w h [color] [opacity]
 
+
+![rect](rect.png)
+![ellipse](ellipse.png)
+
+
     square  x y w   [color] [opacity]
     circle  x y w   [color] [opacity]
 
+![square](square.png)
+![circle](circle.png)
+
+
+    acircle x y a   [color] [opacity]
+
+
+![acircle](area.png)
 
 Rounded rectangles are similar, with the added radius for the corners: (solid colors only)
 
     rrect   x y w h r [color]
+
+![rrect](rrect.png)
 
 
 For polygons, specify the x and y coordinates as a series of numbers, with optional color and opacity.
 
     polygon "xcoords" "ycoords" [color] [opacity]
 
-Note that the coordinate may be either discrete:
+![polygon](polygon.png)
+
+Note that the coordinates may be either discrete:
 
     polygon "10 20 30" "50 60 50"
 
@@ -289,68 +411,189 @@ A combination of constants and substitution is also allowed.
 
     polygon "20 x2 30" "50 y2 50"
 
-For lines, specify the coordinates for the beginning and end points.
-For horizonal and vertical lines specify the initial point and the length.
-Line thickness, color and opacity are optional, with defaults
-
-    line    x1 y1 x2 y2 [size] [color] [opacity]
-    hline   x y length  [size] [color] [opacity]
-    vline   x y length  [size] [color] [opacity]
-    pill    x y length  [size] [color]
-
-A "pill" shape is a line with rounded ends.
-
-
-Curve is a quadratic bezier: specify the beginning location, the control point, and ending location.
-For arcs, specify the location of the center point, the width and height, and the beginning and ending angles.
+For lines, specify the coordinates for the beginning ```(x1,y1)``` and end points ```(x2, y2)```.
+For horizontal and vertical lines specify the initial point and the length.
 Line thickness, color and opacity are optional, with defaults (0.2, gray, 100%).
 
-    curve   x1 y1 x2 y2 x3 y3 [size] [color] [opacity]
+A "pill" shape has is a horizontal line with rounded ends.
+
+    line    x1 y1 x2 y2 [size] [color] [opacity]
+
+![line](line.png)
+
+    hline   x y length  [size] [color] [opacity]
+
+![hline](hline.png)
+
+    vline   x y length  [size] [color] [opacity]
+
+![vline](vline.png)
+
+    pill    x w length  size   [color]
+
+![pill](pill.png)
+
+Curve is a quadratic Bezier curve: specify the beginning location ```(bx, by)```,
+the control point ```(cx, cy)```, and ending location ```(ex, ey)```.
+
+For arcs, specify the location of the center point ```(x,y)```, the width and height, and the beginning and ending angles (in degrees). Line thickness, color and opacity are optional, with defaults (0.2, gray, 100%).
+
+    curve   bx by cx cy ex ey [size] [color] [opacity]
+
+![curve](curve.png)
+
     arc     x y w h a1 a2     [size] [color] [opacity]
 
-Arrows
+![arc](arc.png)
+
+To make n-sided stars, use the "star" keyword: ```(x,y)``` is the center of the star,
+```np``` is the number of points, and ```inner``` and ```outer``` are the sizes of
+the inner and outer points, respectively.
+
+    star    x y np inner outer [color] [opacity]
+
+![star](star.png)
+
+## Arrows
 
 Arrows with optional linewidth, width, height, color, and opacity.
 Default linewidth is 0.2, default arrow width and height is 3, default color and opacity is gray, 100%.
 The curve variants use the same syntax for specifying curves.
 
     arrow   x1 y1 x2 y2       [linewidth] [arrowidth] [arrowheight] [color] [opacity]
-    lcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
-    rcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
-    ucarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
-    dcarrow x1 y1 x2 y2 x3 y3 [linewidth] [arrowidth] [arrowheight] [color] [opacity]
 
-Braces
+![arrow](arrow.png)
+
+    lcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+
+![lcarrow](lcarrow.png)
+
+    rcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+
+![rcarrow](rcarrow.png)
+
+    ucarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+
+![ucarrow](ucarrow.png)
+
+
+    dcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity]
+
+![dcarrow](dcarrow.png)
+
+## Braces
 
 Left, right, up and down-facing braces.
-(x, y) is the location of the point of the brace, and linewidth, color and opacity are optional
-(defaults are gray, 100%)
+(x, y) is the location of the point of the brace, (aw, ah) are width and height of the braces's
+end curves; ```linewidth```, ```color``` and ```opacity``` are optional (defaults are 0.2, gray, 100%)
 
     lbrace x y height aw ah [linewidth] [color] [opacity]
+
+![rbrace](rbrace.png)
+
     rbrace x y height aw ah [linewidth] [color] [opacity]
+
+![lbrace](rbrace.png)
+
     ubrace x y width  aw ah [linewidth] [color] [opacity]
+
+![ubrace](ubrace.png)
+
     dbrace x y width  aw ah [linewidth] [color] [opacity]
 
-Charts
+![dbrace](dbrace.png)
+
+## Brackets
+
+Left, right, up and down-facing brackets.
+(x, y) is the location of the center of the bracket.
+For left and right-facing brackets, ```width``` is the size of the top and bottom portions, and ```height``` is the span of the bracket.
+For upward and downward-facing brackets, ```width``` is the span of of bracket, and ```height``` is the size of the
+left and right portions. ```linewidth```, ```color``` and ```opacity``` are optional (defaults are 0.2, gray, 100%)
+
+    lbracket x y width height [linewidth] [color] [opacity]
+
+![lbracket](lbracket.png)
+
+    rbracket x y width height [linewidth] [color] [opacity]
+
+![rbracket](rbracket.png)
+
+    ubracket x y width height [linewidth] [color] [opacity]
+
+![dbracket](dbracket.png)
+
+    dbracket x y width height [linewidth] [color] [opacity]
+
+![ubracket](ubracket.png)
+
+## Charts
 
 Run the [dchart](https://github.com/ajstarks/dchart/blob/master/README.md) command with the specified arguments.
 
     dchart [args]
 
-Legend
+![dchart](dchart.png)
+
+## Legend
 
 Show a colored legend
 
     legend "text" x y size [font] [color]
 
+![legend](legend.png)
 
-Include decksh markup from a file
+
+## Include decksh markup from a file
 
     include "file"
 
-places the contents of "file" inline.
+places the contents of ```"file"``` inline.
 
-Data: Make a file
+## Functions
+
+Functions are defined with statements between the  ```def``` and ```edef``` keywords.
+
+    def "name" arg1 arg2 ... argn
+        statements
+    edef
+
+## Importing function defintions
+
+Functions may be imported once, and then called directly by name:
+
+    import "redcircle.dsh"
+    x=10
+    y=20
+    x2=30
+    redcircle x y
+    redcircle x2 y2
+
+or functions are called with the ```func``` keyword:
+
+
+    func "file" arg1 ... argn
+
+For example, given a file "ftest.dsh"
+
+    def ftest funx funy funs funt
+        funs*=2
+        ctext funt funx funy funs
+    edef
+
+calling the function:
+
+    func "ftest.dsh" 50 30 2.5 "hello"
+
+produces:
+
+    funx=50
+    funy=30
+    funs=5.0
+    funt="hello"
+    ctext "hello" 50 30 5.0
+
+## Data: Make a file
 
     data "foo.d"
     uno    100
@@ -358,13 +601,15 @@ Data: Make a file
     tres   300
     edata
 
-makes a file named foo.d with the lines between data and edata.
+makes a file named ```foo.d``` with the lines between ```data``` and ```edata```.
 
-Grid: Place objects on a grid
+## Grid: Place objects on a grid
 
     grid "file.dsh" x y xskip yskip limit
 
-The first file argument ("file.dsh" above) specifies a file with decksh commands; each item in the file must include the arguments "x" and "y". Normal variable substitution occurs for other arguments. For example if the contents of file.dsh has six items:
+![grid](grid.png)
+
+The first file argument (```"file.dsh"``` above) specifies a file with decksh commands; each item in the file must include the arguments "x" and "y". Normal variable substitution occurs for other arguments. For example if the contents of ```file.dsh``` has six items:
 
     circle x y 5
     circle x y 10
@@ -379,8 +624,8 @@ The line:
 
 creates two rows: three circles and then three squares
 
-x, y specify the beginning location of the items, xskip is the horizontal spacing between items.
-yinternal is the vertical spacing between items and limit the the horizontal limit. When the limit is reached,
+```x, y``` specify the beginning location of the items, ```xskip``` is the horizontal spacing between items.
+```yinternal``` is the vertical spacing between items and ```limit``` the the horizontal limit. When the ```limit``` is reached,
 a new row is created.
 */
 package decksh

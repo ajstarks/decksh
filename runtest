@@ -1,0 +1,2 @@
+#!/bin/bash
+decksh test.dsh > test.xml && pdfdeck -sans NotoSans-Regular test.xml && open test.pdf
