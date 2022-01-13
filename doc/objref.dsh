@@ -1617,7 +1617,7 @@ deck
 			li "Square Root"
 			li "Value mapping"
 			li "Define function"
-			li "Call function"
+			li "Import function"
 			li "In-line data"
 			li "Objects on a grid"
 		elist
@@ -1635,7 +1635,7 @@ deck
 			li "value=sqrt"
 			li "value=vmap"
 			li "def"
-			li "func"
+			li "import"
 			li "data" 
 			li "grid"
 		elist
@@ -1653,7 +1653,7 @@ deck
 			li "expression"
 			li "data min1 max1 min2 max2"
 			li "name arg1 ... argn ... edef"
-			li `"file" arg1 ... argn`
+			li `"file"`
 			li `"file" ... edata`
 			li `"file" x y hspace vspace edge`
 		elist
@@ -1892,20 +1892,20 @@ deck
 		rfilex=lfilex+50
 		lfileax=lfilex+36
 		rfileax=lfileax+12
-		ctext `func "doit.dsh" 50 20 2.5 "hello"` 50 92 4 "mono" objcolor
+		ctext `import "doit.dsh"` 50 92 4 "mono" objcolor
 		textcode "code/func-ex.dsh"   lfilex filey filew 2 argcolor
 		textcode "code/func-ex1.dsh"  rfilex filey filew 2 accentcolor
-		text "definition in doit.dsh"      lfilex 85 2 "mono"
-		text "result of function call"        rfilex 85 2 "mono"
+		text `contents of "doit.dsh"`      lfilex 85 2 "mono"
+		text `doit 50 20 2.5 "hello"`        rfilex 85 2 "mono"
 		arrow lfileax fileary rfileax fileary 0.5 2 3
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "func" 35 ly ts "mono" kwcolor
-		ctext `"file" arg1 ... argn` 53 ly ts "mono" argcolor
+		etext "import" 49 ly ts "mono" kwcolor
+		text `"file"` 51 ly ts "mono" argcolor
 		func "code/func-ex.dsh" 50 30 5 "calling the function"
 		func "code/func-ex.dsh" 50 20 4 "call again"
 		list 30 10 2 "mono" "" 100 1.2
-			li `func "foo.dsh" 50 30 5 "calling the function"`
-			li `func "foo.dsh" 50 20 4 "call again"`
+			li `doit 50 30 5 "calling the function"`
+			li `doit 50 20 4 "call again"`
 		elist
 	eslide
 
