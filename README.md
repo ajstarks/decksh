@@ -144,6 +144,70 @@ Division ```id=<id> / number or <id>```
 
     a=x/10
 
+## Coordinate assignments
+
+Assign (x,y) coordinates to the specified identifier.
+The x coordinate is ```id_x``` and the y coordinate is ```id_y```.
+The expression with the parentheses may be a constant, variable or binary expression.
+
+This code:
+
+        a=40
+        b=40
+        c=20
+
+        p0=(50,50)
+        p1=(a,b)
+        p2=(a+c,b)
+        p3=(a+c,b+c)
+        p4=(a,b+c)
+
+        circle p0_x p0_x 3
+        line p1_x p1_y p2_x p2_y 0.2 "blue"
+        line p2_x p2_y p3_x p3_y 0.2 "red"
+        line p3_x p3_y p4_x p4_y 0.2 "green"
+        line p4_x p4_y p1_x p1_y 0.2 "orange"
+
+makes this:
+
+![coordinates](images/pcoords.png)
+
+## Polar Coordinates
+
+    x=polarx cx cy r theta
+    y=polary cx cy r theta
+
+Return the polar coordinate given the center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
+
+![polar](images/polar.png)
+
+## Polar Coordinates (composite)
+
+    p=polar cx cy r theta
+
+Return the polar coordinates ```(p_x)``` and ```(p_y)``` given the  center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
+
+
+## Area
+
+    a=area d
+    c=area a+b
+
+return the circular area, ```a``` for the diameter ```d```.
+
+## Formatted Text
+
+Assign a string variable with formatted text (using package fmt floating point format strings)
+
+    w1=10
+    w2=20+100
+
+    s0=format "Widget 1: %.2f" w1
+    s1=format "Widget 2: %.3f" w2
+    st=format "Total Widgets: %v" s1+w2
+
+
+
 ## Begin or end a deck.
 
     deck
@@ -185,62 +249,6 @@ return the square root of the number of expression (```id``` or binary operation
 
 For value ```v```, map the range ```vmin-vmax``` to ```min-max```.
 
-## Coordinate assignments
-
-Assign (x,y) coordinates to the specified identifier.
-The x coordinate is ```id_x``` and the y coordinate is ```id_y```.
-The expression with the parentheses may be a constant, variable or binary expression.
-
-        a=40
-        b=40
-        c=20
-
-        p0=(10,10)
-        p1=(a,b)
-        p2=(a+c,b)
-        p3=(a+c,b+c)
-        p4=(a,b+c)
-
-        circle p0_x p1_x 2
-        line p1_x p1_y p2_x p2_y 0.2 "blue"
-        line p2_x p2_y p3_x p3_y 0.2 "red"
-        line p3_x p3_y p4_x p4_y 0.2 "green"
-        line p4_x p4_y p1_x p1_y 0.2 "orange"
-
-
-## Polar Coordinates
-
-    x=polarx cx cy r theta
-    y=polary cx cy r theta
-
-Return the polar coordinate given the center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
-
-![polar](images/polar.png)
-
-## Polar Coordinates (composite)
-
-    p=polar cx cy r theta
-
-Return the polar coordinates ```(p_x)``` and ```(p_y)``` given the  center at ```(cx, cy)```, radius ```r```, and angle ```theta``` (in degrees)
-
-
-## Area
-
-    a=area d
-    c=area a+b
-
-return the circular area, ```a``` for the diameter ```d```.
-
-## Formatted Text
-
-Assign a string variable with formatted text (using package fmt floating point format strings)
-
-    w1=10
-    w2=20+100
-
-    s0=format "Widget 1: %.2f" w1
-    s1=format "Widget 2: %.3f" w2
-    st=format "Total Widgets: %v" s1+w2
 
 ## Loops
 
@@ -549,25 +557,32 @@ places the contents of ```"file"``` inline.
 
 ## Functions
 
-Functions are defined with statements between the  ```def``` and ```edef``` keywords.
+Functions have a defined ```name``` and arguments, and are specifed with statements between the  ```def``` and ```edef``` keywords
 
-    def "name" arg1 arg2 ... argn
+    def name arg1 arg2 ... argn
         statements
     edef
 
 ## Importing function defintions
 
-Functions may be imported once, and then called directly by name:
+Functions may be imported once, and then called by name.
+
+For example, given a file ```redcircle.dsh```:
+
+    def redcircle X Y
+        circle X Y 10 "red"
+    edef
 
     import "redcircle.dsh" 
     x=10
     y=20
     x2=30
+    y2=y
     redcircle x y
     redcircle x2 y2
 
-or functions are called with the ```func``` keyword:
 
+Functions may also be called with the ```func``` keyword:
 
     func "file" arg1 ... argn
 

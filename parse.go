@@ -188,7 +188,7 @@ func importfunc(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	err = funcbody(filearg)
+	_, err = funcbody(filearg)
 	if err != nil {
 		return err
 	}
@@ -197,16 +197,23 @@ func importfunc(w io.Writer, s []string, linenumber int) error {
 
 // funcbody caches the body of function defintions
 // avoiding reapeted open/read/close
-func funcbody(s string) error {
-	_, ok := funcmap[s]
-	if !ok {
+func funcbody(s string) (string, error) {
+	_, loaded := funcmap[s]
+	var name string
+	// if the name is not loaded, read from the file
+	if !loaded {
 		data, err := os.ReadFile(s)
 		if err != nil {
-			return err
+			return "", err
 		}
-		funcmap[s] = string(data)
+		fs := string(data)
+		f := strings.Fields(fs)
+		if len(f) > 2 && f[0] == "def" {
+			name = f[1]
+			funcmap[name] = fs
+		}
 	}
-	return nil
+	return name, nil
 }
 
 // def reads and processes the function defintion
@@ -257,11 +264,11 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	err = funcbody(filearg)
-	if err != nil {
-		return err
+	name, ferr := funcbody(filearg)
+	if ferr != nil {
+		return ferr
 	}
-	scanner := bufio.NewScanner(strings.NewReader(funcmap[filearg]))
+	scanner := bufio.NewScanner(strings.NewReader(funcmap[name]))
 	return def(scanner, w, s, filearg, 2, linenumber)
 }
 
@@ -271,8 +278,7 @@ func directfunc(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 2 {
 		return fmt.Errorf("line %d: need at least one argument for a function", linenumber)
 	}
-	//fmt.Fprintf(os.Stderr, "directfunc: s[0]=%v funcmap=%v\n", s[0], funcmap)
-	scanner := bufio.NewScanner(strings.NewReader(funcmap[s[0]+".dsh"]))
+	scanner := bufio.NewScanner(strings.NewReader(funcmap[s[0]]))
 	return def(scanner, w, s, s[0], 1, linenumber)
 }
 
