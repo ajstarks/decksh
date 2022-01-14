@@ -47,7 +47,7 @@ func endtag(w io.Writer, s []string, linenumber int) error {
 // either a single color or two colors and a percentage used for gradients
 func colorstring(prefix, s string) string {
 	dc := prefix + s
-	if strings.Index(s, "/") == -1 {
+	if !strings.Contains(s, "/") {
 		return dc
 	}
 	if gc := strings.Split(s, "/"); len(gc) == 3 {
