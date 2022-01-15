@@ -2,7 +2,13 @@
 
 ![object reference](images/placemat.png)
 
-```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup.
+```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup. 
+
+## References and Examples
+
+* [```decksh``` overview](https://speakerdeck.com/ajstarks/decksh-a-little-language-for-decks)
+* [```decksh``` object reference](https://speakerdeck.com/ajstarks/decksh-object-reference)
+* [Repository of decksh projects and visualizations](https://github.com/ajstarks/deckviz)
 
 ## Package use
 
