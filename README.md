@@ -95,6 +95,21 @@ if omitted defaults are applied (black for text, gray for graphics, 100% opacity
 
 Canvas size and image dimensions are in pixels.
 
+## Begin or end a deck.
+
+    deck
+    edeck
+
+## Begin, end a slide with optional background and text colors.
+
+    slide [bgcolor] [fgcolor]
+    eslide
+
+## Specify the size of the canvas.
+
+    canvas w h
+
+
 ## Simple assignments
 
 ```id=<number>``` defines a constant, which may be then subtitited. For example:
@@ -207,22 +222,6 @@ Assign a string variable with formatted text (using package fmt floating point f
     st=format "Total Widgets: %v" s1+w2
 
 
-
-## Begin or end a deck.
-
-    deck
-    edeck
-
-## Begin, end a slide with optional background and text colors.
-
-    slide [bgcolor] [fgcolor]
-    eslide
-
-## Specify the size of the canvas.
-
-    canvas w h
-
-
 ## Random Number
 
 	x=random min max
@@ -273,10 +272,109 @@ Substitution of ```x``` will occur in statements.
         statements
     efor
 
+## Include decksh markup from a file
+
+    include "file"
+
+places the contents of ```"file"``` inline.
+
+## Functions
+
+Functions have a defined ```name``` and arguments, and are specifed with statements between the  ```def``` and ```edef``` keywords
+
+    def name arg1 arg2 ... argn
+        statements
+    edef
+
+## Importing function defintions
+
+Functions may be imported once, and then called by name.
+
+For example, given a file ```redcircle.dsh```:
+
+    def redcircle X Y
+        circle X Y 10 "red"
+    edef
+
+which is referenced:
+
+    import "redcircle.dsh" 
+    x=50
+    y=50
+    x2=x-20
+    y2=y+20
+    redcircle x y
+    redcircle x2 y2
+
+makes:
+
+![import](images/import.png)
+
+Functions may also be called with the ```func``` keyword:
+
+    func "file" arg1 ... argn
+
+For example, given a file "ftest.dsh"
+
+    def ftest funx funy funs funt
+        funs*=2
+        ctext funt funx funy funs
+    edef
+
+calling the function:
+
+    func "ftest.dsh" 50 30 2.5 "hello"
+
+produces:
+
+    funx=50
+    funy=30
+    funs=5.0
+    funt="hello"
+    ctext "hello" 50 30 5.0
+
+## Data: Make a file
+
+    data "foo.d"
+    uno    100
+    dos    200
+    tres   300
+    edata
+
+makes a file named ```foo.d``` with the lines between ```data``` and ```edata```. 
+
+## Grid: Place objects on a grid
+
+    grid "file.dsh" x y xskip yskip limit
+
+![grid](images/grid.png)
+
+The first file argument (```"file.dsh"``` above) specifies a file with decksh commands; each item in the file must include the arguments "x" and "y". Normal variable substitution occurs for other arguments. For example if the contents of ```file.dsh``` has six items:
+
+    circle x y 5
+    circle x y 10
+    circle x y 15
+    square x y 5
+    square x y 10
+    square x y 15
+
+The line:
+
+    grid "file.dsh" 10 80 20 30 50
+
+creates two rows: three circles and then three squares
+
+```x, y``` specify the beginning location of the items, ```xskip``` is the horizontal spacing between items.
+```yinternal``` is the vertical spacing between items and ```limit``` the the horizontal limit. When the ```limit``` is reached, 
+a new row is created.
+
+
+
+
 
 ## Text
 
-Left, centered, end, or block-aligned text (```x``` and ```y``` are the text's reference point), or a file's contents with  optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
+Left, centered, end, or block-aligned text or file contents (```x``` and ```y``` are the text's reference point), with  optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
 
     text       "text"     x y size       [font] [color] [opacity] [link]
 
@@ -548,95 +646,4 @@ Show a colored legend
 
 ![legend](images/legend.png)
 
-
-## Include decksh markup from a file
-
-    include "file"
-
-places the contents of ```"file"``` inline.
-
-## Functions
-
-Functions have a defined ```name``` and arguments, and are specifed with statements between the  ```def``` and ```edef``` keywords
-
-    def name arg1 arg2 ... argn
-        statements
-    edef
-
-## Importing function defintions
-
-Functions may be imported once, and then called by name.
-
-For example, given a file ```redcircle.dsh```:
-
-    def redcircle X Y
-        circle X Y 10 "red"
-    edef
-
-    import "redcircle.dsh" 
-    x=10
-    y=20
-    x2=30
-    y2=y
-    redcircle x y
-    redcircle x2 y2
-
-
-Functions may also be called with the ```func``` keyword:
-
-    func "file" arg1 ... argn
-
-For example, given a file "ftest.dsh"
-
-    def ftest funx funy funs funt
-        funs*=2
-        ctext funt funx funy funs
-    edef
-
-calling the function:
-
-    func "ftest.dsh" 50 30 2.5 "hello"
-
-produces:
-
-    funx=50
-    funy=30
-    funs=5.0
-    funt="hello"
-    ctext "hello" 50 30 5.0
-
-## Data: Make a file
-
-    data "foo.d"
-    uno    100
-    dos    200
-    tres   300
-    edata
-
-makes a file named ```foo.d``` with the lines between ```data``` and ```edata```. 
-
-## Grid: Place objects on a grid
-
-    grid "file.dsh" x y xskip yskip limit
-
-![grid](images/grid.png)
-
-The first file argument (```"file.dsh"``` above) specifies a file with decksh commands; each item in the file must include the arguments "x" and "y". Normal variable substitution occurs for other arguments. For example if the contents of ```file.dsh``` has six items:
-
-    circle x y 5
-    circle x y 10
-    circle x y 15
-    square x y 5
-    square x y 10
-    square x y 15
-
-The line:
-
-    grid "file.dsh" 10 80 20 30 50
-
-creates two rows: three circles and then three squares
-
-```x, y``` specify the beginning location of the items, ```xskip``` is the horizontal spacing between items.
-```yinternal``` is the vertical spacing between items and ```limit``` the the horizontal limit. When the ```limit``` is reached, 
-a new row is created.
 
