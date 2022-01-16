@@ -2,7 +2,12 @@
 
 ![object reference](images/placemat.png)
 
-```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup. 
+```decksh``` is a domain-specific language (DSL) for generating [```deck```](https://github.com/ajstarks/deck/blob/master/README.md) markup.
+
+## Install
+
+    go get github.com/ajstarks/decksh                        # install the package
+    go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 
 ## References and Examples
 
@@ -25,7 +30,8 @@ This repository also contains ```cmd/decksh```, a client decksh command:
     $ decksh foo.sh            # input from foo.sh output to stdout
     $ decksh -o foo.xml foo.sh # input from foo.sh output to foo.xml
 
-Typically, ```decksh``` acts as the head of a rendering pipeline:
+Typically, ```decksh``` acts as the head of a rendering pipeline, where another ```deck``` client renders the markup.
+This example uses [```pdfdeck```](https://github.com/ajstarks/deck/tree/master/cmd/pdfdeck)
 
     $ decksh text.dsh | pdfdeck -stdout -pagesize 1200,900 - > text.pdf 
 
