@@ -1,4 +1,4 @@
-# decksh: a little language for deck markup
+# decksh: a little language for presentations, visualizations, and information displays
 
 ![object reference](images/placemat.png)
 
