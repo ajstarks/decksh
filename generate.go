@@ -66,7 +66,7 @@ func fontColorOp(s []string) string {
 	case 3:
 		return fmt.Sprintf("font=%s color=%s opacity=%q", s[0], s[1], s[2])
 	case 4:
-		return fmt.Sprintf("font=%s color=%s opacity=%q link=%s", s[0], s[1], s[2], s[3])
+		return fmt.Sprintf("font=%s color=%s opacity=%q link=%s", s[0], s[1], s[2], xmlesc(s[3]))
 	default:
 		return ""
 	}
@@ -84,9 +84,9 @@ func fontColorOpLp(s []string) string {
 	case 4:
 		return fmt.Sprintf("font=%s color=%s opacity=%q lp=%q", s[0], s[1], s[2], s[3])
 	case 5:
-		return fmt.Sprintf("font=%s color=%s opacity=%q lp=%q link=%s", s[0], s[1], s[2], s[3], s[4])
+		return fmt.Sprintf("font=%s color=%s opacity=%q lp=%q link=%s", s[0], s[1], s[2], s[3], xmlesc(s[4]))
 	case 6:
-		return fmt.Sprintf("font=%s color=%s opacity=%q lp=%q link=%s rotation=%q", s[0], s[1], s[2], s[3], s[4], s[5])
+		return fmt.Sprintf("font=%s color=%s opacity=%q lp=%q link=%s rotation=%q", s[0], s[1], s[2], s[3], xmlesc(s[4]), s[5])
 	default:
 		return ""
 	}
