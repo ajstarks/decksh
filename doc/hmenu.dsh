@@ -1,0 +1,71 @@
+
+		isq=7
+		osq=isq-0.5
+		sqs=isq+0.5
+
+		ls=1.2
+		by=14
+		by1=by-1
+		by2=by+2
+		ly=by-8
+		bx=12.5
+
+		for x=bx 90 sqs
+			square x by isq "black"
+			square x by osq "white"
+		efor
+
+		ctext "T" bx by1 3 "serif" "black"
+		ctext "text" bx ly 1.5
+
+		bx+=sqs
+		bx1=bx-2
+		blist bx1 by2 1 "sans" "black" 100 1.5
+			li "one"
+			li "two"
+			li "three"
+		elist
+		ctext "list" bx ly ls
+
+		bx+=sqs
+		circle bx by 3
+		ctext "circle/ellipse" bx ly ls
+
+		bx+=sqs
+		rect   bx by 4 3
+		ctext "rect/square" bx ly ls
+
+		bx+=sqs
+		bx1=bx-2
+		bx2=bx+2
+		polygon "bx1 bx bx2" "by1 by2 by1"
+		ctext "polygon" bx ly ls
+
+		bx+=sqs
+		star bx by 5 2 1
+		ctext "star" bx ly ls
+
+		bx+=sqs
+		bx1=bx-2
+		bx2=bx+2
+		line bx1 by bx2 by2
+		ctext "line" bx ly ls
+
+		bx+=sqs
+		arc bx by 3 3 0 180
+		ctext "arc" bx ly ls
+
+		bx+=sqs
+		bx1=bx-2
+		bx2=bx+2
+		curve bx1 by bx1 20 bx2 by
+		ctext "curve" bx ly ls
+
+		bx+=sqs
+		arrow bx 12 bx 17
+		ctext "arrow" bx ly ls
+
+		bx+=sqs
+		bx1=bx-1
+		lbracket bx1 by 2 4
+		ctext "bracket/braces" bx ly ls

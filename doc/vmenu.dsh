@@ -1,0 +1,63 @@
+
+		vx=5
+		vsqs=6
+		for y=20 80 vsqs
+			square vx y 5 "#aaaaaa"
+			square vx y 4 "white"
+
+		efor
+		vy=80
+		vy1=vy-1
+		ctext "T" vx vy1 3 "serif" "black"
+
+		vy-=vsqs
+		vx1=vx-1
+		vy1=vy+1
+		blist vx1 vy1 0.75 "sans" "black" 100 1.2
+			li "one"
+			li "two"
+			li "three"
+		elist
+
+		vy-=vsqs
+		circle vx vy 2
+
+		vy-=vsqs
+		rect vx vy 3 2
+
+		vy-=vsqs
+		vx1=vx-1
+		vx3=vx+1
+		vy1=vy-1
+		vy2=vy+1
+		polygon "vx1 vx vx3" "vy1 vy2 vy1"
+
+		vy-=vsqs
+		star vx vy 5 0.5 1.5
+
+		vy-=vsqs
+		vx1=vx-1
+		vy1=vy-1
+		//vx2=vx+1
+		vy2=vy+1
+		line vx1 vy1 6 vy2
+
+		vy-=vsqs
+		arc vx vy 2 2 0 180
+
+		vy-=vsqs
+		vx1=vx-1
+		vy1=vy-1
+		vx2=vx-2
+		vy2=vy+3
+		vx3=vx+1
+		vy3=vy1
+		curve vx1 vy1 vx2 vy2 vx3 vy3
+
+		vy-=vsqs
+		vy1=vy-1
+		vy2=vy+2
+		arrow vx vy1 vx vy2 0.2 1.5 1.5
+
+		vy-=vsqs
+		rbracket vx vy 1 3

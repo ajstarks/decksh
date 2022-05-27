@@ -1,22 +1,26 @@
 deck
-	slide // "black" "white"
+	bgcolor="white"
+	txcolor="black"
+	slide bgcolor txcolor
 		ctext "Blank Canvas" 50 92 3
 		include "plainui.dsh"
 	eslide
 
-	slide
+	slide bgcolor txcolor
+		mxbg="white"
+		mxtxt="black"
 		ctext "Click on Canvas" 50 92 3
 		include "plainui.dsh"
 		boxx=50
 		boxy=50
 		boxw=25
 		boxh=20
-		rect boxx boxy boxw boxh "black"
+		rect boxx boxy boxw boxh mxtxt
 		boxw-=0.5
 		boxh-=0.5
-		rect boxx boxy boxw boxh "white"
+		rect boxx boxy boxw boxh mxbg
 
-		list 40 55 1.5 "sans" "" 100 1.5
+		list 40 55 1.5 "sans" mxtxt 100 1.5 
 			li "Width"
 			li "Height"
 			li "Background Color"
@@ -24,7 +28,7 @@ deck
 			li "Grid"
 		elist
 
-		list 55 55 1.5 "mono" "" 100 1.5
+		list 55 55 1.5 "mono" mxtxt 100 1.5
 			li "1200"
 			li "900"
 			li "#efefef"
@@ -33,17 +37,15 @@ deck
 		elist
 	eslide
 
-	slide // "black" "white"
+	slide bgcolor txcolor
 		ctext "Drag an Element on the Canvas" 50 92 3
 
 		include "plainui.dsh"
-		ucarrow 35 15    50 20    50 50 
-		text "drag" 50 35 2 "serif"
+		arrow 5 62 50 50 0.1 1.5 1.5
 		rect 50 50 20 10 "gray" 20
-
-		rect 70 50 12.5 20.5 "black"
-		rect 70 50 12 20 "white"
-		list 65 57 1.5 "sans" "" 100 1.5
+		rect 70 50 12.5 20.5 mxtxt
+		rect 70 50 12 20 mxbg
+		list 65 57 1.5 "sans" mxtxt 100 1.5
 			li "X"
 			li "Y"
 			li "Width"
@@ -52,7 +54,7 @@ deck
 			li "Opacity"
 		elist
 
-		list 72 57 1.5 "mono" "" 100 1.5
+		list 72 57 1.5 "mono" mxtxt 100 1.5 mxtxt
 			li "50"
 			li "50"
 			li "20"
