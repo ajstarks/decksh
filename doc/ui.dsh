@@ -1,0 +1,65 @@
+deck
+	slide // "black" "white"
+		ctext "Blank Canvas" 50 92 3
+		include "plainui.dsh"
+	eslide
+
+	slide
+		ctext "Click on Canvas" 50 92 3
+		include "plainui.dsh"
+		boxx=50
+		boxy=50
+		boxw=25
+		boxh=20
+		rect boxx boxy boxw boxh "black"
+		boxw-=0.5
+		boxh-=0.5
+		rect boxx boxy boxw boxh "white"
+
+		list 40 55 1.5 "sans" "" 100 1.5
+			li "Width"
+			li "Height"
+			li "Background Color"
+			li "Text Color"
+			li "Grid"
+		elist
+
+		list 55 55 1.5 "mono" "" 100 1.5
+			li "1200"
+			li "900"
+			li "#efefef"
+			li "black"
+			li "0"
+		elist
+	eslide
+
+	slide // "black" "white"
+		ctext "Drag an Element on the Canvas" 50 92 3
+
+		include "plainui.dsh"
+		ucarrow 35 15    50 20    50 50 
+		text "drag" 50 35 2 "serif"
+		rect 50 50 20 10 "gray" 20
+
+		rect 70 50 12.5 20.5 "black"
+		rect 70 50 12 20 "white"
+		list 65 57 1.5 "sans" "" 100 1.5
+			li "X"
+			li "Y"
+			li "Width"
+			li "Height"
+			li "Color"
+			li "Opacity"
+		elist
+
+		list 72 57 1.5 "mono" "" 100 1.5
+			li "50"
+			li "50"
+			li "20"
+			li "10"
+			li "gray"
+			li "100"
+		elist
+
+	eslide
+edeck
