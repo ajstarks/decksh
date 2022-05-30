@@ -898,6 +898,14 @@ deck
 		cimage imfile "SMALL" midx midy iw ih s2 imlink
 	eslide
 
+	// Width-scaled images
+	slide
+		ctext "Width Scaled Image" 50 90 5
+		image imfile 10 midy 10 0
+		image imfile 30 midy 25 0
+		image imfile 70 midy 50 0
+	eslide
+
 	// Example deck
 	imscale=58
 	dtop=87
