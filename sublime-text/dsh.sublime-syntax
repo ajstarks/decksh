@@ -17,7 +17,7 @@ contexts:
       push: line_comment
 
     # Keywords
-    - match: '\b(deck|edeck|canvas|def|edef|format|include|import|grid|func|call|callfunc|vmap|slide|eslide|textbox|textblock|textfile|textcode|arctext|text|ctext|etext|rtext|random|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|line|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polygon|pill|rect|roundrect|rrect|square|ellipse|star|circle|acircle|curve|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|area|polar|polarx|polary|sqrt)\b'
+    - match: '\b(deck|edeck|canvas|def|edef|format|include|import|grid|func|call|callfunc|vmap|slide|eslide|textbox|textblock|textfile|textcode|arc|arctext|text|ctext|etext|rtext|random|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|line|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polygon|pill|rect|roundrect|rrect|square|ellipse|star|circle|acircle|curve|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|area|polar|polarx|polary|sqrt)\b'
       scope: keyword.control.decksh
 
     # Numbers
