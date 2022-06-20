@@ -493,17 +493,17 @@ deck
 
 		px=polarx 50 50 20 a6
 		py=polary 50 50 20 a6
-		ctext "π+1/4 (225°)" px py 2
+		ctext "5π/4 (225°)" px py 2
 		line 50 50 px py 0.1
 
 		px=polarx 50 50 20 a7
 		py=polary 50 50 20 a7
-		ctext "π+1/2 (270°)" px py 2
+		ctext "3π/2 (270°)" px py 2
 		line 50 50 px py 0.1
 
 		px=polarx 50 50 20 a8
 		py=polary 50 50 20 a8
-		ctext "π+3/4 (325°)" px py 2
+		ctext "7π/4 (325°)" px py 2
 		line 50 50 px py 0.1
 
 		point=polar 50 50 10 a2
@@ -892,6 +892,7 @@ deck
 		image imfile midx midy iw ih s2 imlink
 	eslide
 
+	// Captioned images
 	slide "black" "white"
 		cimage imfile "LARGE" midx midy iw ih
 		cimage imfile "MEDIUM" midx midy iw ih s1
@@ -901,6 +902,9 @@ deck
 	// Width-scaled images
 	slide
 		ctext "Width Scaled Image" 50 90 5
+		ctext "10%" 10 77 3 
+		ctext "30%" 30 77 3
+		ctext "50%" 70 77 3
 		image imfile 10 midy 10 0
 		image imfile 30 midy 25 0
 		image imfile 70 midy 50 0
