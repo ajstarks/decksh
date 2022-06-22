@@ -96,7 +96,8 @@ Text, font, color, caption and link arguments follow Go convetions (surrounded b
 Colors formats are:
 
 * rgb format "rgb(n,n,n)", for example "```"rgb(128,0,128)"```
-* hex "#rrggbb", for example ```"#aa00aa"```, or 
+* hex "#rrggbb", for example ```"#aa00aa"```,
+* hsv(hue,sat,value), for example ```hsv(360, 30, 30)``` (pdfdeck and pngdeck support this syntax)
 * [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
 
 Color gradients (used for slide backgrounds and rectangle and square fills) are specified as color1/color2/percent, for example, ```"blue/white/90"```
