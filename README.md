@@ -530,6 +530,7 @@ Polyline is similar to polygon, except line segments are used instead of a fille
 
     polyline "xcoords" "ycoords" [lw] [color] [opacity]
 
+![polyline](images/polyline.png)
 
 For lines, specify the coordinates for the beginning ```(x1,y1)``` and end points ```(x2, y2)```. 
 For horizontal and vertical lines specify the initial point and the length.
