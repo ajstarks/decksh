@@ -600,6 +600,51 @@ func polygon(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// polyline makes a series of lines given a set of coordinantes
+// polyline "xcoord" "ycoord" [lw] [color] [opacity]
+func polyline(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s \"xcoord\" \"ycoord\" [lw] [color] [opacity]", linenumber, s[0])
+	if n < 3 {
+		return e
+	}
+
+	// get the coordinates from the quoted strings
+	xc := strings.Fields(unquote(s[1]))
+	yc := strings.Fields(unquote(s[2]))
+
+	lx := len(xc)
+	ly := len(yc)
+	if lx != ly {
+		return fmt.Errorf("line %d: %s coordinates are not the same length (x=%d, y=%d)", linenumber, s[0], lx, ly)
+	}
+
+	if lx < 3 || ly < 3 {
+		return fmt.Errorf("line %d: %s needs at least 3 coordinates", linenumber, s[0])
+	}
+
+	var attr string
+	switch n {
+	case 3:
+		attr = "/>"
+	case 4:
+		attr = fmt.Sprintf("sp=%q/>", s[3])
+	case 5:
+		attr = fmt.Sprintf("sp=%q color=%s/>", s[3], s[4])
+	case 6:
+		attr = fmt.Sprintf("sp=%q color=%s opacity=%q/>", s[3], s[4], s[5])
+	default:
+		return e
+	}
+
+	// generate, eval coordinates
+	for i := 0; i < lx-1; i++ {
+		fmt.Fprintf(w, "<line xp1=%q yp1=%q xp2=%q yp2=%q %s\n", eval(xc[i]), eval(yc[i]), eval(xc[i+1]), eval(yc[i+1]), attr)
+	}
+	fmt.Fprintf(w, "<line xp1=%q yp1=%q xp2=%q yp2=%q %s\n", eval(xc[0]), eval(yc[0]), eval(xc[lx-1]), eval(yc[lx-1]), attr)
+	return nil
+}
+
 // line generates markup for lines
 // line x1 y1 x2 y2 [size] [color] [opacity]
 func line(w io.Writer, s []string, linenumber int) error {

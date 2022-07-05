@@ -122,8 +122,8 @@
 <line xp1="60" yp1="60" xp2="40" yp2="60" sp="0.2" color="green"/>
 <line xp1="40" yp1="60" xp2="40" yp2="40" sp="0.2" color="orange"/>
 <polygon xc="40 60 60 40" yc="40 40 60 60" color="black" opacity="10"/>
-<ellipse xp="47.50057359087825" yp="58.980113712204215" wp="5" hr="100" color="red" opacity="50"/>
-<ellipse xp="47.50057359087825" yp="58.980113712204215" wp="1" hr="100"/>
+<ellipse xp="46.148936481730736" yp="58.091201899296976" wp="5" hr="100" color="red" opacity="50"/>
+<ellipse xp="46.148936481730736" yp="58.091201899296976" wp="1" hr="100"/>
 <text align="c" xp="40" yp="40" sp="2" >p1 (a,b)</text>
 <text align="c" xp="60" yp="40" sp="2" >p2 (a+c,b)</text>
 <text align="c" xp="60" yp="60" sp="2" >p3 (a+c,b+c)</text>
@@ -399,9 +399,9 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Random</text>
-<ellipse xp="63.5042869690064" yp="88.15975982102687" wp="10" hr="100" color="red" opacity="88.15975982102687"/>
-<ellipse xp="72.91890024210082" yp="76.08469462382881" wp="10" hr="100" color="green" opacity="76.08469462382881"/>
-<ellipse xp="74.53600590179462" yp="22.263597013522478" wp="10" hr="100" color="blue" opacity="22.263597013522478"/>
+<ellipse xp="24.460385180985988" yp="68.56908465618241" wp="10" hr="100" color="red" opacity="68.56908465618241"/>
+<ellipse xp="36.37149158505656" yp="23.903959839968984" wp="10" hr="100" color="green" opacity="23.903959839968984"/>
+<ellipse xp="19.6687699767113" yp="64.5533594180906" wp="10" hr="100" color="blue" opacity="64.5533594180906"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="80" sp="3" >sqrt 8 = 2.8284271247461903</text>
@@ -575,6 +575,24 @@
 <polygon xc="30 35 40" yc="50 70 50" color="red"/>
 <polygon xc="50 55 60" yc="50 70 50" color="red" opacity="20"/>
 <polygon xc="70 75 80" yc="50 90 50"/>
+</slide>
+<slide>
+<text align="c" xp="50" yp="90" sp="5" >Polyline Eval</text>
+<line xp1="10" yp1="80" xp2="15" yp2="90" />
+<line xp1="15" yp1="90" xp2="20" yp2="80" />
+<line xp1="10" yp1="80" xp2="20" yp2="80" />
+<line xp1="10" yp1="50" xp2="15" yp2="70" />
+<line xp1="15" yp1="70" xp2="20" yp2="50" />
+<line xp1="10" yp1="50" xp2="20" yp2="50" />
+<line xp1="30" yp1="50" xp2="35" yp2="70" sp="0.2" color="red"/>
+<line xp1="35" yp1="70" xp2="40" yp2="50" sp="0.2" color="red"/>
+<line xp1="30" yp1="50" xp2="40" yp2="50" sp="0.2" color="red"/>
+<line xp1="50" yp1="50" xp2="55" yp2="70" sp="0.2" color="red" opacity="20"/>
+<line xp1="55" yp1="70" xp2="60" yp2="50" sp="0.2" color="red" opacity="20"/>
+<line xp1="50" yp1="50" xp2="60" yp2="50" sp="0.2" color="red" opacity="20"/>
+<line xp1="70" yp1="50" xp2="75" yp2="90" />
+<line xp1="75" yp1="90" xp2="80" yp2="50" />
+<line xp1="70" yp1="50" xp2="80" yp2="50" />
 </slide>
 <slide>
 <line xp1="50" yp1="45" xp2="32.25" yp2="45" sp="0.2" color="gray" opacity="100"/>

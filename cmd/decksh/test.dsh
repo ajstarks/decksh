@@ -493,17 +493,17 @@ deck
 
 		px=polarx 50 50 20 a6
 		py=polary 50 50 20 a6
-		ctext "π+1/4 (225°)" px py 2
+		ctext "5π/4 (225°)" px py 2
 		line 50 50 px py 0.1
 
 		px=polarx 50 50 20 a7
 		py=polary 50 50 20 a7
-		ctext "π+1/2 (270°)" px py 2
+		ctext "3π/2 (270°)" px py 2
 		line 50 50 px py 0.1
 
 		px=polarx 50 50 20 a8
 		py=polary 50 50 20 a8
-		ctext "π+3/4 (325°)" px py 2
+		ctext "7π/4 (325°)" px py 2
 		line 50 50 px py 0.1
 
 		point=polar 50 50 10 a2
@@ -686,6 +686,37 @@ deck
 		x2+=20
 		x3+=20
 		polygon "x1 75 x3" "y1 90 y3"
+	eslide
+
+	// polyline eval
+	slide
+		ctext "Polyline Eval" 50 90  5
+		x1=10
+		x2=15
+		x3=20
+
+		y1=50
+		y2=70
+		y3=50
+
+
+		polyline "10 15 20" "80 90 80"
+		polyline "x1 x2 x3" "y1 y2 y3"
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polyline "x1 x2 x3" "y1 y2 y3" 0.2 "red"
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polyline "x1 x2 x3" "y1 y2 y3" 0.2 "red" 20
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polyline "x1 75 x3" "y1 90 y3"
 	eslide
 
 	// Arrows
@@ -892,10 +923,22 @@ deck
 		image imfile midx midy iw ih s2 imlink
 	eslide
 
+	// Captioned images
 	slide "black" "white"
 		cimage imfile "LARGE" midx midy iw ih
 		cimage imfile "MEDIUM" midx midy iw ih s1
 		cimage imfile "SMALL" midx midy iw ih s2 imlink
+	eslide
+
+	// Width-scaled images
+	slide
+		ctext "Width Scaled Image" 50 90 5
+		ctext "10%" 10 77 3 
+		ctext "30%" 30 77 3
+		ctext "50%" 70 77 3
+		image imfile 10 midy 10 0
+		image imfile 30 midy 25 0
+		image imfile 70 midy 50 0
 	eslide
 
 	// Example deck

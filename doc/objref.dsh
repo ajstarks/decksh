@@ -15,7 +15,7 @@ deck
 	ts=3.2
 	ets=2
 	ls=ts*0.55
-	lsty=80
+	lsty=82
 	lfs=2.3
 	tbheadsize=4
 	cx=50
@@ -497,6 +497,7 @@ deck
 			li "Rounded rectangle"
 			li "Pill shape"
 			li "Polygon"
+			li "Polyline"
 			li "N-sided star"
 		elist
 		rc+=lcolsize
@@ -515,6 +516,7 @@ deck
 			li "rrect"
 			li "pill"
 			li "polygon"
+			li "polyline"
 			li "star"
 		elist
 		rc+=12
@@ -532,6 +534,7 @@ deck
 			li "x y w h"
 			li "x y w h radius"
 			li "x y w h"
+			li ` "x1 x2...xn" "y1 y2...yn"`
 			li ` "x1 x2...xn" "y1 y2...yn"`
 			li "x y sides inner outer"
 		elist
@@ -551,6 +554,7 @@ deck
 			li "color"
 			li "color"
 			li "color op"
+			li "lw color op"
 			li "color op"
 		elist
 	eslide
@@ -920,6 +924,27 @@ deck
 
 		polygon "70 85 90" "ey 30 ey" accentcolor
 		ctext `polygon "70 85 90" "20 30 20" "maroon"` 80 ely ls "mono"
+	eslide
+
+	// polyline
+	slide bgcolor fgcolor
+		polyline "30 70 60" "ky 90 ky"
+		ctext "(x1,y1)" 30 65 ts "mono"
+		ctext "(x2,y2)" 65 65 ts "mono"
+		ctext "(x3,y3)" 70 92 ts "mono"
+		circle 30 ky coordsize accentcolor
+		circle 60 ky coordsize accentcolor
+		circle 70 90 coordsize accentcolor
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "polyline"                    30 ly ts "mono" kwcolor
+		ctext `x1 x2...xn" "y1 y2...yn`     50 ly ts "mono" argcolor
+		ctext "lw color op"                 80 ly ts "mono" optcolor
+
+		polyline "10 25 20" "ey 30 ey"
+		text `polyline "10 25 20" "20 30 20"` 5 ely ls "mono"
+
+		polyline "70 85 90" "ey 30 ey" 0.2 accentcolor
+		ctext `polyline "70 85 90" "20 30 20" 0.2 "maroon"` 80 ely ls "mono"
 	eslide
 
 	// star

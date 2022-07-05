@@ -358,6 +358,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "polygon", "poly":
 		return polygon(w, tokens, n)
 
+	case "polyline":
+		return polyline(w, tokens, n)
+
 	case "line":
 		return line(w, tokens, n)
 

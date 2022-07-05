@@ -688,6 +688,37 @@ deck
 		polygon "x1 75 x3" "y1 90 y3"
 	eslide
 
+	// polyline eval
+	slide
+		ctext "Polyline Eval" 50 90  5
+		x1=10
+		x2=15
+		x3=20
+
+		y1=50
+		y2=70
+		y3=50
+
+
+		polyline "10 15 20" "80 90 80"
+		polyline "x1 x2 x3" "y1 y2 y3"
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polyline "x1 x2 x3" "y1 y2 y3" 0.2 "red"
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polyline "x1 x2 x3" "y1 y2 y3" 0.2 "red" 20
+
+		x1+=20
+		x2+=20
+		x3+=20
+		polyline "x1 75 x3" "y1 90 y3"
+	eslide
+
 	// Arrows
 	slide
 		arrow 50 45 30 45
