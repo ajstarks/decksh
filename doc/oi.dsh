@@ -3,21 +3,20 @@
 	ltop=95
 	top=ltop-10
 	bottom=5
-	left=10
-	right=80
+	left=7.5
+	right=90
 	hskip=10
 	vskip=20
 	slide
 
 		// grid lines
 		for v=5 95 5
-			vline v 0 100 0.05 "blue" 20
-			hline 0 v 100 0.05 "red"  20
+			vline v 0 100 0.1 "blue" 20
+			hline 0 v 100 0.1 "red"  20
 		efor
 
-		// 8 x 5 grid
+		// 9 x 5 grid
 		grid "objlabels.dsh" left ltop hskip vskip right
-		ctext "clist" 90 15 1.5 "mono" labelcolor // overflow
 
 		xind=left
 		yind=top
@@ -38,15 +37,15 @@
 		xind+=hskip
 		textfile "code/example.txt" xind tyind 0.7
 		xind+=hskip
-		textcode "code/hw-go" xind tyind 15 0.75
+		textcode "code/hw-go" xind tyind 7 0.75
+		xind+=hskip
+		x2=xind+5
+		y2=yind+3
+		line xind yind x2 y2
 
 		// row 2
 		xind=left
 		yind-=vskip
-		x2=xind+5
-		y2=yind+3
-		line xind yind x2 y2
-		xind+=hskip
 		hline xind yind 5
 		xind+=hskip
 		vline xind yind 5
@@ -61,17 +60,26 @@
 		eyind=yind 
 		curve bxind byind cxind cyind exind eyind
 		xind+=hskip
+
+		x1=xind-2
+		x2=xind+2
+		x3=xind
+		y1=yind-2 
+		y2=yind-2 
+		y3=yind+3
+		polyline "x1 x2 x3" "y1 y2 y3"
+		xind+=hskip
 		circle xind yind 4
 		xind+=hskip
 		acircle xind yind 4
 		xind+=hskip
 		ellipse xind yind 7 5
+		xind+=hskip
+		square xind yind 5
 
 		// row 3
 		xind=left
 		yind-=vskip
-		square xind yind 5
-		xind+=hskip
 		rect xind yind 7 4
 		xind+=hskip
 		rrect xind yind 6 3 2
@@ -92,14 +100,14 @@
 		image "images/cloudy.jpg" xind yind 640 480 10
 		xind+=hskip
 		cimage "images/cloudy.jpg" "sky" xind yind 640 480 10 "" 1.2
+		xind+=hskip
+		lbrace xind yind 7 1 2
+		xind+=hskip
+		rbrace xind yind 7 1 2
 
 		// row 4
 		xind=left
 		yind-=vskip
-		lbrace xind yind 7 1 2
-		xind+=hskip
-		rbrace xind yind 7 1 2
-		xind+=hskip
 		ubrace xind yind 7 1 2
 		xind+=hskip
 		dbrace xind yind 7 1 2
@@ -112,10 +120,6 @@
 		xind+=hskip
 		dbracket xind yind 7 2
 		xind+=hskip
-
-		// row 5
-		xind=left
-		yind-=vskip
 		y2=yind+5
 		arrow xind yind xind y2 0.2 1 1
 		xind+=hskip
@@ -127,9 +131,7 @@
 		exind=xind-hs2
 		eyind=yind+hs2
 		lcarrow bxind byind cxind cyind exind eyind 0.2 1 1
-
 		xind+=hskip
-
 		bxind=xind
 		byind=yind 
 		cxind=xind
@@ -138,8 +140,9 @@
 		eyind=yind+hs2
 		rcarrow bxind byind cxind cyind exind eyind 0.2 1 1
 
-		xind+=hskip
-
+		// row 5
+		xind=left
+		yind-=vskip
 		bxind=xind
 		byind=yind+hs2 
 		cxind=xind+hs2

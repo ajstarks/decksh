@@ -11,6 +11,7 @@ ctext "hline" X Y 1.5 "mono" labelcolor
 ctext "vline" X Y 1.5 "mono" labelcolor
 ctext "arc" X Y 1.5 "mono" labelcolor
 ctext "curve" X Y 1.5 "mono" labelcolor
+ctext "polyline" X Y 1.5 "mono" labelcolor
 ctext "circle" X Y 1.5 "mono" labelcolor
 ctext "acircle" X Y 1.5 "mono" labelcolor
 ctext "ellipse" X Y 1.5 "mono" labelcolor
