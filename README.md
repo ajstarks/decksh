@@ -104,7 +104,7 @@ Colors formats are:
 
 Color gradients (used for slide backgrounds and rectangle and square fills) are specified as color1/color2/percent, for example, ```"blue/white/90"```
 
-# Coordinates, dimensions, scales and opacity
+## Coordinates, dimensions, scales and opacity
 
 Coordinates, dimensions, scales and opacities are floating point numbers ranging from from 0-100 (representing percentages of the canvas width and percent opacity).
 Some arguments are optional, and if omitted defaults are applied (black for text, gray for graphics, 100% opacity).
