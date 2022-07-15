@@ -91,16 +91,20 @@ Produces:
 
 ![exampledeck](images/exampledeck.png)
 
-Text, font, color, caption and link arguments follow Go convetions (surrounded by double quotes).
+Text, font, color, caption and link arguments follow Go conventions (surrounded by double quotes).
+
+## Colors 
 
 Colors formats are:
 
-* RGB: "rgb(n,n,n)", for example "```"rgb(128,0,128)"```
+* [RGB](https://en.wikipedia.org/wiki/RGB_color_model): "rgb(n,n,n)", where n ranges from 0-255, for example "```"rgb(128,0,128)"``` .
 * hex: "#rrggbb", for example ```"#aa00aa"```,
-* HSV:  hsv(hue,sat,value), for example ```hsv(360,30,30)``` (pdfdeck and pngdeck support this syntax)
+* [HSV](https://en.wikipedia.org/wiki/HSL_and_HSV):  hsv(hue,saturation,value), hue ranges from 0-360, saturation and value range from 0-100, for example ```"hsv(360,30,30)"``` (pdfdeck and pngdeck support this syntax)
 * [SVG color names](https://www.w3.org/TR/SVG11/types.html#ColorKeywords).
 
 Color gradients (used for slide backgrounds and rectangle and square fills) are specified as color1/color2/percent, for example, ```"blue/white/90"```
+
+# Coordinates, dimensions, scales and opacity
 
 Coordinates, dimensions, scales and opacities are floating point numbers ranging from from 0-100 (representing percentages of the canvas width and percent opacity).
 Some arguments are optional, and if omitted defaults are applied (black for text, gray for graphics, 100% opacity).
