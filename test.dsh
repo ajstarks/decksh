@@ -54,6 +54,7 @@ deck
 			li `"steelblue"`
 			li `"#4682b4"`
 			li `"rgb(70,130,180)"`
+			li `"hsv(207,61,71)"`
 			li "maroon/blue/90"
 		elist
 
@@ -74,20 +75,32 @@ deck
 		list 68 60 2.5 "mono" "" 100 1.5
 			li "100"
 			li "50"
-			li "10"
+			li "20"
 		elist
 
 		hline 80 61 6  2 "maroon"
 		hline 80 56 6  2 "maroon" 50
-		hline 80 51 6  2 "maroon" 10
+		hline 80 51 6  2 "maroon" 20
 
-		rect 30 47 4 3 "maroon/blue/90"
+		rect 30 42 4 3 "maroon/blue/90"
 
 		vline 33 25 50 0.1
 		vline 66 25 50 0.1
 		vline  5 25 50 0.1
 		vline 90 25 50 0.1
 		hline 5 25 85  0.1
+
+		list 6 20 2 "mono"
+			li "maroon"
+			li "#800000"
+			li "rgb(128,0,0)"
+			li "hsv(0,100,50)"
+		elist
+
+		square 30 20  2 "maroon"
+		square 30 15  2 "#800000"
+		square 30 10  2 "rgb(128,0,0)"
+		square 30  5  2 "hsv(0,100,50)"
 	eslide
 
 	// function
