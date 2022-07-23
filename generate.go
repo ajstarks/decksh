@@ -1042,15 +1042,17 @@ func dbrace(w io.Writer, x, y, size, aw, ah float64, attr string) {
 	fmt.Fprintf(w, curvefmt, x-linelen, yshift, x-linelen-aw, yshift, x-linelen-aw, y+(ah), attr)
 }
 
-// angle computes the angle formed by a line
+// angle computes the angle formed by a line, compensating for aspect ratio
 func angle(x1, y1, x2, y2 float64) float64 {
-	return math.Atan2(y2-y1, x2-x1)
+	aspect := (canvasHeight / canvasWidth)
+	return math.Atan2((aspect*y2)-(aspect*y1), x2-x1)
 }
 
-// rt returns the distance and angle of a line
+// rt returns the distance and angle of a line, compensating for aspect ratio
 func rt(x1, y1, x2, y2 float64) (float64, float64) {
+	aspect := (canvasHeight / canvasWidth)
 	dx := x2 - x1
-	dy := y2 - y1
+	dy := (aspect * y2) - (aspect * y1)
 	return math.Sqrt((dx * dx) + (dy * dy)), math.Atan2(dy, dx)
 }
 
@@ -1065,15 +1067,20 @@ func wpolar(cx, cy, r, t float64) (float64, float64) {
 	return ((r * math.Cos(t)) + (cx)), ((r * math.Sin(t)) + (cy))
 }
 
+// rotatexy computes the coordinates rotated around t
+func rotatexy(cx, cy, x, y, t float64) (float64, float64) {
+	return cx + (x * math.Cos(t)) - (y * math.Sin(t)), cy + (x * math.Sin(t)) - (y * math.Cos(t))
+}
+
 // genarrow returns the components of an arrow
 func genarrow(x1, y1, x2, y2, aw, ah float64) (float64, float64, float64, float64, float64, float64, float64, float64) {
 	r, t := rt(x1, y1, x2, y2)
 	n := r - (aw * stdnotch)
-	nt := angle(x1, y1, x1+n, y1+(ah/2))
-	ax1, ay1 := wpolar(x1, y1, r, t)
-	ax2, ay2 := wpolar(x1, y1, r-aw, t+nt)
-	ax3, ay3 := wpolar(x1, y1, n, t)
-	ax4, ay4 := wpolar(x1, y1, r-aw, t-nt)
+	nt := angle(x1, y1, x1+n, (y1 + (ah / 2)))
+	ax1, ay1 := polar(x1, y1, r, t)
+	ax2, ay2 := polar(x1, y1, r-aw, t+nt)
+	ax3, ay3 := polar(x1, y1, n, t)
+	ax4, ay4 := polar(x1, y1, r-aw, t-nt)
 
 	return ax1, ay1, ax2, ay2, ax3, ay3, ax4, ay4
 }

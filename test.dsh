@@ -753,14 +753,14 @@ deck
 		arrow 25 5 25 30 0.5 4
 		arrow 35 5 35 25 0.6 5 8
 		arrow 45 5 45 20 0.7 6 9 "red"
-		arrow 55 5 55 15 0.8 8 10 "blue" 20
+		arrow 55 5 55 15 0.8 5 8  "blue" 20
 
 		arrow 95 40 95 05
 		arrow 85 40 85 10 0.4
 		arrow 75 40 75 15 0.5 4
 		arrow 65 40 65 20 0.6 5 8
 		arrow 55 40 55 25 0.7 6 9 "red"
-		arrow 45 40 45 30 0.8 8 10 "blue" 20
+		arrow 45 40 45 30 0.8 5 8  "blue" 20
 
 		for lcx=45 95 10
 			circle 50 lcx 1.5 "gray"
@@ -787,7 +787,7 @@ deck
 		arrow 50 50 10 10	// lower left
 		arrow 50 50 10 90	// upper left
 		arrow 50 50 90 10	// lower right
-		ctext "up"			50 93 2
+		ctext "up"			  50 90 2
 		ctext "down"		  50  7 2
 		etext "left"		  7 49 2
 		text  "right"		 93 49 2
@@ -799,9 +799,10 @@ deck
 
 	slide
 		arrow 50 70 25 95 2 6 6 "blue"
-		arrow 50 30 25 05 1 5 5
-		arrow 50 30 75 05 0.5
+		arrow 50 30 25 5 1 5 5
+		arrow 50 30 75 5 0.5
 		arrow 50 70 75 95
+		
 
 		arrow 50 50 75 25
 		arrow 50 50 25 25 0.5
@@ -812,12 +813,12 @@ deck
 		circle 50 50 1.5 "red"
 		circle 50 70 1.5 "red"
 
-		circle 25 05 1.5 "red"
+		circle 25 5 1.5 "red"
 		circle 25 25 1.5 "red"
 		circle 25 75 1.5 "red"
 		circle 25 95 1.5 "red"
 
-		circle 75 05 1.5 "red"
+		circle 75 5 1.5 "red"
 		circle 75 25 1.5 "red"
 		circle 75 75 1.5 "red"
 		circle 75 95 1.5 "red"
