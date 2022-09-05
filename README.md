@@ -401,6 +401,7 @@ a new row is created.
 Left, centered, end, or block-aligned text or file contents (```x``` and ```y``` are the text's reference point), with  optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
 
     text       "text"     x y size       [font] [color] [opacity] [link]
+    btext      "text"     x y size       [font] [color] [opacity] [link]
 
 ![text](images/text.png)
 

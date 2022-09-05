@@ -156,7 +156,7 @@ func text(w io.Writer, s []string, linenumber int) error {
 	}
 	fco := fontColorOp(s[5:])
 	switch s[0] {
-	case "text":
+	case "text", "btext":
 		fmt.Fprintf(w, "<text xp=%q yp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], fco, qesc(s[1]))
 	case "ctext":
 		fmt.Fprintf(w, "<text align=\"c\" xp=%q yp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], fco, qesc(s[1]))

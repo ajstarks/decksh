@@ -210,8 +210,8 @@ deck
 
 		text "one"   l1 80 ts1
 		text "two"   l1 70 ts1 "serif"
-		text "three" l1 60 ts1 "mono" "red"
-		text "four"  l1 50 ts1 "sans" "blue" op1
+		btext "three" l1 60 ts1 "mono" "red"
+		btext "four"  l1 50 ts1 "sans" "blue" op1
 
 
 		ctext "one"   l2 80 ts1

@@ -1,7 +1,7 @@
 hi Comment ctermfg=darkgray
 hi Statement ctermfg=darkred
 hi String ctermfg=darkblue
-syn keyword    Statement    deck edeck canvas include import def edef grid call call func func vmap area slide eslide text ctext etext rtext random textfile textblock textbox  textcode lbrace rbrace ubrace dbrace lbracket rbracket ubracket dbracket blist list nlist clist li elist data edata dchart for efor legend image cimage polyline polygon rect roundrect rrect square ellipse acircle circle line curve arc arrow lcarrow dcarrow rcarrow ucarrow hline vline polarx polary polar sprint format star pill arctext sqrt
+syn keyword    Statement    deck edeck canvas include import def edef grid call call func func vmap area slide eslide text btext ctext etext rtext random textfile textblock textbox  textcode lbrace rbrace ubrace dbrace lbracket rbracket ubracket dbracket blist list nlist clist li elist data edata dchart for efor legend image cimage polyline polygon rect roundrect rrect square ellipse acircle circle line curve arc arrow lcarrow dcarrow rcarrow ucarrow hline vline polarx polary polar sprint format star pill arctext sqrt
 syn region    Comment    start="//" end="$"
 
 " Go escapes
