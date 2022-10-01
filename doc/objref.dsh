@@ -1011,13 +1011,15 @@ deck
 			li `"file" x y w h`
 			li `"file" "caption" x y w h`
 		elist
+		textblock "If h = 0, w specifies the image width in terms of canvas width." rc 55 15 2
+
 		rc+=30
 		list rc lsty lfs "mono" optcolor
 			li tbl4 "sans" objcolor
 			li `scale "link"`
 			li `scale "link"`
 		elist
-		textblock "Note: the scale value is a percentage from 1-100, and link is a URL" rc 60 15 2
+		textblock "The scale value is a percentage from 1-100, and link is a URL." rc 55 15 2
 	eslide
 
 	// image
