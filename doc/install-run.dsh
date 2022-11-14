@@ -46,6 +46,7 @@ deck
 			li "$ pdfdeck -help"
 			li "Do a test run of decksh and pdfdeck" capfont capcolor
 		elist
+		textblock "(Update your PATH environment variable to include the location of the installed binaries, typically $HOME/go/bin)" 10 10 80 2 capfont capcolor
 	eslide
 
 	slide bgcolor fgcolor
