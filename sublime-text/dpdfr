@@ -1,0 +1,2 @@
+#!/bin/bash
+pdfdeck -sans $decksans -serif $deckserif -mono $deckmono -stdout "$@" - > f.pdf && pkill -HUP mupdf
