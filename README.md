@@ -93,6 +93,15 @@ Produces:
 
 Text, font, color, caption and link arguments follow Go conventions (surrounded by double quotes).
 
+## Coordinate System
+
+```decksh``` (like the deck markup it produces) uses a traditional Cartesian coordinate system: 
+The origin (0,0) is at the lower left, x increases to the right, and y increases upwards.  The coordinate system is
+expliticly based on the percentages, with x and y ranging from 0-100.  For example (50, 50) is the middle of the canvas, (100,100) is the upper right, (100,0) is the lower right, and (0,100) is the upper left.
+
+![percent-canvas](images/pct-canvas.png)
+
+
 ## Colors 
 
 Colors formats are:
@@ -104,13 +113,6 @@ Colors formats are:
 
 Color gradients (used for slide backgrounds and rectangle and square fills) are specified as color1/color2/percent, for example, ```"blue/white/90"```
 
-## Coordinate System
-
-```decksh``` (like the deck markup it produces) uses a traditional coordinate Cartesian coordinate system: 
-The origin (0,0) is at the lower left, x increases to the right, and y increases upwards.  The coordinate system is
-expliticly based on the percentages, with x and y ranging from 0-100.  For example (50, 50) is the middle of the canvas, (100,100) is the upper right, (100,0) is the lower right, and (0,100) is the upper left.
-
-![percent-canvas](images/pct-canvas.png)
 
 ## Coordinates, dimensions, scales, opacity and fonts
 
