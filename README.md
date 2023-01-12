@@ -425,6 +425,7 @@ Left, centered, end, or block-aligned text or file contents (```x``` and ```y```
 ![etext](images/etext.png)
 
     textblock  "text"     x y width size [font] [color] [opacity] [link]
+    textblockfile "filename" x y width size [font] [color] [opacity] [link]
 
 ![textblock](images/textblock.png)
 

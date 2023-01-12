@@ -239,6 +239,21 @@ func textblock(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// textblockfile generates markup for a block of text read from a file
+func textblockfile(w io.Writer, s []string, linenumber int) error {
+	if len(s) < 6 {
+		return fmt.Errorf("line %d: %s \"filename\" x y width size [font] [color] [opacity] [link]", linenumber, s[0])
+	}
+	filename := unquote(s[1])
+	content, err := os.ReadFile(filename)
+	if err != nil {
+		return err
+	}
+	data := xmlesc(string(content))
+	fmt.Fprintf(w, "<text type=\"block\" xp=%q yp=%q wp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], s[5], fontColorOp(s[6:]), data)
+	return nil
+}
+
 // textcode generates markup for a block of code
 // textcode x y width size [color]
 func textcode(w io.Writer, s []string, linenumber int) error {
@@ -248,7 +263,7 @@ func textcode(w io.Writer, s []string, linenumber int) error {
 	case 7:
 		fmt.Fprintf(w, "<text type=\"code\" file=%s xp=%q yp=%q wp=%q sp=%q color=%s/>\n", s[1], s[2], s[3], s[4], s[5], s[6])
 	default:
-		return fmt.Errorf("line %d: %s \"file\" x y width size [color]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s \"filename\" x y width size [color]", linenumber, s[0])
 	}
 	return nil
 }
@@ -1063,14 +1078,14 @@ func polar(cx, cy, r, t float64) (float64, float64) {
 }
 
 // wpolar converts polar to Cartesian coordinates
-func wpolar(cx, cy, r, t float64) (float64, float64) {
-	return ((r * math.Cos(t)) + (cx)), ((r * math.Sin(t)) + (cy))
-}
+//func wpolar(cx, cy, r, t float64) (float64, float64) {
+//	return ((r * math.Cos(t)) + (cx)), ((r * math.Sin(t)) + (cy))
+//}
 
 // rotatexy computes the coordinates rotated around t
-func rotatexy(cx, cy, x, y, t float64) (float64, float64) {
-	return cx + (x * math.Cos(t)) - (y * math.Sin(t)), cy + (x * math.Sin(t)) - (y * math.Cos(t))
-}
+//func rotatexy(cx, cy, x, y, t float64) (float64, float64) {
+//	return cx + (x * math.Cos(t)) - (y * math.Sin(t)), cy + (x * math.Sin(t)) - (y * math.Cos(t))
+//}
 
 // genarrow returns the components of an arrow
 func genarrow(x1, y1, x2, y2, aw, ah float64) (float64, float64, float64, float64, float64, float64, float64, float64) {

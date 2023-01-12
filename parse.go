@@ -322,6 +322,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "textblock", "textbox":
 		return textblock(w, tokens, n)
 
+	case "textblockfile", "textboxfile":
+		return textblockfile(w, tokens, n)
+
 	case "textcode":
 		return textcode(w, tokens, n)
 

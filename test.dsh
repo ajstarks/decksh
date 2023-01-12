@@ -170,6 +170,7 @@ deck
 	tx1=5
 	tx2=35
 	tx3=65
+	tx4=85
 	ty=92
 	tb="Now is the time for all good men to come to the aid of the party & 'do it now'"
 
@@ -179,7 +180,8 @@ deck
 		tw-=5
 		textblock tb tx2 ty tw 2 "serif"
 		tw-=5
-		textblock tb tx3 ty tw 2 "mono" "red"
+		textblock      tb      tx3 ty tw 2 "mono" "red"
+		textblockfile "tb.txt" tx4 ty tw 2
 
 		textfile "AAPL.d" tx1 50 2
 		textfile "AAPL.d" tx2 50 2 "serif"

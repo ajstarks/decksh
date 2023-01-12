@@ -22,11 +22,11 @@
 		yind=top
 
 		// row 1
-		text "left" xind yind 2
+		text "begin" xind yind 2
 		xind+=hskip
 		ctext "center" xind yind 2
 		xind+=hskip
-		etext "right" xind yind 2
+		etext "end" xind yind 2
 		xind+=hskip
 		rtext "rotate" xind yind 45 2
 		xind+=hskip

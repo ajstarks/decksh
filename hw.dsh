@@ -1,14 +1,14 @@
 // hello world
 deck
 	import "rad.dsh"
-	es=120				// earth size
-	ss=es*0.04			// sun size
-	ss1=ss*0.6  		// size of "rays"
-	rs=0.4				// size of sun dots
-	n=20   				// number of dots
-	fullcircle=360  	// full circle in degrees
-	earthcolor="blue"	// color of the earth
-	suncolor="yellow"	// color of the sun
+	es=120              // earth size
+	ss=es*0.04          // sun size
+	ss1=ss*0.6          // size of "rays"
+	rs=0.4              // size of sun dots
+	n=20                // number of dots
+	fullcircle=360      // full circle in degrees
+	earthcolor="blue"   // color of the earth
+	suncolor="yellow"   // color of the sun
 
 	slide "black" "white"
 		ctext "hello world" 50 25 15
@@ -16,8 +16,20 @@ deck
 		circle 80 80 ss suncolor
 
 		a=fullcircle/n
-		for t=0 fullcircle a
+ 		for t=0 fullcircle a
 			rad 80 80 ss1 t rs suncolor
-		efor
+ 		efor
+	eslide
+
+
+	slide "black" "white"
+		arctext "hello world" 50 25 40 130 50 10 "mono"
+		image "earth.jpg" 50 10 100 0
+	eslide
+
+	slide "black" "white"
+		text "hello world"   5 15 7
+		image "sun.jpg"     10 85 5 0
+		image "earth.jpg"   90 10 100 0
 	eslide
 edeck

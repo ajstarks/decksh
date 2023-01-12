@@ -1,4 +1,4 @@
-ctext "text" X Y 1.5 "mono" labelcolor
+ctext "(b)text" X Y 1.5 "mono" labelcolor
 ctext "ctext" X Y 1.5 "mono" labelcolor
 ctext "etext" X Y 1.5 "mono" labelcolor
 ctext "rtext" X Y 1.5 "mono" labelcolor

@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	maxbufsize = 128 * 1024 // the default 64k buffer is too small
+	maxbufsize = 256 * 1024 // the default 64k buffer is too small
 )
 
 // emap is the id=expression map

@@ -38,7 +38,7 @@ deck
 	eslide
 
 	slide bgcolor txcolor
-		ctext "Drag an Element on the Canvas" 50 92 3
+		ctext "Click on or Drag an Element on the Canvas" 50 92 3
 
 		include "plainui.dsh"
 		arrow 5 62 50 50 0.1 1.5 1.5
