@@ -1017,9 +1017,9 @@ deck
 		list rc lsty lfs "mono" optcolor
 			li tbl4 "sans" objcolor
 			li `scale "link"`
-			li `scale "link"`
+			li `scale "link" capsize`
 		elist
-		textblock "The scale value is a percentage from 1-100, and link is a URL." rc 55 15 2
+		textblock "The scale value is a percentage from 1-100, and link is a URL. capsize is the text size of the caption" rc 55 15 2
 	eslide
 
 	// image
