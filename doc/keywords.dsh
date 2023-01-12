@@ -35,11 +35,13 @@
 		text "Text" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "text"
+			li "btext"
 			li "ctext"
 			li "etext"
 			li "rtext"
 			li "arctext"
 			li "textblock"
+			li "textblockfile"
 			li "textfile"
 			li "textcode"
 		elist

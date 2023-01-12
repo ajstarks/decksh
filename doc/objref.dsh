@@ -30,7 +30,7 @@ deck
 	top=85
 	titlesize=5
 
-	lcolsize=18
+	lcolsize=19
 	lcolsize2=lcolsize*0.6
 	rc=initlcol
 
@@ -273,6 +273,7 @@ deck
 			li "Rotated"
 			li "Text on an arc"
 			li "Block text"
+			li "Block text from file"
 			li "File contents"
 			li "Code listing"
 		elist
@@ -286,11 +287,12 @@ deck
 			li "rtext"
 			li "arctext"
 			li "textblock"
+			li "textblockfile"
 			li "textfile"
 			li "textcode"
 		elist
 
-		rc+=15
+		rc+=16
 		list rc lsty lfs "mono" argcolor
 			li tbl3 "sans" objcolor
 			li `"..." x y fontsize`
@@ -299,13 +301,15 @@ deck
 			li `"..." x y angle fontsize`
 			li `"..." x y rad a1 a2 fontsize`
 			li `"..." x y w fontsize`
+			li `"file" x y w fontsize`
 			li `"file" x y fontsize`
 			li `"file" x y w fontsize`
 		elist
 
-		rc+=34
+		rc+=33
 		list rc lsty lfs "mono" optcolor
 			li tbl4 "sans" objcolor
+			li "font color op link"
 			li "font color op link"
 			li "font color op link"
 			li "font color op link"
