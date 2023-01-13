@@ -410,21 +410,28 @@ a new row is created.
 
 Left, centered, end, or block-aligned text or file contents (```x``` and ```y``` are the text's reference point), with  optional font ("sans", "serif", "mono", or "symbol"), color and opacity.
 
+### left-aligned text
+
     text       "text"     x y size       [font] [color] [opacity] [link]
     btext      "text"     x y size       [font] [color] [opacity] [link]
 
 ![text](images/text.png)
 
+### centered text
 
     ctext      "text"     x y size       [font] [color] [opacity] [link]
 
 ![ctext](images/ctext.png)
 
+### right-aligned text
+
     etext      "text"     x y size       [font] [color] [opacity] [link]
 
 ![etext](images/etext.png)
 
-    textblock  "text"     x y width size [font] [color] [opacity] [link]
+### a text block (from either a string or the contents of a file)
+
+    textblock     "text"     x y width size [font] [color] [opacity] [link]
     textblockfile "filename" x y width size [font] [color] [opacity] [link]
 
 ![textblock](images/textblock.png)
@@ -433,7 +440,11 @@ Text rotated along the specified angle (in degrees)
 
     rtext      "text"     x y angle size [font] [color] [opacity] [link]
 
+### rotated text
+
 ![rtext](images/rtext.png)
+
+### text on an arc
 
 Text on an arc centered at ```(x,y)```, with specified radius, between begin and ending angles (in degrees).
 if the beginning angle is less than the ending angle the text is rendered counter-clockwise.
@@ -442,6 +453,8 @@ if the beginning angle is greater than the ending angle, the text is rendered cl
     arctext    "text"     x y radius begin-angle end-angle size [font] [color] [opacity] [link]
 
 ![arctext](images/arctext.png)
+
+### text from file contents (plain and code formatted)
 
 Place the contents of "filename" at (x,y). Place the contents of "filename" in gray box, using a monospaced font.
    
