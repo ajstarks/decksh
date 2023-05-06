@@ -324,6 +324,14 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
+		textcode "code/sublime-build.txt" 15 82 30 1.5
+		textcode "code/dpdfr"             50 82 40 1.5
+		ctext "CTRL-B to build and display"           30 50 2
+		ctext "Sublime Text Setup" mid top ts
+		image "images/sublime.png" 50 25 70 0
+	eslide
+
+	slide bgcolor fgcolor
 		ctext "The command line" 50 50 bs
 	eslide
 	

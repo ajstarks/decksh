@@ -1,0 +1,3 @@
+{
+	"shell_cmd": "decksh $file|dpdfr"
+}

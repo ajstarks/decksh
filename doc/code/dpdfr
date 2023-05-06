@@ -1,0 +1,11 @@
+#!/bin/bash
+# dpdfr
+if test -e ./mkdeck
+then
+	./mkdeck && pkill -HUP mupdf
+else
+	pdfdeck -sans $decksans \
+	-serif $deckserif \
+	-mono $deckmono \
+	-stdout "$@" - > f.pdf && pkill -HUP mupdf
+fi
