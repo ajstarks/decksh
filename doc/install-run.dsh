@@ -303,14 +303,11 @@ deck
 	slide bgcolor fgcolor
 		vslink="https://github.com/ajstarks/decksh/tree/master/vscode"
 		ctext     "VSCode setup" mid top ts
-
 		ctext     "copy this to your settings" 20 80 2 "serif"
 		textfile  "code/vscode-setup.txt"        3 75 1.4 "mono"
-
 		ctext     "copy to .vscode/extensions/ajstarks.decksh-1.0.0" 72 80 2 "serif"
-		ctext      vslink 72 75 1.5 "mono" 
+		ctext      vslink 72 75 1.5 "mono" fgcolor 100 vslink
 		image     "images/vscode-git.png"  72 65 1902 482 25 vslink
-
 		image     "images/vscode.png"      50 25 1256 806 35
 	eslide
 
@@ -318,16 +315,18 @@ deck
 		vimlink="https://github.com/ajstarks/decksh/tree/master/vim"
 		ctext "vim setup" mid top ts
 		ctext "copy to .vim" mid 75 2 "serif"
-		ctext  vimlink 50 70 2 "mono" 
+		ctext  vimlink 50 70 2 "mono" fgcolor 100 vimlink
 		image "images/vim-github.png" 50 60 1877 295 30
 		image "images/vim.png" 50 25 1248 595 35
 	eslide
 
 	slide bgcolor fgcolor
-		textcode "code/sublime-build.txt" 15 82 30 1.5
-		textcode "code/dpdfr"             50 82 40 1.5
-		ctext "CTRL-B to build and display"           30 50 2
-		ctext "Sublime Text Setup" mid top ts
+		sublink="https://github.com/ajstarks/decksh/tree/master/sublime-text"
+		ctext "Sublime Text setup" mid top ts
+		ctext "copy to dsh.* files ~/.config/sublime-text/Packages/User, copy dpdfr to your PATH" mid 80 2 "serif"
+		ctext sublink 50 75 2 "mono" fgcolor 100 sublink
+		image "images/subl-github.png" 50 60 70 0
+		ctext "CTRL-B to build and display" 30 15 2
 		image "images/sublime.png" 50 25 70 0
 	eslide
 
