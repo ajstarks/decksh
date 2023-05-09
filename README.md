@@ -139,6 +139,8 @@ Fonts may be:
     slide [bgcolor] [fgcolor]
     eslide
 
+Note that doc/edoc and page/epage are may also be used as synomyms for deck/edeck and slide/eslide.
+
 ## Specify the size of the canvas.
 
     canvas w h

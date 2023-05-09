@@ -18,10 +18,10 @@
 		lx=left-5
 		text "Structure" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
-			li "deck"
-			li "edeck"
-			li "slide"
-			li "eslide"
+			li "deck,doc"
+			li "edeck,edoc"
+			li "slide,page"
+			li "eslide,epage"
 			li "canvas"
 			li "def"
 			li "edef"

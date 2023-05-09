@@ -22,7 +22,9 @@
     // symbols that that can be used to surround a selection
     "surroundingPairs": [
         [ "deck", "edeck" ],
+        [ "doc", "edoc"],
         [ "slide", "eslide" ],
+        [ "page", "epage"],
 		[ "for", "efor" ],
 		[ "list", "elist" ],
 		[ "nlist", "elist" ],

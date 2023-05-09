@@ -284,12 +284,12 @@ func directfunc(w io.Writer, s []string, linenumber int) error {
 
 // keyparse parses keywords and executes
 func keyparse(w io.Writer, tokens []string, t string, n int) error {
-	//fmt.Fprintf(os.Stderr, "%v\n", len(tokens))
+	// fmt.Fprintf(os.Stderr, "%v\n", len(tokens))
 	if len(tokens) < 1 {
 		return nil
 	}
 	switch tokens[0] {
-	case "deck":
+	case "deck", "doc":
 		return deck(w, tokens, n)
 
 	case "canvas":
@@ -304,7 +304,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "call", "func", "callfunc":
 		return subfunc(w, tokens, n)
 
-	case "slide":
+	case "slide", "page":
 		return slide(w, tokens, n)
 
 	case "grid":
@@ -337,7 +337,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "list", "blist", "nlist", "clist":
 		return list(w, tokens, n)
 
-	case "elist", "eslide", "edeck":
+	case "elist", "eslide", "edeck", "edoc", "epage":
 		return endtag(w, tokens, n)
 
 	case "li":

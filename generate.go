@@ -37,7 +37,14 @@ func xmlesc(s string) string {
 func endtag(w io.Writer, s []string, linenumber int) error {
 	tag := s[0]
 	if len(tag) < 2 || tag[0:1] != "e" {
-		return fmt.Errorf("line %d: edeck, eslide, or elist", linenumber)
+		return fmt.Errorf("line %d: edeck, edoc, eslide, epage or elist", linenumber)
+	}
+	// edoc and epage are the same as edeck and eslide
+	switch tag {
+	case "edoc":
+		tag = "edeck"
+	case "epage":
+		tag = "eslide"
 	}
 	fmt.Fprintf(w, "</%s>\n", tag[1:])
 	return nil
@@ -142,7 +149,7 @@ func slide(w io.Writer, s []string, linenumber int) error {
 	case 3:
 		fmt.Fprintf(w, "<slide %s fg=%s>\n", colorstring("bg=", s[1]), s[2])
 	default:
-		return fmt.Errorf("line %d: slide [bgcolor] [fgcolor]", linenumber)
+		return fmt.Errorf("line %d: %s [bgcolor] [fgcolor]", linenumber, s[0])
 	}
 	return nil
 }
@@ -1375,7 +1382,7 @@ func chart(w io.Writer, s string, linenumber int) error {
 		args[i] = eval(args[i])
 		args[i] = unquote(args[i])
 	}
-	//fmt.Fprintf(os.Stderr, "line %d - chart args=%v\n", linenumber, args)
+	// fmt.Fprintf(os.Stderr, "line %d - chart args=%v\n", linenumber, args)
 	// glue the arguments back into a single string
 	s = args[0]
 	for i := 1; i < len(args); i++ {
