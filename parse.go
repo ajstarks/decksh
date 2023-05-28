@@ -310,6 +310,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "grid":
 		return grid(w, tokens, n)
 
+	case "content":
+		return content(w, tokens, n)
+
 	case "text", "btext", "ctext", "etext", "textfile":
 		return text(w, tokens, n)
 

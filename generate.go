@@ -154,6 +154,24 @@ func slide(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// content generates content of arbitrary type
+// content "scheme://file" x y size
+func content(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	if n != 5 {
+		return fmt.Errorf("line %d: %s \"scheme://file\" x y size", linenumber, s[0])
+	}
+	uri := unquote(s[1])
+	i := strings.Index(uri, "://")
+	var scheme, file string
+	if i > 0 && len(uri) > 4 {
+		scheme = uri[0:i]
+		file = uri[i+3:]
+	}
+	fmt.Fprintf(w, "<text type=%q file=%q xp=%q yp=%q sp=%q/>\n", scheme, file, s[2], s[3], s[4])
+	return nil
+}
+
 // text generates markup for text
 // text x y size [font] [color] [opacity] [link]
 func text(w io.Writer, s []string, linenumber int) error {
