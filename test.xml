@@ -133,8 +133,8 @@
 <line xp1="60" yp1="60" xp2="40" yp2="60" sp="0.2" color="green"/>
 <line xp1="40" yp1="60" xp2="40" yp2="40" sp="0.2" color="orange"/>
 <polygon xc="40 60 60 40" yc="40 40 60 60" color="black" opacity="10"/>
-<ellipse xp="43.961279461125066" yp="49.01373182795459" wp="5" hr="100" color="red" opacity="50"/>
-<ellipse xp="43.961279461125066" yp="49.01373182795459" wp="1" hr="100"/>
+<ellipse xp="52.199741608211916" yp="57.077399278058245" wp="5" hr="100" color="red" opacity="50"/>
+<ellipse xp="52.199741608211916" yp="57.077399278058245" wp="1" hr="100"/>
 <text align="c" xp="40" yp="40" sp="2" >p1 (a,b)</text>
 <text align="c" xp="60" yp="40" sp="2" >p2 (a+c,b)</text>
 <text align="c" xp="60" yp="60" sp="2" >p3 (a+c,b+c)</text>
@@ -142,6 +142,10 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="50" sp="5" >Included data from another file</text>
+</slide>
+<slide>
+<text align="c" xp="50" yp="92" sp="4" >Content (see test.md+markdown.pdf)</text>
+<text type="markdown" file="test.md" xp="50" yp="50" sp="2"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Grid</text>
@@ -411,9 +415,9 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Random</text>
-<ellipse xp="83.02573321448777" yp="16.90174475854399" wp="10" hr="100" color="red" opacity="16.90174475854399"/>
-<ellipse xp="70.36592952105936" yp="32.93600582504495" wp="10" hr="100" color="green" opacity="32.93600582504495"/>
-<ellipse xp="82.14326820427188" yp="30.726465208134158" wp="10" hr="100" color="blue" opacity="30.726465208134158"/>
+<ellipse xp="10.4551244444544" yp="24.787867792213156" wp="10" hr="100" color="red" opacity="24.787867792213156"/>
+<ellipse xp="33.585671605134976" yp="63.753041435048516" wp="10" hr="100" color="green" opacity="63.753041435048516"/>
+<ellipse xp="15.992853223860841" yp="70.36848819032761" wp="10" hr="100" color="blue" opacity="70.36848819032761"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="80" sp="3" >sqrt 8 = 2.8284271247461903</text>

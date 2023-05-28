@@ -152,6 +152,12 @@ deck
 	// include
 	include "insertme.dsh"
 
+	// content
+	slide
+		ctext "Content (see test.md+markdown.pdf)" titleX titleY titleSize
+		content "markdown://test.md" 50 50 2
+	eslide
+
 	// Grid
 	slide
 		gx=10
