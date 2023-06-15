@@ -1,0 +1,7 @@
+now="Now is the time for all good men"
+s1=substr now 0 14
+s2=substr now 16 18
+s3=substr now 24 end
+ctext s1 70 34 3
+ctext s2 70 24 3
+ctext s3 70 15 3
