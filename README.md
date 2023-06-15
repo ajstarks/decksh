@@ -284,6 +284,23 @@ return the square root of the number of expression (```id``` or binary operation
 
 For value ```v```, map the range ```vmin-vmax``` to ```min-max```.
 
+## Substring
+
+assign the substring of a string bounded by begin and end.
+The expression ```beg``` and ```end``` may be used as the the 
+beginning and length of the string respectively.
+
+if begin and end evaluate to less than 0 or over the length of the string,
+they are set to 0 and the length of the string
+
+    s="hello, world"
+    a=substr s beg end                  // a="hello, world"
+    b=substr s beg 4                    // b="hello"
+    c=substr s 7 end                    // c="world"
+    d=substr s 3 8                      // d="lo, wo"
+    e=substr "This is a test"  5 8      // e="is a"
+
+
 
 ## Loops
 

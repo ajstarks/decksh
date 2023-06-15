@@ -19,7 +19,7 @@ func ftoa(v float64) string {
 // simple (x=10),
 // binary op (x=a+b),
 // coordinate (p=(100,50))
-// or built-ins (random, polar, polarx, polary, vmap, sprint, format, sqrt)
+// or built-ins (random, polar, polarx, polary, vmap, sprint, substr, format, sqrt)
 func assign(s []string, linenumber int) error {
 	ls := len(s)
 	if ls < 3 {
@@ -37,6 +37,8 @@ func assign(s []string, linenumber int) error {
 		return random(s, linenumber) // x=random min max
 	case "sprint", "format":
 		return sprint(s, linenumber) // v=format fmt x, v=format fmt a+b
+	case "substr", "slice":
+		return substr(s, linenumber) // x=substr s begin end
 	case "polar", "polarx", "polary":
 		return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
 	case "vmap":
@@ -91,7 +93,6 @@ func opval(s []string, linenumber int) (float64, error) {
 		return 0, fmt.Errorf("line %d: %s is not a valid operation", linenumber, op)
 	}
 	return v, nil
-
 }
 
 // binop processes a binary expression: id=id op number
@@ -292,6 +293,50 @@ func sprint(s []string, linenumber int) error {
 		return fmt.Errorf("line %d: %v cannot convert to string", linenumber, v)
 	}
 	emap[s[0]] = fmt.Sprintf(s[3], v)
+	return nil
+}
+
+// substr makes a substring assignment
+func substr(s []string, linenumber int) error {
+	if len(s) != 6 {
+		return fmt.Errorf("line %d: x=substr s begin end", linenumber)
+	}
+	src := unquote(eval(s[3]))
+	bs := eval(s[4])
+	es := eval(s[5])
+	var b, e int
+	var err error
+
+	// beginning
+	if bs == "beg" {
+		b = 0
+	} else {
+		b, err = strconv.Atoi(bs)
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+		if b < 0 {
+			b = 0
+		}
+	}
+	// end
+	if es == "end" {
+		e = len(src)
+	} else {
+		e, err = strconv.Atoi(es)
+		e++
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+		if e > len(src) {
+			e = len(src)
+		}
+	}
+
+	if b > e {
+		return fmt.Errorf("line %d: s[%d:%d] is out of range", linenumber, b, e)
+	}
+	emap[s[0]] = `"` + src[b:e] + `"`
 	return nil
 }
 
