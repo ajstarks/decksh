@@ -133,8 +133,8 @@
 <line xp1="60" yp1="60" xp2="40" yp2="60" sp="0.2" color="green"/>
 <line xp1="40" yp1="60" xp2="40" yp2="40" sp="0.2" color="orange"/>
 <polygon xc="40 60 60 40" yc="40 40 60 60" color="black" opacity="10"/>
-<ellipse xp="53.29636974452268" yp="55.82471360561746" wp="5" hr="100" color="red" opacity="50"/>
-<ellipse xp="53.29636974452268" yp="55.82471360561746" wp="1" hr="100"/>
+<ellipse xp="49.39723098242838" yp="49.581613839932785" wp="5" hr="100" color="red" opacity="50"/>
+<ellipse xp="49.39723098242838" yp="49.581613839932785" wp="1" hr="100"/>
 <text align="c" xp="40" yp="40" sp="2" >p1 (a,b)</text>
 <text align="c" xp="60" yp="40" sp="2" >p2 (a+c,b)</text>
 <text align="c" xp="60" yp="60" sp="2" >p3 (a+c,b+c)</text>
@@ -415,9 +415,9 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Random</text>
-<ellipse xp="55.637719823697026" yp="23.385676913575537" wp="10" hr="100" color="red" opacity="23.385676913575537"/>
-<ellipse xp="68.6782705802926" yp="31.593600576269875" wp="10" hr="100" color="green" opacity="31.593600576269875"/>
-<ellipse xp="29.526678028808995" yp="72.8445186090737" wp="10" hr="100" color="blue" opacity="72.8445186090737"/>
+<ellipse xp="43.2549763367165" yp="57.25307195166139" wp="10" hr="100" color="red" opacity="57.25307195166139"/>
+<ellipse xp="16.813134605580373" yp="40.276908186098986" wp="10" hr="100" color="green" opacity="40.276908186098986"/>
+<ellipse xp="46.47409455017249" yp="45.45965169590478" wp="10" hr="100" color="blue" opacity="45.45965169590478"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="80" sp="3" >sqrt 8 = 2.8284271247461903</text>
@@ -480,9 +480,9 @@
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >substr</text>
 <text xp="5" yp="80" sp="3" font="mono">s="hello, world"</text>
-<text xp="5" yp="70" sp="3" font="mono">substr s begin end</text>
-<text xp="5" yp="60" sp="3" font="mono">substr s beg 4</text>
-<text xp="5" yp="50" sp="3" font="mono">substr s 7 end</text>
+<text xp="5" yp="70" sp="3" font="mono">substr s - -</text>
+<text xp="5" yp="60" sp="3" font="mono">substr s - 4</text>
+<text xp="5" yp="50" sp="3" font="mono">substr s 7 -</text>
 <text xp="5" yp="40" sp="3" font="mono">substr s 3 8</text>
 <text xp="5" yp="30" sp="3" font="mono">substr "This is a test" 5 8</text>
 <text xp="60" yp="70" sp="3" >hello, world</text>

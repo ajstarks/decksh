@@ -590,16 +590,16 @@ deck
 	slide
 		ctext "substr" titleX titleY titleSize
 		s="hello, world"
-		a=substr s beg end					// a="hello, world"
-		b=substr s beg 4					// b="hello"
-		c=substr s 7 end					// c="world"
-		d=substr s 3 8						// d="lo, wo"
-		e=substr "This is a test"  5 8		// e="is a"
+		a=substr s - -					// a="hello, world"
+		b=substr s - 4					// b="hello"
+		c=substr s 7 -					// c="world"
+		d=substr s 3 8					// d="lo, wo"
+		e=substr "This is a test"  5 8	// e="is a"
 
 		text `s="hello, world"`       5 80 3 "mono"
-		text "substr s begin end"     5 70 3 "mono"
-		text "substr s beg 4"         5 60 3 "mono"
-		text "substr s 7 end"         5 50 3 "mono"
+		text "substr s - -"     5 70 3 "mono"
+		text "substr s - 4"         5 60 3 "mono"
+		text "substr s 7 -"         5 50 3 "mono"
 		text "substr s 3 8"           5 40 3 "mono"
 		text `substr "This is a test" 5 8` 5 30 3 "mono"
 		text a 60 70 3
