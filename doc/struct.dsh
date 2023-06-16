@@ -8,7 +8,7 @@
 		incy=sl2y
 		incodey=sl2y+6
 		ctext "Structure" 50 90 titlesize "serif"
-		textfile "code/structure.dsh"	20 structy 3 "mono" "maroon"
+		textfile "code/structure.dsh"	25 structy 3 "mono" "maroon"
 		textcode "code/hw0.dsh"			64 incodey 25 1.5
 
 		annx1=65
