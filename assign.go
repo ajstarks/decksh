@@ -308,7 +308,7 @@ func substr(s []string, linenumber int) error {
 	var err error
 
 	// beginning
-	if bs == "beg" {
+	if bs == "beg" || bs == "-" {
 		b = 0
 	} else {
 		b, err = strconv.Atoi(bs)
@@ -320,7 +320,7 @@ func substr(s []string, linenumber int) error {
 		}
 	}
 	// end
-	if es == "end" {
+	if es == "end" || es == "-" {
 		e = len(src)
 	} else {
 		e, err = strconv.Atoi(es)
