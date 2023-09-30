@@ -7,11 +7,13 @@
 		sl2y=sl1y-19
 		incy=sl2y
 		incodey=sl2y+6
+		annx1=70
+		incodex=annx1+1
 		ctext "Structure" 50 90 titlesize "serif"
 		textfile "code/structure.dsh"	25 structy 3 "mono" "maroon"
-		textcode "code/hw0.dsh"			64 incodey 25 1.5
+		textcode "code/hw0.dsh"			incodex incodey 25 1.5
 
-		annx1=65
+		
 		annx2=annx1-5
 		annlx=annx1+1
 		annotey=structy+2
