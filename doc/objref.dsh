@@ -58,11 +58,11 @@ deck
 		ctext "Defining and using variables" mid ty 5 "serif"
 		
 		ax=20
-		ay=70
+		ay=80
 
-		ctext "name"  ax 80 2
-		ctext "is"    25 80 2
-		text "thing"  29 80 2
+		ctext "name"  ax 85 2
+		ctext "is"    25 85 2
+		text "thing"  29 85 2
 		list ax ay 4 "mono" "" 100 1.5
 			li "x = 3.14159265"
 			li `s = "hello"`
@@ -134,6 +134,9 @@ deck
 			li "v=random v1 v2"
 			li "v=vmap data v1 v2 v3 v4"
 			li "v=area expr"
+			li "v=sine expr"
+			li "v=cosine expr"
+			li "v=tangent expr"
 			li "v=sqrt expr"
 			li "v=substr string begin end"
 
@@ -147,6 +150,9 @@ deck
 			li "random number"
 			li "range map"
 			li "area"
+			li "sine"
+			li "cosine"
+			li "tangent"
 			li "square root"
 			li "substring"
 
