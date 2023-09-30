@@ -31,8 +31,8 @@ func assign(s []string, linenumber int) error {
 	switch s[2] {
 	case "area":
 		return areafunc(s, linenumber) // v=area x, v=area a+b
-	case "sqrt":
-		return sqrtfunc(s, linenumber) // v=sqrt x, v=sqrt a+b
+	case "sqrt", "sine", "cosine", "tangent":
+		return mathfunc(s, linenumber)
 	case "random":
 		return random(s, linenumber) // x=random min max
 	case "sprint", "format":
@@ -362,10 +362,11 @@ func areafunc(s []string, linenumber int) error {
 	return nil
 }
 
-// sqrtfunc returns the square root of a number or binary operation
-func sqrtfunc(s []string, linenumber int) error {
+// mathfunc returns the {sine|cosine|tangent|sqrt} of a number or binary operation
+func mathfunc(s []string, linenumber int) error {
 	var v float64
 	var err error
+	funcname := s[2]
 	switch len(s) {
 	case 4: // y = sqrt x
 		v, err = strconv.ParseFloat(eval(s[3]), 64)
@@ -378,12 +379,23 @@ func sqrtfunc(s []string, linenumber int) error {
 			return err
 		}
 	default:
-		return fmt.Errorf("line %d use: v = sqrt x or v = sqrt expression", linenumber)
+		return fmt.Errorf("line %d use: v = %s x or v = %s expression", linenumber, funcname, funcname)
 	}
-	if v < 0 {
-		return fmt.Errorf("line %d: cannot take the square root of %g", linenumber, v)
+	var result float64
+	switch funcname {
+	case "sine":
+		result = math.Sin(v)
+	case "cosine":
+		result = math.Cos(v)
+	case "tangent":
+		result = math.Tan(v)
+	case "sqrt":
+		if v < 0 {
+			return fmt.Errorf("line %d: cannot take the square root of %g", linenumber, v)
+		}
+		result = math.Sqrt(v)
 	}
-	emap[s[0]] = ftoa(math.Sqrt(v))
+	emap[s[0]] = ftoa(result)
 	return nil
 }
 

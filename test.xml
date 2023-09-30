@@ -133,8 +133,8 @@
 <line xp1="60" yp1="60" xp2="40" yp2="60" sp="0.2" color="green"/>
 <line xp1="40" yp1="60" xp2="40" yp2="40" sp="0.2" color="orange"/>
 <polygon xc="40 60 60 40" yc="40 40 60 60" color="black" opacity="10"/>
-<ellipse xp="49.39723098242838" yp="49.581613839932785" wp="5" hr="100" color="red" opacity="50"/>
-<ellipse xp="49.39723098242838" yp="49.581613839932785" wp="1" hr="100"/>
+<ellipse xp="50.54678849097851" yp="48.725130858599385" wp="5" hr="100" color="red" opacity="50"/>
+<ellipse xp="50.54678849097851" yp="48.725130858599385" wp="1" hr="100"/>
 <text align="c" xp="40" yp="40" sp="2" >p1 (a,b)</text>
 <text align="c" xp="60" yp="40" sp="2" >p2 (a+c,b)</text>
 <text align="c" xp="60" yp="60" sp="2" >p3 (a+c,b+c)</text>
@@ -415,9 +415,9 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Random</text>
-<ellipse xp="43.2549763367165" yp="57.25307195166139" wp="10" hr="100" color="red" opacity="57.25307195166139"/>
-<ellipse xp="16.813134605580373" yp="40.276908186098986" wp="10" hr="100" color="green" opacity="40.276908186098986"/>
-<ellipse xp="46.47409455017249" yp="45.45965169590478" wp="10" hr="100" color="blue" opacity="45.45965169590478"/>
+<ellipse xp="11.098445718313318" yp="29.393593447635666" wp="10" hr="100" color="red" opacity="29.393593447635666"/>
+<ellipse xp="26.66350603333848" yp="65.70016527847265" wp="10" hr="100" color="green" opacity="65.70016527847265"/>
+<ellipse xp="81.89690942326051" yp="28.98122475273645" wp="10" hr="100" color="blue" opacity="28.98122475273645"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="80" sp="3" >sqrt 8 = 2.8284271247461903</text>
@@ -426,6 +426,30 @@
 <text align="c" xp="50" yp="50" sp="3" >sqrt 8 * 6 = 6.928203230275509</text>
 <text align="c" xp="50" yp="40" sp="3" >sqrt 8 / 6 = 1.1547005383792515</text>
 <text align="c" xp="50" yp="92" sp="4" >Square Root</text>
+</slide>
+<slide>
+<text align="c" xp="50" yp="80" sp="3" >sine 3.1415926 = 5.3589793170057245e-08</text>
+<text align="c" xp="50" yp="70" sp="3" >sine 3.1415926 + 0.707 = -0.6495557148113534</text>
+<text align="c" xp="50" yp="60" sp="3" >sine 3.1415926 - 0.707 = 0.6495557963014893</text>
+<text align="c" xp="50" yp="50" sp="3" >sine 3.1415926 * 0.707 = 0.7958963696196476</text>
+<text align="c" xp="50" yp="40" sp="3" >sine 3.1415926 / 0.707 = -0.9640809602990886</text>
+<text align="c" xp="50" yp="92" sp="4" >Sine</text>
+</slide>
+<slide>
+<text align="c" xp="50" yp="80" sp="3" >cosine 3.1415926 = -0.9999999999999986</text>
+<text align="c" xp="50" yp="70" sp="3" >cosine 3.1415926 + 0.707 = -0.7603139965539972</text>
+<text align="c" xp="50" yp="60" sp="3" >cosine 3.1415926 - 0.707 = -0.7603139269348801</text>
+<text align="c" xp="50" yp="50" sp="3" >cosine 3.1415926 * 0.707 = -0.6054328772260928</text>
+<text align="c" xp="50" yp="40" sp="3" >cosine 3.1415926 / 0.707 = -0.2656085502930713</text>
+<text align="c" xp="50" yp="92" sp="4" >Cosine</text>
+</slide>
+<slide>
+<text align="c" xp="50" yp="80" sp="3" >tangent 3.1415926 = -5.358979317005727e-08</text>
+<text align="c" xp="50" yp="70" sp="3" >tangent 3.1415926 + 0.707 = 0.8543256046256702</text>
+<text align="c" xp="50" yp="60" sp="3" >tangent 3.1415926 - 0.707 = -0.8543257900326782</text>
+<text align="c" xp="50" yp="50" sp="3" >tangent 3.1415926 * 0.707 = -1.31459060047449</text>
+<text align="c" xp="50" yp="40" sp="3" >tangent 3.1415926 / 0.707 = 3.629706043857873</text>
+<text align="c" xp="50" yp="92" sp="4" >Tangent</text>
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Format</text>

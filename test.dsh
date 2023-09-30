@@ -463,6 +463,78 @@ deck
 		ctext "Square Root" titleX titleY titleSize
 	eslide
 
+	// sine
+	slide
+		str0 = 3.1415926
+		str2 = 0.707
+
+		trig0 = sine str0
+		trig1 = sine str0 + str2
+		trig2 = sine str0 - str2
+		trig3 = sine str0 * str2
+		trig4 = sine str0 / str2
+
+		st0 = format "sine 3.1415926 = %g" trig0
+		st1 = format "sine 3.1415926 + 0.707 = %g" trig1
+		st2 = format "sine 3.1415926 - 0.707 = %g" trig2
+		st3 = format "sine 3.1415926 * 0.707 = %g" trig3
+		st4 = format "sine 3.1415926 / 0.707 = %g" trig4
+		ctext st0 50 80 3
+		ctext st1 50 70 3
+		ctext st2 50 60 3
+		ctext st3 50 50 3
+		ctext st4 50 40 3
+		ctext "Sine" titleX titleY titleSize
+	eslide
+
+	// cosine
+	slide
+		str0 = 3.1415926
+		str2 = 0.707
+
+		trig0 = cosine str0
+		trig1 = cosine str0 + str2
+		trig2 = cosine str0 - str2
+		trig3 = cosine str0 * str2
+		trig4 = cosine str0 / str2
+
+		st0 = format "cosine 3.1415926 = %g" trig0
+		st1 = format "cosine 3.1415926 + 0.707 = %g" trig1
+		st2 = format "cosine 3.1415926 - 0.707 = %g" trig2
+		st3 = format "cosine 3.1415926 * 0.707 = %g" trig3
+		st4 = format "cosine 3.1415926 / 0.707 = %g" trig4
+		ctext st0 50 80 3
+		ctext st1 50 70 3
+		ctext st2 50 60 3
+		ctext st3 50 50 3
+		ctext st4 50 40 3
+		ctext "Cosine" titleX titleY titleSize
+	eslide
+
+	// tangent
+	slide
+		str0 = 3.1415926
+		str2 = 0.707
+
+		trig0 = tangent str0
+		trig1 = tangent str0 + str2
+		trig2 = tangent str0 - str2
+		trig3 = tangent str0 * str2
+		trig4 = tangent str0 / str2
+
+		st0 = format "tangent 3.1415926 = %g" trig0
+		st1 = format "tangent 3.1415926 + 0.707 = %g" trig1
+		st2 = format "tangent 3.1415926 - 0.707 = %g" trig2
+		st3 = format "tangent 3.1415926 * 0.707 = %g" trig3
+		st4 = format "tangent 3.1415926 / 0.707 = %g" trig4
+		ctext st0 50 80 3
+		ctext st1 50 70 3
+		ctext st2 50 60 3
+		ctext st3 50 50 3
+		ctext st4 50 40 3
+		ctext "Tangent" titleX titleY titleSize
+	eslide
+
 	// format
 	slide
 		ctext "Format" titleX titleY titleSize
