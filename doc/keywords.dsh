@@ -7,7 +7,7 @@
 		csep=15
 		csep2=csep*0.80
 		csep3=csep*0.80
-		rsep=55
+		rsep=53
 		lsep=6
 		headtop=top-7
 		listtop=headtop-lsep
@@ -129,14 +129,22 @@
 			li "polar"
 			li "polarx"
 			li "polary"
-			li "area"
+			li "random"
 		elist
 		lx+=csep2
 		list lx listtop lsize "mono" "black" 100 listspacing
-			li "format"
-		    li "random"
-			li "sqrt"
+			li "area"
+		    li "format"
+			li "substr"
 			li "vmap"
+		elist
+		lx+=csep2
+		text "Math" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+		    li "cosine"
+			li "sine"
+			li "sqrt"
+			li "tangent"
 		elist
 		lx+=csep2
 		text "Data" lx headtop hsize "sans" headcolor

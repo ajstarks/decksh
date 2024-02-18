@@ -126,35 +126,37 @@ deck
 	slide bgcolor fgcolor
 		ctext "Special Assignments" mid ty 5 "serif" 
 		ax=5
-		list ax ay 3 "mono" "" 100 1.5
+		list ax ay 3 "mono" "" 100 1.3
 			li "p=(expr, expr)"
 			li "p=polar cx cy r theta"
 			li "x=polarx cx cy r theta"
 			li "y=polary cx cy r theta"
+			li "v=format string expr"
+			li "v=substr string begin end"
 			li "v=random v1 v2"
 			li "v=vmap data v1 v2 v3 v4"
 			li "v=area expr"
-			li "v=sine expr"
 			li "v=cosine expr"
-			li "v=tangent expr"
+			li "v=sine expr"
 			li "v=sqrt expr"
-			li "v=substr string begin end"
-
+			li "v=tangent expr"
 		elist
 		ax+=50
-		list ax ay 3 "sans" "gray" 100 1.5
+		list ax ay 3 "sans" "gray" 100 1.3
 			li "coordinates (p_x, p_y)"
 			li "polar coordinate (p_x, p_y)"
 			li "polar coordinate (x)"
 			li "polar coordinate (y)"
+			li "number formatting"
+			li "substring"
 			li "random number"
 			li "range map"
 			li "area"
-			li "sine"
 			li "cosine"
-			li "tangent"
+			li "sine"
 			li "square root"
-			li "substring"
+			li "tangent"
+			
 
 		elist
 	eslide

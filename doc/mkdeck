@@ -2,22 +2,23 @@
 sans="GillSans"
 mono="Inconsolata-Medium"
 serif="Charter-Regular"
+grid="0"
 
 
 case "$1" in 
 
 	ref)
 		shift
-		decksh objref.dsh | pdfdeck -author "Anthony Starks" -title "decksh object reference" -pagesize 900,600 -sans $sans -mono $mono -serif $serif -stdout $* - > objref.pdf
+		decksh objref.dsh | pdfdeck -author "Anthony Starks" -title "decksh object reference" -pagesize 900,600 -sans $sans -mono $mono -serif $serif -stdout -grid $grid  $* - > objref.pdf
 		;;
 	over)
 		shift
-		decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview"         -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout $* - > decksh.pdf
+		decksh decksh.dsh | pdfdeck -author "Anthony Starks" -title "decksh overview"         -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout -grid $grid $* - > decksh.pdf
 		;;
 
 	index)
 		shift
-		decksh objindex.dsh | pdfdeck -author "Anthony Starks" -title "decksh object index"   -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout $* - > objindex.pdf
+		decksh objindex.dsh | pdfdeck -author "Anthony Starks" -title "decksh object index"   -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout -grid $grid $* - > objindex.pdf
 		;;
 
 	ins*)
@@ -29,10 +30,10 @@ case "$1" in
 		then
 			shift
 		fi
-		decksh decksh.dsh      | pdfdeck -author "Anthony Starks" -title "decksh overview"              -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout $* - > decksh.pdf
-		decksh objref.dsh      | pdfdeck -author "Anthony Starks" -title "decksh object reference"      -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout $* - > objref.pdf
-		decksh install-run.dsh | pdfdeck -author "Anthony Starks" -title "decksh/pdfdeck install guide" -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout $* - > install-run.pdf
-		decksh objindex.dsh    | pdfdeck -author "Anthony Starks" -title "decksh object index"          -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout $* - > objindex.pdf
+		decksh decksh.dsh      | pdfdeck -author "Anthony Starks" -title "decksh overview"              -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout -grid $grid  $* - > decksh.pdf
+		decksh objref.dsh      | pdfdeck -author "Anthony Starks" -title "decksh object reference"      -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout -grid $grid  $* - > objref.pdf
+		decksh install-run.dsh | pdfdeck -author "Anthony Starks" -title "decksh/pdfdeck install guide" -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout -grid $grid  $* - > install-run.pdf
+		decksh objindex.dsh    | pdfdeck -author "Anthony Starks" -title "decksh object index"          -pagesize 900,600 -sans $sans -mono $mono  -serif $serif -stdout -grid $grid  $* - > objindex.pdf
 		;;
 esac
 

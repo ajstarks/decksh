@@ -116,7 +116,6 @@ func forbody(scanner *bufio.Scanner) [][]string {
 
 // parsefor collects and evaluates a loop body
 func parsefor(w io.Writer, s []string, linenumber int, scanner *bufio.Scanner) error {
-
 	forvar := s[1]
 	body := forbody(scanner)
 	// determine the type of loop

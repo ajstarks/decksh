@@ -17,7 +17,7 @@ import (
 // $ decksh foo.sh            # input from foo.sh output to stdout
 // $ decksh -o foo.xml foo.sh # input from foo.sh output to foo.xml
 func main() {
-	var dest = flag.String("o", "", "output destination")
+	dest := flag.String("o", "", "output destination")
 	var input io.ReadCloser = os.Stdin
 	var output io.WriteCloser = os.Stdout
 	var rerr, werr error
