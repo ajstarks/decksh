@@ -275,11 +275,45 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 // directfunc calls a previously imported function
 // function args...
 func directfunc(w io.Writer, s []string, linenumber int) error {
+	//fmt.Fprintf(os.Stderr, "line %d, directfunc=%v\n", linenumber, s)
 	if len(s) < 2 {
-		return fmt.Errorf("line %d: need at least one argument for a function", linenumber)
+		return fmt.Errorf("line %d: %v, need at least one argument for a function", linenumber, s)
 	}
 	scanner := bufio.NewScanner(strings.NewReader(funcmap[s[0]]))
 	return def(scanner, w, s, s[0], 1, linenumber)
+}
+
+// evalif evaluates an if statement
+func evalif(t string, n int) (bool, error) {
+	tk := strings.Fields(t)
+	r, err := condition(tk, n)
+	return r, err
+}
+
+// parseif evaluates an if statement, and processes lines until the token eif
+func parseif(w io.Writer, t string, n int, scanner *bufio.Scanner) error {
+	var r bool
+	var err error
+
+	r, err = evalif(t, n)
+	if err != nil {
+		return err
+	}
+	linenumber := n
+	for scanner.Scan() {
+		t := scanner.Text()
+		linenumber++
+		if t == "eif" {
+			break
+		}
+		if r {
+			err = keyparse(w, parse(t), t, linenumber)
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return scanner.Err()
 }
 
 // keyparse parses keywords and executes

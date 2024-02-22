@@ -37,9 +37,15 @@ func Process(w io.Writer, r io.Reader) error {
 		}
 		if tokens[0] == "for" {
 			errors = append(errors, parsefor(w, tokens, n, scanner))
+			continue
 		}
 		if tokens[0] == "data" {
 			errors = append(errors, loadata(tokens, n, scanner))
+			continue
+		}
+		if tokens[0] == "if" {
+			errors = append(errors, parseif(w, t, n, scanner))
+			continue
 		}
 		errors = append(errors, keyparse(w, tokens, t, n))
 	}

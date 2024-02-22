@@ -114,8 +114,18 @@ deck
 			func "coord.dsh" 80 y 2 3 "gray" "gray"
 		efor
 		redcircle 50 10
-
 	eslide
+
+	// if
+//	slide
+//		ctext "Conditionals" titleX titleY titleSize
+//		condx=50
+//		condy=20
+//		rcond=random 0 100
+//		if rcond gt condx
+//			line condx condy condy condx 3
+//		eif
+//	eslide
 
 	// coordinate assignments
 	slide
@@ -1140,4 +1150,5 @@ deck
 		// Chart
 		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts AAPL.d
 	eslide
+
 edeck
