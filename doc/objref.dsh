@@ -1051,7 +1051,7 @@ deck
 		lbrace 30 70 30 2 2
 		ctext "h" 28 68 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "image"                    43 ly ts "mono" kwcolor
+		etext `image "file"`                    43 ly ts "mono" kwcolor
 		ctext "x y w h"                  50 ly ts "mono" argcolor
 		ctext "scale link"               65 ly ts "mono" optcolor
 		
@@ -1077,7 +1077,7 @@ deck
 		lbrace 30 70 30 2 2
 		ctext "h" 28 68 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "cimage"                    43 ly ts "mono" kwcolor
+		etext `cimage "file"`                    43 ly ts "mono" kwcolor
 		ctext "x y w h"                  50 ly ts "mono" argcolor
 		ctext "scale link"               65 ly ts "mono" optcolor
 		
