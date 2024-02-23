@@ -408,9 +408,9 @@ deck
 		rtext "abc" 50 20 90 5
 		rtext "abc" 80 20 270 4 "sans" "maroon"
 
-		ctext `ctext 20 20 30 3` 20 ely ets "mono"
-		ctext `ctext 50 20 90 5` 50 ely ets "mono"
-		ctext `ctext 80 20 270 4 "sans" "maroon"` 80 ely ets "mono" 
+		ctext `rtext 20 20 30 3` 20 ely ets "mono"
+		ctext `rtext 50 20 90 5` 50 ely ets "mono"
+		ctext `rtext 80 20 270 4 "sans" "maroon"` 80 ely ets "mono" 
 	eslide
 
 	// arctext

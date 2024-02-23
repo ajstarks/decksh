@@ -39,7 +39,7 @@ deck
 			li "$ go install github.com/ajstarks/deck/cmd/pdfdeck@latest"
 			li "Install the latest version of pdfdeck" capfont capcolor
 			li
-			li "$ git clone https://github.com/ajstarks/deckfonts $HOME"
+			li "$ git clone https://github.com/ajstarks/deckfonts $HOME/deckfonts"
 			li "Install fonts into $HOME/deckfonts" capfont capcolor
 			li
 			li "$ decksh -help"
