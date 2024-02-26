@@ -127,14 +127,37 @@
 <text xp="50" yp="10" sp="2" font="mono" color="white">10)</text>
 </slide>
 <slide>
+<text align="c" xp="50" yp="92" sp="4" >Conditionals</text>
+<text xp="45" yp="70" sp="3" font="mono">r=47.36</text>
+<text xp="60" yp="70" sp="3" font="mono">x=12.81</text>
+<text xp="75" yp="70" sp="3" font="mono">b=14.79</text>
+<text xp="10" yp="60" sp="3" font="serif">equal to</text>
+<text xp="45" yp="60" sp="3" font="mono">r == x</text>
+<text xp="10" yp="55.5" sp="3" font="serif">not equal to</text>
+<text xp="45" yp="55.5" sp="3" font="mono">r != x</text>
+<text xp="10" yp="51" sp="3" font="serif">greater than</text>
+<text xp="45" yp="51" sp="3" font="mono">r &gt; x</text>
+<text xp="10" yp="46.5" sp="3" font="serif">less than</text>
+<text xp="45" yp="46.5" sp="3" font="mono">r &lt; x</text>
+<text xp="10" yp="42" sp="3" font="serif">greater than or equal to</text>
+<text xp="45" yp="42" sp="3" font="mono">r &gt;= x</text>
+<text xp="10" yp="37.5" sp="3" font="serif">less than or equal to</text>
+<text xp="45" yp="37.5" sp="3" font="mono">r &lt;= x</text>
+<text xp="10" yp="33" sp="3" font="serif">between</text>
+<text xp="45" yp="33" sp="3" font="mono">r &gt;&lt; x b</text>
+<text align="c" xp="65" yp="55.5" sp="2" >YES</text>
+<text align="c" xp="65" yp="51" sp="2" >YES</text>
+<text align="c" xp="65" yp="42" sp="2" >YES</text>
+</slide>
+<slide>
 <text align="c" xp="50" yp="92" sp="4" >Coordinates</text>
 <line xp1="40" yp1="40" xp2="60" yp2="40" sp="0.2" color="blue"/>
 <line xp1="60" yp1="40" xp2="60" yp2="60" sp="0.2" color="red"/>
 <line xp1="60" yp1="60" xp2="40" yp2="60" sp="0.2" color="green"/>
 <line xp1="40" yp1="60" xp2="40" yp2="40" sp="0.2" color="orange"/>
 <polygon xc="40 60 60 40" yc="40 40 60 60" color="black" opacity="10"/>
-<ellipse xp="48.44304978574084" yp="59.73364636333072" wp="5" hr="100" color="red" opacity="50"/>
-<ellipse xp="48.44304978574084" yp="59.73364636333072" wp="1" hr="100"/>
+<ellipse xp="52.7022573173721" yp="56.91291655950392" wp="5" hr="100" color="red" opacity="50"/>
+<ellipse xp="52.7022573173721" yp="56.91291655950392" wp="1" hr="100"/>
 <text align="c" xp="40" yp="40" sp="2" >p1 (a,b)</text>
 <text align="c" xp="60" yp="40" sp="2" >p2 (a+c,b)</text>
 <text align="c" xp="60" yp="60" sp="2" >p3 (a+c,b+c)</text>
@@ -415,9 +438,9 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Random</text>
-<ellipse xp="61.07877828530739" yp="45.52435559845147" wp="10" hr="100" color="red" opacity="45.52435559845147"/>
-<ellipse xp="26.612155509993936" yp="64.22609951506378" wp="10" hr="100" color="green" opacity="64.22609951506378"/>
-<ellipse xp="39.56275286938696" yp="11.969907748052965" wp="10" hr="100" color="blue" opacity="11.969907748052965"/>
+<ellipse xp="75.81249983813348" yp="72.39238565542837" wp="10" hr="100" color="red" opacity="72.39238565542837"/>
+<ellipse xp="22.798423428778563" yp="35.794304500352375" wp="10" hr="100" color="green" opacity="35.794304500352375"/>
+<ellipse xp="19.46244721731088" yp="72.06736604831518" wp="10" hr="100" color="blue" opacity="72.06736604831518"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="80" sp="3" >sqrt 8 = 2.8284271247461903</text>

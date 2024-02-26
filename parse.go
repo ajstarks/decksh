@@ -303,7 +303,7 @@ func parseif(w io.Writer, t string, n int, scanner *bufio.Scanner) error {
 	for scanner.Scan() {
 		t := scanner.Text()
 		linenumber++
-		if t == "eif" {
+		if strings.TrimSpace(t) == "eif" {
 			break
 		}
 		if r {
