@@ -4,7 +4,6 @@ mono="Inconsolata-Medium"
 serif="Charter-Regular"
 grid="0"
 
-
 case "$1" in 
 
 	ref)

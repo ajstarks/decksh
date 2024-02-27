@@ -1649,12 +1649,12 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.5
-		ctext "Loop, Built-ins, Data, Function and Grid" mid ty 5 "serif"
+		ctext "Loop, If, Built-ins, Data, Function and Grid" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
 			li "Loop"
-			li "Coordinate"
+			li "Conditional"
 			li "Polar coordinate (x)"
 			li "Polar coordinate (y)"
 			li "Polar coordinates"
@@ -1662,7 +1662,6 @@ deck
 			li "Formatted text"
 			li "Substring"
 			li "Random number"
-			li "Square Root"
 			li "Value mapping"
 			li "Define function"
 			li "Import function"
@@ -1673,7 +1672,7 @@ deck
 		list rc lsty lfs "mono" kwcolor 100 listspacing
 			li tbl2 "sans" objcolor
 			li "for v="
-			li "p="
+			li "if"
 			li "x=polarx"
 			li "y=polary"
 			li "value=polar"
@@ -1681,7 +1680,6 @@ deck
 			li "value=format"
 			li "value=substr"
 			li "value=random"
-			li "value=sqrt"
 			li "value=vmap"
 			li "def"
 			li "import"
@@ -1692,7 +1690,7 @@ deck
 		list rc lsty lfs "mono" argcolor 100 listspacing
 			li tbl3 "sans" objcolor
 			li "begin end [increment] ... efor"
-			li "(x,y)"
+			li "condition ... eif"
 			li "x y radius angle"
 			li "x y radius angle"
 			li "x y radius angle"
@@ -1700,7 +1698,6 @@ deck
 			li "fmt expression"
 			li "string begin end"
 			li "min max"
-			li "expression"
 			li "data min1 max1 min2 max2"
 			li "name arg1 ... argn ... edef"
 			li `"file"`
@@ -1725,6 +1722,43 @@ deck
 		text   "...efor"   64 ly ts "mono" argcolor
 		textfile "code/objloop.dsh" 10 30 ets "mono"
 		include "code/objloop.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		list 10 85 4 "mono" objcolor 100 1.3
+			li "if [cond]"
+			li "...statements to execute if cond is true"
+			li "eif"
+		elist
+
+		hline 0 47 100 hlsize hlcolor hlop
+		ctext "if"  25 ly ts "mono" kwcolor
+		text  "[condition]"  32 ly ts "mono"
+		text   "...  efor"   55 ly ts "mono" argcolor
+
+		ely=ly-15
+		list 10 ely 2 "mono" "" 100 1.2
+			li "if a == b"
+			li "if a != b"
+			li "if a > b"
+			li "if a < b"
+			li "if a >= b"
+			li "if a <= b"
+			li "if a >< b c"
+		elist
+
+		list 25 ely 2 "sans" "" 100 1.2
+			li "if a equals b"
+			li "if a not equal to b"
+			li "if a less than b"
+			li "if a greater than b"
+			li "if a greater than or equal to b"
+			li "if a less than or equal to b"
+			li "if a is between b and c"
+		elist
+
+		textfile "code/objif.dsh" 65 ely ets "mono"
+
 	eslide
 
 	// polarx, polary
@@ -1897,31 +1931,6 @@ deck
 		elist
 	eslide
 
-	// Square root
-	slide bgcolor fgcolor
-		list 35 90 4 "mono" objcolor 100 1.3
-			li "a=10"
-			li "b=71"
-			li "x=sqrt 4"
-			li "y=sqrt a"
-			li "n=sqrt a+b"
-		elist
-
-		text "x = 2"          72 75 lw "mono"
-		text "y = 3.1622776"  72 67 lw "mono"
-		text "n = 9"          72 59 lw "mono"
-		arrow 70 76 60 76 0.2 2 3
-		arrow 70 68 60 68 0.2 2 3
-		arrow 70 60 60 60 0.2 2 3
-		hline 0 47 100 hlsize hlcolor hlop
-		etext "value=" 35 ly ts "mono"
-		text "sqrt"    35 ly ts "mono" kwcolor
-		text "number or expression" 43 ly ts "mono" argcolor
-
-		textfile "code/sqrt-ex.dsh" 35 35 2 "mono"
-		include  "code/sqrt-ex.dsh"
-	eslide
-
 	// vmap
 	slide bgcolor fgcolor
 		vmy1=90
@@ -2022,6 +2031,133 @@ deck
 		textfile "code/grid-ex1.dsh" 10 35 2 "mono"
 		ctext     `grid "code/grid-ex.dsh" 35 33 10 10 65` 50 10 ets  "mono"
 	eslide
+
+
+	// Math Index
+	slide bgcolor fgcolor
+		rc=initlcol
+		listspacing=1.5
+		ctext "Math Functions" mid ty 5 "serif"
+		hline rc llsty 85 tbheadsize "gray" 20
+		list rc lsty lfs "sans" "" 100 listspacing
+			li tbl1 "sans" objcolor
+			li "Cosine"
+			li "Sine"
+			li "Square Root"
+			li "Tangent"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li tbl2 "sans" objcolor
+			li "cosine"
+			li "sine"
+			li "sqrt"
+			li "tangent"
+		elist
+		rc+=20
+		list rc lsty lfs "mono" argcolor 100 listspacing
+			li tbl3 "sans" objcolor
+			li "number or expression"
+			li "number or expression"
+			li "number or expression"
+			li "number or expression"
+		elist		
+	eslide
+
+	// Cosine
+	slide bgcolor fgcolor
+		list 35 90 4 "mono" objcolor 100 1.3
+			li "a=3.14159265359"
+			li "b=2*a"
+			li "x=cosine 4"
+			li "y=cosine a"
+			li "n=cosine a+b"
+		elist
+
+		text "x = -1"       72 75 lw "mono"
+		text "y = -0.65364" 72 67 lw "mono"
+		text "n = -1"       72 59 lw "mono"
+		arrow 70 76 60 76 0.2 2 3
+		arrow 70 68 60 68 0.2 2 3
+		arrow 70 60 60 60 0.2 2 3
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "value=" 30 ly ts "mono"
+		text "cosine"    30 ly ts "mono" kwcolor
+		text "number or expression" 43 ly ts "mono" argcolor
+	eslide
+
+	// Sine
+	slide bgcolor fgcolor
+		list 35 90 4 "mono" objcolor 100 1.3
+			li "a=10"
+			li "b=71"
+			li "x=sin 4"
+			li "y=sin a"
+			li "n=sin a+b"
+		elist
+
+		text "x = -0.75680" 72 75 lw "mono"
+		text "y = -0.5440"  72 67 lw "mono"
+		text "n = -0.62989" 72 59 lw "mono"
+		arrow 70 76 60 76 0.2 2 3
+		arrow 70 68 60 68 0.2 2 3
+		arrow 70 60 60 60 0.2 2 3
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "value=" 35 ly ts "mono"
+		text "sine"    35 ly ts "mono" kwcolor
+		text "number or expression" 43 ly ts "mono" argcolor
+	eslide
+
+
+	// Square root
+	slide bgcolor fgcolor
+		list 35 90 4 "mono" objcolor 100 1.3
+			li "a=10"
+			li "b=71"
+			li "x=sqrt 4"
+			li "y=sqrt a"
+			li "n=sqrt a+b"
+		elist
+
+		text "x = 2"          72 75 lw "mono"
+		text "y = 3.1622776"  72 67 lw "mono"
+		text "n = 9"          72 59 lw "mono"
+		arrow 70 76 60 76 0.2 2 3
+		arrow 70 68 60 68 0.2 2 3
+		arrow 70 60 60 60 0.2 2 3
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "value=" 35 ly ts "mono"
+		text "sqrt"    35 ly ts "mono" kwcolor
+		text "number or expression" 43 ly ts "mono" argcolor
+
+		textfile "code/sqrt-ex.dsh" 35 35 2 "mono"
+		include  "code/sqrt-ex.dsh"
+	eslide
+
+
+	// Tangent
+	slide bgcolor fgcolor
+		list 35 90 4 "mono" objcolor 100 1.3
+			li "a=10"
+			li "b=71"
+			li "x=tangent 4"
+			li "y=tangent a"
+			li "n=tangent a+b"
+		elist
+
+		text "x = 1.1578213"          72 75 lw "mono"
+		text "y = 0.6483608"          72 67 lw "mono"
+		text "n = -0.8109944"         72 59 lw "mono"
+		arrow 70 76 62 76 0.2 2 3
+		arrow 70 68 62 68 0.2 2 3
+		arrow 70 60 62 60 0.2 2 3
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "value=" 30 ly ts "mono"
+		text "tangent"    30 ly ts "mono" kwcolor
+		text "number or expression" 43 ly ts "mono" argcolor
+	eslide
+
+
 
 	// charts index
 	slide bgcolor fgcolor

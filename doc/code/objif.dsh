@@ -1,0 +1,5 @@
+a=10
+b=20
+if a < b
+	ctext "hello" 80 20 1.5
+eif
