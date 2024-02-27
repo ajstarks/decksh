@@ -194,20 +194,16 @@ deck
 		eif
 	eslide
 
+	slide
+		ctext "Conditionals (if -- else -- eif)" titleX titleY titleSize
+		rv=random 0 100
+		xv=random 0 100
+		textfile "ifelse.dsh" 5 65 3 "mono"
+		xval=format "x=%.2f" xv
+		rval=format "r=%.2f" rv
+		include "ifelse.dsh"
+	eslide
 
-
-
-
-
-//	slide
-//		ctext "Conditionals" titleX titleY titleSize
-//		condx=50
-//		condy=20
-//		rcond=random 0 100
-//		if rcond gt condx
-//			line condx condy condy condx 3
-//		eif
-//	eslide
 
 	// coordinate assignments
 	slide

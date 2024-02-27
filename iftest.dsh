@@ -1,0 +1,90 @@
+deck
+	slide
+
+		xv=random 0 50
+		rv=random 0 50
+		bv=random 0 50
+		xval=format "x=%.2f" xv
+		rval=format "r=%.2f" rv
+		bval=format "b=%.2f" bv
+
+		
+		condx=10
+		condy=70
+		text rval 45 condy 3 "mono"
+		text xval 60 condy 3 "mono"
+		text bval 75 condy 3 "mono"
+		ts=3
+		incr=ts*1.5
+		c1=condx
+		condx+=35
+		condy=60
+		text "equal to"  c1 condy ts "serif"
+		text "r == x" condx condy ts "mono"
+		condy-=incr
+		text "not equal to"  c1 condy ts "serif"
+		text "r != x" condx condy ts "mono"
+		condy-=incr
+		text "greater than"  c1 condy ts "serif"
+		text "r > x" condx condy ts "mono"
+		condy-=incr
+		text "less than"  c1 condy ts "serif"
+		text "r < x" condx condy ts "mono"
+		condy-=incr
+		text "greater than or equal to"  c1 condy ts "serif"
+		text "r >= x" condx condy ts "mono"
+		condy-=incr
+		text "less than or equal to"  c1 condy ts "serif"
+		text "r <= x" condx condy ts "mono"
+		condy-=incr
+		text "between"  c1 condy ts "serif"
+		text "r >< x b" condx condy ts "mono"
+		
+		condy=60
+		condx+=20
+		if rv == xv
+			ctext "YES" condx condy 2
+		eif
+		condy-=incr
+		if rv != xv
+			ctext "YES" condx condy 2
+		eif
+		condy-=incr
+
+		if rv > xv
+			ctext "YES" condx condy 2
+		eif
+		condy-=incr
+	
+		if rv < xv
+			ctext "YES" condx condy 2
+		eif
+		condy-=incr
+
+		if rv >= xv
+			ctext "YES" condx condy 2
+		eif
+		condy-=incr
+
+		if rv <= xv
+			ctext "YES" condx condy 2
+		eif
+		condy-=incr
+
+		if rv >< xv bv
+			ctext "YES" condx condy 2
+		eif
+	eslide
+
+	slide
+		rv=random 0 100
+		xv=random 0 100
+		textfile "ifelse.dsh" 5 65 3 "mono"
+		xval=format "x=%.2f" xv
+		rval=format "r=%.2f" rv
+		include "ifelse.dsh"
+	eslide
+edeck
+
+
+

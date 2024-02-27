@@ -290,30 +290,56 @@ func evalif(t string, n int) (bool, error) {
 	return r, err
 }
 
-// parseif evaluates an if statement, and processes lines until the token eif
-func parseif(w io.Writer, t string, n int, scanner *bufio.Scanner) error {
-	var r bool
-	var err error
-
-	r, err = evalif(t, n)
+// parseif parses if -- else -- eif
+func parseif(w io.Writer, t string, linenumber int, scanner *bufio.Scanner) error {
+	r, err := evalif(t, linenumber)
 	if err != nil {
 		return err
 	}
-	linenumber := n
-	for scanner.Scan() {
-		t := scanner.Text()
-		linenumber++
-		if strings.TrimSpace(t) == "eif" {
-			break
-		}
-		if r {
-			err = keyparse(w, parse(t), t, linenumber)
+	ifblock, elseblock, err := ifelse(scanner)
+	if r {
+		for _, t := range ifblock {
+			err := keyparse(w, parse(t), t, linenumber)
 			if err != nil {
 				return err
 			}
+			linenumber++
+		}
+	} else {
+		for _, t := range elseblock {
+			err := keyparse(w, parse(t), t, linenumber)
+			if err != nil {
+				return err
+			}
+			linenumber++
 		}
 	}
-	return scanner.Err()
+	return nil
+}
+
+// ifelse returns if and (possibly empty) else blocks
+func ifelse(scanner *bufio.Scanner) ([]string, []string, error) {
+	inelse := false
+	elseblock := []string{}
+	ifblock := []string{}
+	for scanner.Scan() {
+		t := scanner.Text()
+		s := strings.TrimSpace(t)
+		if s == "eif" {
+			break
+		}
+		if s == "else" {
+			inelse = true
+			continue
+		}
+		if inelse {
+			elseblock = append(elseblock, t)
+		} else {
+			ifblock = append(ifblock, t)
+		}
+	}
+	//fmt.Fprintf(os.Stderr, "ifblock=%v\telseblock=%v\n", ifblock, elseblock)
+	return ifblock, elseblock, scanner.Err()
 }
 
 // keyparse parses keywords and executes
