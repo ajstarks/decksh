@@ -1,5 +1,7 @@
-a=10
-b=20
-if a < b
-	ctext "hello" 80 20 1.5
+a=60
+b=3
+if a > b
+	text "hello" a b 2.5 "sans" "red"
+else
+	text "bye"   a b 2.5 "sans" "blue"
 eif

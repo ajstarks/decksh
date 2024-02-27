@@ -1649,7 +1649,7 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.5
-		ctext "Loop, If, Built-ins, Data, Function and Grid" mid ty 5 "serif"
+		ctext "Loop, If, Built-ins, Functions, Data and Grid" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
@@ -1690,7 +1690,7 @@ deck
 		list rc lsty lfs "mono" argcolor 100 listspacing
 			li tbl3 "sans" objcolor
 			li "begin end [increment] ... efor"
-			li "condition ... eif"
+			li "condition ... [else] ... eif"
 			li "x y radius angle"
 			li "x y radius angle"
 			li "x y radius angle"
@@ -1725,19 +1725,28 @@ deck
 	eslide
 
 	slide bgcolor fgcolor
-		list 10 85 4 "mono" objcolor 100 1.3
-			li "if [cond]"
-			li "...statements to execute if cond is true"
+		list 25 88 4 "mono" objcolor 100 1.3
+			li "if condition"
+			li "...statements when true"
+			li "else"
+			li "...statements when false"
 			li "eif"
 		elist
 
+		rbrace 80 70 12 2 2 0.1 "black"
+		textblock "else block may be omitted" 81 71 10 2.5
+
 		hline 0 47 100 hlsize hlcolor hlop
 		ctext "if"  25 ly ts "mono" kwcolor
-		text  "[condition]"  32 ly ts "mono"
-		text   "...  efor"   55 ly ts "mono" argcolor
+		text  "condition" 28 ly ts "mono"
+		text  "..."       44 ly ts "mono" argcolor
+		text  "else ..."  50 ly ts "mono" optcolor
+		text  "eif"       64 ly ts "mono" kwcolor 
 
-		ely=ly-15
-		list 10 ely 2 "mono" "" 100 1.2
+
+		ely=ly-10
+		list 5 ely 2 "mono" "" 100 1.2
+			li "Condition"
 			li "if a == b"
 			li "if a != b"
 			li "if a > b"
@@ -1747,7 +1756,8 @@ deck
 			li "if a >< b c"
 		elist
 
-		list 25 ely 2 "sans" "" 100 1.2
+		list 18 ely 2 "sans" hlcolor 100 1.2
+			li "Description"
 			li "if a equals b"
 			li "if a not equal to b"
 			li "if a less than b"
@@ -1757,7 +1767,11 @@ deck
 			li "if a is between b and c"
 		elist
 
-		textfile "code/objif.dsh" 65 ely ets "mono"
+		vline 10 8 26 12 "gray" 10
+		vline 35 8 26 36 hlcolor 10
+
+		textfile "code/objif.dsh" 60 ely ets "mono"
+		include  "code/objif.dsh"
 
 	eslide
 
