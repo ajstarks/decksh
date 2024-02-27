@@ -266,7 +266,37 @@ Assign a string variable with formatted text (using package fmt floating point f
 
 assign a random number in the specified range
 
-## Square Root
+## Math Functions
+
+decksh supports these math functions:
+
+* cosine
+* sine
+* square root
+* tangent
+
+
+### Cosine
+
+return the coine of the number of expression (```id``` or binary operation)
+
+    a=4
+    b=10
+    x=cosine 4
+    x=cosine a+b
+    x=cosine b
+
+### Sine
+
+return the sine of the number of expression (```id``` or binary operation)
+
+    a=4
+    b=10
+    x=sine 4
+    x=sine a+b
+    x=sine b
+
+### Square Root
 
 return the square root of the number of expression (```id``` or binary operation)
 
@@ -276,7 +306,19 @@ return the square root of the number of expression (```id``` or binary operation
     x=sqrt a+b
     x=sqrt b
 
-## Mapping
+
+### Tangent
+
+return the square root of the number of expression (```id``` or binary operation)
+
+    a=4
+    b=10
+    x=tangent 4
+    x=tangent a+b
+    x=tangent b
+
+
+## Range Value Mapping
 
     x=vmap v vmin vmax min max
 
@@ -298,7 +340,6 @@ assigns a substring given beginning and ending indicies.
     c=substr s 7 -                  // c="world"
     d=substr s 3 8                  // d="lo, wo"
     e=substr "This is a test"  5 8  // e="is a"
-
 
 
 ## Loops
@@ -323,6 +364,39 @@ Substitution of ```x``` will occur in statements.
     for x="file"
         statements
     efor
+
+
+## Conditionals
+
+You may specify conditional execution of decksh statements with ```if condition```, ```else``` and ```eif```.  The else block is optional.  The conditions are:
+
+    if v1 condition v2
+
+    where condition is:
+    == or eq   equals                 if x == y
+    != or ne   not equals             if x != y
+    <  or lt   less than              if x > y
+    >  or gt   greater than           if x < y
+    >= or ge   greater than or equal  if x >= y
+    <= or ge   less than or equal     if x <= y
+    >< or bt   between                if x >< y z
+
+For example:
+
+    x=10
+    y=20
+    if x < y
+        text "x is greater than y" x y 5
+    else
+        text "x is not greater than y" x y 5
+    eif 
+
+The else block may be omitted:
+
+    if x < 10
+        text "x is less than 10" x y 5
+    eif 
+
 
 ## Include decksh markup from a file
 
@@ -419,9 +493,6 @@ creates two rows: three circles and then three squares
 ```x, y``` specify the beginning location of the items, ```xskip``` is the horizontal spacing between items.
 ```yinternal``` is the vertical spacing between items and ```limit``` the the horizontal limit. When the ```limit``` is reached, 
 a new row is created.
-
-
-
 
 
 ## Text
