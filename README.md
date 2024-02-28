@@ -368,7 +368,7 @@ Substitution of ```x``` will occur in statements.
 
 ## Conditionals
 
-You may specify conditional execution of decksh statements with ```if condition```, ```else``` and ```eif```.  The else block is optional.  The conditions are:
+Specify the conditional execution of decksh statements with ```if condition```, ```else``` and ```eif```.  The else block is optional.  The conditions are:
 
     if v1 condition v2
 
@@ -385,7 +385,7 @@ For example:
 
     x=10
     y=20
-    if x < y
+    if x > y
         text "x is greater than y" x y 5
     else
         text "x is not greater than y" x y 5

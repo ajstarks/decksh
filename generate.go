@@ -110,6 +110,9 @@ func qesc(s string) string {
 // deck produces the "deck" element
 func deck(w io.Writer, s []string, linenumber int) error {
 	_, err := fmt.Fprintln(w, "<deck>")
+	if err != nil {
+		return fmt.Errorf("line %d: %s, unable to write", linenumber, s)
+	}
 	return err
 }
 
@@ -371,6 +374,8 @@ func listitem(w io.Writer, s []string, linenumber int) error {
 		fmt.Fprintf(w, "<li>%s</li>\n", qesc(s[1]))
 	case ls > 2:
 		fmt.Fprintf(w, "<li %s>%s</li>\n", fontColorOp(s[2:]), qesc(s[1]))
+	default:
+		return fmt.Errorf("line %d: %s, listitem should have 1, 2, or more arguments", linenumber, s)
 	}
 	return nil
 }

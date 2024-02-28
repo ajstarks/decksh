@@ -180,7 +180,7 @@ var funcmap = map[string]string{}
 
 // import loads the definition of a function from a file
 // import "file"
-func importfunc(w io.Writer, s []string, linenumber int) error {
+func importfunc(s []string, linenumber int) error {
 	if len(s) < 2 {
 		return fmt.Errorf("line %d: import \"file\"", linenumber)
 	}
@@ -371,7 +371,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 		return include(w, tokens, n)
 
 	case "import":
-		return importfunc(w, tokens, n)
+		return importfunc(tokens, n)
 
 	case "call", "func", "callfunc":
 		return subfunc(w, tokens, n)

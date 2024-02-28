@@ -127,7 +127,7 @@ func parsefor(w io.Writer, s []string, linenumber int, scanner *bufio.Scanner) e
 		}
 		for v := begin; v <= end; v += incr {
 			for _, fb := range body {
-				evaloop(w, forvar, "%s", ftoa(v), fb, scanner, linenumber)
+				evaloop(w, forvar, "%s", ftoa(v), fb, linenumber)
 			}
 		}
 		return err
@@ -138,7 +138,7 @@ func parsefor(w io.Writer, s []string, linenumber int, scanner *bufio.Scanner) e
 		}
 		for _, v := range vl {
 			for _, fb := range body {
-				evaloop(w, forvar, "\"%s\"", v, fb, scanner, linenumber)
+				evaloop(w, forvar, "\"%s\"", v, fb, linenumber)
 			}
 		}
 		return err
@@ -149,7 +149,7 @@ func parsefor(w io.Writer, s []string, linenumber int, scanner *bufio.Scanner) e
 		}
 		for _, v := range fl {
 			for _, fb := range body {
-				evaloop(w, forvar, "\"%s\"", v, fb, scanner, linenumber)
+				evaloop(w, forvar, "\"%s\"", v, fb, linenumber)
 			}
 		}
 		return err
@@ -159,7 +159,7 @@ func parsefor(w io.Writer, s []string, linenumber int, scanner *bufio.Scanner) e
 }
 
 // evaloop evaluates items in a loop body
-func evaloop(w io.Writer, forvar string, format string, v string, s []string, scanner *bufio.Scanner, linenumber int) {
+func evaloop(w io.Writer, forvar string, format string, v string, s []string, linenumber int) {
 	e := make([]string, len(s))
 	copy(e, s)
 	for i := 0; i < len(s); i++ {
