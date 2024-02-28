@@ -247,7 +247,19 @@ func def(scanner *bufio.Scanner, w io.Writer, s []string, filearg string, argoff
 			}
 			keyparse(w, fargs, t, linenumber)
 		} else {
-			keyparse(w, parse(t), t, linenumber)
+			tokens := parse(t)
+			if len(tokens) < 1 || t[0] == '#' {
+				continue
+			}
+			if tokens[0] == "for" {
+				parsefor(w, tokens, n, scanner)
+				continue
+			}
+			if tokens[0] == "if" {
+				parseif(w, t, n, scanner)
+				continue
+			}
+			keyparse(w, tokens, t, linenumber)
 		}
 		n++
 	}
