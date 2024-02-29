@@ -45,6 +45,10 @@ deck
 			li "decksh"
 			li "reference" "sans" accentcolor
 		elist
+		clist 75 10 1.5 "sans" objcolor 100 1.5
+			li "Version"
+			li deckshVersion
+		elist
 		include "decksh-logo.dsh"
 	eslide
 
@@ -60,9 +64,9 @@ deck
 		ax=20
 		ay=80
 
-		ctext "name"  ax 85 2
-		ctext "is"    25 85 2
-		text "thing"  29 85 2
+		ctext "name"  ax 85 1.5
+		ctext "is"    25 85 1.5
+		text "thing"  29 85 1.5
 		list ax ay 4 "mono" "" 100 1.5
 			li "x = 3.14159265"
 			li `s = "hello"`
@@ -82,6 +86,9 @@ deck
 			li
 			li "variable use"
 		elist
+
+		text "Note: the reserved variable deckshVersion contains the version of decksh" 20 5 1.5
+		etext deckshVersion 80 5 1.5 "mono"
 	eslide
 
 	// binop

@@ -154,6 +154,8 @@ Note that doc/edoc and page/epage are may also be used as synomyms for deck/edec
     y=20
     text "hello, world" x y 5
 
+The special identifier, ```deckshVersion``` contains the string denoting the version of decksh.
+
 ## Assignment operations
 
 ```id+=<number>``` increment the value of ```id``` by ```<number>```
