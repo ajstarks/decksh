@@ -5,25 +5,29 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"math/rand"
 	"os"
-	"time"
 
 	"github.com/ajstarks/decksh"
 )
 
-// $ decksh                   # input from stdin, output to stdout
-// $ decksh -o foo.xml        # input from stdin, output to foo.xml
-// $ decksh foo.sh            # input from foo.sh output to stdout
-// $ decksh -o foo.xml foo.sh # input from foo.sh output to foo.xml
+// $ decksh                    # input from stdin, output to stdout
+// $ decksh -o foo.xml         # input from stdin, output to foo.xml
+// $ decksh foo.dsh            # input from foo.dsh output to stdout
+// $ decksh -o foo.xml foo.dsh # input from foo.dsh output to foo.xml
+// $ decksh -version           # show decksh version
 func main() {
 	dest := flag.String("o", "", "output destination")
+	version := flag.Bool("version", false, "show version")
 	var input io.ReadCloser = os.Stdin
 	var output io.WriteCloser = os.Stdout
 	var rerr, werr error
 
 	flag.Parse()
-	rand.Seed(time.Now().UnixNano())
+
+	if *version {
+		fmt.Fprintln(os.Stderr, decksh.Version)
+		os.Exit(1)
+	}
 
 	if len(flag.Args()) > 0 {
 		input, rerr = os.Open(flag.Args()[0])
