@@ -8,7 +8,9 @@ deck
 	titleSize=4
 	// title, fonts
 	slide
-		ctext "decksh tests" 50 50 10
+		ctext "decksh tests"  mid mid 10
+		ctext "version"       mid 20 2
+		ctext deckshVersion   mid 15 2
 	eslide
 
 	slide

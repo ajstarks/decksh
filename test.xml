@@ -2,6 +2,8 @@
 <canvas width="792" height="612"/>
 <slide>
 <text align="c" xp="50" yp="50" sp="10" >decksh tests</text>
+<text align="c" xp="50" yp="20" sp="2" >version</text>
+<text align="c" xp="50" yp="15" sp="2" >2024-02-28-1.0.0</text>
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Empty</text>
@@ -128,9 +130,9 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Conditionals</text>
-<text xp="45" yp="70" sp="3" font="mono">r=24.44</text>
-<text xp="60" yp="70" sp="3" font="mono">x=48.83</text>
-<text xp="75" yp="70" sp="3" font="mono">b=38.94</text>
+<text xp="45" yp="70" sp="3" font="mono">r=27.27</text>
+<text xp="60" yp="70" sp="3" font="mono">x=27.33</text>
+<text xp="75" yp="70" sp="3" font="mono">b=5.95</text>
 <text xp="10" yp="60" sp="3" font="serif">equal to</text>
 <text xp="45" yp="60" sp="3" font="mono">r == x</text>
 <text xp="10" yp="55.5" sp="3" font="serif">not equal to</text>
@@ -152,10 +154,10 @@
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Conditionals (if -- else -- eif)</text>
 <text file="ifelse.dsh" xp="5" yp="65" sp="3" font="mono"/>
-<text align="c" xp="50" yp="75" sp="4" >rv is greater than xv</text>
-<text align="c" xp="10" yp="75" sp="3" >r=39.76</text>
-<text align="c" xp="90" yp="75" sp="3" >x=25.71</text>
-<rect xp="50" yp="52" wp="100" hp="20" color="red" opacity="20"/>
+<text align="c" xp="50" yp="5" sp="4" >in the else clause</text>
+<text align="c" xp="10" yp="5" sp="3" >r=18.02</text>
+<text align="c" xp="90" yp="5" sp="3" >x=79.43</text>
+<rect xp="50" yp="25" wp="100" hp="20" color="blue" opacity="20"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Coordinates</text>
@@ -164,8 +166,8 @@
 <line xp1="60" yp1="60" xp2="40" yp2="60" sp="0.2" color="green"/>
 <line xp1="40" yp1="60" xp2="40" yp2="40" sp="0.2" color="orange"/>
 <polygon xc="40 60 60 40" yc="40 40 60 60" color="black" opacity="10"/>
-<ellipse xp="43.87090420250952" yp="55.40298515291385" wp="5" hr="100" color="red" opacity="50"/>
-<ellipse xp="43.87090420250952" yp="55.40298515291385" wp="1" hr="100"/>
+<ellipse xp="54.14492455010205" yp="43.5913309677092" wp="5" hr="100" color="red" opacity="50"/>
+<ellipse xp="54.14492455010205" yp="43.5913309677092" wp="1" hr="100"/>
 <text align="c" xp="40" yp="40" sp="2" >p1 (a,b)</text>
 <text align="c" xp="60" yp="40" sp="2" >p2 (a+c,b)</text>
 <text align="c" xp="60" yp="60" sp="2" >p3 (a+c,b+c)</text>
@@ -446,9 +448,9 @@
 </slide>
 <slide>
 <text align="c" xp="50" yp="92" sp="4" >Random</text>
-<ellipse xp="83.52569779720753" yp="69.51506919076814" wp="10" hr="100" color="red" opacity="69.51506919076814"/>
-<ellipse xp="32.796477524881006" yp="89.56317734703717" wp="10" hr="100" color="green" opacity="89.56317734703717"/>
-<ellipse xp="56.2905412797661" yp="20.043167963695804" wp="10" hr="100" color="blue" opacity="20.043167963695804"/>
+<ellipse xp="24.313630938804913" yp="12.736906903186096" wp="10" hr="100" color="red" opacity="12.736906903186096"/>
+<ellipse xp="59.49649537431911" yp="75.58513987790997" wp="10" hr="100" color="green" opacity="75.58513987790997"/>
+<ellipse xp="76.61868146177898" yp="19.382670461758487" wp="10" hr="100" color="blue" opacity="19.382670461758487"/>
 </slide>
 <slide>
 <text align="c" xp="50" yp="80" sp="3" >sqrt 8 = 2.8284271247461903</text>
