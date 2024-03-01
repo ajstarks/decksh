@@ -25,7 +25,8 @@ func main() {
 	flag.Parse()
 
 	if *version {
-		fmt.Fprintln(os.Stderr, decksh.Version)
+		l := len(decksh.Version)
+		fmt.Fprintln(os.Stderr, decksh.Version[1:l-1])
 		os.Exit(1)
 	}
 
