@@ -1,2 +1,4 @@
 #!/bin/bash
+now=`date +%Y-%m-%d`
 decksh test.dsh > test.xml && pdfdeck -sans NotoSans-Regular test.xml && open test.pdf
+cp test.xml test-${now}.xml

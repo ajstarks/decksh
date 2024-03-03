@@ -302,31 +302,33 @@ func evalif(t string, n int) (bool, error) {
 	return r, err
 }
 
-// parseif parses if -- else -- eif
-func parseif(w io.Writer, t string, linenumber int, scanner *bufio.Scanner) error {
-	r, err := evalif(t, linenumber)
-	if err != nil {
-		return err
-	}
-	ifblock, elseblock, err := ifelse(scanner)
-	if r {
-		for _, t := range ifblock {
-			err := keyparse(w, parse(t), t, linenumber)
-			if err != nil {
-				return err
-			}
-			linenumber++
+// parseblock parses a block of code
+func parseblock(w io.Writer, data []string, linenumber int) error {
+	for _, t := range data {
+		err := keyparse(w, parse(t), t, linenumber)
+		if err != nil {
+			return err
 		}
-	} else {
-		for _, t := range elseblock {
-			err := keyparse(w, parse(t), t, linenumber)
-			if err != nil {
-				return err
-			}
-			linenumber++
-		}
+		linenumber++
 	}
 	return nil
+}
+
+// parseif parses if -- else -- eif
+func parseif(w io.Writer, t string, linenumber int, scanner *bufio.Scanner) error {
+	r, everr := evalif(t, linenumber)
+	if everr != nil {
+		return everr
+	}
+	ifblock, elseblock, blkerr := ifelse(scanner)
+	if blkerr != nil {
+		return blkerr
+	}
+	if r {
+		return parseblock(w, ifblock, linenumber)
+	} else {
+		return parseblock(w, elseblock, linenumber)
+	}
 }
 
 // ifelse returns if and (possibly empty) else blocks
@@ -360,6 +362,14 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	if len(tokens) < 1 {
 		return nil
 	}
+
+	if len(tokens) > 1 && tokens[1] == "=" {
+		return assign(tokens, n)
+	}
+	if isaop(tokens) {
+		return assignop(tokens, n)
+	}
+
 	switch tokens[0] {
 	case "deck", "doc":
 		return deck(w, tokens, n)
@@ -472,13 +482,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "dchart":
 		return chart(w, t, n)
 
-	default: // not a keyword, process assignments or direct function calls
-		if len(tokens) > 1 && tokens[1] == "=" {
-			return assign(tokens, n)
-		}
-		if isaop(tokens) {
-			return assignop(tokens, n)
-		}
+	default: // not a keyword, direct function calls
 		return directfunc(w, tokens, n)
 	}
 }
