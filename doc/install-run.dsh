@@ -32,7 +32,7 @@ deck
 
 	slide bgcolor fgcolor
 		ctext "Installing using go and git" mid top ts
-		list 10 75 3.0 "mono" cmdcolor 100 1.2
+		list 2 75 2.8 "mono" cmdcolor 100 1.2
 			li "$ go install github.com/ajstarks/decksh/cmd/decksh@latest"
 			li "Install the latest version of decksh" capfont capcolor
 			li
@@ -46,7 +46,6 @@ deck
 			li "$ pdfdeck -help"
 			li "Do a test run of decksh and pdfdeck" capfont capcolor
 		elist
-		textblock "(Update your PATH environment variable to include the location of the installed binaries, typically $HOME/go/bin)" 10 10 80 2 capfont capcolor
 	eslide
 
 	slide bgcolor fgcolor
@@ -323,11 +322,11 @@ deck
 	slide bgcolor fgcolor
 		sublink="https://github.com/ajstarks/decksh/tree/master/sublime-text"
 		ctext "Sublime Text setup" mid top ts
-		ctext "copy to dsh.* files ~/.config/sublime-text/Packages/User, copy dpdfr to your PATH" mid 80 2 "serif"
-		ctext sublink 50 75 2 "mono" fgcolor 100 sublink
-		image "images/subl-github.png" 50 60 70 0
-		ctext "CTRL-B to build and display" 30 15 2
-		image "images/sublime.png" 50 25 70 0
+		textblock "copy to dsh.sublime-build and dsh.sublime-syntax to Sublime user package directory, copy dpdfr to your PATH" 2 70 10 2 "serif"
+		ctext sublink 60 75 2 "mono" fgcolor 100 sublink
+		image "images/subl-github.png" 60 60 70 0
+		ctext "CTRL-B to build and display" 40 15 2
+		image "images/sublime.png" 60 25 70 0
 	eslide
 
 	slide bgcolor fgcolor
@@ -345,6 +344,7 @@ deck
 			li "decksh in.dsh"
 			li "decksh -o out.xml"
 			li "decksh -o out.xml in.dsh"
+			li "decksh -version"
 		elist
 		lx+=47
 		es=ts2*0.75
@@ -354,6 +354,7 @@ deck
  			li "read from file, write to stdout"
  			li "read from stdin, write to file"
  			li "read from file, write to file"
+ 			li "show version"
  		elist
 		text "decksh example.dsh | pdfdeck ..."  left 20 ts "mono" "maroon"
 	eslide

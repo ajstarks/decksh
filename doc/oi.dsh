@@ -8,7 +8,8 @@
 	hskip=10
 	vskip=20
 	slide
-
+		etext "decksh version" 90 15 1
+		etext deckshVersion    90 13  1
 		// grid lines
 		for v=5 95 5
 			vline v 0 100 0.1 "blue" 20
