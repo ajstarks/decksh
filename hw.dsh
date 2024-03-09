@@ -21,7 +21,6 @@ deck
  		efor
 	eslide
 
-
 	slide "black" "white"
 		arctext "hello world" 50 25 40 130 50 10 "mono"
 		image "earth.jpg" 50 10 100 0
