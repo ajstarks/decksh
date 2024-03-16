@@ -337,45 +337,41 @@ deck
 		arctext "coming down"          l4 20 10  90   0 2 "mono" "blue" op3
 	eslide
 
-	// Text spacing
+	// binary and assignment ops
 	slide
-		ctext "Text Spacing" titleX titleY titleSize
+		ctext "Binary and Assignment Operators" titleX titleY titleSize
 
-		titlex=10
-		titley=20
+		ty=10
+		a=10
+		b=40
 
-		subty=titley-10
-		ctext "Title" titlex titley 5
-		ctext "subtitle" titlex subty 4 "sans" "gray"
+		tx=a+b
+		ty+=60
+		ctext "a+b (y+=60)" tx ty 3
+		
 
-		titlex+=20
-		spacing=12
-		subty=titley-spacing
-		ctext "Title" titlex titley 5
-		ctext "subtitle" titlex subty 4 "sans" "gray"
+		a=60
+		b=10
+		tx=a-b
+		ty-=10
+		ctext "a-b (y-=10)" tx ty 3
+		
 
-		titlex+=20
-		subty=titley+spacing
-		ctext "Title" titlex titley 5
-		ctext "subtitle" titlex subty 4 "sans" "gray"
+		a=5
+		b=10
+		tx=a*b
+		ty/=3
+		ctext "a*b (y/=3) " tx ty 3
 
-		titlex+=20
-		subty=titley*1.2
-		ctext "Title" titlex titley 5
-		ctext "subtitle" titlex subty 4 "sans" "gray"
+		a=100
+		b=2
+		tx=a/b
+		ty*=1.5
+		ctext "a/b (y*-1.5)" tx ty 3
 
-		titlex+=20
-		subty=titley/1.2
-		ctext "Title" titlex titley 5
-		ctext "subtitle" titlex subty 4 "sans" "gray"
-
-		titlex/=2.2
-		subty*=3
-		subty-=10
-		ctext "Title" titlex titley 5 "serif" "red"
-		ctext "subtitle" titlex subty 4 "sans" "blue"
 	eslide
 
+	
 	// Lists
 	lsize=2
 	lx1=20
