@@ -369,6 +369,12 @@ deck
 		ty*=1.5
 		ctext "a/b (y*-1.5)" tx ty 3
 
+		a=100
+		b=35
+		tx=a%b
+		ty+=10
+		ctext "a%b" tx ty 3
+
 	eslide
 
 	

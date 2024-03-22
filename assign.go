@@ -61,7 +61,7 @@ func simpleassign(s []string, linenumber int) error {
 
 // opval returns the value of a binary operation
 func opval(s []string, linenumber int) (float64, error) {
-	es := fmt.Errorf("line %d: id=a [+, -, *, /] b", linenumber)
+	es := fmt.Errorf("line %d: %s is not a valid operation", linenumber)
 	if len(s) != 3 {
 		return 0, es
 	}
@@ -84,6 +84,11 @@ func opval(s []string, linenumber int) (float64, error) {
 		v = lv - rv
 	case "*":
 		v = lv * rv
+	case "%":
+		if rv == 0 {
+			return 0, fmt.Errorf("line %d: you cannot modulo zero (%v modulo %v)", linenumber, lv, rv)
+		}
+		v = math.Mod(lv, rv)
 	case "/":
 		if rv == 0 {
 			return 0, fmt.Errorf("line %d: you cannot divide by zero (%v / %v)", linenumber, lv, rv)
@@ -97,7 +102,7 @@ func opval(s []string, linenumber int) (float64, error) {
 
 // binop processes a binary expression: id=id op number
 func binop(s []string, linenumber int) error {
-	es := fmt.Errorf("line %d: id=a [+, -, *, /] b", linenumber)
+	es := fmt.Errorf("line %d: %s is not a valid operation", linenumber, s)
 	if len(s) < 5 {
 		return es
 	}
@@ -107,7 +112,7 @@ func binop(s []string, linenumber int) error {
 
 	v, err := opval(s[2:5], linenumber)
 	if err != nil {
-		return es
+		return err
 	}
 	emap[s[0]] = ftoa(v)
 	return nil
@@ -115,11 +120,10 @@ func binop(s []string, linenumber int) error {
 
 // assignop creates an assignment by computing an addition or substraction on an identifier
 func assignop(s []string, linenumber int) error {
-	operr := fmt.Errorf("line %d:  id += number or id -= number", linenumber)
+	operr := fmt.Errorf("line %d: %s is not a valid operation", linenumber, s)
 	if len(s) < 4 {
 		return operr
 	}
-
 	e, err := strconv.ParseFloat(eval(s[0]), 64)
 	if err != nil {
 		return fmt.Errorf("line %d: %v is not a number", linenumber, s[0])
@@ -128,7 +132,6 @@ func assignop(s []string, linenumber int) error {
 	if err != nil {
 		return fmt.Errorf("line %d: %v is not a number", linenumber, s[3])
 	}
-
 	switch s[1] {
 	case "+":
 		emap[s[0]] = ftoa(e + v)
