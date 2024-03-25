@@ -18,7 +18,8 @@ var emap = map[string]string{"deckshVersion": `"2024-03-22-1.0.0"`}
 var (
 	canvasWidth  = 792.0
 	canvasHeight = 612.0
-	Version      = emap["deckshVersion"]
+	// Version ...
+	Version = emap["deckshVersion"]
 )
 
 // Process reads input, parses, dispatches functions for code generation

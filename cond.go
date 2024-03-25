@@ -1,3 +1,4 @@
+// Package decksh is a little language that generates deck markup
 // conditional processing
 package decksh
 

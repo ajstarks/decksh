@@ -61,7 +61,7 @@ func simpleassign(s []string, linenumber int) error {
 
 // opval returns the value of a binary operation
 func opval(s []string, linenumber int) (float64, error) {
-	es := fmt.Errorf("line %d: %s is not a valid operation", linenumber)
+	es := fmt.Errorf("line %d: %v is not a valid operation", linenumber, s)
 	if len(s) != 3 {
 		return 0, es
 	}
@@ -102,7 +102,7 @@ func opval(s []string, linenumber int) (float64, error) {
 
 // binop processes a binary expression: id=id op number
 func binop(s []string, linenumber int) error {
-	es := fmt.Errorf("line %d: %s is not a valid operation", linenumber, s)
+	es := fmt.Errorf("line %d: %v is not a valid operation", linenumber, s)
 	if len(s) < 5 {
 		return es
 	}
