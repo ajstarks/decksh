@@ -1,6 +1,3 @@
----
-{}
----
 # decksh: a little language for presentations, visualizations, and information displays
 
 ![object reference](images/placemat.png)
@@ -429,7 +426,7 @@ efor
 
 ## Conditionals
 
-Specify the conditional execution of decksh statements with `if condition`, `else` and `eif`. The else block is optional. The conditions are:
+Specify the conditional execution of decksh statements with `if condition`, `else` and `eif`. The else block is optional. The values for ```v1``` and ```v2``` may be either numbers of strings. (For strings only ```==``` and ```!=``` apply). The conditions are:
 
 ```
 if v1 condition v2
@@ -463,6 +460,18 @@ if x < 10
     text "x is less than 10" x y 5
 eif 
 ```
+
+For strings:
+
+```
+c1="red"
+c2="blue"
+if c1 != c2
+    text "red is not blue" 50 50 2
+eif
+```
+
+
 
 ## Include decksh markup from a file
 

@@ -21,6 +21,15 @@ where relation is:
 >< or bt   between                if x >< y z
 `
 
+const quote = '"'
+
+// isString tests of a string is bounded by quotes
+func isString(s string) bool {
+	l := len(s)
+	return l > 1 && s[0] == quote && s[l-1] == quote
+}
+
+// condition evaluates string and number conditional
 func condition(s []string, linenumber int) (bool, error) {
 	var left, right, upper float64
 	var err error
@@ -34,11 +43,27 @@ func condition(s []string, linenumber int) (bool, error) {
 	// evaluate the arguments for the condition
 	// if x [rel] y
 	if l >= 4 {
-		left, err = strconv.ParseFloat(eval(s[1]), 64)
+		sleft := eval(s[1])
+		sright := eval(s[3])
+
+		// string conditionals
+		if isString(sleft) && isString(sright) {
+			switch relation {
+			case "eq", "==":
+				return sleft == sright, nil
+			case "neq", "!=":
+				return sleft != sright, nil
+			default:
+				return false, fmt.Errorf(relfmt, linenumber, s)
+			}
+		}
+
+		// numberic conditionals
+		left, err = strconv.ParseFloat(sleft, 64)
 		if err != nil {
 			return false, err
 		}
-		right, err = strconv.ParseFloat(eval(s[3]), 64)
+		right, err = strconv.ParseFloat(sright, 64)
 		if err != nil {
 			return false, err
 		}

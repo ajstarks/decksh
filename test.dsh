@@ -206,6 +206,21 @@ deck
 		include "ifelse.dsh"
 	eslide
 
+	slide 
+		ctext "String Conditionals" titleX titleY titleSize
+
+		ccolor1="red"
+		ccolor2="blue"
+		if ccolor1 == ccolor2
+			ctext "strings are equal" 50 50 3
+		else
+			ctext "strings are not equal" 50 50 3
+		eif
+		circle 20 50 5 ccolor1
+		circle 80 50 5 ccolor2
+
+	eslide
+
 
 	// coordinate assignments
 	slide
