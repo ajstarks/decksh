@@ -24,7 +24,7 @@ go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh co
 
 ## Package use
 
-There is the method `Process` that reads decksh commands from an `io.Reader` and writes deck markup to an `io.Writer`, returning an error.
+The `Process` function reads decksh commands from an `io.Reader` and writes deck markup to an `io.Writer`, returning an error.
 
 For example:
 ```
