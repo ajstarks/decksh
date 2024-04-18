@@ -12,7 +12,7 @@ deck
 
 	slide "black" "white"
 		ctext "hello world" 50 25 15
-		circle 0 0  es earthcolor
+		circle 0  0  es earthcolor
 		circle 80 80 ss suncolor
 
 		a=fullcircle/n
@@ -31,4 +31,10 @@ deck
 		image "sun.jpg"     10 85 5 0
 		image "earth.jpg"   90 10 100 0
 	eslide
+
+
+	slide "black" "white"
+        ctext "hello world" 50 25 15
+        circle 0 0 120 "blue"
+    eslide
 edeck

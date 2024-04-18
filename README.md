@@ -1,8 +1,12 @@
 # decksh: a little language for presentations, visualizations, and information displays
 
+
+`decksh` is a domain-specific language (DSL) for generating [`deck`](https://github.com/ajstarks/deck) markup.
+
 ![object reference](images/placemat.png)
 
-`decksh` is a domain-specific language (DSL) for generating `deck` markup.
+`decksh` elements
+
 
 ## Install
 
@@ -13,15 +17,53 @@ go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh co
 
 ## References and Examples
 
-- `decksh` overview
-- `decksh` object reference
+- [`decksh` overview](https://speakerdeck.com/ajstarks/decksh-a-little-language-for-decks)
+- [`decksh` object reference](https://speakerdeck.com/ajstarks/decksh-object-reference)
+- [Installing and Running decksh/pdfdeck](https://speakerdeck.com/ajstarks/pdfdeck)
 - [Repository of decksh projects and visualizations](https://github.com/ajstarks/deckviz "Repository of decksh projects and visualizations")
 
 ## Package use
 
-There is a simple method `Process` that reads decksh commands from an `io.Reader` and writes deck markup to an `io.Writer`, returning an error.
+There is the method `Process` that reads decksh commands from an `io.Reader` and writes deck markup to an `io.Writer`, returning an error.
 
-## Running
+For example:
+```
+package main
+
+import (
+    "fmt"
+    "os"
+    "strings"
+
+    "github.com/ajstarks/decksh"
+)
+
+func main() {
+    input := `
+    deck
+        slide
+            ctext "hello, world" 50 50 10
+        eslide
+    edeck
+    `
+    err := decksh.Process(os.Stdout, strings.NewReader(input))
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "%v\n", err)
+    }
+}
+```
+
+Produces:
+
+```
+<deck>
+<slide>
+<text align="c" xp="50" yp="50" sp="10" >hello, world</text>
+</slide>
+</deck>
+````
+
+## Running the command line client
 
 This repository also contains `cmd/decksh`, a client decksh command:
 
@@ -42,6 +84,22 @@ $ decksh text.dsh | pdfdeck -stdout -pagesize 1200,900 - > text.pdf
 ```
 
 ## Example input
+
+decksh hello, world:
+
+```
+// hello world
+deck
+    slide "black" "white"
+        ctext "hello world" 50 25 15
+        circle 0 0 120 "blue"
+    eslide
+edeck
+```
+
+produces:
+
+![hello-world](images/hw-00004.png)
 
 This deck script:
 
