@@ -52,6 +52,13 @@ deck
 		include "decksh-logo.dsh"
 	eslide
 
+	slide bgcolor fgcolor
+		ctext "Introduction" mid ty 5 "serif"
+		textblock "decksh is a Domain-Specific Language (DSL) for making presentations, visualizations, and information displays." 15 75 60 3 "serif"
+		textblock "This reference describes the keywords and elements of the language, how to structure decksh code, along with how to use  variables, assignments, and binary operations." 15 50 60 3 "serif"
+		textblock "Also included is a color reference and a detailed description, with examples, for all decksh elements." 15 20 60 3 "serif"
+	eslide
+
 	include "keywords.dsh"
 	include "kw-ex.dsh"
 	include "struct.dsh"
@@ -2180,8 +2187,6 @@ deck
 		text "number or expression" 43 ly ts "mono" argcolor
 	eslide
 
-
-
 	// charts index
 	slide bgcolor fgcolor
 		ctext "Charts" mid ty 5 "serif"
@@ -2208,9 +2213,12 @@ deck
 	eslide
 
 	// dchart
-	include "dchart-options.dsh"
+	include "dchart-chtypes.dsh"
 	include "dchart-types.dsh"
-	
+	include "dchart-elements.dsh"
+	include "dchart-measures.dsh"
+	include "dchart-pos.dsh"
+
 	ts=3.2
 	slide bgcolor fgcolor
 		dchart -bar  -yaxis -left 35 -bottom 65 -top 90 -right 65 "test.d"

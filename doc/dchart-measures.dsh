@@ -1,0 +1,81 @@
+	slide
+		ctext "dchart options: measures and attributes" mid ty 5 "serif"
+		datacolor="maroon"
+		cmdcolor="rgb(75,75,75)"
+		tts=2.0
+		tsp=1.3 // for Letter, 1.45, Widescreen 1.1
+
+		col1=10
+		col2=40
+		col3=col2+30
+		row1a=83
+
+		text "option"		col1 row1a tts
+		text "default"		col2 row1a tts
+		text "description"	col3 row1a tts
+		row1a-=5
+		// measures and attributes
+		list col1 row1a tts "mono" datacolor 100 tsp
+			li "-bgcolor"
+			li "-barwidth"
+			li "-color"
+			li "-csvcol"
+			li "-datafmt"
+			li "-dmin"
+			li "-framecolor"
+			li "-lcolor"
+			li "-linewidth"
+			li "-ls"
+			li "-noteloc"
+			li "-pmlen"
+			li "-psize"
+			li "-pwidth"
+			li "-rlcolor"
+			li "-textsize"
+			li "-xlabrot"
+			li "-vcolor"
+			li "-volop"
+		elist
+		list col2 row1a tts "sans" cmdcolor 100 tsp
+			li "white"
+			li "computed from data size"
+			li "lightsteelblue"
+			li "labe1,label2"
+			li "%.1f"
+			li "false"
+			li "rgb(127,127,127)"
+			li "rgb(75,75,75)"
+			li "0.2"
+			li "2.4"
+			li "c=center, r=right, l=left"
+			li "20"
+			li "30"
+			li "3"
+			li "rgb(127,0,0)"
+			li "1.5"
+			li "0"
+			li "rgb(127,0,0)"
+			li "50"
+		elist
+		list col3 row1a tts "sans" "black" 100 tsp
+			li "background color"
+			li "barwidth"
+			li "data color"
+			li "specify csv columns"
+			li "data format for values"
+			li "use data minimum, not zero"
+			li "frame color"
+			li "label color"
+			li "linewidth"
+			li "linespacing"
+			li "annotation location"
+			li "pmap label length"
+			li "diameter of the donut"
+			li "width of the donut or pmap"
+			li "regression line color"
+			li "text size"
+			li "xlabel rotation (deg.)"
+			li "value color"
+			li "volume opacity %"
+		elist
+	eslide

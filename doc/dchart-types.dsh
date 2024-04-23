@@ -1,76 +1,70 @@
-	// dchart types
 	slide
-		dcleft=left+7
-		dcx=dcleft
-		dcy=top-15
-		dxskip=30
-		dyskip=20
-		dcsize=titlesize*0.75
-		dcimx=dcx-5
-		dcimy=dcy+2
-		dcimw=90
-		dcimh=90
-		dcolor="maroon"
+		ctext "dchart options: chart types" mid ty 5 "serif"
+		datacolor="maroon"
+		cmdcolor="rgb(75,75,75)"
+		tts=2.0
+		tsp=1.3 // for Letter, 1.45, Widescreen 1.1
 
-		text "dchart types" left top titlesize "serif"
-		text "Column" dcx dcy dcsize "sans" dcolor
-		image "images/bar.png" dcimx dcimy dcimw dcimh
-		dcx+=dxskip
-		dcimx+=dxskip
-		text "Bar" dcx dcy dcsize "sans" dcolor
-		image "images/hbar.png" dcimx dcimy dcimw dcimh
-		dcx+=dxskip
-		dcimx+=dxskip
-		text "Dot" dcx dcy dcsize "sans" dcolor
-		image "images/dot.png" dcimx dcimy dcimw dcimh
+		col1=10
+		col2=40
+		col3=col2+30
+		row1a=83
 
-		dcx=dcleft
-		dcy-=dyskip
-		dcimx=dcx-5
-		dcimy-=dyskip
+		text "option"		col1 row1a tts
+		text "default"		col2 row1a tts
+		text "description"	col3 row1a tts
+		row1a-=5
 
-		text "Line" dcx dcy dcsize "sans" dcolor
-		image "images/line.png" dcimx dcimy dcimw dcimh
-		dcx+=dxskip
-		dcimx+=dxskip
-		text "Scatter" dcx dcy dcsize "sans" dcolor
-		image "images/scatter.png" dcimx dcimy dcimw dcimh
-		dcx+=dxskip
-		dcimx+=dxskip
-		text "Area" dcx dcy dcsize "sans" dcolor
-		image "images/area.png" dcimx dcimy dcimw dcimh
-
-		dcx=dcleft
-		dcy-=dyskip
-		dcimx=dcx-5
-		dcimy-=dyskip
-
-		text "Donut/Pie" dcx dcy dcsize "sans" dcolor
-		image "images/donut.png" dcimx dcimy dcimw dcimh
-		dcx+=dxskip
-		dcimx+=dxskip
-		text "Radial" dcx dcy dcsize "sans" dcolor
-		image "images/radial.png" dcimx dcimy dcimw dcimh
-		dcx+=dxskip
-		dcimx+=dxskip
-		text "Pmap" dcx dcy dcsize "sans" dcolor
-		image "images/pmap.png" dcimx dcimy dcimw dcimh
-
-		dcx=dcleft
-		dcy-=dyskip
-		dcimx=dcx-5
-		dcimy-=dyskip
-
-		text "Waffle/Lego" dcx dcy dcsize "sans" dcolor
-		image "images/pgrid.png" dcimx dcimy dcimw dcimh
-
-		dcx+=dxskip
-		dcimx+=dxskip
-		text "Fan"         dcx dcy dcsize "sans" dcolor
-		image "images/fan.png" dcimx dcimy dcimw dcimh
-
-		dcx+=dxskip
-		dcimx+=dxskip
-		text "Bowtie"         dcx dcy dcsize "sans" dcolor
-		image "images/bowtie.png" dcimx dcimy dcimw dcimh
+		// dchart types
+		list col1 row1a tts "mono" datacolor 100 tsp
+			li "-bar"
+			li "-wbar"
+			li "-hbar"
+			li "-donut"
+			li "-dot"
+			li "-lego"
+			li "-line"
+			li "-pgrid"
+			li "-pmap"
+			li "-bowtie"
+			li "-fan"
+			li "-radial"
+			li "-scatter"
+			li "-slope"
+			li "-vol"
+		elist
+		list col2 row1a tts "sans" cmdcolor 100 tsp
+			li "true"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+		elist
+		list col3 row1a tts "sans" "black" 100 tsp
+			li "bar chart"
+			li "word bar chart"
+			li "horizontal bar chart"
+			li "donut chart"
+			li "dot chart"
+			li "lego chart"
+			li "line chart"
+			li "proportional grid"
+			li "proportional map"
+			li "bowtie chart"
+			li "fan chart"
+			li "radial chart"
+			li "scatter chart"
+			li "slope chart"
+			li "volume (area) chart"
+		elist
 	eslide

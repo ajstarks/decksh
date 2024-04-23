@@ -1,0 +1,85 @@
+	slide
+		ctext "dchart options: elements" mid ty 5 "serif"
+		datacolor="maroon"
+		cmdcolor="rgb(75,75,75)"
+		tts=2.0
+		tsp=1.3 // for Letter, 1.45, Widescreen 1.1
+
+		col1=10
+		col2=40
+		col3=col2+30
+		row1a=83
+
+		text "option"		col1 row1a tts
+		text "default"		col2 row1a tts
+		text "description"	col3 row1a tts
+		row1a-=5
+	
+		// chart elements
+		list col1 row1a tts "mono" datacolor 100 tsp
+			li "-csv"
+			li "-frame"
+			li "-fulldeck"
+			li "-grid"
+			li "-note"
+			li "-pct"
+			li "-rline"
+			li "-solidpmap"
+			li "-spokes"
+			li "-title"
+			li "-val"
+			li "-xlast"
+			li "-xstagger"
+			li "-yaxis"
+			li "-chartitle"
+			li "-datacond"
+			li "-hline"
+			li "-valpos"
+			li "-xlabel"
+			li "-yrange"
+		elist
+		list col2 row1a tts "sans" cmdcolor 100 tsp
+			li "false"
+			li "false"
+			li "true"
+			li "false"
+			li "true"
+			li "false"
+			li "false"
+			li "false"
+			li "false"
+			li "true"
+			li "true"
+			li "false"
+			li "false"
+			li "false"
+			li "override title in data"
+			li "low,high,color"
+			li "value,label"
+			li "t=top, b=bottom, m=middle"
+			li "default=1, 0 to suppress"
+			li "min,max.step"
+ 		elist
+		list col3 row1a tts "sans" "black" 100 tsp
+			li "read CSV files"
+			li "show a colored frame"
+			li "generate full deck markup"
+			li "show gridlines on the y axis"
+			li "show annotations"
+			li "show computed percentage"
+			li "show a regression line"
+			li "show solid pmap colors"
+			li "show spokes in radial chart"
+			li "show the title"
+			li "show values"
+			li "show the last x label"
+			li "stagger x axis labels"
+			li "show a y axis"
+			li "specify the title"
+			li "conditional data colors"
+			li "label horizontal line at value"
+			li "value position"
+			li "x axis label interval"
+			li "specify the y axis label range"
+		elist
+	eslide

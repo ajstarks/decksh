@@ -1,0 +1,43 @@
+	slide
+		ctext "dchart options: position and scaling" mid ty 5 "serif"
+		datacolor="maroon"
+		cmdcolor="rgb(75,75,75)"
+		tts=2.0
+		tsp=1.3 // for Letter, 1.45, Widescreen 1.1
+
+		col1=10
+		col2=40
+		col3=col2+30
+		row1a=83
+
+		text "option"		col1 row1a tts
+		text "default"		col2 row1a tts
+		text "description"	col3 row1a tts
+		row1a-=5
+	
+		// position and scaling
+		list col1 row1a tts "mono" datacolor 100 tsp
+			li "-top"
+			li "-bottom"
+			li "-left"
+			li "-right"
+			li "-min"
+			li "-max"
+		elist
+			list col2 row1a tts "sans" cmdcolor 100 tsp
+			li "80"
+			li "30"
+			li "20"
+			li "80"
+			li "data min"
+			li "data max"
+ 		elist 
+		list col3 row1a tts "sans" "black" 100 tsp
+			li "top of the chart"
+			li "bottom of the chart"
+			li "left margin"
+			li "right margin"
+			li "set the minimum data value"
+			li "set the maximum data value"
+		elist
+	eslide
