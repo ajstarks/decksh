@@ -1341,6 +1341,7 @@ func chartflags(s []string) dchart.Settings {
 	fs.Float64Var(&chart.XLabelRotation, "xlabrot", 0, "xlabel rotation (degrees)")
 	fs.IntVar(&chart.XLabelInterval, "xlabel", 1, "x axis label interval (show every n labels, 0 to show no labels)")
 	fs.IntVar(&chart.PMapLength, "pmlen", 20, "pmap label length")
+	fs.StringVar(&chart.Boundary, "bounds", "", "chart boundary: left,right,top,bottom")
 
 	// Flags (On/Off)
 	fs.BoolVar(&chart.ShowBar, "bar", true, "show a bar chart")
@@ -1390,6 +1391,9 @@ func chartflags(s []string) dchart.Settings {
 	fs.StringVar(&chart.NoteLocation, "noteloc", "c", "note location (c-center, r-right aligned, l-left aligned)")
 	fs.StringVar(&chart.DataCondition, "datacond", "", "data condition: low,high,color")
 	fs.Parse(s[1:])
+	if len(chart.Boundary) > 0 {
+		chart.Left, chart.Right, chart.Top, chart.Bottom = dchart.Parsebounds(chart.Boundary)
+	}
 	return chart
 }
 

@@ -23,6 +23,7 @@
 			li "-right"
 			li "-min"
 			li "-max"
+			li "-bounds"
 		elist
 			list col2 row1a tts "sans" cmdcolor 100 tsp
 			li "80"
@@ -31,6 +32,7 @@
 			li "80"
 			li "data min"
 			li "data max"
+			li `""`
  		elist 
 		list col3 row1a tts "sans" "black" 100 tsp
 			li "top of the chart"
@@ -39,5 +41,6 @@
 			li "right margin"
 			li "set the minimum data value"
 			li "set the maximum data value"
+			li "set left,right,top,bottom"
 		elist
 	eslide
