@@ -361,17 +361,22 @@ deck
 
 	slide bgcolor fgcolor
 		ctext "pdfdeck [options] inputfile" mid top ts
-		lx=10
+		lx=5
 		ly=80
-		list lx ly 2 "mono" cmdcolor
+		ls=1.5
+		list lx ly 2 "mono" cmdcolor 100 ls
 			li "Option" "serif" "black"
 			li "-sans"
 			li "-serif"
 			li "-mono"
 			li "-symbol"
+			li ""
 			li "-pages"
-			li "-pagesize"
+			li "-layers"
 			li "-grid"
+			li "-pagesize"
+			li ""
+			li ""
 			li "-fontdir"
 			li "-outdir"
 			li "-stdout"
@@ -379,31 +384,39 @@ deck
 			li "-title"
 		elist
 		lx+=12
-		list lx ly 2
-			li "Default" "serif"
+		list lx ly 2 "" "" 100 ls
+			li "Default" "serif" 
 			li "helvetica"
 			li "times"
 			li "courier"
 			li "zapfdingbats"
+			li ""
 			li "1-1000000"
-			li "Letter"
+			li "image:rect:ellipse:curve:arc:line:poly:text:list"
 			li "0"
+			li "Letter"
+			li ""
+			li ""
 			li "$HOME/deckfonts"
 			li "Current directory"
 			li "false"
 			li `""`
 			li `""`
 		elist
-		lx+=20
-		list lx ly 2
+		lx+=40
+		list lx ly 2 "" "" 100 ls
 			li "Description" "serif"
 			li "Sans Serif font"
 			li "Serif font"
 			li "Monospace font"
 			li "Symbol font"
+			li ""
 			li "Pages to output (first-last)"
-			li "Page size (w,h or Legal, Tabloid, A[3-5], ArchA, 4R, Index)"
+			li "Drawing order"
 			li "Draw a grid at specified % (0 for no grid)"
+			li "Page size (w,h or Legal, Tabloid,"
+			li "A[3-5], ArchA, 4R, Index)"
+			li ""
 			li "Font directory"
 			li "Output directory"
 			li "Output to standard output"
