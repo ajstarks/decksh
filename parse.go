@@ -156,7 +156,7 @@ func grid(w io.Writer, s []string, linenumber int) error {
 		keyparse(w, subxy(t, xp, yp), t, linenumber)
 		xp += xint
 	}
-	return fmt.Errorf("line %d: %v", linenumber, scanner.Err())
+	return scanner.Err()
 }
 
 // subxy replaces the "x" and "y" arguments with the named values
@@ -263,7 +263,7 @@ func def(scanner *bufio.Scanner, w io.Writer, s []string, filearg string, argoff
 		}
 		n++
 	}
-	return fmt.Errorf("line %d: %v", linenumber, scanner.Err())
+	return scanner.Err()
 }
 
 // subfunc handles argument substitution in a function
