@@ -10,6 +10,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"unicode"
 
 	"github.com/ajstarks/dchart"
 )
@@ -31,6 +32,10 @@ var xmlmap = strings.NewReplacer(
 // xmlesc escapes XML
 func xmlesc(s string) string {
 	return xmlmap.Replace(s)
+}
+
+func isnumber(s string) bool {
+	return unicode.IsNumber(rune(s[0]))
 }
 
 // elist ends a deck, slide, or list
@@ -171,6 +176,9 @@ func content(w io.Writer, s []string, linenumber int) error {
 		scheme = uri[0:i]
 		file = uri[i+3:]
 	}
+	if !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[4]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
 	fmt.Fprintf(w, "<text type=%q file=%q xp=%q yp=%q sp=%q/>\n", scheme, file, s[2], s[3], s[4])
 	return nil
 }
@@ -181,6 +189,9 @@ func text(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 5 {
 		return fmt.Errorf("line %d: %s \"text\" x y size [font] [color] [opacity] [link]", linenumber, s[0])
+	}
+	if !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[4]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
 	}
 	fco := fontColorOp(s[5:])
 	switch s[0] {
@@ -253,6 +264,9 @@ func rtext(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return fmt.Errorf("line %d %v is not a valid rotation angle", linenumber, angle)
 	}
+	if !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[5]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
 	fmt.Fprintf(w, "<text xp=%q yp=%q rotation=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], s[5], fontColorOp(s[6:]), qesc(s[1]))
 	return nil
 }
@@ -263,6 +277,9 @@ func textblock(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 6 {
 		return fmt.Errorf("line %d: %s \"textblock\" x y width size [font] [color] [opacity] [link]", linenumber, s[0])
 	}
+	if !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[4]) || !isnumber(s[5]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
 	fmt.Fprintf(w, "<text type=\"block\" xp=%q yp=%q wp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], s[5], fontColorOp(s[6:]), qesc(s[1]))
 	return nil
 }
@@ -271,6 +288,9 @@ func textblock(w io.Writer, s []string, linenumber int) error {
 func textblockfile(w io.Writer, s []string, linenumber int) error {
 	if len(s) < 6 {
 		return fmt.Errorf("line %d: %s \"filename\" x y width size [font] [color] [opacity] [link]", linenumber, s[0])
+	}
+	if !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[4]) || !isnumber(s[5]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
 	}
 	filename := unquote(s[1])
 	content, err := os.ReadFile(filename)
@@ -285,6 +305,9 @@ func textblockfile(w io.Writer, s []string, linenumber int) error {
 // textcode generates markup for a block of code
 // textcode x y width size [color]
 func textcode(w io.Writer, s []string, linenumber int) error {
+	if !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[4]) || !isnumber(s[5]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
 	switch len(s) {
 	case 6:
 		fmt.Fprintf(w, "<text type=\"code\" file=%s xp=%q yp=%q wp=%q sp=%q/>\n", s[1], s[2], s[3], s[4], s[5])
@@ -301,6 +324,10 @@ func textcode(w io.Writer, s []string, linenumber int) error {
 func image(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s \"image-file\" x y w h [scale] [link]", linenumber, s[0])
+
+	if !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[4]) || !isnumber(s[5]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
 
 	switch n {
 	case 6:
@@ -323,6 +350,11 @@ func cimage(w io.Writer, s []string, linenumber int) error {
 	if n < 6 {
 		return e
 	}
+
+	if !isnumber(s[3]) || !isnumber(s[4]) || !isnumber(s[5]) || !isnumber(s[6]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
+
 	caption := xmlesc(s[2])
 	switch n {
 	case 7:
@@ -350,7 +382,9 @@ func list(w io.Writer, s []string, linenumber int) error {
 	if n > 4 {
 		fco = fontColorOpLp(s[4:])
 	}
-
+	if !isnumber(s[1]) || !isnumber(s[2]) || !isnumber(s[3]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
 	switch s[0] {
 	case "list":
 		fmt.Fprintf(w, "<list xp=%q yp=%q sp=%q %s>\n", s[1], s[2], s[3], fco)
@@ -387,6 +421,9 @@ func shapes(w io.Writer, s []string, linenumber int) error {
 	if n < 5 {
 		return e
 	}
+	if !isnumber(s[1]) || !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[4]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
 	dim := fmt.Sprintf("xp=%q yp=%q wp=%q hp=%q", s[1], s[2], s[3], s[4])
 	switch n {
 	case 5:
@@ -407,6 +444,9 @@ func regshapes(w io.Writer, s []string, linenumber int) error {
 	e := fmt.Errorf("line %d: %s x y w [color] [opacity]", linenumber, s[0])
 	if n < 4 {
 		return e
+	}
+	if !isnumber(s[1]) || !isnumber(s[2]) || !isnumber(s[3]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
 	}
 	switch s[0] {
 	case "square":
@@ -698,6 +738,9 @@ func line(w io.Writer, s []string, linenumber int) error {
 	if n < 5 {
 		return e
 	}
+	if !isnumber(s[1]) || !isnumber(s[2]) || !isnumber(s[3]) || !isnumber(s[4]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
 	lc := fmt.Sprintf("xp1=%q yp1=%q xp2=%q yp2=%q", s[1], s[2], s[3], s[4])
 	switch n {
 	case 5:
@@ -732,6 +775,14 @@ func hline(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
+	if !isnumber(s[2]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
+
+	if n > 4 && !isnumber(s[4]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
+
 	lc := fmt.Sprintf("xp1=%q yp1=%q xp2=\"%v\" yp2=%q", s[1], s[2], x1+l, s[2])
 	switch n {
 	case 4:
@@ -765,6 +816,15 @@ func vline(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
+
+	if !isnumber(s[1]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
+
+	if n > 4 && !isnumber(s[4]) {
+		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+	}
+
 	lc := fmt.Sprintf("xp1=%q yp1=%q xp2=%q yp2=\"%v\"", s[1], s[2], s[1], y1+l)
 	switch n {
 	case 4:
@@ -789,6 +849,11 @@ func arc(w io.Writer, s []string, linenumber int) error {
 	if n < 7 {
 		return e
 	}
+	for i := 1; i <= 6; i++ {
+		if !isnumber(s[i]) {
+			return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+		}
+	}
 	ac := fmt.Sprintf("xp=%q yp=%q wp=%q hp=%q a1=%q a2=%q", s[1], s[2], s[3], s[4], s[5], s[6])
 	switch n {
 	case 7:
@@ -812,6 +877,11 @@ func curve(w io.Writer, s []string, linenumber int) error {
 	e := fmt.Errorf("line %d: %s x1 y1 x2 y2 x3 y3 [size] [color] [opacity]", linenumber, s[0])
 	if n < 7 {
 		return e
+	}
+	for i := 1; i <= 6; i++ {
+		if !isnumber(s[i]) {
+			return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
+		}
 	}
 	ac := fmt.Sprintf("xp1=%q yp1=%q xp2=%q yp2=%q xp3=%q yp3=%q", s[1], s[2], s[3], s[4], s[5], s[6])
 	switch n {
