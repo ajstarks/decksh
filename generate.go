@@ -768,12 +768,12 @@ func hline(w io.Writer, s []string, linenumber int) error {
 
 	x1, err := strconv.ParseFloat(s[1], 64)
 	if err != nil {
-		return fmt.Errorf("line %d: %v", linenumber, err)
+		return fmt.Errorf("line %d: invalid number: (%v) %v", linenumber, err, s)
 	}
 
 	l, err := strconv.ParseFloat(s[3], 64)
 	if err != nil {
-		return fmt.Errorf("line %d: %v", linenumber, err)
+		return fmt.Errorf("line %d: invalid number: (%v) %v", linenumber, err, s)
 	}
 	if !isnumber(s[2]) {
 		return fmt.Errorf("line %d: invalid number: %v", linenumber, s)
@@ -810,11 +810,11 @@ func vline(w io.Writer, s []string, linenumber int) error {
 
 	y1, err := strconv.ParseFloat(s[2], 64)
 	if err != nil {
-		return fmt.Errorf("line %d: %v", linenumber, err)
+		return fmt.Errorf("line %d: invalid number: (%v) %v", linenumber, err, s)
 	}
 	l, err := strconv.ParseFloat(s[3], 64)
 	if err != nil {
-		return fmt.Errorf("line %d: %v", linenumber, err)
+		return fmt.Errorf("line %d: invalid number: (%v) %v", linenumber, err, s)
 	}
 
 	if !isnumber(s[1]) {
