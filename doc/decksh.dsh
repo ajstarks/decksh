@@ -878,6 +878,8 @@ deck
 		legend "Profit" lx ly 2 "sans" "green"
 	eslide
 
+	mid=50
+	ty=92
 	include "dchart-types.dsh"
 
 	// dchart overview
