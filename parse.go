@@ -66,11 +66,11 @@ func include(w io.Writer, s []string, linenumber int) error {
 
 	filearg, err := filequote(s[1], linenumber)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	r, err := os.Open(filearg)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	defer r.Close()
 	return Process(w, r)
@@ -84,7 +84,7 @@ func loadata(s []string, linenumber int, scanner *bufio.Scanner) error {
 	}
 	filearg, err := filequote(s[1], linenumber)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	dataw, err := os.Create(filearg)
 	if err != nil {
@@ -113,32 +113,32 @@ func grid(w io.Writer, s []string, linenumber int) error {
 	}
 	x, err := strconv.ParseFloat(eval(s[2]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	y, err := strconv.ParseFloat(eval(s[3]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	xint, err := strconv.ParseFloat(eval(s[4]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	yint, err := strconv.ParseFloat(eval(s[5]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	limit, err := strconv.ParseFloat(eval(s[6]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	filearg, err := filequote(s[1], linenumber)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	r, err := os.Open(filearg)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	defer r.Close()
 
@@ -156,7 +156,7 @@ func grid(w io.Writer, s []string, linenumber int) error {
 		keyparse(w, subxy(t, xp, yp), t, linenumber)
 		xp += xint
 	}
-	return scanner.Err()
+	return fmt.Errorf("line %d: %v", linenumber, scanner.Err())
 }
 
 // subxy replaces the "x" and "y" arguments with the named values
@@ -186,11 +186,11 @@ func importfunc(s []string, linenumber int) error {
 	}
 	filearg, err := filequote(s[1], linenumber)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	_, err = funcbody(filearg)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	return nil
 }
@@ -263,7 +263,7 @@ func def(scanner *bufio.Scanner, w io.Writer, s []string, filearg string, argoff
 		}
 		n++
 	}
-	return scanner.Err()
+	return fmt.Errorf("line %d: %v", linenumber, scanner.Err())
 }
 
 // subfunc handles argument substitution in a function
@@ -274,11 +274,11 @@ func subfunc(w io.Writer, s []string, linenumber int) error {
 	}
 	filearg, err := filequote(s[1], linenumber)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	name, ferr := funcbody(filearg)
 	if ferr != nil {
-		return ferr
+		return fmt.Errorf("line %d: %v", linenumber, ferr)
 	}
 	scanner := bufio.NewScanner(strings.NewReader(funcmap[name]))
 	return def(scanner, w, s, filearg, 2, linenumber)
@@ -307,7 +307,7 @@ func parseblock(w io.Writer, data []string, linenumber int) error {
 	for _, t := range data {
 		err := keyparse(w, parse(t), t, linenumber)
 		if err != nil {
-			return err
+			return fmt.Errorf("line %d: %v", linenumber, err)
 		}
 		linenumber++
 	}

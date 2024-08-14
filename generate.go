@@ -275,7 +275,7 @@ func textblockfile(w io.Writer, s []string, linenumber int) error {
 	filename := unquote(s[1])
 	content, err := os.ReadFile(filename)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	data := xmlesc(string(content))
 	fmt.Fprintf(w, "<text type=\"block\" xp=%q yp=%q wp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], s[5], fontColorOp(s[6:]), data)
@@ -444,27 +444,27 @@ func roundrect(w io.Writer, s []string, linenumber int) error {
 	}
 	x, err := strconv.ParseFloat(eval(s[1]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	y, err := strconv.ParseFloat(eval(s[2]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	width, err := strconv.ParseFloat(eval(s[3]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	height, err := strconv.ParseFloat(eval(s[4]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	radius, err := strconv.ParseFloat(eval(s[5]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	var endtag string
 	if n > 6 {
@@ -495,22 +495,22 @@ func pill(w io.Writer, s []string, linenumber int) error {
 	}
 	x, err := strconv.ParseFloat(eval(s[1]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	y, err := strconv.ParseFloat(eval(s[2]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	width, err := strconv.ParseFloat(eval(s[3]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	height, err := strconv.ParseFloat(eval(s[4]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	var endtag string
 	if n > 5 {
@@ -534,23 +534,23 @@ func star(w io.Writer, s []string, linenumber int) error {
 	// get the parameters
 	x, err := strconv.ParseFloat(eval(s[1]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	y, err := strconv.ParseFloat(eval(s[2]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	nsides, err := strconv.ParseFloat(eval(s[3]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	inner, err := strconv.ParseFloat(eval(s[4]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	outer, err := strconv.ParseFloat(eval(s[5]), 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	// compute the polygon coordinates
 	ns2 := int(nsides) * 2
@@ -725,12 +725,12 @@ func hline(w io.Writer, s []string, linenumber int) error {
 
 	x1, err := strconv.ParseFloat(s[1], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	l, err := strconv.ParseFloat(s[3], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	lc := fmt.Sprintf("xp1=%q yp1=%q xp2=\"%v\" yp2=%q", s[1], s[2], x1+l, s[2])
 	switch n {
@@ -759,11 +759,11 @@ func vline(w io.Writer, s []string, linenumber int) error {
 
 	y1, err := strconv.ParseFloat(s[2], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	l, err := strconv.ParseFloat(s[3], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	lc := fmt.Sprintf("xp1=%q yp1=%q xp2=%q yp2=\"%v\"", s[1], s[2], s[1], y1+l)
 	switch n {
@@ -839,15 +839,15 @@ func legend(w io.Writer, s []string, linenumber int) error {
 
 	tx, err := strconv.ParseFloat(s[2], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	cy, err := strconv.ParseFloat(s[3], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	ts, err := strconv.ParseFloat(s[4], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	tshalf := ts / 2
 	fmt.Fprintf(w, "<text xp=%q yp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], fontColorOp(s[5:]), qesc(s[1]))
@@ -1147,19 +1147,19 @@ func arrow(w io.Writer, s []string, linenumber int) error {
 
 	x1, err := strconv.ParseFloat(s[1], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	y1, err := strconv.ParseFloat(s[2], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	x2, err := strconv.ParseFloat(s[3], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	y2, err := strconv.ParseFloat(s[4], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	if ls >= 6 {
@@ -1168,13 +1168,13 @@ func arrow(w io.Writer, s []string, linenumber int) error {
 	if ls >= 7 {
 		aw, err = strconv.ParseFloat(s[6], 64)
 		if err != nil {
-			return err
+			return fmt.Errorf("line %d: %v", linenumber, err)
 		}
 	}
 	if ls >= 8 {
 		ah, err = strconv.ParseFloat(s[7], 64)
 		if err != nil {
-			return err
+			return fmt.Errorf("line %d: %v", linenumber, err)
 		}
 	}
 	if ls >= 9 {
@@ -1285,24 +1285,24 @@ func carrow(w io.Writer, s []string, linenumber int) error {
 	// end point of the curve is the point of the arrow
 	x, err := strconv.ParseFloat(s[5], 64)
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	y, err := strconv.ParseFloat(s[6], 64)
 	if err != nil {
-		return nil
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 
 	// override width and height of the arrow
 	if ls >= 9 {
 		aw, err = strconv.ParseFloat(s[8], 64)
 		if err != nil {
-			return err
+			return fmt.Errorf("line %d: %v", linenumber, err)
 		}
 	}
 	if ls >= 10 {
 		ah, err = strconv.ParseFloat(s[9], 64)
 		if err != nil {
-			return err
+			return fmt.Errorf("line %d: %v", linenumber, err)
 		}
 	}
 	// compute the coordinates for the arrowhead
@@ -1420,7 +1420,7 @@ func chart(w io.Writer, s string, linenumber int) error {
 	chartsettings := chartflags(args)
 	r, err := os.Open(args[len(args)-1]) // last arg is the filename
 	if err != nil {
-		return err
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
 	chartsettings.Write(w, r)
 	return nil
