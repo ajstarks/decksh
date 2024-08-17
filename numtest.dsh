@@ -1,7 +1,7 @@
 deck
 	slide
-		x=50
-		y=40
+//		x=50
+//		y=40
 		image "follow.jpg" x 50 50 0
 		cimage "follow.jpg" "caption" x 80 50 0
 		line x 20 30 80 0.1
@@ -13,6 +13,7 @@ deck
 		rtext "hello, what is the meaning of life" x y 90 2
 		textblock "hello, there, how are you doing" x 20 20 3
 		textblockfile "numtest.dsh" x 20 20 3
+
 		textcode "numtest.dsh" x y 80 3
 
 		list x y 3
