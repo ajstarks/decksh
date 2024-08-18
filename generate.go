@@ -33,11 +33,11 @@ func xmlesc(s string) string {
 	return xmlmap.Replace(s)
 }
 
-// validNumber checks that a string starts with a digit or sign
+// validNumber checks that a string starts with a digit or sign or decimal point
 func validNumber(s ...string) error {
 	for i := 0; i < len(s); i++ {
 		c := s[i][0]
-		if !(('0' <= c && c <= '9') || c == '-') {
+		if !(('0' <= c && c <= '9') || c == '-' || c == '.') {
 			return fmt.Errorf("'%v' is not a number (not defined?)", s[i])
 
 		}
