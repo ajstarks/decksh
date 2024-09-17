@@ -657,6 +657,11 @@ deck
 		ctext ss 50 70 3
 	eslide
 
+	slide
+		ctext "Format (2)" titleX titleY titleSize
+		include "testfmt.dsh"
+	eslide
+
 	// Polar coordinates
 	slide
 		ctext "Polar Coordinates" titleX titleY titleSize

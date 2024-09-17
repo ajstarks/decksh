@@ -1,0 +1,27 @@
+		x=10
+		y=20
+		z=30
+		x1=66
+		x2=33
+		x3=99
+		a=format "x=%v" x
+		b=format "(x=%.2f, y=%.2f)" x y
+		c=format "(x=%v y=%v z=%v)" x y z
+		d=format "x=%v y=%v z=%v x1=%v" x y z x1
+		e=format "x=%v y=%v z=%v x1=%v x2=%v" x y z x1 x2
+		f=format "x plus y=%v" x+y
+		g=format "x minus y=%v" x-y
+		h=format "x divided by y=%v" x/y
+		i=format "x times y=%v" x*y
+		j=format "x mod y=%v" x%y
+		// k=format "%v %v %v %v %v %v" x y z x1 x2 x3
+		ctext a 50 80 3 "mono"
+		ctext b 50 73 3 "mono"
+		ctext c 50 66 3 "mono"
+		ctext d 50 59 3 "mono"
+		ctext e 50 52 3 "mono"
+		ctext f 50 45 3 "mono"
+		ctext g 50 38 3 "mono"
+		ctext h 50 31 3 "mono"
+		ctext i 50 24 3 "mono"
+		ctext j 50 17 3 "mono"

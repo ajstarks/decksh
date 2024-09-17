@@ -279,24 +279,106 @@ func vmap(value float64, low1 float64, high1 float64, low2 float64, high2 float6
 
 // sprint makes a string assignment using formatted text
 func sprint(s []string, linenumber int) error {
-	var v float64
 	var err error
 	switch len(s) {
 	case 5: // x=sprint fmt a
-		v, err = strconv.ParseFloat(eval(s[4]), 64) // make evaluated number (string) to number
+		var v1 float64
+		v1, err = strconv.ParseFloat(eval(s[4]), 64) // make evaluated number (string) to number
 		if err != nil {
 			return err
 		}
-	case 7: // x=sprint fmt a op b
-		v, err = opval(s[4:7], linenumber) // note that opval does eval
+		emap[s[0]] = fmt.Sprintf(s[3], v1)
+		return nil
+
+	case 6: // x=sprint fmt a b
+		var v1, v2 float64
+		v1, err = strconv.ParseFloat(eval(s[4]), 64)
 		if err != nil {
 			return err
 		}
+		v2, err = strconv.ParseFloat(eval(s[5]), 64)
+		if err != nil {
+			return err
+		}
+		emap[s[0]] = fmt.Sprintf(s[3], v1, v2)
+		return nil
+
+	case 7: // x=sprint fmt a op b, or x=sprint fmt a b c
+		var v1, v2, v3 float64
+		op := s[5]
+		if op == "+" || op == "-" || op == "*" || op == "/" || op == "%" {
+			var v1 float64
+			v1, err = opval(s[4:7], linenumber) // note that opval does eval
+			if err != nil {
+				return err
+			}
+			emap[s[0]] = fmt.Sprintf(s[3], v1)
+			return nil
+		}
+		v1, err = strconv.ParseFloat(eval(s[4]), 64)
+		if err != nil {
+			return err
+		}
+		v2, err = strconv.ParseFloat(eval(s[5]), 64)
+		if err != nil {
+			return err
+		}
+		v3, err = strconv.ParseFloat(eval(s[6]), 64)
+		if err != nil {
+			return err
+		}
+		emap[s[0]] = fmt.Sprintf(s[3], v1, v2, v3)
+		return nil
+
+	case 8: // x=sprint fmt a b c d
+		var v1, v2, v3, v4 float64
+		v1, err = strconv.ParseFloat(eval(s[4]), 64)
+		if err != nil {
+			return err
+		}
+		v2, err = strconv.ParseFloat(eval(s[5]), 64)
+		if err != nil {
+			return err
+		}
+		v3, err = strconv.ParseFloat(eval(s[6]), 64)
+		if err != nil {
+			return err
+		}
+		v4, err = strconv.ParseFloat(eval(s[7]), 64)
+		if err != nil {
+			return err
+		}
+		emap[s[0]] = fmt.Sprintf(s[3], v1, v2, v3, v4)
+		return nil
+
+	case 9: // x=sprint fmt a b c d e
+		var v1, v2, v3, v4, v5 float64
+		v1, err = strconv.ParseFloat(eval(s[4]), 64)
+		if err != nil {
+			return err
+		}
+		v2, err = strconv.ParseFloat(eval(s[5]), 64)
+		if err != nil {
+			return err
+		}
+		v3, err = strconv.ParseFloat(eval(s[6]), 64)
+		if err != nil {
+			return err
+		}
+		v4, err = strconv.ParseFloat(eval(s[7]), 64)
+		if err != nil {
+			return err
+		}
+		v5, err = strconv.ParseFloat(eval(s[8]), 64)
+		if err != nil {
+			return err
+		}
+		emap[s[0]] = fmt.Sprintf(s[3], v1, v2, v3, v4, v5)
+		return nil
+
 	default:
-		return fmt.Errorf("line %d: %v cannot convert to string", linenumber, v)
+		return fmt.Errorf("line %d: 1-5 arguments or one expression: %v %s", linenumber, s[3], s[4:])
 	}
-	emap[s[0]] = fmt.Sprintf(s[3], v)
-	return nil
 }
 
 // substr makes a substring assignment
