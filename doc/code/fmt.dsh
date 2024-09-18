@@ -1,7 +1,9 @@
 v1=100.3
 v2=200.234
+pi=3.1415926
 title=format "%.2f Million (USD)" v1
 subtitle=format "Total value: %.2f" v1+v2
-
+args=format "Multiple args (%v,%v,%.3f)" 80 10 pi
 ctext title    80 30 4 "sans" "maroon"
 ctext subtitle 80 20 3 "sans" "gray"
+ctext args     80 10 2 "mono"

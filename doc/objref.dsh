@@ -1711,7 +1711,7 @@ deck
 			li "x y radius angle"
 			li "x y radius angle"
 			li "expression"
-			li "fmt expression"
+			li "fmt expression or up to 5 args"
 			li "string begin end"
 			li "min max"
 			li "data min1 max1 min2 max2"
@@ -1878,16 +1878,16 @@ deck
 			li `title=format "Value=%.2f"   x*y`
 		elist
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "value=" 40 ly ts "mono"
-		text  "format" 40 ly ts "mono" kwcolor
-		text  "fmt expression" 51 ly ts "mono" argcolor
+		etext "value=" 30 ly ts "mono"
+		text  "format" 30 ly ts "mono" kwcolor
+		text  "fmt expression or up to 5 args" 41 ly ts "mono" argcolor
 		ctext "format string" 62.5 65 lw "mono"
 		dbrace 62.5 70 22 1 2
 		ctext "expression" 85 65 lw "mono"
 		dbrace 80 70 8 1 2
 		ctext "Value=6.28" 30 65 lw "mono"
 		dbrace 30 70 9 1 2
-		textfile "code/fmt.dsh" 10 35 2 "mono"
+		textfile "code/fmt.dsh" 5 37 2 "mono"
 		include  "code/fmt.dsh"
 	eslide
 
