@@ -110,7 +110,7 @@ func format(s [][]string, kwmax, strmax, assmax int) {
 		}
 		// comment
 		if len(line) == 1 && line[0][0] == '/' && line[0][1] == '/' {
-			printlevel(2, deftab)
+			printlevel(1, deftab)
 			fmt.Printf("%s\n", line[0])
 			continue
 		}
