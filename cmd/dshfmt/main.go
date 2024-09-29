@@ -156,6 +156,7 @@ func maxitem(s [][]string, begin, end int) int {
 			ll := len(line[j])
 			if ll > max {
 				max = ll
+				println(line[j])
 			}
 		}
 	}
@@ -263,5 +264,8 @@ func main() {
 	format(data, kwmax, strmax, varmax, spacer)
 	if verbose {
 		dump(data)
+		fmt.Fprintf(os.Stderr,
+			"kwmax=%d strmax=%d varmax=%d spacer=%q\n",
+			kwmax, strmax, varmax, spacer)
 	}
 }
