@@ -18,13 +18,7 @@ const (
 // printlevel prints the leading spaces for the specified level
 func printlevel(level int, spacer string) {
 	for i := 0; i < level; i++ {
-		if spacer == "\t" {
-			fmt.Printf(spacer)
-		} else {
-			for j := 0; j < len(spacer); j++ {
-				fmt.Printf("%c", spacer[j])
-			}
-		}
+		fmt.Printf(spacer)
 	}
 }
 
