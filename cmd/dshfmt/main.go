@@ -3,6 +3,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io"
 	"os"
@@ -21,8 +22,8 @@ func printlevel(level int, tabsize int, spacer string) {
 		if spacer == "\t" {
 			fmt.Printf(spacer)
 		} else {
-			for j := 0; j < tabsize; j++ {
-				fmt.Printf(spacer)
+			for j := 0; j < len(spacer); j++ {
+				fmt.Printf("%c", spacer[j])
 			}
 		}
 	}
@@ -37,8 +38,8 @@ func printargs(n int, s []string) {
 }
 
 // dchart formats a dchart line
-func dchart(level, max int, s []string) {
-	printlevel(level, deftab, " ")
+func dchart(level, max int, spacer string, s []string) {
+	printlevel(level, deftab, spacer)
 	fmt.Printf("%-*s ", max, s[0])
 	for i := 1; i < len(s)-1; i++ {
 		if s[i] == "-" {
@@ -51,56 +52,56 @@ func dchart(level, max int, s []string) {
 }
 
 // comment formats a comment
-func comment(level int, s []string) {
-	printlevel(level, deftab, " ")
+func comment(level int, spacer string, s []string) {
+	printlevel(level, deftab, spacer)
 	printargs(1, s)
 }
 
-// deckslide formats top level elements
-func deckslide(level int, s []string) {
-	printlevel(level, deftab, " ")
+// toplevel formats top level elements
+func toplevel(level int, spacer string, s []string) {
+	printlevel(level, deftab, spacer)
 	fmt.Printf("%s", s[0])
 	printargs(1, s)
 }
 
 // stringarg formats a line with keyword followed by a string
-func stringarg(level, kwmax, smax int, s []string) {
-	printlevel(level, deftab, " ")
+func stringarg(level, kwmax, smax int, spacer string, s []string) {
+	printlevel(level, deftab, spacer)
 	fmt.Printf("%-*s %-*s", kwmax, s[0], smax, s[1])
 	printargs(2, s)
 }
 
 // keyword formats a general keyword
-func keyword(level, max int, s []string) {
+func keyword(level, max int, spacer string, s []string) {
 	// assign op
 	if len(s) > 3 && s[2] == "=" {
-		printlevel(level, deftab, " ")
+		printlevel(level, deftab, spacer)
 		fmt.Printf("%-*s %s%s", max, s[0], s[1], s[2])
 		printargs(3, s)
 		return
 	}
 	// assigments and anything else
-	printlevel(level, deftab, " ")
+	printlevel(level, deftab, spacer)
 	fmt.Printf("%-*s", max, s[0])
 	printargs(1, s)
 }
 
-// assign format an assignment
-func assign(level, max int, s []string) {
-	printlevel(level, deftab, " ")
+// variable format an assignment
+func variable(level, max int, spacer string, s []string) {
+	printlevel(level, deftab, spacer)
 	fmt.Printf("%-*s %s", max, s[0], s[1])
 	printargs(2, s)
 }
 
 // listitem formats a list item
-func listitem(level, max int, s []string) {
-	printlevel(level, deftab, " ")
+func listitem(level, max int, spacer string, s []string) {
+	printlevel(level, deftab, spacer)
 	fmt.Printf("%-*s", max-deftab, s[0])
 	printargs(1, s)
 }
 
 // format formats a series of decksh lines (each one is a parsed string slice)
-func format(s [][]string, kwmax, strmax, assmax int) {
+func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 	if kwmax > assmax {
 		assmax = kwmax
 	}
@@ -114,7 +115,7 @@ func format(s [][]string, kwmax, strmax, assmax int) {
 		}
 		// comment
 		if len(line) == 1 && line[0][0] == '/' && line[0][1] == '/' {
-			printlevel(1, deftab, " ")
+			printlevel(1, deftab, spacer)
 			fmt.Printf("%s\n", line[0])
 			continue
 		}
@@ -122,29 +123,29 @@ func format(s [][]string, kwmax, strmax, assmax int) {
 		switch line[0] {
 		case "deck", "edeck", "def", "edef":
 			level = 0
-			deckslide(level, line)
+			toplevel(level, spacer, line)
 			level++
 		case "slide", "eslide", "import":
 			level = 1
-			deckslide(level, line)
+			toplevel(level, spacer, line)
 			level++
 		case "text", "ctext", "etext", "btext", "rtext", "arctext", "image", "textblock":
-			stringarg(level, kwmax, strmax, line)
+			stringarg(level, kwmax, strmax, spacer, line)
 		case "for", "clist", "list", "blist", "nlist", "if", "else":
 			level = 2
-			keyword(level, assmax, line)
+			keyword(level, assmax, spacer, line)
 			level++
 		case "efor", "elist", "eif":
 			level--
-			keyword(level, assmax, line)
+			keyword(level, assmax, spacer, line)
 		case "li":
 			level = 3
-			listitem(level, assmax, line)
+			listitem(level, assmax, spacer, line)
 		case "dchart", "chart":
 			level = 2
-			dchart(level, kwmax, line)
+			dchart(level, kwmax, spacer, line)
 		default:
-			keyword(level, assmax, line)
+			keyword(level, assmax, spacer, line)
 		}
 	}
 }
@@ -168,8 +169,8 @@ func maxitem(s [][]string, begin, end int) int {
 	return max
 }
 
-// maxassign returns the maximum length element within an assignment line
-func maxassign(s [][]string) int {
+// maxvar returns the maximum length element within an assignment line
+func maxvar(s [][]string) int {
 	max := 0
 	for i := 0; i < len(s); i++ {
 		line := s[i]
@@ -236,15 +237,28 @@ func parse(src string) []string {
 	return tokens
 }
 
+// dump prints the parsed lines
+func dump(data [][]string) {
+	for i := 0; i < len(data); i++ {
+		fmt.Fprintf(os.Stderr, "%v = %d\n", data[i], len(data[i]))
+	}
+}
+
 // format a named file or standard input if no file is specified.
 func main() {
 	var input io.Reader
 	var err error
+	var spacer string
+	var verbose bool
 
-	if len(os.Args) == 1 {
+	flag.BoolVar(&verbose, "v", false, "verbose")
+	flag.StringVar(&spacer, "i", "\t", "indent")
+	flag.Parse()
+
+	if len(flag.Args()) == 0 {
 		input = os.Stdin
 	} else {
-		input, err = os.Open(os.Args[1])
+		input, err = os.Open(flag.Args()[0])
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", err)
 			os.Exit(1)
@@ -254,13 +268,9 @@ func main() {
 	data := readDecksh(input)     // read the data
 	kwmax := maxitem(data, 0, 1)  // max keyword length
 	strmax := maxitem(data, 1, 2) // max string argument length
-	assmax := maxassign(data)     // max assignment variable
-	format(data, kwmax, strmax, assmax)
-	/*
-	   	for i := 0; i < len(data); i++ {
-	   		fmt.Fprintf(os.Stderr, "%v = %d\n", data[i], len(data[i]))
-	   	}
-
-	   fmt.Fprintf(os.Stderr, "maxkw=%d smax=%d maxass=%d\n", kwmax, strmax, assmax)
-	*/
+	varmax := maxvar(data)        // max assignment variable
+	format(data, kwmax, strmax, varmax, spacer)
+	if verbose {
+		dump(data)
+	}
 }
