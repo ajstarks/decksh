@@ -245,8 +245,6 @@ func dump(data [][]string) {
 
 // format a named file or standard input if no file is specified.
 func main() {
-	var input io.Reader
-	var err error
 	var spacer string
 	var verbose bool
 
@@ -254,9 +252,9 @@ func main() {
 	flag.StringVar(&spacer, "i", "\t", "indent")
 	flag.Parse()
 
-	if len(flag.Args()) == 0 {
-		input = os.Stdin
-	} else {
+	input := os.Stdin
+	if len(flag.Args()) == 1 {
+		var err error
 		input, err = os.Open(flag.Args()[0])
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", err)
