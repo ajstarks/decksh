@@ -12,12 +12,11 @@ import (
 )
 
 const (
-	deftab     = 4
 	maxbufsize = 256 * 1024 // the default 64k buffer is too small
 )
 
 // printlevel prints the leading spaces for the specified level
-func printlevel(level int, tabsize int, spacer string) {
+func printlevel(level int, spacer string) {
 	for i := 0; i < level; i++ {
 		if spacer == "\t" {
 			fmt.Printf(spacer)
@@ -39,7 +38,7 @@ func printargs(n int, s []string) {
 
 // dchart formats a dchart line
 func dchart(level, max int, spacer string, s []string) {
-	printlevel(level, deftab, spacer)
+	printlevel(level, spacer)
 	fmt.Printf("%-*s ", max, s[0])
 	for i := 1; i < len(s)-1; i++ {
 		if s[i] == "-" {
@@ -53,20 +52,20 @@ func dchart(level, max int, spacer string, s []string) {
 
 // comment formats a comment
 func comment(level int, spacer string, s []string) {
-	printlevel(level, deftab, spacer)
+	printlevel(level, spacer)
 	printargs(1, s)
 }
 
 // toplevel formats top level elements
 func toplevel(level int, spacer string, s []string) {
-	printlevel(level, deftab, spacer)
+	printlevel(level, spacer)
 	fmt.Printf("%s", s[0])
 	printargs(1, s)
 }
 
 // stringarg formats a line with keyword followed by a string
 func stringarg(level, kwmax, smax int, spacer string, s []string) {
-	printlevel(level, deftab, spacer)
+	printlevel(level, spacer)
 	fmt.Printf("%-*s %-*s", kwmax, s[0], smax, s[1])
 	printargs(2, s)
 }
@@ -75,28 +74,28 @@ func stringarg(level, kwmax, smax int, spacer string, s []string) {
 func keyword(level, max int, spacer string, s []string) {
 	// assign op
 	if len(s) > 3 && s[2] == "=" {
-		printlevel(level, deftab, spacer)
+		printlevel(level, spacer)
 		fmt.Printf("%-*s %s%s", max, s[0], s[1], s[2])
 		printargs(3, s)
 		return
 	}
 	// assigments and anything else
-	printlevel(level, deftab, spacer)
+	printlevel(level, spacer)
 	fmt.Printf("%-*s", max, s[0])
 	printargs(1, s)
 }
 
 // variable format an assignment
 func variable(level, max int, spacer string, s []string) {
-	printlevel(level, deftab, spacer)
+	printlevel(level, spacer)
 	fmt.Printf("%-*s %s", max, s[0], s[1])
 	printargs(2, s)
 }
 
 // listitem formats a list item
 func listitem(level, max int, spacer string, s []string) {
-	printlevel(level, deftab, spacer)
-	fmt.Printf("%-*s", max-deftab, s[0])
+	printlevel(level, spacer)
+	fmt.Printf("%-*s", max-len(spacer), s[0])
 	printargs(1, s)
 }
 
@@ -115,7 +114,7 @@ func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 		}
 		// comment
 		if len(line) == 1 && line[0][0] == '/' && line[0][1] == '/' {
-			printlevel(1, deftab, spacer)
+			printlevel(1, spacer)
 			fmt.Printf("%s\n", line[0])
 			continue
 		}
@@ -268,7 +267,7 @@ func main() {
 	data := readDecksh(input)     // read the data
 	kwmax := maxitem(data, 0, 1)  // max keyword length
 	strmax := maxitem(data, 1, 2) // max string argument length
-	varmax := maxvar(data)        // max assignment variable
+	varmax := maxvar(data)        // max variable
 	format(data, kwmax, strmax, varmax, spacer)
 	if verbose {
 		dump(data)
