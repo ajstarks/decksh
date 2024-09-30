@@ -118,7 +118,7 @@ func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 			level = 0
 			toplevel(level, spacer, line)
 			level++
-		case "slide", "eslide", "import":
+		case "slide", "eslide", "import", "include":
 			level = 1
 			toplevel(level, spacer, line)
 			level++
@@ -138,7 +138,7 @@ func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 			level = 2
 			dchart(level, kwmax, spacer, line)
 		default:
-			keyword(level, assmax, spacer, line)
+			keyword(level, kwmax, spacer, line)
 		}
 	}
 }
