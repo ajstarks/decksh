@@ -15,6 +15,44 @@ const (
 	maxbufsize = 256 * 1024 // the default 64k buffer is too small
 )
 
+var kwcount = map[string]int{}
+
+const (
+	statementType int = iota
+	Blank
+	Comment
+	Keyword
+	Var
+	AssignOp
+)
+
+// kwcouter count keywords
+func kwcounter(data [][]string) {
+	for i := 0; i < len(data); i++ {
+		line := data[i]
+		if kind(line) == Keyword {
+			kwcount[line[0]]++
+		}
+	}
+}
+
+// kind returns the type of statement
+func kind(s []string) int {
+	if len(s) == 0 {
+		return Blank
+	}
+	if len(s) == 1 && s[0][0] == '/' && s[0][1] == '/' {
+		return Comment
+	}
+	if len(s) > 2 && s[1] == "=" {
+		return Var
+	}
+	if len(s) > 3 && s[2] == "=" {
+		return AssignOp
+	}
+	return Keyword
+}
+
 // printlevel prints the leading spaces for the specified level
 func printlevel(level int, spacer string) {
 	for i := 0; i < level; i++ {
@@ -66,8 +104,7 @@ func stringarg(level, kwmax, smax int, spacer string, s []string) {
 
 // keyword formats a general keyword
 func keyword(level, max int, spacer string, s []string) {
-	// assign op
-	if len(s) > 3 && s[2] == "=" {
+	if kind(s) == AssignOp {
 		printlevel(level, spacer)
 		fmt.Printf("%-*s %s%s", max, s[0], s[1], s[2])
 		printargs(3, s)
@@ -79,7 +116,7 @@ func keyword(level, max int, spacer string, s []string) {
 	printargs(1, s)
 }
 
-// variable format an assignment
+// variable formats an assignment
 func variable(level, max int, spacer string, s []string) {
 	printlevel(level, spacer)
 	fmt.Printf("%-*s %s", max, s[0], s[1])
@@ -101,13 +138,11 @@ func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 	level := 0
 	for i := 0; i < len(s); i++ {
 		line := s[i]
-		// blank line
-		if len(line) == 0 {
+		if kind(line) == Blank {
 			fmt.Printf("\n")
 			continue
 		}
-		// comment
-		if len(line) == 1 && line[0][0] == '/' && line[0][1] == '/' {
+		if kind(line) == Comment {
 			printlevel(1, spacer)
 			fmt.Printf("%s\n", line[0])
 			continue
@@ -263,6 +298,10 @@ func main() {
 	format(data, kwmax, strmax, varmax, spacer)
 	if verbose {
 		dump(data)
+		kwcounter(data)
+		for k, v := range kwcount {
+			fmt.Fprintf(os.Stderr, "%-*s:%d\n", kwmax, k, v)
+		}
 		fmt.Fprintf(os.Stderr,
 			"kwmax=%d strmax=%d varmax=%d spacer=%q\n",
 			kwmax, strmax, varmax, spacer)
