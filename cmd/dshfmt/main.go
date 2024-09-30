@@ -156,7 +156,6 @@ func maxitem(s [][]string, begin, end int) int {
 			ll := len(line[j])
 			if ll > max {
 				max = ll
-				println(line[j])
 			}
 		}
 	}
