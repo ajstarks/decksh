@@ -36,6 +36,36 @@ func kwcounter(data [][]string) {
 	}
 }
 
+// kwmatch checks for matching pairs
+func kwmatch(s string) bool {
+	end := "e" + s
+	if kwcount[s] != kwcount[end] {
+		return false
+	}
+	return true
+}
+
+// kwcheck checks for matching keywords
+func kwcheck() int {
+	issues := 0
+	for _, s := range []string{"deck", "slide", "if", "for", "data", "def"} {
+		if kwcount[s] != kwcount["e"+s] {
+			fmt.Fprintf(os.Stderr, "The count of %s (%d) does not match the count of %s (%d)\n",
+				s, kwcount[s], "e"+s, kwcount["e"+s])
+			issues++
+		}
+	}
+	nlists := 0
+	for _, s := range []string{"list", "clist", "nlist", "blist"} {
+		nlists += kwcount[s]
+	}
+	if nlists != kwcount["elist"] {
+		fmt.Fprintf(os.Stderr, "Number of lists (%d) does not match elist count (%d)\n", nlists, kwcount["elist"])
+		issues++
+	}
+	return issues
+}
+
 // kind returns the type of statement
 func kind(s []string) int {
 	if len(s) == 0 {
@@ -47,7 +77,7 @@ func kind(s []string) int {
 	if len(s) > 2 && s[1] == "=" {
 		return Var
 	}
-	if len(s) > 3 && s[2] == "=" {
+	if len(s) > 3 && s[2] == "=" && s[0] != "if" && s[0] != "for" {
 		return AssignOp
 	}
 	return Keyword
@@ -103,24 +133,24 @@ func stringarg(level, kwmax, smax int, spacer string, s []string) {
 }
 
 // keyword formats a general keyword
-func keyword(level, max int, spacer string, s []string) {
+func keyword(level, varmax, kwmax int, spacer string, s []string) {
 	if kind(s) == AssignOp {
 		printlevel(level, spacer)
-		fmt.Printf("%-*s %s%s", max, s[0], s[1], s[2])
+		fmt.Printf("%-*s %s%s", varmax, s[0], s[1], s[2])
 		printargs(3, s)
 		return
 	}
-	// assigments and anything else
+	// assigments
+	if kind(s) == Var {
+		printlevel(level, spacer)
+		fmt.Printf("%-*s %s", varmax, s[0], s[1])
+		printargs(2, s)
+		return
+	}
+	// keywords
 	printlevel(level, spacer)
-	fmt.Printf("%-*s", max, s[0])
+	fmt.Printf("%-*s", kwmax, s[0])
 	printargs(1, s)
-}
-
-// variable formats an assignment
-func variable(level, max int, spacer string, s []string) {
-	printlevel(level, spacer)
-	fmt.Printf("%-*s %s", max, s[0], s[1])
-	printargs(2, s)
 }
 
 // listitem formats a list item
@@ -128,6 +158,19 @@ func listitem(level, max int, spacer string, s []string) {
 	printlevel(level, spacer)
 	fmt.Printf("%-*s", max-len(spacer), s[0])
 	printargs(1, s)
+}
+
+func conditional(level int, spacer string, s []string) {
+	printlevel(level, spacer)
+	fmt.Printf("%s %s ", s[0], s[1])
+	switch len(s) {
+	case 4:
+		fmt.Printf("%s %s\n", s[2], s[3])
+	case 5:
+		fmt.Printf("%s%s %s\n", s[2], s[3], s[4])
+	case 6:
+		fmt.Printf("%s%s %s %s\n", s[2], s[3], s[4], s[5])
+	}
 }
 
 // format formats a series of decksh lines (each one is a parsed string slice)
@@ -159,13 +202,17 @@ func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 			level++
 		case "text", "ctext", "etext", "btext", "rtext", "arctext", "image", "textblock":
 			stringarg(level, kwmax, strmax, spacer, line)
-		case "for", "clist", "list", "blist", "nlist", "if", "else":
+		case "for", "clist", "list", "blist", "nlist", "else":
 			level = 2
-			keyword(level, assmax, spacer, line)
+			keyword(level, assmax, kwmax, spacer, line)
+			level++
+		case "if":
+			level = 2
+			conditional(level, spacer, line)
 			level++
 		case "efor", "elist", "eif":
 			level--
-			keyword(level, assmax, spacer, line)
+			keyword(level, assmax, kwmax, spacer, line)
 		case "li":
 			level = 3
 			listitem(level, assmax, spacer, line)
@@ -173,7 +220,7 @@ func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 			level = 2
 			dchart(level, kwmax, spacer, line)
 		default:
-			keyword(level, kwmax, spacer, line)
+			keyword(level, assmax, kwmax, spacer, line)
 		}
 	}
 }
@@ -268,7 +315,7 @@ func parse(src string) []string {
 // dump prints the parsed lines
 func dump(data [][]string) {
 	for i := 0; i < len(data); i++ {
-		fmt.Fprintf(os.Stderr, "%v = %d\n", data[i], len(data[i]))
+		fmt.Fprintf(os.Stderr, "%d: %v (%d elements)\n", i+1, data[i], len(data[i]))
 	}
 }
 
@@ -292,18 +339,21 @@ func main() {
 	}
 
 	data := readDecksh(input)     // read the data
+	kwcounter(data)               // count keywords and elements
 	kwmax := maxitem(data, 0, 1)  // max keyword length
 	strmax := maxitem(data, 1, 2) // max string argument length
 	varmax := maxvar(data)        // max variable
+
 	format(data, kwmax, strmax, varmax, spacer)
+
 	if verbose {
 		dump(data)
-		kwcounter(data)
 		for k, v := range kwcount {
 			fmt.Fprintf(os.Stderr, "%-*s:%d\n", kwmax, k, v)
 		}
-		fmt.Fprintf(os.Stderr,
-			"kwmax=%d strmax=%d varmax=%d spacer=%q\n",
+		fmt.Fprintf(os.Stderr, "kwmax=%d strmax=%d varmax=%d spacer=%q\n",
 			kwmax, strmax, varmax, spacer)
 	}
+
+	os.Exit(kwcheck()) // integrity check
 }
