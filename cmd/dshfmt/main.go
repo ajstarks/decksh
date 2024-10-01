@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"sort"
 	"strings"
 	"text/scanner"
 )
@@ -34,15 +35,6 @@ func kwcounter(data [][]string) {
 			kwcount[line[0]]++
 		}
 	}
-}
-
-// kwmatch checks for matching pairs
-func kwmatch(s string) bool {
-	end := "e" + s
-	if kwcount[s] != kwcount[end] {
-		return false
-	}
-	return true
 }
 
 // kwcheck checks for matching keywords
@@ -160,6 +152,7 @@ func listitem(level, max int, spacer string, s []string) {
 	printargs(1, s)
 }
 
+// conditional formats if statements
 func conditional(level int, spacer string, s []string) {
 	printlevel(level, spacer)
 	fmt.Printf("%s %s ", s[0], s[1])
@@ -319,6 +312,25 @@ func dump(data [][]string) {
 	}
 }
 
+func sortkw(kwlen int) {
+	type kv struct {
+		Key   string
+		Value int
+	}
+
+	var ss []kv
+	for k, v := range kwcount {
+		ss = append(ss, kv{k, v})
+	}
+
+	sort.Slice(ss, func(i, j int) bool {
+		return ss[i].Value > ss[j].Value
+	})
+	for _, kv := range ss {
+		fmt.Fprintf(os.Stderr, "%-*s:%d\n", kwlen, kv.Key, kv.Value)
+	}
+}
+
 // format a named file or standard input if no file is specified.
 func main() {
 	var spacer string
@@ -348,9 +360,7 @@ func main() {
 
 	if verbose {
 		dump(data)
-		for k, v := range kwcount {
-			fmt.Fprintf(os.Stderr, "%-*s:%d\n", kwmax, k, v)
-		}
+		sortkw(kwmax)
 		fmt.Fprintf(os.Stderr, "kwmax=%d strmax=%d varmax=%d spacer=%q\n",
 			kwmax, strmax, varmax, spacer)
 	}
