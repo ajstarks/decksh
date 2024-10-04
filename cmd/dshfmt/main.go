@@ -2,13 +2,11 @@
 package main
 
 import (
-	"bufio"
 	"flag"
 	"fmt"
 	"io"
 	"os"
 	"sort"
-	"strings"
 	"text/scanner"
 )
 
@@ -16,7 +14,14 @@ const (
 	maxbufsize = 256 * 1024 // the default 64k buffer is too small
 )
 
-var kwcount = map[string]int{}
+const (
+	matchfmt    = "The count of %s (%d) does not match the count of %s (%d). Check lines: "
+	diffmt      = "%d unmatched list(s).\n"
+	dumpfmt     = "%-4d: (%d) %v\n"
+	dumpheadfmt = "%-4s %4s TOKENS\n"
+	sortheadfmt = "%-*s: %s %s\n"
+	maxfmt      = "kwmax=%d strmax=%d varmax=%d spacer=%q\n"
+)
 
 const (
 	statementType int = iota
@@ -27,32 +32,61 @@ const (
 	AssignOp
 )
 
-// kwcouter count keywords
-func kwcounter(data [][]string) {
+type keywordInfo map[string][]int
+
+// kwcouter count keywords occurances
+func kwcounter(data [][]string) keywordInfo {
+	var ki = keywordInfo{}
+	count := 0
 	for i := 0; i < len(data); i++ {
 		line := data[i]
 		if kind(line) == Keyword {
-			kwcount[line[0]]++
+			count++
+			if count > 0 {
+				ki[line[0]] = append(ki[line[0]], i+1)
+			}
 		}
+	}
+	return ki
+}
+
+// matcherr displays unmatched keyword errors
+func matcherr(ki keywordInfo, s string, c1, c2 int) {
+	fmt.Fprintf(os.Stderr, matchfmt, s, c1, "e"+s, c2)
+	list := ki[s]
+	ll := len(list) - 1
+	for i := 0; i < ll; i++ {
+		fmt.Fprintf(os.Stderr, "%d, ", list[i])
+	}
+	fmt.Fprintf(os.Stderr, "%d\n", list[ll])
+}
+
+// listerr displays unmatched list errors
+func listerr(ki keywordInfo, diff int) {
+	fmt.Fprintf(os.Stderr, diffmt, diff)
+	for _, s := range []string{"list", "blist", "clist", "nlist"} {
+		fmt.Fprintf(os.Stderr, "    %-5s found in lines :%v\n", s, ki[s])
 	}
 }
 
-// kwcheck checks for matching keywords
-func kwcheck() int {
+// check checks the structural integrity by analyzing keywords
+func intcheck(ki keywordInfo) int {
 	issues := 0
 	for _, s := range []string{"deck", "slide", "if", "for", "data", "def"} {
-		if kwcount[s] != kwcount["e"+s] {
-			fmt.Fprintf(os.Stderr, "The count of %s (%d) does not match the count of %s (%d)\n",
-				s, kwcount[s], "e"+s, kwcount["e"+s])
+		c1 := len(ki[s])
+		c2 := len(ki["e"+s])
+		if c1 != c2 {
+			matcherr(ki, s, c1, c2)
 			issues++
 		}
 	}
 	nlists := 0
-	for _, s := range []string{"list", "clist", "nlist", "blist"} {
-		nlists += kwcount[s]
+	for _, s := range []string{"list", "blist", "clist", "nlist"} {
+		nlists += len(ki[s])
 	}
-	if nlists != kwcount["elist"] {
-		fmt.Fprintf(os.Stderr, "Number of lists (%d) does not match elist count (%d)\n", nlists, kwcount["elist"])
+	diff := nlists - len(ki["elist"])
+	if diff > 0 {
+		listerr(ki, diff)
 		issues++
 	}
 	return issues
@@ -63,7 +97,7 @@ func kind(s []string) int {
 	if len(s) == 0 {
 		return Blank
 	}
-	if len(s) == 1 && s[0][0] == '/' && s[0][1] == '/' {
+	if len(s) == 1 && (s[0][0] == '/' && s[0][1] == '/') || s[0][0] == '#' {
 		return Comment
 	}
 	if len(s) > 2 && s[1] == "=" {
@@ -113,7 +147,11 @@ func comment(level int, spacer string, s []string) {
 // toplevel formats top level elements
 func toplevel(level int, spacer string, s []string) {
 	printlevel(level, spacer)
-	fmt.Printf("%s", s[0])
+	if s[0] == "eslide" || s[0] == "deck" {
+		fmt.Printf("%s\n", s[0])
+	} else {
+		fmt.Printf("%s", s[0])
+	}
 	printargs(1, s)
 }
 
@@ -141,7 +179,11 @@ func keyword(level, varmax, kwmax int, spacer string, s []string) {
 	}
 	// keywords
 	printlevel(level, spacer)
-	fmt.Printf("%-*s", kwmax, s[0])
+	if s[0] == "efor" || s[0] == "elist" || s[0] == "eif" {
+		fmt.Printf("%-*s\n", kwmax, s[0])
+	} else {
+		fmt.Printf("%-*s", kwmax, s[0])
+	}
 	printargs(1, s)
 }
 
@@ -167,7 +209,7 @@ func conditional(level int, spacer string, s []string) {
 }
 
 // format formats a series of decksh lines (each one is a parsed string slice)
-func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
+func format(s [][]string, ki keywordInfo, kwmax, strmax, assmax int, spacer string) {
 	if kwmax > assmax {
 		assmax = kwmax
 	}
@@ -279,91 +321,102 @@ func rd(r io.Reader) [][]string {
 	return data
 }
 
-// readDecks reads decksh lines from a io.Reader, parsing them into lines
-// blank lines are preserved.
-func readDecksh(r io.Reader) [][]string {
-	var data [][]string
-	scanner := bufio.NewScanner(r)
-	scanner.Buffer(make([]byte, maxbufsize), maxbufsize)
-	for scanner.Scan() {
-		tokens := parse(scanner.Text())
-		data = append(data, tokens)
-	}
-	return data
-}
-
-// parse takes a line of input and returns a string slice containing the parsed tokens
-func parse(src string) []string {
-	var s scanner.Scanner
-	s.Init(strings.NewReader(src))
-	s.Mode = scanner.ScanIdents | scanner.ScanFloats | scanner.ScanChars |
-		scanner.ScanStrings | scanner.ScanRawStrings | scanner.ScanComments
-	tokens := []string{}
-	for tok := s.Scan(); tok != scanner.EOF; tok = s.Scan() {
-		tokens = append(tokens, s.TokenText())
-	}
-	return tokens
-}
-
 // dump prints the parsed lines
 func dump(data [][]string) {
+	fmt.Fprintf(os.Stderr, dumpheadfmt, "LINE", "LEN")
 	for i := 0; i < len(data); i++ {
-		fmt.Fprintf(os.Stderr, "%d: %v (%d elements)\n", i+1, data[i], len(data[i]))
+		fmt.Fprintf(os.Stderr, dumpfmt, i+1, len(data[i]), data[i])
 	}
+	fmt.Fprintln(os.Stderr)
 }
 
-func sortkw(kwlen int) {
+// sort keywords by occurance
+func sortkwfreq(ki keywordInfo, kwlen int) {
 	type kv struct {
 		Key   string
-		Value int
+		Value []int
 	}
 
 	var ss []kv
-	for k, v := range kwcount {
+	for k, v := range ki {
 		ss = append(ss, kv{k, v})
 	}
-
 	sort.Slice(ss, func(i, j int) bool {
-		return ss[i].Value > ss[j].Value
+		return len(ss[i].Value) > len(ss[j].Value)
 	})
+
+	fmt.Fprintf(os.Stderr, sortheadfmt, kwlen, "CMD", "FRQ", "LINES")
 	for _, kv := range ss {
-		fmt.Fprintf(os.Stderr, "%-*s:%d\n", kwlen, kv.Key, kv.Value)
+		fmt.Fprintf(os.Stderr, "%-*s: (%d) %v\n", kwlen, kv.Key, len(kv.Value), kv.Value)
 	}
+	fmt.Fprintln(os.Stderr)
 }
 
-// format a named file or standard input if no file is specified.
-func main() {
-	var spacer string
-	var verbose bool
+// sort keywords by name
+func sortkw(ki keywordInfo, kwlen int) {
+	keys := make([]string, 0, len(ki))
+	for k := range ki {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
 
-	flag.BoolVar(&verbose, "v", false, "verbose")
-	flag.StringVar(&spacer, "i", "\t", "indent")
-	flag.Parse()
+	fmt.Fprintf(os.Stderr, sortheadfmt, kwlen, "CMD", "FRQ", "LINES")
+	for _, k := range keys {
+		fmt.Fprintf(os.Stderr, "%-*s: (%d) %v\n", kwlen, k, len(ki[k]), ki[k])
+	}
+	fmt.Fprintln(os.Stderr)
+}
 
-	input := os.Stdin
-	if len(flag.Args()) == 1 {
-		var err error
-		input, err = os.Open(flag.Args()[0])
+// dshread reads data from stdin or named file
+func dshread(args []string) [][]string {
+	var input io.Reader
+	var err error
+	input = os.Stdin
+	if len(args) > 0 {
+		input, err = os.Open(args[0])
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", err)
 			os.Exit(1)
 		}
 	}
+	return rd(input)
+}
 
-	data := readDecksh(input)     // read the data
-	kwcounter(data)               // count keywords and elements
-	kwmax := maxitem(data, 0, 1)  // max keyword length
-	strmax := maxitem(data, 1, 2) // max string argument length
-	varmax := maxvar(data)        // max variable
+func diag(data [][]string, kwlen int, ki keywordInfo, all, rawdump, ksort, fsort bool) {
 
-	format(data, kwmax, strmax, varmax, spacer)
-
-	if verbose {
-		dump(data)
-		sortkw(kwmax)
-		fmt.Fprintf(os.Stderr, "kwmax=%d strmax=%d varmax=%d spacer=%q\n",
-			kwmax, strmax, varmax, spacer)
+	if all {
+		rawdump, ksort, fsort = true, true, true
 	}
 
-	os.Exit(kwcheck()) // integrity check
+	if rawdump {
+		dump(data)
+	}
+	if ksort {
+		sortkw(ki, kwlen)
+	}
+	if fsort {
+		sortkwfreq(ki, kwlen)
+	}
+}
+
+// format a named file or standard input if no file is specified.
+func main() {
+	verbose := flag.Bool("v", false, "verbose diagnostics")
+	rawdump := flag.Bool("dump", false, "dump raw parsed data")
+	kwsort := flag.Bool("ksort", false, "show keyword counts")
+	freqsort := flag.Bool("fsort", false, "show keyword frequencies")
+	spacer := flag.String("i", "\t", "indent")
+	flag.Parse()
+
+	data := dshread(flag.Args())                                      // read data
+	kwinfo := kwcounter(data)                                         // count keywords and elements
+	kwmax := maxitem(data, 0, 1)                                      // max keyword length
+	strmax := maxitem(data, 1, 2)                                     // max string argument length
+	varmax := maxvar(data)                                            // max variable
+	diag(data, kwmax, kwinfo, *verbose, *rawdump, *kwsort, *freqsort) // if specified, show various diagnostics
+	issues := intcheck(kwinfo)                                        // check for issues
+	if issues == 0 {                                                  // if no issues, format
+		format(data, kwinfo, kwmax, strmax, varmax, *spacer)
+	}
+	os.Exit(issues)
 }
