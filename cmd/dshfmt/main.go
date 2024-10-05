@@ -17,9 +17,10 @@ const (
 const (
 	matchfmt    = "The count of %s (%d) does not match the count of %s (%d). Check lines: "
 	diffmt      = "%d unmatched list(s).\n"
-	dumpfmt     = "%-4d: (%d) %v\n"
-	dumpheadfmt = "%-4s %4s TOKENS\n"
-	sortheadfmt = "%-*s: %s %s\n"
+	dumpfmt     = "%5d %3d %v\n"
+	dumpheadfmt = "%5s %3s Tokens\n"
+	sortheadfmt = "%-10s %4s %s\n"
+	sortfmt     = "%-10s %4d %v\n"
 	maxfmt      = "kwmax=%d strmax=%d varmax=%d spacer=%q\n"
 )
 
@@ -323,7 +324,7 @@ func rd(r io.Reader) [][]string {
 
 // dump prints the parsed lines
 func dump(data [][]string) {
-	fmt.Fprintf(os.Stderr, dumpheadfmt, "LINE", "LEN")
+	fmt.Fprintf(os.Stderr, dumpheadfmt, "Line", "Len")
 	for i := 0; i < len(data); i++ {
 		fmt.Fprintf(os.Stderr, dumpfmt, i+1, len(data[i]), data[i])
 	}
@@ -331,7 +332,7 @@ func dump(data [][]string) {
 }
 
 // sort keywords by occurance
-func sortkwfreq(ki keywordInfo, kwlen int) {
+func sortkwfreq(ki keywordInfo) {
 	type kv struct {
 		Key   string
 		Value []int
@@ -345,24 +346,24 @@ func sortkwfreq(ki keywordInfo, kwlen int) {
 		return len(ss[i].Value) > len(ss[j].Value)
 	})
 
-	fmt.Fprintf(os.Stderr, sortheadfmt, kwlen, "CMD", "FRQ", "LINES")
+	fmt.Fprintf(os.Stderr, sortheadfmt, "Keyword", "Freq", "Lines")
 	for _, kv := range ss {
-		fmt.Fprintf(os.Stderr, "%-*s: (%d) %v\n", kwlen, kv.Key, len(kv.Value), kv.Value)
+		fmt.Fprintf(os.Stderr, sortfmt, kv.Key, len(kv.Value), kv.Value)
 	}
 	fmt.Fprintln(os.Stderr)
 }
 
 // sort keywords by name
-func sortkw(ki keywordInfo, kwlen int) {
+func sortkw(ki keywordInfo) {
 	keys := make([]string, 0, len(ki))
 	for k := range ki {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
 
-	fmt.Fprintf(os.Stderr, sortheadfmt, kwlen, "CMD", "FRQ", "LINES")
+	fmt.Fprintf(os.Stderr, sortheadfmt, "Keyword", "Freq", "Lines")
 	for _, k := range keys {
-		fmt.Fprintf(os.Stderr, "%-*s: (%d) %v\n", kwlen, k, len(ki[k]), ki[k])
+		fmt.Fprintf(os.Stderr, sortfmt, k, len(ki[k]), ki[k])
 	}
 	fmt.Fprintln(os.Stderr)
 }
@@ -382,20 +383,19 @@ func dshread(args []string) [][]string {
 	return rd(input)
 }
 
-func diag(data [][]string, kwlen int, ki keywordInfo, all, rawdump, ksort, fsort bool) {
-
+// diag show stats
+func diag(data [][]string, ki keywordInfo, all, rawdump, ksort, fsort bool) {
 	if all {
 		rawdump, ksort, fsort = true, true, true
 	}
-
 	if rawdump {
 		dump(data)
 	}
 	if ksort {
-		sortkw(ki, kwlen)
+		sortkw(ki)
 	}
 	if fsort {
-		sortkwfreq(ki, kwlen)
+		sortkwfreq(ki)
 	}
 }
 
@@ -408,14 +408,14 @@ func main() {
 	spacer := flag.String("i", "\t", "indent")
 	flag.Parse()
 
-	data := dshread(flag.Args())                                      // read data
-	kwinfo := kwcounter(data)                                         // count keywords and elements
-	kwmax := maxitem(data, 0, 1)                                      // max keyword length
-	strmax := maxitem(data, 1, 2)                                     // max string argument length
-	varmax := maxvar(data)                                            // max variable
-	diag(data, kwmax, kwinfo, *verbose, *rawdump, *kwsort, *freqsort) // if specified, show various diagnostics
-	issues := intcheck(kwinfo)                                        // check for issues
-	if issues == 0 {                                                  // if no issues, format
+	data := dshread(flag.Args())                               // read data
+	kwinfo := kwcounter(data)                                  // count keywords and elements
+	kwmax := maxitem(data, 0, 1)                               // max keyword length
+	strmax := maxitem(data, 1, 2)                              // max string argument length
+	varmax := maxvar(data)                                     // max variable
+	diag(data, kwinfo, *verbose, *rawdump, *kwsort, *freqsort) // if specified, show various diagnostics
+	issues := intcheck(kwinfo)                                 // check for issues
+	if issues == 0 {                                           // if no issues, format
 		format(data, kwinfo, kwmax, strmax, varmax, *spacer)
 	}
 	os.Exit(issues)
