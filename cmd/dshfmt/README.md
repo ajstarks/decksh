@@ -1,7 +1,8 @@
 # dshfmt - a formatter and checker for decksh files
 
 dshfmt formats decksh files into a consistent format, placing the output on standard output
-and reading from a named file, or standard input if no file is specified.
+or writing over the original file. Input is read from a named file, 
+or standard input if no file is specified (no re-writing in this case).
 
 deck..edeck, slide..eslide, for..efor, if..eif, def..edef and list structures are indented,
 and integrity checks (matching pairs, closing lists) are performed. No formatting is done
@@ -13,13 +14,13 @@ The exit status reflects the number of issues found.
 ## options
 
 ```
-  dshfmt [options] file
-
+dshfmt [options] file
  -dump        dump raw parsed data
  -fsort       show keyword frequencies
  -ksort       show keyword counts
  -i string    indent string (default "\t")
- -v	verbose   (dump, fsort and ksort options combined)
+ -v           (dump, fsort and ksort options combined)
+ -w           rewrite the source
  ```
 
  Given the file

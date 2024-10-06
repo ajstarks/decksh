@@ -111,106 +111,124 @@ func kind(s []string) int {
 }
 
 // printlevel prints the leading spaces for the specified level
-func printlevel(level int, spacer string) {
+func printlevel(w io.Writer, level int, spacer string) {
 	for i := 0; i < level; i++ {
-		fmt.Printf(spacer)
+		fmt.Fprintf(w, spacer)
 	}
 }
 
 // printargs prints arguments from the specified point to the last
-func printargs(n int, s []string) {
+func printargs(w io.Writer, n int, s []string) {
 	for i := n; i < len(s); i++ {
-		fmt.Printf(" %s", s[i])
+		fmt.Fprintf(w, " %s", s[i])
 	}
-	fmt.Printf("\n")
+	fmt.Fprintf(w, "\n")
 }
 
 // dchart formats a dchart line
-func dchart(level, max int, spacer string, s []string) {
-	printlevel(level, spacer)
-	fmt.Printf("%-*s ", max, s[0])
+func dchart(w io.Writer, level, max int, spacer string, s []string) {
+	printlevel(w, level, spacer)
+	fmt.Fprintf(w, "%-*s ", max, s[0])
 	for i := 1; i < len(s)-1; i++ {
 		if s[i] == "-" {
-			fmt.Printf("-")
+			fmt.Fprintf(w, "-")
 		} else {
-			fmt.Printf("%s ", s[i])
+			fmt.Fprintf(w, "%s ", s[i])
 		}
 	}
-	fmt.Printf("%s\n", s[len(s)-1])
+	fmt.Fprintf(w, "%s\n", s[len(s)-1])
 }
 
 // comment formats a comment
-func comment(level int, spacer string, s []string) {
-	printlevel(level, spacer)
-	printargs(1, s)
+func comment(w io.Writer, level int, spacer string, s []string) {
+	printlevel(w, level, spacer)
+	printargs(w, 1, s)
 }
 
 // toplevel formats top level elements
-func toplevel(level int, spacer string, s []string) {
-	printlevel(level, spacer)
+func toplevel(w io.Writer, level int, spacer string, s []string) {
+	printlevel(w, level, spacer)
 	if s[0] == "eslide" || s[0] == "deck" {
-		fmt.Printf("%s\n", s[0])
+		fmt.Fprintf(w, "%s\n", s[0])
 	} else {
-		fmt.Printf("%s", s[0])
+		fmt.Fprintf(w, "%s", s[0])
 	}
-	printargs(1, s)
+	printargs(w, 1, s)
 }
 
 // stringarg formats a line with keyword followed by a string
-func stringarg(level, kwmax, smax int, spacer string, s []string) {
-	printlevel(level, spacer)
-	fmt.Printf("%-*s %-*s", kwmax, s[0], smax, s[1])
-	printargs(2, s)
+func stringarg(w io.Writer, level, kwmax, smax int, spacer string, s []string) {
+	printlevel(w, level, spacer)
+	fmt.Fprintf(w, "%-*s %-*s", kwmax, s[0], smax, s[1])
+	printargs(w, 2, s)
 }
 
 // keyword formats a general keyword
-func keyword(level, varmax, kwmax int, spacer string, s []string) {
+func keyword(w io.Writer, level, varmax, kwmax int, spacer string, s []string) {
 	if kind(s) == AssignOp {
-		printlevel(level, spacer)
-		fmt.Printf("%-*s %s%s", varmax, s[0], s[1], s[2])
-		printargs(3, s)
+		printlevel(w, level, spacer)
+		fmt.Fprintf(w, "%-*s %s%s", varmax, s[0], s[1], s[2])
+		printargs(w, 3, s)
 		return
 	}
 	// assigments
 	if kind(s) == Var {
-		printlevel(level, spacer)
-		fmt.Printf("%-*s %s", varmax, s[0], s[1])
-		printargs(2, s)
+		printlevel(w, level, spacer)
+		fmt.Fprintf(w, "%-*s %s", varmax, s[0], s[1])
+		printargs(w, 2, s)
 		return
 	}
 	// keywords
-	printlevel(level, spacer)
+	printlevel(w, level, spacer)
 	if s[0] == "efor" || s[0] == "elist" || s[0] == "eif" {
-		fmt.Printf("%-*s\n", kwmax, s[0])
+		fmt.Fprintf(w, "%-*s\n", kwmax, s[0])
 	} else {
-		fmt.Printf("%-*s", kwmax, s[0])
+		fmt.Fprintf(w, "%-*s", kwmax, s[0])
 	}
-	printargs(1, s)
+	printargs(w, 1, s)
 }
 
 // listitem formats a list item
-func listitem(level, max int, spacer string, s []string) {
-	printlevel(level, spacer)
-	fmt.Printf("%-*s", max-len(spacer), s[0])
-	printargs(1, s)
+func listitem(w io.Writer, level, max int, spacer string, s []string) {
+	printlevel(w, level, spacer)
+	fmt.Fprintf(w, "%-*s", max-len(spacer), s[0])
+	printargs(w, 1, s)
 }
 
 // conditional formats if statements
-func conditional(level int, spacer string, s []string) {
-	printlevel(level, spacer)
-	fmt.Printf("%s %s ", s[0], s[1])
+func conditional(w io.Writer, level int, spacer string, s []string) {
+	printlevel(w, level, spacer)
+	fmt.Fprintf(w, "%s %s ", s[0], s[1])
 	switch len(s) {
 	case 4:
-		fmt.Printf("%s %s\n", s[2], s[3])
+		fmt.Fprintf(w, "%s %s\n", s[2], s[3])
 	case 5:
-		fmt.Printf("%s%s %s\n", s[2], s[3], s[4])
+		fmt.Fprintf(w, "%s%s %s\n", s[2], s[3], s[4])
 	case 6:
-		fmt.Printf("%s%s %s %s\n", s[2], s[3], s[4], s[5])
+		fmt.Fprintf(w, "%s%s %s %s\n", s[2], s[3], s[4], s[5])
 	}
 }
 
 // format formats a series of decksh lines (each one is a parsed string slice)
-func format(s [][]string, ki keywordInfo, kwmax, strmax, assmax int, spacer string) {
+func format(srcfile string, s [][]string, spacer string, rewrite bool) {
+	var w io.Writer = os.Stdout // default destination
+	var tempfile string
+
+	// if rewriting, use a unique name
+	if rewrite {
+		tempfile = fmt.Sprintf("dst-%d-%d.dsh", os.Getpid(), os.Getuid())
+		tmp, err := os.Create(tempfile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "%v\n", err)
+			os.Exit(1)
+		}
+		w = tmp
+	}
+
+	kwmax := maxitem(s, 0, 1)  // max keyword length
+	strmax := maxitem(s, 1, 2) // max string argument length
+	assmax := maxvar(s)        // max variable
+
 	if kwmax > assmax {
 		assmax = kwmax
 	}
@@ -218,45 +236,54 @@ func format(s [][]string, ki keywordInfo, kwmax, strmax, assmax int, spacer stri
 	for i := 0; i < len(s); i++ {
 		line := s[i]
 		if kind(line) == Blank {
-			fmt.Printf("\n")
+			fmt.Fprintf(w, "\n")
 			continue
 		}
 		if kind(line) == Comment {
-			printlevel(1, spacer)
-			fmt.Printf("%s\n", line[0])
+			printlevel(w, 1, spacer)
+			fmt.Fprintf(w, "%s\n", line[0])
 			continue
 		}
 		// process keywords
 		switch line[0] {
 		case "deck", "edeck", "def", "edef":
 			level = 0
-			toplevel(level, spacer, line)
+			toplevel(w, level, spacer, line)
 			level++
 		case "slide", "eslide", "import", "include":
 			level = 1
-			toplevel(level, spacer, line)
+			toplevel(w, level, spacer, line)
 			level++
 		case "text", "ctext", "etext", "btext", "rtext", "arctext", "image", "textblock":
-			stringarg(level, kwmax, strmax, spacer, line)
+			stringarg(w, level, kwmax, strmax, spacer, line)
 		case "for", "clist", "list", "blist", "nlist", "else":
 			level = 2
-			keyword(level, assmax, kwmax, spacer, line)
+			keyword(w, level, assmax, kwmax, spacer, line)
 			level++
 		case "if":
 			level = 2
-			conditional(level, spacer, line)
+			conditional(w, level, spacer, line)
 			level++
 		case "efor", "elist", "eif":
 			level--
-			keyword(level, assmax, kwmax, spacer, line)
+			keyword(w, level, assmax, kwmax, spacer, line)
 		case "li":
 			level = 3
-			listitem(level, assmax, spacer, line)
+			listitem(w, level, assmax, spacer, line)
 		case "dchart", "chart":
 			level = 2
-			dchart(level, kwmax, spacer, line)
+			dchart(w, level, kwmax, spacer, line)
 		default:
-			keyword(level, assmax, kwmax, spacer, line)
+			keyword(w, level, assmax, kwmax, spacer, line)
+		}
+	}
+
+	// overwrite original file, if specified
+	if rewrite && len(srcfile) > 0 {
+		err := os.Rename(tempfile, srcfile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "%v\n", err)
+			os.Exit(1)
 		}
 	}
 }
@@ -369,12 +396,12 @@ func sortkw(ki keywordInfo) {
 }
 
 // dshread reads data from stdin or named file
-func dshread(args []string) [][]string {
+func dshread(srcfile string) [][]string {
 	var input io.Reader
 	var err error
-	input = os.Stdin
-	if len(args) > 0 {
-		input, err = os.Open(args[0])
+	input = os.Stdin // default
+	if len(srcfile) > 0 {
+		input, err = os.Open(srcfile)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", err)
 			os.Exit(1)
@@ -383,8 +410,8 @@ func dshread(args []string) [][]string {
 	return rd(input)
 }
 
-// diag show stats
-func diag(data [][]string, ki keywordInfo, all, rawdump, ksort, fsort bool) {
+// diag show stats and performs structural checks, returning the number of issues.
+func diag(data [][]string, ki keywordInfo, all, rawdump, ksort, fsort bool) int {
 	if all {
 		rawdump, ksort, fsort = true, true, true
 	}
@@ -397,6 +424,21 @@ func diag(data [][]string, ki keywordInfo, all, rawdump, ksort, fsort bool) {
 	if fsort {
 		sortkwfreq(ki)
 	}
+	return intcheck(ki) // check for issues
+}
+
+// getsrc returns the source filename
+// if the name is "" you cannot rewrite.
+func getsrc(s []string, rw bool) string {
+	srcfile := ""
+	if len(s) > 0 {
+		srcfile = s[0]
+	}
+	if rw && srcfile == "" {
+		fmt.Fprintln(os.Stderr, "to re-write must specify a file")
+		os.Exit(1)
+	}
+	return srcfile
 }
 
 // format a named file or standard input if no file is specified.
@@ -405,18 +447,16 @@ func main() {
 	rawdump := flag.Bool("dump", false, "dump raw parsed data")
 	kwsort := flag.Bool("ksort", false, "show keyword counts")
 	freqsort := flag.Bool("fsort", false, "show keyword frequencies")
+	rewrite := flag.Bool("w", false, "re-write the source")
 	spacer := flag.String("i", "\t", "indent")
 	flag.Parse()
 
-	data := dshread(flag.Args())                               // read data
-	kwinfo := kwcounter(data)                                  // count keywords and elements
-	kwmax := maxitem(data, 0, 1)                               // max keyword length
-	strmax := maxitem(data, 1, 2)                              // max string argument length
-	varmax := maxvar(data)                                     // max variable
-	diag(data, kwinfo, *verbose, *rawdump, *kwsort, *freqsort) // if specified, show various diagnostics
-	issues := intcheck(kwinfo)                                 // check for issues
-	if issues == 0 {                                           // if no issues, format
-		format(data, kwinfo, kwmax, strmax, varmax, *spacer)
+	srcfile := getsrc(flag.Args(), *rewrite)                             // determine the input source
+	data := dshread(srcfile)                                             // read data (stdin if srcfile == "")
+	kwinfo := kwcounter(data)                                            // count keywords and elements
+	issues := diag(data, kwinfo, *verbose, *rawdump, *kwsort, *freqsort) // show diagnostics, check for issues
+	if issues == 0 {                                                     // if no issues, format
+		format(srcfile, data, *spacer, *rewrite)
 	}
 	os.Exit(issues)
 }
