@@ -251,7 +251,7 @@ func format(srcfile string, s [][]string, spacer string, rewrite bool) {
 			level = 1
 			toplevel(w, level, spacer, line)
 			level++
-		case "text", "ctext", "etext", "btext", "rtext", "arctext", "image", "textblock":
+		case "text", "ctext", "etext", "btext", "rtext", "arctext", "image", "cimage", "textblock":
 			stringarg(w, level, kwmax, strmax, spacer, line)
 		case "for", "clist", "list", "blist", "nlist", "else":
 			level = 2
