@@ -13,7 +13,7 @@ const (
 )
 
 // emap is the id=expression map
-var emap = map[string]string{"deckshVersion": `"2024-09-16-1.0.0"`}
+var emap = map[string]string{"deckshVersion": `"2024-11-04-1.0.0"`}
 
 var (
 	canvasWidth  = 792.0
@@ -21,6 +21,11 @@ var (
 	// Version ...
 	Version = emap["deckshVersion"]
 )
+
+// Assign makes an assignment
+func Assign(name, value string) {
+	emap[name] = value
+}
 
 // Process reads input, parses, dispatches functions for code generation
 func Process(w io.Writer, r io.Reader) error {
