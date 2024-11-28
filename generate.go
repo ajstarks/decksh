@@ -39,7 +39,6 @@ func validNumber(s ...string) error {
 		c := s[i][0]
 		if !(('0' <= c && c <= '9') || c == '-' || c == '.') {
 			return fmt.Errorf("'%v' is not a number (not defined?)", s[i])
-
 		}
 	}
 	return nil
@@ -312,16 +311,22 @@ func textblockfile(w io.Writer, s []string, linenumber int) error {
 // textcode generates markup for a block of code
 // textcode x y width size [color]
 func textcode(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s \"filename\" x y width size [color]", linenumber, s[0])
+
+	if n < 6 {
+		return e
+	}
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
-	switch len(s) {
+	switch n {
 	case 6:
 		fmt.Fprintf(w, "<text type=\"code\" file=%s xp=%q yp=%q wp=%q sp=%q/>\n", s[1], s[2], s[3], s[4], s[5])
 	case 7:
 		fmt.Fprintf(w, "<text type=\"code\" file=%s xp=%q yp=%q wp=%q sp=%q color=%s/>\n", s[1], s[2], s[3], s[4], s[5], s[6])
 	default:
-		return fmt.Errorf("line %d: %s \"filename\" x y width size [color]", linenumber, s[0])
+		return e
 	}
 	return nil
 }
@@ -331,7 +336,9 @@ func textcode(w io.Writer, s []string, linenumber int) error {
 func image(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s \"image-file\" x y w h [scale] [link]", linenumber, s[0])
-
+	if n < 6 {
+		return e
+	}
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
@@ -354,7 +361,7 @@ func image(w io.Writer, s []string, linenumber int) error {
 func cimage(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	e := fmt.Errorf("line %d: %s \"image-file\" \"caption\" x y w h [scale] [link] [caption size]", linenumber, s[0])
-	if n < 6 {
+	if n < 7 {
 		return e
 	}
 	if err := validNumber(s[3], s[4], s[5], s[6]); err != nil {
