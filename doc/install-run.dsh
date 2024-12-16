@@ -345,6 +345,8 @@ deck
 			li "decksh -o out.xml"
 			li "decksh -o out.xml in.dsh"
 			li "decksh -version"
+			li "decksh -var name=value ..."
+			li "decksh -dump ..."
 		elist
 		lx+=47
 		es=ts2*0.75
@@ -355,6 +357,8 @@ deck
  			li "read from stdin, write to file"
  			li "read from file, write to file"
  			li "show version"
+ 			li "assign a variable"
+ 			li "dump assignments"
  		elist
 		text "decksh example.dsh | pdfdeck ..."  left 20 ts "mono" "maroon"
 	eslide

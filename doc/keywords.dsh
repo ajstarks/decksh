@@ -134,6 +134,7 @@
 		    li "format"
 			li "substr"
 			li "vmap"
+			li "dump"
 		elist
 		lx+=csep2
 		text "Math" lx headtop hsize "sans" headcolor

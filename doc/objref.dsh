@@ -82,6 +82,7 @@ deck
 			li "x *= 10"
 			li
 			li "text s x y 2"
+			li "dump [var list]"
 		elist
 		ax+=35
 		list ax ay 4 "sans" "gray" 100 1.5
@@ -92,6 +93,7 @@ deck
 			li "assignment operator"
 			li
 			li "variable use"
+			li "dump the value of variables"
 		elist
 
 		text "Note: the reserved variable deckshVersion contains the version of decksh" 20 5 1.5
