@@ -7,6 +7,7 @@ deck
 	titleY=92
 	titleSize=4
 	// title, fonts
+	dump
 	slide
 		ctext "decksh tests"  mid mid 10
 		ctext "version"       mid 20 2
@@ -650,11 +651,27 @@ deck
 		s0=format "Widget 1: %.2f" sp0
 		s1=format "Widget 2: %.3f" sp1
 		st=format "Total Widgets: %v" sp0+sp1
+		scc0=format "%," 1234567890
+		scc1=format "%," 123456789
+		scc2=format "%," 12345678
+		scc3=format "%," 1234567
+		scc4=format "%," 123456
+		scc5=format "%," 12345
+		scc6=format "%," 1234
+		scc7=format "%," 123
 
-		ctext s0 50 60 3
-		ctext s1 50 50 3
-		ctext st 50 40 3
-		ctext ss 50 70 3
+		ctext s0 20 80 3
+		ctext s1 20 70 3
+		ctext st 20 60 3
+		ctext ss 20 50 3
+		etext scc0 80 80 3
+		etext scc1 80 75 3
+		etext scc2 80 70 3
+		etext scc3 80 65 3
+		etext scc4 80 60 3
+		etext scc5 80 55 3
+		etext scc6 80 50 3
+		etext scc7 80 45 3
 	eslide
 
 	slide
@@ -1126,14 +1143,14 @@ deck
 		ninety	90
 		one-hundred	100
 		edata
-		dchart  foo.d
+		dchart  "foo.d"
 	eslide
 
 	// dchart
 	lopts="-fulldeck=f -val=f -left 20 -right 80 -line -bar=f -scatter -max 100 -yrange 0,100,20"
 	slide
-		dchart lopts -xlabel 1  -yaxis -grid -color red     sales.d
-		dchart lopts -xlabel 0               -color green revenue.d
+		dchart lopts -xlabel 1  -yaxis -grid -color red     "sales.d"
+		dchart lopts -xlabel 0               -color green "revenue.d"
 		legend "Sales"   20 20 1.5 "sans" "green"
 		legend "Revenue" 35 20 1.5 "sans" "red"
 	eslide
@@ -1205,7 +1222,7 @@ deck
 		curve   80 gy 95 25 90 gy 0.25 c3
 
 		// Chart
-		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts AAPL.d
+		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts "AAPL.d"
 	eslide
 
 
@@ -1250,7 +1267,8 @@ deck
 		ctext "curve"	85 notey	ns nf nc
 
 		// Chart
-		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts AAPL.d
+		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts "AAPL.d"
 	eslide
 
+	dump titleX titleY titleSize
 edeck
