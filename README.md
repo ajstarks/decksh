@@ -74,10 +74,11 @@ $ decksh                   # input from stdin, output to stdout
 $ decksh -o foo.xml        # input from stdin, output to foo.xml
 $ decksh foo.sh            # input from foo.sh output to stdout
 $ decksh -o foo.xml foo.sh # input from foo.sh output to foo.xml
+$ decksh -version          # show decksh version
+$ decksh -dump ...         # show decksh variables
 ```
 
-Typically, `decksh` acts as the head of a rendering pipeline, where another `deck` client renders the markup.  
-This example uses `pdfdeck`
+Typically, `decksh` acts as the head of a rendering pipeline, where another `deck` client renders the markup. This example uses `pdfdeck`
 
 ```
 $ decksh text.dsh | pdfdeck -stdout -pagesize 1200,900 - > text.pdf 
@@ -160,9 +161,12 @@ Text, font, color, caption and link arguments follow Go conventions (surrounded 
 
 ## Coordinate System
 
-`decksh` (like the deck markup it produces) uses a traditional Cartesian coordinate system:  
-The origin (0,0) is at the lower left, x increases to the right, and y increases upwards. The coordinate system is  
-expliticly based on the percentages, with x and y ranging from 0-100. For example (50, 50) is the middle of the canvas, (100,100) is the upper right, (100,0) is the lower right, and (0,100) is the upper left.
+`decksh` (like the deck markup it produces) uses a traditional Cartesian
+coordinate system:  The origin (0,0) is at the lower left, x increases to the
+right, and y increases upwards. The coordinate system is  expliticly based on
+the percentages, with x and y ranging from 0-100. For example (50, 50) is the
+middle of the canvas, (100,100) is the upper right, (100,0) is the lower
+right, and (0,100) is the upper left.
 
 ![percent-canvas](images/pct-canvas.png)
 
@@ -179,8 +183,10 @@ Color gradients (used for slide backgrounds and rectangle and square fills) are 
 
 ## Coordinates, dimensions, scales, opacity and fonts
 
-Coordinates, dimensions, scales and opacities are floating point numbers ranging from from 0-100 (representing percentages of the canvas width and percent opacity).  
-Some arguments are optional, and if omitted defaults are applied (black for text, gray for graphics, 100% opacity).
+Coordinates, dimensions, scales and opacities are floating point numbers
+ranging from from 0-100 (representing percentages of the canvas width and
+percent opacity). Some arguments are optional, and if omitted defaults are
+applied (black for text, gray for graphics, 100% opacity).
 
 Canvas size and image dimensions are in pixels.
 
@@ -289,9 +295,9 @@ a=x%10
 
 ## Coordinate assignments
 
-Assign (x,y) coordinates to the specified identifier.  
-The x coordinate is `id_x` and the y coordinate is `id_y`.  
-The expression with the parentheses may be a constant, variable or binary expression.
+Assign (x,y) coordinates to the specified identifier.  The x coordinate is
+`id_x` and the y coordinate is `id_y`.  The expression with the parentheses
+may be a constant, variable or binary expression.
 
 This code:
 
@@ -336,6 +342,42 @@ p=polar cx cy r theta
 
 Return the polar coordinates `(p_x)` and `(p_y)` given the center at `(cx, cy)`, radius `r`, and angle `theta` (in degrees)
 
+## Dump
+
+The keyword `dump` causes a sorted list of variables and their values to 
+be printed on standard error.
+
+For example, given:
+
+```
+deck
+    slide
+        x=50
+        y=50
+        s=5
+        message="Hello, decksh"
+        ctext message  x y s
+    eslide
+    dump
+edeck
+```
+Produces:
+```
+deckshVersion   = "2024-12-15-1.0.0"
+message         = "Hello, decksh"
+s               = 5
+x               = 50
+y               = 50
+```
+
+You can also specify that specific variables are shown, `dump x y` shows:
+
+```
+x               = 50
+y               = 50
+```
+
+
 ## Area
 
 ```
@@ -347,7 +389,7 @@ return the circular area, `a` for the diameter `d`.
 
 ## Formatted Text
 
-Assign a string variable with formatted text (using package fmt floating point format strings)
+Assign a string variable with formatted text (using package fmt floating point format strings). Up to five variables may be used.
 
 ```
 w1=10
@@ -356,6 +398,12 @@ w2=20+100
 s0=format "Widget 1: %.2f" w1
 s1=format "Widget 2: %.3f" w2
 st=format "Total Widgets: %v" s1+w2
+```
+
+Large numbers may also be formatted with commas using the `%,` format string. For example:
+
+```
+s=format "%," 123456789  // s contains 123,456,789
 ```
 
 ## Random Number
@@ -455,8 +503,9 @@ e=substr "This is a test"  5 8  // e="is a"
 
 ## Loops
 
-Loop over `statements`, with `x` starting at `begin`, ending at `end` with an optional `increment` (if omitted the increment is 1).  
-Substitution of `x` will occur in statements.
+Loop over `statements`, with `x` starting at `begin`, ending at `end` with an
+optional `increment` (if omitted the increment is 1). Substitution of `x`
+will occur in statements.
 
 ```
 for x=begin end [increment]
@@ -464,8 +513,8 @@ for x=begin end [increment]
 efor
 ```
 
-Loop over `statements`, with `x` ranging over the contents of items within `[]`.  
-Substitution of `x` will occur in statements.
+Loop over `statements`, with `x` ranging over the contents of items within `
+[]`.  Substitution of `x` will occur in statements.
 
 ```
 for x=["abc" "def" "ghi"]
@@ -473,7 +522,7 @@ for x=["abc" "def" "ghi"]
 efor
 ```
 
-Loop over `statements`, with `x` ranging over the contents `"file"`.  
+Loop over `statements`, with `x` ranging over the contents `"file"`.
 Substitution of `x` will occur in statements.
 
 ```
@@ -484,7 +533,10 @@ efor
 
 ## Conditionals
 
-Specify the conditional execution of decksh statements with `if condition`, `else` and `eif`. The else block is optional. The values for ```v1``` and ```v2``` may be either numbers of strings. (For strings only ```==``` and ```!=``` apply). The conditions are:
+Specify the conditional execution of decksh statements with `if condition`,
+`else` and `eif`. The else block is optional. The values for ```v1``` and
+```v2``` may be either numbers of strings. (For strings only ```==``` and
+```!=``` apply). The conditions are:
 
 ```
 if v1 condition v2
@@ -541,7 +593,8 @@ places the contents of `"file"` inline.
 
 ## Functions
 
-Functions have a defined `name` and arguments, and are specifed with statements between the `def` and `edef` keywords
+Functions have a defined `name` and arguments, and are specifed with
+statements between the `def` and `edef` keywords
 
 ```
 def name arg1 arg2 ... argn
@@ -628,7 +681,10 @@ grid "file.dsh" x y xskip yskip limit
 
 ![grid](images/grid.png)
 
-The first file argument (`"file.dsh"` above) specifies a file with decksh commands; each item in the file must include the arguments "x" and "y". Normal variable substitution occurs for other arguments. For example if the contents of `file.dsh` has six items:
+The first file argument (`"file.dsh"` above) specifies a file with decksh
+commands; each item in the file must include the arguments "x" and "y".
+Normal variable substitution occurs for other arguments. For example if the
+contents of `file.dsh` has six items:
 
 ```
 circle x y 5
@@ -647,9 +703,11 @@ grid "file.dsh" 10 80 20 30 50
 
 creates two rows: three circles and then three squares
 
-`x, y` specify the beginning location of the items, `xskip` is the horizontal spacing between items.  
-`yinternal` is the vertical spacing between items and `limit` the the horizontal limit. When the `limit` is reached,  
-a new row is created.
+`x, y` specify the beginning location of the items, `xskip` is the horizontal
+spacing between items.  `yinternal` is the vertical spacing between items and
+`limit` the the horizontal limit. When the `limit` is reached,  a new row is
+created.
+
 
 ## Text
 
@@ -701,9 +759,10 @@ rtext      "text"     x y angle size [font] [color] [opacity] [link]
 
 ### text on an arc
 
-Text on an arc centered at `(x,y)`, with specified radius, between begin and ending angles (in degrees).  
-if the beginning angle is less than the ending angle the text is rendered counter-clockwise.  
-if the beginning angle is greater than the ending angle, the text is rendered clockwise.
+Text on an arc centered at `(x,y)`, with specified radius, between begin and
+ending angles (in degrees).  if the beginning angle is less than the ending
+angle the text is rendered counter-clockwise.  if the beginning angle is
+greater than the ending angle, the text is rendered clockwise.
 
 ```
 arctext    "text"     x y radius begin-angle end-angle size [font] [color] [opacity] [link]
@@ -713,7 +772,8 @@ arctext    "text"     x y radius begin-angle end-angle size [font] [color] [opac
 
 ### text from file contents (plain and code formatted)
 
-Place the contents of "filename" at (x,y). Place the contents of "filename" in gray box, using a monospaced font.
+Place the contents of "filename" at (x,y). Place the contents of "filename" in
+gray box, using a monospaced font.
 
 ```
 textfile   "filename" x y       size [font] [color] [opacity] [linespacing]
@@ -729,8 +789,9 @@ textcode   "filename" x y width size [color]
 
 ## Images
 
-Plain and captioned, with optional scales, links and caption size. `(x, y)` is the center of the image,  
-and `width` and `height` are the image dimensions in pixels.
+Plain and captioned, with optional scales, links and caption size. `(x, y)` is
+the center of the image,  and `width` and `height` are the image dimensions
+in pixels.
 
 ```
 image  "file"           x y width height [scale] [link]
@@ -741,7 +802,8 @@ cimage "file" "caption" x y width height [scale] [link] [size]
 
 ## Lists
 
-(plain, bulleted, numbered, centered). Optional arguments specify the color, opacity, line spacing, link and rotation (degrees)
+(plain, bulleted, numbered, centered). Optional arguments specify the color,
+opacity, line spacing, link and rotation (degrees)
 
 ```
 list   x y size [font] [color] [opacity] [linespacing] [link] [rotation]
@@ -776,10 +838,10 @@ elist
 
 ## Graphics
 
-Rectangles, ellipses, squares, circles: specify the center location `(x, y)` and  
-dimensions `(w,h)` with optional color and opacity.  
-The default color and opacity is gray, 100%. In the case of the `acircle` keyword, the `a` argument  
-is the area, not the diameter.
+Rectangles, ellipses, squares, circles: specify the center location `(x, y)`
+and  dimensions `(w,h)` with optional color and opacity.  The default color
+and opacity is gray, 100%. In the case of the `acircle` keyword, the `a`
+argument  is the area, not the diameter.
 
 ```
 rect    x y w h [color] [opacity]
@@ -809,7 +871,8 @@ acircle x y a   [color] [opacity]
 
 ![acircle](images/area.png)
 
-Rounded rectangles are similar, with the added radius for the corners: (solid colors only)
+Rounded rectangles are similar, with the added radius for the corners:
+(solid colors only)
 
 ```
 rrect   x y w h r [color]
@@ -817,7 +880,8 @@ rrect   x y w h r [color]
 
 ![rrect](images/rrect.png)
 
-For polygons, specify the x and y coordinates as a series of numbers, with optional color and opacity.
+For polygons, specify the x and y coordinates as a series of numbers, with
+optional color and opacity.
 
 ```
 polygon "xcoords" "ycoords" [color] [opacity]
@@ -857,9 +921,10 @@ polyline "xcoords" "ycoords" [lw] [color] [opacity]
 
 ![polyline](images/polyline.png)
 
-For lines, specify the coordinates for the beginning `(x1,y1)` and end points `(x2, y2)`.  
-For horizontal and vertical lines specify the initial point and the length.  
-Line thickness, color and opacity are optional, with defaults (0.2, gray, 100%).
+For lines, specify the coordinates for the beginning `(x1,y1)` and end points
+`(x2, y2)`.  For horizontal and vertical lines specify the initial point and
+the length.  Line thickness, color and opacity are optional, with defaults
+(0.2, gray, 100%).
 
 A "pill" shape has is a horizontal line with rounded ends.
 
@@ -887,10 +952,12 @@ pill    x w length  size   [color]
 
 ![pill](images/pill.png)
 
-Curve is a quadratic Bezier curve: specify the beginning location `(bx, by)`,  
+Curve is a quadratic Bezier curve: specify the beginning location `(bx, by)`,
 the control point `(cx, cy)`, and ending location `(ex, ey)`.
 
-For arcs, specify the location of the center point `(x,y)`, the width and height, and the beginning and ending angles (in degrees). Line thickness, color and opacity are optional, with defaults (0.2, gray, 100%).
+For arcs, specify the location of the center point `(x,y)`, the width and
+height, and the beginning and ending angles (in degrees). Line thickness,
+color and opacity are optional, with defaults (0.2, gray, 100%).
 
 ```
 curve   bx by cx cy ex ey [size] [color] [opacity]
@@ -904,8 +971,8 @@ arc     x y w h a1 a2     [size] [color] [opacity]
 
 ![arc](images/arc.png)
 
-To make n-sided stars, use the "star" keyword: `(x,y)` is the center of the star,  
-`np` is the number of points, and `inner` and `outer` are the sizes of  
+To make n-sided stars, use the "star" keyword: `(x,y)` is the center of the
+star,  `np` is the number of points, and `inner` and `outer` are the sizes of
 the inner and outer points, respectively.
 
 ```
@@ -916,9 +983,10 @@ star    x y np inner outer [color] [opacity]
 
 ## Arrows
 
-Arrows with optional linewidth, width, height, color, and opacity.  
-Default linewidth is 0.2, default arrow width and height is 3, default color and opacity is gray, 100%.  
-The curve variants use the same syntax for specifying curves.
+Arrows with optional linewidth, width, height, color, and opacity.  Default
+linewidth is 0.2, default arrow width and height is 3, default color and
+opacity is gray, 100%.  The curve variants use the same syntax for specifying
+curves.
 
 ```
 arrow   x1 y1 x2 y2       [linewidth] [arrowidth] [arrowheight] [color] [opacity]
@@ -952,9 +1020,10 @@ dcarrow bx by cx cy ex ey [linewidth] [arrowidth] [arrowheight] [color] [opacity
 
 ## Braces
 
-Left, right, up and down-facing braces.  
-(x, y) is the location of the point of the brace, (aw, ah) are width and height of the braces's  
-end curves; `linewidth`, `color` and `opacity` are optional (defaults are 0.2, gray, 100%)
+Left, right, up and down-facing braces. (x, y) is the location of the point of
+the brace, (aw, ah) are width and height of the braces's  end curves;
+`linewidth`, `color` and `opacity` are optional (defaults are 0.2, gray,
+100%)
 
 ```
 lbrace x y height aw ah [linewidth] [color] [opacity]
@@ -982,11 +1051,14 @@ dbrace x y width  aw ah [linewidth] [color] [opacity]
 
 ## Brackets
 
-Left, right, up and down-facing brackets.  
-(x, y) is the location of the center of the bracket.  
-For left and right-facing brackets, `width` is the size of the top and bottom portions, and `height` is the span of the bracket.  
-For upward and downward-facing brackets, `width` is the span of of bracket, and `height` is the size of the  
-left and right portions. `linewidth`, `color` and `opacity` are optional (defaults are 0.2, gray, 100%)
+Left, right, up and down-facing brackets. 
+
+(x, y) is the location of the center of the bracket.  For left and
+right-facing brackets, `width` is the size of the top and bottom portions,
+and `height` is the span of the bracket.  For upward and downward-facing
+brackets, `width` is the span of of bracket, and `height` is the size of the
+left and right portions. `linewidth`, `color` and `opacity` are optional
+(defaults are 0.2, gray, 100%)
 
 ```
 lbracket x y width height [linewidth] [color] [opacity]
