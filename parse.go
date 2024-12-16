@@ -374,6 +374,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "deck", "doc":
 		return deck(w, tokens, n)
 
+	case "dump":
+		return Dump(t)
+
 	case "canvas":
 		return canvas(w, tokens, n)
 

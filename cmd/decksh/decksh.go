@@ -19,13 +19,14 @@ import (
 // $ decksh -version           # show decksh version
 func main() {
 	var dest, cvar string
-	var version bool
+	var version, dump bool
 	var input io.ReadCloser = os.Stdin
 	var output io.WriteCloser = os.Stdout
 
 	flag.StringVar(&dest, "o", "", "output destination")
 	flag.StringVar(&cvar, "var", "", "assign name=value")
 	flag.BoolVar(&version, "version", false, "show version")
+	flag.BoolVar(&dump, "dump", false, "dump variables")
 	flag.Parse()
 
 	if len(cvar) > 2 {
@@ -64,6 +65,10 @@ func main() {
 	if err := decksh.Process(output, input); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(3)
+	}
+
+	if dump {
+		decksh.Dump("")
 	}
 
 	input.Close()

@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"sort"
+	"strings"
 )
 
 const (
@@ -13,7 +15,7 @@ const (
 )
 
 // emap is the id=expression map
-var emap = map[string]string{"deckshVersion": `"2024-11-28-1.0.0"`}
+var emap = map[string]string{"deckshVersion": `"2024-12-15-1.0.0"`}
 
 var (
 	canvasWidth  = 792.0
@@ -25,6 +27,33 @@ var (
 // Assign makes an assignment
 func Assign(name, value string) {
 	emap[name] = value
+}
+
+// Dump shows the variables
+func Dump(cmd string) error {
+	keys := make([]string, 0, len(emap))
+	s := strings.Fields(cmd)
+	ls := len(s)
+
+	// get and sort map keys
+	for k := range emap {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
+	// show all keys or only specified ones.
+	for _, k := range keys {
+		if ls > 1 {
+			for i := 1; i < ls; i++ { // skip "dump" keyword
+				if k == s[i] {
+					fmt.Fprintf(os.Stderr, "%-15s = %v\n", k, emap[k])
+				}
+			}
+		} else {
+			fmt.Fprintf(os.Stderr, "%-15s = %v\n", k, emap[k])
+		}
+	}
+	return nil
 }
 
 // Process reads input, parses, dispatches functions for code generation

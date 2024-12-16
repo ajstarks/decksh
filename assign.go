@@ -14,6 +14,30 @@ func ftoa(v float64) string {
 	return strconv.FormatFloat(v, 'g', -1, 64)
 }
 
+// comma formats a floating point value with commas.
+// Limitations: up to 15 digits, no decimals
+func comma(f float64) string {
+	s := strconv.FormatFloat(f, 'f', 0, 64)
+	ls := len(s)
+	p0 := ls - 3
+	p1 := ls - 6
+	p2 := ls - 9
+	p3 := ls - 12
+	if ls >= 4 && ls <= 6 {
+		return s[0:p0] + "," + s[p0:]
+	}
+	if ls >= 7 && ls <= 9 {
+		return s[0:p1] + "," + s[p1:p0] + "," + s[p0:]
+	}
+	if ls >= 10 && ls <= 12 {
+		return s[0:p2] + "," + s[p2:p1] + "," + s[p1:p0] + "," + s[p0:]
+	}
+	if ls >= 13 && ls <= 15 {
+		return s[0:p3] + "," + s[p3:p2] + "," + s[p2:p1] + "," + s[p1:p0] + "," + s[p0:]
+	}
+	return s
+}
+
 // assign creates an assignment by filling in the global id map
 // assignments are either
 // simple (x=10),
@@ -287,7 +311,13 @@ func sprint(s []string, linenumber int) error {
 		if err != nil {
 			return err
 		}
-		emap[s[0]] = fmt.Sprintf(s[3], v1)
+
+		if s[3] == `"%,"` { // special case: single number formatted with commas.
+			emap[s[0]] = `"` + comma(v1) + `"`
+		} else {
+			emap[s[0]] = fmt.Sprintf(s[3], v1)
+		}
+
 		return nil
 
 	case 6: // x=sprint fmt a b
