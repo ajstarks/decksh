@@ -14,7 +14,8 @@ import (
 
 const (
 	maxbufsize  = 256 * 1024 // the default 64k buffer is too small
-	kwfmt       = "%-72s\t%s\n"
+	kwfmt       = "%-75s %s\n"
+	infofmt     = "%-15s %s\n"
 	argerrfmt   = "line %d: %v -> %s should have at least %d arguments, you have %d\nUsage: %v\n"
 	blockerrfmt = "The count of %s (%d) does not match the count of %s (%d)\n"
 	listerrfmt  = "Number of lists (%d) does not match elist count (%d)\n"
@@ -51,7 +52,7 @@ var kwInfo = map[string]syntax{
 	"area":          {minargs: 1, maxargs: 1, desc: "Assign an area", usage: "area expression"},
 	"format":        {minargs: 2, maxargs: 7, desc: "Assign formatting to expressions", usage: "format \"format\" expr... (up to 5)"},
 	"random":        {minargs: 2, maxargs: 2, desc: "Assign a random number between two values", usage: "random min max"},
-	"substr":        {minargs: 3, maxargs: 3, desc: "Assign a substring", usage: "v=substr \"string\" begin end"},
+	"substr":        {minargs: 3, maxargs: 3, desc: "Assign a substring", usage: "substr \"string\" begin end"},
 	"vmap":          {minargs: 5, maxargs: 5, desc: "Assign a value mapped to two ranges", usage: "vmap data min1 max1 min2 max2"},
 	"acircle":       {minargs: 3, maxargs: 5, desc: "Circle with sized based on area", usage: "arcicle x y w [color] [opacity]"},
 	"arc":           {minargs: 6, maxargs: 9, desc: "Ellipical arc centered at (x,y), dimensions (w,h) between angles a1 and a2", usage: "arc x y w h a1 a2 [lw color opacity]"},
@@ -109,11 +110,11 @@ var kwInfo = map[string]syntax{
 	"rbrace":        {minargs: 5, maxargs: 8, desc: "Right pointing brace", usage: "rbrace x y h bw bh [lw] [color] [opacity]"},
 	"dbracket":      {minargs: 4, maxargs: 7, desc: "Downward pointing bracket", usage: "dbracket x y w h [lw] [color] [opacity]"},
 	"lbracket":      {minargs: 4, maxargs: 7, desc: "Left pointing bracket", usage: "lbracket x y w h [lw] [color] [opacity]"},
-	"ubracket":      {minargs: 4, maxargs: 7, desc: "Upwardfacing bracket", usage: "ubracket x y w h [lw] [color] [opacity]"},
+	"ubracket":      {minargs: 4, maxargs: 7, desc: "Upward facing bracket", usage: "ubracket x y w h [lw] [color] [opacity]"},
 	"rbracket":      {minargs: 4, maxargs: 7, desc: "Right pointing bracket", usage: "rbracket x y w h [lw] [color] [opacity]"},
-	"polar":         {minargs: 4, maxargs: 4, desc: "Assign polar coordinate centered at (x,y) at specified radius and angle (0-360)", usage: "polar x y radius angle"},
-	"polarx":        {minargs: 4, maxargs: 4, desc: "Assign X-polar coordinate centered at (x,y) at specified radius and angle (0-360)", usage: "polarx x y radius angle"},
-	"polary":        {minargs: 4, maxargs: 4, desc: "Assign Y-polar coordinate centered at (x,y) at specified radius and angle (0-360)", usage: "polary x y radius angle"},
+	"polar":         {minargs: 4, maxargs: 4, desc: "Assign polar coordinate centered at (x,y) at radius and angle (0-360)", usage: "polar x y radius angle"},
+	"polarx":        {minargs: 4, maxargs: 4, desc: "Assign X-polar coordinate centered at (x,y) at radius and angle (0-360)", usage: "polarx x y radius angle"},
+	"polary":        {minargs: 4, maxargs: 4, desc: "Assign Y-polar coordinate centered at (x,y) at radius and angle (0-360)", usage: "polary x y radius angle"},
 	"cosine":        {minargs: 1, maxargs: 1, desc: "Assign the cosine of expression", usage: "cosine expression"},
 	"sine":          {minargs: 1, maxargs: 1, desc: "sasign the sine of expression", usage: "sine expression"},
 	"sqrt":          {minargs: 1, maxargs: 1, desc: "Assign the square root of expression", usage: "sqrt expression"},
@@ -152,10 +153,8 @@ func kwcheck() int {
 	return issues
 }
 
-// kwuage shows all or specified keyword usage
-func kwusage(s string) {
+func keyinfo(s string, kind string) {
 	var keys []string
-
 	if s == "all" {
 		for k := range kwInfo {
 			keys = append(keys, k)
@@ -166,9 +165,15 @@ func kwusage(s string) {
 	}
 
 	for _, k := range keys {
-		fmt.Printf(kwfmt, kwInfo[k].usage, kwInfo[k].desc)
+		switch kind {
+		case "info":
+			fmt.Printf(kwfmt, kwInfo[k].usage, kwInfo[k].desc)
+		case "desc":
+			fmt.Printf(infofmt, k, kwInfo[k].desc)
+		case "usage":
+			fmt.Printf("%s\n", kwInfo[k].usage)
+		}
 	}
-
 }
 
 // kind returns the type of statement
@@ -244,12 +249,27 @@ func process(r io.Reader) int {
 
 // lint named files or standard input if no file is specified.
 func main() {
-	var lookup string
-	flag.StringVar(&lookup, "lookup", "", "lookup info on keywords (\"all\" for all, or a comma separated list. For example circle,rect)")
+	var info string
+	var desc string
+	var usage string
+
+	flag.StringVar(&info, "info", "", "show usage and description by keyword (\"all\" for every keyword, or a comma separated list. For example circle,rect)")
+	flag.StringVar(&desc, "desc", "", "show description by keyword (\"all\" for every keyword, or a comma separated list. For example circle,rect))")
+	flag.StringVar(&usage, "usage", "", "show usage by keyword (\"all\" for every keyword, or a comma separated list. For example circle,rect))")
 	flag.Parse()
 
-	if len(lookup) > 0 {
-		kwusage(lookup)
+	if len(info) > 0 {
+		keyinfo(info, "info")
+		os.Exit(0)
+	}
+
+	if len(desc) > 0 {
+		keyinfo(desc, "desc")
+		os.Exit(0)
+	}
+
+	if len(usage) > 0 {
+		keyinfo(usage, "usage")
 		os.Exit(0)
 	}
 
