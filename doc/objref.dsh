@@ -572,8 +572,8 @@ deck
 			li "x y w h"
 			li "x y w h radius"
 			li "x y w h"
-			li ` "x1 x2...xn" "y1 y2...yn"`
-			li ` "x1 x2...xn" "y1 y2...yn"`
+			li `"x1 x2...xn" "y1 y2...yn"`
+			li `"x1 x2...xn" "y1 y2...yn"`
 			li "x y sides inner outer"
 		elist
 		rc+=32
@@ -954,8 +954,8 @@ deck
 		circle 70 90 coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "polygon"                    30 ly ts "mono" kwcolor
-		ctext `x1 x2...xn" "y1 y2...yn`    50 ly ts "mono" argcolor
-		ctext "color op"                   76 ly ts "mono" optcolor
+		ctext `"x1 x2...xn" "y1 y2...yn"`  51 ly ts "mono" argcolor
+		ctext "color op"                   78 ly ts "mono" optcolor
 
 		polygon "10 25 20" "ey 30 ey"
 		text `polygon "10 25 20" "20 30 20"` 5 ely ls "mono"
