@@ -975,8 +975,8 @@ deck
 		circle 70 90 coordsize accentcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "polyline"                    30 ly ts "mono" kwcolor
-		ctext `x1 x2...xn" "y1 y2...yn`     50 ly ts "mono" argcolor
-		ctext "lw color op"                 80 ly ts "mono" optcolor
+		ctext `"x1 x2...xn" "y1 y2...yn"`   51 ly ts "mono" argcolor
+		ctext "lw color op"                 81 ly ts "mono" optcolor
 
 		polyline "10 25 20" "ey 30 ey"
 		text `polyline "10 25 20" "20 30 20"` 5 ely ls "mono"
