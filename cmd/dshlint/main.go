@@ -219,6 +219,33 @@ func parse(src string) []string {
 	return tokens
 }
 
+func unquote(s string) string {
+	l := len(s)
+	if l > 2 && s[0] == '"' && s[l-1] == '"' {
+		return s[1 : l-1]
+	}
+	return ""
+}
+
+// imagecheck checks if images can be opened
+func imagecheck(data [][]string) int {
+	errors := 0
+	for _, d := range data {
+		if len(d) > 2 && d[0] == "image" {
+			imgfile := unquote(d[1])
+			if len(imgfile) == 0 {
+				continue
+			}
+			_, err := os.Open(imgfile)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "%v\n", err)
+				errors++
+			}
+		}
+	}
+	return errors
+}
+
 // lint tests for proper keyword arguments
 func lint(data [][]string) int {
 	issues := 0
@@ -237,13 +264,14 @@ func lint(data [][]string) int {
 	return issues
 }
 
-// process processes a io.Reader of decksh code
+// process processes an io.Reader of decksh code
 func process(r io.Reader) int {
 	issues := 0
 	data := readDecksh(r) // read the data
 	kwcounter(data)       // count keywords and elements
 	issues += lint(data)  // check argument counts
 	issues += kwcheck()   // integrity check
+	issues += imagecheck(data)
 	return issues
 }
 
