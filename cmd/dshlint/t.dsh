@@ -1,5 +1,7 @@
 deck
 	slide
 		text "hello, world" 10
-	eslide
+		circle x y
+		image  "fsds"  x y w h 
+    eslide
 edeck

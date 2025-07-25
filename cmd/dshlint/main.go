@@ -219,6 +219,8 @@ func parse(src string) []string {
 	return tokens
 }
 
+// unquote removes quotes from a string;
+// if not properly quotes return an empty string
 func unquote(s string) string {
 	l := len(s)
 	if l > 2 && s[0] == '"' && s[l-1] == '"' {
@@ -234,6 +236,7 @@ func imagecheck(data [][]string) int {
 		if len(d) > 2 && d[0] == "image" {
 			imgfile := unquote(d[1])
 			if len(imgfile) == 0 {
+				fmt.Fprintf(os.Stderr, "bad image %s\n", d[1:])
 				continue
 			}
 			_, err := os.Open(imgfile)
@@ -267,23 +270,22 @@ func lint(data [][]string) int {
 // process processes an io.Reader of decksh code
 func process(r io.Reader) int {
 	issues := 0
-	data := readDecksh(r) // read the data
-	kwcounter(data)       // count keywords and elements
-	issues += lint(data)  // check argument counts
-	issues += kwcheck()   // integrity check
-	issues += imagecheck(data)
+	data := readDecksh(r)      // read the data
+	kwcounter(data)            // count keywords and elements
+	issues += lint(data)       // check argument counts
+	issues += kwcheck()        // integrity check
+	issues += imagecheck(data) // image check
 	return issues
 }
 
 // lint named files or standard input if no file is specified.
 func main() {
-	var info string
-	var desc string
-	var usage string
+	var info, desc, usage string
 
-	flag.StringVar(&info, "info", "", "show usage and description by keyword (\"all\" for every keyword, or a comma separated list. For example circle,rect)")
-	flag.StringVar(&desc, "desc", "", "show description by keyword (\"all\" for every keyword, or a comma separated list. For example circle,rect))")
-	flag.StringVar(&usage, "usage", "", "show usage by keyword (\"all\" for every keyword, or a comma separated list. For example circle,rect))")
+	all := ` by keyword ("all" for every keyword, or a comma separated list. For example circle,rect)`
+	flag.StringVar(&info, "info", "", "show usage and description"+all)
+	flag.StringVar(&desc, "desc", "", "show description"+all)
+	flag.StringVar(&usage, "usage", "", "show usage"+all)
 	flag.Parse()
 
 	if len(info) > 0 {

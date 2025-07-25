@@ -641,6 +641,177 @@ func star(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// geopoly makes polygons from geometric data
+func geopoly(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [color]", linenumber, s[0])
+	if n < 6 {
+		return e
+	}
+	kml, err := readKMLData(unquote(s[1]))
+	if err != nil {
+		return err
+	}
+	m, err := makegeometry(s)
+	if err != nil {
+		return err
+	}
+	color := "gray"
+	if n > 6 {
+		color = s[6]
+	}
+	geoshape(w, kml, m, 0, unquote(color), "polygon")
+	return nil
+}
+
+// geoline makes lines from geometric data
+func geoline(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
+	if n < 6 {
+		return e
+	}
+	kml, err := readKMLData(unquote(s[1]))
+	if err != nil {
+		return err
+	}
+	m, err := makegeometry(s)
+	if err != nil {
+		return err
+	}
+	size := 0.2
+	color := "gray"
+	if n > 6 {
+		var serr error
+		size, serr = strconv.ParseFloat(eval(s[6]), 64)
+		if serr != nil {
+			return serr
+		}
+	}
+	if n > 7 {
+		color = eval(s[7])
+	}
+	geoshape(w, kml, m, size, unquote(color), "polyline")
+	return nil
+}
+
+// geoloc makes dot and label with alighnment
+func geoloc(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [align] [size] [font] [color]", linenumber, s[0])
+	if n < 6 {
+		return e
+	}
+	r, err := os.Open(unquote(s[1]))
+	if err != nil {
+		return err
+	}
+	m, err := makegeometry(s)
+	if err != nil {
+		return err
+	}
+	loc, err := readLoc(r, ' ')
+	defer r.Close()
+	x := loc.X
+	y := loc.Y
+	x, y = mapData(x, y, m)
+	size := 1.0
+	align := "c"
+	if n > 6 {
+		align = eval(s[6])
+	}
+	if n > 7 {
+		var serr error
+		size, serr = strconv.ParseFloat(eval(s[7]), 64)
+		if serr != nil {
+			return serr
+		}
+	}
+	var fco string
+	if n > 8 {
+		fco = fontColorOpLp(s[8:])
+	}
+	color := "gray"
+	if n > 9 {
+		color = unquote(eval(s[9]))
+	}
+	geodot(w, x, y, size, color)
+	geotext(w, x, y, loc.Name, unquote(align), size, fco)
+	return nil
+}
+
+// geolabel makes labels from geometric data (lat/long pairs)
+func geolabel(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [font] [color] [op]", linenumber, s[0])
+	if n < 6 {
+		return e
+	}
+	r, err := os.Open(unquote(s[1]))
+	if err != nil {
+		return err
+	}
+	m, err := makegeometry(s)
+	if err != nil {
+		return err
+	}
+	loc, err := readLoc(r, ' ')
+	defer r.Close()
+	x := loc.X
+	y := loc.Y
+	x, y = mapData(x, y, m)
+	size := 1.0
+	if n > 6 {
+		var serr error
+		size, serr = strconv.ParseFloat(eval(s[6]), 64)
+		if serr != nil {
+			return serr
+		}
+	}
+	var fco string
+	if n > 7 {
+		fco = fontColorOpLp(s[7:])
+	}
+	geotext(w, x, y, loc.Name, "c", size, fco)
+	return nil
+}
+
+// geopoint makes points from geometric data (lat/long pairs)
+func geopoint(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
+	if n < 6 {
+		return e
+	}
+	r, err := os.Open(unquote(s[1]))
+	if err != nil {
+		return err
+	}
+	m, err := makegeometry(s)
+	if err != nil {
+		return err
+	}
+	loc, err := readLoc(r, ' ')
+	defer r.Close()
+	x := loc.X
+	y := loc.Y
+	x, y = mapData(x, y, m)
+	size := 1.0
+	color := "black"
+	if n > 6 {
+		var serr error
+		size, serr = strconv.ParseFloat(eval(s[6]), 64)
+		if serr != nil {
+			return serr
+		}
+	}
+	if n > 7 {
+		color = eval(s[7])
+	}
+	geodot(w, x, y, size, unquote(color))
+	return nil
+}
+
 // unquote removes quotes from a string
 func unquote(s string) string {
 	la := len(s)

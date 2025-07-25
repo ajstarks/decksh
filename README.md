@@ -1103,3 +1103,87 @@ legend "text" x y size [font] [color]
 ```
 
 ![legend](images/legend.png)
+
+# Geographic Features
+
+![geo](images/geo.png)
+
+Using kml files and sets of lat/long pairs, geographic maps and labels may be rendered. Supported are:
+
+* geographic regions and geographic borders
+* labels
+* plain and labeled locations
+
+The map above is renders by this code:
+
+```
+deck
+    wcolor="lightblue"
+    lcolor="sienna"
+    gcolor="white"
+    slide wcolor gcolor
+        latmin=20
+        latmax=45
+        longmax=48
+        longmin=5
+        text "The Ancient World" 10 10 5
+        geopoly  "world.kml"    latmin latmax longmin longmax lcolor
+        geoline  "world.kml"    latmin latmax longmin longmax 0.05 wcolor
+        geolabel "countries.d"  latmin latmax longmin longmax 3 "serif" gcolor
+        geoloc   "cities.d"     latmin latmax longmin longmax  "c" 1 "sans" gcolor
+    eslide
+edeck
+```
+
+Appropriate KML files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
+
+
+# geographic regions
+
+Reads KML data from the specified file and renders the regions according to the latitude and longitude bounded by (latmin, latmax).
+
+```
+geopoly  "file.kml" latmin latmax longmin longmax [color]
+```
+
+# geographic borders
+
+```
+geoline "file.kml" latmin latmax longmin longmax linewidth [color]
+```
+Reads KML data from the specified file and renders the borders according to the latitude and longitude bounded by (latmin, latmax).
+
+# geographic labels
+
+```
+geolabel "file.d" latmin latmax longmin longmax linewidth [size] [font] [color] [op]
+```
+Reading from the specified file, place text according to the latitude and longitude bounded by (latmin, latmax).
+The file format is lat, long, label.  For example:
+
+```
+26.3351 17.2283 Libya
+26.8206 30.8025 Egypt
+39.0742 21.8243 Greece
+38.9637 35.2433 Turkey
+41.8719 12.5674 Italy
+32.4279 53.6880 Iran
+33.2232 43.6793 Iraq
+34.0000 09.0000 Tunisia
+```
+
+```
+geoloc "file.d" latmin latmax longmin longmax [align] [size] [font] [color]
+```
+
+Reading data from the specified file, place text and a dot according to the latitude and longitude bounded by (latmin, latmax). The text may be  centered ("c"), begin ("b"), or end ("e") justified in relation to the point.
+
+# geographic locations
+
+Place a marker at the locations specified in the specified file.
+
+```
+geopoint "file.d" latmin latmax longmin longmax [size] [color]
+```
+
+

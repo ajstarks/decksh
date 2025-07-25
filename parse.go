@@ -485,6 +485,21 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "dchart":
 		return chart(w, t, n)
 
+	case "geopoly":
+		return geopoly(w, tokens, n)
+
+	case "geoline":
+		return geoline(w, tokens, n)
+
+	case "geolabel":
+		return geolabel(w, tokens, n)
+
+	case "geoloc":
+		return geoloc(w, tokens, n)
+
+	case "geopoint":
+		return geopoint(w, tokens, n)
+
 	default: // not a keyword, direct function calls
 		return directfunc(w, tokens, n)
 	}
