@@ -1143,7 +1143,7 @@ The Equator is at 0° latitude; latitudes to the north of the Equator are positi
 
 The Prime Meridian is 0° longitude; longitudes to the east of this point are positive, longitudes to the west are negative.
 
-
+![latlong](images/latlong.png)
 
 Appropriate KML files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
 
