@@ -15,6 +15,7 @@ import (
 )
 
 const (
+	locsep      = 0x09 // tab
 	doublequote = 0x22
 	stdnotch    = 0.75
 	curvefmt    = "<curve xp1=\"%.2f\" yp1=\"%.2f\" xp2=\"%.2f\" yp2=\"%.2f\" xp3=\"%.2f\" yp3=\"%.2f\" %s/>\n"
@@ -644,9 +645,11 @@ func star(w io.Writer, s []string, linenumber int) error {
 // geopoly makes polygons from geometric data
 func geopoly(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
-	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [color]", linenumber, s[0])
 	if n < 6 {
-		return e
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [color]", linenumber, s[0])
+	}
+	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
+		return err
 	}
 	kml, err := readKMLData(unquote(s[1]))
 	if err != nil {
@@ -667,9 +670,11 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 // geoline makes lines from geometric data
 func geoline(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
-	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
 	if n < 6 {
-		return e
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
+	}
+	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
+		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
 	kml, err := readKMLData(unquote(s[1]))
 	if err != nil {
@@ -698,9 +703,11 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 // geoloc makes dot and label with alighnment
 func geoloc(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
-	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [align] [size] [font] [color]", linenumber, s[0])
 	if n < 6 {
-		return e
+		fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [align] [size] [font] [color]", linenumber, s[0])
+	}
+	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
+		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
 	r, err := os.Open(unquote(s[1]))
 	if err != nil {
@@ -710,7 +717,7 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	loc, err := readLoc(r, ' ')
+	loc, err := readLoc(r, locsep)
 	defer r.Close()
 	x := loc.X
 	y := loc.Y
@@ -743,9 +750,11 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 // geolabel makes labels from geometric data (lat/long pairs)
 func geolabel(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
-	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [font] [color] [op]", linenumber, s[0])
 	if n < 6 {
-		return e
+		fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [font] [color] [op]", linenumber, s[0])
+	}
+	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
+		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
 	r, err := os.Open(unquote(s[1]))
 	if err != nil {
@@ -755,7 +764,7 @@ func geolabel(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	loc, err := readLoc(r, ' ')
+	loc, err := readLoc(r, locsep)
 	defer r.Close()
 	x := loc.X
 	y := loc.Y
@@ -779,9 +788,11 @@ func geolabel(w io.Writer, s []string, linenumber int) error {
 // geopoint makes points from geometric data (lat/long pairs)
 func geopoint(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
-	e := fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
 	if n < 6 {
-		return e
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
+	}
+	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
+		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
 	r, err := os.Open(unquote(s[1]))
 	if err != nil {
@@ -791,7 +802,7 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	loc, err := readLoc(r, ' ')
+	loc, err := readLoc(r, locsep)
 	defer r.Close()
 	x := loc.X
 	y := loc.Y

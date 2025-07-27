@@ -14,6 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
+The current version is 2025-07-27-1.0.0
 
 ## References and Examples
 
@@ -1110,11 +1111,10 @@ legend "text" x y size [font] [color]
 
 Using kml files and sets of lat/long pairs, geographic maps and labels may be rendered. Supported are:
 
-* geographic regions and geographic borders
-* labels
+* geographic regions and borders
 * plain and labeled locations
 
-The map above is renders by this code:
+The map above is rendered by this code:
 
 ```
 deck
@@ -1126,41 +1126,48 @@ deck
         latmax=45
         longmax=48
         longmin=5
-        text "The Ancient World" 10 10 5
+        text     "The Ancient World" 10 10 5
         geopoly  "world.kml"    latmin latmax longmin longmax lcolor
         geoline  "world.kml"    latmin latmax longmin longmax 0.05 wcolor
         geolabel "countries.d"  latmin latmax longmin longmax 3 "serif" gcolor
-        geoloc   "cities.d"     latmin latmax longmin longmax  "c" 1 "sans" gcolor
+        geoloc   "cities.d"     latmin latmax longmin longmax "c" 1 "sans" gcolor
     eslide
 edeck
 ```
 
+(Note: to ensure proper layout, set the -layers option to "poly:ellipse:text:line" in your deck rendering tool.)
+
+The geographic bounding box of the map is defined by numbers or variables denoting the latitude (latman, latmin) and longitude (longmin, longmax) in decimal degrees.  Latitudes range from -90° to 90° and longitudes range from -180° to 180°. 
+
+The Equator is at 0° latitude; latitudes to the north of the Equator are positive, and latitudes south of the Equator are negative.
+
+The Prime Meridian is 0° longitude; longitudes to the east of this point are positive, longitudes to the west are negative.
+
+
+
 Appropriate KML files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
 
 
-# geographic regions
+## Regions
 
-Reads KML data from the specified file and renders the regions according to the latitude and longitude bounded by (latmin, latmax).
+Reads KML data from the specified file and renders the regions.
 
 ```
 geopoly  "file.kml" latmin latmax longmin longmax [color]
 ```
 
-# geographic borders
+## Borders
+
+Reads KML data from the specified file and renders the borders.
 
 ```
 geoline "file.kml" latmin latmax longmin longmax linewidth [color]
 ```
-Reads KML data from the specified file and renders the borders according to the latitude and longitude bounded by (latmin, latmax).
+## Labels
 
-# geographic labels
+Reading from the specified file, place text according to the latitude and longitude. The fields in the file are tab-separated latitude, longitide, and label.
 
-```
-geolabel "file.d" latmin latmax longmin longmax linewidth [size] [font] [color] [op]
-```
-Reading from the specified file, place text according to the latitude and longitude bounded by (latmin, latmax).
-The file format is lat, long, label.  For example:
-
+For example:
 ```
 26.3351 17.2283 Libya
 26.8206 30.8025 Egypt
@@ -1173,13 +1180,15 @@ The file format is lat, long, label.  For example:
 ```
 
 ```
-geoloc "file.d" latmin latmax longmin longmax [align] [size] [font] [color]
+geolabel "file.d" latmin latmax longmin longmax [size] [font] [color] [op]
 ```
+## Locations
 
-Reading data from the specified file, place text and a dot according to the latitude and longitude bounded by (latmin, latmax). The text may be  centered ("c"), begin ("b"), or end ("e") justified in relation to the point.
+Reading data from the specified file, place text and a dot. The text may be centered ("c"), begin ("b"), or end ("e") aligned in relation to the dot.
 
-# geographic locations
-
+```
+geoloc "file.d" latmin latmax longmin longmax [align] [size] [font] [color] [op]
+```
 Place a marker at the locations specified in the specified file.
 
 ```

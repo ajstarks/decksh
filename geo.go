@@ -123,35 +123,54 @@ func parseCoords(s string, g Geometry) ([]float64, []float64) {
 	return x, y
 }
 
-// makegeometry fills in the geometry from arguments
-func makegeometry(s []string) (Geometry, error) {
-	var m Geometry
+// evaluate "magic" reserved variables geoXmin, geoXmax, geoYmin, geoYmax
+func geocanvas() (float64, float64, float64, float64) {
+	xmin, err := strconv.ParseFloat(eval("geoXmin"), 64)
+	if err != nil {
+		xmin = 0.0
+	}
+	xmax, err := strconv.ParseFloat(eval("geoXmax"), 64)
+	if err != nil {
+		xmax = 100.0
+	}
+	ymin, err := strconv.ParseFloat(eval("geoYmin"), 64)
+	if err != nil {
+		ymin = 0.0
+	}
+	ymax, err := strconv.ParseFloat(eval("geoYmax"), 64)
+	if err != nil {
+		ymax = 100.0
+	}
+	return xmin, xmax, ymin, ymax
+}
+
+// set lat/long bounds, if errors occur use the defaults
+func geolatlong(s []string) (float64, float64, float64, float64) {
 	latmin, err := strconv.ParseFloat(eval(s[2]), 64)
 	if err != nil {
-		return m, err
+		latmin = -90.0
 	}
 	latmax, err := strconv.ParseFloat(eval(s[3]), 64)
 	if err != nil {
-		return m, err
+		latmax = 90.0
 	}
 	longmin, err := strconv.ParseFloat(eval(s[4]), 64)
 	if err != nil {
-		return m, err
+		longmin = -180.0
 	}
 	longmax, err := strconv.ParseFloat(eval(s[5]), 64)
 	if err != nil {
-		return m, err
+		longmax = 180.0
 	}
-	m = Geometry{
-		Xmin:    0,
-		Xmax:    100,
-		Ymin:    0,
-		Ymax:    100,
-		Latmin:  latmin,
-		Latmax:  latmax,
-		Longmin: longmin,
-		Longmax: longmax,
-	}
+	return latmin, latmax, longmin, longmax
+
+}
+
+// makegeometry fills in the geometry from arguments
+func makegeometry(s []string) (Geometry, error) {
+	var m Geometry
+	m.Xmin, m.Xmax, m.Ymin, m.Ymax = geocanvas()
+	m.Latmin, m.Latmax, m.Longmin, m.Longmax = geolatlong(s)
 	return m, nil
 }
 
@@ -180,7 +199,7 @@ func readKMLData(filename string) (Kml, error) {
 func readLoc(r io.Reader, sep byte) (Locdata, error) {
 	var data Locdata
 	s := bufio.NewScanner(r)
-	ff := func(c rune) bool { return c == rune(sep) }
+	ff := func(c rune) bool { return c == rune(sep) || c == ',' }
 	for s.Scan() {
 		t := s.Text()
 		f := strings.FieldsFunc(t, ff)
