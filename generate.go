@@ -704,7 +704,7 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 func geoloc(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 6 {
-		fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [align] [size] [font] [color]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [align] [size] [font] [color]", linenumber, s[0])
 	}
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
@@ -751,7 +751,7 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 func geolabel(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 6 {
-		fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [font] [color] [op]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [font] [color] [op]", linenumber, s[0])
 	}
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)

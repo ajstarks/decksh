@@ -1,0 +1,25 @@
+deck
+	wcolor="skyblue"
+	gcolor="white"
+	slide wcolor
+			latmin=0-90
+			latmax=90
+			longmin=0-180
+			longmax=180
+			geopoly	"world.kml"						latmin latmax longmin longmax gcolor
+			geoloc	"geocoords.d"					latmin latmax longmin longmax "e" 1.5 "sans"
+			text	"Equator (0° latitude)"			55  51 1 
+			rtext	"Prime Meridian (0° longitude)"	51 25 270 1 
+			text	"North"							51  52 1.5 
+			text	"South"							51  47 1.5 
+			text 	"East"							51 30 1.5 
+			etext 	"West"							49 30 1.5
+			ctext 	"-90°"							50 0 1.5
+			ctext 	"0°"							50 50 1.5
+			ctext 	"90°"							50 98 1.5
+			text 	"-160°"							0  50 1.5
+			etext 	"160°"							100 50 1.5
+			hline	0 50 100 0.3 "black" 20
+			vline	50 0 100 0.3 "black" 20
+		eslide
+edeck

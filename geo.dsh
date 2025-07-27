@@ -9,6 +9,7 @@ deck
 		longmin=5
 		text "The Ancient World" 10 10 5
 		geopoly  "world.kml"    latmin latmax longmin longmax lcolor
+		geoline  "world.kml"    latmin latmax longmin longmax 0.02 gcolor
 		geolabel "countries.d"  latmin latmax longmin longmax 3 "serif" gcolor
 		geoloc   "cities.d"     latmin latmax longmin longmax  "e" 1 "sans" gcolor
 	eslide

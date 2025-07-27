@@ -199,7 +199,7 @@ func readKMLData(filename string) (Kml, error) {
 func readLoc(r io.Reader, sep byte) (Locdata, error) {
 	var data Locdata
 	s := bufio.NewScanner(r)
-	ff := func(c rune) bool { return c == rune(sep) || c == ',' }
+	ff := func(c rune) bool { return c == rune(sep) }
 	for s.Scan() {
 		t := s.Text()
 		f := strings.FieldsFunc(t, ff)
