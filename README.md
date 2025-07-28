@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-07-27-1.1.0
+The current version is 2025-07-27-1.2.0
 
 ## References and Examples
 
@@ -1143,6 +1143,7 @@ The Equator is at 0° latitude; latitudes to the north of the Equator are positi
 
 The Prime Meridian is 0° longitude; longitudes to the east of this point are positive, longitudes to the west are negative.
 
+
 ![latlong](images/latlong.png)
 
 Appropriate KML files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
@@ -1165,7 +1166,7 @@ geoline "file.kml" latmin latmax longmin longmax linewidth [color]
 ```
 ## Labels
 
-Reading from the specified file, place text according to the latitude and longitude. The fields in the file are tab-separated latitude, longitide, and label.
+Reading from the specified file, or geo coordinate string, place text according to the latitude and longitude. The fields in the file are tab-separated latitude, longitide, and label. 
 
 For example:
 ```
@@ -1178,6 +1179,13 @@ For example:
 33.2232 43.6793 Iraq
 34.0000 09.0000 Tunisia
 ```
+
+Individual coordinates may be specified with a string like this:
+
+```
+"+26.3351   17.2283 Libya"
+```
+The string must begin with a '+' or '-'
 
 ```
 geolabel "file.d" latmin latmax longmin longmax [size] [font] [color] [op]

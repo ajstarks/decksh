@@ -651,7 +651,7 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return err
 	}
-	kml, err := readKMLData(unquote(s[1]))
+	kml, err := readKMLData(unquote(eval(s[1])))
 	if err != nil {
 		return err
 	}
@@ -676,7 +676,7 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
-	kml, err := readKMLData(unquote(s[1]))
+	kml, err := readKMLData(unquote(eval(s[1])))
 	if err != nil {
 		return err
 	}
@@ -700,6 +700,22 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// opencoords reads coordinates and labels from a file, or
+// as an individual string with special formatting: the first character must be '+' or '-'
+func opencoords(s string) (io.Reader, error) {
+	var r io.Reader
+	var err error
+	if len(s) > 3 && (s[0] == '+' || s[0] == '-') {
+		r = strings.NewReader(s)
+	} else {
+		r, err = os.Open(s)
+		if err != nil {
+			return r, err
+		}
+	}
+	return r, nil
+}
+
 // geoloc makes dot and label with alighnment
 func geoloc(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
@@ -709,7 +725,7 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
-	r, err := os.Open(unquote(s[1]))
+	r, err := opencoords(unquote(eval(s[1])))
 	if err != nil {
 		return err
 	}
@@ -718,7 +734,6 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 		return err
 	}
 	loc, err := readLoc(r, locsep)
-	defer r.Close()
 	x := loc.X
 	y := loc.Y
 	x, y = mapData(x, y, m)
@@ -756,7 +771,7 @@ func geolabel(w io.Writer, s []string, linenumber int) error {
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
-	r, err := os.Open(unquote(s[1]))
+	r, err := opencoords(unquote(eval(s[1])))
 	if err != nil {
 		return err
 	}
@@ -765,7 +780,6 @@ func geolabel(w io.Writer, s []string, linenumber int) error {
 		return err
 	}
 	loc, err := readLoc(r, locsep)
-	defer r.Close()
 	x := loc.X
 	y := loc.Y
 	x, y = mapData(x, y, m)
@@ -794,7 +808,7 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
-	r, err := os.Open(unquote(s[1]))
+	r, err := opencoords(unquote(eval(s[1])))
 	if err != nil {
 		return err
 	}
@@ -803,7 +817,6 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 		return err
 	}
 	loc, err := readLoc(r, locsep)
-	defer r.Close()
 	x := loc.X
 	y := loc.Y
 	x, y = mapData(x, y, m)

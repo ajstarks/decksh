@@ -6,18 +6,26 @@ deck
 			latmax=90
 			longmin=0-180
 			longmax=180
-			geopoly	"world.kml"						latmin latmax longmin longmax gcolor
-			geoloc	"geocoords.d"					latmin latmax longmin longmax "e" 1.5 "sans"
-			text	"Equator (0° latitude)"			55  51 1 
-			rtext	"Prime Meridian (0° longitude)"	51 25 270 1 
-			text	"North"							51  52 1.5 
-			text	"South"							51  47 1.5 
-			text 	"East"							51 30 1.5 
-			etext 	"West"							49 30 1.5
-			ctext 	"-90°"							50 0 1.5
-			ctext 	"0°"							50 50 1.5
-			ctext 	"90°"							50 98 1.5
-			text 	"-180°"							0  50 1.5
+			rome="+41.8967	12.48220	Rome (41.90°,12.48°)"
+			ant="-18.91368	47.53613	Antananarivo (-18.91°,47.54°)"
+			syd="-33.8559	151.2067	Sydney (-33.86°,151.21°)"
+			geopoly	 "world.kml"						latmin latmax longmin longmax gcolor
+			geoloc 	"geocoords.d"						latmin latmax longmin longmax "c" 1.2
+			geoloc   rome								latmin latmax longmin longmax "c" 1.2
+			geoloc   ant								latmin latmax longmin longmax "c" 1.2
+			geoloc   syd								latmin latmax longmin longmax "c" 1.2
+
+			geoloc  "+35.689722	139.692222	Tokyo (35.69°,139.69°)"	latmin latmax longmin longmax "c" 1.2
+			ctext	"Equator"			60  50 1 
+			rtext	"Prime Meridian"	50  25 270 1 
+			ctext	"North (0 to 90°)"				60  52 0.75 
+			ctext	"South (0 to -90°)"				60  48 0.75
+			text 	"East (0 to 180°)"				52  10 0.75
+			etext 	"West (0 to -180°)"				49  10 0.75
+			ctext 	"-90°"							50   0 1.5
+			ctext 	"0°"							50  50 1.5
+			ctext 	"90°"							50  98 1.5
+			text 	"-180°"							0   50 1.5
 			etext 	"180°"							100 50 1.5
 			hline	0 50 100 0.3 "black" 20
 			vline	50 0 100 0.3 "black" 20
