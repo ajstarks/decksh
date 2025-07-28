@@ -7,5 +7,6 @@ else
 	pdfdeck -sans $decksans \
 	-serif $deckserif \
 	-mono $deckmono \
+	-grid $deckgrid \
 	-stdout "$@" - > f.pdf && pkill -HUP mupdf
 fi
