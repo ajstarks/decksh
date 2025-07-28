@@ -17,8 +17,8 @@ deck
 			ctext 	"-90°"							50 0 1.5
 			ctext 	"0°"							50 50 1.5
 			ctext 	"90°"							50 98 1.5
-			text 	"-160°"							0  50 1.5
-			etext 	"160°"							100 50 1.5
+			text 	"-180°"							0  50 1.5
+			etext 	"180°"							100 50 1.5
 			hline	0 50 100 0.3 "black" 20
 			vline	50 0 100 0.3 "black" 20
 		eslide
