@@ -243,7 +243,6 @@ func geodot(w io.Writer, x, y []float64, size float64, color string) {
 	for i := 0; i < nc; i++ {
 		fmt.Fprintf(w, dotfmt, x[i], y[i], size, color)
 	}
-
 }
 
 // textadj adjusts alignment of text

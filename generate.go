@@ -700,20 +700,25 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
-// opencoords reads coordinates and labels from a file, or
-// as an individual string with special formatting: the first character must be '+' or '-'
+// opencoords returns the source of coordinates:
+// either as filename, or as an individual string with special formatting:
+// the first character must be '+' or '-' or begin with a geo: URI
 func opencoords(s string) (io.Reader, error) {
 	var r io.Reader
 	var err error
-	if len(s) > 3 && (s[0] == '+' || s[0] == '-') {
+
+	switch {
+
+	case len(s) > 5 && (s[0] == '+' || s[0] == '-'): // literal coordinate
 		r = strings.NewReader(s)
-	} else {
+
+	case len(s) > 7 && strings.HasPrefix(s, "geo:"): // geo URI
+		r = strings.NewReader(strings.Replace(s[4:], ",", "\t", 1))
+
+	default: // filename
 		r, err = os.Open(s)
-		if err != nil {
-			return r, err
-		}
 	}
-	return r, nil
+	return r, err
 }
 
 // geoloc makes dot and label with alighnment

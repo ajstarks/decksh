@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-07-27-1.2.0
+The current version is 2025-07-29-1.0.0
 
 ## References and Examples
 
@@ -1166,9 +1166,9 @@ geoline "file.kml" latmin latmax longmin longmax linewidth [color]
 ```
 ## Labels
 
-Reading from the specified file, or geo coordinate string, place text according to the latitude and longitude. The fields in the file are tab-separated latitude, longitide, and label. 
+Reading from the specified file, or a geo coordinate string, place text at a latitude and longitude. The fields in the file are tab-separated latitude, longitide, and label.
 
-For example:
+A file of coordinates looks like this:
 ```
 26.3351 17.2283 Libya
 26.8206 30.8025 Egypt
@@ -1180,27 +1180,31 @@ For example:
 34.0000 09.0000 Tunisia
 ```
 
-Individual coordinates may be specified with a string like this:
-
+Coordinate strings may be either a string with tab separated values:
 ```
 "+26.3351   17.2283 Libya"
 ```
-The string must begin with a '+' or '-'
+or [geo URI](https://en.wikipedia.org/wiki/Geo_URI_scheme) like this:
+```
+geo:26.3351,17.2283
+```
 
 ```
-geolabel "file.d" latmin latmax longmin longmax [size] [font] [color] [op]
+geolabel "file.d"                      latmin latmax longmin longmax [size] [font] [color] [op]
+geolabel "+41.8719   12.5674   Italy"  latmin latmax longmin longmax [size] [font] [color] [op]
+geolabel "geo:41.8719,12.5674   Italy" latmin latmax longmin longmax [size] [font] [color] [op]
 ```
 ## Locations
 
-Reading data from the specified file, place text and a dot. The text may be centered ("c"), begin ("b"), or end ("e") aligned in relation to the dot.
+Reading data from the specified file or coordinate string, place text and a dot. The text may be center ("c"), begin ("b"), or end ("e") aligned in relation to the dot.
 
 ```
-geoloc "file.d" latmin latmax longmin longmax [align] [size] [font] [color] [op]
+geoloc "location" latmin latmax longmin longmax align [size] [font] [color] [op]
 ```
-Place a marker at the locations specified in the specified file.
+Place a marker at the locations specified in the specified file or coordinate string.
 
 ```
-geopoint "file.d" latmin latmax longmin longmax [size] [color]
+geopoint "location" latmin latmax longmin longmax [size] [color]
 ```
 
 
