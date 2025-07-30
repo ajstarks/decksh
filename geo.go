@@ -15,6 +15,7 @@ import (
 const (
 	dotfmt      = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=\"%s\"/>\n"
 	decklinefmt = "<line xp1=\"%.5f\" yp1=\"%.5f\" xp2=\"%.5f\" yp2=\"%.5f\" sp=\"%.5f\" color=\"%s\" opacity=\"%s\"/>\n"
+	textfmt     = "<text align=\"%s\" xp=\"%.3f\" yp=\"%.3f\" sp=\"%.3f\" %s>%s</text>\n"
 )
 
 // geometry defines the canvas and map boundaries
@@ -248,26 +249,40 @@ func geodot(w io.Writer, x, y []float64, size float64, color string) {
 // textadj adjusts alignment of text
 func textadj(align string, size float64) (float64, float64) {
 	var xdiff, ydiff float64
+	size /= 2
 	switch align {
-	case "c", "ctext":
+	case "c", "ctext", "a":
 		ydiff = size
+	case "u":
+		ydiff = -size * 2
 	case "b", "btext", "text":
 		xdiff = size * 0.75
-		ydiff = -size / 3
+		ydiff = -size * 0.6
 	case "e", "etext":
 		xdiff = -size * 0.75
-		ydiff = -size / 3
+		ydiff = -size * 0.6
 	default:
 		ydiff = size
 	}
 	return xdiff, ydiff
 }
 
+func wordstack(w io.Writer, x, y float64, s []string, align string, size float64, fco string) {
+	ls := size * 1.2
+	for i := 0; i < len(s); i++ {
+		fmt.Fprintf(w, textfmt, align, x, y, size, fco, xmlesc(s[i]))
+		y -= ls
+	}
+}
+
 func geotext(w io.Writer, x, y []float64, names []string, align string, size float64, fco string) {
 	xdiff, ydiff := textadj(align, size)
+	if align == "u" || align == "a" { // above and under are centered
+		align = "c"
+	}
 	for i := 0; i < len(x); i++ {
-		fmt.Fprintf(w, "<text align=\"%s\" xp=\"%.3f\" yp=\"%.3f\" sp=\"%.3f\" %s>%s</text>\n",
-			align, x[i]+xdiff, y[i]+ydiff, size, fco, xmlesc(names[i]))
+		parts := strings.Split(names[i], "\\n")
+		wordstack(w, x[i]+xdiff, y[i]+ydiff, parts, align, size, fco)
 	}
 }
 

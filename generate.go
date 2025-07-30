@@ -762,7 +762,7 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 	if n > 9 {
 		color = unquote(eval(s[9]))
 	}
-	geodot(w, x, y, size, color)
+	geodot(w, x, y, size/2, color)
 	geotext(w, x, y, loc.Name, unquote(align), size, fco)
 	return nil
 }

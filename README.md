@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-07-29-1.0.0
+The current version is 2025-07-30-1.0.0
 
 ## References and Examples
 
@@ -1166,7 +1166,7 @@ geoline "file.kml" latmin latmax longmin longmax linewidth [color]
 ```
 ## Labels
 
-Reading from the specified file, or a geo coordinate string, place text at a latitude and longitude. The fields in the file are tab-separated latitude, longitide, and label.
+Reading from the specified file, or a geo coordinate string, place text at a latitude and longitude. The fields in the file are tab-separated latitude, longitide, and label.  Labels with embedded "\n" means the text will be stacked. (for example "Atlantic\nOcean").
 
 A file of coordinates looks like this:
 ```
@@ -1196,7 +1196,7 @@ geolabel "geo:41.8719,12.5674   Italy" latmin latmax longmin longmax [size] [fon
 ```
 ## Locations
 
-Reading data from the specified file or coordinate string, place text and a dot. The text may be center ("c"), begin ("b"), or end ("e") aligned in relation to the dot.
+Reading data from the specified file or coordinate string, place text and a dot. The text may be center-above ("c"), center-underneath ("u"), begin ("b"), or end ("e") aligned in relation to the dot.
 
 ```
 geoloc "location" latmin latmax longmin longmax align [size] [font] [color] [op]
