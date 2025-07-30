@@ -500,6 +500,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "geopoint":
 		return geopoint(w, tokens, n)
 
+	case "geopath":
+		return geopath(w, tokens, n)
+
 	default: // not a keyword, direct function calls
 		return directfunc(w, tokens, n)
 	}

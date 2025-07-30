@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-07-30-1.0.0
+The current version is 2025-07-30-1.2.0
 
 ## References and Examples
 
@@ -1205,6 +1205,11 @@ Place a marker at the locations specified in the specified file or coordinate st
 
 ```
 geopoint "location" latmin latmax longmin longmax [size] [color]
+```
+
+Connect the points found in the specified file with straight lines.
+```
+geopath "file" latmin latmax longmin longmax [size] [color]
 ```
 
 

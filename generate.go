@@ -841,6 +841,42 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+func geopath(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	if n < 6 {
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
+	}
+	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
+		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
+	}
+	r, err := opencoords(unquote(eval(s[1])))
+	if err != nil {
+		return err
+	}
+	m, err := makegeometry(s)
+	if err != nil {
+		return err
+	}
+	loc, err := readLoc(r, locsep)
+	x := loc.X
+	y := loc.Y
+	x, y = mapData(x, y, m)
+	size := 0.2
+	color := "gray"
+	if n > 6 {
+		var serr error
+		size, serr = strconv.ParseFloat(eval(s[6]), 64)
+		if serr != nil {
+			return serr
+		}
+	}
+	if n > 7 {
+		color = eval(s[7])
+	}
+	deckpolyline(w, x, y, size, unquote(color), m)
+	return nil
+}
+
 // unquote removes quotes from a string
 func unquote(s string) string {
 	la := len(s)
