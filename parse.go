@@ -482,13 +482,13 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "hline":
 		return hline(w, tokens, n)
 
-	case "dchart":
+	case "dchart", "chart":
 		return chart(w, t, n)
 
-	case "geopoly":
+	case "georegion", "geopoly":
 		return geopoly(w, tokens, n)
 
-	case "geoline":
+	case "geoborder", "geoline":
 		return geoline(w, tokens, n)
 
 	case "geolabel":
@@ -497,7 +497,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "geoloc":
 		return geoloc(w, tokens, n)
 
-	case "geopoint":
+	case "geomark", "geopoint":
 		return geopoint(w, tokens, n)
 
 	case "geopathfile":

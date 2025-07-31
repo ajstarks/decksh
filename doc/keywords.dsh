@@ -7,9 +7,9 @@
 		csep=15
 		csep2=csep*0.80
 		csep3=csep*0.80
-		rsep=53
+		rsep=50
 		lsep=6
-		headtop=top-7
+		headtop=top-3
 		listtop=headtop-lsep
 		listspacing=lsize*0.6
 		headcolor=spotcolor
@@ -22,6 +22,7 @@
 			li "slide/eslide"
 			li "canvas"
 			li "def/edef"
+			li "for/efor"
 			li "func"
 			li "grid"
 			li "import"
@@ -116,9 +117,15 @@
 		elist
 
 		lx+=csep
-		text "Loop" lx headtop hsize "sans" headcolor
+		text "Maps" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
-			li "for/efor"
+			li "geoarc"
+			li "geoline"
+			li "geoloc"
+			li "geopath"
+			li "geopathfile"
+			li "geopoint"
+			li "geopoly"
 		elist
 		lx+=csep
 		text "Assignments" lx headtop hsize "sans" headcolor

@@ -2269,4 +2269,69 @@ deck
 		text `legend "Thing" 70 30 2 "serif" "blue"`  60 10 ets "mono"
 	eslide
 
+	// Map (Geo) index
+	slide bgcolor fgcolor
+		initlcol-=4
+		rc=initlcol
+		lfs-=0.25
+		ctext "Geographic Functions" mid ty 5 "serif"
+		hline rc llsty 95 tbheadsize "gray" 20
+		list rc lsty lfs
+			li tbl1 "sans" objcolor
+			li "Regions"
+			li "Borders"
+			li "Text labels"
+			li "Dot markers"
+			li "Text with markers"
+			li "Lines between points"
+			li "Arcs between points"
+			li "Lines between points"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor
+			li tbl2 "sans" objcolor
+			li "georegion"
+			li "geoborder"
+			li "geolabel"
+			li "geomark"
+			li "geoloc"
+			li "geopath"
+			li "geoarc"
+			li "geopathfile"
+		elist
+		rc+=13
+		list rc lsty lfs "mono" argcolor
+			li tbl3 "sans" objcolor
+			li `"file.kml" ltmin ltmax lgmin lgmax`
+			li `"file.kml" ltmin ltmax lgmin lgmax`
+			li `"loc" ltmin ltmax lgmin lgmax`
+			li `"loc" ltmin ltmax lgmin lgmax`
+			li `"loc" ltmin ltmax lgmin lgmax`
+			li `"p1" "p2" ltmin ltmax lgmin lgmax`
+			li `"p1" "p2" ltmin ltmax lgmin lgmax`
+			li `"file" ltmin ltmax lgmin lgmax`
+		elist
+		rc+=38
+		list rc lsty lfs "mono" objcolor
+			li tbl4 "sans" objcolor
+			li "color"
+			li "lw color"
+			li "align size font color"
+			li "size color"
+			li "size font color"
+			li "size color"
+			li "lw color"
+			li "color"
+		elist
+		
+		ny=lsty-60
+		text `"file.kml" are KML files from opendatasoft` initlcol ny 1.5 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
+		ny-=3
+		list initlcol ny 1.5 "sans" "" 100 1.4
+			li `ltmin, ltmax, lgmin, lgmax are latitude and longitude boundaries`
+			li `"loc" refers to a geo URI string ("geo:lat,long"), or a filename containing multiple locations`
+			li `"p1" and "p2" are geo URIs`
+		elist
+	eslide
+
 edeck

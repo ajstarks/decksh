@@ -119,11 +119,14 @@ var kwInfo = map[string]syntax{
 	"sine":          {minargs: 1, maxargs: 1, desc: "sasign the sine of expression", usage: "sine expression"},
 	"sqrt":          {minargs: 1, maxargs: 1, desc: "Assign the square root of expression", usage: "sqrt expression"},
 	"tangent":       {minargs: 1, maxargs: 1, desc: "Assign the tangent of expression", usage: "tangent expression"},
-	"geopoly":       {minargs: 5, maxargs: 6, desc: "Reads KML data from the specified file and renders the map regions", usage: "geopoly \"file\" latmin latmax longmin longmax [color]"},
-	"geoline":       {minargs: 6, maxargs: 7, desc: "Reads KML data from the specified file and renders the map borders", usage: "geoline \"file\" latmin latmax longmin longmax linewidth [color]"},
+	"georegion":     {minargs: 5, maxargs: 6, desc: "Reads KML data from the specified file and renders the map regions", usage: "georegion \"file\" latmin latmax longmin longmax [color]"},
+	"geoborder":     {minargs: 6, maxargs: 7, desc: "Reads KML data from the specified file and renders the map borders", usage: "geoborder \"file\" latmin latmax longmin longmax linewidth [color]"},
 	"geolabel":      {minargs: 5, maxargs: 7, desc: "Reads data from the specified file and renders the map labels", usage: "geolabel \"file\" latmin latmax longmin longmax [font] [color]"},
+	"geomark":       {minargs: 5, maxargs: 7, desc: "Reads data from the specified file and renders map points", usage: "geomark \"file\" latmin latmax longmin longmax [size] [color]"},
 	"geoloc":        {minargs: 5, maxargs: 9, desc: "Reads data from the specified file and a make map point and labels", usage: "geoloc \"file\" latmin latmax longmin longmax [align] [size] [font] [color]"},
-	"geopoint":      {minargs: 5, maxargs: 7, desc: "Reads data from the specified file and renders map points", usage: "geopoint \"file\" latmin latmax longmin longmax [size] [color]"},
+	"geopath":       {minargs: 6, maxargs: 8, desc: "Draw line between points", usage: "geopath \"p1\" \"p2\" latmin latmax longmin longmax [lw] [color]"},
+	"geoarc":        {minargs: 6, maxargs: 8, desc: "Draw arcs between points", usage: "geoarc \"p1\" \"p2\" latmin latmax longmin longmax [lw] [color]"},
+	"geopathfile":   {minargs: 5, maxargs: 6, desc: "Reads data from the specified file and a make lines between points", usage: "geopathfile \"file\" latmin latmax longmin longmax [color]"},
 }
 
 var kwcount = map[string]int{}

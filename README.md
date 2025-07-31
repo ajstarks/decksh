@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-07-31-1.0.0
+The current version is 2025-07-31-1.1.0
 
 ## References and Examples
 
@@ -1127,8 +1127,8 @@ deck
         longmax=48
         longmin=5
         text     "The Ancient World" 10 10 5
-        geopoly  "world.kml"    latmin latmax longmin longmax lcolor
-        geoline  "world.kml"    latmin latmax longmin longmax 0.05 wcolor
+        georegion  "world.kml"    latmin latmax longmin longmax lcolor
+        geoborder  "world.kml"    latmin latmax longmin longmax 0.05 wcolor
         geolabel "countries.d"  latmin latmax longmin longmax 3 "serif" gcolor
         geoloc   "cities.d"     latmin latmax longmin longmax "c" 1 "sans" gcolor
     eslide
@@ -1154,7 +1154,7 @@ Appropriate KML files may be obtained from the [opendatasoft site](https://publi
 Reads KML data from the specified file and renders the regions.
 
 ```
-geopoly  "file.kml" latmin latmax longmin longmax [color]
+georegion  "file.kml" latmin latmax longmin longmax [color]
 ```
 
 ## Borders
@@ -1162,7 +1162,7 @@ geopoly  "file.kml" latmin latmax longmin longmax [color]
 Reads KML data from the specified file and renders the borders.
 
 ```
-geoline "file.kml" latmin latmax longmin longmax linewidth [color]
+geoborder "file.kml" latmin latmax longmin longmax linewidth [color]
 ```
 ## Labels
 
@@ -1204,7 +1204,7 @@ geoloc "location" latmin latmax longmin longmax align [size] [font] [color] [op]
 Place a marker at the locations specified in the specified file or coordinate string.
 
 ```
-geopoint "location" latmin latmax longmin longmax [size] [color]
+geomark "location" latmin latmax longmin longmax [size] [color]
 ```
 
 Connect the points found in the specified file with straight lines.
