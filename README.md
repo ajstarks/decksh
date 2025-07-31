@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-07-30-1.2.0
+The current version is 2025-07-31-1.0.0
 
 ## References and Examples
 
@@ -1209,7 +1209,12 @@ geopoint "location" latmin latmax longmin longmax [size] [color]
 
 Connect the points found in the specified file with straight lines.
 ```
-geopath "file" latmin latmax longmin longmax [size] [color]
+geopathfile  "file" latmin latmax longmin longmax [size] [color]
 ```
+Connect two points with either straight lines or curves
+```
+geopath "point1" "point2" latmin latmax longmin longmax [size] [color] [op]
+geoarc  "point1" "point2" latmin latmax longmin longmax [size] [color] [op]
+````
 
 

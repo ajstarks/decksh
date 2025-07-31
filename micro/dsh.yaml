@@ -5,7 +5,7 @@ detect:
 
 rules:
     # keywords
-    - statement: "\\b(deck|doc|edoc|edeck|content|if|else|eif|substr|geopath|geopoly|geoline|geoloc|geolabel|geopoint|slice|canvas|def|edef|func|call|callfunc|format|include|import|grid|vmap|area|slide|eslide|page|epage|btext|text|ctext|etext|rtext|random|textfile|textblockfile|textblock|textcode|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polyline|polygon|rect|roundrect|rrect|square|ellipse|acircle|circle|line|pill|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|polar|polarx|polary|sqrt|sine|cosine|tangent)\\b"
+    - statement: "\\b(deck|doc|edoc|edeck|content|if|else|eif|substr|geoarc|geopathfile|geopath|geopoly|geoline|geoloc|geolabel|geopoint|slice|canvas|def|edef|func|call|callfunc|format|include|import|grid|vmap|area|slide|eslide|page|epage|btext|text|ctext|etext|rtext|random|textfile|textblockfile|textblock|textcode|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polyline|polygon|rect|roundrect|rrect|square|ellipse|acircle|circle|line|pill|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|polar|polarx|polary|sqrt|sine|cosine|tangent)\\b"
     - symbol.operator: "[-+/*=<>!~%&|^]|:="
 
       # Numbers and strings

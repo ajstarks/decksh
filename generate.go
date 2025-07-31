@@ -721,6 +721,27 @@ func opencoords(s string) (io.Reader, error) {
 	return r, err
 }
 
+// parseLatLongs parses two forms of lat/long parse to (x,y)
+func parseLatLongs(s string) (float64, float64) {
+	var x, y float64
+	var err error
+	if len(s) > 7 && strings.HasPrefix(s, "geo:") {
+		s = strings.Replace(s[4:], ",", "\t", 1)
+	}
+	coords := strings.Split(s, "\t")
+	if len(coords) == 2 || len(coords) == 3 {
+		x, err = strconv.ParseFloat(coords[1], 64)
+		if err != nil {
+			x = 0
+		}
+		y, err = strconv.ParseFloat(coords[0], 64)
+		if err != nil {
+			y = 0
+		}
+	}
+	return x, y
+}
+
 // geoloc makes dot and label with alighnment
 func geoloc(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
@@ -841,7 +862,8 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
-func geopath(w io.Writer, s []string, linenumber int) error {
+// geopathfile makes a series of straight line paths using data in a file
+func geopathfile(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 6 {
 		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
@@ -861,6 +883,7 @@ func geopath(w io.Writer, s []string, linenumber int) error {
 	x := loc.X
 	y := loc.Y
 	x, y = mapData(x, y, m)
+
 	size := 0.2
 	color := "gray"
 	if n > 6 {
@@ -874,6 +897,80 @@ func geopath(w io.Writer, s []string, linenumber int) error {
 		color = eval(s[7])
 	}
 	deckpolyline(w, x, y, size, unquote(color), m)
+	return nil
+}
+
+// geoarc makes a arc between two points using specified coordinates
+func geoarc(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	if n < 7 {
+		return fmt.Errorf("line %d: %s \"point1\" \"point2\" latmin latmax longmin longmax [size] [color] [op]", linenumber, s[0])
+	}
+	// extract the coordinates from the first two arguments
+	x := make([]float64, 2)
+	y := make([]float64, 2)
+	x[0], y[0] = parseLatLongs(unquote(eval(s[1])))
+	x[1], y[1] = parseLatLongs(unquote(eval(s[2])))
+	m, err := makegeometry(s[1:])
+	if err != nil {
+		return err
+	}
+	x, y = mapData(x, y, m)
+	// replace optional args, checking for validity
+	attr := ""
+	if len(s) >= 8 {
+		if _, nerr := strconv.ParseFloat(s[7], 64); nerr != nil {
+			return fmt.Errorf("line %d: %s is not a number", linenumber, s[7])
+		}
+		attr += "sp=\"" + s[7] + "\""
+	}
+	if len(s) >= 9 {
+		attr += " color=" + s[8]
+	}
+	if len(s) >= 10 {
+		if _, nerr := strconv.ParseFloat(s[9], 64); nerr != nil {
+			return fmt.Errorf("line %d: %s is not a number", linenumber, s[9])
+		}
+		attr += " opacity=\"" + s[9] + "\""
+	}
+	fmt.Fprintf(w, curvefmt, x[0], y[0], x[0], y[1], x[1], y[1], attr)
+	return nil
+}
+
+// geopath draws a straight line between two points using specified coordinates
+func geopath(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	if n < 7 {
+		return fmt.Errorf("line %d: %s \"point1\" \"point2\" latmin latmax longmin longmax [size] [color] [op]", linenumber, s[0])
+	}
+	// extract the coordinates from the first two arguments
+	x := make([]float64, 2)
+	y := make([]float64, 2)
+	x[0], y[0] = parseLatLongs(unquote(eval(s[1])))
+	x[1], y[1] = parseLatLongs(unquote(eval(s[2])))
+	m, err := makegeometry(s[1:])
+	if err != nil {
+		return err
+	}
+	x, y = mapData(x, y, m)
+	// replace optional args, checking for validity
+	attr := ""
+	if len(s) >= 8 {
+		if _, nerr := strconv.ParseFloat(s[7], 64); nerr != nil {
+			return fmt.Errorf("line %d: %s is not a number", linenumber, s[7])
+		}
+		attr += "sp=\"" + s[7] + "\""
+	}
+	if len(s) >= 9 {
+		attr += " color=" + s[8]
+	}
+	if len(s) >= 10 {
+		if _, nerr := strconv.ParseFloat(s[9], 64); nerr != nil {
+			return fmt.Errorf("line %d: %s is not a number", linenumber, s[9])
+		}
+		attr += " opacity=\"" + s[9] + "\""
+	}
+	fmt.Fprintf(w, linefmt, x[0], y[0], x[1], y[1], attr)
 	return nil
 }
 
