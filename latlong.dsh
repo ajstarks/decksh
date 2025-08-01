@@ -1,33 +1,86 @@
 deck
 	wcolor="skyblue"
 	gcolor="white"
-	slide wcolor
-			latmin=0-90
-			latmax=90
-			longmin=0-180
-			longmax=180
-			rome="+41.8967	12.48220	Rome (41.90°,12.48°)"
-			ant="-18.91368	47.53613	Antananarivo (-18.91°,47.54°)"
-			syd="-33.8559	151.2067	Sydney (-33.86°,151.21°)"
-			geopoly	 "world.kml"						latmin latmax longmin longmax gcolor
-			geoloc 	"geocoords.d"						latmin latmax longmin longmax "c" 1.2
-			geoloc   rome								latmin latmax longmin longmax "c" 1.2
-			geoloc   ant								latmin latmax longmin longmax "c" 1.2
-			geoloc   syd								latmin latmax longmin longmax "c" 1.2
+	latmin=0-90
+	latmax=90
+	longmin=0-180
+	longmax=180
 
-			geoloc  "+35.689722	139.692222	Tokyo (35.69°,139.69°)"	latmin latmax longmin longmax "c" 1.2
-			ctext	"Equator"			60  50 1 
-			rtext	"Prime Meridian"	50  25 270 1 
-			ctext	"North (0 to 90°)"				60  52 0.75 
-			ctext	"South (0 to -90°)"				60  48 0.75
-			text 	"East (0 to 180°)"				52  10 0.75
-			etext 	"West (0 to -180°)"				49  10 0.75
-			ctext 	"-90°"							50   0 1.5
-			ctext 	"0°"							50  50 1.5
-			ctext 	"90°"							50  98 1.5
-			text 	"-180°"							0   50 1.5
-			etext 	"180°"							100 50 1.5
-			hline	0 50 100 0.3 "black" 20
-			vline	50 0 100 0.3 "black" 20
-		eslide
+	slide wcolor
+		georegion	"world.kml"				latmin latmax longmin longmax gcolor
+		geoloc 		"geocoords.d"			latmin latmax longmin longmax "c" 1.2
+		ctext		"Equator"				70  50 1 
+		rtext		"Prime Meridian"		50  25 270 1 
+		ctext		"North (0 to 90°)"		70  52 0.75 
+		ctext		"South (0 to -90°)"		70  48 0.75
+		text 		"East (0 to 180°)"		52  10 0.75
+		etext 		"West (0 to -180°)"		49  10 0.75
+		ctext 		"-90°"					50   0 1.5
+		ctext 		"0°"					50  50 1.5
+		ctext 		"90°"					50  98 1.5
+		text 		"-180°"					0   50 1.5
+		etext 		"180°"					100 50 1.5
+		hline		0 50 100 0.2 "black" 20
+		vline		50 0 100 0.2 "black" 20
+	eslide
+
+
+	slide wcolor
+		
+		lw=0.5
+		aop=20
+		acolor="red"
+
+		rom="geo:+41.8967,12.48220	Rome (41.90°, 12.48°)"
+		ant="geo:-18.91368,47.53613	Antananarivo (-18.91°,47.54°)"
+		syd="geo:-33.8559,151.2067	Sydney (-33.86°,151.21°)"
+		nyc="geo:+40.7167,-74.4000	New York (40.72°, -74.40)"
+		rey="geo:+64.145833,-21.9425	Reykjavík (64.15°, -21.94°)"
+		rio="geo:-22.90278,-43.2075	Rio De Janerio (-22.90°, -43.20°)"
+		mos="geo:+55.755833,37.617778	Moscow (55.76°, 37.62°)"
+		mum="geo:19.076111,72.8775	Mumbai (19.08°, 72.88°)"
+		lag="geo:+6.455027,3.384082	Lagos (6.46°, 3.38°)"
+		pap="geo:-6.00000,147.000000	Papua (-6.00°, 147.00°)"
+		tok="geo:+35.689722,139.692222	Tokyo (35.69°,139.69°)"
+		lim="geo:-12.0600,-77.0375	Lima (-12.06°, -77.04°)"
+		san="geo:-33.4375,-70.65000	Santiago (-33.44°, -70.65°)"
+		los="geo:+34.05000,-118.25000	Los Angeles (34.05°, -118.25°)"
+		lon="geo:51.507222,-0.1275	London (51.51°, -0.13°)"
+
+		georegion	"world.kml"				latmin latmax longmin longmax gcolor
+
+		origin=lag
+		geopath		origin syd				latmin latmax longmin longmax lw acolor aop
+		geopath		origin rey				latmin latmax longmin longmax lw acolor aop
+		geopath		origin ant				latmin latmax longmin longmax lw acolor aop
+		geopath		origin rio				latmin latmax longmin longmax lw acolor aop
+		geopath		origin lag				latmin latmax longmin longmax lw acolor aop
+		geopath		origin mos				latmin latmax longmin longmax lw acolor aop
+		geopath		origin pap				latmin latmax longmin longmax lw acolor aop
+		geopath		origin lim				latmin latmax longmin longmax lw acolor aop
+		geopath		origin san				latmin latmax longmin longmax lw acolor aop
+		geopath		origin tok				latmin latmax longmin longmax lw acolor aop
+		geopath		origin mum				latmin latmax longmin longmax lw acolor aop
+		geopath		origin nyc				latmin latmax longmin longmax lw acolor aop
+		geopath		origin los				latmin latmax longmin longmax lw acolor aop
+		geopath		origin rom				latmin latmax longmin longmax lw acolor aop
+		geopath		origin lon				latmin latmax longmin longmax lw acolor aop
+		geoloc   	rom						latmin latmax longmin longmax "c" 1.2
+		geoloc   	ant						latmin latmax longmin longmax "c" 1.2
+		geoloc   	syd						latmin latmax longmin longmax "c" 1.2
+		geoloc  	tok						latmin latmax longmin longmax "c" 1.2
+		geoloc  	nyc						latmin latmax longmin longmax "c" 1.2
+		geoloc  	rio						latmin latmax longmin longmax "c" 1.2
+		geoloc  	mos						latmin latmax longmin longmax "c" 1.2
+		geoloc  	lag						latmin latmax longmin longmax "c" 1.2
+		geoloc  	mum						latmin latmax longmin longmax "c" 1.2
+		geoloc  	san						latmin latmax longmin longmax "c" 1.2
+		geoloc  	rey						latmin latmax longmin longmax "c" 1.2
+		geoloc  	lim						latmin latmax longmin longmax "c" 1.2
+		geoloc  	pap						latmin latmax longmin longmax "c" 1.2
+		geoloc  	los						latmin latmax longmin longmax "c" 1.2
+		geoloc  	lon						latmin latmax longmin longmax "c" 1.2
+
+		
+	eslide
 edeck

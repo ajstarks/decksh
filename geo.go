@@ -203,6 +203,9 @@ func readLoc(r io.Reader, sep byte) (Locdata, error) {
 	ff := func(c rune) bool { return c == rune(sep) }
 	for s.Scan() {
 		t := s.Text()
+		if strings.HasPrefix(t, "geo:") { // convert geom: URI to tab-separated list
+			t = strings.Replace(t[4:], ",", "\t", 1)
+		}
 		f := strings.FieldsFunc(t, ff)
 		if len(f) < 2 { // not enough fields
 			continue
