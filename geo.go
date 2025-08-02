@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	dotfmt      = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=\"%s\"/>\n"
+	dotfmt      = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=\"%s\" opacity=\"%v\"/>\n"
 	decklinefmt = "<line xp1=\"%.5f\" yp1=\"%.5f\" xp2=\"%.5f\" yp2=\"%.5f\" sp=\"%.5f\" color=\"%s\" opacity=\"%s\"/>\n"
 	textfmt     = "<text align=\"%s\" xp=\"%.3f\" yp=\"%.3f\" sp=\"%.3f\" %s>%s</text>\n"
 )
@@ -239,13 +239,13 @@ func colorop(color string) (string, string) {
 }
 
 // geodot places dots at geometric coordinates
-func geodot(w io.Writer, x, y []float64, size float64, color string) {
+func geodot(w io.Writer, x, y []float64, size float64, color string, op string) {
 	nc := len(x)
 	if nc != len(y) {
 		return
 	}
 	for i := 0; i < nc; i++ {
-		fmt.Fprintf(w, dotfmt, x[i], y[i], size, color)
+		fmt.Fprintf(w, dotfmt, x[i], y[i], size, color, op)
 	}
 }
 

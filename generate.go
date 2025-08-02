@@ -746,7 +746,7 @@ func parseLatLongs(s string) (float64, float64) {
 func geoloc(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 6 {
-		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [align] [size] [font] [color]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [align] [size] [font] [color] [op]", linenumber, s[0])
 	}
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
@@ -783,7 +783,11 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 	if n > 9 {
 		color = unquote(eval(s[9]))
 	}
-	geodot(w, x, y, size/2, color)
+	op := "100"
+	if n > 10 {
+		op = eval(s[10])
+	}
+	geodot(w, x, y, size/2, color, op)
 	geotext(w, x, y, loc.Name, unquote(align), size, fco)
 	return nil
 }
@@ -829,7 +833,7 @@ func geolabel(w io.Writer, s []string, linenumber int) error {
 func geopoint(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 6 {
-		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color] [op]", linenumber, s[0])
 	}
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
@@ -858,7 +862,11 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 	if n > 7 {
 		color = eval(s[7])
 	}
-	geodot(w, x, y, size, unquote(color))
+	var op string = "100"
+	if n > 8 {
+		op = eval(s[8])
+	}
+	geodot(w, x, y, size, unquote(color), op)
 	return nil
 }
 

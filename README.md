@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-07-31-1.2.0
+The current version is 2025-08-02-1.0.0
 
 ## References and Examples
 

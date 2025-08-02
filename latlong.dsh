@@ -46,15 +46,17 @@ deck
 		san="geo:-33.4375,-70.65000	Santiago (-33.44°, -70.65°)"
 		los="geo:+34.05000,-118.25000	Los Angeles (34.05°, -118.25°)"
 		lon="geo:51.507222,-0.1275	London (51.51°, -0.13°)"
+		dc="geo:38.904722,-77.016389	Washington D.C."
+		hon="geo:21.3,-157.85	Honolulu (21.30°, -157.86°)"
 
 		georegion	"world.kml"				latmin latmax longmin longmax gcolor
 
 		origin=lag
+
 		geopath		origin syd				latmin latmax longmin longmax lw acolor aop
 		geopath		origin rey				latmin latmax longmin longmax lw acolor aop
 		geopath		origin ant				latmin latmax longmin longmax lw acolor aop
 		geopath		origin rio				latmin latmax longmin longmax lw acolor aop
-		geopath		origin lag				latmin latmax longmin longmax lw acolor aop
 		geopath		origin mos				latmin latmax longmin longmax lw acolor aop
 		geopath		origin pap				latmin latmax longmin longmax lw acolor aop
 		geopath		origin lim				latmin latmax longmin longmax lw acolor aop
@@ -80,6 +82,7 @@ deck
 		geoloc  	pap						latmin latmax longmin longmax "c" 1.2
 		geoloc  	los						latmin latmax longmin longmax "c" 1.2
 		geoloc  	lon						latmin latmax longmin longmax "c" 1.2
+
 
 		
 	eslide

@@ -7,13 +7,12 @@
 		csep=15
 		csep2=csep*0.80
 		csep3=csep*0.80
-		rsep=50
-		lsep=6
-		headtop=top-3
+		rsep=48
+		lsep=5
+		headtop=top-2
 		listtop=headtop-lsep
 		listspacing=lsize*0.6
 		headcolor=spotcolor
-
 
 		lx=left-5
 		text "Structure" lx headtop hsize "sans" headcolor
@@ -120,12 +119,13 @@
 		text "Maps" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "geoarc"
-			li "geoline"
+			li "geoborder"
+			li "geolabel"
 			li "geoloc"
+			li "geomark"
 			li "geopath"
 			li "geopathfile"
-			li "geopoint"
-			li "geopoly"
+			li "georegion"
 		elist
 		lx+=csep
 		text "Assignments" lx headtop hsize "sans" headcolor

@@ -2287,7 +2287,7 @@ deck
 			li "Arcs between points"
 			li "Lines between points"
 		elist
-		rc+=lcolsize
+		rc+=20
 		list rc lsty lfs "mono" kwcolor
 			li tbl2 "sans" objcolor
 			li "georegion"
@@ -2315,13 +2315,13 @@ deck
 		list rc lsty lfs "mono" objcolor
 			li tbl4 "sans" objcolor
 			li "color"
-			li "lw color"
-			li "align size font color"
-			li "size color"
-			li "size font color"
-			li "size color"
-			li "lw color"
-			li "color"
+			li "lw color op"
+			li "align size font color op"
+			li "size color op"
+			li "size font color op"
+			li "size color op"
+			li "lw color op"
+			li "color op"
 		elist
 		
 		ny=lsty-60
