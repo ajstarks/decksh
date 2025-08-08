@@ -289,8 +289,25 @@ func geotext(w io.Writer, x, y []float64, names []string, align string, size flo
 	}
 }
 
+// geofilter makes new coordinates contained within the boundary defined by g.
+func geofilter(x, y []float64, g Geometry) ([]float64, []float64) {
+	nc := len(x)
+	if nc != len(y) {
+		return x, y
+	}
+	xp := []float64{}
+	yp := []float64{}
+	for i := 0; i < nc; i++ {
+		if x[i] >= g.Xmin && x[i] <= g.Xmax && y[i] >= g.Ymin && y[i] <= g.Ymax {
+			xp = append(xp, x[i])
+			yp = append(yp, y[i])
+		}
+	}
+	return xp, yp
+}
+
 // deckpolygon makes deck markup for a polygon given x, y coordinates slices
-func deckpolygon(w io.Writer, x, y []float64, color string) {
+func deckpolygon(w io.Writer, x, y []float64, color string, g Geometry) {
 	nc := len(x)
 	if nc < 3 || nc != len(y) {
 		return
@@ -299,12 +316,16 @@ func deckpolygon(w io.Writer, x, y []float64, color string) {
 	end := nc - 1
 	fmt.Fprintf(w, "<polygon color=\"%s\" opacity=\"%s\" xc=\"%.3f", fill, op, x[0])
 	for i := 1; i < nc; i++ {
+		//if x[i] >= g.Xmin && x[i] <= g.Xmax {
 		fmt.Fprintf(w, " %.3f", x[i])
+		//}
 	}
 	fmt.Fprintf(w, " %.3f\" ", x[end])
 	fmt.Fprintf(w, "yc=\"%.3f", y[0])
 	for i := 1; i < nc; i++ {
+		//if y[i] >= g.Ymin && y[i] <= g.Ymax {
 		fmt.Fprintf(w, " %.3f", y[i])
+		//}
 	}
 	fmt.Fprintf(w, " %.3f\"/>\n", y[end])
 }
@@ -316,7 +337,8 @@ func deckline(w io.Writer, x1, y1, x2, y2, lw float64, fill, op string, g Geomet
 	}
 }
 
-// Deckpolyline makes deck markup for a ployline given x, y coordinate slices
+// Deckpolyline makes deck markup for a ployline given x, y coordinate slices,
+// cycling back to the beginning
 func deckpolyline(w io.Writer, x, y []float64, lw float64, color string, g Geometry) {
 	lx := len(x)
 	if lx < 2 {
@@ -329,12 +351,24 @@ func deckpolyline(w io.Writer, x, y []float64, lw float64, color string, g Geome
 	deckline(w, x[0], y[0], x[lx-1], y[lx-1], lw, color, op, g)
 }
 
+// Deckpolyline makes deck markup for a ployline given x, y coordinate slices
+func deckconnectline(w io.Writer, x, y []float64, lw float64, color string, op string, g Geometry) {
+	lx := len(x)
+	if lx < 2 {
+		return
+	}
+	for i := 0; i < lx-1; i++ {
+		deckline(w, x[i], y[i], x[i+1], y[i+1], lw, color, op, g)
+	}
+}
+
 func deckshape(w io.Writer, shape string, x, y []float64, shapesize float64, color string, g Geometry) {
 	switch shape {
 	case "line", "polyline":
 		deckpolyline(w, x, y, shapesize, color, g)
 	case "fill", "polygon":
-		deckpolygon(w, x, y, color)
+		//x, y = geofilter(x, y, g)
+		deckpolygon(w, x, y, color, g)
 	}
 }
 

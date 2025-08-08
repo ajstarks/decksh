@@ -9,7 +9,7 @@
 		csep3=csep*0.80
 		rsep=48
 		lsep=5
-		headtop=top-2
+		headtop=top-1
 		listtop=headtop-lsep
 		listspacing=lsize*0.6
 		headcolor=spotcolor
@@ -109,13 +109,6 @@
 		elist
 
 		lx+=csep
-		text "Charts" lx headtop hsize "sans" headcolor
-		list lx listtop lsize "mono" "black" 100 listspacing
-			li "dchart"
-			li "legend"
-		elist
-
-		lx+=csep
 		text "Maps" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "geoarc"
@@ -127,6 +120,14 @@
 			li "geopathfile"
 			li "georegion"
 		elist
+
+		lx+=csep
+		text "Charts" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "dchart"
+			li "legend"
+		elist
+
 		lx+=csep
 		text "Assignments" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing

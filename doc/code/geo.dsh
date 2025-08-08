@@ -1,0 +1,23 @@
+deck
+	wcolor="skyblue"
+	lcolor="sienna"
+	gcolor="white"
+	slide wcolor gcolor
+		latmin=20
+		latmax=45
+		longmax=48
+		longmin=5
+		text "The Ancient World" 10 10 5
+
+		geopoly  "europe.kml"	latmin latmax longmin longmax lcolor
+		geopoly  "africa.kml"	latmin latmax longmin longmax lcolor
+		geopoly  "asia.kml"		latmin latmax longmin longmax lcolor
+
+		geoline  "europe.kml"	latmin latmax longmin longmax 0.03 gcolor
+		geoline  "africa.kml"	latmin latmax longmin longmax 0.03 gcolor
+		geoline  "asia.kml"		latmin latmax longmin longmax 0.03 gcolor
+
+		geolabel "countries.d"	latmin latmax longmin longmax 3 "serif" gcolor
+		geoloc   "cities.d"		latmin latmax longmin longmax  "b" 1.5 "sans" gcolor
+	eslide
+edeck

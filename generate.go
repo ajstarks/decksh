@@ -874,7 +874,7 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 func geopathfile(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 6 {
-		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [size] [color] [op]", linenumber, s[0])
 	}
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
@@ -894,6 +894,7 @@ func geopathfile(w io.Writer, s []string, linenumber int) error {
 
 	size := 0.2
 	color := "gray"
+	op := "100"
 	if n > 6 {
 		var serr error
 		size, serr = strconv.ParseFloat(eval(s[6]), 64)
@@ -904,7 +905,10 @@ func geopathfile(w io.Writer, s []string, linenumber int) error {
 	if n > 7 {
 		color = eval(s[7])
 	}
-	deckpolyline(w, x, y, size, unquote(color), m)
+	if n > 8 {
+		op = eval(s[8])
+	}
+	deckconnectline(w, x, y, size, unquote(color), op, m)
 	return nil
 }
 

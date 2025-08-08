@@ -1151,6 +1151,8 @@ Appropriate KML files may be obtained from the [opendatasoft site](https://publi
 
 ## Regions
 
+![regions](images/georegion.png)
+
 Reads KML data from the specified file and renders the regions.
 
 ```
@@ -1159,12 +1161,16 @@ georegion  "file.kml" latmin latmax longmin longmax [color]
 
 ## Borders
 
+![border](images/geoborder.png)
+
 Reads KML data from the specified file and renders the borders.
 
 ```
 geoborder "file.kml" latmin latmax longmin longmax linewidth [color]
 ```
 ## Labels
+
+![labels](images/geolabel.png)
 
 Reading from the specified file, or a geo coordinate string, place text at a latitude and longitude. The fields in the file are tab-separated latitude, longitide, and label.  Labels with embedded "\n" means the text will be stacked. (for example "Atlantic\nOcean").
 
@@ -1196,12 +1202,16 @@ geolabel "geo:41.8719,12.5674   Italy" latmin latmax longmin longmax [size] [fon
 ```
 ## Locations
 
+![locs](images/geoloc.png)
+
 Reading data from the specified file or coordinate string, place text and a dot. The text may be center-above ("c"), center-underneath ("u"), begin ("b"), or end ("e") aligned in relation to the dot.
 
 ```
 geoloc "location" latmin latmax longmin longmax align [size] [font] [color] [op]
 ```
 Place a marker at the locations specified in the specified file or coordinate string.
+
+![geomark](images/geomark.png)
 
 ```
 geomark "location" latmin latmax longmin longmax [size] [color]
@@ -1212,6 +1222,12 @@ Connect the points found in the specified file with straight lines.
 geopathfile  "file" latmin latmax longmin longmax [size] [color]
 ```
 Connect two points with either straight lines or curves
+
+![geopath](images/geopath.png)
+
+![geoarc](images/geoarc.png)
+
+
 ```
 geopath "point1" "point2" latmin latmax longmin longmax [size] [color] [op]
 geoarc  "point1" "point2" latmin latmax longmin longmax [size] [color] [op]

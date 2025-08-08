@@ -1,0 +1,5 @@
+deck
+	slide "black"
+		square 50 50 30 "moccasin"
+	eslide
+edeck

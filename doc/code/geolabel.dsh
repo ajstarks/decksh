@@ -1,0 +1,7 @@
+latmin=0-60
+latmax=90
+longmin=0-180
+longmax=180
+
+georegion "world.kml" latmin latmax longmin longmax "white"
+geolabel "continents.d" latmin latmax longmin longmax 2 "sans" "black"

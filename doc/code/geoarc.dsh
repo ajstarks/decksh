@@ -1,0 +1,11 @@
+latmin=25
+latmax=50
+longmin=0-130
+longmax=0-65
+nyc="geo:+40.7167,-74.4000	New York (40.72°, -74.40)"
+los="geo:+34.05000,-118.250	Los Angeles (34.05°, -118.25°)"
+
+georegion "usa.kml" latmin latmax longmin longmax "lightsteelblue"
+geoloc    nyc latmin latmax longmin longmax "c" 2
+geoloc    los latmin latmax longmin longmax "c" 2
+geoarc    nyc los latmin latmax longmin longmax 1 "red" 50
