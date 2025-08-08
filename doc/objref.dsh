@@ -2417,8 +2417,16 @@ deck
 		ctext "lgmax" 76   75 ts "mono"
 		etext "lgmin" 27.5 75 ts "mono"
 		text  "geo:lat,long<tab>Label" 5 65 ts
-		text  "Label Position:" 5 93 2 "mono"
-		textfile "pos.txt" 5 89 1.5 "mono"
+
+		list 75 67 1.5 "mono" "" 100 1.2
+			li "Label Position (pos):"
+			li `"c" Center above`
+			li `"b" Begin Aligned`
+			li `"e" End Aligned`
+			li `"u" Center below`
+		elist
+
+
 		hline 35 66 10 0.1
 		kwx=2
 		arx=kwx+12
