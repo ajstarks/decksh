@@ -153,6 +153,44 @@ func canvas(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// ruler makes x, y rulers
+// rule xincr [yincr] [color]
+func ruler(w io.Writer, s []string, linenumber int) error {
+	const (
+		ruleattr = "sp=\"0.05\" color=%s opacity=\"70\""
+		xrulelab = "<text align=\"c\" xp=\"%.2f\" yp=\"2\" sp=\"1.2\" color=%s opacity=\"75\" font=\"mono\">%v</text>\n"
+		yrulelab = "<text align=\"c\" xp=\"2\" yp=\"%.2f\" sp=\"1.2\" color=%s opacity=\"75\" font=\"mono\">%v</text>\n"
+	)
+	incr := 5.0 // ruler
+	color := `"black"`
+	n := len(s)
+
+	if n > 1 { // ruler x
+		if err := validNumber(s[1]); err != nil {
+			return err
+		}
+		i, err := strconv.ParseFloat(s[1], 64)
+		if err != nil {
+			return err
+		}
+		incr = i
+	}
+	if n > 2 && s[2][0] == doublequote { // ruler x color
+		color = s[2]
+	}
+	if incr > 50 || incr < 2 {
+		incr = 5.0
+	}
+	ra := fmt.Sprintf(ruleattr, color)
+	for i := incr; i < 100.0; i += incr {
+		fmt.Fprintf(w, linefmt, i, 0.0, i, 100.0, ra)
+		fmt.Fprintf(w, linefmt, 0.0, i, 100.0, i, ra)
+		fmt.Fprintf(w, xrulelab, i, color, i)
+		fmt.Fprintf(w, yrulelab, i, color, i)
+	}
+	return nil
+}
+
 // slide produces the "slide" element
 // slide [bg] [fg]
 func slide(w io.Writer, s []string, linenumber int) error {
@@ -697,6 +735,28 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 		color = eval(s[7])
 	}
 	geoshape(w, kml, m, size, unquote(color), "polyline")
+	return nil
+}
+
+func geoimage(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	if n < 8 {
+		return fmt.Errorf("line %d: %s \"loc\" latmin latmax longmin longmax width height", linenumber, s[0])
+	}
+	if err := validNumber(s[2], s[3], s[4], s[5], s[6], s[7]); err != nil {
+		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
+	}
+	r, err := opencoords(unquote(eval(s[1])))
+	if err != nil {
+		return err
+	}
+	m, err := makegeometry(s)
+	if err != nil {
+		return err
+	}
+	loc, err := readLoc(r, locsep)
+	loc.X, loc.Y = mapData(loc.X, loc.Y, m)
+	deckgeoimg(w, loc, eval(s[6]), eval(s[7]))
 	return nil
 }
 

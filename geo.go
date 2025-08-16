@@ -16,6 +16,7 @@ const (
 	dotfmt      = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=\"%s\" opacity=\"%v\"/>\n"
 	decklinefmt = "<line xp1=\"%.5f\" yp1=\"%.5f\" xp2=\"%.5f\" yp2=\"%.5f\" sp=\"%.5f\" color=\"%s\" opacity=\"%s\"/>\n"
 	textfmt     = "<text align=\"%s\" xp=\"%.3f\" yp=\"%.3f\" sp=\"%.3f\" %s>%s</text>\n"
+	geoimgfmt   = "<image name=\"%s\" xp=\"%.3f\" yp=\"%.3f\" width=%q height=%q/>\n"
 )
 
 // geometry defines the canvas and map boundaries
@@ -249,6 +250,19 @@ func geodot(w io.Writer, x, y []float64, size float64, color string, op string) 
 	}
 }
 
+// deckgeoimg places images at geometric coordinates
+func deckgeoimg(w io.Writer, loc Locdata, width, height string) {
+	nc := len(loc.X)
+	for i := 0; i < nc; i++ {
+		if len(loc.Name[i]) < 0 {
+			fmt.Fprintf(os.Stderr, "missing image file")
+			continue
+		}
+		fmt.Fprintf(w, geoimgfmt,
+			loc.Name[i], loc.X[i], loc.Y[i], width, height)
+	}
+}
+
 // textadj adjusts alignment of text
 func textadj(align string, size float64) (float64, float64) {
 	var xdiff, ydiff float64
@@ -271,7 +285,7 @@ func textadj(align string, size float64) (float64, float64) {
 }
 
 func wordstack(w io.Writer, x, y float64, s []string, align string, size float64, fco string) {
-	ls := size * 1.2
+	ls := size * 1.8
 	for i := 0; i < len(s); i++ {
 		fmt.Fprintf(w, textfmt, align, x, y, size, fco, xmlesc(s[i]))
 		y -= ls
@@ -314,20 +328,20 @@ func deckpolygon(w io.Writer, x, y []float64, color string, g Geometry) {
 	}
 	fill, op := colorop(color)
 	end := nc - 1
-	fmt.Fprintf(w, "<polygon color=\"%s\" opacity=\"%s\" xc=\"%.3f", fill, op, x[0])
+	fmt.Fprintf(w, "<polygon color=\"%s\" opacity=\"%s\" xc=\"%.5f", fill, op, x[0])
 	for i := 1; i < nc; i++ {
 		//if x[i] >= g.Xmin && x[i] <= g.Xmax {
-		fmt.Fprintf(w, " %.3f", x[i])
+		fmt.Fprintf(w, " %.5f", x[i])
 		//}
 	}
-	fmt.Fprintf(w, " %.3f\" ", x[end])
-	fmt.Fprintf(w, "yc=\"%.3f", y[0])
+	fmt.Fprintf(w, " %.5f\" ", x[end])
+	fmt.Fprintf(w, "yc=\"%.5f", y[0])
 	for i := 1; i < nc; i++ {
 		//if y[i] >= g.Ymin && y[i] <= g.Ymax {
-		fmt.Fprintf(w, " %.3f", y[i])
+		fmt.Fprintf(w, " %.5f", y[i])
 		//}
 	}
-	fmt.Fprintf(w, " %.3f\"/>\n", y[end])
+	fmt.Fprintf(w, " %.5f\"/>\n", y[end])
 }
 
 // deckline makes a line in deck markup

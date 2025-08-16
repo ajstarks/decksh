@@ -18,6 +18,21 @@ deck
 		ctext "Empty" titleX titleY titleSize
 	eslide
 
+	slide
+		ctext "Ruler" titleX titleY titleSize
+		ruler
+	eslide
+
+	slide
+		ctext "Ruler 20" titleX titleY titleSize
+		ruler 20
+	eslide
+
+	slide
+		ctext "Ruler 10 colored" titleX titleY titleSize
+		ruler 10 "red"
+	eslide
+
 	slide "orange"
 		ctext "Background color only" titleX titleY titleSize
 	eslide
@@ -1187,6 +1202,38 @@ deck
 		image imfile 10 midy 10 0
 		image imfile 30 midy 25 0
 		image imfile 70 midy 50 0
+	eslide
+
+	// Geo functions
+	slide "skyblue"
+		exuscolor="rgb(220,220,220)"
+		uscolor="linen"
+		latmin=20
+		latmax=55
+		longmin=0-130
+		longmax=0-65
+		nyc="geo:40.73,-73.94"
+		la="geo:34.05000,-118.2015"
+		min="geo:44.981944,-93.269167	Minneapolis"
+		gom="geo:25,-90	Gulf of Mexico"
+		georegion	"can.kml"							latmin latmax longmin longmax exuscolor
+		georegion	"mex.kml"							latmin latmax longmin longmax exuscolor
+		georegion	"carib.kml"							latmin latmax longmin longmax exuscolor
+		georegion 	"usa.kml" 							latmin latmax longmin longmax uscolor
+		geoborder 	"usa.kml" 							latmin latmax longmin longmax 0.15 "gray"
+		geoloc		"roadtrip.d"  						latmin latmax longmin longmax "e" 1.5
+		include 	"ustates.dsh"
+		geopathfile	"roadtrip.d"  						latmin latmax longmin longmax 0.5 "red" 25
+		geoimage	"geo:39,-103	usa.png"	 		latmin latmax longmin longmax 5 0
+		geoimage	"geo:25,-103	mex.png" 			latmin latmax longmin longmax 5 0
+		geoimage	"geo:52,-103	can.png" 			latmin latmax longmin longmax 5 0
+		geoarc		la min								latmin latmax longmin longmax 0.2 "green"
+		geopath		min nyc								latmin latmax longmin longmax 0.2 "green"
+		geomark		min									latmin latmax longmin longmax 1.5 "green"
+		geolabel	min									latmin latmax longmin longmax 1.5
+		geolabel	gom									latmin latmax longmin longmax 2.0
+		geolabel	"geo:30,-125	Pacific\nOcean" 	latmin latmax longmin longmax 2.5
+		geolabel	"geo:35,-70	Atlantic\nOcean"		latmin latmax longmin longmax 2.5
 	eslide
 
 	// Example deck

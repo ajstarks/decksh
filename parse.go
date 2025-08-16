@@ -380,6 +380,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "canvas":
 		return canvas(w, tokens, n)
 
+	case "ruler":
+		return ruler(w, tokens, n)
+
 	case "include":
 		return include(w, tokens, n)
 
@@ -508,6 +511,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 
 	case "geoarc":
 		return geoarc(w, tokens, n)
+
+	case "geoimage":
+		return geoimage(w, tokens, n)
 
 	default: // not a keyword, direct function calls
 		return directfunc(w, tokens, n)

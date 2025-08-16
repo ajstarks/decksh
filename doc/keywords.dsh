@@ -7,11 +7,11 @@
 		csep=15
 		csep2=csep*0.80
 		csep3=csep*0.80
-		rsep=48
+		rsep=46
 		lsep=5
 		headtop=top-1
 		listtop=headtop-lsep
-		listspacing=lsize*0.6
+		listspacing=lsize*0.56
 		headcolor=spotcolor
 
 		lx=left-5
@@ -43,17 +43,6 @@
 			li "textfile"
 			li "textcode"
 		elist
-
-		lx+=csep
-		text "Lists" lx headtop hsize "sans" headcolor
-		list lx listtop lsize "mono" "black" 100 listspacing
-			li "list"
-			li "blist"
-			li "nlist"
-			li "clist"
-			li "li"
-			li "elist"
-		elist
 		lx+=csep
 		text "Graphics" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
@@ -72,9 +61,21 @@
 			li "polyline"
 			li "rect"
 			li "rrect"
+			li "ruler"
 			li "square"
 			li "star"
 			li "vline"
+		elist
+
+		lx+=csep
+		text "Lists" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "list"
+			li "blist"
+			li "nlist"
+			li "clist"
+			li "li"
+			li "elist"
 		elist
 		lx+=csep2
 		text "Braces" lx headtop hsize "sans" headcolor
@@ -97,22 +98,19 @@
 			li "ucarrow"
 			li "dcarrow"
 		elist
+		
+		
+		
 
 		headtop-=rsep
 		listtop-=rsep
 
 		lx=left-5
-		text "Images" lx headtop hsize "sans" headcolor
-		list lx listtop lsize "mono" "black" 100 listspacing
-			li "image"
-			li "cimage"
-		elist
-
-		lx+=csep
 		text "Maps" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "geoarc"
 			li "geoborder"
+			li "geoimage"
 			li "geolabel"
 			li "geoloc"
 			li "geomark"
@@ -120,6 +118,14 @@
 			li "geopathfile"
 			li "georegion"
 		elist
+		lx+=csep
+		text "Images" lx headtop hsize "sans" headcolor
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "image"
+			li "cimage"
+		elist
+
+		
 
 		lx+=csep
 		text "Charts" lx headtop hsize "sans" headcolor

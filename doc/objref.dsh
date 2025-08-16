@@ -1667,7 +1667,7 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.5
-		ctext "Loop, If, Built-ins, Functions, Data and Grid" mid ty 5 "serif"
+		ctext "Loop, If, Built-ins" mid ty 5 "serif"
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
@@ -1685,6 +1685,7 @@ deck
 			li "Import function"
 			li "In-line data"
 			li "Objects on a grid"
+			li "Rulers"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
@@ -1703,6 +1704,7 @@ deck
 			li "import"
 			li "data" 
 			li "grid"
+			li "ruler"
 		elist
 		rc+=20
 		list rc lsty lfs "mono" argcolor 100 listspacing
@@ -1721,6 +1723,7 @@ deck
 			li `"file"`
 			li `"file" ... edata`
 			li `"file" x y hspace vspace edge`
+			li "increment [color]"
 		elist
 	eslide
 
@@ -2064,6 +2067,26 @@ deck
 		ctext     `grid "code/grid-ex.dsh" 35 33 10 10 65` 50 10 ets  "mono"
 	eslide
 
+	// ruler
+	slide bgcolor fgcolor
+		etext "increment" 39 80 ts "mono"
+		etext  "(default = 5)" 39 77 1.4 "mono"
+		lbrace 40 80 10 2 2 0.3
+		image "images/rule-incr.png"  50 80 30 0
+		hline 0 47 100 hlsize hlcolor hlop
+		text "ruler"      33  ly ts "mono" kwcolor
+		ctext "increment" 50  ly ts "mono" optcolor
+		text "color"      60 ly ts "mono" optcolor
+
+		ctext "ruler"            15 10 ets "mono"
+		ctext "ruler 10"         50 10 ets "mono"
+		ctext `ruler 2 "red"` 85 10 ets "mono"
+
+		image "images/rule.png"       15 25 20 0
+		image "images/rule-10.png"    50 25 20 0
+		image "images/rule-red.png"   85 25 20 0
+	eslide
+
 
 	// Math Index
 	slide bgcolor fgcolor
@@ -2283,6 +2306,7 @@ deck
 			li "Text labels"
 			li "Dot markers"
 			li "Text with markers"
+			li "Place images"
 			li "Lines between points"
 			li "Arcs between points"
 			li "Lines between points"
@@ -2295,6 +2319,7 @@ deck
 			li "geolabel"
 			li "geomark"
 			li "geoloc"
+			li "geoimage"
 			li "geopath"
 			li "geoarc"
 			li "geopathfile"
@@ -2307,6 +2332,7 @@ deck
 			li `"loc" ltmin ltmax lgmin lgmax`
 			li `"loc" ltmin ltmax lgmin lgmax`
 			li `"loc" ltmin ltmax lgmin lgmax`
+			li `"loc" ltmin ltmax lgmin lgmax w h`
 			li `"p1" "p2" ltmin ltmax lgmin lgmax`
 			li `"p1" "p2" ltmin ltmax lgmin lgmax`
 			li `"file" ltmin ltmax lgmin lgmax`
@@ -2316,15 +2342,16 @@ deck
 			li tbl4 "sans" objcolor
 			li "color"
 			li "lw color op"
-			li "align size font color op"
-			li "size color op"
 			li "size font color op"
+			li "size color op"
+			li "align size font color op"
+			li
 			li "lw color op"
 			li "lw color op"
 			li "lw color op"
 		elist
 		
-		ny=lsty-60
+		ny=lsty-65
 		text `"file.kml" are KML files from opendatasoft` initlcol ny 1.8 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
 		ny+=1
 		hline initlcol ny 30 2 "steelblue" 20
@@ -2425,8 +2452,6 @@ deck
 			li `"e" End Aligned`
 			li `"u" Center below`
 		elist
-
-
 		hline 35 66 10 0.1
 		kwx=2
 		arx=kwx+12
@@ -2439,6 +2464,28 @@ deck
 		image "images/geoloc.png" 85 25 25 0
 		textfile "code/geoloc.dsh" 5 35 2 "mono"
 	eslide
+
+	slide bgcolor fgcolor
+		image "images/geoimage.png" 50 75 40 0
+		ctext "ltmax" 50   95 ts
+		ctext "ltmin" 50   53 ts
+		ctext "lgmax" 76   75 ts
+		etext "lgmin" 27.5 75 ts
+		ctext "w"     48.7   88 ts
+		ctext "h"     37   78 ts
+		ubrace 48.7    87 13.5 1 2 0.2 "black"
+		lbrace 38.5  79 11.2 2 2 0.2 "black"
+		vline  29 48 7 0.2
+		etext  "geo:lat,long<tab>imgfile" 29 56 2.5
+		kwx=5
+		arx=kwx+20
+		arx2=arx+50
+		hline 0 47 100 hlsize hlcolor hlop
+		text "geoimage" kwx ly ts "mono" kwcolor
+		text `"loc" ltmin ltmax lgmin lgmax w h` arx ly ts "mono" argcolor
+		image "images/geoimage.png" 85 25 25 0
+		textfile "code/geopic.dsh" 5 32 2 "mono"
+	eslide	
 
 	slide bgcolor fgcolor
 		kwx=5

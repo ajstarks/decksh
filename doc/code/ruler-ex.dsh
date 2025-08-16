@@ -1,0 +1,13 @@
+deck
+	slide
+		ruler 5
+	eslide
+
+	slide
+		ruler 10
+	eslide
+
+	slide
+		ruler 2 "red"
+	eslide
+edeck

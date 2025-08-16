@@ -1,0 +1,9 @@
+#!/bin/bash
+# generate borders for us states
+latmin=20
+latmax=55
+longmin=-130
+longmax=-65
+geoopts="-latmin=$latmin -latmax=$latmax -longmin=$longmin -longmax=$longmax"
+canopts="-xmax=100 -ymax=100 -xmin=0 -ymin=0"
+usmap $genopts $canopts -style=decksh -shape=polyline ustates.kml > ustates.dsh

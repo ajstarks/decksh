@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-08-02-1.0.0
+The current version is 2025-08-12-1.0.0
 
 ## References and Examples
 
@@ -170,6 +170,14 @@ middle of the canvas, (100,100) is the upper right, (100,0) is the lower
 right, and (0,100) is the upper left.
 
 ![percent-canvas](images/pct-canvas.png)
+
+## Rulers
+
+Make rulers with an interval (default 5), with optional color
+
+```ruler [increment] [color]```
+
+![ruler](images/ruler.png)
 
 ## Colors
 
@@ -1144,7 +1152,7 @@ The Equator is at 0° latitude; latitudes to the north of the Equator are positi
 The Prime Meridian is 0° longitude; longitudes to the east of this point are positive, longitudes to the west are negative.
 
 
-![latlong](images/latlong.png)
+![latlong](images/latlong-scale.png)
 
 Appropriate KML files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
 
@@ -1227,10 +1235,30 @@ Connect two points with either straight lines or curves
 
 ![geoarc](images/geoarc.png)
 
-
 ```
 geopath "point1" "point2" latmin latmax longmin longmax [size] [color] [op]
 geoarc  "point1" "point2" latmin latmax longmin longmax [size] [color] [op]
 ````
+
+## Images on maps
+
+![geoimage](images/geoimage.png)
+
+```
+geoimage "loc" latmin latmax longmin longmax image-width image-height
+```
+
+Place image(s) at location(s)
+
+The location is specified by lat/long and name of the image.  The ```loc``` argument may be either a geo URL and a name, or a list of coordinates and names in a file.
+
+For example:
+
+```
+geoimage "geo:48.8588897,2.3200410    fra.png" latmin latmax longmin longmax 10 0
+
+```
+places the image in "fra.png" at the coordinates of Paris, France.
+
 
 

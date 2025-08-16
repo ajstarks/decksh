@@ -11,11 +11,11 @@ import (
 )
 
 const (
-	maxbufsize = 256 * 1024 // the default 64k buffer is too small
+	maxbufsize = 512 * 1024 // the default 64k buffer is too small
 )
 
 // emap is the id=expression map
-var emap = map[string]string{"deckshVersion": `"2025-08-08-1.0.0"`}
+var emap = map[string]string{"deckshVersion": `"2025-08-16-1.0.0"`}
 
 var (
 	canvasWidth  = 792.0

@@ -1,0 +1,7 @@
+latmin=25
+latmax=50
+longmin=0-130
+longmax=0-65
+
+georegion  "usa.kml" latmin latmax longmin longmax "lightsteelblue" 
+geoimage   "geo:40,-100	usa.png" latmin latmax longmin longmax 35 0
