@@ -223,6 +223,8 @@ func readLoc(r io.Reader, sep byte) (Locdata, error) {
 		data.Y = append(data.Y, yp)
 		if len(f) > 2 { // if name is present
 			data.Name = append(data.Name, f[2])
+		} else {
+			data.Name = append(data.Name, "")
 		}
 	}
 	return data, s.Err()
