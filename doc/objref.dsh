@@ -2340,7 +2340,7 @@ deck
 		rc+=38
 		list rc lsty lfs "mono" objcolor
 			li tbl4 "sans" objcolor
-			li "color"
+			li "color op"
 			li "lw color op"
 			li "size font color op"
 			li "size color op"
@@ -2379,7 +2379,7 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "georegion" kwx ly ts "mono" kwcolor
 		text `"file.kml" ltmin ltmax lgmin lgmax` arx ly ts "mono" argcolor
-		text "color" arx2 ly ts "mono" optcolor
+		text "color op" arx2 ly ts "mono" optcolor
 		image "images/georegion.png" 85 25 25 0
 		textfile "code/georegion.dsh" 5 35 2 "mono"
 	eslide

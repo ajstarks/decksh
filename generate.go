@@ -684,7 +684,7 @@ func star(w io.Writer, s []string, linenumber int) error {
 func geopoly(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
 	if n < 6 {
-		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [color]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s \"file\" latmin latmax longmin longmax [color] [op]", linenumber, s[0])
 	}
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return err
@@ -699,9 +699,12 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 	}
 	color := "gray"
 	if n > 6 {
-		color = s[6]
+		color = unquote(s[6])
 	}
-	geoshape(w, kml, m, 0, unquote(color), "polygon")
+	if n > 7 {
+		color = unquote(color) + ":" + s[7]
+	}
+	geoshape(w, kml, m, 0, color, "polygon")
 	return nil
 }
 

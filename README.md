@@ -1164,7 +1164,7 @@ Appropriate KML files may be obtained from the [opendatasoft site](https://publi
 Reads KML data from the specified file and renders the regions.
 
 ```
-georegion  "file.kml" latmin latmax longmin longmax [color]
+georegion  "file.kml" latmin latmax longmin longmax [color] [op]
 ```
 
 ## Borders
