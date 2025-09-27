@@ -1242,10 +1242,10 @@ deck
 	geoLongMin=0-180
 	geoLongMax=180
 
-	geoXmin=80
+	geoXmin=85
 	geoXmax=95
-	geoYmin=75
-	geoYmax=90
+	geoYmin=82
+	geoYmax=92
 
 	imscale=58
 	dtop=87
@@ -1253,7 +1253,7 @@ deck
 	chartright=42
 	chartop=42
 	chartbottom=28
-	imy=50
+	imy=55
 	opts="-fulldeck=f -textsize 1  -xlabel=2  -barwidth 1.5"
 
 	slide "white" "black"
@@ -1281,9 +1281,9 @@ deck
 		ns=5
 		nc="gray"
 		nf="serif"
-		nop=30
+		nop=40
 		ctext "text"	50 95		ns nf nc nop
-		ctext "geo"		89 95		ns nf nc nop
+		ctext "geo"		90 95		ns nf nc nop
 		ctext "image"	72 80		ns nf nc nop
 		ctext "list"	25 80		ns nf nc nop
 		ctext "chart"	25 50		ns nf nc nop

@@ -147,7 +147,7 @@ func geocanvas() (float64, float64, float64, float64) {
 }
 
 // set lat/long bounds, if errors occur use the defaults
-func geolatlong(s []string) (float64, float64, float64, float64) {
+func geolatlong() (float64, float64, float64, float64) {
 	latmin, err := strconv.ParseFloat(eval("geoLatMin"), 64)
 	if err != nil {
 		latmin = -90.0
@@ -169,10 +169,10 @@ func geolatlong(s []string) (float64, float64, float64, float64) {
 }
 
 // makegeometry fills in the geometry from arguments
-func makegeometry(s []string) (Geometry, error) {
+func makegeometry() (Geometry, error) {
 	var m Geometry
 	m.Xmin, m.Xmax, m.Ymin, m.Ymax = geocanvas()
-	m.Latmin, m.Latmax, m.Longmin, m.Longmax = geolatlong(s)
+	m.Latmin, m.Latmax, m.Longmin, m.Longmax = geolatlong()
 	return m, nil
 }
 

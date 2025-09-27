@@ -690,7 +690,7 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry(s)
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
@@ -715,7 +715,7 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry(s)
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
@@ -744,7 +744,7 @@ func geoimage(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry(s)
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
@@ -806,7 +806,7 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry(s)
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
@@ -853,7 +853,7 @@ func geolabel(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry(s)
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
@@ -887,7 +887,7 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry(s)
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
@@ -925,7 +925,7 @@ func geopathfile(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry(s)
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
@@ -965,7 +965,7 @@ func geoarc(w io.Writer, s []string, linenumber int) error {
 	y := make([]float64, 2)
 	x[0], y[0] = parseLatLongs(unquote(eval(s[1])))
 	x[1], y[1] = parseLatLongs(unquote(eval(s[2])))
-	m, err := makegeometry(s[1:])
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
@@ -1002,7 +1002,7 @@ func geopath(w io.Writer, s []string, linenumber int) error {
 	y := make([]float64, 2)
 	x[0], y[0] = parseLatLongs(unquote(eval(s[1])))
 	x[1], y[1] = parseLatLongs(unquote(eval(s[2])))
-	m, err := makegeometry(s[1:])
+	m, err := makegeometry()
 	if err != nil {
 		return err
 	}
