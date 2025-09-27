@@ -2301,8 +2301,8 @@ deck
 		hline rc llsty 95 tbheadsize "gray" 20
 		list rc lsty lfs
 			li tbl1 "sans" objcolor
-			li "Regions"
-			li "Borders"
+			li "Geographic Regions"
+			li "Geographic Borders"
 			li "Text labels"
 			li "Dot markers"
 			li "Text with markers"
@@ -2311,7 +2311,7 @@ deck
 			li "Arcs between points"
 			li "Lines between points"
 		elist
-		rc+=20
+		rc+=25
 		list rc lsty lfs "mono" kwcolor
 			li tbl2 "sans" objcolor
 			li "georegion"
@@ -2327,17 +2327,17 @@ deck
 		rc+=13
 		list rc lsty lfs "mono" argcolor
 			li tbl3 "sans" objcolor
-			li `"file.kml" ltmin ltmax lgmin lgmax`
-			li `"file.kml" ltmin ltmax lgmin lgmax`
-			li `"loc" ltmin ltmax lgmin lgmax`
-			li `"loc" ltmin ltmax lgmin lgmax`
-			li `"loc" ltmin ltmax lgmin lgmax`
-			li `"loc" ltmin ltmax lgmin lgmax w h`
-			li `"p1" "p2" ltmin ltmax lgmin lgmax`
-			li `"p1" "p2" ltmin ltmax lgmin lgmax`
-			li `"file" ltmin ltmax lgmin lgmax`
+			li `"file.kml"`
+			li `"file.kml"`
+			li `"loc"`
+			li `"loc"`
+			li `"loc"`
+			li `"loc"  w h`
+			li `"p1" "p2"`
+			li `"p1" "p2"`
+			li `"file"`
 		elist
-		rc+=38
+		rc+=20
 		list rc lsty lfs "mono" objcolor
 			li tbl4 "sans" objcolor
 			li "color op"
@@ -2354,31 +2354,33 @@ deck
 		ny=lsty-65
 		text `"file.kml" are KML files from opendatasoft` initlcol ny 1.8 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
 		ny+=1
-		hline initlcol ny 30 2 "steelblue" 20
+		hline initlcol ny 30 1.7 "steelblue" 20
 		ny-=4
 		list initlcol ny 1.8 "sans" "" 100 1.5
-			li `ltmin, ltmax, lgmin, lgmax are latitude and longitude boundaries`
+			li "geoLatMin, geoLatMax, geoLongMin, geoLongMax variables set the latitude and longitude boundaries"
+			li "geoXmin, geoXmax, geoYmin, geoYmax variables define the canvas boundaries for geographic functions"
 			li `"loc" refers to a geo URI string ("geo:lat,long"), or a filename containing multiple locations`
 			li `"p1" and "p2" are geo URIs`
 		elist
 	eslide
 
-	kwx=6
+	kwx=25
 	arx=kwx+16
-	arx2=arx+57
+	arx2=arx+18
+	ts = ts*0.75
 	slide bgcolor fgcolor
 		image "images/georegion.png" 50 75 45 0
-		ctext "ltmax" 50   95 ts "mono"
-		ctext "ltmin" 50   53 ts "mono"
-		ctext "lgmax" 76   75 ts "mono"
-		etext "lgmin" 27.5 75 ts "mono"
-		text  "color" 10 65 ts
-		line 17 66 43 66 0.2
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 73   75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
+		text  "color" 10 65 ts "mono"
+		line 18 66 43 66 0.2
 		circle 43 66 1
 
 		hline 0 47 100 hlsize hlcolor hlop
 		text "georegion" kwx ly ts "mono" kwcolor
-		text `"file.kml" ltmin ltmax lgmin lgmax` arx ly ts "mono" argcolor
+		text `"file.kml" ` arx ly ts "mono" argcolor
 		text "color op" arx2 ly ts "mono" optcolor
 		image "images/georegion.png" 85 25 25 0
 		textfile "code/georegion.dsh" 5 35 2 "mono"
@@ -2386,16 +2388,16 @@ deck
 
 	slide bgcolor fgcolor
 		image "images/geoborder.png" 50 75 45 0
-		ctext "ltmax" 50   95 ts "mono"
-		ctext "ltmin" 50   53 ts "mono"
-		ctext "lgmax" 76   75 ts "mono"
-		etext "lgmin" 27.5 75 ts "mono"
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 73   75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
 		text  "color/lw" 10 65 ts
 		line 21 66 43 66 0.2
 		circle 43 66 1
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geoborder" kwx ly ts "mono" kwcolor
-		text `"file.kml" ltmin ltmax lgmin lgmax` arx ly ts "mono" argcolor
+		text `"file.kml" ` arx ly ts "mono" argcolor
 		text "lw color" arx2 ly ts "mono" optcolor
 		image "images/geoborder.png" 85 25 25 0
 		textfile "code/geoborder.dsh" 5 35 2 "mono"
@@ -2404,15 +2406,15 @@ deck
 	slide bgcolor fgcolor
 		textcode "code/continents.d" 30 35 20 1.2
 		image "images/geolabel.png" 50 75 45 0
-		ctext "ltmax" 50   95 ts "mono"
-		ctext "ltmin" 50   53 ts "mono"
-		ctext "lgmax" 76   75 ts "mono"
-		etext "lgmin" 27.5 75 ts "mono"
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 73   75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
 		text  "geo:lat,long<tab>Label" 5 65 ts
 		hline 35 66 30 0.1
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geolabel" kwx ly ts "mono" kwcolor
-		text `"loc" ltmin ltmax lgmin lgmax` arx ly ts "mono" argcolor
+		text `"loc" ` arx ly ts "mono" argcolor
 		arx2-=7
 		text "size color op" arx2 ly ts "mono" optcolor
 		image "images/geolabel.png" 85 25 25 0
@@ -2421,17 +2423,17 @@ deck
 
 	slide bgcolor fgcolor
 		image "images/geomark.png" 50 75 45 0
-		ctext "ltmax" 50   95 ts "mono"
-		ctext "ltmin" 50   53 ts "mono"
-		ctext "lgmax" 76   75 ts "mono"
-		etext "lgmin" 27.5 75 ts "mono"
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 73   75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
 		text  "geo:lat,long" 5 65 ts
 		hline 20 66 25 0.1
 		textcode "code/gc.d" 30 35 35 1.2
 		arx-=2
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geomark" kwx ly ts "mono" kwcolor
-		text `"loc" ltmin ltmax lgmin lgmax` arx ly ts "mono" argcolor
+		text `"loc" ` arx ly ts "mono" argcolor
 		text "size color op" arx2 ly ts "mono" optcolor
 		image "images/geomark.png" 85 25 25 0
 		textfile "code/geomark.dsh" 5 35 2 "mono"
@@ -2439,11 +2441,11 @@ deck
 
 	slide bgcolor fgcolor
 		image "images/geoloc.png" 50 75 45 0
-		ctext "ltmax" 50   95 ts "mono"
-		ctext "ltmin" 50   53 ts "mono"
-		ctext "lgmax" 76   75 ts "mono"
-		etext "lgmin" 27.5 75 ts "mono"
-		text  "geo:lat,long<tab>Label" 5 65 ts
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 73   75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
+		text  "geo:lat,long<tab>Label" 5 65 ts "mono"
 
 		list 75 67 1.5 "mono" "" 100 1.2
 			li "Label Position (pos):"
@@ -2453,13 +2455,13 @@ deck
 			li `"u" Center below`
 		elist
 		hline 35 66 10 0.1
-		kwx=2
+		kwx=25
 		arx=kwx+12
-		arx2=arx+48
+		arx2=arx+15
 		textcode "code/gc.d" 30 35 35 1.2
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geoloc" kwx ly ts "mono" kwcolor
-		text `"loc" ltmin ltmax lgmin lgmax` arx ly ts "mono" argcolor
+		text `"loc"` arx ly ts "mono" argcolor
 		text "pos size font color op" arx2 ly ts "mono" optcolor
 		image "images/geoloc.png" 85 25 25 0
 		textfile "code/geoloc.dsh" 5 35 2 "mono"
@@ -2467,22 +2469,23 @@ deck
 
 	slide bgcolor fgcolor
 		image "images/geoimage.png" 50 75 40 0
-		ctext "ltmax" 50   95 ts
-		ctext "ltmin" 50   53 ts
-		ctext "lgmax" 76   75 ts
-		etext "lgmin" 27.5 75 ts
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 72  75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
 		ctext "w"     48.7   88 ts
 		ctext "h"     37   78 ts
 		ubrace 48.7    87 13.5 1 2 0.2 "black"
 		lbrace 38.5  79 11.2 2 2 0.2 "black"
-		vline  29 48 7 0.2
+		
 		etext  "geo:lat,long<tab>imgfile" 29 56 2.5
-		kwx=5
-		arx=kwx+20
+		kwx=25
+		arx=kwx+15
 		arx2=arx+50
+		line  30 56 40 48  0.2
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geoimage" kwx ly ts "mono" kwcolor
-		text `"loc" ltmin ltmax lgmin lgmax w h` arx ly ts "mono" argcolor
+		text `"loc"  w h` arx ly ts "mono" argcolor
 		image "images/geoimage.png" 85 25 25 0
 		textfile "code/geopic.dsh" 5 32 2 "mono"
 	eslide	
@@ -2492,17 +2495,17 @@ deck
 		arx=kwx+13
 		arx2=arx+60
 		image "images/geopath.png" 50 75 45 0
-		ctext "ltmax" 50   95 ts "mono"
-		ctext "ltmin" 50   53 ts "mono"
-		ctext "lgmax" 76   75 ts "mono"
-		etext "lgmin" 27.5 75 ts "mono"
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 73   75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
 		text  "color/lw" 85 71 ts "mono"
 		line  85 72 45 72 0.1
 		text  "p2" 35 67 ts "mono"
 		text  "p1" 65 77 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geopath" kwx ly ts "mono" kwcolor
-		text  `"p1" "p2" ltmin ltmax lgmin lgmax lw` arx ly ts "mono" argcolor
+		text  `"p1" "p2"  lw` arx ly ts "mono" argcolor
 		text  "color op" arx2 ly ts "mono" optcolor
 		image "images/geopath.png" 82 25 35 0
 		textfile "code/geopath.dsh" 5 39 1.6 "mono"
@@ -2510,17 +2513,17 @@ deck
 
 	slide bgcolor fgcolor
 		image "images/geoarc.png" 50 75 45 0
-		ctext "ltmax" 50   95 ts "mono"
-		ctext "ltmin" 50   53 ts "mono"
-		ctext "lgmax" 76   75 ts "mono"
-		etext "lgmin" 27.5 75 ts "mono"
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 73   75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
 		text  "color/lw" 85 71 ts "mono"
 		line  85 72 65 72 0.1
 		text  "p2" 35 67 ts "mono"
 		text  "p1" 65 77 ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geoarc" kwx ly ts "mono" kwcolor
-		text `"p1" "p2" ltmin ltmax lgmin lgmax lw` arx ly ts "mono" argcolor
+		text `"p1" "p2"  lw` arx ly ts "mono" argcolor
 		text "color op" arx2 ly ts "mono" optcolor
 		image "images/geoarc.png" 82 25 35 0
 		textfile "code/geoarc.dsh" 5 39 1.6 "mono"
@@ -2528,10 +2531,10 @@ deck
 
 	slide bgcolor fgcolor
 		image "images/geopathfile.png" 50 75 45 0
-		ctext "ltmax" 50   95 ts
-		ctext "ltmin" 50   53 ts
-		ctext "lgmax" 76   75 ts
-		etext "lgmin" 27.5 75 ts
+		ctext "geoLatMax" 50   95 ts "mono"
+		ctext "geoLatMin" 50   53 ts "mono"
+		text  "geoLongMax" 73   75 ts "mono"
+		etext "geoLongMin" 27.5 75 ts "mono"
 		textcode "code/roadtrip.d" 25 37 27 1
 
 		kwx=5
@@ -2539,7 +2542,7 @@ deck
 		arx2=arx+50
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geopathfile" kwx ly ts "mono" kwcolor
-		text `"file" ltmin ltmax lgmin lgmax` arx ly ts "mono" argcolor
+		text `"file" ` arx ly ts "mono" argcolor
 		text "lw color op" arx2 ly ts "mono" optcolor
 		image "images/roadtrip.png" 82 25 35 0
 		textfile "code/geopathfile.dsh" 5 32 1.6 "mono"

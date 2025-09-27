@@ -1,25 +1,25 @@
 deck
 	wcolor="skyblue"
 	gcolor="white"
-	latmin=0-90
-	latmax=90
-	longmin=0-180
-	longmax=180
+	geoLatMin=0-90
+	geoLatMax=90
+	geoLongMin=0-180
+	geoLongMax=180
 
 	slide wcolor
-		georegion	"world.kml"				latmin latmax longmin longmax gcolor
-		geoloc 		"geocoords.d"			latmin latmax longmin longmax "c" 1.2
-		ctext		"Equator"				70  50 1 
+		georegion	"world.kml"	gcolor
+		geoloc 		"geocoords.d" "c" 1.2
+		ctext		"Equator"	70  50 1 
 		rtext		"Prime Meridian"		50  25 270 1 
 		ctext		"North (0 to 90°)"		70  52 0.75 
 		ctext		"South (0 to -90°)"		70  48 0.75
 		text 		"East (0 to 180°)"		52  10 0.75
 		etext 		"West (0 to -180°)"		49  10 0.75
-		ctext 		"-90°"					50   0 1.5
-		ctext 		"0°"					50  50 1.5
-		ctext 		"90°"					50  98 1.5
-		text 		"-180°"					0   50 1.5
-		etext 		"180°"					100 50 1.5
+		ctext 		"-90°"		50   0 1.5
+		ctext 		"0°"		50  50 1.5
+		ctext 		"90°"		50  98 1.5
+		text 		"-180°"		0   50 1.5
+		etext 		"180°"		100 50 1.5
 		hline		0 50 100 0.2 "black" 20
 		vline		50 0 100 0.2 "black" 20
 	eslide
@@ -49,41 +49,38 @@ deck
 		dc="geo:38.904722,-77.016389	Washington D.C."
 		hon="geo:21.3,-157.85	Honolulu (21.30°, -157.86°)"
 
-		georegion	"world.kml"				latmin latmax longmin longmax gcolor
+		georegion	"world.kml"	gcolor
 
 		origin=lag
 
-		geopath		origin syd				latmin latmax longmin longmax lw acolor aop
-		geopath		origin rey				latmin latmax longmin longmax lw acolor aop
-		geopath		origin ant				latmin latmax longmin longmax lw acolor aop
-		geopath		origin rio				latmin latmax longmin longmax lw acolor aop
-		geopath		origin mos				latmin latmax longmin longmax lw acolor aop
-		geopath		origin pap				latmin latmax longmin longmax lw acolor aop
-		geopath		origin lim				latmin latmax longmin longmax lw acolor aop
-		geopath		origin san				latmin latmax longmin longmax lw acolor aop
-		geopath		origin tok				latmin latmax longmin longmax lw acolor aop
-		geopath		origin mum				latmin latmax longmin longmax lw acolor aop
-		geopath		origin nyc				latmin latmax longmin longmax lw acolor aop
-		geopath		origin los				latmin latmax longmin longmax lw acolor aop
-		geopath		origin rom				latmin latmax longmin longmax lw acolor aop
-		geopath		origin lon				latmin latmax longmin longmax lw acolor aop
-		geoloc   	rom						latmin latmax longmin longmax "c" 1.2
-		geoloc   	ant						latmin latmax longmin longmax "c" 1.2
-		geoloc   	syd						latmin latmax longmin longmax "c" 1.2
-		geoloc  	tok						latmin latmax longmin longmax "c" 1.2
-		geoloc  	nyc						latmin latmax longmin longmax "c" 1.2
-		geoloc  	rio						latmin latmax longmin longmax "c" 1.2
-		geoloc  	mos						latmin latmax longmin longmax "c" 1.2
-		geoloc  	lag						latmin latmax longmin longmax "c" 1.2
-		geoloc  	mum						latmin latmax longmin longmax "c" 1.2
-		geoloc  	san						latmin latmax longmin longmax "c" 1.2
-		geoloc  	rey						latmin latmax longmin longmax "c" 1.2
-		geoloc  	lim						latmin latmax longmin longmax "c" 1.2
-		geoloc  	pap						latmin latmax longmin longmax "c" 1.2
-		geoloc  	los						latmin latmax longmin longmax "c" 1.2
-		geoloc  	lon						latmin latmax longmin longmax "c" 1.2
-
-
-		
+		geopath		origin syd	lw acolor aop
+		geopath		origin rey	lw acolor aop
+		geopath		origin ant	lw acolor aop
+		geopath		origin rio	lw acolor aop
+		geopath		origin mos	lw acolor aop
+		geopath		origin pap	lw acolor aop
+		geopath		origin lim	lw acolor aop
+		geopath		origin san	lw acolor aop
+		geopath		origin tok	lw acolor aop
+		geopath		origin mum	lw acolor aop
+		geopath		origin nyc	lw acolor aop
+		geopath		origin los	lw acolor aop
+		geopath		origin rom	lw acolor aop
+		geopath		origin lon	lw acolor aop
+		geoloc   	rom"c" 1.2
+		geoloc   	ant"c" 1.2
+		geoloc   	syd"c" 1.2
+		geoloc  	tok"c" 1.2
+		geoloc  	nyc"c" 1.2
+		geoloc  	rio"c" 1.2
+		geoloc  	mos"c" 1.2
+		geoloc  	lag"c" 1.2
+		geoloc  	mum"c" 1.2
+		geoloc  	san"c" 1.2
+		geoloc  	rey"c" 1.2
+		geoloc  	lim"c" 1.2
+		geoloc  	pap"c" 1.2
+		geoloc  	los"c" 1.2
+		geoloc  	lon"c" 1.2
 	eslide
 edeck

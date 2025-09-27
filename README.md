@@ -1,4 +1,4 @@
-# decksh: a little language for presentations, visualizations, and information displays
+∏# decksh: a little language for presentations, visualizations, and information displays
 
 
 `decksh` is a domain-specific language (DSL) for generating [`deck`](https://github.com/ajstarks/deck) markup.
@@ -1119,8 +1119,9 @@ legend "text" x y size [font] [color]
 
 Using kml files and sets of lat/long pairs, geographic maps and labels may be rendered. Supported are:
 
-* geographic regions and borders
+* geographic regions, borders and paths
 * plain and labeled locations
+* images at geographic locations
 
 The map above is rendered by this code:
 
@@ -1129,27 +1130,31 @@ deck
     wcolor="lightblue"
     lcolor="sienna"
     gcolor="white"
-    slide wcolor gcolor
-        latmin=20
-        latmax=45
-        longmax=48
-        longmin=5
-        text     "The Ancient World" 10 10 5
-        georegion  "world.kml"    latmin latmax longmin longmax lcolor
-        geoborder  "world.kml"    latmin latmax longmin longmax 0.05 wcolor
-        geolabel "countries.d"  latmin latmax longmin longmax 3 "serif" gcolor
-        geoloc   "cities.d"     latmin latmax longmin longmax "c" 1 "sans" gcolor
+    geoLatMin=20
+    geoLatMax=45
+    geoLongMax=48
+    geoLongMin=5
+    slide wcolor gcolor    
+        text       "The Ancient World" 10 10 5
+        georegion  "world.kml"    lcolor
+        geoborder  "world.kml"    0.05 wcolor
+        geolabel   "countries.d"  3 "serif" gcolor
+        geoloc     "cities.d"     "c" 1 "sans" gcolor
     eslide
 edeck
 ```
 
 (Note: to ensure proper layout, set the -layers option to "poly:ellipse:text:line" in your deck rendering tool.)
 
-The geographic bounding box of the map is defined by numbers or variables denoting the latitude (latman, latmin) and longitude (longmin, longmax) in decimal degrees.  Latitudes range from -90° to 90° and longitudes range from -180° to 180°. 
+The geographic bounding box of the map is defined by latitude (geoLatMin, geoLatMax) and longitude (geoLongMin, geoLongMax) in decimal degrees.  Latitudes range from -90° to 90° and longitudes range from -180° to 180°. 
 
 The Equator is at 0° latitude; latitudes to the north of the Equator are positive, and latitudes south of the Equator are negative.
 
 The Prime Meridian is 0° longitude; longitudes to the east of this point are positive, longitudes to the west are negative.
+
+Once the ```geoLatMin, geoLatMax, geoLongMin, geoLongMax``` variables are set, geographic functions will use them implicitly. If these special variables are not set, the default values (-90,90,-180,180) are used.
+
+Further, the canvas boundaries for geographic functions are: (Xmin, Xmax) for the width and (Ymin, Ymax) for the height. These are set with the ```geoXmin, geoXmax, geoYmin, geoYmax``` variables.  If these special variables are not set the default values (0,100,0,100) are used.
 
 
 ![latlong](images/latlong-scale.png)
@@ -1164,7 +1169,7 @@ Appropriate KML files may be obtained from the [opendatasoft site](https://publi
 Reads KML data from the specified file and renders the regions.
 
 ```
-georegion  "file.kml" latmin latmax longmin longmax [color] [op]
+georegion  "file.kml"  [color] [op]
 ```
 
 ## Borders
@@ -1174,7 +1179,7 @@ georegion  "file.kml" latmin latmax longmin longmax [color] [op]
 Reads KML data from the specified file and renders the borders.
 
 ```
-geoborder "file.kml" latmin latmax longmin longmax linewidth [color]
+geoborder "file.kml"  [color]
 ```
 ## Labels
 
@@ -1204,9 +1209,9 @@ geo:26.3351,17.2283
 ```
 
 ```
-geolabel "file.d"                      latmin latmax longmin longmax [size] [font] [color] [op]
-geolabel "+41.8719   12.5674   Italy"  latmin latmax longmin longmax [size] [font] [color] [op]
-geolabel "geo:41.8719,12.5674   Italy" latmin latmax longmin longmax [size] [font] [color] [op]
+geolabel "file.d"                      [size] [font] [color] [op]
+geolabel "+41.8719   12.5674   Italy"  [size] [font] [color] [op]
+geolabel "geo:41.8719,12.5674   Italy" [size] [font] [color] [op]
 ```
 ## Locations
 
@@ -1215,19 +1220,19 @@ geolabel "geo:41.8719,12.5674   Italy" latmin latmax longmin longmax [size] [fon
 Reading data from the specified file or coordinate string, place text and a dot. The text may be center-above ("c"), center-underneath ("u"), begin ("b"), or end ("e") aligned in relation to the dot.
 
 ```
-geoloc "location" latmin latmax longmin longmax align [size] [font] [color] [op]
+geoloc "location" align [size] [font] [color] [op]
 ```
 Place a marker at the locations specified in the specified file or coordinate string.
 
 ![geomark](images/geomark.png)
 
 ```
-geomark "location" latmin latmax longmin longmax [size] [color]
+geomark "location" [size] [color]
 ```
 
 Connect the points found in the specified file with straight lines.
 ```
-geopathfile  "file" latmin latmax longmin longmax [size] [color]
+geopathfile  "file"  [size] [color]
 ```
 Connect two points with either straight lines or curves
 
@@ -1236,8 +1241,8 @@ Connect two points with either straight lines or curves
 ![geoarc](images/geoarc.png)
 
 ```
-geopath "point1" "point2" latmin latmax longmin longmax [size] [color] [op]
-geoarc  "point1" "point2" latmin latmax longmin longmax [size] [color] [op]
+geopath "point1" "point2" [size] [color] [op]
+geoarc  "point1" "point2" [size] [color] [op]
 ````
 
 ## Images on maps
@@ -1245,7 +1250,7 @@ geoarc  "point1" "point2" latmin latmax longmin longmax [size] [color] [op]
 ![geoimage](images/geoimage.png)
 
 ```
-geoimage "loc" latmin latmax longmin longmax image-width image-height
+geoimage "loc" image-width image-height
 ```
 
 Place image(s) at location(s)
@@ -1255,8 +1260,7 @@ The location is specified by lat/long and name of the image.  The ```loc``` argu
 For example:
 
 ```
-geoimage "geo:48.8588897,2.3200410    fra.png" latmin latmax longmin longmax 10 0
-
+geoimage "geo:48.8588897,2.3200410    fra.png" 10 0
 ```
 places the image in "fra.png" at the coordinates of Paris, France.
 

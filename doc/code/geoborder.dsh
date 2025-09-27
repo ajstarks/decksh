@@ -1,6 +1,6 @@
-latmin=0-60
-latmax=90
-longmin=0-180
-longmax=180
+geoLatMin=0-60
+geoLatMax=90
+geoLongMin=0-180
+geoLongMax=180
 
-geoborder "world.kml" latmin latmax longmin longmax 0.1 "black"
+geoborder "world.kml"  0.1 "black"

@@ -1208,35 +1208,45 @@ deck
 	slide "skyblue"
 		exuscolor="rgb(220,220,220)"
 		uscolor="linen"
-		latmin=20
-		latmax=55
-		longmin=0-130
-		longmax=0-65
+		geoLatMin=20
+		geoLatMax=55
+		geoLongMin=0-130
+		geoLongMax=0-65
 		nyc="geo:40.73,-73.94"
 		la="geo:34.05000,-118.2015"
 		min="geo:44.981944,-93.269167	Minneapolis"
 		gom="geo:25,-90	Gulf of Mexico"
-		georegion	"can.kml"							latmin latmax longmin longmax exuscolor
-		georegion	"mex.kml"							latmin latmax longmin longmax exuscolor
-		georegion	"carib.kml"							latmin latmax longmin longmax exuscolor
-		georegion 	"usa.kml" 							latmin latmax longmin longmax uscolor
-		geoborder 	"usa.kml" 							latmin latmax longmin longmax 0.15 "gray"
-		geoloc		"roadtrip.d"  						latmin latmax longmin longmax "e" 1.5
+		georegion	"can.kml"							 exuscolor 40
+		georegion	"mex.kml"							 exuscolor 40
+		georegion	"carib.kml"							 exuscolor 40
+		georegion 	"usa.kml" 							 uscolor
+		geoborder 	"usa.kml" 							 0.15 "gray"
+		geoloc		"roadtrip.d"  						 "e" 1.5
 		include 	"ustates.dsh"
-		geopathfile	"roadtrip.d"  						latmin latmax longmin longmax 0.5 "red" 25
-		geoimage	"geo:39,-103	usa.png"	 		latmin latmax longmin longmax 5 0
-		geoimage	"geo:25,-103	mex.png" 			latmin latmax longmin longmax 5 0
-		geoimage	"geo:52,-103	can.png" 			latmin latmax longmin longmax 5 0
-		geoarc		la min								latmin latmax longmin longmax 0.2 "green"
-		geopath		min nyc								latmin latmax longmin longmax 0.2 "green"
-		geomark		min									latmin latmax longmin longmax 1.5 "green"
-		geolabel	min									latmin latmax longmin longmax 1.5
-		geolabel	gom									latmin latmax longmin longmax 2.0
-		geolabel	"geo:30,-125	Pacific\nOcean" 	latmin latmax longmin longmax 2.5
-		geolabel	"geo:35,-70	Atlantic\nOcean"		latmin latmax longmin longmax 2.5
+		geopathfile	"roadtrip.d"  						 0.5 "red" 25
+		geoimage	"geo:39,-103	usa.png"	 		 5 0
+		geoimage	"geo:25,-103	mex.png" 			 5 0
+		geoimage	"geo:52,-103	can.png" 			 5 0
+		geoarc		la min								 0.2 "green"
+		geopath		min nyc								 0.2 "green"
+		geomark		min									 1.5 "green"
+		geolabel	min									 1.5
+		geolabel	gom									 2.0
+		geolabel	"geo:30,-125	Pacific\nOcean" 	 2.5
+		geolabel	"geo:35,-70	Atlantic\nOcean"		 2.5
 	eslide
 
 	// Example deck
+	geoLatMin=0-90
+	geoLatMax=90
+	geoLongMin=0-180
+	geoLongMax=180
+
+	geoXmin=80
+	geoXmax=95
+	geoYmin=75
+	geoYmax=90
+
 	imscale=58
 	dtop=87
 	chartleft=10
@@ -1245,33 +1255,6 @@ deck
 	chartbottom=28
 	imy=50
 	opts="-fulldeck=f -textsize 1  -xlabel=2  -barwidth 1.5"
-
-	slide "white" "black"
-		ctext     "Deck elements" 50 dtop 5
-		cimage    "follow.jpg" "Dreams" 72 imy iw ih imscale imlink
-		textblock "Budnitz #1, Plainfield, NJ, May 10, 2015" 55 35 10 1 "serif" "white"
-
-		// List
-		blist 10 75 3
-			li "text, image, list"
-			li "rect, ellipse, polygon"
-			li "line, arc, curve"
-		elist
-
-		// Graphics
-		gy=10
-		notey=17
-		rect    15 gy 8 6              c1
-		ellipse 27.5 gy 8 6            c2
-		polygon "37 37 45" "7 13 10"   c3
-		line    50 gy 60 gy 0.25       c1
-		arc     70 gy 10 8 0 180 0.25  c2
-		curve   80 gy 95 25 90 gy 0.25 c3
-
-		// Chart
-		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts "AAPL.d"
-	eslide
-
 
 	slide "white" "black"
 		ctext     "Deck elements" 50 dtop 5
@@ -1300,6 +1283,7 @@ deck
 		nf="serif"
 		nop=30
 		ctext "text"	50 95		ns nf nc nop
+		ctext "geo"		89 95		ns nf nc nop
 		ctext "image"	72 80		ns nf nc nop
 		ctext "list"	25 80		ns nf nc nop
 		ctext "chart"	25 50		ns nf nc nop
@@ -1315,6 +1299,9 @@ deck
 
 		// Chart
 		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts "AAPL.d"
+
+		// Geo
+		georegion "world.kml" "black"
 	eslide
 
 	dump titleX titleY titleSize

@@ -1,9 +1,9 @@
-latmin=25
-latmax=50
-longmin=0-130
-longmax=0-65
+geoLatMin=25
+geoLatMax=50
+geoLongMin=0-130
+geoLongMax=0-65
 
-georegion   "usa.kml"     latmin latmax longmin longmax "lightsteelblue"
-geoloc      "roadtrip.d"  latmin latmax longmin longmax "c" 2
-geopathfile "roadtrip.d"  latmin latmax longmin longmax 0.5 "red" 25
+georegion   "usa.kml"      "lightsteelblue"
+geoloc      "roadtrip.d"   "c" 2
+geopathfile "roadtrip.d"   0.5 "red" 25
 

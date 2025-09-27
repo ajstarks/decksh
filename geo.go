@@ -148,19 +148,19 @@ func geocanvas() (float64, float64, float64, float64) {
 
 // set lat/long bounds, if errors occur use the defaults
 func geolatlong(s []string) (float64, float64, float64, float64) {
-	latmin, err := strconv.ParseFloat(eval(s[2]), 64)
+	latmin, err := strconv.ParseFloat(eval("geoLatMin"), 64)
 	if err != nil {
 		latmin = -90.0
 	}
-	latmax, err := strconv.ParseFloat(eval(s[3]), 64)
+	latmax, err := strconv.ParseFloat(eval("geoLatMax"), 64)
 	if err != nil {
 		latmax = 90.0
 	}
-	longmin, err := strconv.ParseFloat(eval(s[4]), 64)
+	longmin, err := strconv.ParseFloat(eval("geoLongMin"), 64)
 	if err != nil {
 		longmin = -180.0
 	}
-	longmax, err := strconv.ParseFloat(eval(s[5]), 64)
+	longmax, err := strconv.ParseFloat(eval("geoLongMax"), 64)
 	if err != nil {
 		longmax = 180.0
 	}
