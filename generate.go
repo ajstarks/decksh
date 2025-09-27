@@ -897,9 +897,9 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 	x, y = mapData(x, y, m)
 	size := 1.0
 	color := "black"
-	if n > 4 {
+	if n > 2 {
 		var serr error
-		size, serr = strconv.ParseFloat(eval(s[4]), 64)
+		size, serr = strconv.ParseFloat(eval(s[2]), 64)
 		if serr != nil {
 			return serr
 		}
