@@ -1,0 +1,206 @@
+<deck>
+<slide>
+<text align="e" xp="90" yp="15" sp="1" >decksh version</text>
+<text align="e" xp="90" yp="13" sp="1" >2025-01-17-1.0.0</text>
+<line xp1="5" yp1="0" xp2="5" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="5" xp2="100" yp2="5" sp="0.1" color="red" opacity="20"/>
+<line xp1="10" yp1="0" xp2="10" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="10" xp2="100" yp2="10" sp="0.1" color="red" opacity="20"/>
+<line xp1="15" yp1="0" xp2="15" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="15" xp2="100" yp2="15" sp="0.1" color="red" opacity="20"/>
+<line xp1="20" yp1="0" xp2="20" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="20" xp2="100" yp2="20" sp="0.1" color="red" opacity="20"/>
+<line xp1="25" yp1="0" xp2="25" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="25" xp2="100" yp2="25" sp="0.1" color="red" opacity="20"/>
+<line xp1="30" yp1="0" xp2="30" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="30" xp2="100" yp2="30" sp="0.1" color="red" opacity="20"/>
+<line xp1="35" yp1="0" xp2="35" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="35" xp2="100" yp2="35" sp="0.1" color="red" opacity="20"/>
+<line xp1="40" yp1="0" xp2="40" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="40" xp2="100" yp2="40" sp="0.1" color="red" opacity="20"/>
+<line xp1="45" yp1="0" xp2="45" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="45" xp2="100" yp2="45" sp="0.1" color="red" opacity="20"/>
+<line xp1="50" yp1="0" xp2="50" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="50" xp2="100" yp2="50" sp="0.1" color="red" opacity="20"/>
+<line xp1="55" yp1="0" xp2="55" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="55" xp2="100" yp2="55" sp="0.1" color="red" opacity="20"/>
+<line xp1="60" yp1="0" xp2="60" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="60" xp2="100" yp2="60" sp="0.1" color="red" opacity="20"/>
+<line xp1="65" yp1="0" xp2="65" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="65" xp2="100" yp2="65" sp="0.1" color="red" opacity="20"/>
+<line xp1="70" yp1="0" xp2="70" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="70" xp2="100" yp2="70" sp="0.1" color="red" opacity="20"/>
+<line xp1="75" yp1="0" xp2="75" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="75" xp2="100" yp2="75" sp="0.1" color="red" opacity="20"/>
+<line xp1="80" yp1="0" xp2="80" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="80" xp2="100" yp2="80" sp="0.1" color="red" opacity="20"/>
+<line xp1="85" yp1="0" xp2="85" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="85" xp2="100" yp2="85" sp="0.1" color="red" opacity="20"/>
+<line xp1="90" yp1="0" xp2="90" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="90" xp2="100" yp2="90" sp="0.1" color="red" opacity="20"/>
+<line xp1="95" yp1="0" xp2="95" yp2="100" sp="0.1" color="blue" opacity="20"/>
+<line xp1="0" yp1="95" xp2="100" yp2="95" sp="0.1" color="red" opacity="20"/>
+<text align="c" xp="7.5" yp="95" sp="1.5" font="mono" color="#aa0000">(b)text</text>
+<text align="c" xp="17.5" yp="95" sp="1.5" font="mono" color="#aa0000">ctext</text>
+<text align="c" xp="27.5" yp="95" sp="1.5" font="mono" color="#aa0000">etext</text>
+<text align="c" xp="37.5" yp="95" sp="1.5" font="mono" color="#aa0000">rtext</text>
+<text align="c" xp="47.5" yp="95" sp="1.5" font="mono" color="#aa0000">arctext</text>
+<text align="c" xp="57.5" yp="95" sp="1.5" font="mono" color="#aa0000">textbox</text>
+<text align="c" xp="67.5" yp="95" sp="1.5" font="mono" color="#aa0000">textfile</text>
+<text align="c" xp="77.5" yp="95" sp="1.5" font="mono" color="#aa0000">textcode</text>
+<text align="c" xp="87.5" yp="95" sp="1.5" font="mono" color="#aa0000">line</text>
+<text align="c" xp="7.5" yp="75" sp="1.5" font="mono" color="#aa0000">hline</text>
+<text align="c" xp="17.5" yp="75" sp="1.5" font="mono" color="#aa0000">vline</text>
+<text align="c" xp="27.5" yp="75" sp="1.5" font="mono" color="#aa0000">arc</text>
+<text align="c" xp="37.5" yp="75" sp="1.5" font="mono" color="#aa0000">curve</text>
+<text align="c" xp="47.5" yp="75" sp="1.5" font="mono" color="#aa0000">polyline</text>
+<text align="c" xp="57.5" yp="75" sp="1.5" font="mono" color="#aa0000">circle</text>
+<text align="c" xp="67.5" yp="75" sp="1.5" font="mono" color="#aa0000">acircle</text>
+<text align="c" xp="77.5" yp="75" sp="1.5" font="mono" color="#aa0000">ellipse</text>
+<text align="c" xp="87.5" yp="75" sp="1.5" font="mono" color="#aa0000">square</text>
+<text align="c" xp="7.5" yp="55" sp="1.5" font="mono" color="#aa0000">rect</text>
+<text align="c" xp="17.5" yp="55" sp="1.5" font="mono" color="#aa0000">rrect</text>
+<text align="c" xp="27.5" yp="55" sp="1.5" font="mono" color="#aa0000">pill</text>
+<text align="c" xp="37.5" yp="55" sp="1.5" font="mono" color="#aa0000">polygon</text>
+<text align="c" xp="47.5" yp="55" sp="1.5" font="mono" color="#aa0000">star</text>
+<text align="c" xp="57.5" yp="55" sp="1.5" font="mono" color="#aa0000">image</text>
+<text align="c" xp="67.5" yp="55" sp="1.5" font="mono" color="#aa0000">cimage</text>
+<text align="c" xp="77.5" yp="55" sp="1.5" font="mono" color="#aa0000">lbrace</text>
+<text align="c" xp="87.5" yp="55" sp="1.5" font="mono" color="#aa0000">rbrace</text>
+<text align="c" xp="7.5" yp="35" sp="1.5" font="mono" color="#aa0000">ubrace</text>
+<text align="c" xp="17.5" yp="35" sp="1.5" font="mono" color="#aa0000">dbrace</text>
+<text align="c" xp="27.5" yp="35" sp="1.5" font="mono" color="#aa0000">lbracket</text>
+<text align="c" xp="37.5" yp="35" sp="1.5" font="mono" color="#aa0000">rbracket</text>
+<text align="c" xp="47.5" yp="35" sp="1.5" font="mono" color="#aa0000">ubracket</text>
+<text align="c" xp="57.5" yp="35" sp="1.5" font="mono" color="#aa0000">dbracket</text>
+<text align="c" xp="67.5" yp="35" sp="1.5" font="mono" color="#aa0000">arrow</text>
+<text align="c" xp="77.5" yp="35" sp="1.5" font="mono" color="#aa0000">lcarrow</text>
+<text align="c" xp="87.5" yp="35" sp="1.5" font="mono" color="#aa0000">rcarrow</text>
+<text align="c" xp="7.5" yp="15" sp="1.5" font="mono" color="#aa0000">dcarrow</text>
+<text align="c" xp="17.5" yp="15" sp="1.5" font="mono" color="#aa0000">ucarrow</text>
+<text align="c" xp="27.5" yp="15" sp="1.5" font="mono" color="#aa0000">list</text>
+<text align="c" xp="37.5" yp="15" sp="1.5" font="mono" color="#aa0000">blist</text>
+<text align="c" xp="47.5" yp="15" sp="1.5" font="mono" color="#aa0000">nlist</text>
+<text align="c" xp="57.5" yp="15" sp="1.5" font="mono" color="#aa0000">clist</text>
+<text xp="7.5" yp="85" sp="2" >begin</text>
+<text align="c" xp="17.5" yp="85" sp="2" >center</text>
+<text align="e" xp="27.5" yp="85" sp="2" >end</text>
+<text xp="37.5" yp="85" rotation="45" sp="2" >rotate</text>
+<text xp="47.50" yp="91.47" rotation="360.00" sp="1" font="mono">h</text>
+<text xp="48.21" yp="91.40" rotation="351.82" sp="1" font="mono">e</text>
+<text xp="48.91" yp="91.21" rotation="343.64" sp="1" font="mono">l</text>
+<text xp="49.58" yp="90.89" rotation="335.45" sp="1" font="mono">l</text>
+<text xp="50.20" yp="90.44" rotation="327.27" sp="1" font="mono">o</text>
+<text xp="50.77" yp="89.89" rotation="319.09" sp="1" font="mono">,</text>
+<text xp="51.28" yp="89.24" rotation="310.91" sp="1" font="mono"> </text>
+<text xp="51.71" yp="88.50" rotation="302.73" sp="1" font="mono">w</text>
+<text xp="52.05" yp="87.69" rotation="294.55" sp="1" font="mono">o</text>
+<text xp="52.30" yp="86.82" rotation="286.36" sp="1" font="mono">r</text>
+<text xp="52.45" yp="85.92" rotation="278.18" sp="1" font="mono">l</text>
+<text xp="52.50" yp="85.00" rotation="270.00" sp="1" font="mono">d</text>
+<text type="block" xp="57.5" yp="90" wp="5" sp="1" >Now is the time for all good men to come</text>
+<text file="code/example.txt" xp="67.5" yp="90" sp="0.7" />
+<text type="code" file="code/hw-go" xp="77.5" yp="90" wp="7" sp="0.75"/>
+<line xp1="87.5" yp1="85" xp2="92.5" yp2="88"/>
+<line xp1="7.5" yp1="65" xp2="12.5" yp2="65"/>
+<line xp1="17.5" yp1="65" xp2="17.5" yp2="70"/>
+<arc xp="27.5" yp="65" wp="5" hp="5" a1="0" a2="180"/>
+<curve xp1="35.5" yp1="65" xp2="35.5" yp2="75" xp3="42.5" yp3="65"/>
+<line xp1="45.5" yp1="63" xp2="49.5" yp2="63" />
+<line xp1="49.5" yp1="63" xp2="47.5" yp2="68" />
+<line xp1="45.5" yp1="63" xp2="47.5" yp2="68" />
+<ellipse xp="57.5" yp="65" wp="4" hr="100"/>
+<ellipse xp="67.5" yp="65" wp="2.256758334191025" hr="100"/>
+<ellipse xp="77.5" yp="65" wp="7" hp="5"/>
+<rect xp="87.5" yp="65" wp="5" hr="100"/>
+<rect xp="7.5" yp="45" wp="7" hp="4"/>
+<ellipse xp="14.5" yp="46.5" wp="2" hr="100" />
+<ellipse xp="20.5" yp="46.5" wp="2" hr="100" />
+<ellipse xp="14.5" yp="43.5" wp="2" hr="100" />
+<ellipse xp="20.5" yp="43.5" wp="2" hr="100" />
+<line xp1="14.5" yp1="46.5" xp2="20.5" yp2="46.5" sp="2" />
+<line xp1="14.5" yp1="43.5" xp2="20.5" yp2="43.5" sp="2" />
+<rect xp="17.5" yp="45" wp="8" hp="3" />
+<ellipse xp="27.5" yp="45" wp="2" hr="100" />
+<line xp1="27.5" yp1="45" xp2="30.5" yp2="45" sp="2" hp="100" />
+<ellipse xp="30.5" yp="45" wp="2" hr="100" />
+<polygon xc="35.5 39.5 37.5" yc="43 43 48"/>
+<polygon xc="47.50 46.55 45.74 48.09 50.35 47.50 44.65 46.91 49.26 48.45" yc="48.88 45.40 41.86 43.95 46.20 46.29 46.20 43.95 41.86 45.40"/>
+<image name="images/cloudy.jpg" xp="57.5" yp="45" width="640" height="480" scale="10"/>
+<image name="images/cloudy.jpg" caption="sky" xp="67.5" yp="45" width="640" height="480" scale="10" link="" sp="1.2"/>
+<curve xp1="77.50" yp1="45.00" xp2="78.00" yp2="45.00" xp3="78.00" yp3="47.00" />
+<curve xp1="77.50" yp1="45.00" xp2="78.00" yp2="45.00" xp3="78.00" yp3="43.00" />
+<curve xp1="78.00" yp1="47.50" xp2="78.00" yp2="48.50" xp3="78.50" yp3="48.50" />
+<curve xp1="78.00" yp1="42.50" xp2="78.00" yp2="41.50" xp3="78.50" yp3="41.50" />
+<line xp1="78.00" yp1="47.00" xp2="78.00" yp2="47.50" />
+<line xp1="78.00" yp1="43.00" xp2="78.00" yp2="42.50" />
+<curve xp1="87.50" yp1="45.00" xp2="87.00" yp2="45.00" xp3="87.00" yp3="47.00" />
+<curve xp1="87.50" yp1="45.00" xp2="87.00" yp2="45.00" xp3="87.00" yp3="43.00" />
+<curve xp1="87.00" yp1="47.50" xp2="87.00" yp2="48.50" xp3="86.50" yp3="48.50" />
+<curve xp1="87.00" yp1="42.50" xp2="87.00" yp2="41.50" xp3="86.50" yp3="41.50" />
+<line xp1="87.00" yp1="47.00" xp2="87.00" yp2="47.50" />
+<line xp1="87.00" yp1="43.00" xp2="87.00" yp2="42.50" />
+<curve xp1="7.50" yp1="25.00" xp2="7.50" yp2="24.00" xp3="8.50" yp3="24.00" />
+<curve xp1="7.50" yp1="25.00" xp2="7.50" yp2="24.00" xp3="6.50" yp3="24.00" />
+<line xp1="8.50" yp1="24.00" xp2="10.00" yp2="24.00" />
+<line xp1="6.50" yp1="24.00" xp2="5.00" yp2="24.00" />
+<curve xp1="10.00" yp1="24.00" xp2="11.00" yp2="24.00" xp3="11.00" yp3="23.00" />
+<curve xp1="5.00" yp1="24.00" xp2="4.00" yp2="24.00" xp3="4.00" yp3="23.00" />
+<curve xp1="17.50" yp1="25.00" xp2="17.50" yp2="26.00" xp3="18.50" yp3="26.00" />
+<curve xp1="17.50" yp1="25.00" xp2="17.50" yp2="26.00" xp3="16.50" yp3="26.00" />
+<line xp1="18.50" yp1="26.00" xp2="20.00" yp2="26.00" />
+<line xp1="16.50" yp1="26.00" xp2="15.00" yp2="26.00" />
+<curve xp1="20.00" yp1="26.00" xp2="21.00" yp2="26.00" xp3="21.00" yp3="27.00" />
+<curve xp1="15.00" yp1="26.00" xp2="14.00" yp2="26.00" xp3="14.00" yp3="27.00" />
+<line xp1="27.50" yp1="25.00" xp2="28.50" yp2="25.00" />
+<line xp1="28.50" yp1="28.50" xp2="28.50" yp2="21.50" />
+<rect xp="28.50" yp="28.50" wp="0.20" hp="0.20" hr="100" />
+<rect xp="28.50" yp="21.50" wp="0.20" hp="0.20" hr="100" />
+<line xp1="28.50" yp1="28.50" xp2="29.50" yp2="28.50" />
+<line xp1="28.50" yp1="21.50" xp2="29.50" yp2="21.50" />
+<line xp1="37.50" yp1="25.00" xp2="36.50" yp2="25.00" />
+<line xp1="36.50" yp1="28.50" xp2="36.50" yp2="21.50" />
+<rect xp="36.50" yp="28.50" wp="0.20" hp="0.20" hr="100" />
+<rect xp="36.50" yp="21.50" wp="0.20" hp="0.20" hr="100" />
+<line xp1="36.50" yp1="28.50" xp2="35.50" yp2="28.50" />
+<line xp1="36.50" yp1="21.50" xp2="35.50" yp2="21.50" />
+<line xp1="47.50" yp1="25.00" xp2="47.50" yp2="24.00" />
+<line xp1="43.90" yp1="24.00" xp2="51.10" yp2="24.00" />
+<line xp1="44.00" yp1="24.00" xp2="44.00" yp2="23.00" />
+<line xp1="51.00" yp1="24.00" xp2="51.00" yp2="23.00" />
+<line xp1="57.50" yp1="25.00" xp2="57.50" yp2="26.00" />
+<line xp1="53.90" yp1="26.00" xp2="61.10" yp2="26.00" />
+<line xp1="54.00" yp1="26.00" xp2="54.00" yp2="27.00" />
+<line xp1="61.00" yp1="26.00" xp2="61.00" yp2="27.00" />
+<line xp1="67.5" yp1="25" xp2="67.5" yp2="29.029411764705884" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="67.5 67.14736279656763 67.5 67.85263720343237" yc="30 28.677676578356937 29.029411764705884 28.677676578356937" color="gray" opacity="100"/>
+<curve xp1="77.5" yp1="25" xp2="77.5" yp2="30" xp3="73.25" yp3="30" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="72.5 73.5 73.25 73.5" yc="30 30.5 30 29.5" color="gray" opacity="100"/>
+<curve xp1="87.5" yp1="25" xp2="87.5" yp2="30" xp3="91.75" yp3="30" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="92.5 91.5 91.75 91.5" yc="30 30.5 30 29.5" color="gray" opacity="100"/>
+<curve xp1="7.5" yp1="10" xp2="12.5" yp2="10" xp3="12.5" yp3="5.75" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="12.5 13 12.5 12" yc="5 6 5.75 6" color="gray" opacity="100"/>
+<curve xp1="17.5" yp1="5" xp2="22.5" yp2="5" xp3="22.5" yp3="9.25" sp="0.2" color="gray" opacity="100"/>
+<polygon xc="22.5 23 22.5 22" yc="10 9 9.25 9" color="gray" opacity="100"/>
+<list xp="26" yp="10" sp="1.5" font="sans" color="" opacity="100" lp="1.2">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="bullet" xp="36" yp="10" sp="1.5" font="sans" color="" opacity="100" lp="1.2">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list type="number" xp="46" yp="10" sp="1.5" font="sans" color="" opacity="100" lp="1.2">
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</list>
+<list align="center" xp="57.5" yp="10" sp="1.5" font="sans" color="" opacity="100" lp="1.2">
+<li>first</li>
+<li>second item</li>
+<li>thrid</li>
+</list>
+</slide>
+</deck>

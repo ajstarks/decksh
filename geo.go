@@ -13,9 +13,9 @@ import (
 )
 
 const (
-	dotfmt      = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=\"%s\" opacity=\"%v\"/>\n"
-	decklinefmt = "<line xp1=\"%.5f\" yp1=\"%.5f\" xp2=\"%.5f\" yp2=\"%.5f\" sp=\"%.5f\" color=\"%s\" opacity=\"%s\"/>\n"
-	textfmt     = "<text align=\"%s\" xp=\"%.3f\" yp=\"%.3f\" sp=\"%.3f\" %s>%s</text>\n"
+	dotfmt      = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=%s opacity=\"%v\"/>\n"
+	decklinefmt = "<line xp1=\"%.5f\" yp1=\"%.5f\" xp2=\"%.5f\" yp2=\"%.5f\" sp=\"%.5f\" color=%s opacity=%q/>\n"
+	textfmt     = "<text align=%s xp=\"%.3f\" yp=\"%.3f\" sp=\"%.3f\" %s>%s</text>\n"
 	geoimgfmt   = "<image name=\"%s\" xp=\"%.3f\" yp=\"%.3f\" width=%q height=%q/>\n"
 )
 
@@ -27,7 +27,7 @@ type Geometry struct {
 	Longmin, Longmax float64
 }
 
-// locdata
+// locdata is location data: coordinates and a label
 type Locdata struct {
 	X, Y []float64
 	Name []string
@@ -125,7 +125,8 @@ func parseCoords(s string, g Geometry) ([]float64, []float64) {
 	return x, y
 }
 
-// evaluate "magic" reserved variables geoXmin, geoXmax, geoYmin, geoYmax
+// evaluate reserved variables for canvas bounds (geoXmin, geoXmax, geoYmin, geoYmax)
+// if errors occur use the defaults
 func geocanvas() (float64, float64, float64, float64) {
 	xmin, err := strconv.ParseFloat(eval("geoXmin"), 64)
 	if err != nil {
@@ -146,7 +147,8 @@ func geocanvas() (float64, float64, float64, float64) {
 	return xmin, xmax, ymin, ymax
 }
 
-// set lat/long bounds, if errors occur use the defaults
+// evaluate reserved variables for set lat/long bounds,
+// if errors occur use the defaults
 func geolatlong() (float64, float64, float64, float64) {
 	latmin, err := strconv.ParseFloat(eval("geoLatMin"), 64)
 	if err != nil {
@@ -165,7 +167,6 @@ func geolatlong() (float64, float64, float64, float64) {
 		longmax = 180.0
 	}
 	return latmin, latmax, longmin, longmax
-
 }
 
 // makegeometry fills in the geometry from arguments
@@ -286,6 +287,7 @@ func textadj(align string, size float64) (float64, float64) {
 	return xdiff, ydiff
 }
 
+// wordstack makes a vertical stack of string in s
 func wordstack(w io.Writer, x, y float64, s []string, align string, size float64, fco string) {
 	ls := size * 1.8
 	for i := 0; i < len(s); i++ {
@@ -294,6 +296,7 @@ func wordstack(w io.Writer, x, y float64, s []string, align string, size float64
 	}
 }
 
+// geotext places text at geographic coordinates
 func geotext(w io.Writer, x, y []float64, names []string, align string, size float64, fco string) {
 	xdiff, ydiff := textadj(align, size)
 	if align == "u" || align == "a" { // above and under are centered
@@ -323,25 +326,21 @@ func geofilter(x, y []float64, g Geometry) ([]float64, []float64) {
 }
 
 // deckpolygon makes deck markup for a polygon given x, y coordinates slices
-func deckpolygon(w io.Writer, x, y []float64, color string, g Geometry) {
+func deckpolygon(w io.Writer, x, y []float64, color string) {
 	nc := len(x)
 	if nc < 3 || nc != len(y) {
 		return
 	}
 	fill, op := colorop(color)
 	end := nc - 1
-	fmt.Fprintf(w, "<polygon color=\"%s\" opacity=\"%s\" xc=\"%.5f", fill, op, x[0])
+	fmt.Fprintf(w, "<polygon color=%s opacity=%q xc=\"%.5f", fill, op, x[0])
 	for i := 1; i < nc; i++ {
-		//if x[i] >= g.Xmin && x[i] <= g.Xmax {
 		fmt.Fprintf(w, " %.5f", x[i])
-		//}
 	}
 	fmt.Fprintf(w, " %.5f\" ", x[end])
 	fmt.Fprintf(w, "yc=\"%.5f", y[0])
 	for i := 1; i < nc; i++ {
-		//if y[i] >= g.Ymin && y[i] <= g.Ymax {
 		fmt.Fprintf(w, " %.5f", y[i])
-		//}
 	}
 	fmt.Fprintf(w, " %.5f\"/>\n", y[end])
 }
@@ -367,7 +366,7 @@ func deckpolyline(w io.Writer, x, y []float64, lw float64, color string, g Geome
 	deckline(w, x[0], y[0], x[lx-1], y[lx-1], lw, color, op, g)
 }
 
-// Deckpolyline makes deck markup for a ployline given x, y coordinate slices
+// deckpolyline makes deck markup for a ployline given x, y coordinate slices
 func deckconnectline(w io.Writer, x, y []float64, lw float64, color string, op string, g Geometry) {
 	lx := len(x)
 	if lx < 2 {
@@ -378,16 +377,17 @@ func deckconnectline(w io.Writer, x, y []float64, lw float64, color string, op s
 	}
 }
 
+// deckshape draws the shapes (lines, polylines, polygons) in deck markup
 func deckshape(w io.Writer, shape string, x, y []float64, shapesize float64, color string, g Geometry) {
 	switch shape {
 	case "line", "polyline":
 		deckpolyline(w, x, y, shapesize, color, g)
 	case "fill", "polygon":
-		//x, y = geofilter(x, y, g)
-		deckpolygon(w, x, y, color, g)
+		deckpolygon(w, x, y, color)
 	}
 }
 
+// geoshape produces deck markup from KML data
 func geoshape(w io.Writer, data Kml, m Geometry, linewidth float64, color, shape string) {
 	// for every placemark, get the coordinates of the polygons
 	for _, pms := range data.Document.Placemark {

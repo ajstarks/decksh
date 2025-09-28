@@ -1206,6 +1206,7 @@ deck
 
 	// Geo functions
 	slide "skyblue"
+		ctext "Geographic Funtions" 50 95 3
 		exuscolor="rgb(220,220,220)"
 		uscolor="linen"
 		geoLatMin=20
@@ -1224,12 +1225,12 @@ deck
 		geoloc		"roadtrip.d"  						 "e" 1.5
 		include 	"ustates.dsh"
 		geopathfile	"roadtrip.d"  						 0.5 "red" 25
-		geoimage	"geo:39,-103	usa.png"	 		 5 0
-		geoimage	"geo:25,-103	mex.png" 			 5 0
-		geoimage	"geo:52,-103	can.png" 			 5 0
+		geoimage	"geo:51,-105	can.png" 			 5 0
+		geoimage	"geo:39,-105	usa.png"	 		 5 0
+		geoimage	"geo:25,-105	mex.png" 			 5 0
 		geoarc		la min								 0.2 "green"
 		geopath		min nyc								 0.2 "green"
-		geomark		min									 1.5 "green"
+		geomark		min									 1.5 "green" 50
 		geolabel	min									 1.5
 		geolabel	gom									 2.0
 		geolabel	"geo:30,-125	Pacific\nOcean" 	 2.5

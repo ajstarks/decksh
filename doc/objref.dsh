@@ -2364,9 +2364,9 @@ deck
 		elist
 	eslide
 
-	kwx=25
-	arx=kwx+16
-	arx2=arx+18
+	kwx=30
+	arx=kwx+12
+	arx2=arx+15
 	ts = ts*0.75
 	slide bgcolor fgcolor
 		image "images/georegion.png" 50 75 45 0
@@ -2456,8 +2456,8 @@ deck
 		elist
 		hline 35 66 10 0.1
 		kwx=25
-		arx=kwx+12
-		arx2=arx+15
+		arx=kwx+9
+		arx2=arx+9
 		textcode "code/gc.d" 30 35 35 1.2
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geoloc" kwx ly ts "mono" kwcolor
@@ -2479,21 +2479,21 @@ deck
 		lbrace 38.5  79 11.2 2 2 0.2 "black"
 		
 		etext  "geo:lat,long<tab>imgfile" 29 56 2.5
-		kwx=25
-		arx=kwx+15
+		kwx=35
+		arx=kwx+12
 		arx2=arx+50
-		line  30 56 40 48  0.2
+		line  30 56 arx 48  0.1
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geoimage" kwx ly ts "mono" kwcolor
-		text `"loc"  w h` arx ly ts "mono" argcolor
+		text `"loc" w h` arx ly ts "mono" argcolor
 		image "images/geoimage.png" 85 25 25 0
 		textfile "code/geopic.dsh" 5 32 2 "mono"
 	eslide	
 
 	slide bgcolor fgcolor
-		kwx=5
-		arx=kwx+13
-		arx2=arx+60
+		kwx=25
+		arx=kwx+10
+		arx2=arx+18
 		image "images/geopath.png" 50 75 45 0
 		ctext "geoLatMax" 50   95 ts "mono"
 		ctext "geoLatMin" 50   53 ts "mono"
@@ -2506,7 +2506,7 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geopath" kwx ly ts "mono" kwcolor
 		text  `"p1" "p2"  lw` arx ly ts "mono" argcolor
-		text  "color op" arx2 ly ts "mono" optcolor
+		text  "lw color op" arx2 ly ts "mono" optcolor
 		image "images/geopath.png" 82 25 35 0
 		textfile "code/geopath.dsh" 5 39 1.6 "mono"
 	eslide
@@ -2537,9 +2537,9 @@ deck
 		etext "geoLongMin" 27.5 75 ts "mono"
 		textcode "code/roadtrip.d" 25 37 27 1
 
-		kwx=5
-		arx=kwx+20
-		arx2=arx+50
+		kwx=30
+		arx=kwx+15
+		arx2=arx+10
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geopathfile" kwx ly ts "mono" kwcolor
 		text `"file" ` arx ly ts "mono" argcolor
