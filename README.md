@@ -1117,11 +1117,14 @@ legend "text" x y size [font] [color]
 
 ![geo](images/geo.png)
 
-Using kml files and sets of lat/long pairs, geographic maps and labels may be rendered. Supported are:
+Using kml files and sets of lat/long pairs, geographic features may be rendered. Supported are:
 
 * geographic regions, borders and paths
 * plain and labeled locations
 * images at geographic locations
+
+Appropriate KML files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
+
 
 The map above is rendered by this code:
 
@@ -1154,12 +1157,26 @@ The Prime Meridian is 0° longitude; longitudes to the east of this point are po
 
 Once the ```geoLatMin, geoLatMax, geoLongMin, geoLongMax``` variables are set, geographic functions will use them implicitly. If these special variables are not set, the default values (-90,90,-180,180) are used.
 
-Further, the canvas boundaries for geographic functions are: (Xmin, Xmax) for the width and (Ymin, Ymax) for the height. These are set with the ```geoXmin, geoXmax, geoYmin, geoYmax``` variables.  If these special variables are not set the default values (0,100,0,100) are used.
-
-
 ![latlong](images/latlong-scale.png)
 
-Appropriate KML files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
+Further, the canvas boundaries for geographic functions are: ```geoXmin, geoXmax``` for the width and ```geoYmin, geoYmax``` for the height. If these special variables are not set the default values (0,100) are used.
+
+For example to show the African continent on a specified portion of the canvas:
+
+```
+geoLatMax=37.346983
+geoLatMin=0-34.833222
+geoLongMax=51.266667
+geoLongMin=0-17.520278
+
+geoXmin=40
+geoYmax=70
+geoYmin=30
+geoXmax=70
+```
+
+![canvas-scale](images/canvas-scale1.png)
+
 
 
 ## Regions
