@@ -1175,7 +1175,7 @@ geoYmin=30
 geoXmax=70
 ```
 
-![canvas-scale](images/canvas-scale1.png)
+![canvas-scale](images/canvas-scale2.png)
 
 
 
