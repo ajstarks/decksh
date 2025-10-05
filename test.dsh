@@ -180,35 +180,49 @@ deck
 		condx+=20
 		if rv == xv
 			ctext "YES" condx condy 2
+		else
+			ctext "NO" condx condy 2
 		eif
 		condy-=incr
 		if rv != xv
 			ctext "YES" condx condy 2
+		else
+			ctext "NO" condx condy 2
 		eif
 		condy-=incr
 
 		if rv > xv
 			ctext "YES" condx condy 2
+		else
+			ctext "NO" condx condy 2
 		eif
 		condy-=incr
 	
 		if rv < xv
 			ctext "YES" condx condy 2
+		else
+			ctext "NO" condx condy 2
 		eif
 		condy-=incr
 
 		if rv >= xv
 			ctext "YES" condx condy 2
+		else
+			ctext "NO" condx condy 2
 		eif
 		condy-=incr
 
 		if rv <= xv
 			ctext "YES" condx condy 2
+		else
+			ctext "NO" condx condy 2
 		eif
 		condy-=incr
 
 		if rv >< xv bv
 			ctext "YES" condx condy 2
+		else
+			ctext "NO" condx condy 2
 		eif
 	eslide
 
@@ -217,8 +231,8 @@ deck
 		rv=random 0 100
 		xv=random 0 100
 		textfile "ifelse.dsh" 5 65 3 "mono"
-		xval=format "x=%.2f" xv
-		rval=format "r=%.2f" rv
+		xval=format "xv=%.2f" xv
+		rval=format "rv=%.2f" rv
 		include "ifelse.dsh"
 	eslide
 
@@ -804,7 +818,7 @@ deck
 	eslide
 
 	slide
-		ctext "substr" titleX titleY titleSize
+		ctext "substr s begin" titleX titleY titleSize
 		s="hello, world"
 		a=substr s - -					// a="hello, world"
 		b=substr s - 4					// b="hello"
