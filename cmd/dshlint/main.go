@@ -131,13 +131,14 @@ var kwInfo = map[string]syntax{
 	"tangent": {minargs: 1, maxargs: 1, desc: "Assign the tangent of expression", usage: "expression"},
 	// Geographical functions
 	"georegion":   {minargs: 1, maxargs: 3, desc: "Reads KML data from the specified file and renders the map regions", usage: "\"file\" [color] [op]"},
-	"geoborder":   {minargs: 2, maxargs: 4, desc: "Reads KML data from the specified file and renders the map borders", usage: "\"file\" linewidth [color] [op]"},
-	"geolabel":    {minargs: 1, maxargs: 4, desc: "Reads data from the specified file and renders the map labels", usage: "\"file\" [font] [color] [op]"},
-	"geomark":     {minargs: 1, maxargs: 4, desc: "Reads data from the specified file and renders map points", usage: "\"file\" [size] [color] [op]"},
-	"geoloc":      {minargs: 1, maxargs: 6, desc: "Reads data from the specified file and a make map point and labels", usage: "\"file\" [align] [size] [font] [color] [op]"},
+	"geoborder":   {minargs: 2, maxargs: 4, desc: "Reads KML data from the specified file and renders the map borders", usage: "\"file\" [lw] [color] [op]"},
+	"geolabel":    {minargs: 1, maxargs: 4, desc: "Reads data from the specified file or location and renders the map labels", usage: "\"loc\" [size] [font] [color] [op]"},
+	"geomark":     {minargs: 1, maxargs: 4, desc: "Reads data from the specified file or location and renders map points", usage: "\"loc\" [size] [color] [op]"},
+	"geoloc":      {minargs: 1, maxargs: 6, desc: "Reads data from the specified file or location and a make map point and labels", usage: "\"loc\" [align] [size] [font] [color] [op]"},
 	"geopath":     {minargs: 2, maxargs: 5, desc: "Draw line between points", usage: "\"p1\" \"p2\" [lw] [color] [op]"},
 	"geoarc":      {minargs: 2, maxargs: 5, desc: "Draw arcs between points", usage: "\"p1\" \"p2\" [lw] [color] [op]"},
-	"geopathfile": {minargs: 1, maxargs: 3, desc: "Reads data from the specified file and a make lines between points", usage: "\"file\" [color] [op]"},
+	"geopathfile": {minargs: 1, maxargs: 4, desc: "Reads data from the specified file and a make lines between points", usage: "\"file\" [lw] [color] [op]"},
+	"geopimage":   {minargs: 3, maxargs: 3, desc: "Place an image at a geographical location", usage: "\"loc\" width height"},
 }
 
 var kwcount = map[string]int{}
