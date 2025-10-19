@@ -680,27 +680,37 @@ deck
 		s0=format "Widget 1: %.2f" sp0
 		s1=format "Widget 2: %.3f" sp1
 		st=format "Total Widgets: %v" sp0+sp1
-		scc0=format "%," 1234567890
-		scc1=format "%," 123456789
-		scc2=format "%," 12345678
-		scc3=format "%," 1234567
-		scc4=format "%," 123456
-		scc5=format "%," 12345
-		scc6=format "%," 1234
-		scc7=format "%," 123
+		scc0=format "%," 123456789012345
+		scc1=format "%," 12345678901234
+		scc2=format "%," 1234567890123
+		scc3=format "%," 123456789012
+		scc4=format "%," 12345678901
+		scc5=format "%," 1234567890
+		scc6=format "%," 123456789
+		scc7=format "%," 12345678
+		scc8=format "%," 1234567
+		scc9=format "%," 123456
+		scc10=format "%," 12345
+		scc11=format "%," 1234
+		scc12=format "%," 123
 
 		ctext s0 20 80 3
 		ctext s1 20 70 3
 		ctext st 20 60 3
 		ctext ss 20 50 3
-		etext scc0 80 80 3
-		etext scc1 80 75 3
-		etext scc2 80 70 3
-		etext scc3 80 65 3
-		etext scc4 80 60 3
-		etext scc5 80 55 3
-		etext scc6 80 50 3
-		etext scc7 80 45 3
+		etext scc0 80 80 3 "mono"
+		etext scc1 80 75 3 "mono"
+		etext scc2 80 70 3 "mono"
+		etext scc3 80 65 3 "mono"
+		etext scc4 80 60 3 "mono"
+		etext scc5 80 55 3 "mono"
+		etext scc6 80 50 3 "mono"
+		etext scc7 80 45 3 "mono"
+		etext scc8 80 40 3 "mono"
+		etext scc9 80 35 3 "mono"
+		etext scc10 80 30 3 "mono"
+		etext scc11 80 25 3 "mono"
+		etext scc12 80 20 3 "mono"
 	eslide
 
 	slide
