@@ -2327,8 +2327,8 @@ deck
 		rc+=13
 		list rc lsty lfs "mono" argcolor
 			li tbl3 "sans" objcolor
-			li `"file.kml"`
-			li `"file.kml"`
+			li `"file"`
+			li `"file"`
 			li `"loc"`
 			li `"loc"`
 			li `"loc"`
@@ -2352,11 +2352,11 @@ deck
 		elist
 		
 		ny=lsty-65
-		text `"file.kml" are KML files from opendatasoft` initlcol ny 1.8 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
+		text `"file" are Shapefile (.shp) or Keyhole Markup Language (.kml) files from opendatasoft` initlcol ny 1.5 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
 		ny+=1
-		hline initlcol ny 30 1.7 "steelblue" 20
+		hline initlcol ny 60 1.7 "steelblue" 20
 		ny-=4
-		list initlcol ny 1.8 "sans" "" 100 1.5
+		list initlcol ny 1.5 "sans" "" 100 1.5
 			li "geoLatMin, geoLatMax, geoLongMin, geoLongMax variables set the latitude and longitude boundaries"
 			li "geoXmin, geoXmax, geoYmin, geoYmax variables define the canvas boundaries for geographic functions"
 			li `"loc" refers to a geo URI string ("geo:lat,long"), or a filename containing multiple locations`
@@ -2380,7 +2380,7 @@ deck
 
 		hline 0 47 100 hlsize hlcolor hlop
 		text "georegion" kwx ly ts "mono" kwcolor
-		text `"file.kml" ` arx ly ts "mono" argcolor
+		text `"file" ` arx ly ts "mono" argcolor
 		text "color op" arx2 ly ts "mono" optcolor
 		image "images/georegion.png" 85 25 25 0
 		textfile "code/georegion.dsh" 5 35 2 "mono"
@@ -2397,7 +2397,7 @@ deck
 		circle 43 66 1
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geoborder" kwx ly ts "mono" kwcolor
-		text `"file.kml" ` arx ly ts "mono" argcolor
+		text `"file" ` arx ly ts "mono" argcolor
 		text "lw color" arx2 ly ts "mono" optcolor
 		image "images/geoborder.png" 85 25 25 0
 		textfile "code/geoborder.dsh" 5 35 2 "mono"
