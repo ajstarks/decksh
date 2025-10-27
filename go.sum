@@ -5,3 +5,5 @@ github.com/ajstarks/deck v0.0.0-20211018193525-2824414e7118 h1:OQIu3eSbT0wX8fkR/
 github.com/ajstarks/deck v0.0.0-20211018193525-2824414e7118/go.mod h1:cM23jfagZ/sTvonzf2DweYmivXvmZd1R4FQOpv+/Xp4=
 github.com/ajstarks/deck/generate v0.0.0-20211018193525-2824414e7118 h1:oYksV1w2uC+UxCverPC+ViLO1ozzdznR9IKxA1zbz2I=
 github.com/ajstarks/deck/generate v0.0.0-20211018193525-2824414e7118/go.mod h1:T13YZdzov6OU0A1+RfKZiZN9ca6VeKdBdyDV+BY97Tk=
+github.com/jonas-p/go-shp v0.1.1 h1:LY81nN67DBCz6VNFn2kS64CjmnDo9IP8rmSkTvhO9jE=
+github.com/jonas-p/go-shp v0.1.1/go.mod h1:MRIhyxDQ6VVp0oYeD7yPGr5RSTNScUFKCDsI5DR7PtI=

@@ -1445,10 +1445,6 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 	if n < 2 {
 		return fmt.Errorf("line %d: %s \"file\" [color] [op]", linenumber, s[0])
 	}
-	kml, err := readKMLData(unquote(eval(s[1])))
-	if err != nil {
-		return err
-	}
 	m, err := makegeometry()
 	if err != nil {
 		return err
@@ -1460,6 +1456,14 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 	if n > 3 {
 		color = color + ":" + s[3]
 	}
+	geofile := unquote(eval(s[1]))
+	if geoDataFormat(geofile) == SHP {
+		return readSHP(w, geofile, m, color, 0)
+	}
+	kml, err := readKMLData(geofile)
+	if err != nil {
+		return err
+	}
 	geoshape(w, kml, m, 0, color, "polygon")
 	return nil
 }
@@ -1470,10 +1474,7 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 	if n < 2 {
 		return fmt.Errorf("line %d: %s \"file\" [size] [color]", linenumber, s[0])
 	}
-	kml, err := readKMLData(unquote(eval(s[1])))
-	if err != nil {
-		return err
-	}
+
 	m, err := makegeometry()
 	if err != nil {
 		return err
@@ -1489,6 +1490,14 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 	}
 	if n > 3 {
 		color = eval(s[3])
+	}
+	geofile := unquote(eval(s[1]))
+	if geoDataFormat(geofile) == SHP {
+		return readSHP(w, geofile, m, color, size)
+	}
+	kml, err := readKMLData(geofile)
+	if err != nil {
+		return err
 	}
 	geoshape(w, kml, m, size, color, "polyline")
 	return nil

@@ -1117,13 +1117,19 @@ legend "text" x y size [font] [color]
 
 ![geo](images/geo.png)
 
-Using kml files and sets of lat/long pairs, geographic features may be rendered. Supported are:
+Using data from either:
+
+* [Shapefiles](https://desktop.arcgis.com/en/arcmap/latest/manage-data/shapefiles/what-is-a-shapefile.htm)
+* [KML files](https://pro.arcgis.com/en/pro-app/latest/help/data/kml/what-is-kml-.htm)
+* sets of lat/long pairs
+
+geographic features may be rendered. Supported are:
 
 * geographic regions, borders and paths
 * plain and labeled locations
 * images at geographic locations
 
-Appropriate KML files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
+Appropriate KML and Shape files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
 
 
 The map above is rendered by this code:
@@ -1161,7 +1167,7 @@ Once the ```geoLatMin, geoLatMax, geoLongMin, geoLongMax``` variables are set, g
 
 Further, the canvas boundaries for geographic functions are: ```geoXmin, geoXmax``` for the width and ```geoYmin, geoYmax``` for the height. If these special variables are not set the default values (0,100) are used.
 
-For example to show the African continent on a specified portion of the canvas:
+For example to show the African continent (bound by 37.347N to 34.8333S and 17.52W to 51.267E) to on a specified portion of the canvas (40,70) and (30,70):
 
 ```
 geoLatMax=37.346983
@@ -1177,26 +1183,26 @@ geoXmax=70
 
 ![canvas-scale](images/canvas-scale2.png)
 
-
-
 ## Regions
 
 ![regions](images/georegion.png)
 
-Reads KML data from the specified file and renders the regions.
+Reads data from the specified KML or Shapefile and renders the regions. A file with the suffix ".kml" is assumed to be in KML format and a file with the ".shp" suffix is assumed to be a Shapefile. 
+
+```color``` and ```op``` specify the color and opacity.
 
 ```
-georegion  "file.kml"  [color] [op]
+georegion  "file" [color] [op]
 ```
 
 ## Borders
 
 ![border](images/geoborder.png)
 
-Reads KML data from the specified file and renders the borders.
+Reads data from the specified file and renders the borders. ```lw``` is the line width, ```color``` and ```op``` specify the color and opacity.
 
 ```
-geoborder "file.kml"  [color]
+geoborder "file" [lw] [color] [op]
 ```
 ## Labels
 

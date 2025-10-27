@@ -13,6 +13,14 @@ import (
 )
 
 const (
+	DataFormat int = iota
+	UNK
+	KML
+	SHP
+	JSON
+)
+
+const (
 	dotfmt      = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=%s opacity=\"%v\"/>\n"
 	decklinefmt = "<line xp1=\"%.5f\" yp1=\"%.5f\" xp2=\"%.5f\" yp2=\"%.5f\" sp=\"%.5f\" color=%s opacity=%q/>\n"
 	textfmt     = "<text align=%s xp=\"%.3f\" yp=\"%.3f\" sp=\"%.3f\" %s>%s</text>\n"
@@ -184,6 +192,19 @@ func mapData(x, y []float64, g Geometry) ([]float64, []float64) {
 		y[i] = vmap(y[i], g.Latmin, g.Latmax, g.Ymin, g.Ymax)
 	}
 	return x, y
+}
+
+func geoDataFormat(filename string) int {
+	if strings.HasSuffix(filename, ".shp") {
+		return SHP
+	}
+	if strings.HasSuffix(filename, ".kml") {
+		return KML
+	}
+	if strings.HasSuffix(filename, ".json") {
+		return JSON
+	}
+	return UNK
 }
 
 // readData loads the KML structure from a file
