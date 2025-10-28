@@ -187,7 +187,7 @@ func makegeometry() (Geometry, error) {
 
 // mapData maps raw lat/long coordinates to canvas coordinates
 func mapData(x, y []float64, g Geometry) ([]float64, []float64) {
-	for i := 0; i < len(x); i++ {
+	for i := range x {
 		x[i] = vmap(x[i], g.Longmin, g.Longmax, g.Xmin, g.Xmax)
 		y[i] = vmap(y[i], g.Latmin, g.Latmax, g.Ymin, g.Ymax)
 	}
@@ -269,7 +269,7 @@ func geodot(w io.Writer, x, y []float64, size float64, color string, op string) 
 	if nc != len(y) {
 		return
 	}
-	for i := 0; i < nc; i++ {
+	for i := range nc {
 		fmt.Fprintf(w, dotfmt, x[i], y[i], size, color, op)
 	}
 }
@@ -277,7 +277,7 @@ func geodot(w io.Writer, x, y []float64, size float64, color string, op string) 
 // deckgeoimg places images at geometric coordinates
 func deckgeoimg(w io.Writer, loc Locdata, width, height string) {
 	nc := len(loc.X)
-	for i := 0; i < nc; i++ {
+	for i := range nc {
 		if len(loc.Name[i]) < 0 {
 			fmt.Fprintf(os.Stderr, "missing image file")
 			continue
@@ -311,7 +311,7 @@ func textadj(align string, size float64) (float64, float64) {
 // wordstack makes a vertical stack of string in s
 func wordstack(w io.Writer, x, y float64, s []string, align string, size float64, fco string) {
 	ls := size * 1.8
-	for i := 0; i < len(s); i++ {
+	for i := range s {
 		fmt.Fprintf(w, textfmt, align, x, y, size, fco, xmlesc(s[i]))
 		y -= ls
 	}
@@ -323,27 +323,10 @@ func geotext(w io.Writer, x, y []float64, names []string, align string, size flo
 	if align == "u" || align == "a" { // above and under are centered
 		align = "c"
 	}
-	for i := 0; i < len(x); i++ {
+	for i := range x {
 		parts := strings.Split(names[i], "\\n")
 		wordstack(w, x[i]+xdiff, y[i]+ydiff, parts, align, size, fco)
 	}
-}
-
-// geofilter makes new coordinates contained within the boundary defined by g.
-func geofilter(x, y []float64, g Geometry) ([]float64, []float64) {
-	nc := len(x)
-	if nc != len(y) {
-		return x, y
-	}
-	xp := []float64{}
-	yp := []float64{}
-	for i := 0; i < nc; i++ {
-		if x[i] >= g.Xmin && x[i] <= g.Xmax && y[i] >= g.Ymin && y[i] <= g.Ymax {
-			xp = append(xp, x[i])
-			yp = append(yp, y[i])
-		}
-	}
-	return xp, yp
 }
 
 // deckpolygon makes deck markup for a polygon given x, y coordinates slices

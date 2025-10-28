@@ -1326,7 +1326,7 @@ deck
 		dchart -left chartleft -right chartright -top chartop -bottom chartbottom opts "AAPL.d"
 
 		// Geo
-		georegion "world.kml" "black"
+		georegion "world.shp" "black"
 	eslide
 
 	dump titleX titleY titleSize

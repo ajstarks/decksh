@@ -162,7 +162,7 @@ func parsefor(w io.Writer, s []string, linenumber int, scanner *bufio.Scanner) e
 func evaloop(w io.Writer, forvar string, format string, v string, s []string, linenumber int) {
 	e := make([]string, len(s))
 	copy(e, s)
-	for i := 0; i < len(s); i++ {
+	for i := range s {
 		if s[i] == forvar {
 			e[i] = fmt.Sprintf(format, v)
 		}

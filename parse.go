@@ -165,7 +165,7 @@ func subxy(s string, x, y float64) []string {
 	if len(args) < 3 {
 		return nil
 	}
-	for i := 0; i < len(args); i++ {
+	for i := range args {
 		if args[i] == "x" || args[i] == "X" {
 			args[i] = ftoa(x)
 		}

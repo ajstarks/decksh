@@ -36,7 +36,7 @@ func xmlesc(s string) string {
 
 // validNumber checks that a string starts with a digit or sign or decimal point
 func validNumber(s ...string) error {
-	for i := 0; i < len(s); i++ {
+	for i := range s {
 		c := s[i][0]
 		if !(('0' <= c && c <= '9') || c == '-' || c == '.') {
 			return fmt.Errorf("'%v' is not a number (not defined?)", s[i])
@@ -648,7 +648,7 @@ func star(w io.Writer, s []string, linenumber int) error {
 	xp, yp := make([]float64, ns2), make([]float64, ns2)
 	a := 90.0
 	ai := 360.0 / nsides
-	for i := 0; i < ns2; i++ {
+	for i := range ns2 {
 		if i%2 == 0 {
 			xp[i], yp[i] = polar(x, y, outer, a*(math.Pi/180))
 		} else {

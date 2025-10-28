@@ -1,0 +1,19 @@
+deck
+	kcolor="red"
+	scolor="blue"
+	slide
+		georegion "world.kml" "red"
+	eslide
+
+	slide
+		georegion "world.shp" scolor
+	eslide
+
+	slide
+		geoborder "world.kml" 0.1 kcolor
+	eslide
+
+	slide
+		geoborder "world.shp" 0.05  scolor
+	eslide	
+edeck
