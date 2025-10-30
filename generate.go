@@ -1457,8 +1457,13 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 		color = color + ":" + s[3]
 	}
 	geofile := unquote(eval(s[1]))
-	if geoDataFormat(geofile) == SHP {
+	gformat := geoDataFormat(geofile)
+
+	if gformat == SHP {
 		return readSHP(w, geofile, m, color, 0)
+	}
+	if gformat == JSON {
+		return readJSON(w, geofile, m, color, 0)
 	}
 	kml, err := readKMLData(geofile)
 	if err != nil {
@@ -1492,8 +1497,12 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 		color = eval(s[3])
 	}
 	geofile := unquote(eval(s[1]))
-	if geoDataFormat(geofile) == SHP {
+	gformat := geoDataFormat(geofile)
+	if gformat == SHP {
 		return readSHP(w, geofile, m, color, size)
+	}
+	if gformat == JSON {
+		return readJSON(w, geofile, m, color, size)
 	}
 	kml, err := readKMLData(geofile)
 	if err != nil {

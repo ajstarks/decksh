@@ -1,6 +1,7 @@
 deck
 	kcolor="red"
 	scolor="blue"
+	jcolor="green"
 	slide
 		georegion "world.kml" "red"
 	eslide
@@ -15,5 +16,13 @@ deck
 
 	slide
 		geoborder "world.shp" 0.05  scolor
-	eslide	
+	eslide
+
+	slide
+		georegion "usa.json" jcolor
+	eslide
+
+	slide
+		geoborder "usa.json" 0.1 jcolor
+	eslide
 edeck

@@ -1327,6 +1327,7 @@ deck
 
 		// Geo
 		georegion "world.shp" "black"
+		georegion "usa.json"  "red"
 	eslide
 
 	dump titleX titleY titleSize

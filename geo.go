@@ -194,17 +194,21 @@ func mapData(x, y []float64, g Geometry) ([]float64, []float64) {
 	return x, y
 }
 
-func geoDataFormat(filename string) int {
-	if strings.HasSuffix(filename, ".shp") {
+func geoDataFormat(s string) int {
+	i := strings.LastIndex(s, ".")
+	if i < 0 {
+		return UNK
+	}
+	switch strings.ToLower(s[i:]) {
+	case ".shp":
 		return SHP
-	}
-	if strings.HasSuffix(filename, ".kml") {
+	case ".kml":
 		return KML
-	}
-	if strings.HasSuffix(filename, ".json") {
+	case ".json", ".geojson":
 		return JSON
+	default:
+		return UNK
 	}
-	return UNK
 }
 
 // readData loads the KML structure from a file

@@ -1121,6 +1121,7 @@ Using data from either:
 
 * [Shapefiles](https://desktop.arcgis.com/en/arcmap/latest/manage-data/shapefiles/what-is-a-shapefile.htm)
 * [KML files](https://pro.arcgis.com/en/pro-app/latest/help/data/kml/what-is-kml-.htm)
+* [geoJSON files](https://datatracker.ietf.org/doc/html/rfc7946)
 * sets of lat/long pairs
 
 geographic features may be rendered. Supported are:
@@ -1187,7 +1188,10 @@ geoXmax=70
 
 ![regions](images/georegion.png)
 
-Reads data from the specified KML or Shapefile and renders the regions. A file with the suffix ".kml" is assumed to be in KML format and a file with the ".shp" suffix is assumed to be a Shapefile. 
+Reads data from the specified KML, geoJSON or Shapefile and renders the regions. 
+
+A file with the suffix ".kml" is assumed to be in KML format. Files with suffix ".json" or "geojson" are processed as geoJSON (polygon shapes only), and a file with the ".shp" suffix is assumed to be a Shapefile. 
+
 
 ```color``` and ```op``` specify the color and opacity.
 
