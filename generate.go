@@ -1459,18 +1459,14 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 	geofile := unquote(eval(s[1]))
 	gformat := geoDataFormat(geofile)
 
-	if gformat == SHP {
+	switch gformat {
+	case SHP:
 		return readSHP(w, geofile, m, color, 0)
-	}
-	if gformat == JSON {
+	case JSON:
 		return readJSON(w, geofile, m, color, 0)
+	default:
+		return readKML(w, geofile, m, color, 0)
 	}
-	kml, err := readKMLData(geofile)
-	if err != nil {
-		return err
-	}
-	geoshape(w, kml, m, 0, color, "polygon")
-	return nil
 }
 
 // geoline makes lines from geometric data
@@ -1498,18 +1494,15 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 	}
 	geofile := unquote(eval(s[1]))
 	gformat := geoDataFormat(geofile)
-	if gformat == SHP {
+
+	switch gformat {
+	case SHP:
 		return readSHP(w, geofile, m, color, size)
-	}
-	if gformat == JSON {
+	case JSON:
 		return readJSON(w, geofile, m, color, size)
+	default:
+		return readKML(w, geofile, m, color, size)
 	}
-	kml, err := readKMLData(geofile)
-	if err != nil {
-		return err
-	}
-	geoshape(w, kml, m, size, color, "polyline")
-	return nil
 }
 
 // geoimage places an image at a geographic coordinate
