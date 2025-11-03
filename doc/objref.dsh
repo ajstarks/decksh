@@ -2352,12 +2352,11 @@ deck
 		elist
 		
 		ny=lsty-62
-		text `"file" refer to Shapefile (.shp) or Keyhole Markup Language (.kml) files from opendatasoft` initlcol ny 1.5 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
+		text `"file" refer to Shapefile (.shp), GeoJSON (.json or .geojson) or Keyhole Markup Language (.kml) files from opendatasoft` initlcol ny 1.5 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
 		ny+=1
-		hline initlcol ny 60 1.7 "steelblue" 20
+		hline initlcol ny 73 1.7 "steelblue" 20
 		ny-=4
 		list initlcol ny 1.5 "sans" "" 100 1.5
-			li "GeoJSON (.json or .geojson) files encoded as Polygons are also supported."
 			li "geoLatMin, geoLatMax, geoLongMin, geoLongMax variables set the latitude and longitude boundaries"
 			li "geoXmin, geoXmax, geoYmin, geoYmax variables define the canvas boundaries for geographic functions"
 			li `"loc" refers to a geo URI string ("geo:lat,long"), or a filename containing multiple locations`

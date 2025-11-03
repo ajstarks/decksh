@@ -2,79 +2,115 @@ package decksh
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"os"
+
+	"github.com/paulmach/orb"
+	"github.com/paulmach/orb/geojson"
 )
-
-// coordinates as polygon
-type GeoJSON struct {
-	Type     string     `json:"type"`
-	Features []Features `json:"features"`
-}
-
-type Features struct {
-	Type      string    `json:"type"`
-	JGeometry JGeometry `json:"geometry"`
-}
-
-type JGeometry struct {
-	Type        string        `json:"type"`
-	Coordinates [][][]float64 `json:"coordinates"`
-}
-
-// coordinates as multipolygon
-type MGeoJSON struct {
-	Type     string      `json:"type"`
-	Features []MFeatures `json:"features"`
-}
-
-type MFeatures struct {
-	Type     string    `json:"type"`
-	Geometry MGeometry `json:"geometry"`
-}
-
-type MGeometry struct {
-	Type        string          `json:"type"`
-	Coordinates [][][][]float64 `json:"coordinates"`
-}
-
-// Coordinates returns polygon lat long coordinates
-func coordsJSON(dest io.Writer, data GeoJSON, g Geometry, color string, shapesize float64) {
-	for _, f := range data.Features {
-		if f.JGeometry.Type == "Polygon" {
-			coords := f.JGeometry.Coordinates
-			x := []float64{}
-			y := []float64{}
-			for _, c := range coords[0] {
-				x = append(x, vmap(c[0], g.Longmin, g.Longmax, g.Xmin, g.Xmax))
-				y = append(y, vmap(c[1], g.Latmin, g.Latmax, g.Ymin, g.Ymax))
-			}
-			if shapesize > 0 {
-				shpdeckpolyline(dest, x, y, color, shapesize)
-			} else {
-				deckpolygon(dest, x, y, color)
-			}
-		}
-	}
-}
 
 // readJSON opens a geoJSON file, parses its contents, and writes coordinates in deck format
 func readJSON(dest io.Writer, filename string, mapgeo Geometry, color string, shapesize float64) error {
-	r, err := os.Open(filename)
+	data, err := os.ReadFile(filename)
 	if err != nil {
 		return err
 	}
-	data, err := parseJSON(r)
+	// Parse and Print, continue on error
+	err = parseData(dest, data, mapgeo, color, shapesize)
 	if err != nil {
 		return err
 	}
-	coordsJSON(dest, data, mapgeo, color, shapesize)
-	return r.Close()
+	return nil
 }
 
-// parseJSON parses geoJSON
-func parseJSON(r io.Reader) (GeoJSON, error) {
-	var data GeoJSON
-	err := json.NewDecoder(r).Decode(&data)
-	return data, err
+// parseData parses raw JSON data
+// for every feature found in the collection, print coordinates according to type:
+// (MultPolygon, Polygon, MultiLineString, LineString, MultiPoint and Point)
+func parseData(w io.Writer, data []byte, g Geometry, color string, shapesize float64) error {
+	fc := geojson.NewFeatureCollection()
+	err := json.Unmarshal(data, &fc)
+	if err != nil {
+		return err
+	}
+
+	lf := len(fc.Features)
+
+	if lf < 1 {
+		return fmt.Errorf("empty collection")
+	}
+
+	for i := range lf { // for every feature...
+		switch fc.Features[i].Geometry.GeoJSONType() { // process according to type
+
+		case "MultiPolygon":
+			for _, poly := range fc.Features[i].Geometry.(orb.MultiPolygon) {
+				for _, c := range poly {
+					x := []float64{}
+					y := []float64{}
+					for _, ll := range c {
+						x = append(x, vmap(ll.Lon(), g.Longmin, g.Longmax, g.Xmin, g.Xmax))
+						y = append(y, vmap(ll.Lat(), g.Latmin, g.Latmax, g.Ymin, g.Ymax))
+					}
+					if shapesize > 0 {
+						shpdeckpolyline(w, x, y, color, shapesize)
+					} else {
+						deckpolygon(w, x, y, color)
+					}
+				}
+			}
+
+		case "Polygon":
+			for _, c := range fc.Features[i].Geometry.(orb.Polygon) {
+				x := []float64{}
+				y := []float64{}
+				for _, ll := range c {
+					x = append(x, vmap(ll.Lon(), g.Longmin, g.Longmax, g.Xmin, g.Xmax))
+					y = append(y, vmap(ll.Lat(), g.Latmin, g.Latmax, g.Ymin, g.Ymax))
+				}
+				if shapesize > 0 {
+					shpdeckpolyline(w, x, y, color, shapesize)
+				} else {
+					deckpolygon(w, x, y, color)
+				}
+			}
+
+		case "MultiLineString":
+			for _, ml := range fc.Features[i].Geometry.(orb.MultiLineString) {
+				x := []float64{}
+				y := []float64{}
+				for _, ll := range ml {
+					x = append(x, vmap(ll.Lon(), g.Longmin, g.Longmax, g.Xmin, g.Xmax))
+					y = append(y, vmap(ll.Lat(), g.Latmin, g.Latmax, g.Ymin, g.Ymax))
+				}
+				shpdeckpolyline(w, x, y, color, shapesize)
+			}
+
+		case "LineString":
+			x := []float64{}
+			y := []float64{}
+			for _, ll := range fc.Features[i].Geometry.(orb.LineString) {
+				x = append(x, vmap(ll.Lon(), g.Longmin, g.Longmax, g.Xmin, g.Xmax))
+				y = append(y, vmap(ll.Lat(), g.Latmin, g.Latmax, g.Ymin, g.Ymax))
+			}
+			shpdeckpolyline(w, x, y, color, shapesize)
+
+		case "MultiPoint":
+			x := []float64{}
+			y := []float64{}
+			for _, p := range fc.Features[i].Geometry.(orb.MultiPoint) {
+				x = append(x, vmap(p.Lon(), g.Longmin, g.Longmax, g.Xmin, g.Xmax))
+				y = append(y, vmap(p.Lat(), g.Latmin, g.Latmax, g.Ymin, g.Ymax))
+			}
+			shpdeckdot(w, x, y, color, shapesize)
+
+		case "Point":
+			p := fc.Features[i].Geometry.(orb.Point)
+			fill, op := colorop(color)
+			xp := vmap(p.Lon(), g.Longmin, g.Longmax, g.Xmin, g.Xmax)
+			yp := vmap(p.Lat(), g.Latmin, g.Latmax, g.Ymin, g.Ymax)
+			fmt.Fprintf(w, shpdotfmt, xp, yp, fill, op, shapesize)
+		}
+	}
+	return nil
 }

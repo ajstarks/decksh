@@ -1130,7 +1130,7 @@ geographic features may be rendered. Supported are:
 * plain and labeled locations
 * images at geographic locations
 
-Appropriate KML and Shape files may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
+Appropriate geoJSON, KML and Shapefiles may be obtained from the [opendatasoft site](https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/)
 
 
 The map above is rendered by this code:
@@ -1190,7 +1190,7 @@ geoXmax=70
 
 Reads data from the specified KML, geoJSON or Shapefile and renders the regions. 
 
-A file with the suffix ".kml" is assumed to be in KML format. Files with suffix ".json" or "geojson" are processed as geoJSON (polygon shapes only), and a file with the ".shp" suffix is assumed to be a Shapefile. 
+A file with the suffix ".kml" is assumed to be in KML format. Files with suffix ".json" or "geojson" are processed as geoJSON, and a file with the ".shp" suffix is assumed to be a Shapefile. 
 
 
 ```color``` and ```op``` specify the color and opacity.

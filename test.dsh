@@ -1267,9 +1267,9 @@ deck
 	geoLongMin=0-180
 	geoLongMax=180
 
-	geoXmin=85
+	geoXmin=80
 	geoXmax=95
-	geoYmin=82
+	geoYmin=80
 	geoYmax=92
 
 	imscale=58
@@ -1282,6 +1282,7 @@ deck
 	opts="-fulldeck=f -textsize 1  -xlabel=2  -barwidth 1.5"
 
 	slide "white" "black"
+		ruler 
 		ctext     "Deck elements" 50 dtop 5
 		cimage    "follow.jpg" "Dreams" 72 imy iw ih imscale imlink
 		textblock "Budnitz #1, Plainfield, NJ, May 10, 2015" 55 35 10 1 "serif" "white"
