@@ -1445,10 +1445,7 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 	if n < 2 {
 		return fmt.Errorf("line %d: %s \"file\" [color] [op]", linenumber, s[0])
 	}
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	color := `"gray"`
 	if n > 2 {
 		color = eval(s[2])
@@ -1464,6 +1461,8 @@ func geopoly(w io.Writer, s []string, linenumber int) error {
 		return readSHP(w, geofile, m, color, 0)
 	case JSON:
 		return readJSON(w, geofile, m, color, 0)
+	case KML:
+		return readKML(w, geofile, m, color, 0)
 	default:
 		return readKML(w, geofile, m, color, 0)
 	}
@@ -1475,11 +1474,7 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 	if n < 2 {
 		return fmt.Errorf("line %d: %s \"file\" [size] [color]", linenumber, s[0])
 	}
-
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	size := 0.2
 	color := `"gray"`
 	if n > 2 {
@@ -1500,6 +1495,8 @@ func geoline(w io.Writer, s []string, linenumber int) error {
 		return readSHP(w, geofile, m, color, size)
 	case JSON:
 		return readJSON(w, geofile, m, color, size)
+	case KML:
+		return readKML(w, geofile, m, color, size)
 	default:
 		return readKML(w, geofile, m, color, size)
 	}
@@ -1515,10 +1512,7 @@ func geoimage(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	loc, err := readLoc(r, locsep)
 	loc.X, loc.Y = mapData(loc.X, loc.Y, m)
 	deckgeoimg(w, loc, eval(s[2]), eval(s[3]))
@@ -1577,10 +1571,7 @@ func geoloc(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	loc, err := readLoc(r, locsep)
 	x := loc.X
 	y := loc.Y
@@ -1624,10 +1615,7 @@ func geolabel(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	loc, err := readLoc(r, locsep)
 	x := loc.X
 	y := loc.Y
@@ -1659,10 +1647,7 @@ func geopoint(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	loc, err := readLoc(r, locsep)
 	x := loc.X
 	y := loc.Y
@@ -1697,10 +1682,7 @@ func geopathfile(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		return err
 	}
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	loc, err := readLoc(r, locsep)
 	x := loc.X
 	y := loc.Y
@@ -1737,10 +1719,7 @@ func geoarc(w io.Writer, s []string, linenumber int) error {
 	y := make([]float64, 2)
 	x[0], y[0] = parseLatLongs(unquote(eval(s[1])))
 	x[1], y[1] = parseLatLongs(unquote(eval(s[2])))
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	x, y = mapData(x, y, m)
 	// replace optional args, checking for validity
 	attr := ""
@@ -1774,10 +1753,7 @@ func geopath(w io.Writer, s []string, linenumber int) error {
 	y := make([]float64, 2)
 	x[0], y[0] = parseLatLongs(unquote(eval(s[1])))
 	x[1], y[1] = parseLatLongs(unquote(eval(s[2])))
-	m, err := makegeometry()
-	if err != nil {
-		return err
-	}
+	m := makegeometry()
 	x, y = mapData(x, y, m)
 	// replace optional args, checking for validity
 	attr := ""

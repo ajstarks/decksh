@@ -85,11 +85,11 @@ func geolatlong() (float64, float64, float64, float64) {
 }
 
 // makegeometry fills in the geometry from arguments
-func makegeometry() (Geometry, error) {
+func makegeometry() Geometry {
 	var m Geometry
 	m.Xmin, m.Xmax, m.Ymin, m.Ymax = geocanvas()
 	m.Latmin, m.Latmax, m.Longmin, m.Longmax = geolatlong()
-	return m, nil
+	return m
 }
 
 // mapData maps raw lat/long coordinates to canvas coordinates
