@@ -101,6 +101,8 @@ func mapData(x, y []float64, g Geometry) ([]float64, []float64) {
 	return x, y
 }
 
+// geoDataFormat looks at a filename and returns the format type
+// based on the suffix
 func geoDataFormat(s string) int {
 	i := strings.LastIndex(s, ".")
 	if i < 0 {

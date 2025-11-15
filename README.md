@@ -1,4 +1,4 @@
-∏# decksh: a little language for presentations, visualizations, and information displays
+# decksh: a little language for presentations, visualizations, and information displays
 
 
 `decksh` is a domain-specific language (DSL) for generating [`deck`](https://github.com/ajstarks/deck) markup.
@@ -82,7 +82,7 @@ $ decksh -dump ...         # show decksh variables
 Typically, `decksh` acts as the head of a rendering pipeline, where another `deck` client renders the markup. This example uses `pdfdeck`
 
 ```
-$ decksh text.dsh | pdfdeck -stdout -pagesize 1200,900 - > text.pdf 
+$ decksh text.dsh | pdfdeck -stdout -pagesize 1200,900 - > text.pdf
 ```
 
 ## Example input
@@ -149,7 +149,7 @@ deck
         chright=45
         chtop=42
         chtbottom=28
-        dchart -left chleft -right chright -top chtop -bottom chbottom opts AAPL.d 
+        dchart -left chleft -right chright -top chtop -bottom chbottom opts AAPL.d
     eslide
 edeck
 ```
@@ -353,7 +353,7 @@ Return the polar coordinates `(p_x)` and `(p_y)` given the center at `(cx, cy)`,
 
 ## Dump
 
-The keyword `dump` causes a sorted list of variables and their values to 
+The keyword `dump` causes a sorted list of variables and their values to
 be printed on standard error.
 
 For example, given:
@@ -498,7 +498,7 @@ For value `v`, map the range `vmin-vmax` to `min-max`.
 x=substr string begin end
 ```
 
-assigns a substring given beginning and ending indicies.  
+assigns a substring given beginning and ending indicies.
 `-` may be used as a shorthand for the beginning and end.
 
 ```
@@ -569,7 +569,7 @@ if x > y
     text "x is greater than y" x y 5
 else
     text "x is not greater than y" x y 5
-eif 
+eif
 ```
 
 The else block may be omitted:
@@ -577,7 +577,7 @@ The else block may be omitted:
 ```
 if x < 10
     text "x is less than 10" x y 5
-eif 
+eif
 ```
 
 For strings:
@@ -626,7 +626,7 @@ edef
 which is referenced:
 
 ```
-import "redcircle.dsh" 
+import "redcircle.dsh"
 x=50
 y=50
 x2=x-20
@@ -859,7 +859,7 @@ ellipse x y w h [color] [opacity]
 
 ![rect](images/rect.png)
 
-  
+
 
 ![ellipse](images/ellipse.png)
 
@@ -870,7 +870,7 @@ circle  x y w   [color] [opacity]
 
 ![square](images/square.png)
 
-  
+
 
 ![circle](images/circle.png)
 
@@ -1060,7 +1060,7 @@ dbrace x y width  aw ah [linewidth] [color] [opacity]
 
 ## Brackets
 
-Left, right, up and down-facing brackets. 
+Left, right, up and down-facing brackets.
 
 (x, y) is the location of the center of the bracket.  For left and
 right-facing brackets, `width` is the size of the top and bottom portions,
@@ -1144,7 +1144,7 @@ deck
     geoLatMax=45
     geoLongMax=48
     geoLongMin=5
-    slide wcolor gcolor    
+    slide wcolor gcolor
         text       "The Ancient World" 10 10 5
         georegion  "world.kml"    lcolor
         geoborder  "world.kml"    0.05 wcolor
@@ -1156,7 +1156,7 @@ edeck
 
 (Note: to ensure proper layout, set the -layers option to "poly:ellipse:text:line" in your deck rendering tool.)
 
-The geographic bounding box of the map is defined by latitude (geoLatMin, geoLatMax) and longitude (geoLongMin, geoLongMax) in decimal degrees.  Latitudes range from -90° to 90° and longitudes range from -180° to 180°. 
+The geographic bounding box of the map is defined by latitude (geoLatMin, geoLatMax) and longitude (geoLongMin, geoLongMax) in decimal degrees.  Latitudes range from -90° to 90° and longitudes range from -180° to 180°.
 
 The Equator is at 0° latitude; latitudes to the north of the Equator are positive, and latitudes south of the Equator are negative.
 
@@ -1188,9 +1188,9 @@ geoXmax=70
 
 ![regions](images/georegion.png)
 
-Reads data from the specified KML, geoJSON or Shapefile and renders the regions. 
+Reads data from the specified KML, geoJSON or Shapefile and renders the regions.
 
-A file with the suffix ".kml" is assumed to be in KML format. Files with suffix ".json" or "geojson" are processed as geoJSON, and a file with the ".shp" suffix is assumed to be a Shapefile. 
+A file with the suffix ".kml" is assumed to be in KML format. Files with suffix ".json" or "geojson" are processed as geoJSON, and a file with the ".shp" suffix is assumed to be a Shapefile.
 
 
 ```color``` and ```op``` specify the color and opacity.
@@ -1290,6 +1290,3 @@ For example:
 geoimage "geo:48.8588897,2.3200410    fra.png" 10 0
 ```
 places the image in "fra.png" at the coordinates of Paris, France.
-
-
-
