@@ -15,7 +15,7 @@ const (
 )
 
 // emap is the id=expression map
-var emap = map[string]string{"deckshVersion": `"2025-11-15-1.0.0"`}
+var emap = map[string]string{"deckshVersion": `"2025-11-18-1.0.0"`}
 
 var (
 	canvasWidth  = 792.0

@@ -92,11 +92,7 @@ func JSONLineString(w io.Writer, g Geometry, color string, shapesize float64, ra
 		x = append(x, vmap(ll[0], g.Longmin, g.Longmax, g.Xmin, g.Xmax))
 		y = append(y, vmap(ll[1], g.Latmin, g.Latmax, g.Ymin, g.Ymax))
 	}
-	if shapesize > 0 {
-		shpdeckpolyline(w, x, y, color, shapesize)
-	} else {
-		deckpolygon(w, x, y, color)
-	}
+	geopl(w, x, y, color, shapesize)
 }
 
 // JSONPolygon parses an array of linear rings (array of coordinate pairs)
@@ -111,11 +107,7 @@ func JSONPolygon(w io.Writer, g Geometry, color string, shapesize float64, raw j
 			x = append(x, vmap(ll[0], g.Longmin, g.Longmax, g.Xmin, g.Xmax))
 			y = append(y, vmap(ll[1], g.Latmin, g.Latmax, g.Ymin, g.Ymax))
 		}
-		if shapesize > 0 {
-			shpdeckpolyline(w, x, y, color, shapesize)
-		} else {
-			deckpolygon(w, x, y, color)
-		}
+		geopl(w, x, y, color, shapesize)
 	}
 }
 
@@ -132,11 +124,7 @@ func JSONMultiPolygon(w io.Writer, g Geometry, color string, shapesize float64, 
 				x = append(x, vmap(ll[0], g.Longmin, g.Longmax, g.Xmin, g.Xmax))
 				y = append(y, vmap(ll[1], g.Latmin, g.Latmax, g.Ymin, g.Ymax))
 			}
-			if shapesize > 0 {
-				shpdeckpolyline(w, x, y, color, shapesize)
-			} else {
-				deckpolygon(w, x, y, color)
-			}
+			geopl(w, x, y, color, shapesize)
 		}
 	}
 }
