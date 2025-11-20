@@ -65,8 +65,11 @@ func readSHP(w io.Writer, filename string, mapgeo Geometry, color string, shapes
 		if err == io.EOF {
 			break
 		}
-		if err != nil || nr != 8 {
-			break
+		if err != nil {
+			return err
+		}
+		if nr != 8 {
+			return fmt.Errorf("invalid shapefile record size (%d)", nr)
 		}
 		// Content length in 16-bit words (big endian)
 		contentLength := binary.BigEndian.Uint32(recordHeader[4:8]) * 2
