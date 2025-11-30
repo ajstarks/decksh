@@ -2279,8 +2279,8 @@ deck
 	// legend
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
-		text "legend" 25 ly ts "mono" kwcolor
-		text "x y fontsize font color" 37 ly ts "mono" argcolor
+		text "legend" 20 ly ts "mono" kwcolor
+		text `"text" x y fontsize font color` 32 ly ts "mono" argcolor
 		legend "My text" 40 70 10 "sans" objcolor
 		circle 40 70 3 accentcolor
 		ctext "(x,y)" 40 65 lw "mono"
