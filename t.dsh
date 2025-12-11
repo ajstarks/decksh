@@ -1,9 +1,0 @@
-deck
-slide
-latmin=20
-		latmax=55
-		longmin=0-130
-		longmax=0-65
-geoborders "ustates.kml" latmin latmax longmin longmax 0.15 "gray"
-eslide
-edeck

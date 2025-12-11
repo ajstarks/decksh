@@ -1,0 +1,40 @@
+deck
+	slide
+		bs=1.0
+		rbrace 70 50 30 5 0 bs "blue"
+		lbrace 30 50 30 5 0 bs "blue"
+		ubrace 50 80 30 0 5 bs "blue"
+		dbrace 50 20 30 0 5 bs "blue"
+		
+		ctext "down" 50 17 3
+		ctext "up"   50 81 3
+		text  "right" 70 50 3
+		etext "left" 30 50 3
+	eslide
+
+	slide
+		bs=1.0
+		rbrace 70 50 30 5 2 bs
+		lbrace 30 50 30 5 2 bs
+		ubrace 50 80 30 2 5 bs
+		dbrace 50 20 30 2 5 bs
+
+		ctext "down" 50 17 3
+		ctext "up"   50 81 3
+		text  "right" 70 50 3
+		etext "left" 30 50 3
+	eslide
+
+	slide
+		bs=2.0
+		op=20
+		rbracket 70 50 10 30  bs "green" op
+		lbracket 30 50 10 30  bs "green" op
+		ubracket 50 80 30 10  bs "red" op
+		dbracket 50 20 30 10  bs "red" op
+		ctext "down" 50 17 3
+		ctext "up"   50 81 3
+		text  "right" 70 50 3
+		etext "left" 30 50 3
+	eslide
+edeck

@@ -1,0 +1,10 @@
+deck
+	slide
+		home="geo:40.622735,-74.435784	Home"
+		//georegion "world.kml"
+		color="red"
+		size=10
+		op=30
+		geomark  home size color op
+	eslide
+edeck

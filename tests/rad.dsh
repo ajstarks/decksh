@@ -1,0 +1,4 @@
+def rad X Y R T Size Color
+	p=polar X Y R T
+	circle  p_x p_y Size Color
+edef

@@ -1,0 +1,10 @@
+2014	GAN
+2017	Transformer
+2018	GPT-1
+2019	GPT-2
+2020	GPT-3
+2021	DALL-E
+2022	ChatGPT
+2023	GPT-4
+2024	Multimodal
+2025	Integration
