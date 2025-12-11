@@ -1,0 +1,108 @@
+{
+	BBEditDocumentType = "CodelessLanguageModule";
+	BBLMColorsSyntax = YES;
+	BBLMIsCaseSensitive = YES;
+	BBLMKeywordList = (
+		acircle,
+		arc,
+		arctext,
+		area,
+		arrow,
+		blist,
+		btext,
+		canvas,
+		cimage,
+		circle,
+		clist,
+		content,
+		cosine,
+		ctext,
+		curve,
+		dbrace,
+		dbracket,
+		dcarrow,
+		dchart,
+		deck,
+		def,
+		dump,
+		edeck,
+		edef,
+		efor,
+		eif,
+		elist,
+		ellipse,
+		else,
+		etext,
+		for,
+		format,
+		geoarc,
+		geoborder,
+		geoimage,
+		geolabel,
+		geoloc,
+		geomark,
+		geopath,
+		geopathfile,
+		georegion,
+		grid,
+		hline,
+		if,
+		image,
+		import,
+		include,
+		lbrace,
+		lbracket,
+		lcarrow,
+		legend,
+		li,
+		line,
+		list,
+		nlist,
+		pill,
+		polar,
+		polarx,
+		polary,
+		polygon,
+		polyline,
+		random,
+		rbrace,
+		rbracket,
+		rcarrow,
+		rect,
+		rrect,
+		rtext,
+		ruler,
+		sine,
+		slide,
+		sqrt,
+		square,
+		star,
+		substr,
+		tangent,
+		text,
+		textblock,
+		textblockfile,
+		textcode,
+		textfile,
+		ubrace,
+		ubracket,
+		ucarrow,
+		vline,
+		vmap
+	);
+	BBLMLanguageCode = "dsh";
+	BBLMLanguageDisplayName = "decksh";
+	BBLMSuffixMap = (
+		{
+			BBLMLanguageSuffix = ".sh";
+			BBLMLanguageSuffix = ".dsh";
+		},
+	);
+	"Language Features" = {
+		"End-of-line Ends Strings" = YES;
+		"Identifier and Keyword Characters" = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
+		"Open Line Comments" = "//";
+		"Open Strings 1"  = "\"";
+		"Close Strings 1" = "\"";
+	};
+}
