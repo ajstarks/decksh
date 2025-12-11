@@ -1,0 +1,11 @@
+		if rv > xv
+			ctext "rv is greater than xv" 50 75 4
+			ctext rval 10 75 3
+			ctext xval 90 75 3
+			rect 50 52 100 20 "red" 20
+		else
+			ctext "in the else clause" 50 5 4
+			ctext rval 10 5 3
+			ctext xval 90 5 3
+			rect 50 25 100 20 "blue" 20
+		eif

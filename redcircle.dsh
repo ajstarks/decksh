@@ -1,7 +1,0 @@
-def redcircle X Y
-	circle X Y 10 "red"
-	sx=format "(%g," X
-	sy=format "%g)" Y
-	etext sx X Y 2 "mono" "white"
-	text  sy X Y 2 "mono"  "white"
-edef
