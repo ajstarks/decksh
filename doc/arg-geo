@@ -1,0 +1,10 @@
+li `"p1" "p2" [lw] [color] [opacity]`
+li `"file" [lw] [color] [opacity]`
+li `"loc" width height`
+li `"loc" [size] [font] [color] [opacity]`
+li `"loc" [align] [size] [font] [color] [opacity]`
+li `"loc" [size] [color] [opacity]`
+li `"p1" "p2" [lw] [color] [opacity]`
+li `"file" [lw] [color] [opacity]`
+li `"file" [color] [opacity]`
+li ``

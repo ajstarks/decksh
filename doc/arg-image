@@ -1,0 +1,3 @@
+li `"file" "caption" x y w h [scale] [link] capsize`
+li `"file" x y w h [scale] [link]`
+li ``

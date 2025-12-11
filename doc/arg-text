@@ -1,0 +1,11 @@
+li `"string" x y radius a1 a2 fontsize [font] [color] [opacity] [link]`
+li `"string" x y fontsize [font] [color] [opacity] [link]`
+li `"string" x y fontsize [font] [color] [opacity] [link]`
+li `"string" x y fontsize [font] [color] [opacity] [link]`
+li `"string" x y angle fontsize [font] [color] [opacity] [link]       `
+li `"string" x y fontsize [font] [color] [opacity] [link]`
+li `"string" x y w fontsize [font] [color] [opacity] [link]`
+li `"file" x y w fontsize [font] [color] [opacity] [link]`
+li `"file" x y w fontsize [font] [color] [opacity]`
+li `"file" x y fontsize [font] [color] [opacity] [spacing]`
+li ``

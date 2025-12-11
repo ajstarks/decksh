@@ -1,0 +1,9 @@
+li `x y w bw bh [lw] [color] [opacity]`
+li `x y w h [lw] [color] [opacity]`
+li `x y h bw bh [lw] [color] [opacity]`
+li `x y w h [lw] [color] [opacity]`
+li `x y h bw bh [lw] [color] [opacity]`
+li `x y w h [lw] [color] [opacity]`
+li `x y w bw bh [lw] [color] [opacity]`
+li `x y w h [lw] [color] [opacity]`
+li ``

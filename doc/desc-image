@@ -1,0 +1,3 @@
+li `Captioned image; center (x,y), dimensions (w,h) (h=0, w is % of canvas width)`
+li `Image center at (x,y), dimensions (w,h) (h=0, w is % of canvas width)`
+li ``

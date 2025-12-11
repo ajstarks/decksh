@@ -1,0 +1,7 @@
+li `Bulleted list starting at (x,y), at fontsize`
+li `Centered list starting at (x,y), at fontsize`
+li `List starting at (x,y), at fontsize`
+li `Numbered list starting at (x,y), at fontsize`
+li `List item`
+li `End the list`
+li ``

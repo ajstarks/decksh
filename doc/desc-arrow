@@ -1,0 +1,6 @@
+li `Arrow starting at (x1,y1), ending at (x2,y2), aw=width, ah=height`
+li `Downward curved arrow; curve specified by (bx,by), (cx,cy), (ex,ey)`
+li `Left curved arrow; curve specified by (bx,by), (cx,cy), (ex,ey)`
+li `Right curved arrow; curve specified by (bx,by), (cx,cy), (ex,ey)`
+li `Upward curved arrow; curve specified by (bx,by), (cx,cy), (ex,ey)`
+li ``

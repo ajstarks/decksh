@@ -1,0 +1,6 @@
+li `width height`
+li `"scheme://file"`
+li `[name]`
+li `"file" x y hspace vspace edge`
+li `[increment] [color]`
+li ``

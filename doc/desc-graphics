@@ -1,0 +1,16 @@
+li `Circle with sized based on area`
+li `Ellipical arc centered at (x,y), dimensions (w,h) between angles a1 and a2`
+li `Circle centered at (x,y), diameter w`
+li `Quadradic Bezier Curve begin (bx,by), control (cx, cy), end (ex,ey)`
+li `Ellipse centered at (x,y), dimension (w,h)`
+li `Horizontal line begin at (x,y), length w`
+li `Line between (x1,y1) and (x2,y2)`
+li `Pill shape beginning at (x,y), dimensions (w,h)`
+li `Polygon with specified x, y coordinates`
+li `Polyline with specified x, y coordinates`
+li `Rectangle centered at (x,y), dimensions (w,h)`
+li `Rounded rectangle centered at (x,y), dimensions (w,h), corner radius r`
+li `Square centered at (x,y), size w`
+li `Star centered at (x,y), with sides, innner and outer sizes`
+li `Vertical line beginning at (x,y), h high`
+li ``

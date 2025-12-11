@@ -1,0 +1,9 @@
+li `Assign an area`
+li `Assign formatting to expressions`
+li `Assign polar coordinate centered at (x,y) at radius and angle (0-360)`
+li `Assign X-polar coordinate centered at (x,y) at radius and angle (0-360)`
+li `Assign Y-polar coordinate centered at (x,y) at radius and angle (0-360)`
+li `Assign a random number between two values`
+li `Assign a substring`
+li `Assign a value mapped to two ranges`
+li ``

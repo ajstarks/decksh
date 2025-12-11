@@ -1,0 +1,10 @@
+li `Draw arcs between points`
+li `Reads KML data from the specified file and renders the map borders`
+li `Place an image at a geographical location`
+li `Reads data from the specified file or location and renders the map labels`
+li `Reads data from the specified file or location and a make map point and labels`
+li `Reads data from the specified file or location and renders map points`
+li `Draw line between points`
+li `Reads data from the specified file and a make lines between points`
+li `Reads KML data from the specified file and renders the map regions`
+li ``
