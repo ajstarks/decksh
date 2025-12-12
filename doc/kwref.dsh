@@ -1,0 +1,107 @@
+	ts=1.3
+	hs=ts*1.2
+	rs=ts*2
+	ls=ts
+	top=87
+	htop=top+3
+	ttop=top+9
+	c0=7
+	c1=c0+1
+	c2=c1+11
+	c3=c2+35
+
+	kwcolor="rgb(200,0,0)"
+	argcolor="rgb(70,70,70)"
+	descolor="black"
+
+	slide
+		text "Keyword Reference" c1 ttop rs "serif"
+		include "kwheader.dsh"
+
+		list c1 top ts "mono" kwcolor 100 ls
+			include "kw-struct"
+			include "kw-util"
+			include "kw-graphics"
+		elist
+
+		list c2 top ts "sans" argcolor 100 ls
+			include "arg-struct"
+			include "arg-util"
+			include "arg-graphics"
+		elist
+
+		list c3 top ts "serif" descolor 100 ls
+			include "desc-struct"
+			include "desc-util"
+			include "desc-graphics"
+		elist
+
+		etext "Structure"     c0 75 ls "sans" "gray"
+		etext "Utility"       c0 48 ls "sans" "gray"
+		etext "Graphics"      c0 25 ls "sans" "gray"
+	eslide
+
+	slide
+		include "kwheader.dsh"
+
+		list c1 top ts "mono" kwcolor 100 ls
+			include "kw-text"
+			include "kw-list"
+			include "kw-image"
+			include "kw-bracket"
+		elist
+
+		list c2 top ts "sans" argcolor 100 ls
+			include "arg-text"
+			include "arg-list"
+			include "arg-image"
+			include "arg-bracket"
+		elist
+
+		list c3 top ts "serif" descolor 100 ls
+			include "desc-text"
+			include "desc-list"
+			include "desc-image"
+			include "desc-bracket"
+		elist
+
+		etext "Text"            c0 78  ls "sans" "gray"
+		etext "Lists"           c0 55  ls "sans" "gray"
+		etext "Images"          c0 40  ls "sans" "gray"
+		etext "Braces/"         c0 30  ls "sans" "gray"
+		etext "Brackets"        c0 28  ls "sans" "gray"
+	eslide
+
+	slide
+		include "kwheader.dsh"
+
+		list c1 top ts "mono" kwcolor 100 ls
+			include "kw-arrow"
+			include "kw-chart"
+			include "kw-func"
+			include "kw-math"
+			include "kw-geo"
+		elist
+
+		list c2 top ts "sans" argcolor 100 ls
+			include "arg-arrow"
+			include "arg-chart"
+			include "arg-func"
+			include "arg-math"
+			include "arg-geo"
+		elist
+
+		list c3 top ts "serif" descolor 100 ls
+			include "desc-arrow"
+			include "desc-chart"
+			include "desc-func"
+			include "desc-math"
+			include "desc-geo"
+		elist
+
+		etext "Arrows"       c0 82  ls "sans" "gray"
+		etext "Charts"       c0 71  ls "sans" "gray"
+		etext "Built-ins"    c0 57  ls "sans" "gray"
+		etext "Math"         c0 38  ls "sans" "gray"
+		etext "Geographic"   c0 20  ls "sans" "gray"
+	eslide

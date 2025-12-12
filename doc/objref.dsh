@@ -2546,5 +2546,7 @@ deck
 		text "lw color op" arx2 ly ts "mono" optcolor
 		image "images/roadtrip.png" 82 25 35 0
 		textfile "code/geopathfile.dsh" 5 32 1.6 "mono"
-	eslide	
+	eslide
+	
+	include "kwref.dsh"
 edeck
