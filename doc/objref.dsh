@@ -2364,6 +2364,22 @@ deck
 		elist
 	eslide
 
+	slide
+		//ruler 5
+		ctext "Geographic Scaling" mid 95 4 "serif"
+		textfile "geoscale.dsh" 5 50 1.5 "mono"
+		geoYmin=10
+		geoYmax=90
+		afN="geo:37.347,-17.520	(37.347°, -17.530°)"
+		afS="geo:-34.833,51.267	(-34.833° ,51.267°)"
+		geoloc afN  "e" 1.2
+		geoloc afS  "c" 1.2
+		include "geoscale.dsh"
+		rect 55 12.5 10 15 "red" 10
+		etext "(50,20)" 50 20 1.5
+		text  "(60,5)" 60 5 1.5
+	eslide
+
 	kwx=30
 	arx=kwx+12
 	arx2=arx+15

@@ -1,0 +1,14 @@
+georegion "world.kml" "black"
+
+geoLatMax=37.347
+geoLatMin=0-34.833
+geoLongMax=51.267
+geoLongMin=0-17.530
+
+geoXmin=50
+geoXmax=60
+geoYmin=5
+geoYmax=20
+
+georegion "africa.kml" "red"
+
