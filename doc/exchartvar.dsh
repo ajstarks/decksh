@@ -1,0 +1,5 @@
+chartTop=90
+chartBottom=chartTop-chartheight
+chartLeft=33
+chartRight=chartLeft+chartwidth
+chartXLabel=1

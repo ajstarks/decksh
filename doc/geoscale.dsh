@@ -1,14 +1,16 @@
 georegion "world.kml" "black"
 
+// geo boundaries for Africa
 geoLatMax=37.347
+geoLongMin=0-17.530
 geoLatMin=0-34.833
 geoLongMax=51.267
-geoLongMin=0-17.530
 
+// location for africa copy
 geoXmin=50
+geoYmax=20
 geoXmax=60
 geoYmin=5
-geoYmax=20
 
 georegion "africa.kml" "red"
 

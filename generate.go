@@ -1857,6 +1857,7 @@ func chartflags(s []string) dchart.Settings {
 	return chart
 }
 
+// makechart takes a list of arguments amd writes a chart
 func makechart(w io.Writer, args []string, linenumber int) error {
 	filename := args[len(args)-1]
 	chartsettings := chartflags(args)
@@ -1893,15 +1894,7 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	}
 
 	// use the chart canvas bounds, and attribute settings via magic variables
-	// charTop,
-	// chartBottom,
-	// chartLeft,
-	// chartRight,
-	// chartVal,
-	// chartXLabel,
-	// chartYRange,
-	// chartGrid
-	var chartTop, chartBottom, chartLeft, chartRight float64
+	var chartTop, chartBottom, chartLeft, chartRight, chartTextSize float64
 	var chartVal int
 	var err error
 	chartTop, err = strconv.ParseFloat(eval("chartTop"), 64)
@@ -1920,6 +1913,10 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chartRight = 90.0
 	}
+	chartTextSize, err = strconv.ParseFloat(eval("chartTextSize"), 64)
+	if err != nil {
+		chartTextSize = 1.5
+	}
 	chartVal, err = strconv.Atoi(eval("chartVal"))
 	if err != nil {
 		chartVal = 1
@@ -1936,6 +1933,7 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chartTitle = 1
 	}
+
 	yrange := unquote(eval("chartYRange"))
 
 	// build dchart "command line" with options.
@@ -1943,7 +1941,7 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	args = append(args, fmt.Sprintf("-bounds=%v,%v,%v,%v", chartLeft, chartRight, chartTop, chartBottom))
 	args = append(args, fmt.Sprintf("-xlabel=%d", chartXLabel))
 	args = append(args, fmt.Sprintf("-color=%s", color))
-
+	args = append(args, fmt.Sprintf("-textsize=%v", chartTextSize))
 	if chartVal > 0 {
 		args = append(args, "-val=t")
 	} else {

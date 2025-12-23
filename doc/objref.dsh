@@ -2223,7 +2223,6 @@ deck
 			li tbl1 "sans" objcolor
 			li "Charts"
 			li "Chart Legends"
-			li ""
 			li "Area Chart"
 			li "Bar Chart"
 			li "Dot Chart"
@@ -2236,7 +2235,6 @@ deck
 			li tbl2 "sans" objcolor
 			li "dchart"
 			li "legend"
-			li ""
 			li "areachart"
 			li "barchart"
 			li "dotchart"
@@ -2250,7 +2248,6 @@ deck
 			li "mandatory" "sans" objcolor
 			li `options "file"`
 			li `"text" x y size font color`
-			li ""
 			li `"file"`
 			li `"file"`
 			li `"file"`
@@ -2313,6 +2310,7 @@ deck
 		textfile "code/dchart-ex2.dsh" 50 10 etss "mono"
 	eslide
 
+	// chart types
 	slide bgcolor fgcolor
 		ctext "Chart Variables" mid ty 5 "serif"
 		rc=initlcol
@@ -2325,10 +2323,12 @@ deck
 			li "Chart Bottom"
 			li "Chart Left"
 			li "Chart Right"
+			li "Chart text size"
 			li "Show data values"
-			li "Show Y-Axis Grid"
-			li "X-Axis label interval"
-			li "Y-Axis range"
+			li "Show Y-axis grid"
+			li "Show title"
+			li "X-axis label interval"
+			li "Y-axis range"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
@@ -2337,8 +2337,10 @@ deck
 			li "chartBottom"
 			li "chartLeft"
 			li "chartRight"
+			li "chartTextSize"
 			li "chartVal"
 			li "chartGrid"
+			li "chartTitle"
 			li "chartXLabel"
 			li "chartYRange"
 		elist
@@ -2349,8 +2351,10 @@ deck
 			li "30"
 			li "10"
 			li "90"
+			li "1.5"
 			li "1 (0: off, 1: on)"
-			li "0 (0: off, 1: on)" 
+			li "0 (0: off, 1: on)"
+			li "1 (0: off, 1: on)"
 			li "1 (1: all, 0: none, every nth label)"
 			li `"" (min,max,interval)`
 		elist
@@ -2444,10 +2448,53 @@ deck
 		elist
 	eslide
 
-	slide
-		//ruler 5
-		ctext "Geographic Scaling" mid 95 4 "serif"
-		textfile "geoscale.dsh" 5 50 1.5 "mono"
+	// chart types
+	slide bgcolor fgcolor
+		ctext "Geo Variables" mid ty 5 "serif"
+		rc=initlcol
+		lcolsize=33
+		listspacing=1.6
+		hline rc llsty 85 tbheadsize "gray" 20
+		list rc lsty lfs "sans" "" 100 listspacing
+			li "description"
+			li "Minimum latitude"
+			li "Maximum latitude"
+			li "Minimum longitude"
+			li "Maximum longitude"
+			li "Geo canvas x minimum"
+			li "Geo canvas x maximum"
+			li "Geo canvas y minimum"
+			li "Geo canvas y maximum"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li "variable"
+			li "geoLatMin"
+			li "geoLatMax"
+			li "geoLongMin"
+			li "geoLongMax"
+			li "geoXmin"
+			li "geoXmax"
+			li "geoYmin"
+			li "geoYmax"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" "" 100 listspacing
+			li "default value"
+			li "-90"
+			li "90"
+			li "-180"
+			li "180"
+			li "0"
+			li "100"
+			li "0"
+			li "100"
+		elist
+	eslide
+
+	slide bgcolor fgcolor
+		ctext "Geographic Scaling" mid ty 5 "serif"
+		textfile "geoscale.dsh" 3 50 1.5 "mono"
 		geoYmin=10
 		geoYmax=90
 		afN="geo:37.347,-17.520	(37.347°, -17.530°)"
@@ -2458,6 +2505,92 @@ deck
 		rect 55 12.5 10 15 "red" 10
 		etext "(50,20)" 50 20 1.5
 		text  "(60,5)" 60 5 1.5
+	eslide
+
+	chartheight=20
+	chartwidth=30
+	chartfile="test.d"
+
+	slide bgcolor fgcolor
+		kwx=25
+		arx=kwx+17
+		arx2=arx+11
+		include "exchartvar.dsh"
+		barchart chartfile
+		hline 0 47 100 hlsize hlcolor hlop
+		text "barchart" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "color" arx2 ly ts "mono" optcolor
+		textfile "code/barchartex.dsh" 5 30 2 "mono"
+		include "code/barchartex.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		include "exchartvar.dsh"
+		linechart "test.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "linechart" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "color" arx2 ly ts "mono" optcolor
+		textfile "code/linechartex.dsh" 5 30 2 "mono"
+		include "code/linechartex.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		include "exchartvar.dsh"
+		areachart "test.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "areachart" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "color" arx2 ly ts "mono" optcolor
+		textfile "code/areachartex.dsh" 5 30 2 "mono"
+		include "code/areachartex.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		include "exchartvar.dsh"
+		areachart "test.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "areachart" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "color" arx2 ly ts "mono" optcolor
+		textfile "code/dotchartex.dsh" 5 30 2 "mono"
+		include "code/dotchartex.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		arx=kwx+20
+		arx2=arx+12
+		include "exchartvar.dsh"
+		scatterchart "test.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "scatterchart" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "color" arx2 ly ts "mono" optcolor
+		textfile "code/scatterchartex.dsh" 5 30 2 "mono"
+		include "code/scatterchartex.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		include "exchartvar.dsh"
+		hbarchart "test.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "hbarchart" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "color" arx2 ly ts "mono" optcolor
+		textfile "code/hbarchartex.dsh" 5 30 2 "mono"
+		include "code/hbarchartex.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		include "exchartvar.dsh"
+		wbarchart "test.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "wbarchart" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "color" arx2 ly ts "mono" optcolor
+		textfile "code/wbarchartex.dsh" 5 30 2 "mono"
+		include "code/wbarchartex.dsh"
 	eslide
 
 	kwx=30

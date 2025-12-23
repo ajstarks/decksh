@@ -39,7 +39,7 @@
 	slide
 		ch=20
 		cg=9
-		chartVal=1
+		chartTextSize=1.2
 		chartGrid=0
 		chartVal=1
 		chartGrid=1

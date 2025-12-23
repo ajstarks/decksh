@@ -1,0 +1,6 @@
+chartLeft=50
+chartRight=90
+chartTop=30
+chartBottom=10
+chartXLabel=2
+hbarchart "rand.d" "maroon"
