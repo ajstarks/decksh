@@ -1194,6 +1194,8 @@ deck
 		legend "Revenue" 35 20 1.5 "sans" "red"
 	eslide
 
+	include "ct.dsh"
+
 	midx=50
 	midy=50
 	iw=640

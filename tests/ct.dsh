@@ -1,0 +1,62 @@
+	datafile="AAPL.d"
+	altcolor="darkgreen"
+	slide
+		barchart datafile "red"
+	eslide
+
+	slide
+		linechart datafile
+	eslide
+
+	slide
+		scatterchart datafile
+	eslide
+
+	slide
+		dotchart datafile
+	eslide
+
+	slide
+		hbarchart datafile altcolor
+	eslide
+
+	slide
+		wbarchart datafile
+	eslide
+
+	slide
+		// composite chart
+		chartVal=1
+		chartGrid=1
+		chartYRange="0,1000,100"
+		linechart		datafile "red"
+		chartXLabel=0
+		chartVal=0
+		areachart		datafile
+		dotchart		datafile "orange"
+	eslide
+
+	slide
+		ch=20
+		cg=9
+		chartVal=1
+		chartGrid=0
+		chartVal=1
+		chartGrid=1
+		chartYRange="0,1000,200"
+		chartTop=90
+		chartBottom=chartTop-ch
+		linechart datafile
+
+		chartVal=0
+		chartTitle=0
+		chartTop=chartBottom-cg
+		chartBottom=chartTop-ch
+		dotchart datafile
+
+		chartXLabel=1
+		chartTop=chartBottom-cg
+		chartBottom=chartTop-ch
+		areachart datafile
+
+	eslide

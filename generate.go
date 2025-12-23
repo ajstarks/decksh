@@ -1857,6 +1857,17 @@ func chartflags(s []string) dchart.Settings {
 	return chart
 }
 
+func makechart(w io.Writer, args []string, linenumber int) error {
+	filename := args[len(args)-1]
+	chartsettings := chartflags(args)
+	r, err := os.Open(filename)
+	if err != nil {
+		return fmt.Errorf("line %d: %v", linenumber, err)
+	}
+	chartsettings.Write(w, r)
+	return nil
+}
+
 // chartType filename [color] [xlabel-interval] [y-axis range] makes
 // bar charts, horizontal bar charts, line charts, scatter charts, dot charts, area charts
 func chartType(w io.Writer, s []string, linenumber int) error {
@@ -1871,6 +1882,7 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	color := "lightsteelblue"
 	chartXLabel := 1
 	chartGrid := 0
+	chartTitle := 1
 
 	// override defaults
 	if ls > 2 {
@@ -1920,6 +1932,10 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chartGrid = 0
 	}
+	chartTitle, err = strconv.Atoi(eval("chartTitle"))
+	if err != nil {
+		chartTitle = 1
+	}
 	yrange := unquote(eval("chartYRange"))
 
 	// build dchart "command line" with options.
@@ -1932,6 +1948,12 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 		args = append(args, "-val=t")
 	} else {
 		args = append(args, "-val=f")
+	}
+
+	if chartTitle > 0 {
+		args = append(args, "-title=t")
+	} else {
+		args = append(args, "-title=f")
 	}
 
 	if len(yrange) > 5 {
@@ -1963,15 +1985,7 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	// filename as the last argument
 	args = append(args, filename)
 	//fmt.Fprintf(os.Stderr, "line %3d - chart args=%v\n", linenumber, args)
-
-	// set the flags, write the chart
-	chartsettings := chartflags(args)
-	r, err := os.Open(filename)
-	if err != nil {
-		return fmt.Errorf("line %d: %v", linenumber, err)
-	}
-	chartsettings.Write(w, r)
-	return nil
+	return makechart(w, args, linenumber)
 }
 
 // chart uses the dchart API to make charts
@@ -1994,11 +2008,5 @@ func chart(w io.Writer, s string, linenumber int) error {
 	}
 	// separate again
 	args = strings.Fields(s)
-	chartsettings := chartflags(args)
-	r, err := os.Open(args[len(args)-1]) // last arg is the filename
-	if err != nil {
-		return fmt.Errorf("line %d: %v", linenumber, err)
-	}
-	chartsettings.Write(w, r)
-	return nil
+	return makechart(w, args, linenumber)
 }
