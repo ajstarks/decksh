@@ -166,7 +166,7 @@ func deckshape(w io.Writer, shape string, x, y []float64, shapesize float64, col
 }
 
 // geoshape produces deck markup from KML data
-func geoshape(w io.Writer, data Kml, m Geometry, linewidth float64, color, shape string) {
+func kmlshape(w io.Writer, data Kml, m Geometry, linewidth float64, color, shape string) {
 	// for every placemark, get the coordinates of the polygons
 	for _, pms := range data.Document.Placemark {
 		px, py := parseKMLCoords(pms.Polygon.OuterBoundaryIs.LinearRing.Coordinates, m) // single polygons
@@ -197,6 +197,6 @@ func readKML(w io.Writer, filename string, mapgeo Geometry, color string, shapes
 	} else {
 		shape = "polygon"
 	}
-	geoshape(w, data, mapgeo, shapesize, color, shape)
+	kmlshape(w, data, mapgeo, shapesize, color, shape)
 	return nil
 }

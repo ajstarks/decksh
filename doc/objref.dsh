@@ -2216,24 +2216,61 @@ deck
 	slide bgcolor fgcolor
 		ctext "Charts" mid ty 5 "serif"
 		rc=initlcol
+		lcolsize=22
 		listspacing=1.6
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
 			li "Charts"
 			li "Chart Legends"
+			li ""
+			li "Area Chart"
+			li "Bar Chart"
+			li "Dot Chart"
+			li "Horizontal Bar Chart"
+			li "Line Chart"
+			li "Word Bar Chart"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
 			li tbl2 "sans" objcolor
 			li "dchart"
 			li "legend"
+			li ""
+			li "areachart"
+			li "barchart"
+			li "dotchart"
+			li "hbarchart"
+			li "linechart"
+			li "wbarchart"
 		elist
+		lcolsize-=8
 		rc+=lcolsize
 		list rc lsty lfs "mono" argcolor 100 listspacing
-			li "arguments" "sans" objcolor
-			li `options "file" (see next page)`
+			li "mandatory" "sans" objcolor
+			li `options "file"`
 			li `"text" x y size font color`
+			li ""
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+		elist
+		lcolsize+=20
+		rc+=lcolsize
+		list rc lsty lfs "mono" optcolor 100 listspacing
+			li "optional"
+			li ""
+			li ""
+			li ""
+			li "color"
+			li "color"
+			li "color"
+			li "color"
+			li "color"
+			li "color"
 		elist
 	eslide
 
@@ -2274,6 +2311,49 @@ deck
 
 		include "code/dchart-ex2.dsh"
 		textfile "code/dchart-ex2.dsh" 50 10 etss "mono"
+	eslide
+
+	slide bgcolor fgcolor
+		ctext "Chart Variables" mid ty 5 "serif"
+		rc=initlcol
+		lcolsize=25
+		listspacing=1.6
+		hline rc llsty 85 tbheadsize "gray" 20
+		list rc lsty lfs "sans" "" 100 listspacing
+			li "description"
+			li "Chart Top"
+			li "Chart Bottom"
+			li "Chart Left"
+			li "Chart Right"
+			li "Show data values"
+			li "Show Y-Axis Grid"
+			li "X-Axis label interval"
+			li "Y-Axis range"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li "variable"
+			li "chartTop"
+			li "chartBottom"
+			li "chartLeft"
+			li "chartRight"
+			li "chartVal"
+			li "chartGrid"
+			li "chartXLabel"
+			li "chartYRange"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" "" 100 listspacing
+			li "default value"
+			li "80"
+			li "30"
+			li "10"
+			li "90"
+			li "1 (0: off, 1: on)"
+			li "0 (0: off, 1: on)" 
+			li "1 (1: all, 0: none, every nth label)"
+			li `"" (min,max,interval)`
+		elist
 	eslide
 
 	// legend

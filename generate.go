@@ -1857,6 +1857,123 @@ func chartflags(s []string) dchart.Settings {
 	return chart
 }
 
+// chartType filename [color] [xlabel-interval] [y-axis range] makes
+// bar charts, horizontal bar charts, line charts, scatter charts, dot charts, area charts
+func chartType(w io.Writer, s []string, linenumber int) error {
+	ls := len(s)
+	if ls < 2 {
+		return fmt.Errorf("line %d: %s filename [color]", linenumber, s[0])
+	}
+
+	// default options
+	chartname := s[0]
+	filename := unquote(eval(s[1]))
+	color := "lightsteelblue"
+	chartXLabel := 1
+	chartGrid := 0
+
+	// override defaults
+	if ls > 2 {
+		c := unquote(eval(s[2]))
+		if c != `""` {
+			color = c
+		}
+	}
+
+	// use the chart canvas bounds, and attribute settings via magic variables
+	// charTop,
+	// chartBottom,
+	// chartLeft,
+	// chartRight,
+	// chartVal,
+	// chartXLabel,
+	// chartYRange,
+	// chartGrid
+	var chartTop, chartBottom, chartLeft, chartRight float64
+	var chartVal int
+	var err error
+	chartTop, err = strconv.ParseFloat(eval("chartTop"), 64)
+	if err != nil {
+		chartTop = 80.0
+	}
+	chartBottom, err = strconv.ParseFloat(eval("chartBottom"), 64)
+	if err != nil {
+		chartBottom = 30.0
+	}
+	chartLeft, err = strconv.ParseFloat(eval("chartLeft"), 64)
+	if err != nil {
+		chartLeft = 10.0
+	}
+	chartRight, err = strconv.ParseFloat(eval("chartRight"), 64)
+	if err != nil {
+		chartRight = 90.0
+	}
+	chartVal, err = strconv.Atoi(eval("chartVal"))
+	if err != nil {
+		chartVal = 1
+	}
+	chartXLabel, err = strconv.Atoi(eval("chartXLabel"))
+	if err != nil {
+		chartXLabel = 1
+	}
+	chartGrid, err = strconv.Atoi(eval("chartGrid"))
+	if err != nil {
+		chartGrid = 0
+	}
+	yrange := unquote(eval("chartYRange"))
+
+	// build dchart "command line" with options.
+	args := []string{"dchart"}
+	args = append(args, fmt.Sprintf("-bounds=%v,%v,%v,%v", chartLeft, chartRight, chartTop, chartBottom))
+	args = append(args, fmt.Sprintf("-xlabel=%d", chartXLabel))
+	args = append(args, fmt.Sprintf("-color=%s", color))
+
+	if chartVal > 0 {
+		args = append(args, "-val=t")
+	} else {
+		args = append(args, "-val=f")
+	}
+
+	if len(yrange) > 5 {
+		args = append(args, "-yaxis")
+		args = append(args, fmt.Sprintf("-yrange=%s", yrange))
+		if chartGrid > 0 {
+			args = append(args, "-grid")
+		}
+	}
+
+	// define the type of chart
+	if chartname != "barchart" {
+		args = append(args, "-bar=f")
+	}
+	switch chartname {
+	case "linechart":
+		args = append(args, "-line=t")
+	case "dotchart":
+		args = append(args, "-dot=t")
+	case "scatterchart":
+		args = append(args, "-scatter=t")
+	case "areachart":
+		args = append(args, "-vol=t")
+	case "hbarchart":
+		args = append(args, "-hbar=t")
+	case "wbarchart":
+		args = append(args, "-wbar=t")
+	}
+	// filename as the last argument
+	args = append(args, filename)
+	//fmt.Fprintf(os.Stderr, "line %3d - chart args=%v\n", linenumber, args)
+
+	// set the flags, write the chart
+	chartsettings := chartflags(args)
+	r, err := os.Open(filename)
+	if err != nil {
+		return fmt.Errorf("line %d: %v", linenumber, err)
+	}
+	chartsettings.Write(w, r)
+	return nil
+}
+
 // chart uses the dchart API to make charts
 // dchart [args]
 func chart(w io.Writer, s string, linenumber int) error {
@@ -1869,7 +1986,7 @@ func chart(w io.Writer, s string, linenumber int) error {
 		args[i] = eval(args[i])
 		args[i] = unquote(args[i])
 	}
-	// fmt.Fprintf(os.Stderr, "line %d - chart args=%v\n", linenumber, args)
+	// fmt.Fprintf(os.Stderr, "line %3d - chart args=%v\n", linenumber, args)
 	// glue the arguments back into a single string
 	s = args[0]
 	for i := 1; i < len(args); i++ {

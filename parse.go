@@ -488,6 +488,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "dchart", "chart":
 		return chart(w, t, n)
 
+	case "barchart", "linechart", "scatterchart", "hbarchart", "wbarchart", "dotchart", "areachart":
+		return chartType(w, tokens, n)
+
 	case "georegion", "geopoly":
 		return geopoly(w, tokens, n)
 
