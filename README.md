@@ -1103,6 +1103,81 @@ dchart [args]
 
 ![dchart](images/dchart.png)
 
+## Specific Chart types
+
+Alternatively, some chart types may be drawn using their own dedicated keywords:
+
+## Barchart: 
+
+```barchart "file" [color]```
+
+![barchart](images/barchart.png)
+
+## Scatter chart: 
+
+```scatterchart "file" [color]```
+
+![scatter](images/scatterchart.png)
+
+## Line Chart: 
+
+```linechart "file" [color]```
+
+![line](images/linechart.png)
+
+## Area chart: 
+
+```areachart "file" [color]```
+
+![area](images/areachart.png)
+
+## Dotchart: 
+
+```dotchart "file" [color]```
+
+![dotchart](images/dotchart.png)
+
+## Horizontal bar chart: 
+
+```hbarchart "file" [color]```
+
+![hbarchart](images/hbarchart.png)
+
+## "Word" barchart: 
+
+```wbarchart "file" [color]```
+
+![wbarchart](images/wbarchart.png)
+
+When using chart keywords, special variables may be used to control chart attributes:
+```
+Description             variable        Default Value
+
+Chart top               chartTop        80
+Chart bottom            chartBottom     30
+Chart left              chartLeft       10
+Chart right             chartRight      90
+Chart text size         chartTextSize   1.5
+Show values             chartVal        1 (0: off, 1: on)
+Show y-axis grid        chartGrid       0 (0: off, 1: on)
+Show title              chartTitle      1 (0: off, 1: on)
+X-axis label interval   chartXLabel     1 (1: all, 0: none, every nth labelchartYRange
+Y-axis range            chartYRange     "" (min,max,interval)
+```
+For example:
+
+```
+chartLeft=50
+chartRight=90
+chartTop=30
+chartBottom=10
+chartXLabel=2
+linechart "AAPL.d" "red"
+```
+makes:
+
+![linechart](images/exlinechart.png)
+
 ## Legend
 
 Show a colored legend
@@ -1153,7 +1228,6 @@ deck
     eslide
 edeck
 ```
-
 (Note: to ensure proper layout, set the -layers option to "poly:ellipse:text:line" in your deck rendering tool.)
 
 The geographic bounding box of the map is defined by latitude (geoLatMin, geoLatMax) and longitude (geoLongMin, geoLongMax) in decimal degrees.  Latitudes range from -90° to 90° and longitudes range from -180° to 180°.
@@ -1168,7 +1242,7 @@ Once the ```geoLatMin, geoLatMax, geoLongMin, geoLongMax``` variables are set, g
 
 Further, the canvas boundaries for geographic functions are: ```geoXmin, geoXmax``` for the width and ```geoYmin, geoYmax``` for the height. If these special variables are not set the default values (0,100) are used.
 
-For example to show the African continent (bound by 37.347N to 34.8333S and 17.52W to 51.267E) to on a specified portion of the canvas (40,70) and (30,70):
+For example to show the African continent (bound by 37.347N to 34.8333S and 17.52W to 51.267E) on a specified portion of the canvas (40,70) and (30,70):
 
 ```
 geoLatMax=37.346983
