@@ -2212,64 +2212,7 @@ deck
 		text "number or expression" 43 ly ts "mono" argcolor
 	eslide
 
-	// charts index
-	slide bgcolor fgcolor
-		ctext "Charts" mid ty 5 "serif"
-		rc=initlcol
-		lcolsize=22
-		listspacing=1.6
-		hline rc llsty 85 tbheadsize "gray" 20
-		list rc lsty lfs "sans" "" 100 listspacing
-			li tbl1 "sans" objcolor
-			li "Charts"
-			li "Chart Legends"
-			li "Area Chart"
-			li "Bar Chart"
-			li "Dot Chart"
-			li "Horizontal Bar Chart"
-			li "Line Chart"
-			li "Word Bar Chart"
-		elist
-		rc+=lcolsize
-		list rc lsty lfs "mono" kwcolor 100 listspacing
-			li tbl2 "sans" objcolor
-			li "dchart"
-			li "legend"
-			li "areachart"
-			li "barchart"
-			li "dotchart"
-			li "hbarchart"
-			li "linechart"
-			li "wbarchart"
-		elist
-		lcolsize-=8
-		rc+=lcolsize
-		list rc lsty lfs "mono" argcolor 100 listspacing
-			li "mandatory" "sans" objcolor
-			li `options "file"`
-			li `"text" x y size font color`
-			li `"file"`
-			li `"file"`
-			li `"file"`
-			li `"file"`
-			li `"file"`
-			li `"file"`
-		elist
-		lcolsize+=20
-		rc+=lcolsize
-		list rc lsty lfs "mono" optcolor 100 listspacing
-			li "optional"
-			li ""
-			li ""
-			li ""
-			li "color"
-			li "color"
-			li "color"
-			li "color"
-			li "color"
-			li "color"
-		elist
-	eslide
+	
 
 	// dchart
 	include "dchart-chtypes.dsh"
@@ -2310,6 +2253,75 @@ deck
 		textfile "code/dchart-ex2.dsh" 50 10 etss "mono"
 	eslide
 
+	// charts index
+	slide bgcolor fgcolor
+		ctext "Charts" mid ty 5 "serif"
+		rc=initlcol
+		lcolsize=22
+		listspacing=1.6
+		hline rc llsty 85 tbheadsize "gray" 20
+		list rc lsty lfs "sans" "" 100 listspacing
+			li tbl1 "sans" objcolor
+			li "Charts"
+			li "Chart Legends"
+			li "Area Chart"
+			li "Bar Chart"
+			li "Dot Chart"
+			li "Horizontal Bar Chart"
+			li "Line Chart"
+			li "Word Bar Chart"
+			li "Proportional Map"
+			li "Pie Chart"
+			li "Donut Chart"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li tbl2 "sans" objcolor
+			li "dchart"
+			li "legend"
+			li "areachart"
+			li "barchart"
+			li "dotchart"
+			li "hbarchart"
+			li "linechart"
+			li "wbarchart"
+			li "pmap"
+			li "pie"
+			li "donut"
+		elist
+		lcolsize-=8
+		rc+=lcolsize
+		list rc lsty lfs "mono" argcolor 100 listspacing
+			li "mandatory" "sans" objcolor
+			li `options "file"`
+			li `"text" x y size font color`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+		elist
+		lcolsize+=20
+		rc+=lcolsize
+		list rc lsty lfs "mono" optcolor 100 listspacing
+			li "optional"
+			li ""
+			li ""
+			li "color"
+			li "color"
+			li "color"
+			li "color"
+			li "color"
+			li "color"
+			li "size"
+			li "size"
+			li "size"
+		elist
+	eslide
 	// chart types
 	slide bgcolor fgcolor
 		ctext "Chart Variables" mid ty 5 "serif"

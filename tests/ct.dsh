@@ -1,7 +1,8 @@
 	datafile="AAPL.d"
+	pdata="browser.d"
 	altcolor="darkgreen"
 	slide
-		barchart datafile "red"
+		barchart datafile
 	eslide
 
 	slide
@@ -17,12 +18,33 @@
 	eslide
 
 	slide
-		hbarchart datafile altcolor
+		hbarchart datafile
 	eslide
 
 	slide
 		wbarchart datafile
 	eslide
+
+	slide
+	    chartTop=75
+	    chartLeft=5
+	    chartRight=95
+		pmap pdata
+	eslide
+
+	slide
+	    chartTextSize=2
+		chartLeft=50
+		chartTop=70
+		pie pdata 25
+	eslide
+
+	slide
+		chartLeft=50
+		chartTop=80
+		donut pdata
+	eslide
+
 
 	slide
 		// composite chart
@@ -60,3 +82,5 @@
 		areachart datafile
 
 	eslide
+
+	

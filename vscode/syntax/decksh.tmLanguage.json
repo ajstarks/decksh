@@ -1,36 +1,36 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "decksh",
-	"patterns": [
-		{
-			"name": "comment.line.double-slash.decksh",
-			"match": "\\s*//.*"
-		},
-		{
-			"name": "keyword.other.command.decksh",
-			"match": "(?:deck|doc|edeck|edoc|if|else|eif|canvas|ruler|substr|slice|def|edef|barchart|linechart|wbarchart|hbarchart|areachart|dotchart|scatterchart|geoborder|geomark|geoimage|georegion|geoarc|geopathfile|geopath|geopoly|geoline|geoloc|geolabel|geopoint|content|format|include|import|grid|func|call|callfunc|vmap|slide|page|eslide|epage|textbox|textblock|textblockfile|textfile|textcode|arctext|btext|text|ctext|etext|rtext|random|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|line|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polyline|polygon|pill|rect|roundrect|rrect|square|ellipse|star|circle|acircle|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|area|polar|polarx|polary|sqrt|sine|cosine|tangent)"
-		},
-		
-		{
-			"name": "entity.name.variable.decksh",
-			"match": "(?<=\\s)\\w+:(?=\\()"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"strings": {
-			"name": "string.quoted.double.decksh",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.decksh",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.decksh"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "decksh",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash.decksh",
+      "match": "\\s*//.*"
+    },
+    {
+      "name": "keyword.other.command.decksh",
+      "match": "(?:deck|doc|edeck|edoc|if|else|eif|canvas|ruler|substr|slice|def|edef|barchart|linechart|wbarchart|hbarchart|areachart|dotchart|scatterchart||area|dot|wbar|hbar|scatter|pmap|piechart|donutchart|pie|donut|geoborder|geomark|geoimage|georegion|geoarc|geopathfile|geopath|geopoly|geoline|geoloc|geolabel|geopoint|content|format|include|import|grid|func|call|callfunc|vmap|slide|page|eslide|epage|textbox|textblock|textblockfile|textfile|textcode|arctext|btext|text|ctext|etext|rtext|random|lbrace|rbrace|ubrace|dbrace|lbracket|rbracket|ubracket|dbracket|line|blist|list|nlist|clist|li|elist|data|edata|dchart|for|efor|legend|image|cimage|polyline|polygon|pill|rect|roundrect|rrect|square|ellipse|star|circle|acircle|curve|arc|arrow|lcarrow|dcarrow|rcarrow|ucarrow|hline|vline|area|polar|polarx|polary|sqrt|sine|cosine|tangent)"
+    },
+
+    {
+      "name": "entity.name.variable.decksh",
+      "match": "(?<=\\s)\\w+:(?=\\()"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "strings": {
+      "name": "string.quoted.double.decksh",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.decksh",
+          "match": "\\\\."
+        }
+      ]
+    }
+  },
+  "scopeName": "source.decksh"
 }

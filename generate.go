@@ -1869,9 +1869,74 @@ func makechart(w io.Writer, args []string, linenumber int) error {
 	return nil
 }
 
-// chartType filename [color] [xlabel-interval] [y-axis range] makes
+// chartBounds returns the command line flags for chart boundaries
+func chartBounds() string {
+	var chartTop, chartBottom, chartLeft, chartRight float64
+	var err error
+	chartTop, err = strconv.ParseFloat(eval("chartTop"), 64)
+	if err != nil {
+		chartTop = 80.0
+	}
+	chartBottom, err = strconv.ParseFloat(eval("chartBottom"), 64)
+	if err != nil {
+		chartBottom = 30.0
+	}
+	chartLeft, err = strconv.ParseFloat(eval("chartLeft"), 64)
+	if err != nil {
+		chartLeft = 10.0
+	}
+	chartRight, err = strconv.ParseFloat(eval("chartRight"), 64)
+	if err != nil {
+		chartRight = 90.0
+	}
+	return fmt.Sprintf("-bounds=%v,%v,%v,%v", chartLeft, chartRight, chartTop, chartBottom)
+}
+
+// pchart "file" [color] [width] makes porpotional charts (pmaps, donut, pie)
+func pchart(w io.Writer, s []string, linenumber int) error {
+	ls := len(s)
+	if ls < 2 {
+		return fmt.Errorf("line %d: %s filename [size]", linenumber, s[0])
+	}
+	var err error
+	chartname := s[0]
+	pwidth := 4.5
+	filename := unquote(eval(s[1]))
+	if ls > 2 {
+		pwidth, err = strconv.ParseFloat(eval(s[2]), 64)
+		if err != nil {
+			pwidth = 4.5
+		}
+	}
+	var ts float64
+	ts, err = strconv.ParseFloat(eval("chartTextSize"), 64)
+	if err != nil {
+		ts = 1.5
+	}
+
+	// build dchart args
+	args := []string{"dchart"}
+	args = append(args, chartBounds())
+	args = append(args, fmt.Sprintf("-pwidth=%v", pwidth))
+	args = append(args, fmt.Sprintf("-textsize=%v", ts))
+	switch chartname {
+	case "pmap":
+		args = append(args, "-pmap=t")
+		args = append(args, "-solidpmap=t")
+	case "donut", "donutchart":
+		args = append(args, "-donut=t")
+	case "piechart", "pie":
+		args = append(args, "-donut=t")
+		args = append(args, fmt.Sprintf("-psize=%v", pwidth))
+	}
+	args = append(args, filename)
+	//fmt.Fprintf(os.Stderr, "line %3d - chart args=%v\n", linenumber, args)
+	return makechart(w, args, linenumber)
+}
+
+// stdchart filename [color] makes
 // bar charts, horizontal bar charts, line charts, scatter charts, dot charts, area charts
-func chartType(w io.Writer, s []string, linenumber int) error {
+func stdchart(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
 	if ls < 2 {
 		return fmt.Errorf("line %d: %s filename [color]", linenumber, s[0])
@@ -1894,25 +1959,10 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	}
 
 	// use the chart canvas bounds, and attribute settings via magic variables
-	var chartTop, chartBottom, chartLeft, chartRight, chartTextSize float64
-	var chartVal int
+	var chartTextSize float64
 	var err error
-	chartTop, err = strconv.ParseFloat(eval("chartTop"), 64)
-	if err != nil {
-		chartTop = 80.0
-	}
-	chartBottom, err = strconv.ParseFloat(eval("chartBottom"), 64)
-	if err != nil {
-		chartBottom = 30.0
-	}
-	chartLeft, err = strconv.ParseFloat(eval("chartLeft"), 64)
-	if err != nil {
-		chartLeft = 10.0
-	}
-	chartRight, err = strconv.ParseFloat(eval("chartRight"), 64)
-	if err != nil {
-		chartRight = 90.0
-	}
+	var chartVal int
+
 	chartTextSize, err = strconv.ParseFloat(eval("chartTextSize"), 64)
 	if err != nil {
 		chartTextSize = 1.5
@@ -1933,12 +1983,11 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chartTitle = 1
 	}
-
 	yrange := unquote(eval("chartYRange"))
 
 	// build dchart "command line" with options.
 	args := []string{"dchart"}
-	args = append(args, fmt.Sprintf("-bounds=%v,%v,%v,%v", chartLeft, chartRight, chartTop, chartBottom))
+	args = append(args, chartBounds())
 	args = append(args, fmt.Sprintf("-xlabel=%d", chartXLabel))
 	args = append(args, fmt.Sprintf("-color=%s", color))
 	args = append(args, fmt.Sprintf("-textsize=%v", chartTextSize))
@@ -1969,15 +2018,15 @@ func chartType(w io.Writer, s []string, linenumber int) error {
 	switch chartname {
 	case "linechart":
 		args = append(args, "-line=t")
-	case "dotchart":
+	case "dotchart", "dot":
 		args = append(args, "-dot=t")
-	case "scatterchart":
+	case "scatterchart", "scatter":
 		args = append(args, "-scatter=t")
-	case "areachart":
+	case "areachart", "area":
 		args = append(args, "-vol=t")
-	case "hbarchart":
+	case "hbarchart", "hbar":
 		args = append(args, "-hbar=t")
-	case "wbarchart":
+	case "wbarchart", "wbar":
 		args = append(args, "-wbar=t")
 	}
 	// filename as the last argument

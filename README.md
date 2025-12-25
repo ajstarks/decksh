@@ -1103,51 +1103,69 @@ dchart [args]
 
 ![dchart](images/dchart.png)
 
-## Specific Chart types
 
 Alternatively, some chart types may be drawn using their own dedicated keywords:
 
-## Barchart: 
+## Barchart
 
 ```barchart "file" [color]```
 
 ![barchart](images/barchart.png)
 
-## Scatter chart: 
+## Scatter chart
 
 ```scatterchart "file" [color]```
 
 ![scatter](images/scatterchart.png)
 
-## Line Chart: 
+## Line Chart
 
 ```linechart "file" [color]```
 
 ![line](images/linechart.png)
 
-## Area chart: 
+## Area chart
 
 ```areachart "file" [color]```
 
 ![area](images/areachart.png)
 
-## Dotchart: 
+## Dotchart
 
 ```dotchart "file" [color]```
 
 ![dotchart](images/dotchart.png)
 
-## Horizontal bar chart: 
+## Horizontal bar chart
 
 ```hbarchart "file" [color]```
 
 ![hbarchart](images/hbarchart.png)
 
-## "Word" barchart: 
+## "Word" barchart
 
 ```wbarchart "file" [color]```
 
 ![wbarchart](images/wbarchart.png)
+
+
+## Proportional map
+
+```pmap "file" [size]```
+
+![pmap](images/pmapchart.png)
+
+## Pie chart
+
+```pie "file" [size]```
+
+![pie](images/piechart.png)
+
+## Donut chart:
+
+```donut "file" [size]```
+
+![donutchart](images/donutchart.png)
 
 When using chart keywords, special variables may be used to control chart attributes:
 ```
