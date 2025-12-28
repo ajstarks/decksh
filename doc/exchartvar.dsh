@@ -3,3 +3,7 @@ chartBottom=chartTop-chartheight
 chartLeft=33
 chartRight=chartLeft+chartwidth
 chartXLabel=1
+etext "chartLeft"  chartLeft 82 2 "mono"
+ctext "chartTop"    47 chartTop 2 "mono"
+ctext "chartBottom" 47 chartBottom 2 "mono"
+text  "chartRight" chartRight 82 2 "mono"

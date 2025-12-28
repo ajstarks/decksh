@@ -24,28 +24,6 @@
 	slide
 		wbarchart datafile
 	eslide
-
-	slide
-	    chartTop=75
-	    chartLeft=5
-	    chartRight=95
-		pmap pdata
-	eslide
-
-	slide
-	    chartTextSize=2
-		chartLeft=50
-		chartTop=70
-		pie pdata 25
-	eslide
-
-	slide
-		chartLeft=50
-		chartTop=80
-		donut pdata
-	eslide
-
-
 	slide
 		// composite chart
 		chartVal=1
@@ -82,5 +60,40 @@
 		areachart datafile
 
 	eslide
+
+	slide
+	    chartTop=75
+	    chartLeft=5
+	    chartRight=95
+		pmap pdata
+	eslide
+
+	slide
+	    chartTextSize=2
+		chartLeft=50
+		chartTop=70
+		pie pdata 25
+	eslide
+
+	slide
+		chartLeft=50
+		chartTop=80
+		donut pdata
+	eslide
+
+	slide
+		chartLeft=40
+		chartTextSize=1.5
+		pgrid "incar.d"
+	eslide
+
+	slide
+		chartLeft=35
+		chartTextSize=4
+		lego "incar.d"
+	eslide
+
+
+	
 
 	

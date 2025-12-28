@@ -1892,42 +1892,71 @@ func chartBounds() string {
 	return fmt.Sprintf("-bounds=%v,%v,%v,%v", chartLeft, chartRight, chartTop, chartBottom)
 }
 
-// pchart "file" [color] [width] makes porpotional charts (pmaps, donut, pie)
+// pchart "file" [width] [size] makes porpotional charts (pmaps, donut, pie)
 func pchart(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
 	if ls < 2 {
-		return fmt.Errorf("line %d: %s filename [size]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s filename [width] [size]", linenumber, s[0])
 	}
-	var err error
+	// default values
 	chartname := s[0]
-	pwidth := 4.5
 	filename := unquote(eval(s[1]))
-	if ls > 2 {
-		pwidth, err = strconv.ParseFloat(eval(s[2]), 64)
-		if err != nil {
-			pwidth = 4.5
-		}
-	}
-	var ts float64
+	ts := 1.5
+	psize := 40.0
+	pwidth := ts * 3
+	chartTitle := 1
+
+	// override pwidth, psize, textsize
+	var err error
 	ts, err = strconv.ParseFloat(eval("chartTextSize"), 64)
 	if err != nil {
 		ts = 1.5
+	}
+	chartTitle, err = strconv.Atoi(eval("chartTitle"))
+	if err != nil {
+		chartTitle = 1
+	}
+	if ls > 2 {
+		pwidth, err = strconv.ParseFloat(eval(s[2]), 64)
+		if err != nil {
+			pwidth = ts * 3
+		}
+	}
+	if ls > 3 {
+		psize, err = strconv.ParseFloat(eval(s[3]), 64)
+		if err != nil {
+			psize = 40.0
+		}
 	}
 
 	// build dchart args
 	args := []string{"dchart"}
 	args = append(args, chartBounds())
-	args = append(args, fmt.Sprintf("-pwidth=%v", pwidth))
 	args = append(args, fmt.Sprintf("-textsize=%v", ts))
+	if chartTitle == 0 {
+		args = append(args, fmt.Sprintf("-title=f"))
+	} else {
+		args = append(args, fmt.Sprintf("-title=t"))
+	}
 	switch chartname {
 	case "pmap":
 		args = append(args, "-pmap=t")
 		args = append(args, "-solidpmap=t")
+		args = append(args, fmt.Sprintf("-pwidth=%v", pwidth))
 	case "donut", "donutchart":
 		args = append(args, "-donut=t")
+		args = append(args, fmt.Sprintf("-pwidth=%v", pwidth))
+		args = append(args, fmt.Sprintf("-psize=%v", psize))
 	case "piechart", "pie":
 		args = append(args, "-donut=t")
+		args = append(args, fmt.Sprintf("-pwidth=%v", pwidth))
 		args = append(args, fmt.Sprintf("-psize=%v", pwidth))
+	case "pgrid":
+		args = append(args, "-pgrid=t")
+		args = append(args, "-val=f")
+	case "lego":
+		args = append(args, "-lego=t")
+		args = append(args, "-val=f")
 	}
 	args = append(args, filename)
 	//fmt.Fprintf(os.Stderr, "line %3d - chart args=%v\n", linenumber, args)
@@ -1997,10 +2026,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 		args = append(args, "-val=f")
 	}
 
-	if chartTitle > 0 {
-		args = append(args, "-title=t")
-	} else {
+	if chartTitle == 0 {
 		args = append(args, "-title=f")
+	} else {
+		args = append(args, "-title=t")
 	}
 
 	if len(yrange) > 5 {

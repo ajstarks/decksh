@@ -1163,9 +1163,22 @@ Alternatively, some chart types may be drawn using their own dedicated keywords:
 
 ## Donut chart:
 
-```donut "file" [size]```
+```donut "file" [size] [width]```
 
 ![donutchart](images/donutchart.png)
+
+## Proportional grid
+
+```pgrid "file"```
+
+![pgridchart](images/pgridchart.png)
+
+## Lego chart
+
+```lego "file"```
+
+![legochart](images/legochart.png)
+
 
 When using chart keywords, special variables may be used to control chart attributes:
 ```

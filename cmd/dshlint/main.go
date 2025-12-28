@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"sort"
+	"strconv"
 	"strings"
 	"text/scanner"
 )
@@ -36,18 +37,19 @@ type syntax struct {
 	maxargs int
 	desc    string
 	usage   string
+	argtype []string
 }
 
 // keyword/argument counts, syntax
 var kwInfo = map[string]syntax{
 	// Structure
-	"deck":    {minargs: 0, maxargs: 0, desc: "Begin a deck; end with \"edeck\"", usage: "deck"},
+	"deck":    {minargs: 0, maxargs: 0, desc: "Begin a deck; end with \"edeck\"", usage: "deck", argtype: []string{}},
 	"edeck":   {minargs: 0, maxargs: 0, desc: "End the deck", usage: "edeck"},
-	"include": {minargs: 1, maxargs: 1, desc: "Include the contents of a file", usage: "\"file\""},
-	"ruler":   {minargs: 0, maxargs: 2, desc: "draw a (x,y) ruler", usage: "[increment] [color]"},
-	"slide":   {minargs: 0, maxargs: 2, desc: "Begin a slide; end with \"eslide\"", usage: "[bgcolor] [fgcolor]"},
+	"include": {minargs: 1, maxargs: 1, desc: "Include the contents of a file", usage: "\"file\"", argtype: []string{"s"}},
+	"ruler":   {minargs: 0, maxargs: 2, desc: "draw a (x,y) ruler", usage: "[increment] [color]", argtype: []string{"n", "s"}},
+	"slide":   {minargs: 0, maxargs: 2, desc: "Begin a slide; end with \"eslide\"", usage: "[bgcolor] [fgcolor]", argtype: []string{"s", "s"}},
 	"eslide":  {minargs: 0, maxargs: 0, desc: "End a slide", usage: "(end slide)"},
-	"canvas":  {minargs: 2, maxargs: 2, desc: "Define with dimensiond of the canvas", usage: "width height"},
+	"canvas":  {minargs: 2, maxargs: 2, desc: "Define with dimensiond of the canvas", usage: "width height", argtype: []string{"n", "n"}},
 	"content": {minargs: 1, maxargs: 1, desc: "Embed content", usage: "\"scheme://file\""},
 	"dump":    {minargs: 0, maxargs: 1, desc: "Dump varaibles", usage: "[name]"},
 	"grid":    {minargs: 6, maxargs: 6, desc: "Define a content grid", usage: "\"file\" x y hspace vspace edge"},
@@ -142,6 +144,15 @@ var kwInfo = map[string]syntax{
 }
 
 var kwcount = map[string]int{}
+
+// whattype
+func whatKind(s string) string {
+	_, err := strconv.ParseFloat(s)
+	if err != nil {
+		return "s"
+	}
+	return "n"
+}
 
 // kwcouter count keywords
 func kwcounter(data [][]string) {

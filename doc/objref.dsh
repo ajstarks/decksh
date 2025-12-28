@@ -2214,45 +2214,7 @@ deck
 
 	
 
-	// dchart
-	include "dchart-chtypes.dsh"
-	include "dchart-types.dsh"
-	include "dchart-elements.dsh"
-	include "dchart-measures.dsh"
-	include "dchart-pos.dsh"
-
-	ts=3.2
-	slide bgcolor fgcolor
-		dchart -bar  -yaxis -left 35 -bottom 65 -top 90 -right 65 "test.d"
-		hline 0 47 100 hlsize hlcolor hlop
-		text "dchart" 32 ly ts "mono" kwcolor
-		text `options "file"` 43 ly ts "mono" argcolor
-
-		ctext "-bar"        50 70 lw "mono"
-		ctext "-yaxis"      32 55 lw "mono"
-		etext "-left=35"    25 80 lw "mono"
-		ctext "-top=90"     50 95 lw "mono"
-		ctext "-bottom=65"  50 55 lw "mono"
-		text  "-right=65"   75 80 lw "mono"
-
-		arrow 32 58 32 65 0.3 2 2 objcolor // yaxis
-		arrow 50 94 50 90 0.3 2 2 objcolor // top
-		arrow 75 82 65 82 0.3 2 2 objcolor // right 
-		arrow 25 82 35 82 0.3 2 2 objcolor // left
-		arrow 50 58 50 65 0.3 2 2 objcolor // bottom
-		vline 35 65 25 0.1 objcolor 50
-		vline 65 65 25 0.1 objcolor 50
-		hline 35 90 30 0.1 objcolor 50
-		hline 35 65 30 0.1 objcolor 50
-
-		etss=ets*0.75
-		include "code/dchart-ex1.dsh"
-		textfile "code/dchart-ex1.dsh" 3 10 etss "mono"
-
-		include "code/dchart-ex2.dsh"
-		textfile "code/dchart-ex2.dsh" 50 10 etss "mono"
-	eslide
-
+	
 	// charts index
 	slide bgcolor fgcolor
 		ctext "Charts" mid ty 5 "serif"
@@ -2262,7 +2224,7 @@ deck
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
-			li "Charts"
+			li "General Charts"
 			li "Chart Legends"
 			li "Area Chart"
 			li "Bar Chart"
@@ -2322,6 +2284,7 @@ deck
 			li "size"
 		elist
 	eslide
+
 	// chart types
 	slide bgcolor fgcolor
 		ctext "Chart Variables" mid ty 5 "serif"
@@ -2372,6 +2335,46 @@ deck
 		elist
 	eslide
 
+	// dchart
+	include "dchart-chtypes.dsh"
+	include "dchart-types.dsh"
+	include "dchart-elements.dsh"
+	include "dchart-measures.dsh"
+	include "dchart-pos.dsh"
+
+	ts=3.2
+	slide bgcolor fgcolor
+		dchart -bar  -yaxis -left 35 -bottom 65 -top 90 -right 65 "test.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "dchart" 32 ly ts "mono" kwcolor
+		text `options "file"` 43 ly ts "mono" argcolor
+
+		ctext "-bar"        50 70 lw "mono"
+		ctext "-yaxis"      32 55 lw "mono"
+		etext "-left=35"    25 80 lw "mono"
+		ctext "-top=90"     50 95 lw "mono"
+		ctext "-bottom=65"  50 55 lw "mono"
+		text  "-right=65"   75 80 lw "mono"
+
+		arrow 32 58 32 65 0.3 2 2 objcolor // yaxis
+		arrow 50 94 50 90 0.3 2 2 objcolor // top
+		arrow 75 82 65 82 0.3 2 2 objcolor // right 
+		arrow 25 82 35 82 0.3 2 2 objcolor // left
+		arrow 50 58 50 65 0.3 2 2 objcolor // bottom
+		vline 35 65 25 0.1 objcolor 50
+		vline 65 65 25 0.1 objcolor 50
+		hline 35 90 30 0.1 objcolor 50
+		hline 35 65 30 0.1 objcolor 50
+
+		etss=ets*0.75
+		include "code/dchart-ex1.dsh"
+		textfile "code/dchart-ex1.dsh" 3 10 etss "mono"
+
+		include "code/dchart-ex2.dsh"
+		textfile "code/dchart-ex2.dsh" 50 10 etss "mono"
+	eslide
+
+
 	// legend
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
@@ -2388,146 +2391,17 @@ deck
 		text `legend "Thing" 70 30 2 "serif" "blue"`  60 10 ets "mono"
 	eslide
 
-	// Map (Geo) index
-	slide bgcolor fgcolor
-		initlcol-=4
-		rc=initlcol
-		lfs-=0.25
-		ctext "Geographic Functions" mid ty 5 "serif"
-		hline rc llsty 95 tbheadsize "gray" 20
-		list rc lsty lfs
-			li tbl1 "sans" objcolor
-			li "Geographic Regions"
-			li "Geographic Borders"
-			li "Text labels"
-			li "Dot markers"
-			li "Text with markers"
-			li "Place images"
-			li "Lines between points"
-			li "Arcs between points"
-			li "Lines between points"
-		elist
-		rc+=25
-		list rc lsty lfs "mono" kwcolor
-			li tbl2 "sans" objcolor
-			li "georegion"
-			li "geoborder"
-			li "geolabel"
-			li "geomark"
-			li "geoloc"
-			li "geoimage"
-			li "geopath"
-			li "geoarc"
-			li "geopathfile"
-		elist
-		rc+=13
-		list rc lsty lfs "mono" argcolor
-			li tbl3 "sans" objcolor
-			li `"file"`
-			li `"file"`
-			li `"loc"`
-			li `"loc"`
-			li `"loc"`
-			li `"loc"  w h`
-			li `"p1" "p2"`
-			li `"p1" "p2"`
-			li `"file"`
-		elist
-		rc+=20
-		list rc lsty lfs "mono" objcolor
-			li tbl4 "sans" objcolor
-			li "color op"
-			li "lw color op"
-			li "size font color op"
-			li "size color op"
-			li "align size font color op"
-			li
-			li "lw color op"
-			li "lw color op"
-			li "lw color op"
-		elist
-		
-		ny=lsty-62
-		text `"file" refer to Shapefile (.shp), GeoJSON (.json or .geojson) or Keyhole Markup Language (.kml) files from opendatasoft` initlcol ny 1.5 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
-		ny+=1
-		hline initlcol ny 73 1.7 "steelblue" 20
-		ny-=4
-		list initlcol ny 1.5 "sans" "" 100 1.5
-			li "geoLatMin, geoLatMax, geoLongMin, geoLongMax variables set the latitude and longitude boundaries"
-			li "geoXmin, geoXmax, geoYmin, geoYmax variables define the canvas boundaries for geographic functions"
-			li `"loc" refers to a geo URI string ("geo:lat,long"), or a filename containing multiple locations`
-			li `"p1" and "p2" are geo URIs`
-		elist
-	eslide
-
-	// chart types
-	slide bgcolor fgcolor
-		ctext "Geo Variables" mid ty 5 "serif"
-		rc=initlcol
-		lcolsize=33
-		listspacing=1.6
-		hline rc llsty 85 tbheadsize "gray" 20
-		list rc lsty lfs "sans" "" 100 listspacing
-			li "description"
-			li "Minimum latitude"
-			li "Maximum latitude"
-			li "Minimum longitude"
-			li "Maximum longitude"
-			li "Geo canvas x minimum"
-			li "Geo canvas x maximum"
-			li "Geo canvas y minimum"
-			li "Geo canvas y maximum"
-		elist
-		rc+=lcolsize
-		list rc lsty lfs "mono" kwcolor 100 listspacing
-			li "variable"
-			li "geoLatMin"
-			li "geoLatMax"
-			li "geoLongMin"
-			li "geoLongMax"
-			li "geoXmin"
-			li "geoXmax"
-			li "geoYmin"
-			li "geoYmax"
-		elist
-		rc+=lcolsize
-		list rc lsty lfs "mono" "" 100 listspacing
-			li "default value"
-			li "-90"
-			li "90"
-			li "-180"
-			li "180"
-			li "0"
-			li "100"
-			li "0"
-			li "100"
-		elist
-	eslide
-
-	slide bgcolor fgcolor
-		ctext "Geographic Scaling" mid ty 5 "serif"
-		textfile "geoscale.dsh" 3 50 1.5 "mono"
-		geoYmin=10
-		geoYmax=90
-		afN="geo:37.347,-17.520	(37.347°, -17.530°)"
-		afS="geo:-34.833,51.267	(-34.833° ,51.267°)"
-		geoloc afN  "e" 1.2
-		geoloc afS  "c" 1.2
-		include "geoscale.dsh"
-		rect 55 12.5 10 15 "red" 10
-		etext "(50,20)" 50 20 1.5
-		text  "(60,5)" 60 5 1.5
-	eslide
+	
 
 	chartheight=20
 	chartwidth=30
 	chartfile="test.d"
 
 	slide bgcolor fgcolor
+		include "exchartvar.dsh"
 		kwx=25
 		arx=kwx+17
-		arx2=arx+11
-		include "exchartvar.dsh"
+		arx2=arx+9
 		barchart chartfile
 		hline 0 47 100 hlsize hlcolor hlop
 		text "barchart" kwx ly ts "mono" kwcolor
@@ -2603,6 +2477,191 @@ deck
 		text "color" arx2 ly ts "mono" optcolor
 		textfile "code/wbarchartex.dsh" 5 30 2 "mono"
 		include "code/wbarchartex.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		//ruler 5
+		kwx=36
+		chartLeft=20
+		chartRight=82
+		chartTop=80
+		pmap "test.d"
+		etext "chartLeft"  chartLeft 80 ts "mono"
+		btext "chartRight" chartRight 80 ts "mono"
+		ctext "chartTop"   47.5 95ts "mono"
+		vline 47.5 chartTop 13 0.2
+		hline 0 47 100 hlsize hlcolor hlop
+		text "pmap" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "size" arx2 ly ts "mono" optcolor
+		textfile "code/pmapchartex.dsh" 5 30 2 "mono"
+		include "code/pmapchartex.dsh"
+	eslide
+
+slide bgcolor fgcolor
+		//ruler 5
+		kwx=36
+		chartLeft=50
+		chartTop=80
+		text "chartLeft" 20 73.5 ts "mono"
+		ctext "size"     55 95 ts "mono"
+		ubrace 55 94 10 1 1
+		hline 35 75 15 0.1
+		pie "test.d" 10
+		hline 0 47 100 hlsize hlcolor hlop
+		text "pie" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "size" arx2 ly ts "mono" optcolor
+		textfile "code/piechartex.dsh" 5 30 2 "mono"
+		include "code/piechartex.dsh"
+	eslide
+
+slide bgcolor fgcolor
+		//ruler 5
+		kwx=36
+		chartLeft=50
+		chartTop=80
+		text "chartLeft" 20 73.5 ts "mono"
+		ctext "size"     55 95 ts "mono"
+		ubrace 55 94 10 1 1
+		hline 35 75 15 0.1
+		donut "test.d" 1 10
+		hline 0 47 100 hlsize hlcolor hlop
+		text "donut" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "size width" arx2 ly ts "mono" optcolor
+		textfile "code/donutchartex.dsh" 5 30 2 "mono"
+		include "code/donutchartex.dsh"
+	eslide
+
+
+	// Map (Geo) index
+	slide bgcolor fgcolor
+		initlcol-=4
+		rc=initlcol
+		lfs-=0.25
+		ctext "Geographic Functions" mid ty 5 "serif"
+		hline rc llsty 95 tbheadsize "gray" 20
+		list rc lsty lfs
+			li tbl1 "sans" objcolor
+			li "Geographic Regions"
+			li "Geographic Borders"
+			li "Text labels"
+			li "Dot markers"
+			li "Text with markers"
+			li "Place images"
+			li "Lines between points"
+			li "Arcs between points"
+			li "Lines between points"
+		elist
+		rc+=25
+		list rc lsty lfs "mono" kwcolor
+			li tbl2 "sans" objcolor
+			li "georegion"
+			li "geoborder"
+			li "geolabel"
+			li "geomark"
+			li "geoloc"
+			li "geoimage"
+			li "geopath"
+			li "geoarc"
+			li "geopathfile"
+		elist
+		rc+=13
+		list rc lsty lfs "mono" argcolor
+			li tbl3 "sans" objcolor
+			li `"file"`
+			li `"file"`
+			li `"loc"`
+			li `"loc"`
+			li `"loc"`
+			li `"loc"  w h`
+			li `"p1" "p2"`
+			li `"p1" "p2"`
+			li `"file"`
+		elist
+		rc+=20
+		list rc lsty lfs "mono" objcolor
+			li tbl4 "sans" objcolor
+			li "color op"
+			li "lw color op"
+			li "size font color op"
+			li "size color op"
+			li "align size font color op"
+			li
+			li "lw color op"
+			li "lw color op"
+			li "lw color op"
+		elist
+		
+		ny=lsty-62
+		text `"file" refer to Shapefile (.shp), GeoJSON (.json or .geojson) or Keyhole Markup Language (.kml) files from opendatasoft` initlcol ny 1.5 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
+		ny+=1
+		hline initlcol ny 73 1.7 "steelblue" 20
+		ny-=4
+		list initlcol ny 1.5 "sans" "" 100 1.5
+			li `"loc" refers to a geo URI string ("geo:lat,long"), or a filename containing multiple locations`
+			li `"p1" and "p2" are geo URIs`
+		elist
+	eslide
+
+	// Geo
+	slide bgcolor fgcolor
+		ctext "Geo Variables" mid ty 5 "serif"
+		rc=initlcol
+		lcolsize=33
+		listspacing=1.6
+		hline rc llsty 85 tbheadsize "gray" 20
+		list rc lsty lfs "sans" "" 100 listspacing
+			li "description"
+			li "Minimum latitude"
+			li "Maximum latitude"
+			li "Minimum longitude"
+			li "Maximum longitude"
+			li "Geo canvas x minimum"
+			li "Geo canvas x maximum"
+			li "Geo canvas y minimum"
+			li "Geo canvas y maximum"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" kwcolor 100 listspacing
+			li "variable"
+			li "geoLatMin"
+			li "geoLatMax"
+			li "geoLongMin"
+			li "geoLongMax"
+			li "geoXmin"
+			li "geoXmax"
+			li "geoYmin"
+			li "geoYmax"
+		elist
+		rc+=lcolsize
+		list rc lsty lfs "mono" "" 100 listspacing
+			li "default value"
+			li "-90"
+			li "90"
+			li "-180"
+			li "180"
+			li "0"
+			li "100"
+			li "0"
+			li "100"
+		elist
+	eslide
+
+	slide bgcolor fgcolor
+		ctext "Geographic Scaling" mid ty 5 "serif"
+		textfile "geoscale.dsh" 3 50 1.5 "mono"
+		geoYmin=10
+		geoYmax=90
+		afN="geo:37.347,-17.520	(37.347°, -17.530°)"
+		afS="geo:-34.833,51.267	(-34.833° ,51.267°)"
+		geoloc afN  "e" 1.2
+		geoloc afS  "c" 1.2
+		include "geoscale.dsh"
+		rect 55 12.5 10 15 "red" 10
+		etext "(50,20)" 50 20 1.5
+		text  "(60,5)" 60 5 1.5
 	eslide
 
 	kwx=30

@@ -53,6 +53,8 @@
 		donutchart,
 		pie,
 		donut,
+		pgrid,
+		lego,
 		geoborder,
 		geoimage,
 		geolabel,

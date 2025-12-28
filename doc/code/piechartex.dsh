@@ -1,0 +1,6 @@
+chartLeft=50
+chartTop=25
+chartRight=95
+chartTextSize=1.2
+chartTitle=0
+pie "browser.d" 10

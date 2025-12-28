@@ -3,7 +3,7 @@
 	slide
 		ctext "Keywords" 50 90 titlesize "serif"
 		hsize=titlesize*0.70
-		lsize=hsize*0.6
+		lsize=hsize*0.56
 		csep=15
 		csep2=csep*0.80
 		csep3=csep*0.80
@@ -99,9 +99,6 @@
 			li "dcarrow"
 		elist
 		
-		
-		
-
 		headtop-=rsep
 		listtop-=rsep
 
@@ -130,24 +127,29 @@
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "dchart"
 			li "legend"
-			li "areachart"
+			li "area"
 			li "barchart"
-			li "hbarchart"
-			li "wbarchart"
+			li "hbar"
+			li "wbar"
 			li "linechart"
-			li "scatterchart"
+			li "scatter"
+		elist
+		lx+=csep2
+		list lx listtop lsize "mono" "black" 100 listspacing
+			li "donut"
+			li "pie"
+			li "pmap"
+			li "pgrid"
+			li "lego"
 		elist
 
 		lx+=csep
-		text "Assignments" lx headtop hsize "sans" headcolor
+		text "Assign" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "polar"
 			li "polarx"
 			li "polary"
-			li "random"
-		elist
-		lx+=csep2
-		list lx listtop lsize "mono" "black" 100 listspacing
+			li "random"		
 			li "area"
 		    li "format"
 			li "substr"

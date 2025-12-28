@@ -1,0 +1,6 @@
+chartLeft=50
+chartTop=30
+chartRight=60
+chartTextSize=1.2
+chartTitle=0
+donut "browser.d" 2 15
