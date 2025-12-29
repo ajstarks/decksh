@@ -1,7 +1,7 @@
 ---
 {}
 ---
-# Heading One
+# This is Heading One
 
 This is a paragraph with some _emphasized text_ - OK?
 

@@ -177,51 +177,6 @@ deck
 		elist
 	eslide
 
-	// variables and assignments, examples
-//	slide bgcolor fgcolor
-//		ctext "Variables and Assignments" mid ty 5 "serif"
-//		etext "Using variables"       20 80 2
-//		etext "Binary operations"     20 50 2
-//		etext "Assignment operations" 20 23 2
-//		list 25 80 2.7 "mono" "" 100 1.2
-//			li "x=10"
-//			li "y=80.45"
-//			li "size=x/5"
-//			li `s="Hello"`
-//			li "text s x y size"
-//			li
-//			li "a=100+200.7"
-//			li "a=x-10"
-//			li "a=x*10"
-//			li "a=x/y"
-//			li "a=x%y"
-//			li
-//			li "x+=10"
-//			li "x-=10"
-//			li "x*=10"
-//			li "x/=10"
-//		elist
-//
-//		list 47 80 2.7 "mono" "gray" 100 1.2
-//			li "// assign 10 to x"
-//			li "// assign 80.45 to  y"
-//			li "// x divided by 5 to size"
-//			li "// s has the string value 'Hello'"
-//			li "// Use the variables"
-//			li
-//			li "// addition"
-//			li "// subtraction"
-//			li "// multiplication"
-//			li "// division"
-//			li "// modulo"
-//			li
-//			li "// increase  x by 10"
-//			li "// decrease  x by 10"
-//			li "// multiply  x by 10"
-//			li "// divide  x by 10"
-//		elist
-//	eslide
-
 	// colors, fonts, opacity, gradient
 	slide bgcolor fgcolor
 		hline 5 72 85 4 hlcolor hlop
