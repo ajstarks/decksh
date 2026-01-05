@@ -1776,7 +1776,81 @@ func geopath(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
-// chartflags sets the flag for the dchart keyword
+// setDefaultChartSettings sets all chart settings to default values
+func setDefaultChartSettings() dchart.Settings {
+	var chart dchart.Settings
+	// Measures
+	chart.TextSize = 1.5
+	chart.CanvasWidth = 792
+	chart.CanvasHeight = 612
+	chart.Left = 10.0
+	chart.Right = 90.0
+	chart.Top = 80.0
+	chart.Bottom = 30.0
+	chart.LineSpacing = 2.4
+	chart.BarWidth = 0
+	chart.UserMin = -1
+	chart.UserMax = -1
+	chart.PSize = 40.0
+	chart.PWidth = chart.Measures.TextSize * 3
+	chart.LineWidth = 0.2
+	chart.VolumeOpacity = 50
+	chart.XLabelRotation = 0
+	chart.XLabelInterval = 1
+	chart.PMapLength = 20.0
+	chart.Boundary = ""
+
+	// Flags (On/Off)
+	chart.ShowBar = false
+	chart.ShowDot = false
+	chart.ShowVolume = false
+	chart.ShowDonut = false
+	chart.ShowBowtie = false
+	chart.ShowFan = false
+	chart.ShowPMap = false
+	chart.ShowLine = false
+	chart.ShowHBar = false
+	chart.ShowValues = false
+	chart.ShowAxis = false
+	chart.ShowSlope = false
+	chart.ShowTitle = false
+	chart.ShowGrid = false
+	chart.ShowScatter = false
+	chart.ShowRadial = false
+	chart.ShowSpokes = false
+	chart.ShowPGrid = false
+	chart.ShowLego = false
+	chart.ShowNote = false
+	chart.ShowFrame = false
+	chart.ShowRegressionLine = false
+	chart.ShowXLast = false
+	chart.ShowXstagger = false
+	chart.FullDeck = false
+	chart.DataMinimum = false
+	chart.ReadCSV = false
+	chart.ShowWBar = false
+	chart.ShowPercentage = false
+	chart.SolidPMap = false
+
+	// Attributes
+	chart.ChartTitle = ""
+	chart.CSVCols = ""
+	chart.ValuePosition = "t"
+	chart.LabelColor = "rgb(75,75,75)"
+	chart.DataColor = "lightsteelblue"
+	chart.ValueColor = "rgb(127,0,0)"
+	chart.RegressionLineColor = "rgb(127,0,0)"
+	chart.FrameColor = "rgb(127,127,127)"
+	chart.BackgroundColor = "white"
+	chart.DataFmt = dchart.Defaultfmt
+	chart.YAxisR = ""
+	chart.HLine = ""
+	chart.NoteLocation = "c"
+	chart.DataCondition = ""
+	return chart
+}
+
+// chartflags sets the flags for the dchart keyword
 func chartflags(s []string) dchart.Settings {
 	var chart dchart.Settings
 
@@ -1860,36 +1934,23 @@ func chartflags(s []string) dchart.Settings {
 // makechart takes a list of arguments amd writes a chart
 func makechart(w io.Writer, args []string, linenumber int) error {
 	filename := args[len(args)-1]
-	chartsettings := chartflags(args)
+	settings := chartflags(args)
 	r, err := os.Open(filename)
 	if err != nil {
 		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
-	chartsettings.Write(w, r)
+	settings.Write(w, r)
 	return nil
 }
 
-// chartBounds returns the command line flags for chart boundaries
-func chartBounds() string {
-	var chartTop, chartBottom, chartLeft, chartRight float64
-	var err error
-	chartTop, err = strconv.ParseFloat(eval("chartTop"), 64)
+// writeChart writes a chart, using data in the filename, using specified settings
+func writeChart(settings dchart.Settings, w io.Writer, filename string, linenumber int) error {
+	r, err := os.Open(filename)
 	if err != nil {
-		chartTop = 80.0
+		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
-	chartBottom, err = strconv.ParseFloat(eval("chartBottom"), 64)
-	if err != nil {
-		chartBottom = 30.0
-	}
-	chartLeft, err = strconv.ParseFloat(eval("chartLeft"), 64)
-	if err != nil {
-		chartLeft = 10.0
-	}
-	chartRight, err = strconv.ParseFloat(eval("chartRight"), 64)
-	if err != nil {
-		chartRight = 90.0
-	}
-	return fmt.Sprintf("-bounds=%v,%v,%v,%v", chartLeft, chartRight, chartTop, chartBottom)
+	settings.Write(w, r)
+	return nil
 }
 
 // pchart "file" [width] [size] makes porpotional charts (pmaps, donut, pie)
@@ -1898,69 +1959,103 @@ func pchart(w io.Writer, s []string, linenumber int) error {
 	if ls < 2 {
 		return fmt.Errorf("line %d: %s filename [width] [size]", linenumber, s[0])
 	}
+	filename := unquote(eval(s[1]))
+	chart := setDefaultChartSettings()
+
 	// default values
 	chartname := s[0]
-	filename := unquote(eval(s[1]))
 	ts := 1.5
 	psize := 40.0
 	pwidth := ts * 3
-	chartTitle := 1
 
-	// override pwidth, psize, textsize
 	var err error
-	ts, err = strconv.ParseFloat(eval("chartTextSize"), 64)
+
+	chart.ShowValues = true
+	chart.Left, err = strconv.ParseFloat(eval("chartLeft"), 64)
 	if err != nil {
-		ts = 1.5
+		chart.Left = 50
 	}
-	chartTitle, err = strconv.Atoi(eval("chartTitle"))
+	chart.Top, err = strconv.ParseFloat(eval("chartTop"), 64)
 	if err != nil {
-		chartTitle = 1
+		chart.Top = 80
+	}
+	chart.TextSize, err = strconv.ParseFloat(eval("chartTextSize"), 64)
+	if err != nil {
+		chart.TextSize = ts
+	}
+	chart.ShowTitle, err = strconv.ParseBool(eval("chartTitle"))
+	if err != nil {
+		chart.ShowTitle = true
 	}
 	if ls > 2 {
-		pwidth, err = strconv.ParseFloat(eval(s[2]), 64)
+		chart.PWidth, err = strconv.ParseFloat(eval(s[2]), 64)
 		if err != nil {
-			pwidth = ts * 3
+			chart.PWidth = pwidth
 		}
 	}
 	if ls > 3 {
-		psize, err = strconv.ParseFloat(eval(s[3]), 64)
+		chart.PSize, err = strconv.ParseFloat(eval(s[3]), 64)
 		if err != nil {
-			psize = 40.0
+			chart.PSize = psize
 		}
 	}
 
-	// build dchart args
-	args := []string{"dchart"}
-	args = append(args, chartBounds())
-	args = append(args, fmt.Sprintf("-textsize=%v", ts))
-	if chartTitle == 0 {
-		args = append(args, fmt.Sprintf("-title=f"))
-	} else {
-		args = append(args, fmt.Sprintf("-title=t"))
-	}
 	switch chartname {
 	case "pmap":
-		args = append(args, "-pmap=t")
-		args = append(args, "-solidpmap=t")
-		args = append(args, fmt.Sprintf("-pwidth=%v", pwidth))
+		chart.ShowPMap = true
+		chart.SolidPMap = true
 	case "donut", "donutchart":
-		args = append(args, "-donut=t")
-		args = append(args, fmt.Sprintf("-pwidth=%v", pwidth))
-		args = append(args, fmt.Sprintf("-psize=%v", psize))
+		chart.ShowDonut = true
 	case "piechart", "pie":
-		args = append(args, "-donut=t")
-		args = append(args, fmt.Sprintf("-pwidth=%v", pwidth))
-		args = append(args, fmt.Sprintf("-psize=%v", pwidth))
+		chart.ShowDonut = true
+		chart.PSize = chart.PWidth
 	case "pgrid":
-		args = append(args, "-pgrid=t")
-		args = append(args, "-val=f")
+		chart.LineSpacing = chart.TextSize * 1.8
+		chart.ShowPGrid = true
+		chart.ShowValues = false
 	case "lego":
-		args = append(args, "-lego=t")
-		args = append(args, "-val=f")
+		chart.ShowLego = true
+		chart.ShowValues = false
 	}
-	args = append(args, filename)
-	//fmt.Fprintf(os.Stderr, "line %3d - chart args=%v\n", linenumber, args)
-	return makechart(w, args, linenumber)
+	return writeChart(chart, w, filename, linenumber)
+}
+
+// fanchart filename [size] makes fan and bowtie charts
+func fanchart(w io.Writer, s []string, linenumber int) error {
+	ls := len(s)
+	if ls < 2 {
+		return fmt.Errorf("line %d: %s filename [size]", linenumber, s[0])
+	}
+	filename := unquote(eval(s[1]))
+	chart := setDefaultChartSettings()
+	chart.PSize = 40
+	var err error
+	if ls > 2 {
+		chart.PSize, err = strconv.ParseFloat(eval(s[2]), 64)
+		if err != nil {
+			chart.PSize = 40
+		}
+	}
+	chart.Left, err = strconv.ParseFloat(eval("chartLeft"), 64)
+	if err != nil {
+		chart.Left = 50
+	}
+	chart.Top, err = strconv.ParseFloat(eval("chartTop"), 64)
+	if err != nil {
+		chart.Top = 60
+	}
+	chart.ShowTitle, err = strconv.ParseBool(eval("chartTitle"))
+	if err != nil {
+		chart.ShowTitle = true
+	}
+	switch s[0] {
+	case "fan", "fanchart":
+		chart.ShowFan = true
+	case "bow", "bowtie":
+		chart.ShowBowtie = true
+	}
+	chart.ShowValues = true
+	return writeChart(chart, w, filename, linenumber)
 }
 
 // stdchart filename [color] makes
@@ -1970,14 +2065,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if ls < 2 {
 		return fmt.Errorf("line %d: %s filename [color]", linenumber, s[0])
 	}
-
-	// default options
 	chartname := s[0]
 	filename := unquote(eval(s[1]))
+	chart := setDefaultChartSettings()
 	color := "lightsteelblue"
-	chartXLabel := 1
-	chartGrid := 0
-	chartTitle := 1
 
 	// override defaults
 	if ls > 2 {
@@ -1986,82 +2077,71 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 			color = c
 		}
 	}
-
-	// use the chart canvas bounds, and attribute settings via magic variables
-	var chartTextSize float64
+	chart.DataColor = color
 	var err error
-	var chartVal int
-
-	chartTextSize, err = strconv.ParseFloat(eval("chartTextSize"), 64)
+	chart.Top, err = strconv.ParseFloat(eval("chartTop"), 64)
 	if err != nil {
-		chartTextSize = 1.5
+		chart.Top = 80
 	}
-	chartVal, err = strconv.Atoi(eval("chartVal"))
+	chart.Bottom, err = strconv.ParseFloat(eval("chartBottom"), 64)
 	if err != nil {
-		chartVal = 1
+		chart.Bottom = 30
 	}
-	chartXLabel, err = strconv.Atoi(eval("chartXLabel"))
+	chart.Left, err = strconv.ParseFloat(eval("chartLeft"), 64)
 	if err != nil {
-		chartXLabel = 1
+		chart.Left = 10
 	}
-	chartGrid, err = strconv.Atoi(eval("chartGrid"))
+	chart.Right, err = strconv.ParseFloat(eval("chartRight"), 64)
 	if err != nil {
-		chartGrid = 0
+		chart.Right = 90
 	}
-	chartTitle, err = strconv.Atoi(eval("chartTitle"))
+	chart.TextSize, err = strconv.ParseFloat(eval("chartTextSize"), 64)
 	if err != nil {
-		chartTitle = 1
+		chart.TextSize = 1.5
 	}
-	yrange := unquote(eval("chartYRange"))
-
-	// build dchart "command line" with options.
-	args := []string{"dchart"}
-	args = append(args, chartBounds())
-	args = append(args, fmt.Sprintf("-xlabel=%d", chartXLabel))
-	args = append(args, fmt.Sprintf("-color=%s", color))
-	args = append(args, fmt.Sprintf("-textsize=%v", chartTextSize))
-	if chartVal > 0 {
-		args = append(args, "-val=t")
-	} else {
-		args = append(args, "-val=f")
+	chart.ShowValues, err = strconv.ParseBool(eval("chartVal"))
+	if err != nil {
+		chart.ShowValues = true
 	}
-
-	if chartTitle == 0 {
-		args = append(args, "-title=f")
-	} else {
-		args = append(args, "-title=t")
+	chart.XLabelInterval, err = strconv.Atoi(eval("chartXLabel"))
+	if err != nil {
+		chart.XLabelInterval = 1
 	}
-
-	if len(yrange) > 5 {
-		args = append(args, "-yaxis")
-		args = append(args, fmt.Sprintf("-yrange=%s", yrange))
-		if chartGrid > 0 {
-			args = append(args, "-grid")
-		}
+	chart.ShowGrid, err = strconv.ParseBool(eval("chartGrid"))
+	if err != nil {
+		chart.ShowGrid = false
 	}
-
+	chart.ShowTitle, err = strconv.ParseBool(eval("chartTitle"))
+	if err != nil {
+		chart.ShowTitle = true
+	}
+	chart.ShowValues, err = strconv.ParseBool(eval("chartVal"))
+	if err != nil {
+		chart.ShowValues = true
+	}
+	chart.YAxisR = unquote(eval("chartYRange"))
+	if len(chart.YAxisR) > 5 {
+		chart.ShowAxis = true
+		chart.ShowGrid = true
+	}
 	// define the type of chart
-	if chartname != "barchart" {
-		args = append(args, "-bar=f")
-	}
 	switch chartname {
+	case "barchart":
+		chart.ShowBar = true
 	case "linechart":
-		args = append(args, "-line=t")
+		chart.ShowLine = true
 	case "dotchart", "dot":
-		args = append(args, "-dot=t")
+		chart.ShowDot = true
 	case "scatterchart", "scatter":
-		args = append(args, "-scatter=t")
+		chart.ShowScatter = true
 	case "areachart", "area":
-		args = append(args, "-vol=t")
+		chart.ShowVolume = true
 	case "hbarchart", "hbar":
-		args = append(args, "-hbar=t")
+		chart.ShowHBar = true
 	case "wbarchart", "wbar":
-		args = append(args, "-wbar=t")
+		chart.ShowWBar = true
 	}
-	// filename as the last argument
-	args = append(args, filename)
-	//fmt.Fprintf(os.Stderr, "line %3d - chart args=%v\n", linenumber, args)
-	return makechart(w, args, linenumber)
+	return writeChart(chart, w, filename, linenumber)
 }
 
 // chart uses the dchart API to make charts
