@@ -1,10 +1,7 @@
 module github.com/ajstarks/decksh
 
-go 1.22
+go 1.25.5
 
-require github.com/ajstarks/dchart v0.0.0-20250117160033-aefd5aa7ce3e
+require github.com/ajstarks/dchart v0.0.0-20260106220938-ee684394fe83
 
-require (
-	github.com/ajstarks/deck v0.0.0-20211018193525-2824414e7118 // indirect
-	github.com/ajstarks/deck/generate v0.0.0-20211018193525-2824414e7118 // indirect
-)
+require github.com/ajstarks/deckgen v0.0.0-20260106212215-aff83138f9fa // indirect
