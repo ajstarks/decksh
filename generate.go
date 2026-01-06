@@ -1931,8 +1931,8 @@ func chartflags(s []string) dchart.Settings {
 	return chart
 }
 
-// makechart takes a list of arguments amd writes a chart
-func makechart(w io.Writer, args []string, linenumber int) error {
+// argChart takes a list of arguments with flags set and writes a chart
+func argChart(w io.Writer, args []string, linenumber int) error {
 	filename := args[len(args)-1]
 	settings := chartflags(args)
 	r, err := os.Open(filename)
@@ -2164,5 +2164,5 @@ func chart(w io.Writer, s string, linenumber int) error {
 	}
 	// separate again
 	args = strings.Fields(s)
-	return makechart(w, args, linenumber)
+	return argChart(w, args, linenumber)
 }
