@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2025-11-20-1.0.0
+The current version is 2026-01-06-1.0.0
 
 ## References and Examples
 
@@ -1101,6 +1101,8 @@ Run the [dchart](https://github.com/ajstarks/dchart/blob/master/README.md "dchar
 dchart [args]
 ```
 
+For example, ```dchart -bar=t -left=35 -right=65 -top=90 -bottom=65 -yaxis=t```
+
 ![dchart](images/dchart.png)
 
 
@@ -1148,7 +1150,6 @@ Alternatively, some chart types may be drawn using their own dedicated keywords:
 
 ![wbarchart](images/wbarchart.png)
 
-
 ## Proportional map
 
 ```pmap "file" [size]```
@@ -1178,6 +1179,19 @@ Alternatively, some chart types may be drawn using their own dedicated keywords:
 ```lego "file"```
 
 ![legochart](images/legochart.png)
+
+## Fan chart
+
+```fanchart "file" [size]```
+
+![fan](images/fanchart.png)
+
+## Bwotie chart
+
+```fanchart "file" [size]```
+
+![bowtie](images/bowtie.png)
+
 
 
 When using chart keywords, special variables may be used to control chart attributes:

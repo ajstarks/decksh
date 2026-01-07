@@ -2175,7 +2175,7 @@ deck
 		ctext "Charts" mid ty 5 "serif"
 		rc=initlcol
 		lcolsize=22
-		listspacing=1.6
+		listspacing=1.5
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
@@ -2190,6 +2190,10 @@ deck
 			li "Proportional Map"
 			li "Pie Chart"
 			li "Donut Chart"
+			li "Proportional Grid"
+			li "Lego Chart"
+			li "Fan Chart"
+			li "Bowtie Chart"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
@@ -2205,6 +2209,10 @@ deck
 			li "pmap"
 			li "pie"
 			li "donut"
+			li "pgrid"
+			li "lego"
+			li "fanchart"
+			li "bowtie"
 		elist
 		lcolsize-=8
 		rc+=lcolsize
@@ -2212,6 +2220,10 @@ deck
 			li "mandatory" "sans" objcolor
 			li `options "file"`
 			li `"text" x y size font color`
+			li `"file"`
+			li `"file"`
+			li `"file"`
+			li `"file"`
 			li `"file"`
 			li `"file"`
 			li `"file"`
@@ -2234,6 +2246,10 @@ deck
 			li "color"
 			li "color"
 			li "color"
+			li "size"
+			li "size"
+			li "width size"
+			li "size"
 			li "size"
 			li "size"
 			li "size"
@@ -2346,8 +2362,6 @@ deck
 		text `legend "Thing" 70 30 2 "serif" "blue"`  60 10 ets "mono"
 	eslide
 
-	
-
 	chartheight=20
 	chartwidth=30
 	chartfile="test.d"
@@ -2356,7 +2370,7 @@ deck
 		include "exchartvar.dsh"
 		kwx=25
 		arx=kwx+17
-		arx2=arx+9
+		arx2=arx+11
 		barchart chartfile
 		hline 0 47 100 hlsize hlcolor hlop
 		text "barchart" kwx ly ts "mono" kwcolor
@@ -2390,9 +2404,9 @@ deck
 
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
-		areachart "test.d"
+		dotchart "test.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "areachart" kwx ly ts "mono" kwcolor
+		text "dotchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color" arx2 ly ts "mono" optcolor
 		textfile "code/dotchartex.dsh" 5 30 2 "mono"

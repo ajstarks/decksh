@@ -138,9 +138,11 @@
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "donut"
 			li "pie"
-			li "pmap"
-			li "pgrid"
 			li "lego"
+			li "pgrid"
+			li "pmap"
+			li "bowtie"
+			li "fanchart"
 		elist
 
 		lx+=csep

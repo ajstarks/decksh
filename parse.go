@@ -494,6 +494,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "pmap", "piechart", "donutchart", "pie", "donut", "lego", "pgrid":
 		return pchart(w, tokens, n)
 
+	case "fanchart", "fan", "bow", "bowtie":
+		return fanchart(w, tokens, n)
+
 	case "georegion", "geopoly":
 		return geopoly(w, tokens, n)
 

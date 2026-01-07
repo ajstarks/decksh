@@ -58,18 +58,18 @@
 		chartTop=chartBottom-cg
 		chartBottom=chartTop-ch
 		areachart datafile
-
 	eslide
 
 	slide
-	    chartTop=75
-	    chartLeft=5
-	    chartRight=95
+		chartTitle=1
+		chartTop=75
+		chartLeft=5
+		chartRight=95
 		pmap pdata
 	eslide
 
 	slide
-	    chartTextSize=2
+		chartTextSize=2
 		chartLeft=50
 		chartTop=70
 		pie pdata 25
@@ -83,7 +83,7 @@
 
 	slide
 		chartLeft=40
-		chartTextSize=1.5
+		chartTextSize=2
 		pgrid "incar.d"
 	eslide
 
@@ -91,6 +91,17 @@
 		chartLeft=35
 		chartTextSize=4
 		lego "incar.d"
+	eslide
+
+	slide
+		chartLeft=50
+		chartTop=60
+		chartVal=1
+		fan "occupation.d" 25
+	eslide
+
+	slide
+		bowtie "occupation.d" 25
 	eslide
 
 
