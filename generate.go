@@ -2121,6 +2121,8 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	}
 	chart.YAxisR = unquote(eval("chartYRange"))
 	if len(chart.YAxisR) > 5 {
+		var yincr float64
+		fmt.Sscanf(chart.YAxisR, "%v,%v,%v", &chart.UserMin, &chart.UserMax, &yincr)
 		chart.ShowAxis = true
 		chart.ShowGrid = true
 	}
