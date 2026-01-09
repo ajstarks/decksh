@@ -1,4 +1,4 @@
-github.com/ajstarks/dchart v0.0.0-20260106220938-ee684394fe83 h1:+KOanLUVh9qldE3AUlyD+5UYbFze4kn9Tnj3MQDyEvo=
-github.com/ajstarks/dchart v0.0.0-20260106220938-ee684394fe83/go.mod h1:eodu3r6H6sC6S75bgBKDQOyvk5nNkVINnVG/Z7nLtEo=
-github.com/ajstarks/deckgen v0.0.0-20260106212215-aff83138f9fa h1:K/PFmEB08/Gab2Aqaf7jPsi3pIrY5Az2uJx7Em43on8=
-github.com/ajstarks/deckgen v0.0.0-20260106212215-aff83138f9fa/go.mod h1:joS/eFk/wy8QdbvR320bwyc4hayKp/1iIPef8ux5ymw=
+github.com/ajstarks/dchart v0.0.0-20260109220818-f99d89f8304d h1:kx77iNsbHLwgG59UW5gxeKteQfDUQ+x454UPvG2XTi0=
+github.com/ajstarks/dchart v0.0.0-20260109220818-f99d89f8304d/go.mod h1:oYkHzp7caQLUEEab4VOTSQgXdNN9ZcEoyivaOnIGCP4=
+github.com/ajstarks/deckgen v0.0.0-20260109210915-6422203809f5 h1:ugJuQ8ms2XwxHDXkJUJlorQSVYUPhinrpg8EGaLhpiM=
+github.com/ajstarks/deckgen v0.0.0-20260109210915-6422203809f5/go.mod h1:5CYc65IBmSErWfFWoU90jkVKezt+xsoicr8FdRuPqLw=
