@@ -138,7 +138,7 @@
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "donut"
 			li "pie"
-			li "lego"
+			li "waffle"
 			li "pgrid"
 			li "pmap"
 			li "bowtie"

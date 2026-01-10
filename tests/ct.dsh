@@ -94,6 +94,7 @@
 	eslide
 
 	slide
+		chartTextSize=1.5
 		chartLeft=50
 		chartTop=60
 		chartVal=1

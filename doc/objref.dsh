@@ -2191,7 +2191,7 @@ deck
 			li "Pie Chart"
 			li "Donut Chart"
 			li "Proportional Grid"
-			li "Lego Chart"
+			li "Waffle Chart"
 			li "Fan Chart"
 			li "Bowtie Chart"
 		elist
@@ -2209,8 +2209,7 @@ deck
 			li "pmap"
 			li "pie"
 			li "donut"
-			li "pgrid"
-			li "lego"
+			li "waffle"
 			li "fanchart"
 			li "bowtie"
 		elist
@@ -2220,7 +2219,6 @@ deck
 			li "mandatory" "sans" objcolor
 			li `options "file"`
 			li `"text" x y size font color`
-			li `"file"`
 			li `"file"`
 			li `"file"`
 			li `"file"`
@@ -2249,7 +2247,6 @@ deck
 			li "size"
 			li "size"
 			li "width size"
-			li "size"
 			li "size"
 			li "size"
 			li "size"
@@ -2485,7 +2482,7 @@ slide bgcolor fgcolor
 		include "code/piechartex.dsh"
 	eslide
 
-slide bgcolor fgcolor
+	slide bgcolor fgcolor
 		//ruler 5
 		kwx=36
 		chartLeft=50
@@ -2503,6 +2500,53 @@ slide bgcolor fgcolor
 		include "code/donutchartex.dsh"
 	eslide
 
+	slide bgcolor fgcolor
+		chartTop=90
+		chartLeft=40
+		chartTextSize=2.2
+		lego "ptest.d"
+		ctext "chartTop" 50 95 ts "mono"
+		vline 50 chartTop 5
+		etext "chartLeft" 35 80 ts "mono"
+		hline 35 80 5
+		hline 0 47 100 hlsize hlcolor hlop
+		text "lego" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		textfile "code/legochartex.dsh" 5 30 2 "mono"
+		textfile "incar.d" 30 30 2 "mono"
+		include  "code/legochartex.dsh"
+	eslide
+
+	slide bgcolor fgcolor
+		kwx-=4
+		arx+=2
+		arx2+=1
+		ubrace 45 93 10 3 2
+		ctext "chartLeft" 50 75 2 "mono"
+		ctext "size"      45 94 2 "mono"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "fanchart" kwx ly ts "mono" kwcolor
+		text `"file"`   arx ly ts "mono" argcolor
+		text "size"     arx2 ly ts "mono" optcolor
+		textfile "code/fanchartex.dsh" 5 30 2 "mono"
+		textfile "occupation.d" 40 35 1.5 "mono"
+		include  "code/fanchartex.dsh"
+	eslide
+
+
+	slide bgcolor fgcolor
+		arx-=2
+		ubrace 45 93 10 3 2
+		ctext "chartLeft" 50 75 2 "mono"
+		ctext "size"      45 94 2 "mono"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "bowtie" kwx ly ts "mono" kwcolor
+		text `"file"`   arx ly ts "mono" argcolor
+		text "size"     arx2 ly ts "mono" optcolor
+		textfile "code/bowchartex.dsh" 5 30 2 "mono"
+		textfile "occupation.d" 40 35 1.5 "mono"
+		include  "code/bowchartex.dsh"
+	eslide
 
 	// Map (Geo) index
 	slide bgcolor fgcolor

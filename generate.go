@@ -1935,12 +1935,7 @@ func chartflags(s []string) dchart.Settings {
 func argChart(w io.Writer, args []string, linenumber int) error {
 	filename := args[len(args)-1]
 	settings := chartflags(args)
-	r, err := os.Open(filename)
-	if err != nil {
-		return fmt.Errorf("line %d: %v", linenumber, err)
-	}
-	settings.Write(w, r)
-	return nil
+	return writeChart(settings, w, filename, linenumber)
 }
 
 // writeChart writes a chart, using data in the filename, using specified settings
@@ -1953,7 +1948,8 @@ func writeChart(settings dchart.Settings, w io.Writer, filename string, linenumb
 	return nil
 }
 
-// pchart "file" [width] [size] makes porpotional charts (pmaps, donut, pie)
+// pchart makes porpotional charts (pmaps, donut, pie, pgrid, lego/waffle)
+// <chartype> filename [width] [size]
 func pchart(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
 	if ls < 2 {
@@ -2013,14 +2009,15 @@ func pchart(w io.Writer, s []string, linenumber int) error {
 		chart.LineSpacing = chart.TextSize * 1.8
 		chart.ShowPGrid = true
 		chart.ShowValues = false
-	case "lego":
+	case "lego", "waffle":
 		chart.ShowLego = true
 		chart.ShowValues = false
 	}
 	return writeChart(chart, w, filename, linenumber)
 }
 
-// fanchart filename [size] makes fan and bowtie charts
+// fanchart  makes fan and bowtie charts
+// fan|fanchart|bow|bowtie filename [size]
 func fanchart(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
 	if ls < 2 {
@@ -2048,6 +2045,10 @@ func fanchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.ShowTitle = true
 	}
+	chart.TextSize, err = strconv.ParseFloat(eval("chartTextSize"), 64)
+	if err != nil {
+		chart.TextSize = 1.5
+	}
 	switch s[0] {
 	case "fan", "fanchart":
 		chart.ShowFan = true
@@ -2058,8 +2059,8 @@ func fanchart(w io.Writer, s []string, linenumber int) error {
 	return writeChart(chart, w, filename, linenumber)
 }
 
-// stdchart filename [color] makes
-// bar charts, horizontal bar charts, line charts, scatter charts, dot charts, area charts
+// stdchart makes bar charts, horizontal or word bar charts, line charts, scatter charts, dot charts, area charts
+// <chartType> filename [color]
 func stdchart(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
 	if ls < 2 {
