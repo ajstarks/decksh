@@ -1174,9 +1174,9 @@ Alternatively, some chart types may be drawn using their own dedicated keywords:
 
 ![pgridchart](images/pgridchart.png)
 
-## Lego chart
+## Waffle chart
 
-```lego "file"```
+```waffle "file"```
 
 ![legochart](images/legochart.png)
 

@@ -2209,6 +2209,7 @@ deck
 			li "pmap"
 			li "pie"
 			li "donut"
+			li "pgrid"
 			li "waffle"
 			li "fanchart"
 			li "bowtie"
@@ -2219,6 +2220,7 @@ deck
 			li "mandatory" "sans" objcolor
 			li `options "file"`
 			li `"text" x y size font color`
+			li `"file"`
 			li `"file"`
 			li `"file"`
 			li `"file"`
@@ -2247,6 +2249,7 @@ deck
 			li "size"
 			li "size"
 			li "width size"
+			li "size"
 			li "size"
 			li "size"
 			li "size"
