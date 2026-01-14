@@ -141,13 +141,27 @@ var kwInfo = map[string]syntax{
 	"geoarc":      {minargs: 2, maxargs: 5, desc: "Draw arcs between points", usage: "\"p1\" \"p2\" [lw] [color] [op]"},
 	"geopathfile": {minargs: 1, maxargs: 4, desc: "Reads data from the specified file and a make lines between points", usage: "\"file\" [lw] [color] [op]"},
 	"geopimage":   {minargs: 3, maxargs: 3, desc: "Place an image at a geographical location", usage: "\"loc\" width height"},
+	// charts
+	"areachart": {minargs: 1, maxargs: 2, desc: "Area chart from specified data", usage: "\"file\" [color]"},
+	"barchart":  {minargs: 1, maxargs: 2, desc: "Bar chart from specified data", usage: "\"file\" [color]"},
+	"dotchart":  {minargs: 1, maxargs: 2, desc: "Dot chart from specified data", usage: "\"file\" [color]"},
+	"hbar":      {minargs: 1, maxargs: 2, desc: "Horizontal bar chart from specified data", usage: "\"file\" [color]"},
+	"wbar":      {minargs: 1, maxargs: 2, desc: "Word bar chart from specified data", usage: "\"file\" [color]"},
+	"linechart": {minargs: 1, maxargs: 2, desc: "Line chart from specified data", usage: "\"file\" [color]"},
+	"pmap":      {minargs: 1, maxargs: 2, desc: "Proportional map from specified data", usage: "\"file\" [size]"},
+	"pie":       {minargs: 1, maxargs: 2, desc: "Pie chart from specified data", usage: "\"file\" [size]"},
+	"donut":     {minargs: 1, maxargs: 3, desc: "Make a bar chart from specified data", usage: "\"file\" [width] [size]"},
+	"pgrid":     {minargs: 1, maxargs: 2, desc: "Propotional grid from specified data", usage: "\"file\" [size]"},
+	"waffle":    {minargs: 1, maxargs: 2, desc: "Waffle chart from specified data", usage: "\"file\" [size]"},
+	"fan":       {minargs: 1, maxargs: 2, desc: "Fan chart from specified data", usage: "\"file\" [size]"},
+	"bowtie":    {minargs: 1, maxargs: 2, desc: "Bowtie chart from specified data", usage: "\"file\" [size]"},
 }
 
 var kwcount = map[string]int{}
 
 // whattype
 func whatKind(s string) string {
-	_, err := strconv.ParseFloat(s)
+	_, err := strconv.ParseFloat(s, 64)
 	if err != nil {
 		return "s"
 	}
