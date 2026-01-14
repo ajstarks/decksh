@@ -1,3 +1,16 @@
 li `Chart with specified options`
 li `Chart legend`
+li `Area chart with specified data`
+li `Bar chart with specified data`
+li `Dot chart with specified data`
+li `Horizontal bar chart with specified data`
+li `Line chart with specified data`
+li `Word bar chart with specified data`
+li `Proportional map chart with specified data`
+li `Pie chart with specified data`
+li `Donut chart with specified data`
+li `Proportional grid chart with specified data`
+li `Waffle chart with specified data`
+li `Fan chart with specified data`
+li `Bowtie chart with specified data`
 li ``

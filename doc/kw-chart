@@ -1,3 +1,16 @@
 li `dchart`
 li `legend`
+li `areachart`
+li `barchart`
+li `dotchart`
+li `hbarchart`
+li `linechart`
+li `wbarchart`
+li `pmap`
+li `pie`
+li `donut`
+li `pgrid`
+li `waffle`
+li `fanchart`
+li `bowtie`
 li ``

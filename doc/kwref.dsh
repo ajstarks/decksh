@@ -77,7 +77,6 @@
 
 		list c1 top ts "mono" kwcolor 100 ls
 			include "kw-arrow"
-			include "kw-chart"
 			include "kw-func"
 			include "kw-math"
 			include "kw-geo"
@@ -85,7 +84,6 @@
 
 		list c2 top ts "sans" argcolor 100 ls
 			include "arg-arrow"
-			include "arg-chart"
 			include "arg-func"
 			include "arg-math"
 			include "arg-geo"
@@ -93,15 +91,30 @@
 
 		list c3 top ts "serif" descolor 100 ls
 			include "desc-arrow"
-			include "desc-chart"
 			include "desc-func"
 			include "desc-math"
 			include "desc-geo"
 		elist
 
 		etext "Arrows"       c0 82  ls "sans" "gray"
+		etext "Built-ins"    c0 65  ls "sans" "gray"
+		etext "Math"         c0 45  ls "sans" "gray"
+		etext "Geographic"   c0 25  ls "sans" "gray"
+	eslide
+
+	slide
+		include "kwheader.dsh"
+
+		list c1 top ts "mono" kwcolor 100 ls
+			include "kw-chart"
+		elist
+
+		list c2 top ts "sans" argcolor 100 ls
+			include "arg-chart"
+		elist
+
+		list c3 top ts "serif" descolor 100 ls
+			include "desc-chart"
+		elist
 		etext "Charts"       c0 71  ls "sans" "gray"
-		etext "Built-ins"    c0 57  ls "sans" "gray"
-		etext "Math"         c0 38  ls "sans" "gray"
-		etext "Geographic"   c0 20  ls "sans" "gray"
 	eslide

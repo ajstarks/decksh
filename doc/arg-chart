@@ -1,3 +1,16 @@
-li `options...`
+li `options... file`
 li `"string" x y fontsize font color`
+li `"file" [color]`
+li `"file" [color]`
+li `"file" [color]`
+li `"file" [color]`
+li `"file" [color]`
+li `"file" [color]`
+li `"file" [size]`
+li `"file" [size]`
+li `"file" [width] [size]`
+li `"file" [size]`
+li `"file" [size]`
+li `"file" [size]`
+li `"file" [size]`
 li ``
