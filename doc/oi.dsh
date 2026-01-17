@@ -1,4 +1,4 @@
-	// objdect index "placemat"
+	// object index "placemat"
 	labelcolor="#aa0000"
 	ltop=95
 	top=ltop-10
@@ -8,13 +8,13 @@
 	hskip=10
 	vskip=20
 	slide
-		etext "decksh version" 90 15 1
-		etext deckshVersion    90 13  1
+		etext "decksh version" 90 5 1
+		etext deckshVersion    90 3  1
 		// grid lines
-		for v=5 95 5
-			vline v 0 100 0.1 "blue" 20
-			hline 0 v 100 0.1 "red"  20
-		efor
+		//for v=5 95 5
+		//	vline v 0 100 0.1 "blue" 20
+		//	hline 0 v 100 0.1 "red"  20
+		//efor
 
 		// 9 x 5 grid
 		grid "objlabels.dsh" left ltop hskip vskip right
@@ -197,3 +197,190 @@
 			li "thrid"
 		elist
 	eslide
+
+	// Charts
+	slide
+		chlcol1=12.5
+		chlcol2=31
+		chlcol3=50
+		chlcol4=69
+		chlcol5=87.5
+		laby=95
+		cw=15
+		ch=10
+		chcol=cw+4
+		chrow=ch+15
+		chartXLabel=3
+		chartVal=0
+		chartLeft=5
+		chartTop=90
+		chartTitle=0
+		chartTextSize=0.75
+		chartBottom=chartTop-ch
+		chartRight=chartLeft+cw
+
+		// row 1
+		ctext "barchart"  chlcol1 laby 1.5 "mono" labelcolor
+		ctext "scatter"   chlcol2 laby 1.5 "mono" labelcolor
+		ctext "linechart" chlcol3 laby 1.5 "mono" labelcolor
+		ctext "dotchart"  chlcol4 laby 1.5 "mono" labelcolor
+		ctext "areachart" chlcol5 laby 1.5 "mono" labelcolor
+
+		barchart "AAPL.d"
+
+		chartLeft+=chcol
+		chartRight+=chcol
+		scatter "AAPL.d"
+
+		chartLeft+=chcol
+		chartRight+=chcol
+		linechart "AAPL.d"
+
+		chartLeft+=chcol
+		chartRight+=chcol
+		dotchart "AAPL.d"
+
+		chartLeft+=chcol
+		chartRight+=chcol
+		areachart "AAPL.d"
+
+		// row 2
+		laby-=25
+		ctext "hbar"    chlcol1 laby 1.5 "mono" labelcolor
+		ctext "wbar"    chlcol2 laby 1.5 "mono" labelcolor
+		ctext "donut"   chlcol3 laby 1.5 "mono" labelcolor
+		ctext "pie"     chlcol4 laby 1.5 "mono" labelcolor
+		ctext "waffle"  chlcol5 laby 1.5 "mono" labelcolor
+
+		chartLeft=5
+		chartTop-=chrow
+		chartRight=chartLeft+cw
+		chartBottom=chartTop-ch
+		hbar "AAPL.d"
+
+		chartLeft+=chcol
+		chartRight+=chcol
+		wbar "AAPL.d"
+
+		chartLeft=50
+		donut "browser.d" 2 10
+
+		chartLeft+=chcol
+		pie "browser.d" 4.5
+
+		chartTextSize=1.2
+		chartLeft+=cw
+		waffle "incar.d"
+
+		// row 3
+		chlcol2=45
+		chlcol3=85
+		laby-=35
+		ctext "pmap"       chlcol1 laby 1.5 "mono" labelcolor
+		ctext "fanchart"   chlcol2 laby 1.5 "mono" labelcolor
+		ctext "bowtie"     chlcol3 laby 1.5 "mono" labelcolor
+		
+		chartTextSize=0.75
+		chartTop-=50
+		chartLeft=5
+		chartRight=20
+		pmap "incar.d" 3
+
+		chartLeft+=40
+		fan "occupation.d" 7
+
+		chartLeft+=40
+		bowtie "occupation.d" 7
+
+		chartLeft=75
+		chartRight=98
+		
+	eslide
+
+	// Geo
+	slide
+		gw=15
+		gh=25
+		ggutter=33
+		gvskip=33
+		geocolor="tan"
+		geoLatMax=37.346983
+		geoLatMin=0-34.833222
+		geoLongMax=51.266667
+		geoLongMin=0-17.520278
+		ghana="geo:5.5593,0.1974	Accra"
+		cairo="geo:30.0444,31.2357	Cairo"
+
+		gcol1=17.5
+		gcol2=50
+		gcol3=85
+		grow=95
+
+		// row 1
+		ctext "georegion" gcol1 grow 1.5 "mono" labelcolor
+		ctext "geoborder" gcol2 grow 1.5 "mono" labelcolor
+		ctext "geolabel"  gcol3 grow 1.5 "mono" labelcolor
+		geoXmin=10
+		geoXmax=geoXmin+gw
+		geoYmin=68
+		geoYmax=geoYmin+gh
+		georegion "africa.kml" geocolor
+		
+		geoXmin+=ggutter
+		geoXmax+=ggutter
+		geoborder "africa.kml" 0.1 geocolor
+
+		geoXmin+=ggutter
+		geoXmax+=ggutter
+		georegion "africa.kml" geocolor 30
+		geolabel  ghana
+		geolabel  cairo
+
+		// row 2
+		grow-=gvskip
+		ctext "geomark"   gcol1 grow 1.5 "mono" labelcolor
+		ctext "geoloc"    gcol2 grow 1.5 "mono" labelcolor
+		ctext "geoimage"  gcol3 grow 1.5 "mono" labelcolor
+		geoXmin=10
+		geoXmax=geoXmin+gw
+		geoYmin-=gvskip
+		geoYmax-=gvskip
+		georegion "africa.kml" geocolor 30
+		geomark   ghana
+		geomark   cairo
+
+		geoXmin+=ggutter
+		geoXmax+=ggutter
+		georegion "africa.kml" geocolor 30
+		geoloc    ghana
+		geoloc    cairo
+
+		geoXmin+=ggutter
+		geoXmax+=ggutter
+		georegion "africa.kml" geocolor 30 
+		geoimage  "geo:7.9465,1.0232	ghana.jpg" 5 0
+
+		// row 3
+		grow-=gvskip
+		ctext "geopath"   gcol1 grow 1.5 "mono" labelcolor
+		ctext "geoarc"    gcol2 grow 1.5 "mono" labelcolor
+		ctext "geopathfile"  gcol3 grow 1.5 "mono" labelcolor
+
+		geoXmin=10
+		geoXmax=geoXmin+gw
+		geoYmin-=gvskip
+		geoYmax-=gvskip
+		georegion "africa.kml" geocolor 30
+		geopath   ghana	cairo 0.25 "red"
+
+		geoXmin+=ggutter
+		geoXmax+=ggutter
+		georegion "africa.kml" geocolor 30
+		geoarc	  ghana cairo 0.25 "red"
+
+		geoXmin+=ggutter
+		geoXmax+=ggutter
+		georegion "africa.kml" geocolor 30
+		geopathfile	 "c2g.dsh"  0.25 "red"
+	eslide
+

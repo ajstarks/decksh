@@ -1971,6 +1971,7 @@ func pchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.Left = 50
 	}
+
 	chart.Top, err = strconv.ParseFloat(eval("chartTop"), 64)
 	if err != nil {
 		chart.Top = 80
@@ -1998,6 +1999,10 @@ func pchart(w io.Writer, s []string, linenumber int) error {
 
 	switch chartname {
 	case "pmap":
+		chart.Right, err = strconv.ParseFloat(eval("chartRight"), 64)
+		if err != nil {
+			chart.Right = 90
+		}
 		chart.ShowPMap = true
 		chart.SolidPMap = true
 	case "donut", "donutchart":
@@ -2149,7 +2154,7 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 
 // chart uses the dchart API to make charts
 // dchart [args]
-func chart(w io.Writer, s string, linenumber int) error {
+func deckchart(w io.Writer, s string, linenumber int) error {
 	// copy the command line into fields, evaluating as we go
 	args := strings.Fields(s)
 	if len(args) < 2 {
