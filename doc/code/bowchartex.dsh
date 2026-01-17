@@ -1,0 +1,5 @@
+chartLeft=50
+chartTop=80
+chartVal=1
+chartTextSize=1
+bowtie "occupation.d" 10

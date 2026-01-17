@@ -1,0 +1,5 @@
+chartLeft=50
+chartTop=80
+chartVal=1
+chartTextSize=1
+fanchart "occupation.d" 10

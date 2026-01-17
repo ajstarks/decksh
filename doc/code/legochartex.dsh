@@ -1,0 +1,4 @@
+chartLeft=65
+chartTop=35
+chartTextSize=2
+lego "incar.d"
