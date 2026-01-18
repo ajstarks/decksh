@@ -180,7 +180,7 @@ func geodot(w io.Writer, x, y []float64, size float64, color string, op string) 
 func deckgeoimg(w io.Writer, loc Locdata, width, height string) {
 	nc := len(loc.X)
 	for i := range nc {
-		if len(loc.Name[i]) < 0 {
+		if len(loc.Name[i]) == 0 {
 			fmt.Fprintf(os.Stderr, "missing image file")
 			continue
 		}
