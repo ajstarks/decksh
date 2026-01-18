@@ -1,3 +1,11 @@
+geoYmin=10
+geoYmax=90
+geoXmin=0
+geoXmax=100
+geoLatMin=0-90
+geoLatMax=90
+geoLongMin=0-180
+geoLongMax=180
 georegion "world.kml" "black"
 
 // geo boundaries for Africa

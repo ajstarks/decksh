@@ -2667,9 +2667,7 @@ slide bgcolor fgcolor
 
 	slide bgcolor fgcolor
 		ctext "Geographic Scaling" mid ty 5 "serif"
-		textfile "geoscale.dsh" 3 50 1.5 "mono"
-		geoYmin=10
-		geoYmax=90
+		textfile "geoscale.dsh" 3 65 1.2 "mono"
 		afN="geo:37.347,-17.520	(37.347°, -17.530°)"
 		afS="geo:-34.833,51.267	(-34.833° ,51.267°)"
 		geoloc afN  "e" 1.2
