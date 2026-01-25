@@ -107,6 +107,8 @@ var kwInfo = map[string]syntax{
 	"btext":         {minargs: 4, maxargs: 8, desc: "Text beginning at (x,y), at fontsize", usage: "\"string\" x y fontsize [font] [color] [opacity] [link]"},
 	"ctext":         {minargs: 4, maxargs: 8, desc: "Centered text beginning at (x,y), at fontsize", usage: "\"string\" x y fontsize [font] [color] [opacity] [link]"},
 	"etext":         {minargs: 4, maxargs: 8, desc: "End-aligned text at (x,y), at fontsize", usage: "\"string\" x y fontsize [font] [color] [opacity] [link]"},
+	"para":          {minargs: 4, maxargs: 8, desc: "Begin a paragraph", usage: "para x y width fontsize [font] [color] [opacity] [link]...epara"},
+	"epara":         {minargs: 0, maxargs: 0, desc: "end a paragraph", usage: "epara"},
 	"rtext":         {minargs: 5, maxargs: 9, desc: "Rotated text centered at x,y), at angle and fontsize", usage: "\"string\" x y angle fontsize [font] [color] [opacity] [link]"},
 	"text":          {minargs: 4, maxargs: 8, desc: "Text beginning at (x,y), at fontsize", usage: "\"string\" x y fontsize [font] [color] [opacity] [link]"},
 	"textblock":     {minargs: 5, maxargs: 9, desc: "Block of text beginning at (x,y), at fontsize, with width w", usage: "\"string\" x y w fontsize [font] [color] [opacity] [link]"},

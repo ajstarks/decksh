@@ -4,6 +4,7 @@ li `Centered text beginning at (x,y), at fontsize`
 li `End-aligned text at (x,y), at fontsize`
 li `Rotated text centered at x,y), at angle and fontsize`
 li `Text beginning at (x,y), at fontsize`
+li `Paragraphs beginning at (x,y), at fontsize with width w`
 li `Block of text beginning at (x,y), at fontsize, with width w`
 li `Block of text read for a file, beginning at (x,y), at fontsize, with width w`
 li `Lines of code, read from a file, upper right corner at (x,y), margin at w`

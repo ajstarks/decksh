@@ -4,6 +4,7 @@ li `ctext`
 li `etext`
 li `rtext`
 li `text`
+li `para`
 li `textblock`
 li `textblockfile`
 li `textcode`

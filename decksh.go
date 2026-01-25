@@ -15,7 +15,7 @@ const (
 )
 
 // emap is the id=expression map
-var emap = map[string]string{"deckshVersion": `"2026-01-16-1.0.0"`}
+var emap = map[string]string{"deckshVersion": `"2026-01-24-1.0.0"`}
 
 var (
 	canvasWidth  = 792.0
@@ -81,6 +81,10 @@ func Process(w io.Writer, r io.Reader) error {
 		}
 		if tokens[0] == "if" {
 			errors = append(errors, parseif(w, t, n, scanner))
+			continue
+		}
+		if tokens[0] == "para" {
+			errors = append(errors, parsepar(w, tokens, n, scanner))
 			continue
 		}
 		errors = append(errors, keyparse(w, tokens, t, n))

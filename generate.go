@@ -167,11 +167,11 @@ func ruler(w io.Writer, s []string, linenumber int) error {
 
 	if n > 1 { // ruler x
 		if err := validNumber(s[1]); err != nil {
-			return err
+			return fmt.Errorf("line %d: %v", linenumber, err)
 		}
 		i, err := strconv.ParseFloat(s[1], 64)
 		if err != nil {
-			return err
+			return fmt.Errorf("line %d: %v", linenumber, err)
 		}
 		incr = i
 	}
@@ -325,7 +325,7 @@ func textblock(w io.Writer, s []string, linenumber int) error {
 	if err := validNumber(s[2], s[3], s[4], s[5]); err != nil {
 		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
 	}
-	fmt.Fprintf(w, "<text type=\"block\" xp=%q yp=%q wp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], s[5], fontColorOp(s[6:]), qesc(s[1]))
+	fmt.Fprintf(w, "<text type=\"block\" xp=%q yp=%q wp=%q sp=%q %s>%s</text>\n", s[2], s[3], s[4], s[5], fontColorOp(s[6:]), xmlesc(unquote(s[1])))
 	return nil
 }
 

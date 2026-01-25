@@ -36,6 +36,7 @@
 			li "btext"
 			li "ctext"
 			li "etext"
+			li "para/epara"
 			li "rtext"
 			li "arctext"
 			li "textblock"

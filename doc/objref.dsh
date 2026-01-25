@@ -256,6 +256,7 @@ deck
 			li "Rotated"
 			li "Text on an arc"
 			li "Block text"
+			li "Paragraphs"
 			li "Block text from file"
 			li "File contents"
 			li "Code listing"
@@ -270,6 +271,7 @@ deck
 			li "rtext"
 			li "arctext"
 			li "textblock"
+			li "para...epara"
 			li "textblockfile"
 			li "textfile"
 			li "textcode"
@@ -284,6 +286,7 @@ deck
 			li `"..." x y angle fontsize`
 			li `"..." x y rad a1 a2 fontsize`
 			li `"..." x y w fontsize`
+			li `x y w fontsize`
 			li `"file" x y w fontsize`
 			li `"file" x y fontsize`
 			li `"file" x y w fontsize`
@@ -292,6 +295,7 @@ deck
 		rc+=33
 		list rc lsty lfs "mono" optcolor
 			li tbl4 "sans" objcolor
+			li "font color op link"
 			li "font color op link"
 			li "font color op link"
 			li "font color op link"
@@ -430,6 +434,36 @@ deck
 
 		text `textblock "..." 10 35 30 2` 10 ely ets "mono"
 		text `textblock "..." 50 35 10 1 "sans" "maroon"` 50 ely ets "mono"
+	eslide
+
+	// para...epara
+	slide bgcolor fgcolor
+		para 20 85 40 1.5 1.8 "sans" objcolor
+			We must rapidly begin...we must rapidly begin the shift from a thing-oriented society to a person-oriented
+			society.
+
+			When machines and computers, profit motives and property rights, are considered
+			more important than people, the giant triplets of racism, extreme materialism, and
+			militarism are incapable of being conquered.
+
+			A true revolution of values will soon cause us to question the fairness and justice of many
+			of our past and present policies. On the one hand, we are called to play the Good
+			Samaritan on life's roadside, but that will be only an initial act.
+
+		epara
+		circle 20 85 coordsize accentcolor 50
+		etext "(x,y)" 19 85  lw "mono"
+		ctext "w" 40 94 lw "mono"
+		ubrace 40 93 40 2 4
+		hline 0 47 100 hlsize hlcolor hlop
+		ctext "para"                     18 ly ts "mono" kwcolor
+		ctext `x y w fontsize`           35 ly ts "mono" argcolor
+		ctext "font color op link"       63 ly ts "mono" optcolor
+		text "... epara" 80 ly ts "mono" kwcolor
+
+		textfile "code/paratest.dsh" 40 35 1.6 "mono"
+		include  "code/paratest.dsh"
+
 	eslide
 
 	// textfile

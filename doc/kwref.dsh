@@ -43,7 +43,6 @@
 
 	slide
 		include "kwheader.dsh"
-
 		list c1 top ts "mono" kwcolor 100 ls
 			include "kw-text"
 			include "kw-list"
@@ -65,11 +64,11 @@
 			include "desc-bracket"
 		elist
 
-		etext "Text"            c0 78  ls "sans" "gray"
-		etext "Lists"           c0 55  ls "sans" "gray"
-		etext "Images"          c0 40  ls "sans" "gray"
-		etext "Braces/"         c0 30  ls "sans" "gray"
-		etext "Brackets"        c0 28  ls "sans" "gray"
+		etext "Text"            c0 75  ls "sans" "gray"
+		etext "Lists"           c0 52  ls "sans" "gray"
+		etext "Images"          c0 38  ls "sans" "gray"
+		etext "Braces/"         c0 24  ls "sans" "gray"
+		etext "Brackets"        c0 22  ls "sans" "gray"
 	eslide
 
 	slide

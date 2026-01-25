@@ -105,6 +105,70 @@ func loadata(s []string, linenumber int, scanner *bufio.Scanner) error {
 	return err
 }
 
+// parsepar parses paragraph commands
+// para x y width fontsize [font] [color] [opacity] [link]
+// ...
+// epara
+func parsepar(w io.Writer, tokens []string, linenumber int, scanner *bufio.Scanner) error {
+	np := 0
+	nl := 1
+	tl := 1
+	ptext := ""
+	var y, size, ls float64
+	var err error
+	size = 1.5
+	ls = 1.2
+	var cmd []string
+
+	if len(tokens) < 5 {
+		return fmt.Errorf("line %d need at least 4 tokens: %v", linenumber, tokens)
+	}
+	// build initial textblock command
+	cmd = []string{"textblock", "", tokens[1], tokens[2], tokens[3], tokens[4]}
+	// add optional tokens
+	if len(tokens) > 5 {
+		for i := 6; i < len(tokens); i++ {
+			cmd = append(cmd, tokens[i])
+		}
+	}
+	// get values for y position, font size, and line spacing
+	y, err = strconv.ParseFloat(tokens[2], 64)
+	if err != nil {
+		return err
+	}
+	size, err = strconv.ParseFloat(tokens[4], 64)
+	if err != nil {
+		return err
+	}
+	if len(tokens) > 5 {
+		ls, err = strconv.ParseFloat(tokens[5], 64)
+		if err != nil {
+			return err
+		}
+	}
+	for scanner.Scan() {
+		t := scanner.Text()
+		if strings.TrimSpace(t) == "epara" {
+			break
+		}
+		tl++
+		if len(t) == 0 { // new paragraph
+			// build textblock command: textblock "text" x y width textsize
+			cmd[1] = ptext
+			cmd[3] = strconv.FormatFloat(y, 'g', 5, 64)
+			textblock(w, cmd, tl+linenumber)
+			// update for the next paragraph
+			np++
+			y -= size * ls * float64(nl)
+			nl = 0
+			ptext = ""
+		}
+		ptext = ptext + t
+		nl++
+	}
+	return scanner.Err()
+}
+
 // grid places objects read from a file in a grid
 // grid "file" x y xint yint xlimit
 func grid(w io.Writer, s []string, linenumber int) error {

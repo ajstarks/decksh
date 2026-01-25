@@ -336,6 +336,11 @@ deck
 		textcode "hw.go" tx2 75 20 1 "red"
 	eslide
 
+	slide
+		ctext "Paragraphs" titleX titleY titleSize
+		include "ptest.dsh"
+	eslide
+
 	// Text and Alignment
 	tlskip=25
 	l1=10

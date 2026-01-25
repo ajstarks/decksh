@@ -756,6 +756,15 @@ textblockfile "filename" x y width size [font] [color] [opacity] [link]
 
 ![textblock](images/textblock.png)
 
+### paragraphs
+
+```
+para x y width size [font] [color] [opacity] [link]
+        ....
+epara
+````
+![para](images/para.png)
+
 Text rotated along the specified angle (in degrees)
 
 ```
