@@ -2603,6 +2603,8 @@ slide bgcolor fgcolor
 			li "Lines between points"
 			li "Arcs between points"
 			li "Lines between points"
+			li "Geographic boundaries"
+			li "Geographic canvas"
 		elist
 		rc+=25
 		list rc lsty lfs "mono" kwcolor
@@ -2616,6 +2618,8 @@ slide bgcolor fgcolor
 			li "geopath"
 			li "geoarc"
 			li "geopathfile"
+			li "geobound"
+			li "geocanvas"
 		elist
 		rc+=13
 		list rc lsty lfs "mono" argcolor
@@ -2629,6 +2633,8 @@ slide bgcolor fgcolor
 			li `"p1" "p2"`
 			li `"p1" "p2"`
 			li `"file"`
+			li "latmin"
+			li "xmin"
 		elist
 		rc+=20
 		list rc lsty lfs "mono" objcolor
@@ -2642,9 +2648,11 @@ slide bgcolor fgcolor
 			li "lw color op"
 			li "lw color op"
 			li "lw color op"
+			li "latmax longmin longmax"
+			li "xmax ymin ymax"
 		elist
 		
-		ny=lsty-62
+		ny=lsty-75
 		text `"file" refer to Shapefile (.shp), GeoJSON (.json or .geojson) or Keyhole Markup Language (.kml) files from opendatasoft` initlcol ny 1.5 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
 		ny+=1
 		hline initlcol ny 73 1.7 "steelblue" 20
@@ -2701,7 +2709,7 @@ slide bgcolor fgcolor
 
 	slide bgcolor fgcolor
 		ctext "Geographic Scaling" mid ty 5 "serif"
-		textfile "geoscale.dsh" 2 65 1.1 "mono"
+		textfile "geoscale.dsh" 2 50 1.1 "mono"
 		include "geoscale.dsh"
 		rect 55 12.5 10 15 "red" 10
 		etext "(50,20)" 50 20 1.5

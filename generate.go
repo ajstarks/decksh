@@ -1437,7 +1437,79 @@ func carrow(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+//
 // Geographic functions
+//
+
+// parsesign fixes the parsing of signed numbers
+func parsesign(s []string) []string {
+	var os []string
+	var sign string
+	for i := 0; i < len(s); i++ {
+		sign = ""
+		if s[i] == "-" || s[i] == "+" {
+			sign = s[i]
+			i++
+		}
+		os = append(os, sign+s[i])
+	}
+	return os
+}
+
+// setLatLong sets the geo lat/long variables
+func setLatLong(s []string, linenumber int) error {
+	s = parsesign(s)
+	switch len(s) {
+	case 2:
+		emap["geoLatMin"] = eval(s[1])
+
+	case 3:
+		emap["geoLatMin"] = eval(s[1])
+		emap["geoLatMax"] = eval(s[2])
+
+	case 4:
+		emap["geoLatMin"] = eval(s[1])
+		emap["geoLatMax"] = eval(s[2])
+		emap["geoLongMin"] = eval(s[3])
+
+	case 5:
+		emap["geoLatMin"] = eval(s[1])
+		emap["geoLatMax"] = eval(s[2])
+		emap["geoLongMin"] = eval(s[3])
+		emap["geoLongMax"] = eval(s[4])
+
+	default:
+		return fmt.Errorf("line %d: %s LatMin [LatMax] [LongMin] [LongMax]", linenumber, s[0])
+	}
+	return nil
+}
+
+// setGeoCanvas set the geo canvas variables
+func setGeoCanvas(s []string, linenumber int) error {
+	switch len(s) {
+	case 2:
+		emap["geoXmin"] = eval(s[1])
+
+	case 3:
+		emap["geoXmin"] = eval(s[1])
+		emap["geoXmax"] = eval(s[2])
+
+	case 4:
+		emap["geoXmin"] = eval(s[1])
+		emap["geoXmax"] = eval(s[2])
+		emap["geoYmin"] = eval(s[3])
+
+	case 5:
+		emap["geoXmin"] = eval(s[1])
+		emap["geoXmax"] = eval(s[2])
+		emap["geoYmin"] = eval(s[3])
+		emap["geoYmax"] = eval(s[4])
+
+	default:
+		return fmt.Errorf("line %d: %s xmin [xmax] [ymin] [ymax]", linenumber, s[0])
+	}
+	return nil
+}
 
 // geopoly makes polygons from geometric data
 func geopoly(w io.Writer, s []string, linenumber int) error {

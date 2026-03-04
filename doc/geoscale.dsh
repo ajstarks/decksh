@@ -1,29 +1,11 @@
-geoYmin=10
-geoYmax=90
-geoXmin=0
-geoXmax=100
-geoLatMin=0-90
-geoLatMax=90
-geoLongMin=0-180
-geoLongMax=180
+geobound -90 90 -180 180
+geocanvas 0 100 10 90
 georegion "world.kml" "black"
+// geo boundaries for Africa
 afN="geo:37.347,-17.520	(37.347°, -17.530°)"
 afS="geo:-34.833,51.267	(-34.833° ,51.267°)"
 geoloc afN  "e" 1.2
 geoloc afS  "c" 1.2
-
-// geo boundaries for Africa
-geoLatMax=37.347
-geoLongMin=0-17.530
-geoLatMin=0-34.833
-geoLongMax=51.267
-
-
-// location for africa copy
-geoXmin=50
-geoYmax=20
-geoXmax=60
-geoYmin=5
-
+geobound -34.833 37.347 -17.530 51.267
+geocanvas 50 60 5 20
 georegion "africa.kml" "red"
-

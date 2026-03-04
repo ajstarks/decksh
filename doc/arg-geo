@@ -7,4 +7,6 @@ li `"loc" [size] [color] [opacity]`
 li `"p1" "p2" [lw] [color] [opacity]`
 li `"file" [lw] [color] [opacity]`
 li `"file" [color] [opacity]`
+li `latmin [latmax] [longmin] [longmax]`
+li `xmin [xmax] [ymin] [ymax]`
 li ``

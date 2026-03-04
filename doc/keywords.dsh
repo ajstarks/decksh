@@ -3,7 +3,7 @@
 	slide
 		ctext "Keywords" 50 90 titlesize "serif"
 		hsize=titlesize*0.70
-		lsize=hsize*0.56
+		lsize=hsize*0.5
 		csep=15
 		csep2=csep*0.80
 		csep3=csep*0.80
@@ -11,7 +11,7 @@
 		lsep=5
 		headtop=top-1
 		listtop=headtop-lsep
-		listspacing=lsize*0.56
+		listspacing=lsize*0.65
 		headcolor=spotcolor
 
 		lx=left-5
@@ -108,6 +108,8 @@
 		list lx listtop lsize "mono" "black" 100 listspacing
 			li "geoarc"
 			li "geoborder"
+			li "geobound"
+			li "geocanvas"
 			li "geoimage"
 			li "geolabel"
 			li "geoloc"

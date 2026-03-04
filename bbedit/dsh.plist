@@ -69,6 +69,8 @@
 		geopath,
 		geopathfile,
 		georegion,
+		geocanvas,
+		geobound,
 		grid,
 		hline,
 		if,

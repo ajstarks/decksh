@@ -7,4 +7,6 @@ li `Reads data from the specified file or location and renders map points`
 li `Draw line between points`
 li `Reads data from the specified file and a make lines between points`
 li `Reads KML data from the specified file and renders the map regions`
+li `Sets overall geographic bounds`
+li `Sets geographic canvas`
 li ``

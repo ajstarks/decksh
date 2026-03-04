@@ -1312,6 +1312,16 @@ geoXmax=70
 
 ![canvas-scale](images/canvas-scale2.png)
 
+## Geographic Boundaries and Canvas
+
+Set the lat/long boundaries for subsequent geographic operations
+
+```geobound latmin [latmax] [longmin] [longmax]```
+
+Set the canvas bounds for geographic operations
+
+```geocanvas xmin [xmax] [ymin] [ymax]```
+
 ## Regions
 
 ![regions](images/georegion.png)
