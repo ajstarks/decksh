@@ -1312,15 +1312,31 @@ geoXmax=70
 
 ![canvas-scale](images/canvas-scale2.png)
 
-## Geographic Boundaries and Canvas
+## Geographic and Canvas bounding boxes
 
 Set the lat/long boundaries for subsequent geographic operations
 
-```geobound latmin [latmax] [longmin] [longmax]```
+```
+geobound latmin [latmax] [longmin] [longmax]
+```
+
+bounding boxes may also be specified using geo: URLs:
+
+```
+geobound "geo:-34.833222,-17.520278" "geo:37.346983,51.266667"
+```
+
+```
+af1="geo:-34.833222,-17.520278"
+af2="geo:37.346983,51.266667"
+geobound af1 af2
+```
 
 Set the canvas bounds for geographic operations
 
-```geocanvas xmin [xmax] [ymin] [ymax]```
+```
+geocanvas xmin [xmax] [ymin] [ymax]
+```
 
 ## Regions
 

@@ -1456,8 +1456,30 @@ func parsesign(s []string) []string {
 	return os
 }
 
+// getcoords extracts lat/long from geo URLs
+func getcoord(s string) (string, string) {
+	s = unquote(s)
+	ff := func(c rune) bool { return c == rune(',') }
+	f := strings.FieldsFunc(s[4:], ff)
+	if len(f) == 2 {
+		return strings.TrimSpace(f[0]), strings.TrimSpace(f[1])
+	}
+	return "", ""
+}
+
 // setLatLong sets the geo lat/long variables
 func setLatLong(s []string, linenumber int) error {
+	// parse geo coords if specified
+	if len(s) == 3 && strings.HasPrefix(unquote(s[1]), "geo:") && strings.HasPrefix(unquote(s[2]), "geo:") {
+		latmin, longmin := getcoord(s[1])
+		latmax, longmax := getcoord(s[2])
+		emap["geoLatMin"] = latmin
+		emap["geoLatMax"] = latmax
+		emap["geoLongMin"] = longmin
+		emap["geoLongMax"] = longmax
+		return nil
+	}
+	// parse individual elements
 	s = parsesign(s)
 	switch len(s) {
 	case 2:

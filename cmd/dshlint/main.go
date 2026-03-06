@@ -143,6 +143,8 @@ var kwInfo = map[string]syntax{
 	"geoarc":      {minargs: 2, maxargs: 5, desc: "Draw arcs between points", usage: "\"p1\" \"p2\" [lw] [color] [op]"},
 	"geopathfile": {minargs: 1, maxargs: 4, desc: "Reads data from the specified file and a make lines between points", usage: "\"file\" [lw] [color] [op]"},
 	"geopimage":   {minargs: 3, maxargs: 3, desc: "Place an image at a geographical location", usage: "\"loc\" width height"},
+	"geobound":    {minargs: 2, maxargs: 4, desc: "Set geographic bounds", usage: "latmin [latmax] [longmin] [longmax]"},
+	"geocanvas":   {minargs: 2, maxargs: 4, desc: "Set geographic canvas bounds", usage: "xmin [xmax] [ymin] [ymax]"},
 	// charts
 	"areachart": {minargs: 1, maxargs: 2, desc: "Area chart from specified data", usage: "\"file\" [color]"},
 	"barchart":  {minargs: 1, maxargs: 2, desc: "Bar chart from specified data", usage: "\"file\" [color]"},
