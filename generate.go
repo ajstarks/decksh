@@ -1471,12 +1471,28 @@ func getcoord(s string) (string, string) {
 func setLatLong(s []string, linenumber int) error {
 	// parse geo coords if specified
 	if len(s) == 3 && strings.HasPrefix(unquote(s[1]), "geo:") && strings.HasPrefix(unquote(s[2]), "geo:") {
-		latmin, longmin := getcoord(s[1])
-		latmax, longmax := getcoord(s[2])
-		emap["geoLatMin"] = latmin
-		emap["geoLatMax"] = latmax
-		emap["geoLongMin"] = longmin
-		emap["geoLongMax"] = longmax
+
+		l1, l2 := getcoord(s[1])
+		l1v, _ := strconv.ParseFloat(l1, 64)
+		l2v, _ := strconv.ParseFloat(l2, 64)
+		l3, l4 := getcoord(s[2])
+		l3v, _ := strconv.ParseFloat(l3, 64)
+		l4v, _ := strconv.ParseFloat(l4, 64)
+
+		if l1v < l3v {
+			emap["geoLatMin"] = l1
+			emap["geoLatMax"] = l3
+		} else {
+			emap["geoLatMin"] = l3
+			emap["geoLatMax"] = l1
+		}
+		if l2v < l4v {
+			emap["geoLongMin"] = l2
+			emap["geoLongMax"] = l4
+		} else {
+			emap["geoLongMin"] = l4
+			emap["geoLongMax"] = l2
+		}
 		return nil
 	}
 	// parse individual elements

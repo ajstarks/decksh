@@ -88,7 +88,7 @@ deck
 			li "Sans Serif"
 			li "Serif" "serif"
 			li "Monospace"  "mono"
-			li "abcde" "symbol"
+			li "ABCDEF" "symbol"
 		elist
 
 		list 68 60 2.5 "mono" "" 100 1.5

@@ -1,4 +1,5 @@
 #!/bin/bash
 now=`date +%Y-%m-%d`
-decksh test.dsh > test.xml && pdfdeck -stdout -layers=poly:rect:text:list:line:curve:image:ellipse:arc -mono Inconsolata-Medium -serif Charter-Regular -sans NotoSans-Regular test.xml > test.pdf && open test.pdf
+decksh test.dsh > test.xml && 
+pdfdeck -stdout -layers=poly:rect:text:list:line:curve:image:ellipse:arc -mono Inconsolata-Medium -serif Charter-Regular -sans NotoSans-Regular -symbol ZapfDingbats test.xml > test.pdf && open test.pdf
 cp test.xml test-${now}.xml
