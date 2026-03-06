@@ -1869,7 +1869,7 @@ deck
 		list 25 90 4 "mono" objcolor 100 1.3
 			li "x=3.14159"
 			li "y=2.0"
-			li `title=format "Value=%.2f"   x*y`
+			li `title=format "Value=%.2f" x*y`
 		elist
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "value=" 30 ly ts "mono"
