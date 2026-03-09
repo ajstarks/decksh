@@ -1,0 +1,15 @@
+def mapbox Name Mapname G1 G2 X1 Y1 Width Height MapColor
+	geobound G1 G2
+	W2=Width/2
+	X2=X1+Width
+	Y2=Y1+Height
+	Ly=Y1-2.5
+	Lx=X1+W2
+	ctext Name Lx Ly 2
+	polygon "X1 X2 X2 X1" "Y1 Y1 Y2 Y2" MapColor 20
+	geocanvas X1 X2 Y1 Y2
+	geoloc G1 "b" 1.25 "mono"
+	geoloc G2 "e" 1.25 "mono"
+	georegion Mapname MapColor
+	// dump Name Mapname G1 G2 X1 Y1 Width Height MapColor
+edef

@@ -1,0 +1,29 @@
+
+	slide "linen"
+		// ruler
+		// Northwest
+		can1="geo:83.110,-141.000	83.11°N,141.00°W"
+		can2="geo:41.480,-52.620	41.48°N,52.62°W"
+		// Southwest
+		arg1="geo:-21.800,-73.500	21.80°S,73.50°W"
+		arg2="geo:-55.066,-53.683	55.07°S,53.69°W"
+		// Northeast
+		jpn1="geo:45.516,122.916	45.52°N,122.92°E"
+		jpn2="geo:20.416,153.983	20.42°N,152.98°E"
+		// Southeast
+		jpn1="geo:45.516,122.916	45.52°N,122.92°E"
+		aus1="geo:-10.683,113.150	10.68°S,112.15°E"
+		aus2="geo:-43.633,153.633	43.63°S,153.63°E"
+
+		gc1=5
+		gc1m=gc1+10
+		gc2=gc1+50
+		gr1=55
+		gr2=gr1-50
+		mapbox "Canada"    "can.json"  	    can1 can2 gc1  gr1 40 40 "#ff0000"
+		mapbox "Argentina" "arg.json"       arg1 arg2 gc1m gr2 20 40 "#74acdf"
+		mapbox "Japan"     "jpn.json"       jpn1 jpn2 gc2  gr1 40 40 "#4B0082"
+		mapbox "Australia" "aus.json"       aus1 aus2 gc2  gr2 40 40 "#00843D"
+		vline 50 0 100 0.1
+		hline 0 50 100 0.1
+	eslide

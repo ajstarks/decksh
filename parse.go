@@ -591,7 +591,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "geocanvas":
 		return setGeoCanvas(tokens, n)
 
-	case "geobound":
+	case "geobound", "geobbox":
 		return setLatLong(tokens, n)
 
 	default: // not a keyword, direct function calls

@@ -1457,28 +1457,25 @@ func parsesign(s []string) []string {
 }
 
 // getcoords extracts lat/long from geo URLs
-func getcoord(s string) (string, string) {
+func getcoord(s string) (string, string, float64, float64) {
 	s = unquote(s)
-	ff := func(c rune) bool { return c == rune(',') }
-	f := strings.FieldsFunc(s[4:], ff)
-	if len(f) == 2 {
-		return strings.TrimSpace(f[0]), strings.TrimSpace(f[1])
+	// comma for coordinates, tab for optional description
+	f := strings.FieldsFunc(s[4:], func(c rune) bool { return c == rune(',') || c == rune(0x09) })
+	if len(f) >= 2 {
+		lat, _ := strconv.ParseFloat(f[0], 64)
+		lon, _ := strconv.ParseFloat(f[1], 64)
+		return strings.TrimSpace(f[0]), strings.TrimSpace(f[1]), lat, lon
 	}
-	return "", ""
+	return "0", "0", 0, 0
 }
 
 // setLatLong sets the geo lat/long variables
 func setLatLong(s []string, linenumber int) error {
+//	fmt.Fprintf(os.Stderr, "s=%v\n", s)
 	// parse geo coords if specified
 	if len(s) == 3 && strings.HasPrefix(unquote(s[1]), "geo:") && strings.HasPrefix(unquote(s[2]), "geo:") {
-
-		l1, l2 := getcoord(s[1])
-		l1v, _ := strconv.ParseFloat(l1, 64)
-		l2v, _ := strconv.ParseFloat(l2, 64)
-		l3, l4 := getcoord(s[2])
-		l3v, _ := strconv.ParseFloat(l3, 64)
-		l4v, _ := strconv.ParseFloat(l4, 64)
-
+		l1, l2, l1v, l2v := getcoord(s[1])
+		l3, l4, l3v, l4v := getcoord(s[2])
 		if l1v < l3v {
 			emap["geoLatMin"] = l1
 			emap["geoLatMax"] = l3
@@ -1497,24 +1494,26 @@ func setLatLong(s []string, linenumber int) error {
 	}
 	// parse individual elements
 	s = parsesign(s)
+//	fmt.Fprintf(os.Stderr, "s=%v\n", s)
+
 	switch len(s) {
 	case 2:
-		emap["geoLatMin"] = eval(s[1])
+		emap["geoLatMin"] = s[1]
 
 	case 3:
-		emap["geoLatMin"] = eval(s[1])
-		emap["geoLatMax"] = eval(s[2])
+		emap["geoLatMin"] = s[1]
+		emap["geoLatMax"] = s[2]
 
 	case 4:
-		emap["geoLatMin"] = eval(s[1])
-		emap["geoLatMax"] = eval(s[2])
-		emap["geoLongMin"] = eval(s[3])
+		emap["geoLatMin"] = s[1]
+		emap["geoLatMax"] = s[2]
+		emap["geoLongMin"] = s[3]
 
 	case 5:
-		emap["geoLatMin"] = eval(s[1])
-		emap["geoLatMax"] = eval(s[2])
-		emap["geoLongMin"] = eval(s[3])
-		emap["geoLongMax"] = eval(s[4])
+		emap["geoLatMin"] = s[1]
+		emap["geoLatMax"] = s[2]
+		emap["geoLongMin"] = s[3]
+		emap["geoLongMax"] = s[4]
 
 	default:
 		return fmt.Errorf("line %d: %s LatMin [LatMax] [LongMin] [LongMax]", linenumber, s[0])

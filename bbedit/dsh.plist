@@ -71,6 +71,7 @@
 		georegion,
 		geocanvas,
 		geobound,
+		geobbox,
 		grid,
 		hline,
 		if,

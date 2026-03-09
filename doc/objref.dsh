@@ -2610,7 +2610,7 @@ slide bgcolor fgcolor
 		list rc lsty lfs "mono" kwcolor
 			li tbl2 "sans" objcolor
 			li "georegion"
-			li "geoborder"
+			li "geoborder|geoline"
 			li "geolabel"
 			li "geomark"
 			li "geoloc"
@@ -2618,10 +2618,10 @@ slide bgcolor fgcolor
 			li "geopath"
 			li "geoarc"
 			li "geopathfile"
-			li "geobound"
+			li "geobbox|geobound"
 			li "geocanvas"
 		elist
-		rc+=13
+		rc+=19
 		list rc lsty lfs "mono" argcolor
 			li tbl3 "sans" objcolor
 			li `"file"`
@@ -2633,8 +2633,8 @@ slide bgcolor fgcolor
 			li `"p1" "p2"`
 			li `"p1" "p2"`
 			li `"file"`
-			li "latmin"
-			li "xmin"
+			li `latmin or "p1" "p2"`
+			li `xmin`
 		elist
 		rc+=20
 		list rc lsty lfs "mono" objcolor

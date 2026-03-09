@@ -1269,6 +1269,9 @@ deck
 		geolabel	"geo:35,-70	Atlantic\nOcean"		 2.5
 	eslide
 
+	import "mapbox.dsh"
+	include "geoscale.dsh"
+
 	// Example deck
 	geoLatMin=0-90
 	geoLatMax=90
@@ -1288,6 +1291,7 @@ deck
 	chartbottom=28
 	imy=55
 	opts="-fulldeck=f -textsize 1  -xlabel=2  -barwidth 1.5"
+
 
 	slide "white" "black"
 		ruler 
