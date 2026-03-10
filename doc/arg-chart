@@ -1,5 +1,6 @@
 li `options... file`
 li `"string" x y fontsize font color`
+li `left [right] [top] [bottom]`
 li `"file" [color]`
 li `"file" [color]`
 li `"file" [color]`

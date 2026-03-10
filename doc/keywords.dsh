@@ -99,7 +99,7 @@
 			li "ucarrow"
 			li "dcarrow"
 		elist
-		
+
 		headtop-=rsep
 		listtop-=rsep
 
@@ -128,6 +128,7 @@
 		lx+=csep
 		text "Charts" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
+		    li "chartbbox"
 			li "dchart"
 			li "legend"
 			li "area"
@@ -154,7 +155,7 @@
 			li "polar"
 			li "polarx"
 			li "polary"
-			li "random"		
+			li "random"
 			li "area"
 		    li "format"
 			li "substr"

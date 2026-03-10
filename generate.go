@@ -1460,7 +1460,7 @@ func parsesign(s []string) []string {
 func getcoord(s string) (string, string, float64, float64) {
 	s = unquote(s)
 	// comma for coordinates, tab for optional description
-	f := strings.FieldsFunc(s[4:], func(c rune) bool { return c == rune(',') || c == rune(0x09) })
+	f := strings.FieldsFunc(s[4:], func(c rune) bool { return c == rune(',') || c == rune(0x09) || c == rune(';') })
 	if len(f) >= 2 {
 		lat, _ := strconv.ParseFloat(f[0], 64)
 		lon, _ := strconv.ParseFloat(f[1], 64)
@@ -1471,7 +1471,7 @@ func getcoord(s string) (string, string, float64, float64) {
 
 // setLatLong sets the geo lat/long variables
 func setLatLong(s []string, linenumber int) error {
-//	fmt.Fprintf(os.Stderr, "s=%v\n", s)
+	//	fmt.Fprintf(os.Stderr, "s=%v\n", s)
 	// parse geo coords if specified
 	if len(s) == 3 && strings.HasPrefix(unquote(s[1]), "geo:") && strings.HasPrefix(unquote(s[2]), "geo:") {
 		l1, l2, l1v, l2v := getcoord(s[1])
@@ -1494,7 +1494,7 @@ func setLatLong(s []string, linenumber int) error {
 	}
 	// parse individual elements
 	s = parsesign(s)
-//	fmt.Fprintf(os.Stderr, "s=%v\n", s)
+	//	fmt.Fprintf(os.Stderr, "s=%v\n", s)
 
 	switch len(s) {
 	case 2:
@@ -2038,6 +2038,32 @@ func chartflags(s []string) dchart.Settings {
 		chart.Left, chart.Right, chart.Top, chart.Bottom = dchart.Parsebounds(chart.Boundary)
 	}
 	return chart
+}
+
+// chartbounds sets the bounding box for charts
+func chartbounds(s []string, linenumber int) error {
+	switch len(s) {
+	case 2:
+		emap["chartLeft"] = s[1]
+
+	case 3:
+		emap["chartLeft"] = s[1]
+		emap["chartRight"] = s[2]
+
+	case 4:
+		emap["chartLeft"] = s[1]
+		emap["chartRight"] = s[2]
+		emap["chartTop"] = s[3]
+
+	case 5:
+		emap["chartLeft"] = s[1]
+		emap["chartRight"] = s[2]
+		emap["chartTop"] = s[3]
+		emap["chartBottom"] = s[4]
+	default:
+		return fmt.Errorf("line %d: %s chartLeft [chartRight] [chartTop] [chartBottom]", linenumber, s[0])
+	}
+	return nil
 }
 
 // argChart takes a list of arguments with flags set and writes a chart

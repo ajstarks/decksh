@@ -1,5 +1,6 @@
 li `dchart`
 li `legend`
+li `chartbbox`
 li `areachart`
 li `barchart`
 li `dotchart`

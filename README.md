@@ -1218,6 +1218,11 @@ Show title              chartTitle      1 (0: off, 1: on)
 X-axis label interval   chartXLabel     1 (1: all, 0: none, every nth labelchartYRange
 Y-axis range            chartYRange     "" (min,max,interval)
 ```
+
+The chart boundaries may be set via ```chartbbox```.
+
+```chartbbox left [right] [top] [bottom]```
+
 For example:
 
 ```

@@ -561,6 +561,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "fanchart", "fan", "bow", "bowtie":
 		return fanchart(w, tokens, n)
 
+	case "chartbound", "chartbbox":
+		return chartbounds(tokens, n)
+
 	case "georegion", "geopoly":
 		return geopoly(w, tokens, n)
 

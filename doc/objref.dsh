@@ -2209,12 +2209,13 @@ deck
 		ctext "Charts" mid ty 5 "serif"
 		rc=initlcol
 		lcolsize=22
-		listspacing=1.5
+		listspacing=1.45
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
 			li "General Charts"
 			li "Chart Legends"
+			li "Chart Bounding Box"
 			li "Area Chart"
 			li "Bar Chart"
 			li "Dot Chart"
@@ -2234,6 +2235,7 @@ deck
 			li tbl2 "sans" objcolor
 			li "dchart"
 			li "legend"
+			li "chartbbox"
 			li "areachart"
 			li "barchart"
 			li "dotchart"
@@ -2254,6 +2256,7 @@ deck
 			li "mandatory" "sans" objcolor
 			li `options "file"`
 			li `"text" x y size font color`
+			li "left"
 			li `"file"`
 			li `"file"`
 			li `"file"`
@@ -2274,6 +2277,7 @@ deck
 			li "optional"
 			li ""
 			li ""
+			li "right top bottom"
 			li "color"
 			li "color"
 			li "color"

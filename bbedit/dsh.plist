@@ -38,6 +38,8 @@
 		for,
 		format,
 		geoarc,
+		chartbbox,
+		chartbound,
 		barchart,
 		scatterchart,
 		linechart,

@@ -1,5 +1,6 @@
 li `Chart with specified options`
 li `Chart legend`
+li `Chart bounding box`
 li `Area chart with specified data`
 li `Bar chart with specified data`
 li `Dot chart with specified data`
