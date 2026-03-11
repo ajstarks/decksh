@@ -28,7 +28,7 @@ const (
 
 // kwcouter count keywords
 func kwcounter(data [][]string) {
-	for i := 0; i < len(data); i++ {
+	for i := range data {
 		line := data[i]
 		if kind(line) == Keyword {
 			kwcount[line[0]]++
@@ -85,7 +85,7 @@ func kind(s []string) int {
 
 // printlevel prints the leading spaces for the specified level
 func printlevel(level int, spacer string) {
-	for i := 0; i < level; i++ {
+	for range level {
 		fmt.Printf(spacer)
 	}
 }
@@ -180,7 +180,7 @@ func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 		assmax = kwmax
 	}
 	level := 0
-	for i := 0; i < len(s); i++ {
+	for i := range s {
 		line := s[i]
 		if kind(line) == Blank {
 			fmt.Printf("\n")
@@ -230,7 +230,7 @@ func format(s [][]string, kwmax, strmax, assmax int, spacer string) {
 // between the <begin> and <end> elements
 func maxitem(s [][]string, begin, end int) int {
 	max := 0
-	for i := 0; i < len(s); i++ {
+	for i := range s {
 		line := s[i]
 		if len(line) <= 1 {
 			continue
@@ -248,9 +248,9 @@ func maxitem(s [][]string, begin, end int) int {
 // maxvar returns the maximum length element within an assignment line
 func maxvar(s [][]string) int {
 	max := 0
-	for i := 0; i < len(s); i++ {
+	for i := range s {
 		line := s[i]
-		for j := 0; j < len(line); j++ {
+		for j := range line {
 			if j == 1 && line[j] == "=" {
 				ll := len(line[0])
 				if ll > max {
@@ -315,7 +315,7 @@ func parse(src string) []string {
 
 // dump prints the parsed lines
 func dump(data [][]string) {
-	for i := 0; i < len(data); i++ {
+	for i := range data {
 		fmt.Fprintf(os.Stderr, "%d: %v (%d elements)\n", i+1, data[i], len(data[i]))
 	}
 }

@@ -175,7 +175,7 @@ func whatKind(s string) string {
 
 // kwcouter count keywords
 func kwcounter(data [][]string) {
-	for i := 0; i < len(data); i++ {
+	for i := range data {
 		line := data[i]
 		if kind(line) == Keyword {
 			kwcount[line[0]]++
@@ -302,7 +302,7 @@ func imagecheck(data [][]string) int {
 // lint tests for proper keyword arguments
 func lint(data [][]string) int {
 	issues := 0
-	for i := 0; i < len(data); i++ {
+	for i := range data {
 		if kind(data[i]) != Keyword {
 			continue
 		}
@@ -361,7 +361,7 @@ func main() {
 	}
 
 	issues := 0
-	for i := 0; i < la; i++ {
+	for i := range la {
 		input, err := os.Open(args[i])
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", err)
