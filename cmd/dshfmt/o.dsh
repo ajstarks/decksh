@@ -1,0 +1,29 @@
+deck
+slide
+x= 10
+x+= 20
+dchart -xlabel = 10 -yaxis "foo.d"
+ctext "hello, world" 20 20 5 "sans" "red" 100 // comment
+for y = 10 50 5
+ctext "hi"x y
+efor
+list 5 20
+li "hello"
+li "world"
+elist 
+blist 10 20
+li "foo"
+li "bar"
+elist 
+blist 50 20
+li "extra blist"
+elist 
+clist 20 20
+li "foo"
+elist 
+nlist 30 20
+li "foo"
+li "bar"
+elist 
+eslide
+edeck
