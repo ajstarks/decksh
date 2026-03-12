@@ -503,7 +503,6 @@ func process(args []string, opts options) error {
 	if issues == 0 {
 		format(output, data, kwmax, strmax, varmax, opts.spacer)
 	}
-
 	if wb && len(args) == 1 {
 		writecopy(args[0])
 	}
@@ -520,9 +519,7 @@ func process(args []string, opts options) error {
 
 // format a named file or standard input if no file is specified.
 func main() {
-
 	var opts options
-
 	flag.BoolVar(&opts.verbose, "v", false, "verbose")
 	flag.BoolVar(&opts.writeback, "w", false, "write changes")
 	flag.StringVar(&opts.spacer, "i", "\t", "indent")
