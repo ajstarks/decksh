@@ -24,7 +24,7 @@ contexts:
     - match: '\b(-)?[0-9.]+\b'
       scope: constant.numeric.decksh
 
-    - match: '\b(chartLeft|chartRight|chartTop|chartBottom|chartTextSize|chartVal|chartGrid|chartTitle|chartXLabel|chartYRange|geoXmin|geoXmax|geoYmin|geoYmax|geoLatMin|geoLatMax|geoLongMin|geoLongMax)\b'
+    - match: '\b(chartPercent|chartLineSpacing|chartLeft|chartRight|chartTop|chartBottom|chartTextSize|chartVal|chartGrid|chartTitle|chartXLabel|chartYRange|geoXmin|geoXmax|geoYmin|geoYmax|geoLatMin|geoLatMax|geoLongMin|geoLongMax)\b'
       scope: entity.other.attribute-name
 
   double_quoted_string:

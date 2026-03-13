@@ -2204,12 +2204,14 @@ func fanchart(w io.Writer, s []string, linenumber int) error {
 func stdchart(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
 	if ls < 2 {
-		return fmt.Errorf("line %d: %s filename [color]", linenumber, s[0])
+		return fmt.Errorf("line %d: %s filename [color] [labelcolor] [valuecolor]", linenumber, s[0])
 	}
 	chartname := s[0]
 	filename := unquote(eval(s[1]))
 	chart := setDefaultChartSettings()
-	color := "lightsteelblue"
+	color := chart.DataColor
+	lcolor := chart.LabelColor
+	vcolor := chart.ValueColor
 
 	// override defaults
 	if ls > 2 {
@@ -2218,7 +2220,22 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 			color = c
 		}
 	}
+	if ls > 3 {
+		c := unquote(eval(s[3]))
+		if c != `""` {
+			lcolor = c
+		}
+	}
+	if ls > 4 {
+		c := unquote(eval(s[4]))
+		if c != `""` {
+			vcolor = c
+		}
+	}
 	chart.DataColor = color
+	chart.LabelColor = lcolor
+	chart.ValueColor = vcolor
+	println(chart.DataColor, chart.LabelColor, chart.ValueColor)
 	var err error
 	chart.Top, err = strconv.ParseFloat(eval("chartTop"), 64)
 	if err != nil {
@@ -2280,8 +2297,20 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	case "areachart", "area":
 		chart.ShowVolume = true
 	case "hbarchart", "hbar":
+		chart.LineSpacing, err = strconv.ParseFloat(eval("chartLineSpacing"), 64)
+		if err != nil {
+			chart.LineSpacing = 2.4
+		}
+		chart.ShowPercentage, err = strconv.ParseBool(eval("chartPercent"))
+		if err != nil {
+			chart.ShowPercentage = false
+		}
 		chart.ShowHBar = true
 	case "wbarchart", "wbar":
+		chart.ShowPercentage, err = strconv.ParseBool(eval("chartPercent"))
+		if err != nil {
+			chart.ShowPercentage = false
+		}
 		chart.ShowWBar = true
 	}
 	return writeChart(chart, w, filename, linenumber)
