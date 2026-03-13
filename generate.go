@@ -2235,7 +2235,7 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	chart.DataColor = color
 	chart.LabelColor = lcolor
 	chart.ValueColor = vcolor
-	println(chart.DataColor, chart.LabelColor, chart.ValueColor)
+	//println(chart.DataColor, chart.LabelColor, chart.ValueColor)
 	var err error
 	chart.Top, err = strconv.ParseFloat(eval("chartTop"), 64)
 	if err != nil {
