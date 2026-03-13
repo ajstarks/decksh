@@ -49,7 +49,7 @@ func assign(s []string, linenumber int) error {
 	if ls < 3 {
 		return fmt.Errorf("line %d: %v is an incorrect assignment", linenumber, s)
 	}
-	if ls == 3 {
+	if len(s) == 3 {
 		return simpleassign(s, linenumber) // v=10
 	}
 	switch s[2] {
@@ -76,7 +76,6 @@ func assign(s []string, linenumber int) error {
 
 // simpleassign creates an simple assignment id=number
 func simpleassign(s []string, linenumber int) error {
-	s = parsesign(s)
 	if len(s) != 3 {
 		return fmt.Errorf("line %d: use: id=number or other id", linenumber)
 	}

@@ -273,7 +273,7 @@ func format(w io.Writer, s [][]string, kwmax, strmax, assmax int, spacer string)
 			level = 0
 			toplevel(w, level, spacer, line)
 			level++
-		case "slide", "eslide", "import", "include":
+		case "slide", "eslide", "import":
 			level = 1
 			toplevel(w, level, spacer, line)
 			level++
