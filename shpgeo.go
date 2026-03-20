@@ -176,5 +176,8 @@ func shpdeckpoint(dest io.Writer, g Geometry, color string, shapesize float64, p
 	x := vmap(p.X, g.Longmin, g.Longmax, g.Xmin, g.Xmax)
 	y := vmap(p.Y, g.Latmin, g.Latmax, g.Ymin, g.Ymax)
 	fill, op := colorop(color)
+	if shapesize == 0 {
+		shapesize = 0.5
+	}
 	fmt.Fprintf(dest, shpdotfmt, x, y, fill, op, shapesize)
 }
