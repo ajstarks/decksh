@@ -24,7 +24,7 @@ const (
 	decklinefmt = "<line xp1=\"%.5f\" yp1=\"%.5f\" xp2=\"%.5f\" yp2=\"%.5f\" sp=\"%.5f\" color=%s opacity=%q/>\n"
 	textfmt     = "<text align=%s xp=\"%.3f\" yp=\"%.3f\" sp=\"%.3f\" %s>%s</text>\n"
 	geoimgfmt   = "<image name=\"%s\" xp=\"%.3f\" yp=\"%.3f\" width=%q height=%q/>\n"
-	shpdotfmt   = "<ellipse xp=\"%.7f\" yp=\"%.7f\" hr=\"100\" color=%q opacity=%q wp=\"%.3f\"/>\n"
+	shpdotfmt   = "<ellipse xp=\"%.7f\" yp=\"%.7f\" hr=\"100\" color=%s opacity=%q wp=\"%.3f\"/>\n"
 )
 
 // geometry defines the canvas and map boundaries

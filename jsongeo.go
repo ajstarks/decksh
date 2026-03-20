@@ -75,7 +75,9 @@ func JSONPoint(w io.Writer, g Geometry, color string, shapesize float64, raw jso
 	var point []float64
 	fill, op := colorop(color)
 	json.Unmarshal(raw, &point)
-
+	if shapesize == 0 {
+		shapesize = 0.2
+	}
 	xp := vmap(point[0], g.Longmin, g.Longmax, g.Xmin, g.Xmax)
 	yp := vmap(point[1], g.Latmin, g.Latmax, g.Ymin, g.Ymax)
 	fmt.Fprintf(w, shpdotfmt, xp, yp, fill, op, shapesize)
