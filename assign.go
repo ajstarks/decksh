@@ -49,7 +49,7 @@ func assign(s []string, linenumber int) error {
 	if ls < 3 {
 		return fmt.Errorf("line %d: %v is an incorrect assignment", linenumber, s)
 	}
-	if len(s) == 3 {
+	if ls == 3 {
 		return simpleassign(s, linenumber) // v=10
 	}
 	switch s[2] {
@@ -65,6 +65,8 @@ func assign(s []string, linenumber int) error {
 		return substr(s, linenumber) // x=substr s begin end
 	case "polar", "polarx", "polary":
 		return polarfunc(s, linenumber) // x=polar[x|y] cx cy r theta
+	case "geocoord", "getcoord":
+		return geocoord(s, linenumber)
 	case "vmap":
 		return vmapfunc(s, linenumber) // x=vmap d min1 max1 min2 max2
 	case "(":

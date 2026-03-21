@@ -165,6 +165,7 @@
 		lx+=csep2
 		text "Math" lx headtop hsize "sans" headcolor
 		list lx listtop lsize "mono" "black" 100 listspacing
+			li "geocoord"
 		    li "cosine"
 			li "sine"
 			li "sqrt"

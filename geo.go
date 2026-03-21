@@ -41,6 +41,38 @@ type Locdata struct {
 	Name []string
 }
 
+// v = getcoord "loc"
+// v = getcoord lat long
+func geocoord(s []string, linenumber int) error {
+	var lat, long float64
+	var err error
+	cmd := s[2]
+	xmin, xmax, ymin, ymax := geocanvas()
+	latmin, latmax, longmin, longmax := geolatlong()
+	s = parsesign(s)
+	switch len(s) {
+	case 4:
+		locs := s[3]
+		_, _, lat, long = getcoord(locs)
+	case 5:
+		lat, err = strconv.ParseFloat(s[3], 64)
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+		long, err = strconv.ParseFloat(s[4], 64)
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+	default:
+		return fmt.Errorf("line %d: %s \"loc\" or %s lat long", linenumber, cmd, cmd)
+	}
+	xp := vmap(long, longmin, longmax, xmin, xmax)
+	yp := vmap(lat, latmin, latmax, ymin, ymax)
+	emap[s[0]+"_x"] = ftoa(xp)
+	emap[s[0]+"_y"] = ftoa(yp)
+	return nil
+}
+
 // evaluate reserved variables for canvas bounds (geoXmin, geoXmax, geoYmin, geoYmax)
 // if errors occur use the defaults
 func geocanvas() (float64, float64, float64, float64) {
