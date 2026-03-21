@@ -1459,6 +1459,9 @@ func parsesign(s []string) []string {
 // getcoords extracts lat/long from geo URLs
 func getcoord(s string) (string, string, float64, float64) {
 	s = unquote(s)
+	if len(s) < 4 {
+		return "0", "0", 0, 0
+	}
 	// comma for coordinates, tab for optional description
 	f := strings.FieldsFunc(s[4:], func(c rune) bool { return c == rune(',') || c == rune(0x09) || c == rune(';') })
 	if len(f) >= 2 {

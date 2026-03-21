@@ -1,7 +1,0 @@
-deck
-	slide
-		text "hello, world" 10
-		circle x y
-		image  "fsds"  x y w h 
-    eslide
-edeck

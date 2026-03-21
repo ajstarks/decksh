@@ -1319,7 +1319,7 @@ geoXmax=70
 
 ## Geographic and Canvas bounding boxes
 
-Set the lat/long boundaries for subsequent geographic operations
+Set the lat/long boundaries for subsequent geographic operations (```geobbox``` is an alternative keyword)
 
 ```
 geobound latmin [latmax] [longmin] [longmax]
@@ -1341,6 +1341,20 @@ Set the canvas bounds for geographic operations
 
 ```
 geocanvas xmin [xmax] [ymin] [ymax]
+```
+
+Access the canvas coordinates that correspond to a geographic location with the ```geocoord``` assignment:
+```
+v=geocoord "geo:40.621255,-74.439466"
+```
+or
+```
+v=geocoord 40.621255 -74.439466
+```
+
+The (x,y) coordinates are accessed:
+```
+circle v_x v_y 1 "red"
 ```
 
 ## Regions

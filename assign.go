@@ -298,6 +298,35 @@ func coordfunc(s []string, linenumber int) error {
 	return e
 }
 
+// getcoord assigns canvas coordinates given a geo: URL or lat/long pair
+// v = getcoord "loc"
+// v = getcoord lat long
+func geocoord(s []string, linenumber int) error {
+	var lat, long float64
+	xmin, xmax, ymin, ymax := geocanvas()
+	latmin, latmax, longmin, longmax := geolatlong()
+	s = parsesign(s)
+	switch len(s) {
+	case 4:
+		_, _, lat, long = getcoord(s[3])
+	case 5:
+		var err error
+		lat, err = strconv.ParseFloat(s[3], 64)
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+		long, err = strconv.ParseFloat(s[4], 64)
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+	default:
+		return fmt.Errorf("line %d: %s \"loc\" or %s lat long", linenumber, s[2], s[2])
+	}
+	emap[s[0]+"_x"] = ftoa(vmap(long, longmin, longmax, xmin, xmax))
+	emap[s[0]+"_y"] = ftoa(vmap(lat, latmin, latmax, ymin, ymax))
+	return nil
+}
+
 // vmap maps one interval to another
 func vmap(value float64, low1 float64, high1 float64, low2 float64, high2 float64) float64 {
 	return low2 + (high2-low2)*(value-low1)/(high1-low1)
