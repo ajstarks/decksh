@@ -38,6 +38,7 @@ deck
 	tbl2="keyword"
 	tbl3="mandatory"
 	tbl4="optional"
+	tbl5="arguments"
 
 	// title page
 	slide bgcolor fgcolor
@@ -1701,7 +1702,7 @@ deck
 		elist
 		rc+=20
 		list rc lsty lfs "mono" argcolor 100 listspacing
-			li tbl3 "sans" objcolor
+			li tbl5 "sans" objcolor
 			li "begin end [increment] ... efor"
 			li "condition ... [else] ... eif"
 			li "x y radius angle"
@@ -1715,7 +1716,7 @@ deck
 			li "data min1 max1 min2 max2"
 			li "name arg1 ... argn ... edef"
 			li `"file"`
-			li `"file" ... edata`
+			li `"file" ["plain"] ... edata`
 			li `"file" x y hspace vspace edge`
 			li "increment [color]"
 		elist

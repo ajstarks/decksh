@@ -680,7 +680,16 @@ tres   300
 edata
 ```
 
-makes a file named `foo.d` with the lines between `data` and `edata`.
+makes a structured data file (name[tab]value) named `foo.d` with the lines between `data` and `edata`.
+
+If the optional argument "plain" is added, the file is copied directly (with whitespace trimmed from the beginning).
+
+```
+data "foo.txt" "plain"
+Now is the time for all good men
+    to come to the aid of the party.
+edata
+````
 
 ## Grid: Place objects on a grid
 

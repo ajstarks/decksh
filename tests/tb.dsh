@@ -1,0 +1,38 @@
+deck
+	slide
+		filetype="plain"
+		data "quotes.d" filetype
+Now is the time for all good men
+to come to the aid of the party.
+
+        For lo, the winter is past
+        the rain is over and gone.
+
+		The flowers appear on the earth.
+		The time for the singing of birds is come.
+
+		For since by man came death,
+		By man came also the resurrection.
+		For as in Adam all die,
+		In Christ shall all be made alive
+		edata
+
+		data "f.txt"
+		one	10	Note
+		two	20
+		three	30
+		four	40
+		five	50
+		six	60
+		seven	70
+		eight	80
+		nine	90
+		ten	100	The most
+		edata
+
+		barchart "f.txt" "red"
+		textblockfile "quotes.d" 5 90 30 1.5 "mono"
+		textfile "quotes.d" 50 90 1
+
+	eslide
+edeck

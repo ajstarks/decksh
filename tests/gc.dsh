@@ -1,0 +1,18 @@
+deck
+	slide
+		np="geo:40.621255,-74.439466	North Plainfield"
+		nplat=40.621255
+		nplong=0-74.439466
+		geocanvas 10 90 20 90
+		geobbox   20 50 -120 -60
+		p = geocoord np
+		q = geocoord 40.621255 -74.439466
+		r = geocoord nplat nplong
+		georegion "../../tests/usa.kml" "black" 10
+		geoloc np "b" 1
+		geomark np 
+		circle p_x p_y 2.0 "red"   30
+		circle q_x q_y 4.0 "green" 30
+		circle r_x r_y 6.0 "blue"  30
+	eslide
+edeck

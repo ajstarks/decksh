@@ -79,13 +79,14 @@ func include(w io.Writer, s []string, linenumber int) error {
 // loadata creates a file using the  data keyword
 // data "file"...edata
 func loadata(s []string, linenumber int, scanner *bufio.Scanner) error {
-	if len(s) != 2 {
-		return fmt.Errorf("line %d: data \"file\"...edata", linenumber)
+	if len(s) < 2 {
+		return fmt.Errorf("line %d: data \"file\" [type]...edata", linenumber)
 	}
 	filearg, err := filequote(s[1], linenumber)
 	if err != nil {
 		return fmt.Errorf("line %d: %v", linenumber, err)
 	}
+	plainfile := len(s) > 2 && s[2] == `"plain"`
 	dataw, err := os.Create(filearg)
 	if err != nil {
 		return fmt.Errorf("line %d: %v (%v)", linenumber, s, err)
@@ -95,11 +96,17 @@ func loadata(s []string, linenumber int, scanner *bufio.Scanner) error {
 		if strings.TrimSpace(t) == "edata" {
 			break
 		}
-		f := strings.Fields(t)
-		if len(f) != 2 {
-			continue
+		if plainfile {
+			t = strings.TrimLeft(t, " ")
+			t = strings.TrimLeft(t, "\t")
+			fmt.Fprintf(dataw, t+"\n")
+		} else {
+			f := strings.Fields(t)
+			if len(f) < 2 {
+				continue
+			}
+			fmt.Fprintf(dataw, "%v\t%v\n", f[0], f[1])
 		}
-		fmt.Fprintf(dataw, "%v\t%v\n", f[0], f[1])
 	}
 	err = dataw.Close()
 	return err
