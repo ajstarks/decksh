@@ -128,6 +128,9 @@ func intcheck(ki keywordInfo) int {
 		listerr(ki, diff)
 		issues++
 	}
+	if diff < 0 {
+		issues++
+	}
 	return issues
 }
 
@@ -236,6 +239,8 @@ func conditional(w io.Writer, level int, spacer string, s []string) {
 		fmt.Fprintf(w, "%s%s %s\n", s[2], s[3], s[4])
 	case 6:
 		fmt.Fprintf(w, "%s%s %s %s\n", s[2], s[3], s[4], s[5])
+	default:
+		fmt.Fprintf(os.Stderr, "unexpected length: %d\n", len(s))
 	}
 }
 
@@ -278,6 +283,9 @@ func format(w io.Writer, s [][]string, kwmax, strmax, assmax int, spacer string)
 			level++
 		case "efor", "elist", "eif", "edata":
 			level--
+			if level < 0 {
+				level = 0
+			}
 			keyword(w, level, assmax, kwmax, spacer, line)
 		case "li":
 			level = 3
