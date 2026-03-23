@@ -43,17 +43,6 @@ type options struct {
 
 type keywordInfo map[string][]int
 
-// kwcouter count keywords
-/*
-func kwcounter(data [][]string) {
-	for i := range data {
-		line := data[i]
-		if kind(line) == Keyword {
-			kwcount[line[0]]++
-		}
-	}
-	}*/
-
 // kwcouter count keywords occurances
 func kwcounter(data [][]string) keywordInfo {
 	var ki = keywordInfo{}
@@ -147,7 +136,7 @@ func kind(s []string) int {
 	if len(s) == 0 {
 		return Blank
 	}
-	if len(s) == 1 && s[0][0] == '/' && s[0][1] == '/' {
+	if len(s) == 1 && len(s[0]) > 1 && s[0][0] == '/' && s[0][1] == '/' {
 		return Comment
 	}
 	if len(s) > 2 && s[1] == "=" {
