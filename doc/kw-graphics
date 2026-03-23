@@ -5,6 +5,7 @@ li `curve`
 li `ellipse`
 li `hline`
 li `line`
+li `dline`
 li `pill`
 li `polygon`
 li `polyline`

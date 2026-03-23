@@ -556,6 +556,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "hline":
 		return hline(w, tokens, n)
 
+	case "dline":
+		return dline(w, tokens, n)
+
 	case "dchart", "chart":
 		return deckchart(w, t, n)
 

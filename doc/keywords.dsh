@@ -52,6 +52,7 @@
 			li "circle"
 			li "curve"
 			li "ellipse"
+			li "dline"
 			li "hline"
 			li "line"
 			li "pill"

@@ -5,6 +5,7 @@ li `Quadradic Bezier Curve begin (bx,by), control (cx, cy), end (ex,ey)`
 li `Ellipse centered at (x,y), dimension (w,h)`
 li `Horizontal line begin at (x,y), length w`
 li `Line between (x1,y1) and (x2,y2)`
+li `Dotted line between (x1,y1) and (x2,y2)`
 li `Pill shape beginning at (x,y), dimensions (w,h)`
 li `Polygon with specified x, y coordinates`
 li `Polyline with specified x, y coordinates`

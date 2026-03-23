@@ -951,15 +951,22 @@ polyline "xcoords" "ycoords" [lw] [color] [opacity]
 For lines, specify the coordinates for the beginning `(x1,y1)` and end points
 `(x2, y2)`.  For horizontal and vertical lines specify the initial point and
 the length.  Line thickness, color and opacity are optional, with defaults
-(0.2, gray, 100%).
+(0.2, gray, 100%). Dotted lines are similar, you must specify the number of dots.
 
-A "pill" shape has is a horizontal line with rounded ends.
+
 
 ```
 line    x1 y1 x2 y2 [size] [color] [opacity]
 ```
 
 ![line](images/line.png)
+
+
+```
+dline   x1 y1 x2 y2 n [size] [color] [opacity]
+```
+
+![dline](images/dline.png)
 
 ```
 hline   x y length  [size] [color] [opacity]
@@ -972,6 +979,9 @@ vline   x y length  [size] [color] [opacity]
 ```
 
 ![vline](images/vline.png)
+
+
+A "pill" shape has is a horizontal line with rounded ends.
 
 ```
 pill    x w length  size   [color]

@@ -896,6 +896,125 @@ func vline(w io.Writer, s []string, linenumber int) error {
 	return nil
 }
 
+// dotted line places count dots along the line (x1,y1) and (x2,y2)
+func dottedline(w io.Writer, x1, y1, x2, y2, size float64, count int, color string, op float64) {
+	n := float64(count)
+	cfmt := "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=%s opacity=\"%.3f\"/>\n"
+	// Undefined slope (vertical lines)
+	if x1 == x2 {
+		interval := math.Abs(y2-y1) / n
+		if y1 < y2 {
+			y := y1
+			for range count {
+				fmt.Fprintf(w, cfmt, x1, y, size, color, op)
+				y += interval
+			}
+		} else {
+			y := y2
+			for range count {
+				fmt.Fprintf(w, cfmt, x1, y, size, color, op)
+				y += interval
+			}
+		}
+		return
+	}
+
+	x := x1
+	if x2 < x1 {
+		x = x2
+	}
+	interval := math.Abs(x2-x1) / n
+	m := (y2 - y1) / (x2 - x1) // slope
+	for range count {
+		y := m*(x-x1) + y1
+		fmt.Fprintf(w, cfmt, x, y, size, color, op)
+		x += interval
+	}
+}
+
+// dline makes dotted lines
+// dline x1 y1 x2 y2 [n] [size] [color] [opacity]
+func dline(w io.Writer, s []string, linenumber int) error {
+	n := len(s)
+	e := fmt.Errorf("line %d: %s x1 y1 x2 y2 n [size] [color] [opacity]", linenumber, s[0])
+	if n < 6 {
+		return e
+	}
+	if err := validNumber(s[1], s[2], s[3], s[4]); err != nil {
+		return fmt.Errorf("line %d: %v: %v", linenumber, err, s)
+	}
+	var x1, y1, x2, y2 float64
+	var err error
+
+	x1, err = strconv.ParseFloat(s[1], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v", linenumber, err)
+	}
+	y1, err = strconv.ParseFloat(s[2], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v", linenumber, err)
+	}
+	x2, err = strconv.ParseFloat(s[3], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v", linenumber, err)
+	}
+	y2, err = strconv.ParseFloat(s[4], 64)
+	if err != nil {
+		return fmt.Errorf("line %d: %v", linenumber, err)
+	}
+
+	// default values
+	ndots := 5        // s[6]
+	size := 0.5       // s[7]
+	color := `"gray"` // s[9]
+	opacity := 100.0  // s[9]
+
+	switch n {
+	case 6:
+		ndots, err = strconv.Atoi(s[5])
+		if err != nil {
+			return e
+		}
+	case 7:
+		ndots, err = strconv.Atoi(s[5])
+		if err != nil {
+			return e
+		}
+		size, err = strconv.ParseFloat(s[6], 64)
+		if err != nil {
+			return e
+		}
+	case 8:
+		ndots, err = strconv.Atoi(s[5])
+		if err != nil {
+			return e
+		}
+		size, err = strconv.ParseFloat(s[6], 64)
+		if err != nil {
+			return e
+		}
+		color = s[7]
+	case 9:
+		ndots, err = strconv.Atoi(s[5])
+		if err != nil {
+			return e
+		}
+		size, err = strconv.ParseFloat(s[6], 64)
+		if err != nil {
+			return e
+		}
+		color = s[7]
+		opacity, err = strconv.ParseFloat(s[8], 64)
+		if err != nil {
+			return e
+		}
+	default:
+		return e
+	}
+	dottedline(w, x1, y1, x2, y2, size, ndots, color, opacity)
+	return nil
+}
+
 // arc makes the markup for arc
 // arc cx cy w h a1 a2 [size] [color] [opacity]
 func arc(w io.Writer, s []string, linenumber int) error {

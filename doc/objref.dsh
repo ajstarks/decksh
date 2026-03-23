@@ -509,12 +509,13 @@ deck
 	slide bgcolor fgcolor
 		rc=initlcol
 		lcolsize*=1.2
-		listspacing=1.5
+		listspacing=1.4
 		ctext "Graphical Elements" mid ty 5 "serif"
 		hline rc llsty 90 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
 			li "Line"
+			li "Dotted Line"
 			li "Horizontal line"
 			li "Vertical line"
 			li "Elliptical arc"
@@ -534,6 +535,7 @@ deck
 		list rc lsty lfs "mono" kwcolor 100 listspacing
 			li tbl2 "sans" objcolor
 			li "line"
+			li "dline"
 			li "hline"
 			li "vline"
 			li "arc"
@@ -553,6 +555,7 @@ deck
 		list rc lsty lfs "mono" argcolor 100 listspacing
 			li tbl3 "sans" objcolor
 			li "x1 y1 x2 y2 lw"
+			li "x1 y1 x2 y2 n"
 			li "x y w"
 			li "x y h"
 			li "x y w h a1 a2"
@@ -572,6 +575,7 @@ deck
 		list rc lsty lfs "mono" optcolor 100 listspacing
 			li tbl4 "sans" objcolor
 			li "color op"
+			li "lw color op"
 			li "lw color op"
 			li "lw color op"
 			li "lw color op"
@@ -616,6 +620,36 @@ deck
 		line 70 20 95 30 1.5 accentcolor
 		ctext `line 70 20 95 30 1.5 "maroon"` 82 ely ls "mono"
 	eslide
+
+
+	// dotted line
+	slide bgcolor fgcolor
+		ky=70
+		cy=ky-10
+		ly=cy-15
+		lw=3
+		dline 20 ky 80 ky 10 2 "black" 30
+		circle 20 ky lw accentcolor
+		circle 80 ky lw accentcolor
+		ctext "(x1,y1)" 20 cy ts "mono"
+		ctext "(x2,y2)" 80 cy ts "mono"
+		hline 0 47 100 hlsize hlcolor hlop
+		etext "line"                  32 ly ts "mono" kwcolor
+		ctext "x1 y1 x2 y2 n"         45 ly ts "mono" argcolor
+		ctext "lw color op"           66 ly ts "mono" optcolor
+		ctext "lw" 13 69 ts "mono"
+		lbrace 16 70 lw 1 1
+
+		dline 10 20 30 20 10
+		ctext "dline 10 20 30 20 10" 20 ely ls "mono"
+
+		dline 40 20 60 35 15 1.5 
+		ctext "dline 40 20 60 35 15 1.5" cx ely ls "mono"
+
+		dline 70 20 95 35 10 2.0 accentcolor
+		ctext `dline 70 20 95 35 10 2.0 "maroon"` 82 ely ls "mono"
+	eslide
+
 
 	// hline
 	slide bgcolor fgcolor

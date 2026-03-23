@@ -2,9 +2,9 @@
 	hs=ts*1.2
 	rs=ts*2
 	ls=ts
-	top=87
+	top=89
 	htop=top+3
-	ttop=top+9
+	ttop=top+7
 	c0=7
 	c1=c0+1
 	c2=c1+11
