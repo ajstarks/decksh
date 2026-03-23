@@ -94,6 +94,9 @@ func matcherr(ki keywordInfo, s string, c1, c2 int) {
 	fmt.Fprintf(os.Stderr, matchfmt, s, c1, "e"+s, c2)
 	list := ki[s]
 	ll := len(list) - 1
+	if ll < 0 {
+		return
+	}
 	for i := range ll {
 		fmt.Fprintf(os.Stderr, "%d, ", list[i])
 	}
