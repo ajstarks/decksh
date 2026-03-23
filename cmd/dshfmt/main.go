@@ -276,7 +276,7 @@ func format(w io.Writer, s [][]string, kwmax, strmax, assmax int, spacer string)
 			level = 2
 			conditional(w, level, spacer, line)
 			level++
-		case "efor", "elist", "eif":
+		case "efor", "elist", "eif", "edata":
 			level--
 			keyword(w, level, assmax, kwmax, spacer, line)
 		case "li":
@@ -327,34 +327,9 @@ func maxvar(s [][]string) int {
 	return max
 }
 
-// rd reads decksh lines from a io.Reader, parsing them into lines
-func rd(r io.Reader) [][]string {
-	var s scanner.Scanner
-	s.Init(r)
-	s.Mode ^= scanner.SkipComments
-	var data [][]string
-	var line []string
-	var t string
-	var index, next int
-
-	for tok := s.Scan(); tok != scanner.EOF; tok = s.Scan() {
-		index = s.Position.Line - 1
-		if index-next >= 1 { // new line
-			data = append(data, line)
-			line = []string{}
-		}
-		// build the line
-		t = s.TokenText()
-		line = append(line, t)
-		next = index
-	}
-	data = append(data, line) // last line
-	return data
-}
-
 // readDecks reads decksh lines from a io.Reader, parsing them into lines
 // blank lines are preserved.
-func readDecksh(r io.Reader) [][]string {
+func readDecksh(r io.Reader) ([][]string, error) {
 	var data [][]string
 	scanner := bufio.NewScanner(r)
 	scanner.Buffer(make([]byte, maxbufsize), maxbufsize)
@@ -362,7 +337,7 @@ func readDecksh(r io.Reader) [][]string {
 		tokens := parse(scanner.Text())
 		data = append(data, tokens)
 	}
-	return data
+	return data, scanner.Err()
 }
 
 // parse takes a line of input and returns a string slice containing the parsed tokens
@@ -482,7 +457,10 @@ func process(args []string, opts options) error {
 	if err != nil {
 		return err
 	}
-	data := readDecksh(input)     // read the data
+	data, err := readDecksh(input) // read the data
+	if err != nil {
+		return err
+	}
 	kwinfo := kwcounter(data)     // count keywords and elements
 	kwmax := maxitem(data, 0, 1)  // max keyword length
 	strmax := maxitem(data, 1, 2) // max string argument length
