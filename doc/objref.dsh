@@ -68,7 +68,7 @@ deck
 	// defining vars
 	slide bgcolor fgcolor
 		ctext "Defining and using variables" mid ty 5 "serif"
-		
+
 		ax=20
 		ay=80
 
@@ -103,7 +103,7 @@ deck
 
 	// binop
 	slide bgcolor fgcolor
-		ctext "Binary  operators" mid ty 5 "serif" 
+		ctext "Binary  operators" mid ty 5 "serif"
 		ax=20
 		list ax ay 4 "mono" "" 100 1.5
 			li "x = a + b"
@@ -124,7 +124,7 @@ deck
 
 	// assignment operators
 	slide bgcolor fgcolor
-		ctext "Assignment operators" mid ty 5 "serif" 
+		ctext "Assignment operators" mid ty 5 "serif"
 		ax=20
 		list ax ay 4 "mono" "" 100 1.5
 			li "x += 10"
@@ -143,7 +143,7 @@ deck
 
 	// special assignments
 	slide bgcolor fgcolor
-		ctext "Special Assignments" mid ty 5 "serif" 
+		ctext "Special Assignments" mid ty 5 "serif"
 		ax=5
 		list ax ay 2.5 "mono" "" 100 1.3
 			li "p=(expr, expr)"
@@ -229,7 +229,7 @@ deck
 
 		text `"red/blue/90"` 6 15 3 "mono" "steelblue"
 		text "(applies to rect and square only)"  6 10 1.5 "serif"
-		rect 30 16 6 4 "red/blue/90" 
+		rect 30 16 6 4 "red/blue/90"
 	eslide
 
 	// color indices: produce in the code directory: $ ./mkcats.sh
@@ -243,7 +243,7 @@ deck
 
 	// Object index
 	include "oi.dsh"
-	
+
 	// Text index
 	slide bgcolor fgcolor
 		rc=initlcol
@@ -390,7 +390,7 @@ deck
 
 		ctext `rtext 20 20 30 3` 20 ely ets "mono"
 		ctext `rtext 50 20 90 5` 50 ely ets "mono"
-		ctext `rtext 80 20 270 4 "sans" "maroon"` 80 ely ets "mono" 
+		ctext `rtext 80 20 270 4 "sans" "maroon"` 80 ely ets "mono"
 	eslide
 
 	// arctext
@@ -399,7 +399,7 @@ deck
 		a1y=polary cx ky 22 170
 		a2x=polarx cx ky 22 10
 		a2y=polary cx ky 22 10
-		
+
 		arctext "hello there world" cx ky 15 170 10 5 "mono" objcolor
 		circle cx ky coordsize accentcolor
 		ctext "(x,y)" cx 65 lw "mono"
@@ -415,7 +415,7 @@ deck
 
 		ctext `arctext "What is up" 25 20 10 180 90 3 "mono"` 25 ely ets "mono"
 		ctext `arctext "This is curvy" 75 30 10 180 360 3 "mono"` 75 ely ets "mono"
-		
+
 	eslide
 
 	// textblock
@@ -555,7 +555,7 @@ deck
 		list rc lsty lfs "mono" argcolor 100 listspacing
 			li tbl3 "sans" objcolor
 			li "x1 y1 x2 y2 lw"
-			li "x1 y1 x2 y2 n"
+			li "x1 y1 x2 y2"
 			li "x y w"
 			li "x y h"
 			li "x y w h a1 a2"
@@ -575,7 +575,7 @@ deck
 		list rc lsty lfs "mono" optcolor 100 listspacing
 			li tbl4 "sans" objcolor
 			li "color op"
-			li "lw color op"
+			li "lw gap color op"
 			li "lw color op"
 			li "lw color op"
 			li "lw color op"
@@ -628,9 +628,9 @@ deck
 		cy=ky-10
 		ly=cy-15
 		lw=3
-		dline 20 ky 80 ky 10 2 "black" 30
-		circle 20 ky lw accentcolor
-		circle 80 ky lw accentcolor
+		dline 20 ky 80 ky 2 4 "black" 30
+		circle 20 ky lw accentcolor 40
+		circle 80 ky lw accentcolor 40
 		ctext "(x1,y1)" 20 cy ts "mono"
 		ctext "(x2,y2)" 80 cy ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
@@ -640,14 +640,14 @@ deck
 		ctext "lw" 13 69 ts "mono"
 		lbrace 16 70 lw 1 1
 
-		dline 10 20 30 20 10
-		ctext "dline 10 20 30 20 10" 20 ely ls "mono"
+		dline 10 20 30 20
+		ctext "dline 10 20 30 20" 20 ely ls "mono"
 
-		dline 40 20 60 35 15 1.5 
-		ctext "dline 40 20 60 35 15 1.5" cx ely ls "mono"
+		dline 40 20 60 35 2 4
+		ctext "dline 40 20 60 35 2 4" cx ely ls "mono"
 
-		dline 70 20 95 35 10 2.0 accentcolor
-		ctext `dline 70 20 95 35 10 2.0 "maroon"` 82 ely ls "mono"
+		dline 70 20 95 35 2 6 accentcolor 50
+		ctext `dline 70 20 95 35 2 6 "maroon" 50` 82 ely ls "mono"
 	eslide
 
 
@@ -720,7 +720,7 @@ deck
 		arc 20 ey 15 15 0 180
 		ctext "arc 20 20 15 15 0 180" 20 ely ls "mono"
 
-		arc 50 20 15 15 0 90 1	
+		arc 50 20 15 15 0 90 1
 		ctext "arc 50 20 15 15 0 90 1" 50 ely ls "mono"
 
 		arc 80 20 5 5 0 180 5 accentcolor
@@ -905,7 +905,7 @@ deck
 		ctext `rect 80 20 5 10 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// rrect	
+	// rrect
 	slide bgcolor fgcolor
 		cx=50
 		ky=70
@@ -934,7 +934,7 @@ deck
 		rrect 20 20 10 5 1
 		ctext "rrect 20 20 10 5 1" 20 ely ls "mono"
 
-		rrect 80 20 5 10 1 accentcolor 
+		rrect 80 20 5 10 1 accentcolor
 		ctext `rrect 80 20 5 10 1 "maroon"` 80 ely ls "mono"
 	eslide
 
@@ -955,7 +955,7 @@ deck
 		ctext "(x,y)" px cy ts "mono"
 		ubrace 50 82 pw 2 4
 		ctext "w" 50 83 3 "mono"
-		lbrace 29 ky ph 2 2 
+		lbrace 29 ky ph 2 2
 		ctext "h" 27 ky ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "pill"                 43 ly ts "mono" kwcolor
@@ -1030,7 +1030,7 @@ deck
 		circle ix iy 1 accentcolor
 		circle ox oy 1 accentcolor
 
-		line cx ky ix iy 
+		line cx ky ix iy
 		line cx ky ox oy
 		ctext "outer" 40 70 2
 		ctext "inner" 53 72 2
@@ -1098,7 +1098,7 @@ deck
 		etext `image "file"`                    43 ly ts "mono" kwcolor
 		ctext "x y w h"                  50 ly ts "mono" argcolor
 		ctext "scale link"               65 ly ts "mono" optcolor
-		
+
 		image "images/follow.jpg" 20 25 640 480 10
 		ctext `image "follow.jpg" 20 25 640 480 10` 20 ely ls "mono"
 
@@ -1124,7 +1124,7 @@ deck
 		etext `cimage "file"`                    43 ly ts "mono" kwcolor
 		ctext "x y w h"                  50 ly ts "mono" argcolor
 		ctext "scale link"               65 ly ts "mono" optcolor
-		
+
 		cimage "images/cloudy.jpg" "sky" 20 25 640 480 10
 		ctext `cimage "cloudy.jpg" "sky" 20 25 640 480 10` 20 exy ls "mono"
 
@@ -1160,7 +1160,7 @@ deck
 			li "x y fontsize"
 			li "x y fontsize"
 			li "x y fontsize"
-			li "x y fontsize"			
+			li "x y fontsize"
 		elist
 		rc+=18
 		list rc lsty lfs "mono" optcolor
@@ -1171,7 +1171,7 @@ deck
 			li "font color op spacing"
 		elist
 	eslide
-	
+
 	// list
 	slide bgcolor fgcolor
 		ky=70
@@ -1466,10 +1466,10 @@ deck
 			li "x y height bw bh"
 			li "x y width bw bh"
 			li "x y width bw bh"
-			li "x y width height"		
-			li "x y width height"		
-			li "x y width height"		
-			li "x y width height"		
+			li "x y width height"
+			li "x y width height"
+			li "x y width height"
+			li "x y width height"
 		elist
 		rc+=25
 		list rc lsty lfs "mono" objcolor
@@ -1604,7 +1604,7 @@ deck
 		rbrace 65 75 brh 2 2
 		ctext "height" 70 74 lw "mono"
 
-		lbracket 20 25 2 20 
+		lbracket 20 25 2 20
 		ctext "lbrace 20 25 2 20" 20 ely ets "mono"
 
 		lbracket 50 25 4 20 1
@@ -1629,7 +1629,7 @@ deck
 		rbrace 65 75 brh 2 2
 		ctext "height" 70 74 lw "mono"
 
-		rbracket 20 25 2 20 
+		rbracket 20 25 2 20
 		ctext "lbrace 20 25 2 20" 20 ely ets "mono"
 
 		rbracket 50 25 4 20 1
@@ -1730,7 +1730,7 @@ deck
 			li "value=vmap"
 			li "def"
 			li "import"
-			li "data" 
+			li "data"
 			li "grid"
 			li "ruler"
 		elist
@@ -1760,10 +1760,10 @@ deck
 	slide bgcolor fgcolor
 		list 25 85 4 "mono" objcolor 100 1.3
 			li "for v=begin end [increment]"
-			li "...items to repeat using v" "mono" 
+			li "...items to repeat using v" "mono"
 			li "efor"
 		elist
-		
+
 		hline 0 47 100 hlsize hlcolor hlop
 		ctext "for"  25 ly ts "mono" kwcolor
 		etext  "v="  32 ly ts "mono"
@@ -1791,7 +1791,7 @@ deck
 		text  "condition" 28 ly ts "mono"
 		text  "..."       44 ly ts "mono" argcolor
 		text  "else ..."  50 ly ts "mono" optcolor
-		text  "eif"       64 ly ts "mono" kwcolor 
+		text  "eif"       64 ly ts "mono" kwcolor
 
 
 		ely=ly-10
@@ -1839,7 +1839,7 @@ deck
 		etext "px=" 35 ly1 ts "mono"
 		etext "py=" 35 ly2 ts "mono"
 		text  "polarx" 35 ly1 ts "mono" kwcolor
-		text  "polary" 35 ly2 ts "mono" kwcolor 
+		text  "polary" 35 ly2 ts "mono" kwcolor
 		text  "x y radius theta" 46 ly1 ts "mono" argcolor
 		text  "x y radius theta" 46 ly2 ts "mono" argcolor
 
@@ -1851,7 +1851,7 @@ deck
 		etext "radius" 45 75 lw "mono"
 		line pcx pcy px py 0.5
 		line pcx pcy 60 pcy 0.5
-		arc pcx pcy 10 8 0 45 
+		arc pcx pcy 10 8 0 45
 		circle px py coordsize accentcolor
 
 		include  "code/p1.dsh"
@@ -1878,7 +1878,7 @@ deck
 		etext "radius" 45 75 lw "mono"
 		line pcx pcy p_x p_y 0.5
 		line pcx pcy 60 pcy 0.5
-		arc pcx pcy 10 8 0 45 
+		arc pcx pcy 10 8 0 45
 		circle p_x p_y coordsize accentcolor
 
 		include  "code/p0.dsh"
@@ -2089,7 +2089,7 @@ deck
 		vline 70 55 34 1 kwcolor 20
 		ctext "limit" 70 90 lw "mono"
 		ctext "file" 15 90 lw "mono"
-		arrow 15 88 15 85 0.3 2 2 
+		arrow 15 88 15 85 0.3 2 2
 
 		grid     "code/grid-ex1.dsh" 35 33 10 10 65
 		textfile "code/grid-ex1.dsh" 10 35 2 "mono"
@@ -2145,7 +2145,7 @@ deck
 			li "number or expression"
 			li "number or expression"
 			li "number or expression"
-		elist		
+		elist
 	eslide
 
 	// Cosine
@@ -2241,9 +2241,9 @@ deck
 		text "number or expression" 43 ly ts "mono" argcolor
 	eslide
 
-	
 
-	
+
+
 	// charts index
 	slide bgcolor fgcolor
 		ctext "Charts" mid ty 5 "serif"
@@ -2407,7 +2407,7 @@ deck
 
 		arrow 32 58 32 65 0.3 2 2 objcolor // yaxis
 		arrow 50 94 50 90 0.3 2 2 objcolor // top
-		arrow 75 82 65 82 0.3 2 2 objcolor // right 
+		arrow 75 82 65 82 0.3 2 2 objcolor // right
 		arrow 25 82 35 82 0.3 2 2 objcolor // left
 		arrow 50 58 50 65 0.3 2 2 objcolor // bottom
 		vline 35 65 25 0.1 objcolor 50
@@ -2432,7 +2432,7 @@ deck
 		legend "My text" 40 70 10 "sans" objcolor
 		circle 40 70 3 accentcolor
 		ctext "(x,y)" 40 65 lw "mono"
-		
+
 		legend "Item on the chart" 20 30 3 "sans" "red"
 		text `legend "Item on the chart" 20 30 3 "sans" "red"` 3 10 ets "mono"
 
@@ -2695,7 +2695,7 @@ slide bgcolor fgcolor
 			li "latmax longmin longmax"
 			li "xmax ymin ymax"
 		elist
-		
+
 		ny=lsty-75
 		text `"file" refer to Shapefile (.shp), GeoJSON (.json or .geojson) or Keyhole Markup Language (.kml) files from opendatasoft` initlcol ny 1.5 "sans" "" 100 "https://public.opendatasoft.com/explore/dataset/world-administrative-boundaries/export/"
 		ny+=1
@@ -2873,7 +2873,7 @@ slide bgcolor fgcolor
 		ctext "h"     37   78 ts
 		ubrace 48.7    87 13.5 1 2 0.2 "black"
 		lbrace 38.5  79 11.2 2 2 0.2 "black"
-		
+
 		etext  "geo:lat,long<tab>imgfile" 29 56 2.5
 		kwx=35
 		arx=kwx+12
@@ -2884,7 +2884,7 @@ slide bgcolor fgcolor
 		text `"loc" w h` arx ly ts "mono" argcolor
 		image "images/geoimage.png" 85 25 25 0
 		textfile "code/geopic.dsh" 5 32 2 "mono"
-	eslide	
+	eslide
 
 	slide bgcolor fgcolor
 		kwx=25
@@ -2943,6 +2943,6 @@ slide bgcolor fgcolor
 		image "images/roadtrip.png" 82 25 35 0
 		textfile "code/geopathfile.dsh" 5 32 1.6 "mono"
 	eslide
-	
+
 	include "kwref.dsh"
 edeck

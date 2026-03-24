@@ -21,6 +21,7 @@ const (
 	curvefmt    = "<curve xp1=\"%.2f\" yp1=\"%.2f\" xp2=\"%.2f\" yp2=\"%.2f\" xp3=\"%.2f\" yp3=\"%.2f\" %s/>\n"
 	linefmt     = "<line xp1=\"%.2f\" yp1=\"%.2f\" xp2=\"%.2f\" yp2=\"%.2f\" %s/>\n"
 	sqfmt       = "<rect xp=\"%.2f\" yp=\"%.2f\" wp=\"%.2f\" hp=\"%.2f\" hr=\"100\" %s/>\n"
+	dlfmt       = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=%s opacity=\"%.3f\"/>\n"
 )
 
 // xmlmap defines the XML substitutions
@@ -897,38 +898,29 @@ func vline(w io.Writer, s []string, linenumber int) error {
 }
 
 // dotted line places count dots along the line (x1,y1) and (x2,y2)
-func dottedline(w io.Writer, x1, y1, x2, y2, size float64, count int, color string, op float64) {
-	n := float64(count)
-	cfmt := "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=%s opacity=\"%.3f\"/>\n"
-	// Undefined slope (vertical lines)
-	if x1 == x2 {
-		interval := math.Abs(y2-y1) / n
-		if y1 < y2 {
-			y := y1
-			for range count {
-				fmt.Fprintf(w, cfmt, x1, y, size, color, op)
-				y += interval
-			}
-		} else {
-			y := y2
-			for range count {
-				fmt.Fprintf(w, cfmt, x1, y, size, color, op)
-				y += interval
-			}
-		}
-		return
+func dottedline(w io.Writer, x1, y1, x2, y2, size, gap float64, color string, op float64) {
+	// Calculate the total length of the line
+	dx := x2 - x1
+	dy := y2 - y1
+	dist := math.Sqrt(dx*dx + dy*dy)
+
+	// Determine how many dots fit based on the gap
+	count := 1
+	if dist > 0 && gap > 0 {
+		count = int(dist/gap) + 1
 	}
 
-	x := x1
-	if x2 < x1 {
-		x = x2
-	}
-	interval := math.Abs(x2-x1) / n
-	m := (y2 - y1) / (x2 - x1) // slope
-	for range count {
-		y := m*(x-x1) + y1
-		fmt.Fprintf(w, cfmt, x, y, size, color, op)
-		x += interval
+	// Draw dots at fixed intervals along the vector
+	for i := 0; i < count; i++ {
+		var t float64 // percentage along the line
+		if count > 1 {
+			t = float64(i) / float64(count-1)
+		} else {
+			t = 0 // Just draw at the start point
+		}
+		px := x1 + dx*t
+		py := y1 + dy*t
+		fmt.Fprintf(w, dlfmt, px, py, size, color, op)
 	}
 }
 
@@ -936,8 +928,8 @@ func dottedline(w io.Writer, x1, y1, x2, y2, size float64, count int, color stri
 // dline x1 y1 x2 y2 [n] [size] [color] [opacity]
 func dline(w io.Writer, s []string, linenumber int) error {
 	n := len(s)
-	e := fmt.Errorf("line %d: %s x1 y1 x2 y2 n [size] [color] [opacity]", linenumber, s[0])
-	if n < 6 {
+	e := fmt.Errorf("line %d: %s x1 y1 x2 y2 [size] [gap] [color] [opacity]", linenumber, s[0])
+	if n < 5 {
 		return e
 	}
 	if err := validNumber(s[1], s[2], s[3], s[4]); err != nil {
@@ -964,54 +956,33 @@ func dline(w io.Writer, s []string, linenumber int) error {
 	}
 
 	// default values
-	ndots := 5        // s[6]
-	size := 0.5       // s[7]
-	color := `"gray"` // s[9]
-	opacity := 100.0  // s[9]
+	size := 0.5       // s[5]
+	gap := size * 2   // s[6]
+	color := `"gray"` // s[7]
+	opacity := 100.0  // s[8]
 
-	switch n {
-	case 6:
-		ndots, err = strconv.Atoi(s[5])
+	if n > 5 {
+		size, err = strconv.ParseFloat(s[5], 64)
 		if err != nil {
 			return e
 		}
-	case 7:
-		ndots, err = strconv.Atoi(s[5])
+	}
+	if n > 6 {
+		gap, err = strconv.ParseFloat(s[6], 64)
 		if err != nil {
 			return e
 		}
-		size, err = strconv.ParseFloat(s[6], 64)
-		if err != nil {
-			return e
-		}
-	case 8:
-		ndots, err = strconv.Atoi(s[5])
-		if err != nil {
-			return e
-		}
-		size, err = strconv.ParseFloat(s[6], 64)
-		if err != nil {
-			return e
-		}
+	}
+	if n > 7 {
 		color = s[7]
-	case 9:
-		ndots, err = strconv.Atoi(s[5])
-		if err != nil {
-			return e
-		}
-		size, err = strconv.ParseFloat(s[6], 64)
-		if err != nil {
-			return e
-		}
-		color = s[7]
+	}
+	if n > 8 {
 		opacity, err = strconv.ParseFloat(s[8], 64)
 		if err != nil {
 			return e
 		}
-	default:
-		return e
 	}
-	dottedline(w, x1, y1, x2, y2, size, ndots, color, opacity)
+	dottedline(w, x1, y1, x2, y2, size, gap, color, opacity)
 	return nil
 }
 
@@ -1934,6 +1905,17 @@ func geopathfile(w io.Writer, s []string, linenumber int) error {
 	}
 	if n > 4 {
 		op = eval(s[4])
+	}
+	if n > 5 {
+		ndots, err := strconv.ParseFloat(s[5], 64)
+		if err != nil {
+			return fmt.Errorf("line %d: %s \"file\" [size] [color] [op] [ndots]", linenumber, s[0])
+		}
+		lop, _ := strconv.ParseFloat(op, 64)
+		for i := 0; i < len(x)-1; i++ {
+			dottedline(w, x[i], y[i], x[i+1], y[i+1], size, ndots, color, lop)
+		}
+		return nil
 	}
 	deckconnectline(w, x, y, size, color, op, m)
 	return nil

@@ -963,7 +963,7 @@ line    x1 y1 x2 y2 [size] [color] [opacity]
 
 
 ```
-dline   x1 y1 x2 y2 n [size] [color] [opacity]
+dline   x1 y1 x2 y2 [size] [gap] [color] [opacity]
 ```
 
 ![dline](images/dline.png)

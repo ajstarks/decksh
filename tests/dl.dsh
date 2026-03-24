@@ -1,9 +1,12 @@
 deck
-	slide	
-		dline 10 60 50 60 10 0.8
-		dline 10 50 50 60 15 1   "red"
-		dline 10 40 50 60 20 1.2 "green" 50
-		dline 10 30 50 60 25 1.4 "blue"
-		dline 10 20 50 60 30 1.6 "orange"
+	slide
+		dline 50 90 50 60
+		dline 10 60 50 60 1.0
+		dline 10 75 50 60 1.0 1 "red"
+		dline 90 90 50 60 1.0 2 "green"
+		dline 10 30 50 60 1.0 3 "blue"
+		dline 50 10 50 60 1.0 4 "orange"
+		dline 90 10 50 60 1.0 5 "purple"
+		dline 90 60 50 60 1.0 5 "purple" 50
 	eslide
 edeck
