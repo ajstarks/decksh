@@ -624,21 +624,25 @@ deck
 
 	// dotted line
 	slide bgcolor fgcolor
+		//ruler
 		ky=70
 		cy=ky-10
 		ly=cy-15
 		lw=3
-		dline 20 ky 80 ky 2 4 "black" 30
+		dlgap=lw*2
+		dline 20 ky 80 ky 2 dlgap "black" 30
 		circle 20 ky lw accentcolor 40
 		circle 80 ky lw accentcolor 40
 		ctext "(x1,y1)" 20 cy ts "mono"
 		ctext "(x2,y2)" 80 cy ts "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		etext "line"                  32 ly ts "mono" kwcolor
-		ctext "x1 y1 x2 y2 n"         45 ly ts "mono" argcolor
-		ctext "lw color op"           66 ly ts "mono" optcolor
+		etext "dline"                  32 ly ts "mono" kwcolor
+		ctext "x1 y1 x2 y2"            42 ly ts "mono" argcolor
+		ctext "lw gap color op"        65 ly ts "mono" optcolor
 		ctext "lw" 13 69 ts "mono"
+		ctext "gap" 35 78 ts "mono"
 		lbrace 16 70 lw 1 1
+		ubrace 35 75 dlgap 1 2
 
 		dline 10 20 30 20
 		ctext "dline 10 20 30 20" 20 ely ls "mono"
