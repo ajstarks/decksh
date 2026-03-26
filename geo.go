@@ -194,16 +194,18 @@ func textadj(align string, size float64) (float64, float64) {
 	var xdiff, ydiff float64
 	size /= 2
 	switch align {
-	case "c", "ctext", "a":
+	case "c", "ctext":
 		ydiff = size
-	case "u":
+	case "d":
 		ydiff = -size * 2
+	case "u", "a":
+		ydiff = size
 	case "b", "btext", "text":
 		xdiff = size * 0.75
-		ydiff = -size * 0.6
+		ydiff = -size * 0.66
 	case "e", "etext":
 		xdiff = -size * 0.75
-		ydiff = -size * 0.6
+		ydiff = -size * 0.66
 	default:
 		ydiff = size
 	}
@@ -212,18 +214,18 @@ func textadj(align string, size float64) (float64, float64) {
 
 // wordstack makes a vertical stack of string in s
 func wordstack(w io.Writer, x, y float64, s []string, align string, size float64, fco string) {
-	ls := size * 1.8
+	ls := size * 1.5
 	for i := range s {
 		fmt.Fprintf(w, textfmt, align, x, y, size, fco, xmlesc(s[i]))
 		y -= ls
 	}
 }
 
-// geotext places text at geographic coordinates
+// "geotext" places text at geographic coordinates
 func geotext(w io.Writer, x, y []float64, names []string, align string, size float64, fco string) {
-	xdiff, ydiff := textadj(align, size)
-	if align == "u" || align == "a" { // above and under are centered
-		align = "c"
+	xdiff, ydiff := textadj(unquote(align), size)
+	if align == `"u"` || align == `"a"` || align == `"d"` { // above and under are centered
+		align = `"c"`
 	}
 	for i := range x {
 		parts := strings.Split(names[i], "\\n")
