@@ -170,7 +170,6 @@ func shpdeckpolyline(w io.Writer, x, y []float64, color string, size float64) {
 	for i := 0; i < lx-1; i++ {
 		fmt.Fprintf(w, decklinefmt, x[i], y[i], x[i+1], y[i+1], size, fill, op)
 	}
-	//fmt.Fprintf(w, decklinefmt, x[0], y[0], x[lx-1], y[lx-1], size, fill, op)
 }
 
 // shpdeckpoint places a circle at a coordinate.
