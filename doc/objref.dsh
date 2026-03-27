@@ -2695,7 +2695,7 @@ slide bgcolor fgcolor
 			li
 			li "lw color op"
 			li "lw color op"
-			li "lw color op"
+			li "lw color op gap"
 			li "latmax longmin longmax"
 			li "xmax ymin ymax"
 		elist
@@ -2943,7 +2943,7 @@ slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		text "geopathfile" kwx ly ts "mono" kwcolor
 		text `"file" ` arx ly ts "mono" argcolor
-		text "lw color op" arx2 ly ts "mono" optcolor
+		text "lw color op gap" arx2 ly ts "mono" optcolor
 		image "images/roadtrip.png" 82 25 35 0
 		textfile "code/geopathfile.dsh" 5 32 1.6 "mono"
 	eslide
