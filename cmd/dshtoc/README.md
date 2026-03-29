@@ -30,9 +30,9 @@ The command line options specify how the text is laid out. The items are formatt
 
 Other options control the size, line spacing, color, and font of the text. The top and left margin positions of the TOC also may be specified.
 
-if the decksh file contains includes the pages are counted, but ```// TOC:``` comments are not processed. Also, if there are too many items to fit on the page, they are not shown.
+if the decksh file contains ```include``` the included pages are counted, but ```// TOC:``` comments are not processed. Also, if there are too many items to fit on the page, they are not shown.
 
-The ```-dump``` option shows the TOC items sorted by page on standard error
+The ```-dump``` option shows the TOC items sorted by page on standard error:
 ```
 Introduction                        2
 Keyword Index                       3
@@ -79,5 +79,3 @@ Usage of dshtoc:
   -top float
     	top of the page % (default 85)
 ```
-
-
