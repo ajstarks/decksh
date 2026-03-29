@@ -1,0 +1,98 @@
+deck
+slide "linen" "black"
+//ruler
+// items=15 dump=false bgcolor="linen" txcolor="black" pgcolor="maroon"
+// title="#DuboisChallenge2026: Maps" font="sans" outfile="" inputdir="."
+// top=85 left=20 size=2 ls=2 cw=33
+
+//text `items=15 dump=false bgcolor="linen" txcolor="black" pgcolor="maroon"`   5  97 1 "mono"
+//text `title="#DuboisChallenge2026: Maps" font="sans" outfile="" inputdir="."` 42  97 1 "mono" 
+//text `top=85 left=20 size=2 ls=2 cw=33`                                       80  97 1 "mono" 
+
+ts=1.4
+lbracket 6.5 50 2 75 0.1 "gray"
+etext    "-items=15" 6.5 49.5 ts"mono"
+
+dbracket 36.5 7 33 2 0.1 "gray"
+ctext    "-cw=33" 36.5 5 ts"mono"
+
+lbracket 17 80.5 2 2 0.1 "gray"
+etext    "-size=2" 17 80 ts"mono"
+
+lbracket 17 72 2 5 0.1 "gray"
+etext    "-ls=2" 17 71.5 ts "mono"
+
+ctext "top=85,left=20" 13 85 ts "mono"
+circle 20 85 1.5 "red" 50
+
+text "#DuboisChallenge2026: Maps" 20 91 3
+list 20 85 2 "sans" "" 100 2
+li "Du Bois at Fisk"
+li "TJ Calloway and Du Bois"
+li "Atlanta University"
+li "1900 venue"
+li "Purpose and messages"
+li "Messages"
+li "Show visualization IRL"
+li "Dimensions"
+li "original catalog"
+li "Starks, 2019"
+li "Du Bois Challenge"
+li "Allen and Sekou"
+li "Modern venue"
+li "Materials comparison"
+li "Du Bois Challenge 2026"
+elist
+list 53 85 2 "sans" "" 100 2
+li "Using github"
+li "Announcement thread"
+li "Week 1"
+li "Week 2"
+li "Week 3"
+li "Week 4"
+li "Week 5"
+li "Week 6"
+li "Week 7"
+li "Week 8"
+li "Week 9"
+li "Week 10"
+li "Venues"
+li "References"
+li "Business Card"
+elist
+list 44.75 85 2 "sans" "maroon" 100 2
+li "2"
+li "4"
+li "5"
+li "7"
+li "8"
+li "9"
+li "11"
+li "12"
+li "13"
+li "14"
+li "15"
+li "16"
+li "17"
+li "18"
+li "19"
+elist
+list 77.75 85 2 "sans" "maroon" 100 2
+li "20"
+li "21"
+li "22"
+li "23"
+li "24"
+li "25"
+li "26"
+li "27"
+li "28"
+li "29"
+li "30"
+li "31"
+li "32"
+li "33"
+li "34"
+elist
+eslide
+edeck

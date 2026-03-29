@@ -15,20 +15,26 @@ import (
 type options struct {
 	items       int
 	dump        bool
+	
 	top         float64
 	left        float64
 	size        float64
 	linespacing float64
 	colwidth    float64
+	bgcolor string
+	txcolor string
+	pgcolor string
+	color string
 	title       string
-	color       string
 	font        string
 	outfile     string
 	inputdir    string
+	
 }
 
 const (
 	doublequote = '"'
+	dumpfmt="// items=%v dump=%v bgcolor=%q txcolor=%q pgcolor=%q\n// title=%q font=%q outfile=%q inputdir=%q\n// top=%v left=%v size=%v ls=%v cw=%v"
 	tocmarker   = "// TOC: "
 )
 
@@ -98,13 +104,20 @@ func endlist(w io.Writer) {
 }
 
 // beginslide writes new slide markup to w
-func beginslide(w io.Writer) {
-	fmt.Fprintln(w, "slide")
+func beginslide(w io.Writer, opts options) {
+	fmt.Fprintf(w, "slide %q %q\n%s\n", opts.bgcolor, opts.txcolor, stropts(opts))
 }
 
 // endslide writes ending slide markup to w
 func endslide(w io.Writer) {
 	fmt.Fprintln(w, "eslide")
+}
+
+func stropts(opts options) string {
+	return fmt.Sprintf(dumpfmt, 
+		opts.items, opts.dump,  opts.bgcolor, opts.txcolor,     opts.pgcolor,
+		opts.title, opts.font,  opts.outfile, opts.inputdir,
+		opts.top,   opts.left,  opts.size,    opts.linespacing, opts.colwidth)
 }
 
 // mktoc makes a table of contents reading from r, writing to w
@@ -149,7 +162,7 @@ func mktoc(w io.Writer, r io.Reader, opts options) {
 	slices.Sort(pages)
 
 	// top matter
-	beginslide(w)
+	beginslide(w, opts)
 	title(w, opts)
 
 	// TOC names
@@ -168,7 +181,7 @@ func mktoc(w io.Writer, r io.Reader, opts options) {
 	// TOC page numbers
 	pageopts := opts
 	pageopts.left = initleft + (opts.colwidth * 0.75)
-	pageopts.color = "gray"
+	pageopts.color = pageopts.pgcolor
 	newlist(w, pageopts)
 	for i, p := range pages {
 		if i > 0 && i%opts.items == 0 { // every opt.items, make a new column
@@ -184,6 +197,7 @@ func mktoc(w io.Writer, r io.Reader, opts options) {
 
 	// dump the TOC if specified
 	if opts.dump {
+		fmt.Fprintln(os.Stderr, stropts(opts))
 		for _, p := range pages {
 			fmt.Fprintf(os.Stderr, "%-35s %d\n", toc[p], p)
 		}
@@ -200,8 +214,10 @@ func setoptions() ([]string, options) {
 	flag.Float64Var(&opts.size, "size", 1.5, "font size %")
 	flag.Float64Var(&opts.linespacing, "ls", 1.2, "line spacing %")
 	flag.Float64Var(&opts.colwidth, "cw", 30, "name column width %")
+	flag.StringVar(&opts.bgcolor, "bgcolor", "white", "background color")
+	flag.StringVar(&opts.txcolor, "txcolor", "black", "text color")
+	flag.StringVar(&opts.pgcolor, "pgcolor", "gray", "page color")
 	flag.StringVar(&opts.font, "font", "sans", "font")
-	flag.StringVar(&opts.color, "color", "", "text color")
 	flag.StringVar(&opts.outfile, "o", "", "output file")
 	flag.StringVar(&opts.inputdir, "dir", ".", "input directory")
 	flag.StringVar(&opts.title, "title", "", "TOC Title")
