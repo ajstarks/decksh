@@ -4,8 +4,11 @@
 
 ![dshtoc-example](dshtoc.png)
 
-dshtoc reads decksh files and creates a decksh file that relects the table of contents or index contaning names and slide (page) numbers.  The output may then be included into the source file:
+dshtoc reads decksh files and creates a decksh file that reflects the table of contents with names and slide (page) numbers.  
 
+By default ```dshtoc``` writes to standard output, and reads from standard input if no files are specified.
+
+The output may then be included into the source file:
 
 ```
 dshtoc -o toc.dsh input.dsh
@@ -17,7 +20,7 @@ within input.dsh:
 include "toc.dsh"
 ```
 
-dshtoc looks for specially formatted comments (```// TOC: ...```) to designate an item to be added to the index:
+dshtoc looks for specially formatted comments (// TOC: ...) to designate an item to be added to the index:
 
 ```
 // TOC: Introduction
@@ -30,7 +33,7 @@ The command line options specify how the text is laid out. The items are formatt
 
 Other options control the size, line spacing, color, and font of the text. The top and left margin positions of the TOC also may be specified.
 
-if the decksh file contains ```include``` the included pages are counted, but ```// TOC:``` comments are not processed. Also, if there are too many items to fit on the page, they are not shown.
+If the decksh file contains ```include``` the included pages are counted, but ```// TOC:``` comments are not processed. Also, if there are too many items to fit on the page, they are not shown.  This can be mitigated by adjusting ```-items```, ```-cw``` and ```-ls```.
 
 The ```-dump``` option shows the TOC items sorted by page on standard error:
 ```
@@ -50,32 +53,58 @@ geopathfile                         129
 Keyword reference                   130
 ```
 
-## options
+## Command line options
+
+### Text attributes:
 
 ```
-Usage of dshtoc:
   -color string
     	text color
-  -cw float
-    	name column width % (default 30)
-  -dir string
-    	input directory (default ".")
-  -dump
-    	dump TOC
+     
   -font string
     	font (default "sans")
+     
+  -title string
+    	TOC Title (default blank)
+```
+     
+### Positioning and layout:
+  
+```
+  -cw float
+    	name column width % (default 30)
+     
   -items int
     	items per column (default 20)
+     
   -left float
     	left margin % (default 5)
+     
   -ls float
     	line spacing % (default 1.2)
-  -o string
-    	output file
+     
   -size float
     	font size % (default 1.5)
-  -title string
-    	TOC Title
+     
+  
+  
   -top float
     	top of the page % (default 85)
+```
+     
+  ### File handling: 
+  
+  ```
+  -dir string
+    	input directory (default ".")
+ 
+  -o string
+    	output file (default blank)
+  ```
+  
+ ### Debugging:
+ 
+ ```
+  -dump
+    	dump TOC
 ```

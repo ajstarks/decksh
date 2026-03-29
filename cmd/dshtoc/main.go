@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
-	"sort"
+	"slices"
 	"strings"
 )
 
@@ -28,7 +28,7 @@ type options struct {
 }
 
 const (
-	doublequote = 0x22
+	doublequote = '"'
 	tocmarker   = "// TOC: "
 )
 
@@ -87,12 +87,12 @@ func nameitem(w io.Writer, name string) {
 	fmt.Fprintf(w, "li %q\n", name)
 }
 
-// pageitem writes a page number item  to w
+// pageitem writes a page number item to w
 func pageitem(w io.Writer, page int) {
 	fmt.Fprintf(w, "li \"%d\"\n", page)
 }
 
-// endlist writes an ending list  to w
+// endlist writes an ending list to w
 func endlist(w io.Writer) {
 	fmt.Fprintln(w, "elist")
 }
@@ -102,19 +102,9 @@ func beginslide(w io.Writer) {
 	fmt.Fprintln(w, "slide")
 }
 
-// nameitem writes a list item (name) to w
+// endslide writes a ending slide markup to w
 func endslide(w io.Writer) {
 	fmt.Fprintln(w, "eslide")
-}
-
-// newpage writes the markup for new page
-func newpage(w io.Writer, opts options) {
-	endlist(w)
-	endslide(w)
-	opts.left = 5
-	opts.top = 85
-	beginslide(w)
-	newlist(w, opts)
 }
 
 // mktoc makes a table of contents reading from r, writing to w
@@ -141,7 +131,7 @@ func mktoc(w io.Writer, r io.Reader, opts options) {
 		}
 
 		// special TOC comment found, tag it with the current page
-		if i := strings.Index(t, tocmarker); i > 0 {
+		if i := strings.Index(t, tocmarker); i >= 0 {
 			toc[page] = t[i+len(tocmarker):]
 		}
 	}
@@ -156,7 +146,7 @@ func mktoc(w io.Writer, r io.Reader, opts options) {
 	for k := range toc {
 		pages = append(pages, k)
 	}
-	sort.Ints(pages)
+	slices.Sort(pages)
 
 	// top matter
 	beginslide(w)
@@ -219,10 +209,14 @@ func setoptions() ([]string, options) {
 	return flag.Args(), opts
 }
 
-// deckTOC makes a table of contents from decksh source
+// deckshTOC makes a table of contents from decksh source
 func deckshTOC(args []string, opts options) {
 	var output io.Writer = os.Stdout
 	var input io.Reader = os.Stdin
+
+	if opts.items <= 0 {
+		opts.items = 20
+	}
 
 	// if no args, use stdout, stdin
 	if len(args) < 1 {
@@ -242,12 +236,13 @@ func deckshTOC(args []string, opts options) {
 
 	// for every file specified, make a TOC
 	for _, f := range args {
-		input, err = os.Open(filepath.Join(opts.inputdir, f))
+		r, err := os.Open(filepath.Join(opts.inputdir, f))
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", err)
 			continue
 		}
-		mktoc(output, input, opts)
+		mktoc(output, r, opts)
+		r.Close()
 	}
 }
 
