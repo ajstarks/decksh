@@ -86,8 +86,6 @@ Keyword reference                   130
   -size float
     	font size % (default 1.5)
      
-  
-  
   -top float
     	top of the page % (default 85)
 ```

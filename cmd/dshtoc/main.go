@@ -97,12 +97,12 @@ func endlist(w io.Writer) {
 	fmt.Fprintln(w, "elist")
 }
 
-// beginslide writes new slide to w
+// beginslide writes new slide markup to w
 func beginslide(w io.Writer) {
 	fmt.Fprintln(w, "slide")
 }
 
-// endslide writes a ending slide markup to w
+// endslide writes ending slide markup to w
 func endslide(w io.Writer) {
 	fmt.Fprintln(w, "eslide")
 }
@@ -131,8 +131,8 @@ func mktoc(w io.Writer, r io.Reader, opts options) {
 		}
 
 		// special TOC comment found, tag it with the current page
-		if i := strings.Index(t, tocmarker); i >= 0 {
-			toc[page] = t[i+len(tocmarker):]
+		if _, after, ok := strings.Cut(t, tocmarker); ok {
+			toc[page] = after
 		}
 	}
 	if err := scanner.Err(); err != nil {
@@ -206,6 +206,9 @@ func setoptions() ([]string, options) {
 	flag.StringVar(&opts.inputdir, "dir", ".", "input directory")
 	flag.StringVar(&opts.title, "title", "", "TOC Title")
 	flag.Parse()
+	if opts.items <= 0 {
+		opts.items = 20
+	}
 	return flag.Args(), opts
 }
 
@@ -214,17 +217,7 @@ func deckshTOC(args []string, opts options) {
 	var output io.Writer = os.Stdout
 	var input io.Reader = os.Stdin
 
-	if opts.items <= 0 {
-		opts.items = 20
-	}
-
-	// if no args, use stdout, stdin
-	if len(args) < 1 {
-		mktoc(output, input, opts)
-		return
-	}
-
-	// set an output file, if specified, fallback to stdout on error
+	// set an output file, if specified. Fallback to stdout on error
 	var err error
 	if len(opts.outfile) > 0 {
 		output, err = os.Create(opts.outfile)
@@ -232,6 +225,12 @@ func deckshTOC(args []string, opts options) {
 			fmt.Fprintf(os.Stderr, "%v (falling back to standard output)\n", err)
 			output = os.Stdout
 		}
+	}
+
+	// if no file specified, use stdin
+	if len(args) < 1 {
+		mktoc(output, input, opts)
+		return
 	}
 
 	// for every file specified, make a TOC
