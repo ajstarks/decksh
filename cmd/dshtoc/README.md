@@ -2,7 +2,7 @@
 
 ```dshtoc [options] [files...]```
 
-![dshtoc-example](dshtoc.png)
+![dshtoc-example](dshtoc-big.png)
 
 dshtoc reads decksh files and creates a decksh file that reflects the table of contents with names and slide (page) numbers.  
 
