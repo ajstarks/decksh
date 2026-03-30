@@ -420,11 +420,11 @@ deck
 		ty*=1.5
 		ctext "a/b (y*-1.5)" tx ty 3
 
-		a=100
-		b=35
+		a=50
+		b=51
 		tx=a%b
-		ty+=10
-		ctext "a%b" tx ty 3
+		ty+=15
+		ctext "a%b (y+=15)" tx ty 3
 
 	eslide
 
@@ -863,12 +863,14 @@ deck
 		hline 50 60 30 1 "red"
 		hline 50 65 35 1.5 "blue"
 		hline 50 70 40 2 "green" 50
+		dline 50 75 95 75 1 2 "orange"
 
 		vline 10 50 20
 		vline 15 50 25 0.5
 		vline 20 50 30 1 "red"
 		vline 25 50 35 1.5 "blue"
 		vline 30 50 40 2 "green" 50
+		dline 35 50 35 95 1 2 "orange"
 
 		for v=10 40 5
 			vline v 10 30 0.1 "red"
@@ -882,6 +884,23 @@ deck
 		for v=10 40 5
 			hline 50 v 30 0.1 "red"
 		efor
+
+		for v=85 95 2.5
+			dline v 10 v 40 0.5 2 "red"
+		efor
+	eslide
+
+	// Dotted lines
+	slide
+	 	ctext "Dotted Lines" titleX titleY titleSize
+        dline 50 90 50 60
+        dline 10 60 50 60 1.0
+        dline 10 75 50 60 1.0 1 "red"
+        dline 90 90 50 60 1.0 2 "green"
+        dline 10 30 50 60 1.0 3 "blue"
+        dline 50 10 50 60 1.0 4 "orange"
+        dline 90 10 50 60 1.0 5 "purple"
+        dline 90 60 50 60 1.0 5 "purple" 50
 	eslide
 
 	// Stars
@@ -1256,10 +1275,11 @@ deck
 		geoborder 	"usa.kml" 							 0.15 "gray"
 		geoloc		"roadtrip.d"  						 "e" 1.5
 		include 	"ustates.dsh"
+
 		geopathfile	"roadtrip.d"  						 0.5 "red" 25
-		geoimage	"geo:51,-105	can.png" 			 5 0
-		geoimage	"geo:39,-105	usa.png"	 		 5 0
-		geoimage	"geo:25,-105	mex.png" 			 5 0
+		geoimage	"geo:51,-102	can.png" 			 5 0
+		geoimage	"geo:39,-102	usa.png"	 		 5 0
+		geoimage	"geo:25,-102	mex.png" 			 5 0
 		geoarc		la min								 0.2 "green"
 		geopath		min nyc								 0.2 "green"
 		geomark		min									 1.5 "green" 50
@@ -1268,7 +1288,8 @@ deck
 		geolabel	"geo:30,-125	Pacific\nOcean" 	 2.5
 		geolabel	"geo:35,-70	Atlantic\nOcean"		 2.5
 	eslide
-
+	
+	include "gc.dsh"
 	import "mapbox.dsh"
 	include "geoscale.dsh"
 
