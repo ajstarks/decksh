@@ -2361,10 +2361,6 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.TextSize = 1.5
 	}
-	chart.ShowValues, err = strconv.ParseBool(eval("chartVal"))
-	if err != nil {
-		chart.ShowValues = true
-	}
 	chart.XLabelInterval, err = strconv.Atoi(eval("chartXLabel"))
 	if err != nil {
 		chart.XLabelInterval = 1
