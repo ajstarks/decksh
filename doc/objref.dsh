@@ -2356,7 +2356,7 @@ deck
 		ctext "Chart Variables" mid ty 5 "serif"
 		rc=initlcol
 		lcolsize=25
-		listspacing=1.6
+		listspacing=1.35
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "description"
@@ -2366,13 +2366,17 @@ deck
 			li "Chart Right"
 			li "Chart text size"
 			li "Chart line width"
+			li "Chart bar width"
 			li "Chart line spacing"
 			li "Show % Value"
 			li "Show data values"
 			li "Show Y-axis grid"
 			li "Show title"
+			li "Read CSV"
 			li "X-axis label interval"
 			li "Y-axis range"
+			li "CSV Columns"
+			li "Data Format"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
@@ -2383,13 +2387,17 @@ deck
 			li "chartRight"
 			li "chartTextSize"
 			li "chartLineWidth"
+			li "chartBarWidth"
 			li "chartLineSpacing"
 			li "chartPercent"
 			li "chartVal"
 			li "chartGrid"
 			li "chartTitle"
+			li "chartReadCSV"
 			li "chartXLabel"
 			li "chartYRange"
+			li "chartCSVCols"
+			li "chartDataFmt"
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" "" 100 listspacing
@@ -2400,13 +2408,17 @@ deck
 			li "90"
 			li "1.5"
 			li "0.2"
+			li "0 (autoscale)"
 			li "2.4"
 			li "0 (0: off, 1: on)"
 			li "1 (0: off, 1: on)"
 			li "0 (0: off, 1: on)"
 			li "1 (0: off, 1: on)"
+			li "0 (0: off, 1: on)"
 			li "1 (1: all, 0: none, every nth label)"
 			li `"" (min,max,interval)`
+			li `""`
+			li "%.1f"
 		elist
 	eslide
 

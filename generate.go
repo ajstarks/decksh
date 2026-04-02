@@ -2316,6 +2316,7 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	color := chart.DataColor
 	lcolor := chart.LabelColor
 	vcolor := chart.ValueColor
+	//fmt.Fprintf(os.Stderr, "chart=%#v\n", chart)
 
 	// override defaults
 	if ls > 2 {
@@ -2339,7 +2340,6 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	chart.DataColor = color
 	chart.LabelColor = lcolor
 	chart.ValueColor = vcolor
-	//println(chart.DataColor, chart.LabelColor, chart.ValueColor)
 	var err error
 	chart.Top, err = strconv.ParseFloat(eval("chartTop"), 64)
 	if err != nil {
@@ -2365,6 +2365,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.XLabelInterval = 1
 	}
+	chart.LineWidth, err = strconv.ParseFloat(eval("chartLineWidth"), 64)
+	if err != nil {
+		chart.LineWidth = 0.2
+	}
 	chart.ShowGrid, err = strconv.ParseBool(eval("chartGrid"))
 	if err != nil {
 		chart.ShowGrid = false
@@ -2377,12 +2381,27 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.ShowValues = true
 	}
-	chart.LineWidth, err = strconv.ParseFloat(eval("chartLineWidth"), 64)
+	chart.ShowTitle, err = strconv.ParseBool(eval("chartShowTitle"))
 	if err != nil {
-		chart.LineWidth = 0.2
+		chart.ShowTitle = true
 	}
+	chart.ReadCSV, err = strconv.ParseBool(eval("chartReadCSV"))
+	if err != nil {
+		chart.ReadCSV = false
+	}
+
+	datafmt := unquote(eval("chartDataFmt"))
+	if datafmt != "chartDataFmt" {
+		chart.DataFmt = datafmt
+	}
+
+	csvcol := unquote(eval("chartCSVCols"))
+	if csvcol != "chartCSVcols" {
+		chart.CSVCols = csvcol
+	}
+
 	chart.YAxisR = unquote(eval("chartYRange"))
-	if len(chart.YAxisR) > 5 {
+	if chart.YAxisR != "chartYRange" {
 		var yincr float64
 		fmt.Sscanf(chart.YAxisR, "%v,%v,%v", &chart.UserMin, &chart.UserMax, &yincr)
 		chart.ShowAxis = true
@@ -2392,6 +2411,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	switch chartname {
 	case "barchart":
 		chart.ShowBar = true
+		chart.BarWidth, err = strconv.ParseFloat(eval("chartBarWidth"), 64)
+		if err != nil {
+			chart.BarWidth = 0
+		}
 	case "linechart":
 		chart.ShowLine = true
 	case "dotchart", "dot":
