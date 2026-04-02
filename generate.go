@@ -2389,21 +2389,18 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.ReadCSV = false
 	}
-
-	datafmt := unquote(eval("chartDataFmt"))
-	if datafmt != "chartDataFmt" {
+	datafmt := unquote(emap["chartDataFmt"])
+	if len(datafmt) > 0 {
 		chart.DataFmt = datafmt
 	}
-
-	csvcol := unquote(eval("chartCSVCols"))
-	if csvcol != "chartCSVcols" {
+	csvcol := unquote(emap["chartCSVCols"])
+	if len(csvcol) > 0 {
 		chart.CSVCols = csvcol
 	}
-
-	chart.YAxisR = unquote(eval("chartYRange"))
-	if chart.YAxisR != "chartYRange" {
+	yrange := unquote(emap["chartYRange"])
+	if len(yrange) > 4 {
 		var yincr float64
-		fmt.Sscanf(chart.YAxisR, "%v,%v,%v", &chart.UserMin, &chart.UserMax, &yincr)
+		fmt.Sscanf(yrange, "%v,%v,%v", &chart.UserMin, &chart.UserMax, &yincr)
 		chart.ShowAxis = true
 		chart.ShowGrid = true
 	}
