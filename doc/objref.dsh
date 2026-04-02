@@ -53,6 +53,7 @@ deck
 		include "decksh-logo.dsh"
 	eslide
 
+	// TOC: Introduction
 	slide bgcolor fgcolor
 		ctext "Introduction" mid ty 5 "serif"
 		textblock "decksh is a Domain-Specific Language (DSL) for making presentations, visualizations, and information displays." 15 75 60 3 "serif"
@@ -60,12 +61,16 @@ deck
 		textblock "Also included is a color reference and a detailed description, with examples, for all decksh elements." 15 20 60 3 "serif"
 	eslide
 
+	// TOC: Keyword Index
 	include "keywords.dsh"
+	// TOC: Keywords and Arguments
 	include "kw-ex.dsh"
+	// TOC: Structure
 	include "struct.dsh"
+	// TOC: Percent grid
 	include "grid.dsh"
 
-	// defining vars
+	// TOC: Defining and using variables
 	slide bgcolor fgcolor
 		ctext "Defining and using variables" mid ty 5 "serif"
 
@@ -101,7 +106,7 @@ deck
 		etext deckshVersion 80 5 1.5 "mono"
 	eslide
 
-	// binop
+	// TOC: Binary operators
 	slide bgcolor fgcolor
 		ctext "Binary  operators" mid ty 5 "serif"
 		ax=20
@@ -122,7 +127,7 @@ deck
 		elist
 	eslide
 
-	// assignment operators
+	// TOC: Assignment operators
 	slide bgcolor fgcolor
 		ctext "Assignment operators" mid ty 5 "serif"
 		ax=20
@@ -141,7 +146,7 @@ deck
 		elist
 	eslide
 
-	// special assignments
+	// TOC: Special assignments
 	slide bgcolor fgcolor
 		ctext "Special Assignments" mid ty 5 "serif"
 		ax=5
@@ -180,7 +185,7 @@ deck
 		elist
 	eslide
 
-	// colors, fonts, opacity, gradient
+	// TOC: Colors, fonts, opacity, gradient
 	slide bgcolor fgcolor
 		hline 5 72 85 4 hlcolor hlop
 		ctext "Colors, fonts, opacity, gradient" mid ty 5 "serif"
@@ -232,19 +237,26 @@ deck
 		rect 30 16 6 4 "red/blue/90"
 	eslide
 
-	// color indices: produce in the code directory: $ ./mkcats.sh
+	// TOC: Color index
+	// produce in the code directory: $ ./mkcats.sh
 	include "code/color-index.dsh"
+	// TOC: Neutrals
 	include "code/neutrals.dsh"
+	// TOC: Reds
 	include "code/reds.dsh"
+	// TOC: Greens
 	include "code/greens.dsh"
+	// TOC: Blues
 	include "code/blues.dsh"
+	// TOC: Violets
 	include "code/violets.dsh"
+	// TOC: Yellows
 	include "code/yellows.dsh"
 
-	// Object index
+	// TOC: Object index
 	include "oi.dsh"
 
-	// Text index
+	// TOC: Textual Elements
 	slide bgcolor fgcolor
 		rc=initlcol
 		hlfs=lfs/2
@@ -311,7 +323,7 @@ deck
 		elist
 	eslide
 
-	// text
+	// TOC: text
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -332,7 +344,7 @@ deck
 		ctext `text "abc" 75 20 7 "mono" "maroon"` 82 ely ets "mono"
 	eslide
 
-	// ctext
+	// TOC: ctext
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -353,7 +365,7 @@ deck
 		ctext `ctext "abc" 80 20 7 "mono" "maroon"` 80 ely ets "mono"
 	eslide
 
-	// etext
+	// TOC: etext
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -374,7 +386,7 @@ deck
 		ctext `etext "abc" 80 20 7 "mono" "maroon"` 80 ely ets "mono"
 	eslide
 
-	// rtext
+	// TOC: rtext
 	slide bgcolor fgcolor
 		rtext "hello, world" cx ky 25 7 "sans" objcolor
 		hline 0 47 100 hlsize hlcolor hlop
@@ -393,7 +405,7 @@ deck
 		ctext `rtext 80 20 270 4 "sans" "maroon"` 80 ely ets "mono"
 	eslide
 
-	// arctext
+	// TOC: arctext
 	slide bgcolor fgcolor
 		a1x=polarx 50 ky 22 170
 		a1y=polary cx ky 22 170
@@ -418,7 +430,7 @@ deck
 
 	eslide
 
-	// textblock
+	// TOC: textblock
 	slide bgcolor fgcolor
 		tbw=60
 		tb="“Where justice is denied, where poverty is enforced, where ignorance prevails, and where any one class is made to feel that society is an organized conspiracy to oppress, rob and degrade them, neither persons nor property will be safe.”"
@@ -439,7 +451,7 @@ deck
 		text `textblock "..." 50 35 10 1 "sans" "maroon"` 50 ely ets "mono"
 	eslide
 
-	// para...epara
+	// TOC: para
 	slide bgcolor fgcolor
 		para 20 85 40 1.5 1.8 "sans" objcolor
 			We must rapidly begin...we must rapidly begin the shift from a thing-oriented society to a person-oriented
@@ -469,7 +481,7 @@ deck
 
 	eslide
 
-	// textfile
+	// TOC: textfile
 	slide bgcolor fgcolor
 		textfile "code/example.txt" 20 80 4 "sans" objcolor
 		circle 20 80 coordsize accentcolor 50
@@ -486,7 +498,7 @@ deck
 		text `textfile "hw-go" 55 35 1.6 "mono" "maroon"` 55 ely ets "mono"
 	eslide
 
-	// textcode
+	// TOC: textcode
 	slide bgcolor fgcolor
 		textcode "code/hw-go" 20 85 50 2
 		ctext "(x,y)" 20 95  lw "mono"
@@ -505,7 +517,7 @@ deck
 		text `textcode "hw-go" 55 35 40 1.6 "maroon"` 55 ely ets "mono"
 	eslide
 
-	// Graphics index
+	// TOC: Graphical elements
 	slide bgcolor fgcolor
 		rc=initlcol
 		lcolsize*=1.2
@@ -593,7 +605,7 @@ deck
 		elist
 	eslide
 
-	// Line
+	// TOC: line
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -622,7 +634,7 @@ deck
 	eslide
 
 
-	// dotted line
+	// TOC: dline
 	slide bgcolor fgcolor
 		//ruler
 		ky=70
@@ -655,7 +667,7 @@ deck
 	eslide
 
 
-	// hline
+	// TOC: hline
 	slide bgcolor fgcolor
 		w=30
 		hline 35 ky w lw "black" 30
@@ -679,7 +691,7 @@ deck
 		ctext `hline 70 20 20 5 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// vline
+	// TOC: vline
 	slide bgcolor fgcolor
 		vline cx ky 20 lw "black" 30
 		circle cx ky 3 accentcolor
@@ -702,7 +714,7 @@ deck
 		ctext `vline 80 20 15 10 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// arc
+	// TOC: arc
 	slide bgcolor fgcolor
 		aw=30
 		ah=20
@@ -731,7 +743,7 @@ deck
 		ctext `arc 80 20 5 5 0 180 5 "maroon"` 80 ely ls "mono"
 	eslide
 
-	// curve
+	// TOC: curve
 	slide bgcolor fgcolor
 		curve 30 ky 75 95 65 ky 0.5
 		circle 30 ky coordsize accentcolor
@@ -755,7 +767,7 @@ deck
 		ctext `curve 70 20 70 30 90 25 0.5 "maroon"` 80 ely ls "mono"
 	eslide
 
-	// Circle
+	// TOC: circle
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-5
@@ -784,7 +796,7 @@ deck
 		ctext `circle 80 20 5 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// acircle
+	// TOC: acircle
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-5
@@ -813,7 +825,7 @@ deck
 		ctext `acircle 80 20 5 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// ellipse
+	// TOC: ellipse
 	slide bgcolor fgcolor
 		cx=50
 		ky=70
@@ -846,7 +858,7 @@ deck
 		ctext `ellipse 80 20 5 10 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// square
+	// TOC: square
 	slide bgcolor fgcolor
 		cx=50
 		ky=70
@@ -876,7 +888,7 @@ deck
 		ctext `square 80 20 5 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// rect
+	// TOC: rect
 	slide bgcolor fgcolor
 		cx=50
 		ky=70
@@ -909,7 +921,7 @@ deck
 		ctext `rect 80 20 5 10 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// rrect
+	// TOC: rrect
 	slide bgcolor fgcolor
 		cx=50
 		ky=70
@@ -942,7 +954,7 @@ deck
 		ctext `rrect 80 20 5 10 1 "maroon"` 80 ely ls "mono"
 	eslide
 
-	// pill
+	// TOC: pill
 	slide bgcolor fgcolor
 		px=40
 		ph=10
@@ -973,7 +985,7 @@ deck
 		text `pill 80 20 5 10 "maroon"` 72 ely ls "mono"
 	eslide
 
-	// polygon
+	// TOC: polygon
 	slide bgcolor fgcolor
 		polygon "30 70 60" "ky 90 ky"
 		ctext "(x1,y1)" 30 65 ts "mono"
@@ -994,7 +1006,7 @@ deck
 		ctext `polygon "70 85 90" "20 30 20" "maroon"` 80 ely ls "mono"
 	eslide
 
-	// polyline
+	// TOC: polyline
 	slide bgcolor fgcolor
 		polyline "30 70 60" "ky 90 ky"
 		ctext "(x1,y1)" 30 65 ts "mono"
@@ -1015,7 +1027,7 @@ deck
 		ctext `polyline "70 85 90" "20 30 20" 0.2 "maroon"` 80 ely ls "mono"
 	eslide
 
-	// star
+	// TOC: star
 	slide bgcolor fgcolor
 		inner=5
 		outer=inner*3
@@ -1051,7 +1063,7 @@ deck
 		ctext `star 80 ey 24 2 8 "maroon" 20` 80 ely ls "mono"
 	eslide
 
-	// Image index
+	// TOC: Images
 	slide bgcolor fgcolor
 		rc=initlcol
 		ctext "Images" mid ty 5 "serif"
@@ -1084,7 +1096,7 @@ deck
 		textblock "The scale value is a percentage from 1-100, and link is a URL. capsize is the text size of the caption" rc 55 15 2
 	eslide
 
-	// image
+	// TOC: image
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -1110,7 +1122,7 @@ deck
 		ctext `image "follow.jpg" 75 25 640 480 30` 75 ely ls "mono"
 	eslide
 
-	// cimage
+	// TOC: cimage
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -1136,7 +1148,7 @@ deck
 		ctext `cimage "cloudy.jpg" "sky" 75 25 640 480 30 "" 1.5` 75 exy ls "mono"
 	eslide
 
-	// List index
+	// TOC: Lists
 	slide bgcolor fgcolor
 		rc=initlcol
 		ctext "Lists" mid ty 5 "serif"
@@ -1176,7 +1188,7 @@ deck
 		elist
 	eslide
 
-	// list
+	// TOC: list
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -1200,7 +1212,7 @@ deck
 		include  "code/plist-ex2.dsh"
 	eslide
 
-	// blist
+	// TOC: blist
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -1225,7 +1237,7 @@ deck
 		include  "code/blist-ex2.dsh"
 	eslide
 
-	// nlist
+	// TOC: nlist
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -1252,7 +1264,7 @@ deck
 
 	eslide
 
-	// clist
+	// TOC: clist
 	slide bgcolor fgcolor
 		ky=70
 		cy=ky-10
@@ -1277,7 +1289,7 @@ deck
 		include  "code/clist-ex2.dsh"
 	eslide
 
-	// Arrow index
+	// TOC: Arrows
 	slide bgcolor fgcolor
 		rc=initlcol
 		ctext "Arrows" mid ty 5 "serif"
@@ -1319,7 +1331,7 @@ deck
 		elist
 	eslide
 
-	// arrow
+	// TOC: arrow
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "arrow"                  32 ly ts "mono" kwcolor
@@ -1348,7 +1360,7 @@ deck
 		ctext `arrow 70 20 95 30 1.5 6 6 "maroon"` 82 ely ets "mono"
 	eslide
 
-	// lcarrow
+	// TOC: lcarrow
 	slide bgcolor fgcolor
 		lw2=lw/2
 		aw=lw*2
@@ -1372,7 +1384,7 @@ deck
 		text `lcarrow 70 20 70 35 55 35 1 5 5 "maroon"` 50 ely ets "mono"
 	eslide
 
-	// rcarrow
+	// TOC: rcarrow
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "rcarrow"                  28 ly ts "mono" kwcolor
@@ -1393,7 +1405,7 @@ deck
 		text `rcarrow 50 20 50 35 70 35 1 5 5 "maroon"` 50 ely ets "mono"
 	eslide
 
-	// ucarrow
+	// TOC: ucarrow
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "ucarrow"                  28 ly ts "mono" kwcolor
@@ -1414,7 +1426,7 @@ deck
 		text `rcarrow 50 20 70 20 70 35 1 5 5 "maroon"` 50 ely ets "mono"
 	eslide
 
-	// dcarrow
+	// TOC: dcarrow
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		etext "dcarrow"                  28 ly ts "mono" kwcolor
@@ -1435,7 +1447,7 @@ deck
 		text `dcarrow 50 35 70 35 70 20 1 5 5 "maroon"` 50 ely ets "mono"
 	eslide
 
-	// Brace index
+	// TOC: Braces and brackets
 	slide bgcolor fgcolor
 		rc=initlcol
 		ctext "Braces and Brackets" mid ty 5 "serif"
@@ -1489,7 +1501,7 @@ deck
 		elist
 	eslide
 
-	// lbrace
+	// TOC: lbrace
 	slide bgcolor fgcolor
 		brh=35
 		cx=50
@@ -1515,7 +1527,7 @@ deck
 		ctext `lbrace 80 25 20 6 3 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// rbrace
+	// TOC: rbrace
 	slide bgcolor fgcolor
 		brh=35
 		cx=50
@@ -1541,7 +1553,7 @@ deck
 		ctext `rbrace 80 25 20 6 3 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// ubrace
+	// TOC: ubrace
 	slide bgcolor fgcolor
 		brw=35
 		cx=50
@@ -1567,7 +1579,7 @@ deck
 		ctext `ubrace 80 25 20 4 8 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// dbrace
+	// TOC: dbrace
 	slide bgcolor fgcolor
 		brw=35
 		cx=50
@@ -1593,7 +1605,7 @@ deck
 		ctext `dbrace 80 25 20 4 8 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// lbracket
+	// TOC: lbracket
 	slide bgcolor fgcolor
 		brh=35
 		cx=50
@@ -1618,7 +1630,7 @@ deck
 		ctext `lbracket 80 25 6 20 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// rbracket
+	// TOC: rbracket
 	slide bgcolor fgcolor
 		brh=35
 		cx=50
@@ -1643,7 +1655,7 @@ deck
 		ctext `rbracket 80 25 6 20 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// ubracket
+	// TOC: ubracket
 	slide bgcolor fgcolor
 		brw=35
 		cx=50
@@ -1668,7 +1680,7 @@ deck
 		ctext `ubracket 80 25 20 4 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// dbracket
+	// TOC: dbracket
 	slide bgcolor fgcolor
 		brw=35
 		cx=50
@@ -1693,7 +1705,7 @@ deck
 		ctext `dbracket 80 25 20 4 1 "maroon"` 80 ely ets "mono"
 	eslide
 
-	// assignments and data index
+	// TOC: Assignments and Data
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.4
@@ -1760,7 +1772,7 @@ deck
 		elist
 	eslide
 
-	// for loop
+	// TOC: for loop
 	slide bgcolor fgcolor
 		list 25 85 4 "mono" objcolor 100 1.3
 			li "for v=begin end [increment]"
@@ -1778,6 +1790,7 @@ deck
 		include "code/objloop.dsh"
 	eslide
 
+	// TOC: Conditionals
 	slide bgcolor fgcolor
 		list 25 88 4 "mono" objcolor 100 1.3
 			li "if condition"
@@ -1829,7 +1842,7 @@ deck
 
 	eslide
 
-	// polarx, polary
+	// TOC: Polar Coordinates
 	slide bgcolor fgcolor
 		ly1=ly+3.2
 		ly2=ly-2
@@ -1862,7 +1875,7 @@ deck
 		textfile "code/p1.dsh" 10 35 2 "mono"
 	eslide
 
-	// polar
+	// TOC: polar
 	slide bgcolor fgcolor
 		pcx=40
 		pcy=65
@@ -1889,7 +1902,7 @@ deck
 		textfile "code/p0.dsh" 10 35 2 "mono"
 	eslide
 
-	// area
+	// TOC: area
 	slide bgcolor fgcolor
 		list 35 80 4 "mono"  objcolor 100 1.3
 			li "v=123.45"
@@ -1908,7 +1921,7 @@ deck
 		include  "code/area.dsh"
 	eslide
 
-	// format
+	// TOC: format
 	slide bgcolor fgcolor
 		list 25 90 4 "mono" objcolor 100 1.3
 			li "x=3.14159"
@@ -1929,7 +1942,7 @@ deck
 		include  "code/fmt.dsh"
 	eslide
 
-	// substr
+	// TOC: substr
 	slide bgcolor fgcolor
 		list 35 80 4 "mono" objcolor 100 1.3
 			li `s="hello, world"`
@@ -1950,7 +1963,7 @@ deck
 	eslide
 
 
-	// random
+	// TOC: random
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		rmin=10
@@ -1999,7 +2012,7 @@ deck
 		elist
 	eslide
 
-	// vmap
+	// TOC: vmap
 	slide bgcolor fgcolor
 		vmy1=90
 		vmy2=vmy1-20
@@ -2031,7 +2044,7 @@ deck
 		textfile "code/vmap-example.dsh" 10 37 2 "mono"
 	eslide
 
-	// func
+	// TOC: func
 	slide bgcolor fgcolor
 		filew=40
 		filey=80
@@ -2057,7 +2070,7 @@ deck
 		elist
 	eslide
 
-	// data
+	// TOC: data
 	slide bgcolor fgcolor
 		list 25 90 4 "mono" objcolor 100 1.3
 			li `data "file.d"`
@@ -2078,7 +2091,7 @@ deck
 		include   "code/data-example.dsh"
 	eslide
 
-	// grid
+	// TOC: grid
 	slide bgcolor fgcolor
 		textcode "code/grid-ex0.dsh" 10 80 16 2 objcolor
 		grid "code/grid-ex0.dsh"     35 80 15 15 70
@@ -2100,7 +2113,7 @@ deck
 		ctext     `grid "code/grid-ex.dsh" 35 33 10 10 65` 50 10 ets  "mono"
 	eslide
 
-	// ruler
+	// TOC: ruler
 	slide bgcolor fgcolor
 		etext "increment" 39 80 ts "mono"
 		etext  "(default = 5)" 39 77 1.4 "mono"
@@ -2121,7 +2134,7 @@ deck
 	eslide
 
 
-	// Math Index
+	// TOC: Math functions
 	slide bgcolor fgcolor
 		rc=initlcol
 		listspacing=1.5
@@ -2152,7 +2165,7 @@ deck
 		elist
 	eslide
 
-	// Cosine
+	// TOC: cosine
 	slide bgcolor fgcolor
 		list 35 90 4 "mono" objcolor 100 1.3
 			li "a=3.14159265359"
@@ -2174,7 +2187,7 @@ deck
 		text "number or expression" 43 ly ts "mono" argcolor
 	eslide
 
-	// Sine
+	// TOC: sine
 	slide bgcolor fgcolor
 		list 35 90 4 "mono" objcolor 100 1.3
 			li "a=10"
@@ -2197,7 +2210,7 @@ deck
 	eslide
 
 
-	// Square root
+	// TOC: square root
 	slide bgcolor fgcolor
 		list 35 90 4 "mono" objcolor 100 1.3
 			li "a=10"
@@ -2223,7 +2236,7 @@ deck
 	eslide
 
 
-	// Tangent
+	// TOC: tangent
 	slide bgcolor fgcolor
 		list 35 90 4 "mono" objcolor 100 1.3
 			li "a=10"
@@ -2248,7 +2261,7 @@ deck
 
 
 
-	// charts index
+	// TOC: Charts
 	slide bgcolor fgcolor
 		ctext "Charts" mid ty 5 "serif"
 		rc=initlcol
@@ -2338,7 +2351,7 @@ deck
 		elist
 	eslide
 
-	// chart types
+	// TOC: chart types
 	slide bgcolor fgcolor
 		ctext "Chart Variables" mid ty 5 "serif"
 		rc=initlcol
@@ -2352,6 +2365,9 @@ deck
 			li "Chart Left"
 			li "Chart Right"
 			li "Chart text size"
+			li "Chart line width"
+			li "Chart line spacing"
+			li "Show % Value"
 			li "Show data values"
 			li "Show Y-axis grid"
 			li "Show title"
@@ -2366,6 +2382,9 @@ deck
 			li "chartLeft"
 			li "chartRight"
 			li "chartTextSize"
+			li "chartLineWidth"
+			li "chartLineSpacing"
+			li "chartPercent"
 			li "chartVal"
 			li "chartGrid"
 			li "chartTitle"
@@ -2380,6 +2399,9 @@ deck
 			li "10"
 			li "90"
 			li "1.5"
+			li "0.2"
+			li "2.4"
+			li "0 (0: off, 1: on)"
 			li "1 (0: off, 1: on)"
 			li "0 (0: off, 1: on)"
 			li "1 (0: off, 1: on)"
@@ -2388,7 +2410,7 @@ deck
 		elist
 	eslide
 
-	// dchart
+	// TOC: dchart
 	include "dchart-chtypes.dsh"
 	include "dchart-types.dsh"
 	include "dchart-elements.dsh"
@@ -2428,7 +2450,7 @@ deck
 	eslide
 
 
-	// legend
+	// TOC: legend
 	slide bgcolor fgcolor
 		hline 0 47 100 hlsize hlcolor hlop
 		text "legend" 20 ly ts "mono" kwcolor
@@ -2448,6 +2470,7 @@ deck
 	chartwidth=30
 	chartfile="test.d"
 
+	// TOC: barchart
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
 		kwx=25
@@ -2462,6 +2485,7 @@ deck
 		include "code/barchartex.dsh"
 	eslide
 
+	// TOC: linechart
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
 		linechart "test.d"
@@ -2473,6 +2497,7 @@ deck
 		include "code/linechartex.dsh"
 	eslide
 
+	// TOC: areachart
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
 		areachart "test.d"
@@ -2484,6 +2509,7 @@ deck
 		include "code/areachartex.dsh"
 	eslide
 
+	// TOC: dotchart
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
 		dotchart "test.d"
@@ -2495,6 +2521,7 @@ deck
 		include "code/dotchartex.dsh"
 	eslide
 
+	// TOC: scatterchart
 	slide bgcolor fgcolor
 		arx=kwx+20
 		arx2=arx+12
@@ -2508,6 +2535,7 @@ deck
 		include "code/scatterchartex.dsh"
 	eslide
 
+	// TOC: hbarchart
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
 		hbarchart "test.d"
@@ -2519,6 +2547,7 @@ deck
 		include "code/hbarchartex.dsh"
 	eslide
 
+	// TOC: wbarchart
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
 		wbarchart "test.d"
@@ -2530,6 +2559,7 @@ deck
 		include "code/wbarchartex.dsh"
 	eslide
 
+	// TOC: pmap
 	slide bgcolor fgcolor
 		//ruler 5
 		kwx=36
@@ -2549,7 +2579,8 @@ deck
 		include "code/pmapchartex.dsh"
 	eslide
 
-slide bgcolor fgcolor
+	// TOC: pie
+	slide bgcolor fgcolor
 		//ruler 5
 		kwx=36
 		chartLeft=50
@@ -2567,6 +2598,7 @@ slide bgcolor fgcolor
 		include "code/piechartex.dsh"
 	eslide
 
+	// TOC: donut
 	slide bgcolor fgcolor
 		//ruler 5
 		kwx=36
@@ -2585,6 +2617,7 @@ slide bgcolor fgcolor
 		include "code/donutchartex.dsh"
 	eslide
 
+	// TOC: lego
 	slide bgcolor fgcolor
 		chartTop=90
 		chartLeft=40
@@ -2602,6 +2635,7 @@ slide bgcolor fgcolor
 		include  "code/legochartex.dsh"
 	eslide
 
+	// TOC: fanchart
 	slide bgcolor fgcolor
 		kwx-=4
 		arx+=2
@@ -2618,7 +2652,7 @@ slide bgcolor fgcolor
 		include  "code/fanchartex.dsh"
 	eslide
 
-
+	// TOC: bowtie
 	slide bgcolor fgcolor
 		arx-=2
 		ubrace 45 93 10 3 2
@@ -2633,7 +2667,7 @@ slide bgcolor fgcolor
 		include  "code/bowchartex.dsh"
 	eslide
 
-	// Map (Geo) index
+	// TOC: Geographic Functions
 	slide bgcolor fgcolor
 		initlcol-=4
 		rc=initlcol
@@ -2711,7 +2745,7 @@ slide bgcolor fgcolor
 		elist
 	eslide
 
-	// Geo
+	// TOC: Geographic Variables
 	slide bgcolor fgcolor
 		ctext "Geo Variables" mid ty 5 "serif"
 		rc=initlcol
@@ -2755,6 +2789,7 @@ slide bgcolor fgcolor
 		elist
 	eslide
 
+	// TOC: Geographic Scaling
 	slide bgcolor fgcolor
 		ctext "Geographic Scaling" mid ty 5 "serif"
 		textfile "geoscale.dsh" 2 50 1.1 "mono"
@@ -2768,6 +2803,8 @@ slide bgcolor fgcolor
 	arx=kwx+12
 	arx2=arx+15
 	ts = ts*0.75
+
+	// TOC: georegion
 	slide bgcolor fgcolor
 		image "images/georegion.png" 50 75 45 0
 		ctext "geoLatMax" 50   95 ts "mono"
@@ -2786,6 +2823,7 @@ slide bgcolor fgcolor
 		textfile "code/georegion.dsh" 5 35 2 "mono"
 	eslide
 
+	// TOC: geoborder
 	slide bgcolor fgcolor
 		image "images/geoborder.png" 50 75 45 0
 		ctext "geoLatMax" 50   95 ts "mono"
@@ -2803,6 +2841,7 @@ slide bgcolor fgcolor
 		textfile "code/geoborder.dsh" 5 35 2 "mono"
 	eslide
 
+	// TOC: geolabel
 	slide bgcolor fgcolor
 		textcode "code/continents.d" 30 35 20 1.2
 		image "images/geolabel.png" 50 75 45 0
@@ -2821,6 +2860,7 @@ slide bgcolor fgcolor
 		textfile "code/geolabel.dsh" 5 35 2 "mono"
 	eslide
 
+	// TOC: geomark
 	slide bgcolor fgcolor
 		image "images/geomark.png" 50 75 45 0
 		ctext "geoLatMax" 50   95 ts "mono"
@@ -2839,6 +2879,7 @@ slide bgcolor fgcolor
 		textfile "code/geomark.dsh" 5 35 2 "mono"
 	eslide
 
+	// TOC: geoloc
 	slide bgcolor fgcolor
 		image "images/geoloc.png" 50 75 45 0
 		ctext "geoLatMax" 50   95 ts "mono"
@@ -2867,6 +2908,7 @@ slide bgcolor fgcolor
 		textfile "code/geoloc.dsh" 5 35 2 "mono"
 	eslide
 
+	// TOC: geoimage
 	slide bgcolor fgcolor
 		image "images/geoimage.png" 50 75 40 0
 		ctext "geoLatMax" 50   95 ts "mono"
@@ -2890,6 +2932,7 @@ slide bgcolor fgcolor
 		textfile "code/geopic.dsh" 5 32 2 "mono"
 	eslide
 
+	// TOC: geopath
 	slide bgcolor fgcolor
 		kwx=25
 		arx=kwx+10
@@ -2911,6 +2954,7 @@ slide bgcolor fgcolor
 		textfile "code/geopath.dsh" 5 39 1.6 "mono"
 	eslide
 
+	// TOC: geoarc
 	slide bgcolor fgcolor
 		image "images/geoarc.png" 50 75 45 0
 		ctext "geoLatMax" 50   95 ts "mono"
@@ -2929,6 +2973,7 @@ slide bgcolor fgcolor
 		textfile "code/geoarc.dsh" 5 39 1.6 "mono"
 	eslide
 
+	// TOC: geopathfile
 	slide bgcolor fgcolor
 		image "images/geopathfile.png" 50 75 45 0
 		ctext "geoLatMax" 50   95 ts "mono"
@@ -2948,5 +2993,6 @@ slide bgcolor fgcolor
 		textfile "code/geopathfile.dsh" 5 32 1.6 "mono"
 	eslide
 
+	// TOC: Keyword reference
 	include "kwref.dsh"
 edeck

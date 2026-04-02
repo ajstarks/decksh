@@ -2377,6 +2377,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.ShowValues = true
 	}
+	chart.LineWidth, err = strconv.ParseFloat(eval("chartLineWidth"), 64)
+	if err != nil {
+		chart.LineWidth = 0.2
+	}
 	chart.YAxisR = unquote(eval("chartYRange"))
 	if len(chart.YAxisR) > 5 {
 		var yincr float64
