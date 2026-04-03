@@ -514,7 +514,7 @@ e=substr "This is a test"  5 8  // e="is a"
 
 Loop over `statements`, with `x` starting at `begin`, ending at `end` with an
 optional `increment` (if omitted the increment is 1). Substitution of `x`
-will occur in statements.
+occurs in statements.
 
 ```
 for x=begin end [increment]
@@ -522,11 +522,21 @@ for x=begin end [increment]
 efor
 ```
 
-Loop over `statements`, with `x` ranging over the contents of items within `
-[]`.  Substitution of `x` will occur in statements.
+Loop over `statements`, with `x` ranging over the strings within `[]`.  
+Substitution of `x` will occur in statements.
 
 ```
 for x=["abc" "def" "ghi"]
+    statements
+efor
+```
+
+Loop over `statements` with  `x` ranging over the numbers within `()`.
+Substitution of `x` will occur in statements.
+
+
+```
+for x=(11 56 89 90 230)
     statements
 efor
 ```

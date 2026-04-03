@@ -16,11 +16,13 @@ const (
 	numloop
 	fileloop
 	vectloop
+	setloop
 )
 
 // fortype returns the type of for loop; either:
 // for v = begin end incr
 // for v = ["abc" "123"]
+// for v = ( n1 n2 ... n)
 // for v = "file"
 func fortype(s []string) int {
 	n := len(s)
@@ -31,6 +33,10 @@ func fortype(s []string) int {
 	// for x = [...]
 	if s[3] == "[" && s[len(s)-1] == "]" {
 		return vectloop
+	}
+	// for x = (...)
+	if s[3] == "(" && s[len(s)-1] == ")" {
+		return setloop
 	}
 	// for x = "foo.d"
 	if n == 4 && len(s[3]) > 3 && s[3][0] == doublequote && s[3][len(s[3])-1] == doublequote {
@@ -44,10 +50,10 @@ func fortype(s []string) int {
 }
 
 // forvector returns the elements between "[" and "]"
-func forvector(s []string) ([]string, error) {
+func forvector(s []string, linenumber int) ([]string, error) {
 	n := len(s)
 	if n < 5 {
-		return nil, fmt.Errorf("incomplete for: %v", s)
+		return nil, fmt.Errorf("line %d: incomplete for: %v", linenumber, s)
 	}
 	elements := make([]string, n-5)
 	for i := 4; i < n-1; i++ {
@@ -131,8 +137,19 @@ func parsefor(w io.Writer, s []string, linenumber int, scanner *bufio.Scanner) e
 			}
 		}
 		return err
+	case setloop:
+		set, err := forvector(s, linenumber)
+		if err != nil {
+			return err
+		}
+		for i := range set {
+			for _, fb := range body {
+				evaloop(w, forvar, "%v", set[i], fb, linenumber)
+			}
+		}
+		return err
 	case vectloop:
-		vl, err := forvector(s)
+		vl, err := forvector(s, linenumber)
 		if err != nil {
 			return err
 		}

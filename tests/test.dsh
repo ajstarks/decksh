@@ -7,18 +7,20 @@ deck
 	titleX=50
 	titleY=92
 	titleSize=4
-	// title, fonts
-	dump
+	
+	// TOC: Intro
 	slide
 		ctext "decksh tests"  mid mid 10
 		ctext "version"       mid 20 2
 		ctext deckshVersion   mid 15 2
 	eslide
 
+	// TOC: Empty slide
 	slide
 		ctext "Empty" titleX titleY titleSize
 	eslide
 
+	// TOC: Ruler
 	slide
 		ctext "Ruler" titleX titleY titleSize
 		ruler
@@ -34,6 +36,7 @@ deck
 		ruler 10 "red"
 	eslide
 
+	// TOC: Backgrounds
 	slide "orange"
 		ctext "Background color only" titleX titleY titleSize
 	eslide
@@ -61,7 +64,7 @@ deck
 	hlcolor="#0000aa"
 	hlop=10
 
-	// colors, fonts, opacity
+	// TOC: Colors, fonts, opacity
 	slide
 		hline 5 72 85 4 hlcolor hlop
 		ctext "Colors, fonts, opacity" titleX titleY titleSize
@@ -122,7 +125,7 @@ deck
 		square 30  5  2 "hsv(0,100,50)"
 	eslide
 
-	// function
+	// TOC: function
 	slide
 		import "redcircle.dsh"
 		ctext "Functions" titleX titleY titleSize
@@ -135,7 +138,7 @@ deck
 		redcircle 50 10
 	eslide
 
-	// if
+	// TOC: If
 	slide
 		ctext "Conditionals" titleX titleY titleSize
 		xv=random 0 50
@@ -253,7 +256,7 @@ deck
 	eslide
 
 
-	// coordinate assignments
+	// TOC: Coordinate assignments
 	slide
 		ctext "Coordinates" titleX titleY titleSize
 		a=40
@@ -285,19 +288,16 @@ deck
 		ctext "p4 (a,b+c)" p4_x p4_y 2
 	eslide
 
-
-
-
-	// include
+	// TOC: Include
 	include "insertme.dsh"
 
-	// content
+	// TOC: Content
 	slide
 		ctext "Content (see test.md.pdf)" titleX titleY titleSize
 		content "markdown://test.md" 50 50 2
 	eslide
 
-	// Grid
+	// TOC: Grid
 	slide
 		gx=10
 		gy=80
@@ -311,7 +311,7 @@ deck
 		textfile "grid.d" gx gy 1.5 "mono"
 	eslide
 
-	// Text Functions
+	// TOC: Text Functions
 	tx1=5
 	tx2=35
 	tx3=65
@@ -341,7 +341,7 @@ deck
 		include "ptest.dsh"
 	eslide
 
-	// Text and Alignment
+	// TOC: Text and Alignment
 	tlskip=25
 	l1=10
 	l2=l1+tlskip
@@ -388,7 +388,7 @@ deck
 		arctext "coming down"          l4 20 10  90   0 2 "mono" "blue" op3
 	eslide
 
-	// binary and assignment ops
+	// TOC: binary and assignment ops
 	slide
 		ctext "Binary and Assignment Operators" titleX titleY titleSize
 
@@ -429,7 +429,7 @@ deck
 	eslide
 
 	
-	// Lists
+	// TOC: Lists
 	lsize=2
 	lx1=20
 	lx2=40
@@ -539,7 +539,7 @@ deck
 		elist
 	eslide
 
-	// centered list
+	// TOC: centered list
 	slide
 		ctext "Centered List" titleX titleY titleSize
 		vline 50 0 100 0.1
@@ -557,7 +557,7 @@ deck
 		elist
 	eslide
 
-	// Loops for grid
+	// TOC: Loops for grid
 	slide
 		ctext "Loops" titleX titleY titleSize
 		for v=0 100 5
@@ -566,7 +566,7 @@ deck
 		efor
 	eslide
 
-	// Random
+	// TOC: Random
 	slide
 		ctext "Random" titleX titleY titleSize
 		randmin=10
@@ -583,7 +583,7 @@ deck
 		circle rx3 ry3 10 "blue" ry3
 	eslide
 
-	// Square Root
+	// TOC: Square Root
 	slide
 		ss0 = 8
 		ss2 = 6
@@ -606,7 +606,7 @@ deck
 		ctext "Square Root" titleX titleY titleSize
 	eslide
 
-	// sine
+	// TOC: Sine
 	slide
 		str0 = 3.1415926
 		str2 = 0.707
@@ -630,7 +630,7 @@ deck
 		ctext "Sine" titleX titleY titleSize
 	eslide
 
-	// cosine
+	// TOC: Cosine
 	slide
 		str0 = 3.1415926
 		str2 = 0.707
@@ -654,7 +654,7 @@ deck
 		ctext "Cosine" titleX titleY titleSize
 	eslide
 
-	// tangent
+	// TOC: Tangent
 	slide
 		str0 = 3.1415926
 		str2 = 0.707
@@ -678,7 +678,7 @@ deck
 		ctext "Tangent" titleX titleY titleSize
 	eslide
 
-	// format
+	// TOC: Format
 	slide
 		ctext "Format" titleX titleY titleSize
 		sp0=10
@@ -724,7 +724,7 @@ deck
 		include "testfmt.dsh"
 	eslide
 
-	// Polar coordinates
+	// TOC: Polar coordinates
 	slide
 		ctext "Polar Coordinates" titleX titleY titleSize
 		a1=0
@@ -783,7 +783,7 @@ deck
 		circle 50 50 40 "gray" 20
 	eslide
 
-	// vmap
+	// TOC: Vmap
 	slide
 		ctext "Map Ranges" titleX titleY titleSize
 		bx=10
@@ -811,7 +811,7 @@ deck
 		text "2020" 10 yend 2
 	eslide
 
-	// area
+	// TOC: Area
 	slide
 		ctext "Areas" titleX titleY titleSize
 		nya=vmap 8.399      0 100 0 1000
@@ -833,14 +833,15 @@ deck
 		circle 80 30 cplus
 	eslide
 
+	// TOC: Substr
 	slide
 		ctext "substr s begin" titleX titleY titleSize
 		s="hello, world"
-		a=substr s - -					// a="hello, world"
-		b=substr s - 4					// b="hello"
-		c=substr s 7 -					// c="world"
-		d=substr s 3 8					// d="lo, wo"
-		e=substr "This is a test"  5 8	// e="is a"
+		a=substr s - -					// TOC: a="hello, world"
+		b=substr s - 4					// TOC: b="hello"
+		c=substr s 7 -					// TOC: c="world"
+		d=substr s 3 8					// TOC: d="lo, wo"
+		e=substr "This is a test"  5 8	// TOC: e="is a"
 
 		text `s="hello, world"`       5 80 3 "mono"
 		text "substr s - -"     5 70 3 "mono"
@@ -855,7 +856,7 @@ deck
 		text e 60 30 3
 	eslide
 
-	// Lines
+	// TOC: Lines
 	slide
 		ctext "Lines" titleX titleY titleSize
 		hline 50 50 20
@@ -890,7 +891,7 @@ deck
 		efor
 	eslide
 
-	// Dotted lines
+	// TOC: Dotted lines
 	slide
 	 	ctext "Dotted Lines" titleX titleY titleSize
         dline 50 90 50 60
@@ -903,7 +904,7 @@ deck
         dline 90 60 50 60 1.0 5 "purple" 50
 	eslide
 
-	// Stars
+	// TOC: Stars
 	slide
 		ctext "Stars" titleX titleY titleSize
 		star 20 50 5 5 15
@@ -911,7 +912,7 @@ deck
 		star 80 50 5 5 15 "red" 20
 	eslide
 
-	// Rounded Rectangles
+	// TOC: Rounded Rectangles
 	slide
 		ctext "Pill/Rounded Rectangles" titleX titleY titleSize
 		rrect 30 50 30 30 10
@@ -923,7 +924,7 @@ deck
 	eslide
 
 
-	// Shapes
+	// TOC: Shapes
 	c1="red"
 	c2="blue"
 	c3="green"
@@ -968,7 +969,7 @@ deck
 		curve	   75 15 65 25 85 15 1 c3 shapeop
 	eslide
 
-	// polygon eval
+	// TOC: Polygon eval
 	slide
 		ctext "Polygon Eval" 50 90  5
 		x1=10
@@ -999,7 +1000,7 @@ deck
 		polygon "x1 75 x3" "y1 90 y3"
 	eslide
 
-	// polyline eval
+	// TOC: Polyline eval
 	slide
 		ctext "Polyline Eval" 50 90  5
 		x1=10
@@ -1030,7 +1031,7 @@ deck
 		polyline "x1 75 x3" "y1 90 y3"
 	eslide
 
-	// Arrows
+	// TOC: Arrows
 	slide
 		arrow 50 45 30 45
 		arrow 50 55 25 55 0.4
@@ -1073,7 +1074,6 @@ deck
 		efor
 	eslide
 
-	// Arrows
 	slide
 		circle 50 50 2 "blue"
 		arrow 50 50 90 50	// right
@@ -1148,7 +1148,7 @@ deck
 		circle 75 95 1.5 "red"
 	eslide
 
-	// braces
+	// TOC: Braces
 	slide
 		ctext "Braces" 50 50 5
 		lbrace 10 50 60 5 5
@@ -1180,6 +1180,7 @@ deck
 		dbrace 50 30 10 2 2 0.2 "red" 30
 	eslide
 
+	// TOC: Brackets
 	slide
 		ctext "Brackets" 50 50 5
 		rbracket 70 50 5 30  0.2 "red"
@@ -1192,7 +1193,7 @@ deck
 		etext "left" 30 50 3
 	eslide
 
-	// data file
+	// TOC: Data file
 	slide
 		data "foo.d"
 		# foo
@@ -1210,7 +1211,7 @@ deck
 		dchart  "foo.d"
 	eslide
 
-	// dchart
+	// TOC: Dchart
 	lopts="-fulldeck=f -val=f -left 20 -right 80 -line -bar=f -scatter -max 100 -yrange 0,100,20"
 	slide
 		dchart lopts -xlabel 1  -yaxis -grid -color red     "sales.d"
@@ -1230,21 +1231,21 @@ deck
 	imfile="follow.jpg"
 	imlink="https://budnitzbicycles.com"
 
-	// Images
+	// TOC: Images
 	slide
 		image imfile midx midy iw ih
 		image imfile midx midy iw ih s1
 		image imfile midx midy iw ih s2 imlink
 	eslide
 
-	// Captioned images
+	// TOC: Captioned images
 	slide "black" "white"
 		cimage imfile "LARGE" midx midy iw ih
 		cimage imfile "MEDIUM" midx midy iw ih s1
 		cimage imfile "SMALL" midx midy iw ih s2 imlink
 	eslide
 
-	// Width-scaled images
+	// TOC: Width-scaled images
 	slide
 		ctext "Width Scaled Image" 50 90 5
 		ctext "10%" 10 77 3 
@@ -1255,7 +1256,7 @@ deck
 		image imfile 70 midy 50 0
 	eslide
 
-	// Geo functions
+	// TOC: Geographic functions
 	slide "skyblue"
 		ctext "Geographic Funtions" 50 95 3
 		exuscolor="rgb(220,220,220)"
@@ -1293,7 +1294,6 @@ deck
 	import "mapbox.dsh"
 	include "geoscale.dsh"
 
-	// Example deck
 	geoLatMin=0-90
 	geoLatMax=90
 	geoLongMin=0-180
@@ -1313,7 +1313,7 @@ deck
 	imy=55
 	opts="-fulldeck=f -textsize 1  -xlabel=2  -barwidth 1.5"
 
-
+	// TOC: Example deck
 	slide "white" "black"
 		ruler 
 		ctext     "Deck elements" 50 dtop 5
@@ -1364,5 +1364,6 @@ deck
 		georegion "usa.json"  "red"
 	eslide
 
-	dump titleX titleY titleSize
+	include "toc.dsh"
+	dump
 edeck
