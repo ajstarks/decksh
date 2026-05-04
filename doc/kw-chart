@@ -7,6 +7,7 @@ li `dotchart`
 li `hbarchart`
 li `linechart`
 li `wbarchart`
+li `slopechart`
 li `pmap`
 li `pie`
 li `donut`

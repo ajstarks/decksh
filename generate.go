@@ -2303,7 +2303,8 @@ func fanchart(w io.Writer, s []string, linenumber int) error {
 	return writeChart(chart, w, filename, linenumber)
 }
 
-// stdchart makes bar charts, horizontal or word bar charts, line charts, scatter charts, dot charts, area charts
+// stdchart makes bar charts, horizontal or word bar charts, line charts,
+// scatter charts, dot charts, area charts, slope charts
 // <chartType> filename [color]
 func stdchart(w io.Writer, s []string, linenumber int) error {
 	ls := len(s)
@@ -2436,7 +2437,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 			chart.ShowPercentage = false
 		}
 		chart.ShowWBar = true
+	case "slopechart":
+		chart.ShowSlope = true
 	}
+
 	return writeChart(chart, w, filename, linenumber)
 }
 

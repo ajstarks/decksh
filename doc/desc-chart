@@ -7,6 +7,7 @@ li `Dot chart with specified data`
 li `Horizontal bar chart with specified data`
 li `Line chart with specified data`
 li `Word bar chart with specified data`
+li `Slope chart with specified data`
 li `Proportional map chart with specified data`
 li `Pie chart with specified data`
 li `Donut chart with specified data`

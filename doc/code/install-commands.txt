@@ -1,0 +1,5 @@
+$ go install github.com/ajstarks/decksh/cmd/decksh@latest
+$ go install github.com/ajstarks/deck/cmd/pdfdeck@latest
+$ cd $HOME
+$ git clone https://github.com/ajstarks/deckfonts
+$ export DECKFONTS=$HOME/deckfonts

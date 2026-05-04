@@ -1,0 +1,5 @@
+chartLeft=40
+chartRight=50
+chartTop=35
+chartBottom=10
+slopechart "slopex.d"

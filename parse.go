@@ -562,7 +562,7 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "dchart", "chart":
 		return deckchart(w, t, n)
 
-	case "barchart", "linechart", "scatterchart", "hbarchart", "wbarchart", "dotchart", "areachart", "area", "dot", "wbar", "hbar", "scatter":
+	case "barchart", "linechart", "scatterchart", "hbarchart", "wbarchart", "dotchart", "areachart", "area", "dot", "wbar", "hbar", "scatter", "slopechart":
 		return stdchart(w, tokens, n)
 
 	case "pmap", "piechart", "donutchart", "pie", "donut", "lego", "pgrid", "waffle":

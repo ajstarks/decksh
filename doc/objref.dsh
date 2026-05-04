@@ -2264,10 +2264,10 @@ deck
 	// TOC: Charts
 	slide bgcolor fgcolor
 		ctext "Charts" mid ty 5 "serif"
-		rc=initlcol
+		rc=initlcol-3
 		lcolsize=22
-		listspacing=1.45
-		hline rc llsty 85 tbheadsize "gray" 20
+		listspacing=1.35
+		hline rc llsty 95 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li tbl1 "sans" objcolor
 			li "General Charts"
@@ -2279,6 +2279,7 @@ deck
 			li "Horizontal Bar Chart"
 			li "Line Chart"
 			li "Word Bar Chart"
+			li "Slope Chart"
 			li "Proportional Map"
 			li "Pie Chart"
 			li "Donut Chart"
@@ -2299,6 +2300,7 @@ deck
 			li "hbarchart"
 			li "linechart"
 			li "wbarchart"
+			li "slopechart"
 			li "pmap"
 			li "pie"
 			li "donut"
@@ -2307,7 +2309,7 @@ deck
 			li "fanchart"
 			li "bowtie"
 		elist
-		lcolsize-=8
+		lcolsize-=5
 		rc+=lcolsize
 		list rc lsty lfs "mono" argcolor 100 listspacing
 			li "mandatory" "sans" objcolor
@@ -2327,20 +2329,22 @@ deck
 			li `"file"`
 			li `"file"`
 			li `"file"`
+			li `"file"`
 		elist
-		lcolsize+=20
+		lcolsize+=16
 		rc+=lcolsize
 		list rc lsty lfs "mono" optcolor 100 listspacing
 			li "optional"
 			li ""
 			li ""
 			li "right top bottom"
-			li "color"
-			li "color"
-			li "color"
-			li "color"
-			li "color"
-			li "color"
+			li "color lcolor vcolor"
+			li "color lcolor vcolor"
+			li "color lcolor vcolor"
+			li "color lcolor vcolor"
+			li "color lcolor vcolor"
+			li "color lcolor vcolor"
+			li "color lcolor vcolor"
 			li "size"
 			li "size"
 			li "width size"
@@ -2482,7 +2486,7 @@ deck
 	chartwidth=30
 	chartfile="test.d"
 
-	// TOC: barchart
+	// TOC: barchartcat
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
 		kwx=25
@@ -2492,7 +2496,7 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "barchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
-		text "color" arx2 ly ts "mono" optcolor
+		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/barchartex.dsh" 5 30 2 "mono"
 		include "code/barchartex.dsh"
 	eslide
@@ -2504,7 +2508,7 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "linechart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
-		text "color" arx2 ly ts "mono" optcolor
+		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/linechartex.dsh" 5 30 2 "mono"
 		include "code/linechartex.dsh"
 	eslide
@@ -2516,7 +2520,7 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "areachart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
-		text "color" arx2 ly ts "mono" optcolor
+		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/areachartex.dsh" 5 30 2 "mono"
 		include "code/areachartex.dsh"
 	eslide
@@ -2528,7 +2532,7 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "dotchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
-		text "color" arx2 ly ts "mono" optcolor
+		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/dotchartex.dsh" 5 30 2 "mono"
 		include "code/dotchartex.dsh"
 	eslide
@@ -2542,7 +2546,7 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "scatterchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
-		text "color" arx2 ly ts "mono" optcolor
+		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/scatterchartex.dsh" 5 30 2 "mono"
 		include "code/scatterchartex.dsh"
 	eslide
@@ -2554,7 +2558,7 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "hbarchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
-		text "color" arx2 ly ts "mono" optcolor
+		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/hbarchartex.dsh" 5 30 2 "mono"
 		include "code/hbarchartex.dsh"
 	eslide
@@ -2566,9 +2570,22 @@ deck
 		hline 0 47 100 hlsize hlcolor hlop
 		text "wbarchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
-		text "color" arx2 ly ts "mono" optcolor
+		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/wbarchartex.dsh" 5 30 2 "mono"
 		include "code/wbarchartex.dsh"
+	eslide
+
+	// TOC: slopechart
+	slide bgcolor fgcolor
+		include "exchartvar.dsh"
+		slopechart "slope.d"
+		hline 0 47 100 hlsize hlcolor hlop
+		text "slopechart" kwx ly ts "mono" kwcolor
+		text `"file"` arx ly ts "mono" argcolor
+		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
+		textfile "code/slopechartex.dsh" 5 30 2 "mono"
+		textfile "slopex.d"              75 30 1.5 "mono"         
+		include "code/slopechartex.dsh"
 	eslide
 
 	// TOC: pmap

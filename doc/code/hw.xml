@@ -1,0 +1,6 @@
+<deck>
+<slide bg="black" fg="white">
+<text align="c" xp="50" yp="25" sp="10" >hello, world</text>
+<ellipse xp="50" yp="0" wp="100" hr="100" color="green"/>
+</slide>
+</deck>

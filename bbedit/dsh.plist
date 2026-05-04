@@ -71,6 +71,7 @@
 		hbarchart,
 		areachart,
 		dotchart,
+		slopechart,
 		area,
 		dot,
 		wbar,

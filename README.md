@@ -1144,49 +1144,55 @@ For example, ```dchart -bar=t -left=35 -right=65 -top=90 -bottom=65 -yaxis=t```
 ![dchart](images/dchart.png)
 
 
-Alternatively, some chart types may be drawn using their own dedicated keywords:
+Alternatively, some chart types may be drawn using their own dedicated keywords, optionally specifying chart, label, and value colors:
 
 ## Barchart
 
-```barchart "file" [color]```
+```barchart "file" [color] [lcolor] [vcolor]```
 
 ![barchart](images/barchart.png)
 
 ## Scatter chart
 
-```scatterchart "file" [color]```
+```scatterchart "file" [color] [lcolor] [vcolor]```
 
 ![scatter](images/scatterchart.png)
 
 ## Line Chart
 
-```linechart "file" [color]```
+```linechart "file" [color] [lcolor] [vcolor]```
 
 ![line](images/linechart.png)
 
 ## Area chart
 
-```areachart "file" [color]```
+```areachart "file" [color] [lcolor] [vcolor]```
 
 ![area](images/areachart.png)
 
 ## Dotchart
 
-```dotchart "file" [color]```
+```dotchart "file" [color] [lcolor] [vcolor]```
 
 ![dotchart](images/dotchart.png)
 
 ## Horizontal bar chart
 
-```hbarchart "file" [color]```
+```hbarchart "file" [color] [lcolor] [vcolor]```
 
 ![hbarchart](images/hbarchart.png)
 
 ## "Word" barchart
 
-```wbarchart "file" [color]```
+```wbarchart "file" [color] [lcolor] [vcolor]```
 
 ![wbarchart](images/wbarchart.png)
+
+## Slope chart
+
+```slopechart "file" [color] [lcolor] [vcolor]```
+
+![slopechart](images/slopechart.png)
 
 ## Proportional map
 
