@@ -2489,12 +2489,12 @@ deck
 	// TOC: barchartcat
 	slide bgcolor fgcolor
 		include "exchartvar.dsh"
-		kwx=25
-		arx=kwx+17
+		kwx=39
+		arx=kwx+0.75
 		arx2=arx+11
 		barchart chartfile
 		hline 0 47 100 hlsize hlcolor hlop
-		text "barchart" kwx ly ts "mono" kwcolor
+		etext "barchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/barchartex.dsh" 5 30 2 "mono"
@@ -2506,7 +2506,7 @@ deck
 		include "exchartvar.dsh"
 		linechart "test.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "linechart" kwx ly ts "mono" kwcolor
+		etext "linechart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/linechartex.dsh" 5 30 2 "mono"
@@ -2518,7 +2518,7 @@ deck
 		include "exchartvar.dsh"
 		areachart "test.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "areachart" kwx ly ts "mono" kwcolor
+		etext "areachart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/areachartex.dsh" 5 30 2 "mono"
@@ -2530,7 +2530,7 @@ deck
 		include "exchartvar.dsh"
 		dotchart "test.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "dotchart" kwx ly ts "mono" kwcolor
+		etext "dotchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/dotchartex.dsh" 5 30 2 "mono"
@@ -2539,12 +2539,10 @@ deck
 
 	// TOC: scatterchart
 	slide bgcolor fgcolor
-		arx=kwx+20
-		arx2=arx+12
 		include "exchartvar.dsh"
 		scatterchart "test.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "scatterchart" kwx ly ts "mono" kwcolor
+		etext "scatterchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/scatterchartex.dsh" 5 30 2 "mono"
@@ -2556,7 +2554,7 @@ deck
 		include "exchartvar.dsh"
 		hbarchart "test.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "hbarchart" kwx ly ts "mono" kwcolor
+		etext "hbarchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/hbarchartex.dsh" 5 30 2 "mono"
@@ -2568,7 +2566,7 @@ deck
 		include "exchartvar.dsh"
 		wbarchart "test.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "wbarchart" kwx ly ts "mono" kwcolor
+		etext "wbarchart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/wbarchartex.dsh" 5 30 2 "mono"
@@ -2580,7 +2578,7 @@ deck
 		include "exchartvar.dsh"
 		slopechart "slope.d"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "slopechart" kwx ly ts "mono" kwcolor
+		etext "slopechart" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "color lcolor vcolor" arx2 ly ts "mono" optcolor
 		textfile "code/slopechartex.dsh" 5 30 2 "mono"
@@ -2591,7 +2589,7 @@ deck
 	// TOC: pmap
 	slide bgcolor fgcolor
 		//ruler 5
-		kwx=36
+		//kwx=36
 		chartLeft=20
 		chartRight=82
 		chartTop=80
@@ -2601,7 +2599,7 @@ deck
 		ctext "chartTop"   47.5 95ts "mono"
 		vline 47.5 chartTop 13 0.2
 		hline 0 47 100 hlsize hlcolor hlop
-		text "pmap" kwx ly ts "mono" kwcolor
+		etext "pmap" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "size" arx2 ly ts "mono" optcolor
 		textfile "code/pmapchartex.dsh" 5 30 2 "mono"
@@ -2611,7 +2609,7 @@ deck
 	// TOC: pie
 	slide bgcolor fgcolor
 		//ruler 5
-		kwx=36
+		//kwx=36
 		chartLeft=50
 		chartTop=80
 		text "chartLeft" 20 73.5 ts "mono"
@@ -2620,7 +2618,7 @@ deck
 		hline 35 75 15 0.1
 		pie "test.d" 10
 		hline 0 47 100 hlsize hlcolor hlop
-		text "pie" kwx ly ts "mono" kwcolor
+		etext "pie" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "size" arx2 ly ts "mono" optcolor
 		textfile "code/piechartex.dsh" 5 30 2 "mono"
@@ -2630,7 +2628,7 @@ deck
 	// TOC: donut
 	slide bgcolor fgcolor
 		//ruler 5
-		kwx=36
+		//kwx=36
 		chartLeft=50
 		chartTop=80
 		text "chartLeft" 20 73.5 ts "mono"
@@ -2639,7 +2637,7 @@ deck
 		hline 35 75 15 0.1
 		donut "test.d" 1 10
 		hline 0 47 100 hlsize hlcolor hlop
-		text "donut" kwx ly ts "mono" kwcolor
+		etext "donut" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		text "size width" arx2 ly ts "mono" optcolor
 		textfile "code/donutchartex.dsh" 5 30 2 "mono"
@@ -2657,7 +2655,7 @@ deck
 		etext "chartLeft" 35 80 ts "mono"
 		hline 35 80 5
 		hline 0 47 100 hlsize hlcolor hlop
-		text "lego" kwx ly ts "mono" kwcolor
+		etext "lego" kwx ly ts "mono" kwcolor
 		text `"file"` arx ly ts "mono" argcolor
 		textfile "code/legochartex.dsh" 5 30 2 "mono"
 		textfile "incar.d" 30 30 2 "mono"
@@ -2666,14 +2664,11 @@ deck
 
 	// TOC: fanchart
 	slide bgcolor fgcolor
-		kwx-=4
-		arx+=2
-		arx2+=1
 		ubrace 45 93 10 3 2
 		ctext "chartLeft" 50 75 2 "mono"
 		ctext "size"      45 94 2 "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "fanchart" kwx ly ts "mono" kwcolor
+		etext "fanchart" kwx ly ts "mono" kwcolor
 		text `"file"`   arx ly ts "mono" argcolor
 		text "size"     arx2 ly ts "mono" optcolor
 		textfile "code/fanchartex.dsh" 5 30 2 "mono"
@@ -2683,12 +2678,11 @@ deck
 
 	// TOC: bowtie
 	slide bgcolor fgcolor
-		arx-=2
 		ubrace 45 93 10 3 2
 		ctext "chartLeft" 50 75 2 "mono"
 		ctext "size"      45 94 2 "mono"
 		hline 0 47 100 hlsize hlcolor hlop
-		text "bowtie" kwx ly ts "mono" kwcolor
+		etext "bowtie" kwx ly ts "mono" kwcolor
 		text `"file"`   arx ly ts "mono" argcolor
 		text "size"     arx2 ly ts "mono" optcolor
 		textfile "code/bowchartex.dsh" 5 30 2 "mono"
