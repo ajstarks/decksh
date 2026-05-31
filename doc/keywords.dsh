@@ -1,7 +1,7 @@
 
 	// Keyword list
 	slide
-		ctext "Keywords" 50 90 titlesize "serif"
+		ctext "Keywords" 50 92 titlesize "serif"
 		hsize=titlesize*0.70
 		lsize=hsize*0.5
 		csep=15
@@ -138,6 +138,7 @@
 			li "wbar"
 			li "linechart"
 			li "scatter"
+			li "slopechart"
 		elist
 		lx+=csep2
 		list lx listtop lsize "mono" "black" 100 listspacing

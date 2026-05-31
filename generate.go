@@ -2421,6 +2421,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 		chart.ShowScatter = true
 	case "areachart", "area":
 		chart.ShowVolume = true
+		chart.VolumeOpacity, err = strconv.ParseFloat(eval("chartVolOp"), 64)
+		if err != nil {
+			chart.VolumeOpacity = 50
+		}
 	case "hbarchart", "hbar":
 		chart.LineSpacing, err = strconv.ParseFloat(eval("chartLineSpacing"), 64)
 		if err != nil {
