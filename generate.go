@@ -2402,8 +2402,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if len(yrange) > 4 {
 		var yincr float64
 		fmt.Sscanf(yrange, "%v,%v,%v", &chart.UserMin, &chart.UserMax, &yincr)
+		println("min=", chart.UserMin, "max=", chart.UserMax, "incr=", yincr)
 		chart.ShowAxis = true
 		chart.ShowGrid = true
+		chart.YAxisR = yrange
 	}
 	// define the type of chart
 	switch chartname {
