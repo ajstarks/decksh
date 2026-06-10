@@ -16,6 +16,7 @@
 		chartXLabel,
 		chartYRange,
 		chartBarWidth,
+		chartXLast,
 		chartLineWidth,
 		chartReadCSV,
 		chartVolOp,

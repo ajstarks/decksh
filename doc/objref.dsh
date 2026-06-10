@@ -2361,7 +2361,7 @@ deck
 		ctext "Chart Variables" mid ty 5 "serif"
 		rc=initlcol
 		lcolsize=25
-		listspacing=1.3
+		listspacing=1.2
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "description"
@@ -2374,15 +2374,18 @@ deck
 			li "Chart bar width"
 			li "Chart line spacing"
 			li "Chart Volume Opacity"
+			li "X-axis label interval"
+			li "Y-axis range"
+			li "CSV Columns"
+			li "Data Format"
 			li "Show % Value"
 			li "Show data values"
 			li "Show Y-axis grid"
 			li "Show title"
 			li "Read CSV"
-			li "X-axis label interval"
-			li "Y-axis range"
-			li "CSV Columns"
-			li "Data Format"
+			li "Show last X-axis label"
+
+			
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
@@ -2396,15 +2399,17 @@ deck
 			li "chartBarWidth"
 			li "chartLineSpacing"
 			li "chartVolOp"
+			li "chartXLabel"
+			li "chartYRange"
+			li "chartCSVCols"
+			li "chartDataFmt"
 			li "chartPercent"
 			li "chartVal"
 			li "chartGrid"
 			li "chartTitle"
 			li "chartReadCSV"
-			li "chartXLabel"
-			li "chartYRange"
-			li "chartCSVCols"
-			li "chartDataFmt"
+			li "chartXLast"
+			
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" "" 100 listspacing
@@ -2418,15 +2423,17 @@ deck
 			li "0 (autoscale)"
 			li "2.4"
 			li "50"
-			li "0 (0: off, 1: on)"
-			li "1 (0: off, 1: on)"
-			li "0 (0: off, 1: on)"
-			li "1 (0: off, 1: on)"
-			li "0 (0: off, 1: on)"
 			li "1 (1: all, 0: none, every nth label)"
 			li `"" (min,max,interval)`
 			li `""`
 			li "%.1f"
+			li "0 (0: off, 1: on)"
+			li "1 (0: off, 1: on)"
+			li "0 (0: off, 1: on)"
+			li "1 (0: off, 1: on)"
+			li "0 (0: off, 1: on)"
+			li "0 (0: off, 1: on)"
+			
 		elist
 	eslide
 

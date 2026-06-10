@@ -14,7 +14,7 @@
 go get github.com/ajstarks/decksh                        # install the package
 go install github.com/ajstarks/decksh/cmd/decksh@latest  # install the decksh command
 ```
-The current version is 2026-05-31-1.0.0
+The current version is 2026-06-10-1.1.0
 
 ## References and Examples
 
@@ -1251,15 +1251,16 @@ Chart line width        chartLineWidth      0.2
 Chart bar width         chartBarWidth       0 (autoscale)
 Chart line spacing      chartLineSpacing    2.4
 Chart Volume opacity    chartVolOp          50
+X-axis label interval   chartXLabel         1 (1: all, 0: none, every nth labelchartYRange
+Y-axis range            chartYRange         "" (min,max,interval)
+CSV Columns             chartCSVCols        ""
+Data Format             chartDataFmt        "%.1f"
 Show % value            chartPercent        0 (0: off, 1: on)
 Show values             chartVal            1 (0: off, 1: on)
 Show y-axis grid        chartGrid           0 (0: off, 1: on)
 Show title              chartTitle          1 (0: off, 1: on)
 Read CSV                chartReadCSV        0 (0: off, 1: on)
-X-axis label interval   chartXLabel         1 (1: all, 0: none, every nth labelchartYRange
-Y-axis range            chartYRange         "" (min,max,interval)
-CSV Columns             chartCSVCols        ""
-Data Format             chartDataFmt        "%.1f"
+Show last X-axis label  chartXLast          0 (0: off, 1: on)
 ```
 
 The chart boundaries may be set via ```chartbbox```.

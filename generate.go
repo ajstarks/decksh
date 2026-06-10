@@ -2341,6 +2341,7 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	chart.DataColor = color
 	chart.LabelColor = lcolor
 	chart.ValueColor = vcolor
+
 	var err error
 	chart.Top, err = strconv.ParseFloat(eval("chartTop"), 64)
 	if err != nil {
@@ -2382,6 +2383,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.ShowValues = true
 	}
+	chart.ShowXLast, err = strconv.ParseBool(eval("chartXLast"))
+	if err != nil {
+		chart.ShowXLast = false
+	}
 	chart.ShowTitle, err = strconv.ParseBool(eval("chartShowTitle"))
 	if err != nil {
 		chart.ShowTitle = true
@@ -2402,11 +2407,11 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if len(yrange) > 4 {
 		var yincr float64
 		fmt.Sscanf(yrange, "%v,%v,%v", &chart.UserMin, &chart.UserMax, &yincr)
-		println("min=", chart.UserMin, "max=", chart.UserMax, "incr=", yincr)
 		chart.ShowAxis = true
 		chart.ShowGrid = true
 		chart.YAxisR = yrange
 	}
+
 	// define the type of chart
 	switch chartname {
 	case "barchart":
