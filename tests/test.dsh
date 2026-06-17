@@ -1275,7 +1275,7 @@ deck
 		georegion 	"usa.kml" 							 uscolor
 		geoborder 	"usa.kml" 							 0.15 "gray"
 		geoloc		"roadtrip.d"  						 "e" 1.5
-		include 	"ustates.dsh"
+		geoborder   "ustates.json"                       0.05 "silver"
 
 		geopathfile	"roadtrip.d"  						 0.5 "red" 25
 		geoimage	"geo:51,-102	can.png" 			 5 0
