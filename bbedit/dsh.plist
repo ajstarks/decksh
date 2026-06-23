@@ -21,6 +21,7 @@
 		chartReadCSV,
 		chartVolOp,
 		chartCSVCols,
+		georuler,
 		geoXmin,
 		geoXmax,
 		geoYmin,

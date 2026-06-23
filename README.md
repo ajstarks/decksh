@@ -179,6 +179,10 @@ Make rulers with an interval (default 5), with optional color
 
 ![ruler](images/ruler.png)
 
+Make a ruler with lat/long interval (default 10, degrees), with optional color
+
+```georuler [increment] [color]```
+
 ## Colors
 
 Colors formats are:

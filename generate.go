@@ -22,6 +22,13 @@ const (
 	linefmt     = "<line xp1=\"%.2f\" yp1=\"%.2f\" xp2=\"%.2f\" yp2=\"%.2f\" %s/>\n"
 	sqfmt       = "<rect xp=\"%.2f\" yp=\"%.2f\" wp=\"%.2f\" hp=\"%.2f\" hr=\"100\" %s/>\n"
 	dlfmt       = "<ellipse xp=\"%.3f\" yp=\"%.3f\" wp=\"%.3f\" hr=\"100\" color=%s opacity=\"%.3f\"/>\n"
+
+	ruleattr = "sp=\"0.05\" color=%s opacity=\"70\""
+	xrulelab = "<text align=\"c\" xp=\"%.2f\" yp=\"2\" sp=\"1.2\" color=%s opacity=\"75\" font=\"mono\">%v</text>\n"
+	yrulelab = "<text align=\"c\" xp=\"2\" yp=\"%.2f\" sp=\"1.2\" color=%s opacity=\"75\" font=\"mono\">%v</text>\n"
+
+	xdeglab = "<text align=\"c\" xp=\"%.2f\" yp=\"2\" sp=\"1.2\" color=%s opacity=\"75\" font=\"mono\">%v°</text>\n"
+	ydeglab = "<text align=\"c\" xp=\"2\" yp=\"%.2f\" sp=\"1.2\" color=%s opacity=\"75\" font=\"mono\">%v°</text>\n"
 )
 
 // xmlmap defines the XML substitutions
@@ -155,13 +162,9 @@ func canvas(w io.Writer, s []string, linenumber int) error {
 }
 
 // ruler makes x, y rulers
-// rule xincr [yincr] [color]
+// rule xincr [color]
 func ruler(w io.Writer, s []string, linenumber int) error {
-	const (
-		ruleattr = "sp=\"0.05\" color=%s opacity=\"70\""
-		xrulelab = "<text align=\"c\" xp=\"%.2f\" yp=\"2\" sp=\"1.2\" color=%s opacity=\"75\" font=\"mono\">%v</text>\n"
-		yrulelab = "<text align=\"c\" xp=\"2\" yp=\"%.2f\" sp=\"1.2\" color=%s opacity=\"75\" font=\"mono\">%v</text>\n"
-	)
+
 	incr := 5.0 // ruler
 	color := `"black"`
 	n := len(s)
@@ -188,6 +191,46 @@ func ruler(w io.Writer, s []string, linenumber int) error {
 		fmt.Fprintf(w, linefmt, 0.0, i, 100.0, i, ra)
 		fmt.Fprintf(w, xrulelab, i, color, i)
 		fmt.Fprintf(w, yrulelab, i, color, i)
+	}
+	return nil
+}
+
+// georuler makes a geographic ruler
+func georuler(w io.Writer, s []string, linenumber int) error {
+	incr := 5.0 // georuler
+	color := `"black"`
+	n := len(s)
+
+	if n > 1 { // georuler x
+		if err := validNumber(s[1]); err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+		i, err := strconv.ParseFloat(s[1], 64)
+		if err != nil {
+			return fmt.Errorf("line %d: %v", linenumber, err)
+		}
+		incr = i
+	}
+	if n > 2 && s[2][0] == doublequote { // georuler x color
+		color = s[2]
+	}
+	if incr > 60 || incr < 2 {
+		incr = 5.0
+	}
+	ra := fmt.Sprintf(ruleattr, color)
+	latmin, latmax, lonmin, lonmax := geolatlong()
+	xmin, xmax, ymin, ymax := geocanvas()
+
+	for lon := lonmin; lon <= lonmax; lon += incr {
+		x := vmap(lon, lonmin, lonmax, xmin, xmax)
+		fmt.Fprintf(w, linefmt, x, xmin, x, xmax, ra)
+		fmt.Fprintf(w, xdeglab, x, color, lon)
+	}
+
+	for lat := latmin; lat <= latmax; lat += incr {
+		y := vmap(lat, latmin, latmax, ymin, ymax)
+		fmt.Fprintf(w, linefmt, xmin, y, xmax, y, ra)
+		fmt.Fprintf(w, ydeglab, y, color, lat)
 	}
 	return nil
 }

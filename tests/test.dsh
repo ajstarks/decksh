@@ -1269,6 +1269,7 @@ deck
 		la="geo:34.05000,-118.2015"
 		min="geo:44.981944,-93.269167	Minneapolis"
 		gom="geo:25,-90	Gulf of Mexico"
+		georuler 5
 		georegion	"can.kml"							 exuscolor 40
 		georegion	"mex.kml"							 exuscolor 40
 		georegion	"carib.kml"							 exuscolor 40

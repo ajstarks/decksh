@@ -9,7 +9,7 @@
 		csep3=csep*0.80
 		rsep=46
 		lsep=5
-		headtop=top-1
+		headtop=top+1
 		listtop=headtop-lsep
 		listspacing=lsize*0.65
 		headcolor=spotcolor
@@ -118,6 +118,7 @@
 			li "geopath"
 			li "geopathfile"
 			li "georegion"
+			li "georuler"
 		elist
 		lx+=csep
 		text "Images" lx headtop hsize "sans" headcolor

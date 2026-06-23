@@ -1749,7 +1749,7 @@ deck
 			li "import"
 			li "data"
 			li "grid"
-			li "ruler"
+			li "ruler/georuler"
 		elist
 		rc+=20
 		list rc lsty lfs "mono" argcolor 100 listspacing
@@ -2121,7 +2121,7 @@ deck
 		lbrace 40 80 10 2 2 0.3
 		image "images/rule-incr.png"  50 80 30 0
 		hline 0 47 100 hlsize hlcolor hlop
-		text "ruler"      33  ly ts "mono" kwcolor
+		text "ruler/georuler" 20  ly ts "mono" kwcolor
 		ctext "increment" 50  ly ts "mono" optcolor
 		text "color"      60 ly ts "mono" optcolor
 
@@ -2385,7 +2385,7 @@ deck
 			li "Read CSV"
 			li "Show last X-axis label"
 
-			
+
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" kwcolor 100 listspacing
@@ -2409,7 +2409,7 @@ deck
 			li "chartTitle"
 			li "chartReadCSV"
 			li "chartXLast"
-			
+
 		elist
 		rc+=lcolsize
 		list rc lsty lfs "mono" "" 100 listspacing
@@ -2433,7 +2433,7 @@ deck
 			li "1 (0: off, 1: on)"
 			li "0 (0: off, 1: on)"
 			li "0 (0: off, 1: on)"
-			
+
 		elist
 	eslide
 

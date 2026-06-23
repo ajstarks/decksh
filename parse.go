@@ -607,6 +607,9 @@ func keyparse(w io.Writer, tokens []string, t string, n int) error {
 	case "geobound", "geobbox":
 		return setLatLong(tokens, n)
 
+	case "georuler":
+		return georuler(w, tokens, n)
+
 	default: // not a keyword, direct function calls
 		return directfunc(w, tokens, n)
 	}

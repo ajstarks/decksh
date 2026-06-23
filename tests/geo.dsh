@@ -4,8 +4,8 @@ deck
 	gcolor="white"
 	geoLatMin=20
 	geoLatMax=45
-	geoLongMax=48
-	geoLongMin=5
+	geoLongMax=50
+	geoLongMin=0
 
 	slide wcolor gcolor
 		text "The Ancient World" 10 10 5
@@ -13,5 +13,6 @@ deck
 		geoline  "world.kml"	0.02 gcolor
 		geolabel "countries.d"	3 "serif" gcolor
 		geoloc   "cities.d"		"e" 1 "sans" gcolor
+		georuler 5 gcolor
 	eslide
 edeck
