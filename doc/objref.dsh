@@ -15,7 +15,7 @@ deck
 	ts=3.2
 	ets=2
 	ls=ts*0.55
-	lsty=82
+	lsty=85
 	lfs=2.3
 	tbheadsize=4
 	cx=50
@@ -2361,7 +2361,7 @@ deck
 		ctext "Chart Variables" mid ty 5 "serif"
 		rc=initlcol
 		lcolsize=25
-		listspacing=1.2
+		listspacing=1.25
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "description"

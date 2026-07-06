@@ -36,9 +36,9 @@
 			include "desc-graphics"
 		elist
 
-		etext "Structure"     c0 75 ls "sans" "gray"
-		etext "Utility"       c0 48 ls "sans" "gray"
-		etext "Graphics"      c0 25 ls "sans" "gray"
+		etext "Structure"     c0 89 ls "sans" "gray"
+		etext "Utility"       c0 56 ls "sans" "gray"
+		etext "Graphics"      c0 41 ls "sans" "gray"
 	eslide
 
 	slide
@@ -64,16 +64,15 @@
 			include "desc-bracket"
 		elist
 
-		etext "Text"            c0 75  ls "sans" "gray"
-		etext "Lists"           c0 52  ls "sans" "gray"
-		etext "Images"          c0 38  ls "sans" "gray"
-		etext "Braces/"         c0 24  ls "sans" "gray"
-		etext "Brackets"        c0 22  ls "sans" "gray"
+		etext "Text"            c0 89  ls "sans" "gray"
+		etext "Lists"           c0 59  ls "sans" "gray"
+		etext "Images"          c0 41  ls "sans" "gray"
+		etext "Braces/"         c0 34  ls "sans" "gray"
+		etext "Brackets"        c0 32  ls "sans" "gray"
 	eslide
 
 	slide
 		include "kwheader.dsh"
-
 		list c1 top ts "mono" kwcolor 100 ls
 			include "kw-arrow"
 			include "kw-func"
@@ -95,10 +94,10 @@
 			include "desc-geo"
 		elist
 
-		etext "Arrows"       c0 82  ls "sans" "gray"
-		etext "Built-ins"    c0 65  ls "sans" "gray"
-		etext "Math"         c0 45  ls "sans" "gray"
-		etext "Geographic"   c0 25  ls "sans" "gray"
+		etext "Arrows"       c0 89  ls "sans" "gray"
+		etext "Built-ins"    c0 74  ls "sans" "gray"
+		etext "Math"         c0 48.5  ls "sans" "gray"
+		etext "Geographic"   c0 36  ls "sans" "gray"
 	eslide
 
 	slide
@@ -115,5 +114,5 @@
 		list c3 top ts "serif" descolor 100 ls
 			include "desc-chart"
 		elist
-		etext "Charts"       c0 71  ls "sans" "gray"
+		etext "Charts"       c0 89  ls "sans" "gray"
 	eslide

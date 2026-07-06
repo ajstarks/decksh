@@ -8,7 +8,7 @@
 		csep2=csep*0.80
 		csep3=csep*0.80
 		rsep=46
-		lsep=5
+		lsep=4
 		headtop=top+1
 		listtop=headtop-lsep
 		listspacing=lsize*0.65
