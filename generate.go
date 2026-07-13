@@ -2426,6 +2426,10 @@ func stdchart(w io.Writer, s []string, linenumber int) error {
 	if err != nil {
 		chart.ShowValues = true
 	}
+	chart.ShowNote, err = strconv.ParseBool(eval("chartNote"))
+	if err != nil {
+		chart.ShowNote = false
+	}
 	chart.ShowXLast, err = strconv.ParseBool(eval("chartXLast"))
 	if err != nil {
 		chart.ShowXLast = false

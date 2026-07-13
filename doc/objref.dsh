@@ -2361,7 +2361,7 @@ deck
 		ctext "Chart Variables" mid ty 5 "serif"
 		rc=initlcol
 		lcolsize=25
-		listspacing=1.25
+		listspacing=1.2
 		hline rc llsty 85 tbheadsize "gray" 20
 		list rc lsty lfs "sans" "" 100 listspacing
 			li "description"
@@ -2380,6 +2380,7 @@ deck
 			li "Data Format"
 			li "Show % Value"
 			li "Show data values"
+			li "Show notes"
 			li "Show Y-axis grid"
 			li "Show title"
 			li "Read CSV"
@@ -2405,6 +2406,7 @@ deck
 			li "chartDataFmt"
 			li "chartPercent"
 			li "chartVal"
+			li "chartNote"
 			li "chartGrid"
 			li "chartTitle"
 			li "chartReadCSV"
@@ -2429,6 +2431,7 @@ deck
 			li "%.1f"
 			li "0 (0: off, 1: on)"
 			li "1 (0: off, 1: on)"
+			li "0 (0: off, 1: on)"
 			li "0 (0: off, 1: on)"
 			li "1 (0: off, 1: on)"
 			li "0 (0: off, 1: on)"
