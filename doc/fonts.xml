@@ -1,0 +1,21 @@
+<deck>
+<slide>
+<ellipse xp="5" yp="90" wp="1" hr="100"/>
+<ellipse xp="55" yp="45" wp="1" hr="100"/>
+<list xp="10" yp="80" sp="6" font="" color="" opacity="100" lp="2.0">
+<li font="serif">Hamburgevons 0123456789</li>
+<li font="sans">Hamburgevons 0123456789</li>
+<li font="mono">Hamburgevons 0123456789</li>
+</list>
+</slide>
+<slide>
+<ellipse xp="5" yp="90" wp="1" hr="100"/>
+<ellipse xp="55" yp="45" wp="1" hr="100"/>
+<list xp="10" yp="80" sp="5" >
+<li font="serif">ABCDEFGHI</li>
+<li font="sans">ABCDEFGHI</li>
+<li font="mono">ABCDEFGHI</li>
+<li font="symbol">ABCDEFGHI</li>
+</list>
+</slide>
+</deck>

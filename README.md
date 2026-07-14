@@ -1261,6 +1261,7 @@ CSV Columns             chartCSVCols        ""
 Data Format             chartDataFmt        "%.1f"
 Show % value            chartPercent        0 (0: off, 1: on)
 Show values             chartVal            1 (0: off, 1: on)
+Show notes              chartNote           0 (0: off, 1: on)
 Show y-axis grid        chartGrid           0 (0: off, 1: on)
 Show title              chartTitle          1 (0: off, 1: on)
 Read CSV                chartReadCSV        0 (0: off, 1: on)

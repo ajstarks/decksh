@@ -1,0 +1,44 @@
+deck
+	// slide
+	// 	list 10 80 5
+	// 		li "Times Roman" "serif"
+	// 		li "Helvetica"   "sans"
+	// 		li "Courier"     "mono"
+	// 		li "Symbol"      "symbol"
+	// 	elist
+	// eslide
+
+	// slide
+	// 	list 10 80 5
+	// 		li "Charter"    "serif"
+	// 		li "Fira"       "sans"
+	// 		li "Inconsolata" "mono"
+	// 		li "States"      "symbol"
+	// 	elist
+	// eslide
+
+	slide
+		circle 5 90 1
+		circle 55 45 1
+		sample="Hamburgevons 0123456789"
+		list 10 80 6 "" "" 100 2.0
+			li sample  "serif"
+			li sample  "sans"
+			li sample  "mono"
+		elist
+	eslide
+
+
+	slide
+		circle 5 90 1
+		circle 55 45 1
+		sample="ABCDEFGHI"
+		list 10 80 5
+			li sample  "serif"
+			li sample  "sans"
+			li sample  "mono"
+			li sample  "symbol"
+		elist
+	eslide
+
+edeck
