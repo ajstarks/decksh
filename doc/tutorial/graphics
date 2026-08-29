@@ -1,0 +1,23 @@
+decksh supports stroked graphic shapes including lines, polylines, arcs, and curves.
+
+The general syntax includes the arguments for the shape, with optional arguments for line width, color and opacity; (defaulting to 0.2%, "gray" and 100%)
+
+To draw a line between (10,50) and (20,70):
+
+line 10 50 20 70
+
+Dotted lines are similar, but you may specify the gap between dots after the line width:
+
+dline 10 50 90 50 0.2 5
+
+Horizontal and vertical lines specify the beginning point and the length:
+
+hline 10 50 30 and vline 10 50 30
+
+For arcs, specify the center of the arc, its width and height, and start and ending angles.
+
+arc 50 50 10 10 0 90
+
+Polygons use two string arguments: the first is a list of x coordinates, and the second is the y coordinates.
+
+Quadratic Bezier curves take three pairs of coordinates: the beginning point, the control point, and the end point.

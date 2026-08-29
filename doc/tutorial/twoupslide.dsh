@@ -1,0 +1,11 @@
+slide bgcolor txcolor  // 2-up page
+	ctext     "Graffiti and Murals"     tx ty ts
+	image     "images/chinatown09r.jpg"  limx imy ims 0
+	image     "images/chinatown08r.jpg"  rimx imy ims 0
+eslide
+
+slide bgcolor txcolor
+	ctext     "Mural and Poster"         tx ty ts
+	image     "images/chinatown06r.jpg"  limx imy ims 0
+	image     "images/hc.jpg"            rimx imy ims 0
+eslide

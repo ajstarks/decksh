@@ -1,0 +1,24 @@
+deck
+	slide
+		col1=10
+		col2=col1+25
+		col3=col2+30
+		top=80
+		listSize=3
+		list col1 top listSize
+			li "first row"
+			li "second row"
+			li "third row"
+		elist
+		list col2 top listSize
+			li "more things"
+			li "yet more things"
+			li "last row"
+		elist
+		list col3 top listSize
+			li "The last column"
+			li "almost done"
+			li "really done"
+		elist
+	eslide
+edeck

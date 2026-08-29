@@ -1,0 +1,23 @@
+deck
+	tx=20           // title x coordinate
+	ty=90           // title y coordinate
+	ts=3            // title size
+	imx=70          // image x coordinate
+	imy=60          // image y coordinate
+	ims=50          // image size
+	ex=5            // text x coordinate
+	ey=80           // text y coordinate
+	ew=30           // text width
+	es=ts*.75       // text size
+	slide
+		p="New research has shed light on the question of a cat's color ..."
+		ctext     "Why is my cat orange?"   tx ty ts
+		textblock p                         ex ey ew es "serif" 
+		image     "cat.png"                 imx imy ims 0
+	eslide
+	slide
+		ctext     "My new cat"              tx ty ts
+		textblock "more stuff..."           ex ey ew es "serif"
+		image     "newcat.png"              imx imy ims 0
+	eslide
+edeck

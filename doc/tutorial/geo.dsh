@@ -1,0 +1,12 @@
+deck
+	slide
+		geobound -34.83 37.34 -17.52 51.266     // boundary of Africa
+		geocanvas 15 85                         // horiz. scale (15%-85%)
+		cairo="geo:30.04440,31.235700	Cairo" // define Cairo, Egypt
+		accra="geo:5.614818,-0.205874	Accra" // define Accra, Ghana
+		geoloc    cairo "b" 4                   // label Cairo
+		geoloc    accra "e" 4                   // label Accra
+		georegion "africa.kml" "tan"            // draw the continent
+		geopath   accra cairo 0.5 "red"         // make path cities
+	eslide
+edeck

@@ -1,0 +1,12 @@
+deck
+	slide
+		base=50                                       // alignment point
+		circle  10 base 5                             // default circle
+		ellipse 20 base 10 5              "red"       // red ellipse
+		square  30 base 5                 "green"     // green square
+		rect    40 base 10 15             "blue"      // blue rectangle
+		rrect   55 base 10 15 5           "orange"    // orange roundrect
+		star    55 base  5 2 6            "blue"      // blue star
+		polygon "65 85 95" "base 60 base" "purple" 50 // purple triangle
+	eslide
+edeck

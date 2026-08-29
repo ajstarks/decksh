@@ -1,0 +1,22 @@
+deck
+	lcolor="silver"
+	slide
+		arc     50 70 40 40   0 200       // dome
+		arc     50 70 40 40 340 360
+
+		hline   31 60 38 1.5 lcolor       // top
+
+		hline   34  8 32   3 "green"  20  // base
+
+		vline   50 45  6 6   lcolor       // switch
+		vline   50 50  9 8   lcolor
+
+		vline   50 15 30 6   "gray"   20  // central
+		vline   50 15 30 2   "black"  20
+		vline   50 10  5 6   lcolor
+
+		hline   45 55  2 2   lcolor       // cord
+		vline   45 30 25 0.2
+		circle  45 30 1.5
+	eslide
+edeck

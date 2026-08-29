@@ -1,0 +1,9 @@
+This slide uses by a 2x2 array of images
+along with their locations on a map.
+The bounds of the map (upper left (nw) and 
+lower right (se) lat/long pairs) are defined using geo URI variables, 
+and the image locations (obtained from the image metadata) are also defined.
+\n
+Next, the slide title is set and the geographic elements
+are shown. Finally, the image array is set, using the previously 
+defined variables (row1, col1, row2, col2)

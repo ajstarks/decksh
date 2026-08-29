@@ -1,0 +1,11 @@
+def aspect X Y W Aw Ah Cw Ch Title
+	ca=Cw/Ch                             // canvas aspect ratio
+	ra=Ah/Aw                             // rect aspect ratio
+	h=W*ra                               // height computed using aspects
+	h*=ca
+	rts=W/5                              // text size based on rect width
+	tadj=rts/3                           // adjust text vertical position
+	rect X Y W h "gray"                  // make the rect
+	aly=Y-tadj                           // adjust label y position
+	ctext Title X aly rts "sans" "white" // make the label
+edef

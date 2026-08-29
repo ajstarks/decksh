@@ -1,0 +1,19 @@
+decksh can make many kinds of lists:
+plain, bulleted, numbered, centered.
+
+The type of list is specified by the keyword: ‘list’ for plain,
+‘blist’ for bulleted, ‘nlist’ for numbered, ‘clist’ for centered.
+
+The arguments for lists include the x and y location and the text size of the list.
+
+For example to begin a list at (20, 40) with text size 3 use:
+
+list 20 40 3
+
+Following the list type is any number of list items (li "item name"),
+one per line. The list ends with "elist" on a line by itself.
+
+You can construct tables using "parallel lists"; aligning a series of plain lists to a set of columns.
+
+
+

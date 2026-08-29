@@ -1,0 +1,15 @@
+deck
+	slide
+		s="hello"       // s: string to print
+		x=5             // x: x coordinate
+		y=50            // y: y coordinate
+		ts=2.5          // ts: text size
+		text s x y ts   // use vars
+		x=x+10          // increase x by 10
+		ts+=10          // add 10 to text size
+		text s x y ts   // use updated vars
+		x+=35           // increase x by 35
+		ts*=1.5         // text size 1.5
+		text s x y ts   // repeat
+	eslide
+edeck

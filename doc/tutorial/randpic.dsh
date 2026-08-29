@@ -1,0 +1,5 @@
+def randpic Name Rx1 Rx2 Ry1 Ry2
+	rx=random Rx1 Rx2
+	ry=random Ry1 Ry2
+	image Name rx ry 30 0
+edef

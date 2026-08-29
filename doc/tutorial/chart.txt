@@ -1,0 +1,20 @@
+decksh has built-in support for a variety of chart types with these corresponding keywords: barchart, linechart, areachart, scatterchart and dotchart.
+\n
+To make a chart, specify the chart type and the input file. Data files contain a series of 
+tab separated name,value pairs. For example, a line of data looks like: January<tab>100
+\n
+Optional arguments control the chart data, label, and value colors.  For example to make a line chart from data in "foo.d":
+\n
+linechart "foo.d" [color] [label-color] [value-color]
+\n
+Special variable names control the placement and other aspects of the chart.
+The variables ‘chartTop’, ‘chartBottom’, ‘chartLeft’, and ‘chartRight’ define the chart boundaries.  If these are not set, the default values are: chartTop=80, chartBottom=30, chartLeft=10, and chartRight=90.
+\n
+Other variables control items the visibility of values (chartVal), 
+text size (chartTextSize), 
+X-axis label interval (chartXLabel), and the
+Y-axis label's min, max, and interval (chartYRange).
+\n
+Chart legends are set with the ‘legend’ keyword using this syntax:
+\n
+legend "text" x y size [font] [color]

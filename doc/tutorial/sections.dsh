@@ -1,0 +1,17 @@
+cimage "tool-run2.png"       "Tools"                 X Y 10 0
+cimage "canvas-00001.png"    "The Canvas"            X Y secims 0
+cimage "first-00001.png"     "Your First Deck"       X Y secims 0
+cimage "coord-00001.png"     "Coordinates"           X Y secims 0
+cimage "vars-00001.png"      "Variables"             X Y secims 0
+cimage "colors-00001.png"    "Colors"                X Y secims 0
+cimage "text-00001.png"      "Text"                  X Y secims 0
+cimage "graphics-00001.png"  "Stroked Graphics"      X Y secims 0
+cimage "fgraphics-00001.png" "Filled Shapes"         X Y secims 0
+cimage "image-00001.png"     "Images"                X Y secims 0
+cimage "loop-00001.png"      "Loops"                 X Y secims 0
+cimage "list-00001.png"      "Lists"                 X Y secims 0
+cimage "chart-00001.png"     "Charts"                X Y secims 0
+cimage "geo-00001.png"       "Maps"                  X Y secims 0
+cimage "regill-00001.png"    "Regions"               X Y secims 0
+cimage "example-00001.png"   "Example"               X Y secims 0
+cimage "lamp-00001.png"      "Bonus"                 X Y secims 0

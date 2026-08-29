@@ -1,0 +1,26 @@
+In order to make presentations with decksh you will need:
+
+(1) the decksh command-line tool,
+(2) a text editor to compose and edit the decksh code,
+(3) a place to execute decksh commands,
+(4) a PDF viewer to see the results.
+
+See “Installing and Running decksh/pdfdeck” (https://speakerdeck.com/ajstarks/pdfdeck) for installation instructions.
+
+Any editor that works with plain text files can be used to compose decksh code.
+Examples include vim, VS Code, Sublime Text, BBEdit, and micro.
+All of these editors have syntax highlighting support for decksh, and some editors can 
+automate deck creation.
+
+The general workflow is to compose your decksh code in the
+text editor, invoke the command to make the result, and then 
+show the results in your PDF viewer. (lines beginning with '$' are the command line prompt)
+
+$ decksh first.dsh > first.xml
+
+$ pdfdeck first.xml
+
+$ open first.pdf
+
+The example on the right uses Sublime Text for the editor, ghostty for the terminal and Preview
+as the PDF viewer.

@@ -1,0 +1,26 @@
+deck
+	import "aspect.dsh"
+	slide
+		cw=792
+		ch=612
+		c1=20
+		c2=50
+		c3=80
+		r1=85
+		r2=r1-30
+		r3=r2-30
+		rw=25
+
+		aspect c1 r1 rw 11 8.5   cw ch "Letter"
+		aspect c2 r1 rw 14 8.5   cw ch "Legal"
+		aspect c3 r1 rw 17 11    cw ch "Tabloid"
+
+		aspect c1 r2 rw 16 9     cw ch "16:9"
+		aspect c2 r2 rw  4 3     cw ch "4:3"
+		aspect c3 r2 rw  1 1     cw ch "1:1"
+
+		aspect c1 r3 rw 420 297  cw ch "A3"
+		aspect c2 r3 rw 297 210  cw ch "A4"
+		aspect c3 r3 rw 210 148  cw ch "A5"
+	eslide
+edeck

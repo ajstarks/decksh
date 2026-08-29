@@ -1,0 +1,26 @@
+An image is the welcome companion to text and graphics when making decks.
+
+To place an image, you specify its name (JPEG, PNG, and GIF image formats are supported), location, and dimensions. The general syntax
+is:
+
+image "name" x y width height
+
+The specified coordinate refers to the middle of the image, and the width and height 
+refer to its dimensions (in pixels).  
+
+An alternative (and recommended) syntax scales
+the image as a percentage of the slide width, preserving the aspect ratio, and you don't have to be concerned
+with the  image dimensions:
+
+image "name" x y canvas-width 0
+
+For example:
+
+image "follow.jpg" 50 50 30 0
+
+Places the JPEG image in the middle of the slide, scaled at 30% of the canvas width.
+
+To add an image caption, use the ‘cimage’ keyword. The syntax is similar, but an additional
+caption argument is used:
+
+cimage "cloudy.jpg" "Cloudy Day" 50 50 50 0

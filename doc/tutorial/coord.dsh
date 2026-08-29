@@ -1,0 +1,8 @@
+deck
+	slide
+		ruler                     // show a ruler
+		text "Red Ball" 10 30 10  // big text
+		circle 90 60 10 "red"     // red circle
+		line 50 35 90 60          // line linking text to circle
+	eslide
+edeck

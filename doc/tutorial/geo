@@ -1,0 +1,15 @@
+decksh can read various GIS data files (shapefile, KML, or geoJSON) to produce geographic regions, borders and paths. Plain and labeled locations are also supported.
+
+The keywords for geo functions include ‘geoborder’ (geographic borders), ‘georegion’ (regions; useful for countries and continents), ‘geopath’ (paths between locations), ‘geolabel’ (a simple label at a location), ‘geoloc’ (aligned labels ("begin", "center", "end") at a location), and ‘geomark’ (placing a dot at a location).
+
+To place a map using GIS data in KML format:
+
+georegion "africa.kml"
+
+Geographic locations may be assigned to variables using geo URI syntax (geo:latitude,longitude), followed by an optional label. For example Los Angeles is defined as:
+
+la="geo:34.05,-118.25<tab>Los Angeles"
+
+The geographic bounding box of a map is defined by latitude (-90° to 90°) and longitude (-180° to 180°) in decimal degrees.
+
+The ‘geobound’ keyword maps the specified lat/long boundaries to the slide canvas boundaries that are defined with the ‘geocanvas’ keyword. The defaults for geobound are -90 90 -180 180, (min,max latitude and min,max longitude) with geocanvas defaulting to 0 100 0 100 (min,max X and min,max Y).

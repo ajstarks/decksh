@@ -1,0 +1,5 @@
+The next two slides repeat the “2 up” format of two images slide by side along with a slide title.
+The limx and rimx variables set the x coordinates for the left and right images. The imy variable
+ensures that the images are horizontally aligned.
+\n
+This example shows applying a previously defined format on a subsequent slide.

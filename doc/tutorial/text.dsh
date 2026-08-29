@@ -1,0 +1,13 @@
+deck
+	slide
+		tx=50                                           // alignment point
+		ts=5                                            // text size
+		saying="We need all hands on deck"              // chunk of text
+		line               tx 0 tx 100                  // midline
+		text  "Beginning"  tx 90    ts "sans"           // left-aligned
+		ctext "Centered"   tx 80    ts "serif" "red"    // centered
+		etext "Ending"     tx 70    ts "mono" "blue" 40 // end-aligned
+		rtext "Rotate 20°" tx 60 20 ts                  // rotated
+		textblock saying   tx 40 20 ts                  // block of text
+	eslide
+edeck

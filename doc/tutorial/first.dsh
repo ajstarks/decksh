@@ -1,0 +1,6 @@
+deck
+	slide "black" "white"               // black background, white text
+		ctext "hello, world" 50 70 10   // say it loud
+		image "earth.jpg"   100 0 100 0 // image in the corner
+	eslide
+edeck

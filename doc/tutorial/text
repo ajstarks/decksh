@@ -1,0 +1,22 @@
+Text is an important decksh element and may be used in various ways.
+Most text keywords use this pattern:
+
+keyword "text" x y size [font] [color] [opacity]
+
+Text may be aligned (begin, end, and centered) relative to a specific point.
+The corresponding keywords are ‘text’, ‘etext’ and ‘ctext’.
+The point is specified by the x and y coordinate, the size of the text is the third
+argument (a percentage relative to the width of the canvas)
+
+All text keywords have an optional set of arguments that define the font
+(either "sans", "serif", "mono", or "symbol"), the color of the text, and its
+opacity (ranging from 0 (invisible) to 100 (solid color))
+If no optional arguments are specified the default values are "sans", "black", and 100.
+
+Rotated text (‘rtext’) is specified like the others, except you must include the angle of rotation (0-360).
+
+rtext "text" x y angle size [font] [color] [opacity]
+
+A block of text is also similar, but the width of the block must be specified.
+
+textblock "text" x y width size [font] [color] [opacity]

@@ -1,0 +1,16 @@
+This is your first deck. Congratulations.
+
+A deck is usually contained in a single text file, conventionally with the suffix ".dsh".
+Each line in a deck begins with a keyword: a single word
+that reflects its function. Comments begin with '//' and may be placed at the beginning, or anywhere on a line of decksh code.
+
+The code for the deck is contained between the 'deck' and 'edeck' keywords.
+The 'slide' and 'eslide' keywords define the boundaries of a slide.
+You may include an arbitrary number of slides in a single deck.
+
+Keywords are followed by items, known as 'arguments', separated by spaces or tabs, that define the
+keyword's behavior. In the example, the 'slide' keyword has 
+two arguments: "black" and "white", which means the slide background is black and its text is white.
+If you omit the optional arguments, the default is  black text on a white background.
+
+The 'ctext' keyword means 'centered text'. Its arguments are the text ("hello, world"), followed by the coordinates of the text, and followed by the size of the text. The image is placed at the bottom of the slide, scaled to span 80% of the slide's width.

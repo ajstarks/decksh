@@ -1,0 +1,9 @@
+#!/bin/sh
+if  [ $1.dsh -nt $1-00001.png ]
+then
+	decksh $1.dsh > $1.xml && pngdeck $2 $1.xml && rm -f $1.xml
+fi
+if [ $1 -nt $1.txt ]
+then
+	sed -e 's/^$/\\n/' $1 > $1.txt
+fi

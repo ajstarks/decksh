@@ -1,0 +1,6 @@
+<deck>
+<slide bg="black" fg="white">
+<text align="c" xp="50" yp="70" sp="10" >hello, world</text>
+<image name="earth.jpg" xp="100" yp="0" width="100" height="0"/>
+</slide>
+</deck>

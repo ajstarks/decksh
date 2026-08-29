@@ -1,0 +1,11 @@
+deck
+	slide
+		size=3
+		for y=20 80 10 // place shapes at the y coordinate 20 to 80 by 10
+			hline  20 y 60                    // horizontal lines
+			circle 20 y   size      "green"   // circles
+			star   50 y 5 size 0.8  "red"     // stars
+			square 80 y   size      "blue"    // squares
+		efor
+	eslide
+edeck

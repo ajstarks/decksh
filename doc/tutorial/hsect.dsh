@@ -1,0 +1,8 @@
+slide
+	image     "images/chinatown01.jpg"   midx midy 100 0          // hero image
+	ctext     "Art in the City"          hx hy hs "sans" "white"  // title
+eslide
+
+slide bgcolor txcolor
+	ctext "New York, New York" sx sy ss                           // section text
+eslide

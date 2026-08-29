@@ -1,0 +1,14 @@
+deck
+	slide
+		ctext "GOOG and AAPL Stock Volume, June 2026" 50 90 3
+		chartVal=0                       // don't show values
+		chartTextSize=2                  // set text size to 2%
+		chartXLabel=2                    // show every other x-axis label
+		chartYRange="0,300,50"           // set y-axis range and labels
+
+		linechart "aapl-vol.d" "red"     // red line chart from AAPL data
+		linechart "goog-vol.d" "blue"    // blue line chart from GOOG data
+		legend    "GOOG" 10 20 1.5 "sans" "blue"
+		legend    "AAPL" 20 20 1.5 "sans" "red"
+	eslide
+edeck

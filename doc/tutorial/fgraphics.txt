@@ -1,0 +1,12 @@
+decksh supports filled shapes including circle, ellipse, square, rectangle, rounded rectangle, star, and polygon.
+\n
+Filled shapes are specified by location arguments (x and y coordinates usually at the center of the shape), followed by dimensions (width and height), with optional arguments for color and opacity; if optional arguments are omitted, the color is "gray" with 100% opacity.
+\n
+Circles and squares take the center point and a single
+dimension (width). Ellipses and rectangles also take a center point with a width and height.
+\n
+Rounded rectangles are specified like regular rectangles, but they require you to specify the radius of the corners.
+\n
+Filled polygons are specified like polylines: two string arguments that specify the sets of x and y coordinates.
+\n
+To make stars, specify the center of the star, the number of points, and the inner and outer radii.

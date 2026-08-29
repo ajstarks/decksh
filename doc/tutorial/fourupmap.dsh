@@ -1,0 +1,21 @@
+slide bgcolor txcolor                                 // 4-up and map
+	nw="geo:40.76963076754838,-74.0299466887728"      // upper-left of map bound
+	se="geo:40.69405512120753,-73.96035869194179"     // lower-right of map bound
+
+	ct01="geo:40.71451100,-73.99131600"               // image locations		
+	ct02="geo:40.71462500,-73.99221667"
+	ct03="geo:40.71454722,-73.99143333"
+
+	ctext "Art and their locations" tx ty ts          // slide title
+	geobound   se nw                                  // set geo bounds
+	geocanvas  50 95 20 100                           // set geo canvas bounds
+	georegion "borough.geojson" "white" 30            // show map outline
+	geomark   ct03  1.00  "red"   50                  // mark locations
+	geomark   ct01  1.25  "green" 50
+	geomark   ct02  1.50  "tan"   50
+
+	image     "images/chinatown08r.jpg" col1 row1 15 0 // lower left image
+	image     "images/chinatown09r.jpg" col1 row2 15 0 // upper left image
+	image     "images/chinatown04r.jpg" col2 row1 15 0 // lower right image
+	image     "images/chinatown03r.jpg" col2 row2 15 0 // upper right image
+eslide

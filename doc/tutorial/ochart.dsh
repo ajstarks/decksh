@@ -1,0 +1,22 @@
+deck
+	slide
+		width=30
+		gutter=width+5
+		chartXLabel=4
+		chartVal=0
+		chartLeft=5
+		chartLineWidth=0.5
+		
+		chartRight=chartLeft+width
+		chartBottom=50
+		linechart  "AAPL.d"
+
+		chartLeft+=gutter
+		chartRight+=gutter
+		barchart "AAPL.d" "red"
+
+		chartLeft+=gutter
+		chartRight+=gutter
+		areachart "AAPL.d" "green"
+	eslide
+edeck

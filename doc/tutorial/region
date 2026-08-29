@@ -1,0 +1,13 @@
+When designing your slides, it's useful to think in terms of 
+logical regions for your content: A place for titles, text and 
+illustrations for example.
+
+Using decksh variables, you can enforce consistency across slides
+and a single change will enforce the design throughout the deck.
+
+For example, define the locations of the title (blue),
+explanatory text (green), and image (orange).  
+
+Next use the variables you defined in the initial and subsequent slides.
+
+

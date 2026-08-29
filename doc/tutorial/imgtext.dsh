@@ -1,0 +1,6 @@
+slide bgcolor txcolor  
+	ctp="The Chinatown Mural Project is a collaboration between activist Karlin Chan and artist Peach Tao. Together, they are bringing back large scale murals to the Chinatown area and beyond. The whimsical and fun culturally appropriate murals depict the culture, history and everyday lives of the community that locals and visitors can relate to."
+	ctext     "Chinatown Murals"        tx ty ts        // slide title
+	image     "images/chinatown05.jpg"  limx imy imss 0 // image on the left
+	textblock ctp tbx tby tbw tbs "serif"               // right text block
+eslide

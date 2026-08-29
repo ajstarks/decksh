@@ -1,0 +1,18 @@
+decksh uses a size independent coordinate system, but when designing your slides
+you should be aware of the canvas size, especially the aspect ratio.
+
+By default, pdfdeck uses a landscape US Letter size (8½ inches high and 11 inches wide),
+which translates to 792x612 points at 72 points per inch.  
+
+Other presets include A3, A4, A5, US Legal (8½ x 14 inches)
+and Tabloid (11x17 inches).  You can also use an arbitrary size such as 1600x900. 
+
+Specify the pagesize using the pdfdeck command:
+
+$ pdfdeck -pagesize A4 ...
+
+$ pdfdeck -pagesize 1600x900 ...
+
+The shape of the slide canvas is useful when designing your decks. 
+For example a widescreen format like 16:9 is useful for showing multiple images horizontally. 
+Letter and A4 provide a good balance of horizontal and vertical space.

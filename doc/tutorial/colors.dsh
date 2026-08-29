@@ -1,0 +1,12 @@
+deck
+	slide "papayawhip"          // set slide background color
+		c1="red"                // named color
+		c2="rgb(255,0,0)"       // rgb
+		c3="#ff0000"            // hex rgb
+		c4="hsv(0,100,100)"     // hue, saturation, value
+		circle 20 50 10 c1      // red
+		circle 40 50 10 c2      // rgb(255,0,0)
+		circle 60 50 10 c3      // #ff0000
+		circle 80 50 10 c4      // hsv(0,100,100)
+	eslide
+edeck

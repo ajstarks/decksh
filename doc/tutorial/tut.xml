@@ -1,0 +1,622 @@
+<deck>
+<slide bg="#f0f0f0" fg="black">
+<text align="c" xp="50" yp="90" sp="6" font="serif">Learning decksh</text>
+<image name="first-00001.png" xp="50" yp="50" width="50" height="0"/>
+<text align="c" xp="50" yp="10" sp="3" font="mono">A scripting language for presentations</text>
+<text align="c" xp="50" yp="2.5" sp="1" >2026-08-22</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Introduction</text>
+<text type="block" xp="5" yp="88" wp="77" sp="1.7999999999999998" font="serif">decksh is a Domain-Specific Language (DSL) for making presentations, visualizations, and information displays.
+\n
+decksh works differently from other presentation programs like PowerPoint or Keynote, in
+that you “program” your deck; that is you build up your slides by specifying high-level objects that represent the elements and attributes of your presentation (text, graphics, lists, charts, maps, etc).  The elements are placed and sized using a scalable, percent-based coordinate system, and you can also use variables to describe positions and relationships between the elements.
+\n
+This tutorial describes installation and basic workflows, and then walks you through various aspects
+of the language including the coordinate system, the use of variables, colors, text, graphics, images, loops and lists. Also included are
+more advanced topics like charts and maps, concluding with a worked out example.
+\n
+Each concept includes explanatory text, with copy-paste-able examples, and the resulting deck output.</text>
+<rect xp="50" yp="15" wp="100" hp="13" color="#eeeeee"/>
+<image name="first-00001.png" xp="11" yp="15" width="10" height="0"/>
+<image name="coord-00001.png" xp="22" yp="15" width="10" height="0"/>
+<image name="vars-00001.png" xp="33" yp="15" width="10" height="0"/>
+<image name="colors-00001.png" xp="44" yp="15" width="10" height="0"/>
+<image name="image-00001.png" xp="55" yp="15" width="10" height="0"/>
+<image name="fgraphics-00001.png" xp="66" yp="15" width="10" height="0"/>
+<image name="chart-00001.png" xp="77" yp="15" width="10" height="0"/>
+<image name="geo-00001.png" xp="88" yp="15" width="10" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[1]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Program your presentations with clean design and precision.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Sections</text>
+<image name="tool-run2.png" caption="Tools" xp="10" yp="80" width="10" height="0"/>
+<image name="canvas-00001.png" caption="The Canvas" xp="30" yp="80" width="10" height="0"/>
+<image name="first-00001.png" caption="Your First Deck" xp="50" yp="80" width="10" height="0"/>
+<image name="coord-00001.png" caption="Coordinates" xp="70" yp="80" width="10" height="0"/>
+<image name="vars-00001.png" caption="Variables" xp="90" yp="80" width="10" height="0"/>
+<image name="colors-00001.png" caption="Colors" xp="10" yp="60" width="10" height="0"/>
+<image name="text-00001.png" caption="Text" xp="30" yp="60" width="10" height="0"/>
+<image name="graphics-00001.png" caption="Stroked Graphics" xp="50" yp="60" width="10" height="0"/>
+<image name="fgraphics-00001.png" caption="Filled Shapes" xp="70" yp="60" width="10" height="0"/>
+<image name="image-00001.png" caption="Images" xp="90" yp="60" width="10" height="0"/>
+<image name="loop-00001.png" caption="Loops" xp="10" yp="40" width="10" height="0"/>
+<image name="list-00001.png" caption="Lists" xp="30" yp="40" width="10" height="0"/>
+<image name="chart-00001.png" caption="Charts" xp="50" yp="40" width="10" height="0"/>
+<image name="geo-00001.png" caption="Maps" xp="70" yp="40" width="10" height="0"/>
+<image name="regill-00001.png" caption="Regions" xp="90" yp="40" width="10" height="0"/>
+<image name="example-00001.png" caption="Example" xp="10" yp="20" width="10" height="0"/>
+<image name="lamp-00001.png" caption="Bonus" xp="30" yp="20" width="10" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[2]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">You have to learn to look at the whole of something, not just the parts.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Gather your tools</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">In order to make presentations with decksh you will need:
+\n
+(1) the decksh command-line tool,
+(2) a text editor to compose and edit the decksh code,
+(3) a place to execute decksh commands,
+(4) a PDF viewer to see the results.
+\n
+See “Installing and Running decksh/pdfdeck” (https://speakerdeck.com/ajstarks/pdfdeck) for installation instructions.
+\n
+Any editor that works with plain text files can be used to compose decksh code.
+Examples include vim, VS Code, Sublime Text, BBEdit, and micro.
+All of these editors have syntax highlighting support for decksh, and some editors can 
+automate deck creation.
+\n
+The general workflow is to compose your decksh code in the
+text editor, invoke the command to make the result, and then 
+show the results in your PDF viewer. (lines beginning with '$' are the command line prompt)
+\n
+$ decksh first.dsh &gt; first.xml
+\n
+$ pdfdeck first.xml
+\n
+$ open first.pdf
+\n
+The example on the right uses Sublime Text for the editor, ghostty for the terminal and Preview
+as the PDF viewer.
+</text>
+<image name="tool-run2.png" xp="30" yp="50" width="50" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[3]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">We become what we behold. We shape our tools, and thereafter our tools shape us.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">The Slide Canvas</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">decksh uses a size independent coordinate system, but when designing your slides
+you should be aware of the canvas size, especially the aspect ratio.
+\n
+By default, pdfdeck uses a landscape US Letter size (8½ inches high and 11 inches wide),
+which translates to 792x612 points at 72 points per inch.  
+\n
+Other presets include A3, A4, A5, US Legal (8½ x 14 inches)
+and Tabloid (11x17 inches).  You can also use an arbitrary size such as 1600x900. 
+\n
+Specify the pagesize using the pdfdeck command:
+\n
+$ pdfdeck -pagesize A4 ...
+\n
+$ pdfdeck -pagesize 1600x900 ...
+\n
+The shape of the slide canvas is useful when designing your decks. 
+For example a widescreen format like 16:9 is useful for showing multiple images horizontally. 
+Letter and A4 provide a good balance of horizontal and vertical space.
+</text>
+<image name="canvas-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[4]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Use the flexible canvas to your advantage.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Your First Deck</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">This is your first deck. Congratulations.
+\n
+A deck is usually contained in a single text file, conventionally with the suffix ".dsh".
+Each line in a deck begins with a keyword: a single word
+that reflects its function. Comments begin with ‘//’ and may be placed at the beginning, or anywhere on a line of decksh code.
+\n
+The code for the deck is contained between the ‘deck’ and ‘edeck’ keywords.
+The ‘slide’ and ‘eslide’ keywords define the boundaries of a slide.
+You may include an arbitrary number of slides in a single deck.
+\n
+Keywords are followed by items, known as arguments, separated by spaces or tabs, that define the
+keyword’s behavior. In the example, the ‘slide’ keyword has 
+two arguments: "black" and "white", (the slide background is black and its text is white).
+If you omit the optional arguments, the default is black text on a white background.
+\n
+The ‘ctext’ keyword means centered text. Its arguments are the text ("hello, world"),
+followed by the coordinates of the text (50% from the left, 70% up from the bottom),
+followed by the size of the text (10% of the slide width).
+\n
+The image named "earth.jpg" is centered at the lower right corner (coordinate (100,0)), 
+scaled to be 100% of the slide's width.
+</text>
+<image name="first-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="first.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[5]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Think of a deck as a series of pages; the building blocks of your story.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">The Coordinate System</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">decksh uses the traditional Cartesian coordinate system
+to place elements on the canvas.  The x, y coordinates represent percentages ranging from 0-100;
+the coordinates are passed as arguments as a pair of numbers, x first, then y.
+\n
+The origin (0,0), is at the lower-left, with the x coordinate increasing from left to right, and 
+the y coordinate increasing bottom to top. The middle of the canvas is (50,50): 
+half-way from the left and half-way up from the bottom.
+\n
+Other measures like the size of text or other objects are represented by the percentage of the side width.
+\n
+For example, to place the text "Red Ball" left-aligned at 10% from the left, and 30% up (10,30), 
+and the text size at 10% of the canvas width, use:
+\n
+text "Red Ball" 10 30 10
+\n
+Other elements like circles and lines may also be placed. For example:
+\n
+circle 90 60 10 "red"
+\n
+places a red circle centered at (90,60), the size of the circle is 10% of the canvas width.
+\n
+To draw a line from (50,35) to (90,60):
+\n
+line 50 35 90 60
+\n
+Finally, note the ‘ruler’ keyword, which makes a convenient scale.</text>
+<image name="coord-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="coord.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="c" xp="5" yp="40" sp="1.3" font="mono" color="rgb(0,0,200)">(0,0)</text>
+<text align="c" xp="55" yp="40" sp="1.3" font="mono" color="rgb(0,0,200)">(100,0)</text>
+<text align="c" xp="5" yp="90" sp="1.3" font="mono" color="rgb(0,0,200)">(0,100)</text>
+<text align="c" xp="55" yp="90" sp="1.3" font="mono" color="rgb(0,0,200)">(100,100)</text>
+<text align="c" xp="30" yp="65" sp="1.3" font="mono" color="rgb(0,0,200)">(50,50)</text>
+<line xp1="5" yp1="40" xp2="5" yp2="90" sp="0.1" color="rgb(0,0,200)" opacity="20"/>
+<line xp1="55" yp1="40" xp2="55" yp2="90" sp="0.1" color="rgb(0,0,200)" opacity="20"/>
+<line xp1="5" yp1="40" xp2="55" yp2="40" sp="0.1" color="rgb(0,0,200)" opacity="20"/>
+<line xp1="5" yp1="90" xp2="55" yp2="90" sp="0.1" color="rgb(0,0,200)" opacity="20"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[6]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Place anything, anywhere with precision and consistency.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Variables</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">Variables provide a method for attaching a name to an value
+so that the name may be used for other operations.
+\n
+Variables may refer to either numbers, or strings (text between " characters).
+Use the ‘=’ after the name to assign the value of variable.  The general syntax is:
+\n
+name = value
+\n
+In the example, the value of "hello" is assigned to s, 5 and 50 are assigned to x and y, and ts is assigned the value of 2.5.
+Next, use the variables: 
+\n
+text s x y ts
+\n
+which is equivalent to:
+\n
+text "hello" 5 50 2.5
+\n
+When using variables that contain numbers, you can also perform binary operations:
+add (+), 
+subtract (-), 
+multiply (*),
+divide (/), and modulo (%). For example,
+\n
+a = x + y  // a gets the sum of x and y
+\n
+You can also use 'assignment operations' on a single variable, for example to add 10 to an existing variable x, use:
+\n
+x += 10
+</text>
+<image name="vars-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="vars.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[7]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Use variables as the levers that control the deck's elements and their relationships.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Colors</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">Many decksh elements use color as an optional argument.
+\n
+The color may be specified in four ways:
+\n
+(1) A named color as defined in the web standards; these are colors like "red" and "blue", but also include fairly exotic names like "papayawhip".
+\n
+(2) A RGB triple, which uses numbers ranging from 0-255 to refer to amount of red, green, and blue in the color. For example, "rgb(0,0,0)" is black, "rgb(255,255,255)" is white. By the way, papayawhip is "rgb(255,239,213)".
+\n
+(3) The hex RGB format, in the form of "#rrggbb", where rr, gg, and bb are the red, green and blue components of the color as hexadecimal digits ranging from "00" (zero) to "ff" (255). Papayawhip is "#ffefd5" in hex.
+\n
+(4) The HSV (hue, saturation, value) format uses three numbers: the first, hue, ranges from 0-360; the saturation and value (brightness) range from 0-100.
+\n
+For example, "hsv(0,100,100)" is a fully saturated red, and "hsv(120,50,50)" is green with diminished saturation and brightness.</text>
+<image name="colors-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="colors.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[8]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Use color as a method of communicating meaning, regardless of how you name it.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Working with Text</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">Text is an important decksh element and may be used in various ways.
+Most text keywords use this pattern:
+\n
+keyword "text" x y size [font] [color] [opacity]
+\n
+Text may be aligned (begin, end, and centered) relative to a specific point.
+The corresponding keywords are ‘text’, ‘etext’ and ‘ctext’.
+The point is specified by the x and y coordinate, the size of the text is the third
+argument (a percentage relative to the width of the canvas)
+\n
+All text keywords have an optional set of arguments that define the font
+(either "sans", "serif", "mono", or "symbol"), the color of the text, and its
+opacity (ranging from 0 (invisible) to 100 (solid color))
+If no optional arguments are specified the default values are "sans", "black", and 100.
+\n
+Rotated text (‘rtext’) is specified like the others, except you must include the angle of rotation (0-360).
+\n
+rtext "text" x y angle size [font] [color] [opacity]
+\n
+A block of text is also similar, but the width of the block must be specified.
+\n
+textblock "text" x y width size [font] [color] [opacity]
+</text>
+<image name="text-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="text.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[9]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Build your story using text.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Stroked Graphics</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">decksh supports stroked graphic shapes including lines, polylines, arcs, and curves.
+\n
+The general syntax includes the arguments for the shape, with optional arguments for line width, color and opacity; (defaulting to 0.2%, "gray" and 100%)
+\n
+To draw a line between (10,50) and (20,70):
+\n
+line 10 50 20 70
+\n
+Dotted lines are similar, but you may specify the gap between dots after the line width:
+\n
+dline 10 50 90 50 0.2 5
+\n
+Horizontal and vertical lines specify the beginning point and the length:
+\n
+hline 10 50 30 and vline 10 50 30
+\n
+For arcs, specify the center of the arc, its width and height, and start and ending angles.
+\n
+arc 50 50 10 10 0 90
+\n
+Polygons use two string arguments: the first is a list of x coordinates, and the second is the y coordinates.
+\n
+Quadratic Bezier curves take three pairs of coordinates: the beginning point, the control point, and the end point.</text>
+<image name="graphics-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="graphics.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[10]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">You have to draw the line somewhere.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Filled Shapes</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">decksh supports filled shapes including circle, ellipse, square, rectangle, rounded rectangle, star, and polygon.
+\n
+Filled shapes are specified by location arguments (x and y coordinates usually at the center of the shape), followed by dimensions (width and height), with optional arguments for color and opacity; if optional arguments are omitted, the color is "gray" with 100% opacity.
+\n
+Circles and squares take the center point and a single
+dimension (width). Ellipses and rectangles also take a center point with a width and height.
+\n
+Rounded rectangles are specified like regular rectangles, but they require you to specify the radius of the corners.
+\n
+Filled polygons are specified like polylines: two string arguments that specify the sets of x and y coordinates.
+\n
+To make stars, specify the center of the star, the number of points, and the inner and outer radii.</text>
+<image name="fgraphics-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="fgraphics.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[11]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Use these elements to shape your slides.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Images</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">An image is the welcome companion to text and graphics when making decks.
+\n
+To place an image, you specify its name (JPEG, PNG, and GIF image formats are supported), location, and dimensions. The general syntax
+is:
+\n
+image "name" x y width height
+\n
+The specified coordinate refers to the middle of the image, and the width and height 
+refer to its dimensions (in pixels).  
+\n
+An alternative (and recommended) syntax scales
+the image as a percentage of the slide width, preserving the aspect ratio, and you don't have to be concerned
+with the  image dimensions:
+\n
+image "name" x y canvas-width 0
+\n
+For example:
+\n
+image "follow.jpg" 50 50 30 0
+\n
+Places the JPEG image in the middle of the slide, scaled at 30% of the canvas width.
+\n
+To add an image caption, use the ‘cimage’ keyword. The syntax is similar, but an additional
+caption argument is used:
+\n
+cimage "cloudy.jpg" "Cloudy Day" 50 50 50 0
+</text>
+<image name="image-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="image.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[12]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">The artful arrangement of pictures illuminate your deck.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Loops</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">Loops allow you to repeat decksh operations in a controlled way.
+\n
+A loop is defined as statements bounded by the ‘for’ and ‘efor’ keywords.
+The ‘for’ arguments define the beginning, ending, and optional increment, which
+define how many times the statements between ‘for’ and ‘efor’ are executed.
+The variable specified in the ‘for’ is substituted in these statements.
+For example:
+\n
+for v=10 50
+\n
+... decksh functions using v
+\n
+efor
+\n
+assigns the value ‘v’ from 10 to 50, with an increment of 1.
+\n
+for v=10 50 10
+\n
+counts from 10 to 50 by 10 (10, 20, 30, 40, 50).
+\n
+In the example on the right, a loop assigns y to go from 10 to 80 by 10, and 
+draws horizontal lines, circles, stars, and squares using the value of y.
+</text>
+<image name="loop-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="loop.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[13]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Round and round we go. I'll stop when you tell me so.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Lists</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">decksh can make many kinds of lists:
+plain, bulleted, numbered, centered.
+\n
+The type of list is specified by the keyword: ‘list’ for plain,
+‘blist’ for bulleted, ‘nlist’ for numbered, ‘clist’ for centered.
+\n
+The arguments for lists include the x and y location and the text size of the list.
+\n
+For example to begin a list at (20, 40) with text size 3 use:
+\n
+list 20 40 3
+\n
+Following the list type is any number of list items (li "item name"),
+one per line. The list ends with "elist" on a line by itself.
+\n
+You can construct tables using "parallel lists"; aligning a series of plain lists to a set of columns.
+\n
+\n
+\n
+</text>
+<image name="list-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="list.dsh" xp="5" yp="76" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[14]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Make a list and check it twice.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Charts</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">decksh has built-in support for a variety of chart types with these corresponding keywords: barchart, linechart, areachart, scatterchart and dotchart.
+\n
+To make a chart, specify the chart type and the input file. Data files contain a series of 
+tab separated name,value pairs. For example, a line of data looks like: January&lt;tab&gt;100
+\n
+Optional arguments control the chart data, label, and value colors.  For example to make a line chart from data in "foo.d":
+\n
+linechart "foo.d" [color] [label-color] [value-color]
+\n
+Special variable names control the placement and other aspects of the chart.
+The variables ‘chartTop’, ‘chartBottom’, ‘chartLeft’, and ‘chartRight’ define the chart boundaries.  If these are not set, the default values are: chartTop=80, chartBottom=30, chartLeft=10, and chartRight=90.
+\n
+Other variables control items the visibility of values (chartVal), 
+text size (chartTextSize), 
+X-axis label interval (chartXLabel), and the
+Y-axis label's min, max, and interval (chartYRange).
+\n
+Chart legends are set with the ‘legend’ keyword using this syntax:
+\n
+legend "text" x y size [font] [color]
+</text>
+<image name="chart-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="chart.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[15]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Chart your course.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Maps</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">decksh can read various GIS data files (shapefile, KML, or geoJSON) to produce geographic regions, borders and paths. Plain and labeled locations are also supported.
+\n
+The keywords for geo functions include ‘geoborder’ (geographic borders), ‘georegion’ (regions; useful for countries and continents), ‘geopath’ (paths between locations), ‘geolabel’ (a simple label at a location), ‘geoloc’ (aligned labels ("begin", "center", "end") at a location), and ‘geomark’ (placing a dot at a location).
+\n
+To place a map using GIS data in KML format:
+\n
+georegion "africa.kml"
+\n
+Geographic locations may be assigned to variables using geo URI syntax (geo:latitude,longitude), followed by an optional label. For example Los Angeles is defined as:
+\n
+la="geo:34.05,-118.25&lt;tab&gt;Los Angeles"
+\n
+The geographic bounding box of a map is defined by latitude (-90° to 90°) and longitude (-180° to 180°) in decimal degrees.
+\n
+The ‘geobound’ keyword maps the specified lat/long boundaries to the slide canvas boundaries that are defined with the ‘geocanvas’ keyword. The defaults for geobound are -90 90 -180 180, (min,max latitude and min,max longitude) with geocanvas defaulting to 0 100 0 100 (min,max X and min,max Y).
+</text>
+<image name="geo-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="geo.dsh" xp="5" yp="37" wp="50.4" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[16]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">A map shows the way.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Designing with regions</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">When designing your slides, it's useful to think in terms of 
+logical regions for your content: A place for titles, text and 
+illustrations for example.
+\n
+Using decksh variables, you can enforce consistency across slides
+and a single change will enforce the design throughout the deck.
+\n
+For example, define the locations of the title (blue),
+explanatory text (green), and image (orange).  
+\n
+Next use the variables you defined in the initial and subsequent slides.
+\n
+\n
+</text>
+<image name="region-00001.png" xp="30" yp="65" width="50" height="0"/>
+<text type="code" file="region.dsh" xp="5" yp="52" wp="50.4" sp="1.2"/>
+<image name="regill-00001.png" xp="77" yp="33.5" width="40" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[17]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Using regions ties the deck together.</text>
+</slide>
+<slide bg="white" fg="black">
+<rect xp="50" yp="15" wp="100" hp="13" color="#eeeeee"/>
+<text xp="5" yp="93" sp="3.75" font="sans">Building an Example Deck</text>
+<text type="block" xp="60" yp="88" wp="35" sp="1.5" font="serif">Now that you understand the fundamentals of making 
+a presentation with decksh, your next step is to
+exercise your knowledge by making your own deck.
+\n
+In this example, we will build a presentation on 
+art works in an urban environment.
+\n
+The deck is structured to contain title and section pages,
+pages that contain two images, pages with an array of 
+images and a map, and an image with explanatory text.
+\n
+The initial code defines a set of variables
+to be referenced later in the deck.  These variables
+define the relationship between positions and sizes
+used in the deck.
+\n
+For example the hero text size is set with the title and
+section text sizes set to 50% and 75% of that size.
+\n
+Given the design of the deck, the ‘Widescreen’ (16x9in)
+canvas size is used, along with a “dark mode” color scheme:
+black background and white text.</text>
+<text type="code" file="exvars.dsh" xp="5" yp="88" wp="50.4" sp="1.2"/>
+<image name="example-00001.png" xp="6" yp="15" width="10" height="0"/>
+<image name="example-00002.png" xp="17" yp="15" width="10" height="0"/>
+<image name="example-00003.png" xp="28" yp="15" width="10" height="0"/>
+<image name="example-00004.png" xp="39" yp="15" width="10" height="0"/>
+<image name="example-00005.png" xp="50" yp="15" width="10" height="0"/>
+<image name="example-00006.png" xp="61" yp="15" width="10" height="0"/>
+<image name="example-00007.png" xp="72" yp="15" width="10" height="0"/>
+<image name="example-00008.png" xp="83" yp="15" width="10" height="0"/>
+<image name="example-00009.png" xp="94" yp="15" width="10" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[18]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Few things are harder to put up with than the annoyance of a good example.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Title and Section</text>
+<text type="block" xp="5" yp="88" wp="70" sp="1.5" font="serif">We start the deck with a “hero image” and the title of the deck in white letters.
+The image is placed in the center, and scaled to use 100% of the canvas width 
+\n
+Next, the slide introducing a section is shown — large white text centered on a black slide.</text>
+<text type="code" file="hsect.dsh" xp="30" yp="30" wp="50.4" sp="1.2"/>
+<image name="example-00001.png" xp="25" yp="55" width="45" height="0"/>
+<image name="example-00002.png" xp="75" yp="55" width="45" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[19]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">The cover should grab your attention.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Two-Up Slides</text>
+<text type="block" xp="5" yp="88" wp="70" sp="1.5" font="serif">The next two slides repeat the “2 up” format of two images slide by side along with a slide title.
+The limx and rimx variables set the x coordinates for the left and right images. The imy variable
+ensures that the images are horizontally aligned.
+\n
+This example shows applying a previously defined format on a subsequent slide.</text>
+<text type="code" file="twoupslide.dsh" xp="30" yp="30" wp="50.4" sp="1.2"/>
+<image name="example-00003.png" xp="25" yp="55" width="45" height="0"/>
+<image name="example-00004.png" xp="75" yp="55" width="45" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[20]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Two pictures are better than one.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Four Up and Map</text>
+<text type="block" xp="5" yp="88" wp="70" sp="1.5" font="serif">This slide uses by a 2x2 array of images
+along with their locations on a map.
+The bounds of the map (upper left (nw) and 
+lower right (se) lat/long pairs) are defined using geo URI variables, 
+and the image locations (obtained from the image metadata) are also defined.
+\n
+Next, the slide title is set and the geographic elements
+are shown. Finally, the image array is set, using the previously 
+defined variables (row1, col1, row2, col2)
+</text>
+<text type="code" file="fourupmap.dsh" xp="50" yp="70" wp="50.4" sp="1.2"/>
+<image name="example-00005.png" xp="25" yp="55" width="45" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[21]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Show the art and where it lives.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Image and Text Block</text>
+<text type="block" xp="5" yp="88" wp="70" sp="1.5" font="serif">An effective way to show visual and textual information is
+to show the image and the explanatory text side-by-side as
+two blocks of complementary information.
+</text>
+<text type="code" file="imgtext.dsh" xp="50" yp="70" wp="50.4" sp="1.2"/>
+<image name="example-00006.png" xp="25" yp="55" width="45" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[22]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Image and text work together to tell the story.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">Continue the Design</text>
+<text type="block" xp="5" yp="88" wp="70" sp="1.5" font="serif">The next set of slides create a new section, 
+and apply the already defined variables to
+make consistent two-up and image/text block slides.</text>
+<image name="example-00007.png" xp="18" yp="60" width="30" height="0"/>
+<image name="example-00008.png" xp="50" yp="60" width="30" height="0"/>
+<image name="example-00009.png" xp="82" yp="60" width="30" height="0"/>
+<text type="code" file="pf.dsh" xp="10" yp="42" wp="83" sp="1.2"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[23]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Continue the story with style.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">One more thing …</text>
+<text type="block" xp="5" yp="88" wp="70" sp="1.5" font="serif">Besides presentations, decksh is versatile enough to 
+make illustrations as well, as shown by this rendering
+of the Wilhelm Wagenfeld WA 24 table lamp — a symbol of the Bauhaus.</text>
+<text type="code" file="lamp.dsh" xp="50" yp="70" wp="33" sp="1.2"/>
+<image name="lamp-00001.png" xp="25" yp="46" width="50" height="0"/>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[24]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Use a lamp to light the way.</text>
+</slide>
+<slide bg="white" fg="black">
+<text xp="5" yp="93" sp="3.75" font="sans">References</text>
+<text xp="5" yp="85" sp="2" font="serif" color="darkblue" opacity="100" link="https://speakerdeck.com/ajstarks/pdfdeck">Installing and Running decksh/pdfdeck</text>
+<text xp="5" yp="78" sp="2" font="serif" color="darkblue" opacity="100" link="https://speakerdeck.com/ajstarks/decksh-object-reference">The definitive decksh language reference</text>
+<text xp="5" yp="71" sp="2" font="serif" color="darkblue" opacity="100" link="https://speakerdeck.com/ajstarks/decksh-keywords">decksh keyword reference</text>
+<text xp="5" yp="64" sp="2" font="serif" color="darkblue" opacity="100" link="https://github.com/ajstarks/deckviz">Repository of decksh examples to learn from</text>
+<text xp="5" yp="57" sp="2" font="serif" color="darkblue" opacity="100" link="https://github.com/ajstarks/decksh">The code for decksh and associated tools and documents</text>
+<text xp="5" yp="50" sp="2" font="serif" color="darkblue" opacity="100" link="https://www.papersizes.org/">International Paper Sizes and Formats With Dimensions</text>
+<text xp="5" yp="43" sp="2" font="serif" color="darkblue" opacity="100" link="https://htmlcolorcodes.com/color-picker/">An interactive color picker using RGB, Hex, and HSV</text>
+<text xp="5" yp="36" sp="2" font="serif" color="darkblue" opacity="100" link="https://www.verdanabold.com/post/presentation-fonts-101-best-fonts-for-presentations">Presentation Typography 101: Font Basics for Better Slides</text>
+<text xp="5" yp="29" sp="2" font="serif" color="darkblue" opacity="100" link="https://maparz.com/blog/gis-file-formats-guide/">GIS file formats explained: Shapefile, GeoJSON, KML …</text>
+<text xp="5" yp="22" sp="2" font="serif" color="darkblue" opacity="100" link="https://www.rfc-editor.org/info/rfc5870/">A Uniform Resource Identifier for Geographic Locations ('geo' URI)</text>
+<list xp="5" yp="82" sp="1.2" font="mono" color="gray" opacity="100" lp="4.5">
+<li>https://speakerdeck.com/ajstarks/pdfdeck</li>
+<li>https://speakerdeck.com/ajstarks/decksh-object-reference</li>
+<li>https://speakerdeck.com/ajstarks/decksh-keywords</li>
+<li>https://github.com/ajstarks/deckviz</li>
+<li>https://github.com/ajstarks/decksh</li>
+<li>https://www.papersizes.org/</li>
+<li>https://htmlcolorcodes.com/color-picker/</li>
+<li>https://www.verdanabold.com/post/presentation-fonts-101-best-fonts-for-presentations</li>
+<li>https://maparz.com/blog/gis-file-formats-guide/</li>
+<li>https://www.rfc-editor.org/info/rfc5870/</li>
+</list>
+<text align="e" xp="95" yp="3" sp="1.125" font="mono" color="rgb(0,0,0)">[25]</text>
+<text type="block" xp="5" yp="4.5" wp="35" sp="1.125" font="mono" color="rgb(0,0,0)">Look it up</text>
+</slide>
+</deck>

@@ -1,0 +1,334 @@
+deck
+	import "title.dsh"
+	import "footer.dsh"
+	import "randpic.dsh"
+	author="Anthony Starks"
+	date="2026-08-26"
+	pleft=5
+	pagestart_y=88
+	// conditional left or right layout of text, set on the command line
+	// via decksh -var tleft=<value>
+	if tleft == 0
+		pagestart_x=pleft
+		codex=45.5
+		imx=70
+		coox1=45
+		coox2=95
+		coox3=70
+		rillx=22
+	else
+		pagestart_x=pleft+55
+		codex=pagestart_x-54
+		imx=30
+		coox1=5
+		coox2=55
+		coox3=30
+		rillx=77
+	eif
+	parawidth=35
+	lparawidth=parawidth*2
+	pw2=parawidth*2.2
+	pagebottom=2
+	pagenum=1
+	bodysize=1.5
+	introsize=bodysize*1.2
+	titlesize=bodysize*2.5
+	codesize=1.2
+	codewidth=codesize*42
+	
+	codey=37
+	
+	imy=65
+	imy2=55
+	imw=50
+	imw2=45
+
+	bgcolor="white"
+	txcolor="black"
+	rulecolor="rgb(0,0,200)"
+
+	slide "#f0f0f0" "black" // bgcolor txcolor
+		timx=50
+		timy=50
+		tims=50
+		ctext "Learning decksh" 50 90 6 "serif"
+		image "first-00001.png" timx timy tims 0
+		ctext "A scripting language for presentations" 50 10 3 "mono"
+		ctext date   50 2.5 1
+	eslide
+
+	slide bgcolor txcolor
+		title "Introduction"
+		textblockfile "intro.txt" pleft pagestart_y pw2 introsize "serif"
+		rect 50 15 100 13 "#eeeeee"
+		indy=15
+		indims=10
+		image "first-00001.png"     11 indy indims 0
+		image "coord-00001.png"     22 indy indims 0
+		image "vars-00001.png"      33 indy indims 0
+		image "colors-00001.png"    44 indy indims 0
+		image "image-00001.png"     55 indy indims 0
+		image "fgraphics-00001.png" 66 indy indims 0
+		image "chart-00001.png"     77 indy indims 0
+		image "geo-00001.png"       88 indy indims 0
+		footer          "Program your presentations with clean design and precision."
+	eslide
+
+	slide bgcolor txcolor
+		secims=10
+		title           "Sections"
+		grid            "sections.dsh" 10 80 20 20 90
+		footer          "You have to learn to look at the whole of something, not just the parts."
+	eslide
+
+	slide bgcolor txcolor
+		title           "Gather your tools"
+		textblockfile   "tools.txt" pagestart_x pagestart_y parawidth bodysize "serif" "" 100 "https://speakerdeck.com/ajstarks/pdfdeck"
+		image           "tool-run2.png"  imx 50 imw 0
+		footer          "We become what we behold. We shape our tools, and thereafter our tools shape us."
+	eslide
+
+	slide bgcolor txcolor
+		title          "The Slide Canvas"
+		textblockfile  "canvas.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "canvas-00001.png" imx imy imw 0
+		footer         "Use the flexible canvas to your advantage."
+	eslide
+
+	slide bgcolor txcolor
+		title           "Your First Deck"
+		textblockfile	"first.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image			"first-00001.png" imx imy imw 0
+		textcode		"first.dsh"       codex codey codewidth codesize
+		footer          "Think of a deck as a series of pages; the building blocks of your story."
+	eslide
+
+	slide bgcolor txcolor
+		lcs=1.3
+		title           "The Coordinate System"
+		textblockfile	"coord.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image			"coord-00001.png" imx imy imw 0
+		textcode		"coord.dsh" codex codey codewidth codesize
+
+		ctext "(0,0)"     coox1 40 lcs "mono" rulecolor
+		ctext "(100,0)"   coox2 40 lcs "mono" rulecolor
+		ctext "(0,100)"   coox1 90 lcs "mono" rulecolor
+		ctext "(100,100)" coox2 90 lcs "mono" rulecolor
+		ctext "(50,50)"   coox3 65 lcs "mono" rulecolor
+		vline coox1  40 50 0.1 rulecolor 20
+		vline coox2  40 50 0.1 rulecolor 20
+		hline coox1  40 50 0.1 rulecolor 20
+		hline coox1  90 50 0.1 rulecolor 20
+		footer         "Place anything, anywhere with precision and consistency."
+	eslide
+
+	slide bgcolor txcolor
+		title           "Variables"
+		textblockfile	"vars.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image 			"vars-00001.png" imx imy imw 0
+		textcode		"vars.dsh" codex codey codewidth codesize
+		footer          "Use variables as the levers that control the deck's elements and their relationships."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Colors"
+		textblockfile  "colors.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "colors-00001.png" imx imy imw 0
+		textcode       "colors.dsh" codex codey codewidth codesize
+		footer         "Use color as a method of communicating meaning, regardless of how you name it."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Working with Text"
+		textblockfile  "text.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "text-00001.png" imx imy imw 0
+		textcode       "text.dsh" codex codey codewidth codesize
+		footer         "Build your story using text."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Stroked Graphics"
+		textblockfile  "graphics.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "graphics-00001.png" imx imy imw 0
+		textcode       "graphics.dsh" codex codey codewidth codesize
+		footer         "You have to draw the line somewhere."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Filled Shapes"
+		textblockfile  "fgraphics.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "fgraphics-00001.png" imx imy imw 0
+		textcode       "fgraphics.dsh" codex codey codewidth codesize
+		footer         "Use these elements to shape your slides."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Images"
+		textblockfile  "image.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "image-00001.png" imx imy imw 0
+		textcode       "image.dsh" codex codey codewidth codesize
+		footer         "The artful arrangement of pictures illuminate your deck."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Loops"
+		textblockfile  "loop.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "loop-00001.png" imx imy imw 0
+		textcode       "loop.dsh" codex codey codewidth codesize
+		footer         "Round and round we go. I'll stop when you tell me so."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Lists"
+		textblockfile  "list.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "list-00001.png" imx imy imw 0
+		textcode       "list.dsh" codex 76 codewidth codesize
+		footer         "Make a list and check it twice."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Charts"
+		textblockfile  "chart.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "chart-00001.png" imx imy imw 0
+		textcode       "chart.dsh" codex codey codewidth codesize
+		footer         "Chart your course."
+	eslide
+
+	slide bgcolor txcolor
+		title          "Maps"
+		textblockfile  "geo.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image          "geo-00001.png" imx imy imw 0
+		textcode       "geo.dsh" codex codey codewidth codesize
+		footer         "A map shows the way."
+	eslide
+
+	slide bgcolor txcolor
+		title         "Designing with regions"
+		textblockfile "region.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		image         "region-00001.png" imx imy imw 0
+		textcode      "region.dsh" codex 53 codewidth codesize
+		image         "regill-00001.png" rillx 34.5 40 0
+		footer        "Using regions ties the deck together."
+	eslide
+
+	slide bgcolor txcolor
+		rect 50 15 100 13 "#eeeeee"
+		title "Building an Example Deck"
+		textblockfile "example.txt" pagestart_x pagestart_y parawidth bodysize "serif"
+		textcode      "exvars.dsh" codex pagestart_y codewidth codesize
+		exy=15
+		exims=10
+		image "example-00001.png"  6  exy exims 0
+		image "example-00002.png"  17 exy exims 0
+		image "example-00003.png"  28 exy exims 0
+		image "example-00004.png"  39 exy exims 0
+		image "example-00005.png"  50 exy exims 0
+		image "example-00006.png"  61 exy exims 0
+		image "example-00007.png"  72 exy exims 0
+		image "example-00008.png"  83 exy exims 0
+		image "example-00009.png"  94 exy exims 0
+		footer "Few things are harder to put up with than the annoyance of a good example."
+	eslide
+
+	slide bgcolor txcolor
+		title         "Title and Section"
+		textblockfile "hero.txt" pleft pagestart_y lparawidth bodysize "serif"
+		textcode      "hsect.dsh" 30 30 codewidth codesize
+		image         "example-00001.png" 25 imy2 imw2 0
+		image         "example-00002.png" 75 imy2 imw2 0
+		footer        "The cover should grab your attention."
+	eslide
+
+	slide bgcolor txcolor
+		title        "Two-Up Slides"
+		textblockfile "twoup.txt" pleft pagestart_y lparawidth bodysize "serif"
+		textcode      "twoupslide.dsh" 30 30 codewidth codesize
+		image         "example-00003.png" 25  imy2 imw2 0
+		image         "example-00004.png" 75  imy2 imw2 0
+		footer        "Two pictures are better than one."
+	eslide
+
+	slide bgcolor txcolor
+		title         "Four Up and Map"
+		textblockfile "fourup.txt" pleft pagestart_y lparawidth bodysize "serif"
+		textcode      "fourupmap.dsh"     50 70 codewidth codesize
+		image         "example-00005.png" 25 imy2 imw2 0
+		footer        "Show the art and where it lives."
+	eslide
+
+	slide bgcolor txcolor
+		title "Image and Text Block"
+		textblockfile  "imt.txt" pleft pagestart_y lparawidth bodysize "serif"
+		textcode       "imgtext.dsh"       50 70 codewidth codesize
+		image          "example-00006.png" 25 imy2 imw2 0
+		footer         "Image and text work together to tell the story."
+	eslide
+
+	slide bgcolor txcolor
+		imx3=70
+		imy3=imy2+5
+		imw3=30
+		title "Continue the Design"
+		textblockfile  "plain.txt" pleft pagestart_y lparawidth bodysize "serif"
+		image         "example-00007.png" 18 imy3 imw3 0
+		image         "example-00008.png" 50 imy3 imw3 0
+		image         "example-00009.png" 82 imy3 imw3 0
+		textcode      "pf.dsh" 10 42 83 codesize
+		footer        "Continue the story with style."       
+	eslide
+
+	slide bgcolor txcolor
+		title "One more thing …"
+		textblockfile "lamp.txt" pleft pagestart_y lparawidth bodysize "serif"
+		textcode      "lamp.dsh"       50 70 33 codesize
+		image         "lamp-00001.png" 25 46 imw 0
+		footer        "Use a lamp to light the way."
+	eslide
+
+	slide bgcolor txcolor
+		//ruler
+		rtop=pagestart_y-3
+		rx=pleft
+		ry=rtop
+		rs=2
+		ls=rs*3.5
+		refcolor="darkblue"
+		title "References"
+		text  "Installing and Running decksh/pdfdeck"                       rx ry rs "serif" refcolor 100 "https://speakerdeck.com/ajstarks/pdfdeck"
+		ry-=ls
+		text  "The definitive decksh language reference"                    rx ry rs "serif" refcolor 100 "https://speakerdeck.com/ajstarks/decksh-object-reference"
+		ry-=ls
+		text  "decksh keyword reference"                                    rx ry rs "serif" refcolor 100 "https://speakerdeck.com/ajstarks/decksh-keywords"
+		ry-=ls
+		text  "Repository of decksh examples to learn from"                 rx ry rs "serif" refcolor 100 "https://github.com/ajstarks/deckviz"
+		ry-=ls
+		text  "The code for decksh and associated tools and documents"      rx ry rs "serif" refcolor 100 "https://github.com/ajstarks/decksh"
+		ry-=ls
+		text  "International Paper Sizes and Formats With Dimensions"       rx ry rs "serif" refcolor 100 "https://www.papersizes.org/"
+		ry-=ls
+		text  "An interactive color picker using RGB, Hex, and HSV"         rx ry rs "serif" refcolor 100 "https://htmlcolorcodes.com/color-picker/"
+		ry-=ls
+		text  "Presentation Typography 101: Font Basics for Better Slides"  rx ry rs "serif" refcolor 100 "https://www.verdanabold.com/post/presentation-fonts-101-best-fonts-for-presentations"
+		ry-=ls
+		text  "GIS file formats explained: Shapefile, GeoJSON, KML …"       rx ry rs "serif" refcolor 100 "https://maparz.com/blog/gis-file-formats-guide/"
+		ry-=ls
+		text  "A Uniform Resource Identifier for Geographic Locations ('geo' URI)"      rx ry rs "serif" refcolor 100 "https://www.rfc-editor.org/info/rfc5870/"
+		ry-=ls
+
+		ry2=rtop-3
+		rs2=rs*0.6
+		list rx ry2 rs2 "mono" "gray" 100 4.5
+			li "https://speakerdeck.com/ajstarks/pdfdeck"
+			li "https://speakerdeck.com/ajstarks/decksh-object-reference"
+			li "https://speakerdeck.com/ajstarks/decksh-keywords"
+			li "https://github.com/ajstarks/deckviz"
+			li "https://github.com/ajstarks/decksh"
+			li "https://www.papersizes.org/"
+			li "https://htmlcolorcodes.com/color-picker/"
+			li "https://www.verdanabold.com/post/presentation-fonts-101-best-fonts-for-presentations"
+			li "https://maparz.com/blog/gis-file-formats-guide/"
+			li "https://www.rfc-editor.org/info/rfc5870/"
+		elist
+		footer "Look it up"
+	eslide
+edeck

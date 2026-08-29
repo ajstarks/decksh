@@ -1,0 +1,43 @@
+#!/bin/bash
+if test $# -eq 1
+then
+	tleft=$1
+else
+	tleft="1"
+fi
+./mkpage intro
+./mkpage tools
+./mkpage canvas
+./mkpage first
+./mkpage vars
+./mkpage coord
+./mkpage colors
+./mkpage text
+./mkpage image
+./mkpage graphics
+./mkpage fgraphics
+./mkpage list
+./mkpage chart
+./mkpage loop
+./mkpage geo -layers="rect:image:poly:ellipse:text:line:list"
+./mkpage region
+./mkpage refs
+./mkpage example -pagesize=Widescreen
+./mkpage hero
+./mkpage fourup
+./mkpage imt
+./mkpage plain
+./mkpage lamp
+sans=PublicSans-Regular
+mono=Inconsolata-Medium
+serif=Charter-Regular
+# set tleft=1 for text on the left, 0 for text on the right
+decksh -var tleft=$tleft tut.dsh |
+pdfdeck -sw \
+ -pagesize Letter \
+ -layers="rect:image:poly:ellipse:text:line:list" \
+ -stdout \
+ -sans  $sans \
+ -mono  $mono \
+ -serif $serif - > tut.pdf
+open tut.pdf

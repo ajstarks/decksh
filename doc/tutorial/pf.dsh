@@ -1,0 +1,16 @@
+slide bgcolor txcolor  // section
+	ctext "Plainfield, New Jersey" sx sy ss
+eslide
+
+slide bgcolor txcolor  // 2up page
+	ctext     "Art on Infrastructure"     tx ty ts
+	image     "images/plainfield01.jpg"  limx imy ims 0
+	image     "images/plainfield06.jpg"  rimx imy ims 0
+eslide
+
+slide bgcolor txcolor // image + text page
+	plh="The facade of the home located at Richmond and North Avenue in Plainfield NJ, has been turned into the canvas for a mural."
+	ctext     "Urban Murals"        tx ty ts
+	image     "images/pfh.jpg"  limx imy imss 0
+	textblock plh tbx tby tbw tbs "serif"
+eslide

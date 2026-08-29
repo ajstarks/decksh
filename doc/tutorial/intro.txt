@@ -1,0 +1,10 @@
+decksh is a Domain-Specific Language (DSL) for making presentations, visualizations, and information displays.
+\n
+decksh works differently from other presentation programs like PowerPoint or Keynote, in
+that you “program” your deck; that is you build up your slides by specifying high-level objects that represent the elements and attributes of your presentation (text, graphics, lists, charts, maps, etc).  The elements are placed and sized using a scalable, percent-based coordinate system, and you can also use variables to describe positions and relationships between the elements.
+\n
+This tutorial describes installation and basic workflows, and then walks you through various aspects
+of the language including the coordinate system, the use of variables, colors, text, graphics, images, loops and lists. Also included are
+more advanced topics like charts and maps, concluding with a worked out example.
+\n
+Each concept includes explanatory text, with copy-paste-able examples, and the resulting deck output.

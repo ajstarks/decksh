@@ -1,0 +1,13 @@
+Many decksh elements use color as an optional argument.
+
+The color may be specified in four ways:
+
+(1) A named color as defined in the web standards; these are colors like "red" and "blue", but also include fairly exotic names like "papayawhip".
+
+(2) A RGB triple, which uses numbers ranging from 0-255 to refer to amount of red, green, and blue in the color. For example, "rgb(0,0,0)" is black, "rgb(255,255,255)" is white. By the way, papayawhip is "rgb(255,239,213)".
+
+(3) The hex RGB format, in the form of "#rrggbb", where rr, gg, and bb are the red, green and blue components of the color as hexadecimal digits ranging from "00" (zero) to "ff" (255). Papayawhip is "#ffefd5" in hex.
+
+(4) The HSV (hue, saturation, value) format uses three numbers: the first, hue, ranges from 0-360; the saturation and value (brightness) range from 0-100.
+
+For example, "hsv(0,100,100)" is a fully saturated red, and "hsv(120,50,50)" is green with diminished saturation and brightness.

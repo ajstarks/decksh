@@ -1,0 +1,6 @@
+deck
+	slide
+		image  "follow.jpg"                           25 50 45 0 // left
+		cimage "cloudy.jpg" "I see the silver lining" 75 50 45 0 // right
+	eslide
+edeck

@@ -1,0 +1,14 @@
+deck
+	slide
+		ruler
+		rect   20 95 40 20   "blue"    20
+		rect   20 50 40 100  "green"  20
+		rect   70 50 60 100  "orange" 20
+		circle 20 90 2 "red" 25
+		circle  5 80 2 "red" 25
+		circle 70 50 2 "red" 25
+		ctext "Title"        20 90 3.5
+		ctext "Text area"    20 50 3.5
+		ctext "Illustration" 70 50 3.5
+	eslide
+edeck
